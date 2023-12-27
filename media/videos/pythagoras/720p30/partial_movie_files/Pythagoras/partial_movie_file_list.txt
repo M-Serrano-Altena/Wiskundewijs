@@ -1,0 +1,4 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/Marc_/Documents/GitHub/Mathmatical-Proofs/media/videos/pythagoras/720p30/partial_movie_files/Pythagoras/2016333726_1920499881_223132457.mp4'
+file 'file:C:/Users/Marc_/Documents/GitHub/Mathmatical-Proofs/media/videos/pythagoras/720p30/partial_movie_files/Pythagoras/543634251_3891874688_638426420.mp4'
+file 'file:C:/Users/Marc_/Documents/GitHub/Mathmatical-Proofs/media/videos/pythagoras/720p30/partial_movie_files/Pythagoras/543634251_3997240139_2493973152.mp4'
