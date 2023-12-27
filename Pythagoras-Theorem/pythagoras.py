@@ -164,6 +164,6 @@ class Pythagoras(Scene):
         filled_square_2 = VGroup(square2, triangles2)
         self.play(filled_square_2.animate.to_edge(DR))
 
-        text = MathTex("\\text{Total area of square with sides $a + b$:} \\\\ O \equiv (a+b) * (a+b) \\\\ a^2 + b^2 + 4A = O = c^2 + 4A \\\\ a^2 + b^2 = c^2").to_edge(UP)
+        text = MathTex("\\text{Total area of square with sides $a + b$: O} \\\\ O = a^2 + b^2 + 4A \\ \& \\ O = c^2 + 4A \\\\  a^2 + b^2 + 4A = c^2 + 4A \\\\ a^2 + b^2 = c^2").to_edge(UP)
         self.play(Create(text), run_time=10)
         self.wait(duration=5)
