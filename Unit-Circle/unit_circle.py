@@ -8,6 +8,10 @@ class UnitCircle(Scene):
             circle_scale_factor = 1
 
             plane = NumberPlane(x_range=[-1, 1, 1], x_length=8, y_range=[-1, 1, 1], y_length=8).add_coordinates()
+            x_label = plane.get_x_axis_label(label='x')
+            y_label = plane.get_y_axis_label(label='y').shift(UP + 0.5*LEFT)
+
+            labels = VGroup(x_label, y_label)
 
             theta = ValueTracker(0.001)
             radius = 4
@@ -73,7 +77,7 @@ class UnitCircle(Scene):
             geometry = VGroup(circle, triangle, angle, theta_symbol)
 
             self.play(DrawBorderThenFill(plane))
-            self.play(Create(geometry), run_time=2)
+            self.play(Create(VGroup(labels, geometry)), run_time=2)
 
             self.play(theta.animate.set_value(1/6 * np.pi), run_time=2)
             line1 = draw_line(radius=radius, theta=theta.get_value())
@@ -89,15 +93,25 @@ class UnitCircle(Scene):
 
             
 
-            whole_unit_circle = VGroup(plane, geometry, line1, line2, line3)
-            circle_scale_factor=0.5
-            self.play(whole_unit_circle.animate.scale(0.5).to_edge(DR))
+            whole_unit_circle = VGroup(plane, labels, geometry, line1, line2, line3)
+            circle_scale_factor=0.6
+            self.play(whole_unit_circle.animate.scale(circle_scale_factor).to_edge(DR))
+            self.wait()
+
+            values_angles_text = Tex("All you need to remember: \\\\ The values: $\\frac{1}{2} < \\frac{\sqrt{2}}{2} < \\frac{\sqrt{3}}{2}.$ \\\\ And corresponding angles: $ \\frac{1}{6} \pi < \\frac{1}{4} \pi < \\frac{1}{3} \pi. $ \\\\ This is because:").scale(0.5).to_edge(UL)
+
+            self.play(Create(values_angles_text), run_time=7)
+
+            quadrants_text = Tex("In the first quadrant,\\\\ we go from the point (1, 0) to the point (0,1). \\\\ Which corresponds to $\\frac{1}{2} \pi$.").scale(0.5).next_to(values_angles_text, DOWN)
+
+            print(circle.get_center())
+            quarter_circle = FunctionGraph(lambda x: circle.get_center()[1] + np.sqrt((circle_scale_factor * radius)**2 - (x - circle.get_center()[0])**2), x_range= [circle.get_center()[0] + circle_scale_factor * radius, circle.get_center()[0], -0.01], color=RED)
+            # dot1 = Dot([circle.get_center()[0], quarter_circle.underlying_function(circle.get_center()[0]), 0])
+            # dot2 = Dot([circle.get_center()[0] + circle_scale_factor * radius, quarter_circle.underlying_function(circle.get_center()[0] + circle_scale_factor * radius), 0])
+            quadrant_1 = MathTex("1").move_to(circle.get_center() + UR).scale(1.5)
+
+            self.play(Create(quadrants_text), run_time=3)
+            self.play(Create(VGroup(quadrant_1, quarter_circle)), run_time=5)
             self.wait()
 
 
-            explanation_text1 = Tex("All you need to remember: ").scale(0.5).to_edge(UL)
-            explanation_text2 = Tex("The values: $ \\frac{1}{2} < \\frac{\sqrt{2}}{2} < \\frac{\sqrt{3}}{2} $").scale(0.5).next_to(explanation_text1, DOWN)
-            explanation_text3 = Tex("With the corresponding angles: $ \\frac{1}{6} \pi < \\frac{1}{4} \pi < \\frac{1}{3} \pi $").scale(0.5).next_to(explanation_text2, DOWN)
-
-            self.play(Create(VGroup(explanation_text1, explanation_text2, explanation_text3)), run_time=7)
-            self.wait()

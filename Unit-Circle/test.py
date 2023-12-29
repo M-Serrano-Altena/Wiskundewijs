@@ -1,4 +1,5 @@
 import numpy as np
 import sympy as sp
 
-print(int(str(sp.nsimplify(1/2 * np.sqrt(2)))))
+for num in range(100, 0):
+    print(num)
