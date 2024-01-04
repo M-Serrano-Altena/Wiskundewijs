@@ -1,0 +1,6 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/Marc_/Documents/GitHub/Mathmatical-Proofs/Derivative/media/videos/derivative/1080p60/partial_movie_files/Exponential/3529212410_476226508_223132457.mp4'
+file 'file:C:/Users/Marc_/Documents/GitHub/Mathmatical-Proofs/Derivative/media/videos/derivative/1080p60/partial_movie_files/Exponential/3040924799_268687407_344606731.mp4'
+file 'file:C:/Users/Marc_/Documents/GitHub/Mathmatical-Proofs/Derivative/media/videos/derivative/1080p60/partial_movie_files/Exponential/3040924799_1733944848_827683268.mp4'
+file 'file:C:/Users/Marc_/Documents/GitHub/Mathmatical-Proofs/Derivative/media/videos/derivative/1080p60/partial_movie_files/Exponential/3040924799_2493702125_1148714524.mp4'
+file 'file:C:/Users/Marc_/Documents/GitHub/Mathmatical-Proofs/Derivative/media/videos/derivative/1080p60/partial_movie_files/Exponential/3040924799_1733944848_3959252528.mp4'

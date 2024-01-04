@@ -2,6 +2,14 @@ site_name: Wiskunde uitleg
 
 theme:
   name: "material"
+  palette: 
+    scheme: 
+      slate
+
+    primary: 
+      teal
+
+  language: nl
   logo: assets/math_normal.svg
   favicon: assets/math_bold.svg
 
