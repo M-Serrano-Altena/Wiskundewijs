@@ -3,7 +3,7 @@
 ...
 
 ## Hoofdstukken
-1. [Stelling van Pythagoras](pythagoras.md)
-2. [Afgeleides](derivative.md)
-3. [Eenheidscirkel](unit_circle.md)
+1. [De Stelling van Pythagoras](pythagoras.md)
+2. [De Afgeleide Functie](derivative.md)
+3. [De Eenheidscirkel](unit_circle.md)
 

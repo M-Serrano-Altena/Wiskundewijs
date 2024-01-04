@@ -10,11 +10,10 @@ theme:
       teal
 
   language: nl
-  logo: assets/math_normal.svg
-  favicon: assets/math_bold.svg
+  logo: assets/calculator-variant-outline.svg
+  favicon: assets/calculator-variant.svg
 
 nav:
-  - Home Pagina: index.md
   - Stelling van Pythagoras: pythagoras.md
   - De Afgeleide Functie: derivative.md
   - De Eenheidscirkel: unit_circle.md
@@ -27,6 +26,8 @@ plugins:
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
+  
+  - md_in_html
 
 extra_javascript:
   - javascripts/mathjax.js
