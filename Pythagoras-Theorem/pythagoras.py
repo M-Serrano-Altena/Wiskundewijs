@@ -72,10 +72,20 @@ class Pythagoras(Scene):
             A_text3 = MathTex("A").move_to(right_triangle3.get_center() + 0.25*DR).set_color(WHITE)
             A_text4 = MathTex("A").move_to(right_triangle3.get_center() + 0.25*UL).set_color(WHITE)
 
-            text_labels = VGroup(a_sqr_text, b_sqr_text, A_text1, A_text2, A_text3, A_text4)
+            text_labels = VGroup(A_text1, A_text2, A_text3, A_text4)
             self.play(Create(text_labels))
 
-            return VGroup(right_triangle1, right_triangle2, right_triangle3, right_triangle4, text_labels)
+            unshaded_area1 = Square(stroke_color=BLUE, fill_color=WHITE, fill_opacity=1, side_length=1.5).move_to(a_sqr_text)
+            unshaded_area2 = Square(stroke_color=GREEN, fill_color=WHITE, fill_opacity=1, side_length=2).move_to(b_sqr_text)
+            unshaded_area = VGroup(unshaded_area1, unshaded_area2)
+
+            self.play(Create(unshaded_area), run_time=2)
+            self.wait()
+            self.play(Create(VGroup(a_sqr_text, b_sqr_text)))
+            
+            text_labels = VGroup(text_labels, a_sqr_text, b_sqr_text)
+
+            return VGroup(right_triangle1, right_triangle2, right_triangle3, right_triangle4, unshaded_area, text_labels)
 
 
         def square_2(a_line, b_line):
@@ -130,10 +140,16 @@ class Pythagoras(Scene):
             A_text3 = MathTex("A").move_to(right_triangle3.get_center() + 0.25*DL).set_color(WHITE)
             A_text4 = MathTex("A").move_to(right_triangle4.get_center() + 0.25*UL).set_color(WHITE)
 
-            text_labels = VGroup(c_sqr_text, A_text1, A_text2, A_text3, A_text4)
-            self.play(Create(text_labels))
+            unshaded_area = Square(stroke_color=RED, fill_color=WHITE, fill_opacity=1, side_length=2.5).move_to(c_sqr_text).rotate(37/DEGREES)
 
-            return VGroup(filled_square2, text_labels)
+            text_labels = VGroup(A_text1, A_text2, A_text3, A_text4)
+
+            self.play(Create(text_labels))
+            self.play(Create(unshaded_area))
+            self.wait()
+            self.play(Create(c_sqr_text))
+
+            return VGroup(filled_square2, text_labels, unshaded_area, c_sqr_text)
 
 
         # play animations
@@ -164,6 +180,10 @@ class Pythagoras(Scene):
         filled_square_2 = VGroup(square2, triangles2)
         self.play(filled_square_2.animate.to_edge(DR))
 
-        text = MathTex("\\text{Total area of square with sides $a + b$: O} \\\\ O = a^2 + b^2 + 4A \\ \& \\ O = c^2 + 4A \\\\  a^2 + b^2 + 4A = c^2 + 4A \\\\ a^2 + b^2 = c^2").to_edge(UP)
-        self.play(Create(text), run_time=10)
+        text = Tex("Het witte gebied in beide vierkanten moet gelijk zijn, omdat er bij beide 4 dezelfde driehoeken in zijn gegaan. En dus moet er gelden dat:").scale(0.5).to_edge(UP)
+        # text_long = Tex("Hier zien we dat het linker vierkant een oppervlakte heeft van de 4 driehoeken met oppervlakte $A^2$, 1 vierkant met oppervlakte $a^2$ en een ander vierkant met oppervlakte $b^2$. \\\\ Maar we kunnen de vier driehoeken ook indelen zoals bij het rechter vierkant. Dezelfde oppervlakte als net bestaat nu uit de vier driehoeken met oppervlakte $A^2$ en 1 vierkant met oppervlakte $c^2$. Dit vierkant met oppervlakte $c^2$ is dus in plaats van de twee oppervlaktes $a^2$ en $b^2$ in het linker vierkant. \\\\ Maar omdat het linker vierkant even groot moet zijn als het rechter vierkant, moet er gelden dat:").scale(0.5).to_edge(UP)
+        formula = MathTex("a^2 + b^2 = c^2").scale(0.75).next_to(text, DOWN)
+        rectangle = Rectangle(color=WHITE, height=1).surround(formula)
+        self.play(Create(text), run_time=5)
+        self.play(Create(VGroup(formula, rectangle)))
         self.wait(duration=5)
