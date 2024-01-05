@@ -1,2 +1,2 @@
-# Mathmatical-Proofs
+# Wiskundewijs
  
