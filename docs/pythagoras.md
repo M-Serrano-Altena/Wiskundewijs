@@ -13,7 +13,7 @@ In formule form wordt de stelling van Pythagoras:
 !!! belangrijk
     $$\LARGE{a^2 + b^2 = c^2}$$
 
-Hieronder is er een filmpje om te laten zien waar de stelling van pythagoras vandaan komt.
+Hieronder is er een filmpje om te laten zien waar de stelling van Pythagoras vandaan komt.
 ???+ video
     <video controls>
       <source src="../videos/Pythagoras.mp4" type="video/mp4">
@@ -23,6 +23,7 @@ Hieronder is er een filmpje om te laten zien waar de stelling van pythagoras van
 
 ## Voorbeelden 
 ???+ example "Voorbeeld 1"
+    ### Voorbeeld 1
     **<p style="text-align: center;font-size:20px;">Vraag: Wat is de lengte van de schuine zijde $c$?</p>** 
     
     <figure markdown>
@@ -49,6 +50,7 @@ Hieronder is er een filmpje om te laten zien waar de stelling van pythagoras van
      
 
 ???+ example "Voorbeeld 2"
+    ### Voorbeeld 2
     **<p style="text-align: center;font-size:20px;">Vraag: Wat is de lengte van de rechte zijde $b$?</p>** 
 
     <figure markdown>
@@ -60,13 +62,13 @@ Hieronder is er een filmpje om te laten zien waar de stelling van pythagoras van
 
     $$\large{a^2 + b^2 = c^2}$$
 
-    Dan vullen we de gegevens in die wij hebben. We weten dat 1 rechte een lengte heeft van 3 en dat de schuine zijde een lengte heeft van 5. Oftewel $a=3$ en $c=5$. Laten we dit invullen:
+    Dan vullen we de gegevens in die wij hebben. We weten dat 1 rechte zijde een lengte heeft van 3 en dat de schuine zijde een lengte heeft van 5. Oftewel $a=3$ en $c=5$. Laten we dit invullen:
 
     $$\large{3^2 + b^2 = 5^2}$$
 
     $$\large{9 + b^2 = 25}$$
 
-    Dit kunnen we omschrijven door aan beide kanten van het '=' teken $-9$ te doen. We krijgen dan:
+    Dit kunnen we omschrijven door aan beide kanten van het '$=$' teken $-9$ te doen. We krijgen dan:
 
     $$\large{b^2 = 16}$$
 
