@@ -13,7 +13,26 @@ theme:
   logo: assets/calculator-variant-outline.svg
   favicon: assets/calculator-variant.svg
 
+  features:
+    - navigation.footer
+
+copyright: Copyright &copy; 2024, Marc Serrano Altena
+
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin 
+      link: https://www.linkedin.com/in/marc-serrano-altena-a96800285/
+
+    - icon: fontawesome/brands/github
+      link: https://github.com/M-Serrano-Altena
+
+    - icon: material/email-outline
+      link: mailto:<Marc.serrano.altena@gmail.com>
+
+  generator: false
+
 nav:
+  - Home: index.md
   - Stelling van Pythagoras: pythagoras.md
   - De Afgeleide Functie: derivative.md
   - De Eenheidscirkel: unit_circle.md
@@ -26,10 +45,19 @@ plugins:
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
-  
+
+  - attr_list
   - md_in_html
+  - tables
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
 
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - stylesheets/extra.css

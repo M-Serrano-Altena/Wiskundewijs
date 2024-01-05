@@ -1,8 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:C:/Users/Marc_/Documents/GitHub/Mathmatical-Proofs/Derivative/media/videos/derivative/1080p60/partial_movie_files/Parabola/3529212410_951572364_223132457.mp4'
-file 'file:C:/Users/Marc_/Documents/GitHub/Mathmatical-Proofs/Derivative/media/videos/derivative/1080p60/partial_movie_files/Parabola/3040924799_4196811830_1051979036.mp4'
-file 'file:C:/Users/Marc_/Documents/GitHub/Mathmatical-Proofs/Derivative/media/videos/derivative/1080p60/partial_movie_files/Parabola/3040924799_1733944848_2577698882.mp4'
-file 'file:C:/Users/Marc_/Documents/GitHub/Mathmatical-Proofs/Derivative/media/videos/derivative/1080p60/partial_movie_files/Parabola/3040924799_502687838_3649724175.mp4'
-file 'file:C:/Users/Marc_/Documents/GitHub/Mathmatical-Proofs/Derivative/media/videos/derivative/1080p60/partial_movie_files/Parabola/3040924799_1733944848_3843790996.mp4'
-file 'file:C:/Users/Marc_/Documents/GitHub/Mathmatical-Proofs/Derivative/media/videos/derivative/1080p60/partial_movie_files/Parabola/3040924799_1573138871_2923346383.mp4'
-file 'file:C:/Users/Marc_/Documents/GitHub/Mathmatical-Proofs/Derivative/media/videos/derivative/1080p60/partial_movie_files/Parabola/3040924799_1733944848_99812843.mp4'
