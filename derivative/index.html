@@ -1,0 +1,852 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../pythagoras/">
+      
+      
+        <link rel="next" href="../unit_circle/">
+      
+      
+      <link rel="icon" href="../assets/calculator-variant.svg">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
+    
+    
+      
+        <title>De Afgeleide Functie - Wiskundewijs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#de-afgeleide-functie" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Wiskundewijs" class="md-header__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+      
+  <img src="../assets/calculator-variant-outline.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wiskundewijs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              De Afgeleide Functie
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Wiskundewijs" class="md-nav__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+      
+  <img src="../assets/calculator-variant-outline.svg" alt="logo">
+
+    </a>
+    Wiskundewijs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pythagoras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stelling van Pythagoras
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    De Afgeleide Functie
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    De Afgeleide Functie
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#theorie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Theorie
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Theorie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parabool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parabool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exponentiele-funtie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exponentiele funtie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabel-met-veel-voorkomende-functies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabel met veel voorkomende functies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notatie
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voorbeelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Voorbeelden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#voorbeeld-1-fx-x2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeeld 1: f(x) = x²
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeeld-2-fx-4x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeeld 2: f(x) = 4x
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeeld-3-somregel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeeld 3: somregel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeeld-4-productregel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeeld 4: productregel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unit_circle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Eenheidscirkel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#theorie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Theorie
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Theorie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parabool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parabool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exponentiele-funtie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exponentiele funtie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabel-met-veel-voorkomende-functies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabel met veel voorkomende functies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notatie
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voorbeelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Voorbeelden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#voorbeeld-1-fx-x2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeeld 1: f(x) = x²
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeeld-2-fx-4x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeeld 2: f(x) = 4x
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeeld-3-somregel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeeld 3: somregel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeeld-4-productregel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeeld 4: productregel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="de-afgeleide-functie">De Afgeleide Functie</h1>
+<h2 id="theorie">Theorie</h2>
+<p>Een afgeleide functie geeft op elk x coördinaat de bij behorende helling/richtingscoëfficient. Dit wordt in de onderstaande voorbeelden weergegeven.</p>
+<h3 id="parabool">Parabool</h3>
+<p>Een parabool heeft in het simpleste geval de vorm</p>
+<div class="arithmatex">\[f(x) = x^2.\]</div>
+<p>De afgeleide van deze functie is gelijk aan </p>
+<div class="arithmatex">\[f'(x) = 2x,\]</div>
+<p>Waarbij <span class="arithmatex">\(f'(x)\)</span> aangeeft dat het gaat om de afgeleide van de functie <span class="arithmatex">\(f(x)\)</span> (zie dit <a href="#voorbeeld-1">voorbeeld</a> voor de toelichting van het antwoord van deze afgeleide).</p>
+<p>In het onderstaande filmpje is er te zien dat de afgeleide gelijk is aan de helling op elk punt. Ook is er te zien dat bij een top geldt dat de helling (en dus de afgeleide) gelijk is aan <span class="arithmatex">\(0\)</span>. Dit betekent dus dat als we het x coördinaat van een top willen bepalen, we moeten stellen dat</p>
+<div class="arithmatex">\[f'(x) = 0.\]</div>
+<details class="video" open="open"><summary>Video</summary><p><video controls>
+<source src="../videos/Parabola.mp4" type="video/mp4">
+</video></p>
+<p><em><p style="text-align: center;">Visuele weergave van de afgeleide van de functie <span class="arithmatex">\(f(x) = x^2\)</span>. Bij de top geldt dat de helling gelijk is aan 0. </p></em></p>
+</details>
+<h3 id="exponentiele-funtie">Exponentiele funtie</h3>
+<p>Een exponentiele functie heeft de vorm</p>
+<p><span class="arithmatex">\(f(x) = e^x\)</span>,</p>
+<p>waar <span class="arithmatex">\(e\)</span> het getal van euler is. Er geldt dat <span class="arithmatex">\(e = 2.7182818...\)</span></p>
+<details class="video" open="open"><summary>Video</summary><p><video controls>
+<source src="../videos/Exponential.mp4" type="video/mp4">
+</video></p>
+</details>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="tabel-met-veel-voorkomende-functies">Tabel met veel voorkomende functies</h3>
+<table>
+<thead>
+<tr>
+<th>Functie</th>
+<th>Afgeleide</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = a}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = 0}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = x^n}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = nx^{n-1}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = e^x}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = e^x}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = a^x}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = a^x \ * \ \ln{(x)}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = \ln{(x)}}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = \frac{1}{x}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = \ ^a \! \log{(x)}}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = \frac{1}{x \ * \ \ln{(a)}}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = \sin{(x)}}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = \cos{(x)}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = \cos{(x)}}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = -\sin{(x)}}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>waarbij <span class="arithmatex">\(n\)</span> en <span class="arithmatex">\(a\)</span> constantes zijn die niet afhankelijk van x zijn.</p>
+<h3 id="regels">Regels</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Functie</th>
+<th>Afgeleide</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Somregel</td>
+<td><span class="arithmatex">\(\large{f(x) = g(x) + h(x)}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = g'(x) + h'(x)}\)</span></td>
+</tr>
+<tr>
+<td>Productregel (eenvoudig)</td>
+<td><span class="arithmatex">\(\large{f(x) = a * g(x)}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = a \  * \ g'(x)}\)</span></td>
+</tr>
+<tr>
+<td>Productregel</td>
+<td><span class="arithmatex">\(\large{f(x) = g(x) * h(x)}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = g'(x) \  * \ h(x) + g(x) * h'(x)}\)</span></td>
+</tr>
+<tr>
+<td>Quotiëntregel</td>
+<td><span class="arithmatex">\(\large{f(x) = \frac{g(x)}{h(x)}}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = \frac{g'(x) \ * \ h(x) \ - \ g(x) \ * \ h'(x)}{h(x)^2}}\)</span></td>
+</tr>
+<tr>
+<td>Kettingregel</td>
+<td><span class="arithmatex">\(\large{f(x) = g(h(x))}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = \frac{\mathrm{d} \ g(h)}{\mathrm{d} h} \ * \ \frac{\mathrm{d} \ h(x)}{\mathrm{d} x}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note" open="open"><summary>Opmerking</summary><h3 id="notatie">Notatie</h3>
+<p>Een afgeleide kan op verschillende manieren worden weergegeven:</p>
+<div class="arithmatex">\[\Large{f'(x), \ y', \ \frac{\mathrm{d} f(x)}{\mathrm{d} x}, \ \frac{\mathrm{d} y}{\mathrm{d} x}}\]</div>
+</details>
+<h2 id="voorbeelden">Voorbeelden</h2>
+<details class="example" open="open"><summary>Voorbeeld 1: f(x) = x²</summary><h3 id="voorbeeld-1-fx-x2">Voorbeeld 1: f(x) = x²</h3>
+<p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = x^2\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We kunnen dit oplossen met behulp van de tweede rij van de <a href="#tabel-met-veel-voorkomende-functies">Tabel</a>.</p>
+<p>Daar zien we dat er voor een functie</p>
+<div class="arithmatex">\[\large{f(x) = x^n}\]</div>
+<p>geldt dat</p>
+<div class="arithmatex">\[\large{f'(x) = nx^{n-1}}.\]</div>
+<p>In ons geval geldt er dat <span class="arithmatex">\(n=2\)</span> zodat we onze functie <span class="arithmatex">\(f(x) = x^2\)</span> krijgen. Onze afgeleide wordt dan:</p>
+<div class="arithmatex">\[\large{f'(x) = 2x^{2-1}}\]</div>
+<div class="arithmatex">\[\large{f'(x) = 2x^{1}}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{f'(x) = 2x}.\]</div>
+</div>
+</details>
+<details class="example" open="open"><summary>Voorbeeld 2: f(x) = 4x</summary><h3 id="voorbeeld-2-fx-4x">Voorbeeld 2: f(x) = 4x</h3>
+<p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = 4x\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Net zoals bij het vorig voorbeeld kunnen we dit oplossen met behulp van de tweede rij van de <a href="#tabel-met-veel-voorkomende-functies">Tabel</a>. Maar nu hebben we ook het getal <span class="arithmatex">\(4\)</span> voor onze x. Als we gebruik maken van de <a href="#regels">eenvoudige productregel</a> dan zien we dat de constante, in dit geval het getal <span class="arithmatex">\(4\)</span>, niet uitmaakt voor onze afgeleide en we het gewoon ervoor kunnen laten.</p>
+<p>We moeten dus de afgeleide bepalen van <span class="arithmatex">\(g(x) \equiv x\)</span> en dan kunnen we zeggen dat <span class="arithmatex">\(f'(x) = 4 \ g'(x)\)</span>.</p>
+<p>We weten dat er voor de functie</p>
+<div class="arithmatex">\[\large{g(x) = x^n}\]</div>
+<p>geldt dat</p>
+<div class="arithmatex">\[\large{g'(x) = nx^{n-1}}.\]</div>
+<p>Er geldt nu dat <span class="arithmatex">\(n=1\)</span>, zodat <span class="arithmatex">\(g(x) = x\)</span>. Onze afgeleide wordt dan:</p>
+<div class="arithmatex">\[\large{g'(x) = 1*x^{1-1}}\]</div>
+<div class="arithmatex">\[\large{g'(x) = x^{0}}\]</div>
+<p>En omdat een getal tot de macht <span class="arithmatex">\(0\)</span> altijd gelijk is aan <span class="arithmatex">\(1\)</span>, wordt onze afgeleide</p>
+<div class="arithmatex">\[\large{g'(x) = 1}\]</div>
+<p>Dit betekent dus dat</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{f'(x) = 4}\]</div>
+</div>
+</details>
+<details class="example" open="open"><summary>Voorbeeld 3: somregel</summary><h3 id="voorbeeld-3-somregel">Voorbeeld 3: somregel</h3>
+<p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = 3(\cos{(x)} + 2)\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Eerst werken we de haakjes weg zodat we vinden dat</p>
+<div class="arithmatex">\[\large{f(x) = 3\cos{(x)} + 6.}\]</div>
+<p>Daarna gebruiken we de <a href="#regels">somregel</a> om dit op te splitsten in twee gedeeltes. We zeggen dat:</p>
+<div class="arithmatex">\[\large{f(x) = g(x) + h(x),}\]</div>
+<p>waarbij we zeggen dat</p>
+<div class="arithmatex">\[\large{g(x) = 3\cos{(x)} \ \&amp; \ h(x) = 6.}\]</div>
+<p>De afgeleide van <span class="arithmatex">\(f(x)\)</span> wordt dan volgens de <a href="#regels">somregel</a>:</p>
+<div class="arithmatex">\[\large{f'(x) = g'(x) + h'(x)}\]</div>
+<p>We kunnen dan met behulp van de eerste rij uit de <a href="#tabel-met-veel-voorkomende-functies">Tabel</a> zeggen dat als</p>
+<div class="arithmatex">\[\large{h(x) = 6,}\]</div>
+<p>wat dus een constante is die niet afhankelijk is van x, dan is de afgeleide:</p>
+<div class="arithmatex">\[\large{h'(x) = 0}\]</div>
+<p>en dus</p>
+<div class="arithmatex">\[\large{f'(x) = g'(x).}\]</div>
+<p>Zoals we bij het vorig voorbeeld hebben gezien, maken de constantes vóór de funtie niet uit en kunnen die ervoor blijven (zie <a href="#regels">eenvoudige productregel</a>). In de <a href="#tabel-met-veel-voorkomende-functies">Tabel</a> zien we dat de afgeleide van <span class="arithmatex">\(\cos{(x)}\)</span> gelijk is aan <span class="arithmatex">\(-\sin{(x)}\)</span>.</p>
+<p>Onze afgeleide wordt dan:</p>
+<div class="arithmatex">\[\large{g'(x) = -3 \sin{(x)}}\]</div>
+<p>en dus</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{f'(x) = -3 \sin{(x)}}\]</div>
+</div>
+</details>
+<details class="example" open="open"><summary>Voorbeeld 4: productregel</summary><h3 id="voorbeeld-4-productregel">Voorbeeld 4: productregel</h3>
+<p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = xe^x\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Hier zien we dat onze functie <span class="arithmatex">\(f(x)\)</span> bestaat uit twee functies keer elkaar. Namelijk de functies:</p>
+<div class="arithmatex">\[\large{g(x) = x \ \&amp; \ h(x) = e^x}\]</div>
+<p>Dit kunnen we dus oplossen met behulp van de <a href="#regels">productregel</a>. Deze zegt dat:</p>
+<div class="arithmatex">\[\large{f'(x) = g'(x) * h(x) + g(x) * h'(x)}\]</div>
+<p>Laten we eerst de <span class="arithmatex">\(g'(x)\)</span> en <span class="arithmatex">\(h'(x)\)</span> bepalen.</p>
+<p>Uit <a href="#voorbeeld-2-fx-4x">Voorbeeld 2</a> is gebleken dat</p>
+<div class="arithmatex">\[\large{g'(x) = 1.}\]</div>
+<p><span class="arithmatex">\(h'(x)\)</span> kunnen we bepalen met de <a href="#tabel-met-veel-voorkomende-functies">Tabel</a>. We zien dan dat er geldt dat</p>
+<div class="arithmatex">\[\large{h'(x) = h(x) = e^x.}\]</div>
+<p>Onze afgeleide wordt dus:</p>
+<div class="arithmatex">\[\large{f'(x) = 1 * e^x + x * e^x}\]</div>
+<p>Dit kunnen we nog herschrijven tot</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{f'(x) = e^x \left( 1+x \right)}\]</div>
+</div>
+</details>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../pythagoras/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: Stelling van Pythagoras">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Vorige
+              </span>
+              <div class="md-ellipsis">
+                Stelling van Pythagoras
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../unit_circle/" class="md-footer__link md-footer__link--next" aria-label="Volgende: De Eenheidscirkel">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Volgende
+              </span>
+              <div class="md-ellipsis">
+                De Eenheidscirkel
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024, Marc Serrano Altena
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/marc-serrano-altena-a96800285/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/M-Serrano-Altena" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<Marc.serrano.altena@gmail.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6m-2 0-8 5-8-5h16m0 12H4V8l8 5 8-5v10Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
