@@ -64,7 +64,11 @@ waar $e$ het getal van euler is. Er geldt dat $e = 2.7182818...$
     | Quotiëntregel | $\large{f(x) = \frac{g(x)}{h(x)}}$ | $\large{f'(x) = \frac{g'(x) \ * \ h(x) \ - \ g(x) \ * \ h'(x)}{h(x)^2}}$                              |
     | Kettingregel  | $\large{f(x) = g(h(x))}$           | $\large{f'(x) = \frac{\mathrm{d} \ g(h)}{\mathrm{d} h} \ * \ \frac{\mathrm{d} \ h(x)}{\mathrm{d} x}}$ |
 
-???+ note "Opmerking"
+De quotiëntregel kan je onthouden met het ezelsbruggetje: "nat - tan gedeelt door n kwadraat".
+
+Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
+
+??? note "Opmerking"
     ### Notatie
     Een afgeleide kan op verschillende manieren worden weergegeven:
     
@@ -72,7 +76,7 @@ waar $e$ het getal van euler is. Er geldt dat $e = 2.7182818...$
 
 ## Voorbeelden
 
-???+ example "Voorbeeld 1: f(x) = x²"
+??? example "Voorbeeld 1: f(x) = x²"
     ###Voorbeeld 1: f(x) = x²
     **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = x^2$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
@@ -97,7 +101,7 @@ waar $e$ het getal van euler is. Er geldt dat $e = 2.7182818...$
         $$\large{f'(x) = 2x}.$$
 
 
-???+ example "Voorbeeld 2: f(x) = 4x"
+??? example "Voorbeeld 2: f(x) = 4x"
     ### Voorbeeld 2: f(x) = 4x
     **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = 4x$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
@@ -130,8 +134,8 @@ waar $e$ het getal van euler is. Er geldt dat $e = 2.7182818...$
         $$\large{f'(x) = 4}$$      
 
 
-???+ example "Voorbeeld 3: somregel"
-    ### Voorbeeld 3: somregel
+??? example "Voorbeeld 3: Somregel"
+    ### Voorbeeld 3: Somregel
     **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = 3(\cos{(x)} + 2)$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
@@ -175,8 +179,8 @@ waar $e$ het getal van euler is. Er geldt dat $e = 2.7182818...$
         $$\large{f'(x) = -3 \sin{(x)}}$$
 
 
-???+ example "Voorbeeld 4: productregel"
-    ### Voorbeeld 4: productregel
+??? example "Voorbeeld 4: Productregel"
+    ### Voorbeeld 4: Productregel
     **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = xe^x$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
@@ -207,3 +211,191 @@ waar $e$ het getal van euler is. Er geldt dat $e = 2.7182818...$
     !!! quote ""
         $$\large{f'(x) = e^x \left( 1+x \right)}$$
 
+
+??? example "Voorbeeld 5: Quotiëntregel"
+    ### Voorbeeld 5: Quotiëntregel
+
+    **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = \tan{(x)}$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Om dit op te lossen moeten we eerst beginnen met onze $\tan$ functie op een andere manier opschrijven. In het hoofdstuk [Goniometrie](goniometrie.md#vervolg-regels-goniometrische-functies) zien we dat we een $\tan$ functie ook op de volgende manier kunnen schrijven:
+
+    $$\large{\tan{(x)} = \frac{\sin{(x)}}{\cos{(x)}}}$$
+
+    Nu kunnen we de [quotiëntregel](#regels) gaan toepassen. Deze zegt dat:
+    
+    Als:
+
+    $$\large{f(x) = \frac{g(x)}{h(x)}}$$
+
+    Dan: 
+
+    $$\large{f'(x) = \frac{g'(x) \ * \ h(x) \ - \ g(x) \ * \ h'(x)}{h(x)^2}}.$$
+
+    In ons geval geldt er dus dat
+
+    $$\large{g(x) = \sin{(x)} \ \ \mathrm{en} \ \ h(x) = \cos{(x)}}$$
+
+    De afgeleides zijn dan volgens de [Tabel](#tabel-met-veel-voorkomende-functies):
+
+    $$\large{g'(x) = \cos{(x)} \ \ \mathrm{en} \ \ h'(x) = - \sin{(x)}}$$
+
+    Nu vullen we dat in bij de quotiëntregel:
+
+    $$\large{f'(x) = \frac{\cos{(x)} \ * \ \cos{(x)} \ - \ sin{(x)} \ * \ - \sin{(x)}}{\cos^2{(x)}}}$$
+
+    Dit kunnen we versimplen tot:
+
+    $$\large{f'(x) = \frac{\cos^2{(x)} + sin^2{(x)}}{\cos^2{(x)}}}$$
+
+    We kunnen de teler nog verder versimpelen met behulp van de tweede vergelijking uit de lijst [Goniometrische Vergelijkingen](derivative.md#goniometrische-vergelijkingen). We krijgen dan als eindantwoord dat:
+
+    !!! quote ""
+        $$\large{f'(x) = \frac{1}{\cos^2{(x)}}}$$
+
+
+??? example "Voorbeeld 6: Kettingregel"
+    ### Voorbeeld 6: Kettingregel
+
+    **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = e^{x^2}$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Om dit op te lossen maken we gebruik van de [kettingregel](#regels). Deze zegt dat voor een functie:
+
+    $$\large{f(x) = g(h(x))}$$
+
+    Er geldt dat:
+
+    $$\large{f'(x) = \frac{\mathrm{d} \ g(h)}{\mathrm{d} h} \ * \ \frac{\mathrm{d} \ h(x)}{\mathrm{d} x}}$$
+
+    Hier is $g$ een functie van $h$ en $h$ is weer een functie van $x$. In ons geval kunnen we stellen dat:
+
+    $$\large{h(x) = x^2}$$
+
+    Onze functie $g(h)$ wordt dan:
+
+    $$\large{g(h) = e^h}$$
+
+    Laten we eerst de afgeleide van $g$ naar $h$ bepalen:
+
+    $$\large{\frac{\mathrm{d} \ g(h)}{\mathrm{d} h} = e^h,}$$
+    
+    want de afgeleide van een e-macht is zichzelf (zie de [Tabel](#tabel-met-veel-voorkomende-functies)). Nu bepalen we de afgeleide van $h$ naar $x$:
+
+    $$\large{\frac{\mathrm{d} \ h(x)}{\mathrm{d} x} = 2x,}$$
+    
+    zie [Voorbeeld 1](#voorbeeld-1-fx-x2) voor eventuele toelichting.
+
+    Nu kunnen we de [kettingregel](#regels) invullen:
+
+    $$\large{f'(x) = e^h * 2x}$$
+
+    Nu kunnen we $h$ terug substitueren:
+
+    !!! quote ""
+        $$\large{f'(x) = 2x * e^{x^2}}$$
+
+
+??? example "Voorbeeld 7: Combinatie"
+    ### Voorbeeld 7: Combinatie
+
+    *<p style="text-align: left;font-size:15px;color:red "> \* Lastige opdracht</p>*
+    **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = \ln{\left((x+1)^2 \right)} * \sqrt{x} + 5$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Bij zo'n soort opdracht waar je veel verschillende dingen moet doen is het erg belangrijk om echt stap voor stap te werken. Laten we beginnen met het herkenen van de functies. Er is aan het begin een functie in een functie, dus dat is iets voor de [kettingregel](#regels). Die functie wordt vermenigvuldigd met een andere functie, dus daar moeten we de [productregel](#regels) op toepassen. En dan als laatst wordt er iets opgeteld, dus dat is de [somregel](#regels).
+
+    Laten we wat dingen definiëren:
+
+    $$\large{g(x) \equiv \ln{\left((x+1)^2 \right)} * \sqrt{x} \ \ \mathrm{en} \ \ h(x) \equiv 5}$$
+
+    Volgens de [somregel](#regels) weten we dat:
+
+    $$\large{f'(x) = g'(x) + h'(x)}$$
+
+    Er geldt dat:
+
+    $$\large{h'(x) = 0,}$$
+
+    zie de [Tabel](#tabel-met-veel-voorkomende-functies). En dus geldt er dat:
+
+    $$\large{f'(x) = g'(x)}$$
+
+    Laten we meer functies definiëren:
+
+    $$\large{k(x) = \ln{\left((x+1)^2 \right)} \ \ \mathrm{en} \ \ l(x) = \sqrt{x},}$$
+
+    zodat er geldt dat:
+
+    $$\large{g(x) = k(x) * l(x).}$$
+
+    Volgens de [productregel](#regels) geldt er dat:
+
+    $$\large{g'(x) = k'(x) \  * \ l(x) + k(x) * l'(x)}$$
+
+    In dit geval zijn de functies $k$ en $l$ gebruikt in plaats van $g$ en $h$. Laten we beginnen met de afgeleide van $l(x)$ bepalen. Dit doen we met behulp van de tweede rij uit de [Tabel](#tabel-met-veel-voorkomende-functies). Daar zien we dat er voor de functie:
+
+    $$\large{f(x) = x^n}$$
+
+    geldt dat:
+
+    $$\large{f'(x) = nx^{n-1}}.$$
+
+    We maken hier gebruik van het feit dat we een wortel ook op de volgende manier kunnen schrijven:
+
+    $$\large{l(x) = \sqrt{x} \equiv x^{\frac{1}{2}}}$$
+
+    Onze afgeleide wordt dan:
+
+    $$\large{l'(x) = \frac{1}{2} x^{- \frac{1}{2}}.}$$
+
+    Dit kunnen we weer versimpelen tot:
+
+    $$\large{l'(x) = \frac{1}{2 \sqrt{x}}.}$$
+
+    Nu bepalen we de afgeleide van $k(x)$. Hiervoor gebruiken we de [kettingregel](#regels). We definiëren:
+
+    $$\large{k(p) = \ln{p}, \ \ p(u) = u^2 \ \ \mathrm{en} \ \ u(x) = x + 1}$$
+
+    We moeten nu de [kettingregel](#regels) twee keer toepassen. Laten we de [kettingregel](#regels) opschrijven:
+
+    $$\large{k'(p(u(x))) = \frac{\mathrm{d} \ k(p)}{\mathrm{d} p} \ * \ \frac{\mathrm{d} \ p(u(x))}{\mathrm{d} x}}$$
+
+    Nu bepalen we de afgeleide van $p$ naar $x$ dit doen we weer met behulp van de [kettingregel](#regels). We krijgen dan:
+
+    $$\large{ \frac{\mathrm{d} \ p(u(x))}{\mathrm{d} x} = \frac{\mathrm{d} \ p(u)}{\mathrm{d} u} \ * \ \frac{\mathrm{d} \ u(x)}{\mathrm{d} x}.}$$
+
+    We kunnen deze twee vergelijkingen combineren tot:
+
+    $$\large{k'(p(u(x))) = \frac{\mathrm{d} \ k(p)}{\mathrm{d} p} \ * \ \frac{\mathrm{d} \ p(u)}{\mathrm{d} u} \ * \ \frac{\mathrm{d} \ u(x)}{\mathrm{d} x}.}$$
+
+    En nu berekenen we de afgeleides:
+
+    $$\large{\frac{\mathrm{d} \ k(p)}{\mathrm{d} p} = \frac{1}{p},}$$
+
+    zie [Tabel](#tabel-met-veel-voorkomende-functies).
+
+    $$\large{\frac{\mathrm{d} \ p(u)}{\mathrm{d} u} = 2u,}$$
+
+    zie [Voorbeeld 1](#voorbeeld-1-fx-x2)
+
+    $$\large{\frac{\mathrm{d} \ u(x)}{\mathrm{d} x} = 1,}$$
+
+    [Somregel](#regels): afgeleide van $x$ wordt $1$ en afgeleide van $1$ wordt $0$ (zie [Tabel](#tabel-met-veel-voorkomende-functies)).
+
+    Als we dit combineren en weer terug substitueren vinden we:
+
+    $$\large{k'(x) = \frac{2 (x + 1)}{\left( x + 1 \right)^2}}$$
+
+    Dit versimpelt weer tot:
+
+    $$\large{k'(x) = \frac{2}{\left( x + 1 \right)}}$$
+
+    Als we dit weer invullen vinden we:
+
+    $$\large{g'(x) = \frac{2}{\left( x + 1 \right)} * \sqrt{x} + \ln{\left((x+1)^2 \right)} * \frac{1}{2 \sqrt{x}}}$$
+
+    Omdat we weten dat $f'(x) = g'(x)$ wordt ons eindantwoord (herschreven):
+
+    !!! quote ""
+        $$\large{f'(x) = \frac{2 \sqrt{x}}{\left( x + 1 \right)}  +  \frac{\ln{\left((x+1)^2 \right)}}{2 \sqrt{x}}}$$

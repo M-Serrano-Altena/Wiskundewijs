@@ -35,7 +35,7 @@ nav:
   - Home: index.md
   - Stelling van Pythagoras: pythagoras.md
   - De Afgeleide Functie: derivative.md
-  - De Eenheidscirkel: unit_circle.md
+  - goniometrie.md
 
 
 plugins:
@@ -43,6 +43,10 @@ plugins:
 
 
 markdown_extensions:
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
   - pymdownx.arithmatex:
       generic: true
 
