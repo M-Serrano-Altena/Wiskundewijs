@@ -2,7 +2,7 @@
 
 ## Theorie
 
-Een afgeleide functie geeft op elk x coördinaat de bij behorende helling/richtingscoëfficient. Dit wordt in de onderstaande voorbeelden weergegeven.
+Een afgeleide functie geeft op elk x coördinaat de bijbehorende helling/richtingscoëfficient. Dit wordt hieronder weergegeven.
 
 ### Parabool
 Een parabool heeft in het simpleste geval de vorm
@@ -13,7 +13,7 @@ De afgeleide van deze functie is gelijk aan
 
 $$f'(x) = 2x,$$ 
 
-Waarbij $f'(x)$ aangeeft dat het gaat om de afgeleide van de functie $f(x)$ (zie dit [voorbeeld](#voorbeeld-1) voor de toelichting van het antwoord van deze afgeleide).
+Waarbij $f'(x)$ aangeeft dat het gaat om de afgeleide van de functie $f(x)$ (zie dit [voorbeeld](#voorbeeld-1-fx-x2) voor de toelichting van het antwoord en [Notatie](#notatie) voor de notatie van de afgeleide).
 
 In het onderstaande filmpje is er te zien dat de afgeleide gelijk is aan de helling op elk punt. Ook is er te zien dat bij een top geldt dat de helling (en dus de afgeleide) gelijk is aan $0$. Dit betekent dus dat als we het x coördinaat van een top willen bepalen, we moeten stellen dat
 
@@ -29,14 +29,22 @@ $$f'(x) = 0.$$
 ### Exponentiele funtie 
 Een exponentiele functie heeft de vorm
 
-$f(x) = e^x$,
+$$f(x) = e^x,$$
 
 waar $e$ het getal van euler is. Er geldt dat $e = 2.7182818...$
+
+De afgeleide van $f(x) = e^x$ is:
+
+$$f'(x) = e^x.$$
+
+De afgeleide is dus hetzelfde als de functie zelf. Dit fenomeen is te zien in het onderstaande filmpje.
 
 ???+ video
     <video controls>
     <source src="../videos/Exponential.mp4" type="video/mp4">
     </video>
+
+    *<p style="text-align: center;">Visuele weergave van de afgeleide van de functie $f(x) = e^x$. Er is te zien dat op elk punt geldt dat $f(x) = f'(x)$. Dit is wat de e-macht zo bijzonder maakt. </p>*
 
 ???+ Belangrijk
     ### Tabel met veel voorkomende functies
@@ -72,7 +80,7 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
     ### Notatie
     Een afgeleide kan op verschillende manieren worden weergegeven:
     
-    $$\Large{f'(x), \ y', \ \frac{\mathrm{d} f(x)}{\mathrm{d} x}, \ \frac{\mathrm{d} y}{\mathrm{d} x}}$$
+    $$\Large{f'(x), \ y', \ \frac{\mathrm{d} f(x)}{\mathrm{d} x}, \ \frac{\mathrm{d} y}{\mathrm{d} x}, \frac{\mathrm{d}}{\mathrm{d} x} y, \frac{\mathrm{d}}{\mathrm{d} x} f(x)} $$
 
 ## Voorbeelden
 
@@ -171,6 +179,8 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     Onze afgeleide wordt dan:
 
+    $$\large{g'(x) = 3 * - \sin{(x)}}$$
+
     $$\large{g'(x) = -3 \sin{(x)}}$$
 
     en dus
@@ -206,7 +216,7 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     $$\large{f'(x) = 1 * e^x + x * e^x}$$
 
-    Dit kunnen we nog herschrijven tot
+    Dit kunnen we nog herschrijven tot:
 
     !!! quote ""
         $$\large{f'(x) = e^x \left( 1+x \right)}$$
@@ -218,7 +228,7 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
     **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = \tan{(x)}$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Om dit op te lossen moeten we eerst beginnen met onze $\tan$ functie op een andere manier opschrijven. In het hoofdstuk [Goniometrie](goniometrie.md#vervolg-regels-goniometrische-functies) zien we dat we een $\tan$ functie ook op de volgende manier kunnen schrijven:
+    Om dit op te lossen moeten we eerst beginnen met onze $\tan$ functie op een andere manier opschrijven. In het hoofdstuk [Goniometrie](goniometrie.md#goniometrische-vergelijkingen) zien we dat we een $\tan$ functie ook op de volgende manier kunnen schrijven:
 
     $$\large{\tan{(x)} = \frac{\sin{(x)}}{\cos{(x)}}}$$
 
@@ -248,7 +258,7 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     $$\large{f'(x) = \frac{\cos^2{(x)} + sin^2{(x)}}{\cos^2{(x)}}}$$
 
-    We kunnen de teler nog verder versimpelen met behulp van de tweede vergelijking uit de lijst [Goniometrische Vergelijkingen](derivative.md#goniometrische-vergelijkingen). We krijgen dan als eindantwoord dat:
+    We kunnen de teller nog verder versimpelen met behulp van de tweede vergelijking uit de lijst [Goniometrische Vergelijkingen](goniometrie.md#goniometrische-vergelijkingen). We krijgen dan als eindantwoord dat:
 
     !!! quote ""
         $$\large{f'(x) = \frac{1}{\cos^2{(x)}}}$$
@@ -331,9 +341,9 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     Volgens de [productregel](#regels) geldt er dat:
 
-    $$\large{g'(x) = k'(x) \  * \ l(x) + k(x) * l'(x)}$$
+    $$\large{g'(x) = k'(x) \  * \ l(x) + k(x) * l'(x)}.$$
 
-    In dit geval zijn de functies $k$ en $l$ gebruikt in plaats van $g$ en $h$. Laten we beginnen met de afgeleide van $l(x)$ bepalen. Dit doen we met behulp van de tweede rij uit de [Tabel](#tabel-met-veel-voorkomende-functies). Daar zien we dat er voor de functie:
+    Laten we beginnen met de afgeleide van $l(x)$ bepalen. Dit doen we met behulp van de tweede rij uit de [Tabel](#tabel-met-veel-voorkomende-functies). Daar zien we dat er voor de functie:
 
     $$\large{f(x) = x^n}$$
 
@@ -343,9 +353,9 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     We maken hier gebruik van het feit dat we een wortel ook op de volgende manier kunnen schrijven:
 
-    $$\large{l(x) = \sqrt{x} \equiv x^{\frac{1}{2}}}$$
+    $$\large{l(x) = \sqrt{x} \equiv x^{\frac{1}{2}}}.$$
 
-    Onze afgeleide wordt dan:
+    Dit betekent dus dat er voor ons geldt dat $n=\frac{1}{2}$. Onze afgeleide wordt dan:
 
     $$\large{l'(x) = \frac{1}{2} x^{- \frac{1}{2}}.}$$
 
@@ -361,7 +371,7 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     $$\large{k'(p(u(x))) = \frac{\mathrm{d} \ k(p)}{\mathrm{d} p} \ * \ \frac{\mathrm{d} \ p(u(x))}{\mathrm{d} x}}$$
 
-    Nu bepalen we de afgeleide van $p$ naar $x$ dit doen we weer met behulp van de [kettingregel](#regels). We krijgen dan:
+    Nu bepalen we de afgeleide van $p$ naar $x$. Dit doen we weer met behulp van de [kettingregel](#regels). We krijgen dan:
 
     $$\large{ \frac{\mathrm{d} \ p(u(x))}{\mathrm{d} x} = \frac{\mathrm{d} \ p(u)}{\mathrm{d} u} \ * \ \frac{\mathrm{d} \ u(x)}{\mathrm{d} x}.}$$
 
@@ -371,27 +381,27 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     En nu berekenen we de afgeleides:
 
-    $$\large{\frac{\mathrm{d} \ k(p)}{\mathrm{d} p} = \frac{1}{p},}$$
+    $$\large{\frac{\mathrm{d} \ k(p)}{\mathrm{d} p} = \frac{1}{p} = \frac{1}{u^2} = \frac{1}{\left( x + 1 \right)^2}, }$$
 
     zie [Tabel](#tabel-met-veel-voorkomende-functies).
 
-    $$\large{\frac{\mathrm{d} \ p(u)}{\mathrm{d} u} = 2u,}$$
+    $$\large{\frac{\mathrm{d} \ p(u)}{\mathrm{d} u} = 2u = 2 (x + 1),}$$
 
-    zie [Voorbeeld 1](#voorbeeld-1-fx-x2)
+    zie [Voorbeeld 1](#voorbeeld-1-fx-x2).
 
     $$\large{\frac{\mathrm{d} \ u(x)}{\mathrm{d} x} = 1,}$$
 
-    [Somregel](#regels): afgeleide van $x$ wordt $1$ en afgeleide van $1$ wordt $0$ (zie [Tabel](#tabel-met-veel-voorkomende-functies)).
+    Dit is de [somregel](#regels). De afgeleide van $x$ wordt $1$ en de afgeleide van $1$ wordt $0$ (zie [Tabel](#tabel-met-veel-voorkomende-functies)).
 
-    Als we dit combineren en weer terug substitueren vinden we:
+    Als we dit combineren en invullen vinden we:
 
-    $$\large{k'(x) = \frac{2 (x + 1)}{\left( x + 1 \right)^2}}$$
+    $$\large{k'(x) = \frac{1}{\left( x + 1 \right)^2} * 2 (x + 1)}$$
 
     Dit versimpelt weer tot:
 
     $$\large{k'(x) = \frac{2}{\left( x + 1 \right)}}$$
 
-    Als we dit weer invullen vinden we:
+    Als we dit ook weer invullen, vinden we:
 
     $$\large{g'(x) = \frac{2}{\left( x + 1 \right)} * \sqrt{x} + \ln{\left((x+1)^2 \right)} * \frac{1}{2 \sqrt{x}}}$$
 

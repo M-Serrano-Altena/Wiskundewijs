@@ -1,5 +1,5 @@
 # Goniometrie
-Goniometrie gaat vooral over driehoeken en over de goniometrische functies: sinus ($\sin$), cosinus ($\cos$) en tangens ($\tan$). Deze goniometrische functies kunnen we gebruiken om verschillende zijdes te bepalen als we alleen maar 1 zijde hebben en een hoek, in plaats van twee zijdes. Want als we niet twee zijdes hebben, dan kunnen we geen Pythagoras gebruiken. Deze functies zijn dus erg handig! Maar hoe gebruiken we ze?
+Goniometrie gaat vooral over driehoeken en over de goniometrische functies: sinus ($\sin$), cosinus ($\cos$) en tangens ($\tan$). Deze goniometrische functies kunnen we gebruiken om verschillende zijdes te bepalen als we alleen maar 1 zijde hebben en een hoek, in plaats van twee zijdes. Want als we niet twee zijdes hebben, kunnen we geen Pythagoras gebruiken. Deze functies zijn dus erg handig! Maar hoe gebruiken we ze?
 
 In Figuur 1 is er een rechte driehoek getekend. Hier zijn drie punten gegeven en de hoek.
 
@@ -12,7 +12,7 @@ Stel nu eens voor dat we de zijde $AB$ en de hoek $\theta$ weten en dat we achte
 
 
 
-Zoals eerder gezegt kunnen we dit probleem niet oplossen met Pythagoras. Hiervoor hebben we de goniometrische funties nodig. In dit geval gebruiken we de tangens omdat we de aanliggende zijde hebben $(AB)$ en we de overstaande zijde willen weten $(BC)$ (zie [Regels Goniometrische Functies](#regels-goniometrische-functies)). We krijgen dan:
+Zoals eerder gezegd, kunnen we dit probleem niet oplossen met Pythagoras. Hiervoor hebben we de goniometrische funties nodig. In dit geval gebruiken we de tangens omdat we de aanliggende zijde hebben $(AB)$ en we de overstaande zijde willen weten $(BC)$ (zie [Regels Goniometrische Functies](#regels-goniometrische-functies)). We krijgen dan:
 
 $$\tan{(\theta)} = \frac{BC}{AB}.$$
 
@@ -44,13 +44,30 @@ Dit kan je onthouden met het ezelsbruggetje: "SOS CAS TOA"
         ![Rechte driehoek](assets/Right_Triangle_Gonio.svg){ width="200"}
     </figure>
 
+## De Sinus en Cosinus functies
+Zowel de sinus als de cosinus functie, zijn periodieke functies. Dit betekent dat de functie zich herhaalt over een bepaalt interval. In dit geval is dat over een domein van $2 \pi$. We zeggen dan dat de functie en periode heeft van $2 \pi$. 
+
+<figure markdown>
+  ![Rechte driehoek](assets/Sinus.svg){ width="450"}
+  <figcaption>Figuur 2. De sinus functie over een domein van [0, 6π].</figcaption>
+</figure>
+
+<figure markdown>
+  ![Rechte driehoek](assets/Cosinus.svg){ width="450"}
+  <figcaption>Figuur 3. De cosinus functie over een domein van [0, 6π].</figcaption>
+</figure>
 
 ## De Eenheidscirkel
+De eenheidscirkel is een manier om de verschillende waardes van $\sin$ en $\cos$ te onthouden bij verschillende hoeken. In het onderstaande filmpje wordt de eenheidscirkel geschetst en wordt er kort vertelt hoe je de waardes kan achterhalen van $\sin$ en $\cos$ bij verschillende hoeken door alleen maar $3$ hoeken en $3$ bijbehorende waardes te onthouden.
 
 ???+ video
     <video controls>
     <source src="../videos/UnitCircle.mp4" type="video/mp4">
     </video>
+
+    *<p style="text-align: center;">Schets eenheidscirkel met de verschillende cosinus en sinus waardes bij verschillende hoeken. De x-coördinaten zijn de cosinus waardes en de y-coördinaten zijn de sinus waardes.</p>*
+
+
 
 ## Goniometrische Vergelijkingen
 
@@ -70,16 +87,16 @@ Dit zijn goniometrische vergelijkingen die iets ingewikkelder zijn, maar vaak ge
     | $\Large{\cos{(\theta + \phi)} = \cos{(\theta)} \cos{(\phi)} - \sin{(\theta)} \sin{(\phi)}}$ |
     | $\Large{\cos{(\theta + \phi)} = \cos{(\theta)} \cos{(\phi)} + \sin{(\theta)} \sin{(\phi)}}$ |
 
-De eerste twee vergelijkingen kunnen we bewijzen met behulp van de [Goniometrische Regels](#goniometrische-vergelijkingen) die we eerder hebben gezien.
+De eerste twee vergelijkingen kunnen we bewijzen met behulp van de [Goniometrische Regels](#regels-goniometrische-functies) die we eerder hebben gezien.
 
 ??? abstract "Bewijs"
     **<p style="text-align: center;font-size:20px;">Bewijs eerste vergelijking</p>** 
 
-    Laten we eerst kijken naar 
+    Laten we als eerst kijken naar 
 
     $$\large{\tan{(\theta)} = \frac{\sin{(\theta)}}{\cos{(\theta)}}}$$
 
-    Door de [Goniometrische Regels](#goniometrische-vergelijkingen) te gebruiken en de $\sin$ en $\cos$ in te vullen kunnen we dit herschrijven tot:
+    Door de [Goniometrische Regels](#regels-goniometrische-functies) te gebruiken en de $\sin$ en $\cos$ in te vullen kunnen we dit herschrijven tot:
 
     $$\large{\tan{(\theta)} = \frac{\frac{\mathrm{Overstaand}}{\mathrm{Schuin}}}{\frac{\mathrm{Aanliggend}}{\mathrm{Schuin}}}}$$
 
@@ -87,7 +104,7 @@ De eerste twee vergelijkingen kunnen we bewijzen met behulp van de [Goniometrisc
 
     $$\large{\tan{(\theta)} = \frac{\mathrm{Overstaand}}{\mathrm{Aanliggend}}}$$
 
-    En dit is precies de formule die we in al de [Goniometrische Regels](#goniometrische-vergelijkingen) hebben staan, en dus klopt onze vergelijking voor $\tan$.
+    En dit is precies de formule die we in al de [Goniometrische Regels](#regels-goniometrische-functies) hebben staan, en dus klopt onze originele vergelijking voor $\tan$.
 
     **<p style="text-align: center;font-size:20px;">Bewijs tweede vergelijking</p>**
 
@@ -95,7 +112,7 @@ De eerste twee vergelijkingen kunnen we bewijzen met behulp van de [Goniometrisc
 
     $$\large{\sin{(\theta)}^2 + \cos{(\theta)}^2 = 1}$$
 
-    Weer vullen we de definitie in van de $\sin$ en $\cos$ uit de [Goniometrische Regels](#goniometrische-vergelijkingen).
+    Weer vullen we de definitie in van de $\sin$ en $\cos$ uit de [Goniometrische Regels](#regels-goniometrische-functies):
 
     $$\large{\frac{\mathrm{Overstaand}^2}{\mathrm{Schuin}^2} + \frac{\mathrm{Aanliggend}^2}{\mathrm{Schuin}^2} = 1}$$
 

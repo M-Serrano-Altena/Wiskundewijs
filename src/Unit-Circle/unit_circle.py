@@ -189,14 +189,32 @@ def draw_sine(func, title):
     x = np.arange(0, 6 * np.pi, 0.01)
     y = [func(num) for num in x]
 
-    plt.title(title)
-    plt.xlabel("x")
-    plt.ylabel("y")
+    fig = plt.figure()
+    
+
+    ax = fig.add_subplot(111)
+
+    ax.set_xlabel('X-as')
+    ax.set_ylabel('Y-as')
+
+    ax.spines['bottom'].set_color('#D3D3D3')
+    ax.spines['top'].set_color('#D3D3D3')
+    ax.spines['left'].set_color('#D3D3D3')
+    ax.spines['right'].set_color('#D3D3D3')
+    ax.xaxis.label.set_color('#D3D3D3')
+    ax.yaxis.label.set_color('#D3D3D3')
+    ax.tick_params(axis='both', colors='#D3D3D3')
+    ax.set_facecolor("#FF0000")
+    
+
+    ax.set_title(title, loc='center', color='#D3D3D3')
+
+
     plt.xlim(0, 19)
     plt.ylim(-1.1, 1.1)
 
-    plt.plot(x, y, 'b-')
-    plt.hlines(xmin=0, xmax=6 * np.pi + 1, y=0, colors='black')
+    plt.plot(x, y, 'darkturquoise')
+    plt.hlines(xmin=0, xmax=6 * np.pi + 1, y=0, colors='#D3D3D3')
     plt.savefig(f"{title}.svg")
 
     plt.clf()

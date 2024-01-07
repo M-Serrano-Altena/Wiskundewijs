@@ -55,14 +55,14 @@ Hieronder is er een filmpje om te laten zien waar de stelling van Pythagoras van
 
     <figure markdown>
       ![Rechte driehoek](assets/Right_Triangle_example2.svg){ width="300"}
-      <figcaption>Figuur 3. Een rechte driehoek met 1 rechte zijde met lengte 3 en met schuine zijde met lengte 5.</figcaption>
+      <figcaption>Figuur 3. Een rechte driehoek met 1 rechte zijde met lengte 3 en een schuine zijde met lengte 5.</figcaption>
     </figure>
 
-    Net zoals bij het vorig voorbeeld beginnen we eerst met de stelling van Pythagoras opschrijven
+    Net zoals bij het vorig [voorbeeld](#voorbeeld-1) beginnen we eerst met de stelling van Pythagoras opschrijven
 
     $$\large{a^2 + b^2 = c^2}$$
 
-    Dan vullen we de gegevens in die wij hebben. We weten dat 1 rechte zijde een lengte heeft van 3 en dat de schuine zijde een lengte heeft van 5. Oftewel $a=3$ en $c=5$. Laten we dit invullen:
+    Dan vullen we de gegevens in die we hebben. We weten dat 1 rechte zijde een lengte heeft van 3 en dat de schuine zijde een lengte heeft van 5. Oftewel $a=3$ en $c=5$. Laten we dit invullen:
 
     $$\large{3^2 + b^2 = 5^2}$$
 
