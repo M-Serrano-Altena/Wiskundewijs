@@ -33,7 +33,7 @@ Dit zijn de regels voor de goniometrische functies.
 
 Dit kan je onthouden met het ezelsbruggetje: "SOS CAS TOA"
 
-??? note "Opmerking"
+??? note "Overstaand, Aanliggend en Schuin"
     "Overstaand", "Aanliggend" en "Schuin" gaan over de zijdes ten opzichte van de hoek.
     
      Als we kijken naar figuur 1 (hieronder herhaalt), dan is in dit geval:

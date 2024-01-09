@@ -26,8 +26,8 @@ $$f'(x) = 0.$$
 
     *<p style="text-align: center;">Visuele weergave van de afgeleide van de functie $f(x) = x^2$. Bij de top geldt dat de helling gelijk is aan 0. </p>*
 
-### Exponentiele funtie 
-Een exponentiele functie heeft de vorm
+### Exponentiële funtie 
+Een exponentiële functie heeft de vorm
 
 $$f(x) = e^x,$$
 

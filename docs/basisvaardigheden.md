@@ -36,6 +36,9 @@ $$2 = \frac{6}{3},$$
 
 en dit klopt inderdaad. 
 
+!!! tip ""
+
+
 ## Vergelijkingen Omschrijven
 Vergelijkingen omschrijven is eigenlijk hetzelfde als een formule omschrijven. Bij beide gevallen doe je aan beide kanten van het '$=$' teken hetzelfde waardoor de vorm van de formule of vergelijking verandert. Laten we naar een voorbeeld kijken van een vergelijking:
 
@@ -82,7 +85,11 @@ Nu doen we aan beide kanten gedeelt door $\frac{5}{6}$ en dan vinden we:
 !!! quote ""
     $$\Large{x =  2\frac{1}{2}}$$
 
+!!! tip ""
+
 ## Breuken
+Breuken worden vaak gebruikt in de wiskunde. Het is daarom belangrijk om goed te leren rekenen met deze breuken. Daarom staan de belangrijkste regels en hoe je met breuken moet rekenen hier op een rijtje.
+
 
 ??? note "Begrippen 'teller' en 'noemer'"
     Bij breuken gebruiken we vaak de termen "teller" en "noemer". De teller is het getal boven de deelstreep en de noemer is het getal onder de deelstreep. Dus in de volgende breuk:
@@ -94,105 +101,137 @@ Nu doen we aan beide kanten gedeelt door $\frac{5}{6}$ en dan vinden we:
 Voor breuken gelden er de volgende regels:
 
 ???+ Belangrijk
+    ### Regels bij Breuken
+
     1. $$\large{\frac{a}{b} + \frac{c}{b} = \frac{a + c}{b}}$$
 
     2. $$\large{\frac{a}{b} - \frac{c}{b} = \frac{a - c}{b}}$$
 
-    3. $$\large{\frac{a}{b} * \frac{c}{d} = \frac{a * c}{b * d}}$$
+    3. $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a * d + b * c}{b * d}}$$
 
-    4. $$\large{\frac{\frac{a}{b}}{\frac{c}{d}} = \frac{a}{b} * \frac{d}{c} = \frac{a * d}{b * c}}$$
+    4. $$\large{\frac{a}{b} - \frac{c}{d} = \frac{a * d - b * c}{b * d}}$$
 
+    5. $$\large{\frac{a}{b} * \frac{c}{d} = \frac{a * c}{b * d}}$$
 
-??? example "Getallen Voorbeeld 1"
-    ### Voorbeeld 1
+    6. $$\large{\frac{\frac{a}{b}}{\frac{c}{d}} = \frac{a}{b} * \frac{d}{c} = \frac{a * d}{b * c}}$$
+
+Vaak ziet dit er nog abstract uit, dus in het onderstaande voorbeeld is er voor elke regel een getallen voorbeeld weergegeven om de regels te verduidelijken.
+
+??? example "Getallen Voorbeeld Breuken"
+    ### Getallen Voorbeeld Breuken
     1. $$\large{\frac{2}{6} + \frac{1}{6} = \frac{2 + 1}{6} = \frac{3}{6} = \frac{1}{2}}$$
 
     2. $$\large{\frac{2}{6} - \frac{1}{6} = \frac{2 - 1}{6} = \frac{1}{6}}$$
 
-    3. $$\large{\frac{3}{4} * \frac{2}{6} = \frac{3 * 2}{4 * 6} = \frac{6}{24} = \frac{1}{4}}$$
+    3. $$\large{\frac{1}{2} + \frac{1}{3} = \frac{1*3 + 2*1}{2*3} = \frac{5}{6}}$$
 
-    4. $$\large{\frac{\frac{1}{2}}{\frac{1}{4}} = \frac{1}{2} * \frac{4}{1} = \frac{4}{2} = 2}$$
+    4. $$\large{\frac{1}{2} - \frac{1}{3} = \frac{1*3 - 2*1}{2*3} = \frac{1}{6}}$$
+
+    5. $$\large{\frac{3}{4} * \frac{2}{6} = \frac{3 * 2}{4 * 6} = \frac{6}{24} = \frac{1}{4}}$$
+
+    6. $$\large{\frac{\frac{1}{2}}{\frac{1}{4}} = \frac{1}{2} * \frac{4}{1} = \frac{4}{2} = 2}$$
 
 
-Optellen en aftrekken kan dus alleen op deze manier als de noemers gelijk aan elkaar zijn. Maar hoe lossen we het op als de noemers niet gelijk aan elkaar zijn? Dit doen we door eerst de noemers gelijk te maken en dan optellen of aftrekken. Daarvoor moeten we kruislings vermenigvuldigen. Dit gaat als volgt:
+We zien dus dat we bij optellen en aftrekken eerst gelijke noemers moeten hebben om op te kunnen tellen volgens regel $1$ en $2$ van de [Regels bij Breuken](#regels-bij-breuken). Als we geen gelijke noemers hebben, moeten we regel $3$ en $4$ gebruiken. Maar waar komen regel $3$ en $4$ vandaan? Dat wordt in dit onderstaande bewijs toegelicht. 
 
-$$\frac{a}{b} + \frac{c}{d} = \frac{a * d}{b * d} + \frac{c * b}{d * b}.$$
+??? abstract "Bewijs regel 3 en 4"
+    We bewijzen eerst regel $3$.
 
-??? note "Extra toelichting"
-    Dit mogen we doen omdat we eigenlijk beide breuken keer $1$ doen. Kijk maar:
+    We beginnen met beide termen keer $1$ te doen:
 
-    $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a}{b} * 1 + \frac{c}{d} * 1,}$$
+    $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a}{b} * 1 + \frac{c}{d} * 1.}$$
 
-    en we weten dat een getal gedeelt door zichzelf altijd gelijk is aan $1$. Oftewel, we kunnen de $1$ ook op deze manier schrijven:
+    Dit mag altijd, want een getal keer $1$ is altijd weer zichzelf. Maar we weten ook dat een getal gedeelt door zichzelf altijd gelijk is aan $1$. Oftewel, we kunnen de $1$ ook op deze manier schrijven:
 
-    $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a}{b} * \frac{d}{d} + \frac{c}{d} * \frac{b}{b}}$$
+    $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a}{b} * \frac{d}{d} + \frac{c}{d} * \frac{b}{b}.}$$
 
-    En als we dit uitwerken, vinden we inderdaad:
+    We kunnen nu met regel $5$ van de [Regels bij Breuken](#regels-bij-breuken) dit herschrijven tot:
+
+    $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a * d}{b * d} + \frac{c * b}{d * b}.}$$
+
+    En omdat de volgorde bij vermenigvuldigen niet uitmaakt, kunnen we dit ook schrijven als:
+
+    $$\frac{a}{b} + \frac{c}{d} = \frac{a * d}{b * d} + \frac{b * c}{b * d}$$
+
+    Nu zien we dat de noemers gelijk zijn en we de twee tellers gewoon bij elkaar kunnen optellen volgens regel $1$ van de [Regels bij Breuken](#regels-bij-breuken):
 
     !!! quote ""
-        $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a * d}{b * d} + \frac{c * b}{d * b}}$$
+        $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a * d + b * c}{b * d}}$$
 
-Omdat de volgorde bij vermenigvuldigen niet uitmaakt, kunnen we dit ook schrijven als:
+    Voor aftrekken gelden precies dezelfde stappen, dus voor dat bewijs moet je dezelfde stappen doorlopen en het plus-teken vervangen door een min-teken.
 
-$$\frac{a}{b} + \frac{c}{d} = \frac{a * d}{b * d} + \frac{b * c}{b * d}$$
-
-Nu zien we dat de noemers gelijk zijn en we de twee tellers gewoon bij elkaar kunnen optellen:
-!!! quote ""
-    $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a * d + b * c}{b * d}}$$
-
-
-Voor aftrekken is het stappenplan precies hetzelfde en wordt het antwoord dus:
-
-!!! quote ""
-    $$\large{\frac{a}{b} - \frac{c}{d} = \frac{a * d - b * c}{b * d}}$$
-
-??? example "Getallen Voorbeeld 2"
-    ### Voorbeeld 2
-    1. $$\large{\frac{1}{2} + \frac{1}{3} = \frac{1 * 3}{2*3} + \frac{1*2}{3*2} = \frac{3 + 2}{6} = \frac{5}{6}}$$
-
-    2. $$\large{\frac{1}{2} - \frac{1}{3} = \frac{1*3}{2*3} - \frac{1*2}{3*2} = \frac{3 - 2}{6} = \frac{1}{6}}$$
+!!! tip ""
 
 
 ## Operaties met variabelen
 Operaties klinkt als een moeilijk woord, maar dit betekent gewoon dingen zoals optellen, aftrekken, vermenigvuldigen en delen. 
 
-Voor optellen en aftrekken gelden dezelfde regels:
+???+ Belangrijk
+    ### Regels bij operaties met variabelen
+    1. $$\large{nA + mA = (n + m)A}$$
 
-$$\large{2A + A \rightarrow 3A}$$
+    2. $$\large{nA - mA = (n - m)A}$$
 
-$$\large{2A + B \rightarrow \mathrm{kan \ niet \ verder \ worden \ versimpelt}}$$
+    3. $$\large{n(A + B) = nA + nB}$$
+    
+    4. $$\large{n(A - B) = nA - nB}$$
 
-$$\large{2A - A \rightarrow A}$$
+    5. $$\large{(A + B) (C + D) = AC + AD + BC + BD}$$
 
-$$\large{2A - B \rightarrow \mathrm{kan \ niet \ verder \ worden \ versimpelt}}$$
 
-$$\large{2A + (3A - B) \rightarrow 5A - B}$$
+??? example "Getallen Voorbeelden"
+    Laten we eerst kijken naar optellen en aftrekken:
 
-Dus met dezelfde variabelen mag je optellen en aftrekken, met verschillende variabelen mag dit niet. 
+    1. $$\large{3A + A = 4A}$$
 
-Laten we nu kijken naar vermenigvuldigen en delen:
+    2. $$\large{3A - A = 2A}$$
 
-$$\large{2A * A \rightarrow 2A^2}$$
+    3. $$\large{2A + (3A - B) = 5A - B}$$
 
-$$\large{2A * 3B \rightarrow 6AB}$$
+    Nu voorbeelden van dingen die je niet verder kan versimpelen:
 
-$$\large{\frac{2A}{4A} \rightarrow \frac{1}{2}}$$
+    - $$\large{2A + B}$$
 
-$$\large{\frac{2A}{3B} \rightarrow \mathrm{kan \ niet \ verder \ worden \ versimpelt}}$$
+    - $$\large{2A - B}$$
 
-En nu combinaties:
+    Dus met dezelfde variabelen mag je optellen en aftrekken, met verschillende variabelen mag dit niet. 
 
-$$\large{2A \left(4A + 3B\right) \rightarrow 8A^2 + 6AB}$$
+    Laten we nu kijken naar vermenigvuldigen en delen:
 
-$$\large{2A \left(\frac{2B}{4A} + \frac{A}{3B}\right) \rightarrow B + \frac{2A^2}{3B}}$$
+    1. $$\large{2A * A = 2A^2}$$
 
-### Werken met machten en wortels
-De regels met machten:
+    2. $$\large{2A * 3B = 6AB}$$
 
-$$\large{\left(a + b\right)^2 \equiv \left(a + b \right) \left(a + b \right) = a^2 + 2ab + b^2}$$
+    3. $$\large{\frac{2A}{4A} = \frac{1}{2}}.$$
 
-??? note "Extra Toelichting"
-    Dit hebben we opgelost door de haakjes weg te werken zoals bij het voorbeeld hiervoor, maar nu staan is het in plaats van $1$ getal voor de haakjes, twee getallen die zelf ook binnen haakjes staan. Maar de methode blijft hetzelfde:
+    Maar dit kan dan weer niet verder worden versimpelt:
+
+    - $$\large{\frac{2A}{3B}}$$
+
+    En nu combinaties:
+
+    1. $$\large{2A \left(4A + 3B\right) = 8A^2 + 6AB}$$
+
+    2. $$\large{2A \left(\frac{2B}{4A} + \frac{A}{3B}\right) = B + \frac{2A^2}{3B}}$$
+
+!!! tip ""
+
+
+## Machten en Wortels
+### Regels met Machten
+
+???+ Belangrijk
+    #### Kwadratisch haakjes wegwerken
+    1. $$\large{\left(a + b\right)^2 \equiv \left(a + b \right) \left(a + b \right) = a^2 + 2ab + b^2}$$
+
+    2. $$\large{\left(a - b\right)^2 \equiv \left(a - b \right) \left(a - b \right) = a^2 - 2ab + b^2}$$
+
+    3. $$\large{ \left(a + b \right) \left(a - b \right) = a^2 - b^2}$$
+
+??? note "Extra Toelichting regel 1-3"
+    **<p style="text-align: center;font-size:20px;">Regel 1</p>**
+
+    Dit hebben we opgelost door de haakjes weg te werken op de volgende manier. :
 
     $$\large{\left(a + b \right) \left(a + b \right) = a \left( a + b \right) + b \left( a + b \right)}$$
 
@@ -202,67 +241,129 @@ $$\large{\left(a + b\right)^2 \equiv \left(a + b \right) \left(a + b \right) = a
 
     En omdat de volgorde niet uitmaakt voor vermenigvuldigen kunnen we dit versimpelen tot:
 
-    $$\large{\left(a + b \right) \left(a + b \right) = a^2 + 2ab + b^2}$$
+    !!! quote ""
+        $$\large{\left(a + b \right) \left(a + b \right) = a^2 + 2ab + b^2}$$
 
-$$\large{\left(a - b\right)^2 \equiv \left(a - b \right) \left(a - b \right) = a^2 - 2ab + b^2}$$
-
-$$\large{ \left(a + b \right) \left(a - b \right) = a^2 - b^2}$$
-
-$$\large{(a*b)^2 = a^2*b^2}$$
-
-$$\large{\left(\frac{a}{b}\right)^2 = \frac{a^2}{b^2}}$$
-
-Dus bij optellen en aftrekken moet je voorzichtig zijn dat je niet alleen de twee variabelen kwadrateerd en bij elkaar optelt of aftrekt, zonder rekening te houden met de kruistermen. Met vermenigvuldigen of delen heb je juist geen kruistermen en is het wel gewoon beide variabelen gekwadrateerd. 
-
-Voor wortels gelden precies dezelfde regels, wat logisch is aangezien je een wortel kan schrijven door tot de macht $\frac{1}{2}$ te doen. Er is wel een uitzondering, namelijk optellen en aftrekken:
-
-$$\large{\sqrt{a + b} \rightarrow \mathrm{kan \ niet \ verder \ worden \ versimpelt}}$$
-
-$$\large{\sqrt{a - b} \rightarrow \mathrm{kan \ niet \ verder \ worden \ versimpelt}}$$
+    (zie ook regel 5 van [Regels bij operaties met variabelen](#regels-bij-operaties-met-variabelen))
 
 
-Laten we nu kijken naar hogere orde machten:
+    **<p style="text-align: center;font-size:20px;">Regel 2</p>**
+    Eigenlijk gaat dit op dezelfde manier als bij de vorige regel:
 
-$$\large{a^n + a^n = 2 a^n}$$
+    $$\large{\left(a - b \right) \left(a - b \right) = a \left( a - b \right) - b \left( a - b \right)}$$
 
-$$\large{a^n + a^m \rightarrow \mathrm{kan \ niet \ verder \ worden \ versimpelt}}$$
+    $$\large{\left(a + b \right) \left(a + b \right) = a^2 - ab - ba -- b^2 }$$
 
-$$\large{a^n + b^n \rightarrow \mathrm{kan \ niet \ verder \ worden \ versimpelt}}$$
+    We weten dat min * min is plus, en dus komt hier uit:
 
-$$\large{a^n + b^m \rightarrow \mathrm{kan \ niet \ verder \ worden \ versimpelt}}$$
+    !!! quote ""
+        $$\large{\left(a + b \right) \left(a + b \right) = a^2 - 2ab + b^2 }$$
 
-Voor aftrekken geldt weer precies hetzelfde. Laten we nu kijken naar vermenigvuldigen en delen:
-
-$$\large{a^n * a^m = a^{n+m}}$$
-
-$$\large{\frac{a^n}{a^m} = a^{n-m}}$$
-
-$$\large{a^n * b^n = \left(a * b \right)^n}$$
-
-$$\large{\frac{a^n}{b^n} = \left( \frac{a}{b} \right)^n}$$
-
-$$\large{a^n * b^m \rightarrow \mathrm{kan \ niet \ verder \ worden \ versimpelt}}$$
-
-$$\large{\frac{a^n}{b^m} \rightarrow \mathrm{kan \ niet \ verder \ worden \ versimpelt}}$$
-
-$$\large{\left(a^n\right)^m = a^{n*m}}$$
+    (zie ook regel 5 van [Regels bij operaties met variabelen](#regels-bij-operaties-met-variabelen))
 
 
-### Werken met logaritmes
+    **<p style="text-align: center;font-size:20px;">Regel 3</p>**
+    En weer is dit vergelijkbaar aan de vorige twee regels:
+
+    $$\large{\left(a + b \right) \left(a - b \right) = a \left( a - b \right) + b \left( a - b \right)}$$
+
+    $$\large{\left(a + b \right) \left(a + b \right) = a^2 - ab + ba - b^2 }$$
+
+    Nu zien we dat de kruistermen tegen elkaar wegvallen en we dus overhouden:
+
+    !!! quote ""
+        $$\large{\left(a + b \right) \left(a + b \right) = a^2 - b^2 }$$
+
+    (zie ook regel 5 van [Regels bij operaties met variabelen](#regels-bij-operaties-met-variabelen))
+
+Dus bij optellen en aftrekken moet je voorzichtig zijn dat je niet alleen de twee variabelen kwadrateerd en bij elkaar optelt of aftrekt, zonder rekening te houden met de kruistermen. 
+
+Deze regels gelden voor alle soorten machten:
+
+???+ Belangrijk
+
+    #### Machten Algemeen
+
+    4. $$\large{(a*b)^n = a^n*b^n}$$
+
+    5. $$\large{\left(\frac{a}{b}\right)^n = \frac{a^n}{b^n}}$$
+
+    6. $$\large{ a^n * a^m = a^{n + m}}$$
+
+    7. $$\large{ \frac{a^n}{a^m} = a^{n - m}}$$
+
+    6. $$\large{\left(a^n\right)^m = a^{n * m}}$$
+
+
+Voor wortels gelden dus precies dezelfde regels als voor machten, wat logisch is aangezien je een wortel kan schrijven als tot de macht $\frac{1}{2}$.
+
+???+ Belangrijk
+    ### Regels met wortels
+    1. $$\large{\sqrt{a + b} \rightarrow} \ \small{\mathrm{kan \ niet \ verder \ worden \ versimpelt}}$$
+
+    2. $$\large{\sqrt{a - b} \rightarrow} \ \small{\mathrm{kan \ niet \ verder \ worden \ versimpelt}}$$
+
+    3. $$\large{\sqrt{a * b} = \sqrt{a} * \sqrt{b}}$$
+
+    4. $$\large{\sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}}$$
+
+    5. $$\large{\sqrt{\sqrt{a}} = \sqrt[4]{a}}$$
+
+    6. $$\large{\sqrt{a^2} = a}$$
+
+??? note "Opmerking Regel 6"
+    Bij de regel 6 staat er dat
+
+    $$\large{\sqrt{a^2} = a}$$
+
+    Maar dit geldt alleen als $a$ een positief getal is. Want als $a$ een negatief getal is, dan wordt het getal na het kwadraat positief en met de wortel blijft het positief. Bijvoorbeeld:
+
+    $$\large{\sqrt{(-2)^2} = \sqrt{4} = 2 \neq -2}$$
+
+    Om dit probleem op te lossen moeten we eigenlijk absolute waarde nemen van $a$. De absolute waarde is als volgt gedenifiëerd:
+
+    $$\large{ |a| = \left\{ \begin{array}{ c l } a & \quad \textrm{als } a \geq 0 \\ -a & \quad \textrm{als } a < 0 \end{array} \right.}$$
+
+    Dit zorgt er dus voor dat het getal altijd positief is. En dus om volledig correct te zijn, zouden we eigenlijk moeten zeggen dat:
+
+    !!! quote ""
+        $$\large{\sqrt{a^2} = |a|}$$
+
+!!! tip ""
+
+
+## Logaritmes
 Een logaritme is eigenlijk het omgekeerde van een exponent. Er geldt dus dat:
 
-$$\large{\log{(10^2)} = 2}$$
+$$\large{\log{(10^2)} = 2 = 10^{\log{(2)}}}$$
 
-??? note "Opmerking"
-    De afspraak is dat als er geen grondgetal staat bij de logaritme, dat we er dan vanuit gaan dat het een $^{10} \! \log$ is.
+Ze heffen dus elkaar op.
 
-#### Regels
-$$\large{^a \! \log{(a^n)} = n}$$
+Net zoals een exponent heeft een logaritme een grondgetal.
 
-$$\large{^a \! \log{(b^n)} = n \ ^a \! \log{(b)}}$$
+<figure markdown>
+  ![Rechte driehoek](assets/Logarithm.svg){ width="300"}
+  <figcaption>Figuur 1. Vergelijking exponent en logaritme. Een exponent vergroot hier het antwoord, en het logaritme doet het omgekeerde.</figcaption>
+</figure>
 
-$$\large{^a \! \log{(b*c)} =  ^a \! \log{(b)} + ^a \! \log{(c)}}$$
+??? note "Opmerking Notatie"
+    De afspraak is dat als er geen grondgetal staat bij de logaritme, dat we er dan vanuit gaan dat het een $^{10} \! \log$ is, dus een logaritme met een grondgetal 10.
 
-$$\large{^a \! \log{(\frac{b}{c})} =  ^a \! \log{(b)} - ^a \! \log{(c)}}$$
+???+ Belangrijk
+    ### Regels met Logaritmes
+    $$\large{^a \! \log{(a^n)} = n = \Large{a^{^a \! \log{(n)}}}}$$
 
-$$\large{^a \! \log{(b)} = \frac{^c \! \log{(b)}}{^c \! \log{(a)}}}$$
+    $$\large{^a \! \log{(b^n)} = n \ ^a \! \log{(b)}}$$
+
+    $$\large{^a \! \log{(b*c)} =  ^a \! \log{(b)} + ^a \! \log{(c)}}$$
+
+    $$\large{^a \! \log{(\frac{b}{c})} =  ^a \! \log{(b)} - ^a \! \log{(c)}}$$
+
+    $$\large{^a \! \log{(b)} = \frac{^c \! \log{(b)}}{^c \! \log{(a)}}}$$
+
+??? note "Opmerking $\ln$"
+    Voor een logaritme met een speciaal grondgetal hebben we een aparte notatie. Namelijk voor het grondgetal $e$, het getal van euler.
+
+    $$\large{^e \log \equiv \ln}$$
+
+    Dus in plaats van een logaritme met een grondgetal $e$ schrijven we $\ln$, wat staat voor "natuurlijke logaritme". Maar dit is alleen een verschil in notatie en dus zijn alle regels gewoon hetzelfde als met logaritmes die een ander grondgetal hebben.
