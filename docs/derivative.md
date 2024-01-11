@@ -76,7 +76,7 @@ De quotiëntregel kan je onthouden met het ezelsbruggetje: "nat - tan gedeelt do
 
 Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
-??? note "Opmerking"
+??? note "Opmerking Notatie"
     ### Notatie
     Een afgeleide kan op verschillende manieren worden weergegeven:
     
