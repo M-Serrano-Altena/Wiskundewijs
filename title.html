@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Example: A Site about Examples</title>
+    <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "Example Company",
+      "alternateName" : "EC",
+      "url" : "https://example.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://query.example.com/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+  </head>
+  <body>
+  </body>
+</html>
