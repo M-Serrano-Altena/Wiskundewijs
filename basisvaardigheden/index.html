@@ -127,6 +127,45 @@
     
     
     
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
     
   </nav>
   
@@ -376,9 +415,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#opmerking-notatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opmerking Notatie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#regels-met-logaritmes" class="md-nav__link">
     <span class="md-ellipsis">
       Regels met Logaritmes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opmerking-ln" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opmerking ln
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden-logaritmes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden Logaritmes
     </span>
   </a>
   
@@ -623,9 +689,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#opmerking-notatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opmerking Notatie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#regels-met-logaritmes" class="md-nav__link">
     <span class="md-ellipsis">
       Regels met Logaritmes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opmerking-ln" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opmerking ln
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden-logaritmes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden Logaritmes
     </span>
   </a>
   
@@ -930,6 +1023,9 @@ En weer is dit vergelijkbaar aan de vorige twee regels:</p>
 <li>
 <div class="arithmatex">\[\large{\sqrt{a^2} = a}\]</div>
 </li>
+<li>
+<div class="arithmatex">\[\large{\sqrt[m]{a^n} = a^{\frac{n}{m}}}\]</div>
+</li>
 </ol>
 </details>
 <details class="note"><summary>Opmerking Regel 6</summary><p>Bij de regel 6 staat er dat</p>
@@ -954,18 +1050,111 @@ En weer is dit vergelijkbaar aan de vorige twee regels:</p>
   </p>
 <figcaption>Figuur 1. Vergelijking exponent en logaritme. Een exponent vergroot hier het antwoord, en het logaritme doet het omgekeerde.</figcaption>
 </figure>
-<details class="note"><summary>Opmerking Notatie</summary><p>De afspraak is dat als er geen grondgetal staat bij de logaritme, dat we er dan vanuit gaan dat het een <span class="arithmatex">\(^{10} \! \log\)</span> is, dus een logaritme met een grondgetal 10.</p>
+<details class="note"><summary>Opmerking Notatie</summary><h3 id="opmerking-notatie">Opmerking Notatie</h3>
+<p>De afspraak is dat als er geen grondgetal staat bij de logaritme, dat we er dan vanuit gaan dat het een <span class="arithmatex">\(^{10} \! \log\)</span> is, dus een logaritme met een grondgetal 10.</p>
 </details>
 <details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="regels-met-logaritmes">Regels met Logaritmes</h3>
+<ol>
+<li>
 <div class="arithmatex">\[\large{^a \! \log{(a^n)} = n = \Large{a^{^a \! \log{(n)}}}}\]</div>
+</li>
+<li>
 <div class="arithmatex">\[\large{^a \! \log{(b^n)} = n \ ^a \! \log{(b)}}\]</div>
+</li>
+<li>
 <div class="arithmatex">\[\large{^a \! \log{(b*c)} =  ^a \! \log{(b)} + ^a \! \log{(c)}}\]</div>
+</li>
+<li>
 <div class="arithmatex">\[\large{^a \! \log{(\frac{b}{c})} =  ^a \! \log{(b)} - ^a \! \log{(c)}}\]</div>
+</li>
+<li>
 <div class="arithmatex">\[\large{^a \! \log{(b)} = \frac{^c \! \log{(b)}}{^c \! \log{(a)}}}\]</div>
+</li>
+</ol>
 </details>
-<details class="note"><summary>Opmerking <span class="arithmatex">\(\ln\)</span></summary><p>Voor een logaritme met een speciaal grondgetal hebben we een aparte notatie. Namelijk voor het grondgetal <span class="arithmatex">\(e\)</span>, het getal van euler.</p>
+<details class="note"><summary>Opmerking <span class="arithmatex">\(\ln\)</span></summary><h3 id="opmerking-ln">Opmerking ln</h3>
+<p>Voor een logaritme met een speciaal grondgetal hebben we een aparte notatie. Namelijk voor het grondgetal <span class="arithmatex">\(e\)</span>, het getal van euler.</p>
 <div class="arithmatex">\[\large{^e \log \equiv \ln}\]</div>
 <p>Dus in plaats van een logaritme met een grondgetal <span class="arithmatex">\(e\)</span> schrijven we <span class="arithmatex">\(\ln\)</span>, wat staat voor "natuurlijke logaritme". Maar dit is alleen een verschil in notatie en dus zijn alle regels gewoon hetzelfde als met logaritmes die een ander grondgetal hebben.</p>
+</details>
+<h3 id="voorbeelden-logaritmes">Voorbeelden Logaritmes</h3>
+<details class="example"><summary>Voorbeeld 1: <span class="arithmatex">\(^3 \! \log{(x)} = 2\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken x: <span class="arithmatex">\(^3 \! \log{(x)} = 2\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We hebben hier een logaritme met een grondgetal <span class="arithmatex">\(3\)</span>. Dit betekent dat we aan beide kanten van het '<span class="arithmatex">\(=\)</span>' teken 3 tot de macht kunnen doen om van ons logaritme af te komen:</p>
+<div class="arithmatex">\[\Large{3^{^3 \log{(x)}} = 3^2}\]</div>
+<p>Dit mogen we doen, omdat we aan beide kanten van het '<span class="arithmatex">\(=\)</span>' teken hetzelfde doen. Nu kunnen we dit versimpelen met behulp van regel 1 van de <a href="#regels-met-logaritmes">Regels met Logaritmes</a>:</p>
+<div class="arithmatex">\[\Large{x = 3^2}\]</div>
+<p>En dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\Large{x = 9}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 2: <span class="arithmatex">\(\log{(x^4)} = 3\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken x: <span class="arithmatex">\(\log{(x^4)} = 3\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Net zoals bij het vorig voorbeeld is ons doel uiteindelijk de logaritme wegwerken. Maar we moeten nu eerst van de vierde macht afkomen. Dit doen we met behulp van regel 2 van de <a href="#regels-met-logaritmes">Regels met Logaritmes</a>:</p>
+<div class="arithmatex">\[\Large{4 \log{(x)} = 3}\]</div>
+<p>Nu delen we aan beide kanten van het '<span class="arithmatex">\(=\)</span>' teken door <span class="arithmatex">\(4\)</span> om alleen de logaritme aan de linkerkant over te houden:</p>
+<div class="arithmatex">\[\Large{\log{(x)} = \frac{3}{4}}\]</div>
+<p>Er staat hier geen grondgetal bij de logaritme, wat dus betekent dat het een grondgetal 10 heeft (zie <a href="#opmerking-notatie">Opmerking Notatie</a>). We doen nu aan beide kanten 10 tot de macht om van ons logaritme af te komen:</p>
+<div class="arithmatex">\[\Large{10^{\log{(x)}} = 10^{\frac{3}{4}}}\]</div>
+<p>En we kunnen dit weer versimpelen met regel 1 van de <a href="#regels-met-logaritmes">Regels met Logaritmes</a>:</p>
+<div class="arithmatex">\[\Large{x = 10^{\frac{3}{4}}}\]</div>
+<p>En omdat we weten dat we deze <span class="arithmatex">\(4\)</span> in de noemer van de exponent kunnen schrijven als een vierdemachtswortel (zie regel 7 van <a href="#regels-met-wortels">Regels met Wortels</a>), wordt ons eindantwoord:</p>
+<div class="arithmatex">\[\Large{x = \sqrt[4]{10^3}}\]</div>
+<p>En dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\Large{x = \sqrt[4]{1000}}\]</div>
+</div>
+<details class="note"><summary>Andere uitwerking</summary><p>Als we willen kunnen we ook eerst het logaritme wegwerken en daarna pas rekening houden met de vierdemacht:</p>
+<div class="arithmatex">\[\Large{10^{\log{(x^4)}} = 10^3}\]</div>
+<div class="arithmatex">\[\Large{x^4 = 1000}\]</div>
+<div class="arithmatex">\[\Large{\sqrt[4]{x^4} = \sqrt[4]{1000}}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\Large{x = \sqrt[4]{1000}}\]</div>
+</div>
+</details>
+</details>
+<details class="example"><summary>Voorbeeld 3: <span class="arithmatex">\(^2 \! \log{(4x)} = - ^2 \! \log{(3x)} + 6\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken x: <span class="arithmatex">\(^2 \! \log{(4x)} = - ^2 \! \log{(3x)} + 6\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We willen eerst alle termen met <span class="arithmatex">\(x\)</span> aan de linkerkant hebben. Dit doen we door aan beide kanten van het '<span class="arithmatex">\(=\)</span>' teken <span class="arithmatex">\(+ ^2 \! \log{(3x)}\)</span> te doen, zodat het rechts weg valt:</p>
+<div class="arithmatex">\[\Large{^2 \! \log{(4x)} + ^2 \! \log{(3x)} = 6}\]</div>
+<p>Nu kunnen we dit met behulp van regel 3 van de <a href="#regels-met-logaritmes">Regels met Logaritmes</a> samenvoegen tot <span class="arithmatex">\(1\)</span> logaritme:</p>
+<div class="arithmatex">\[\Large{^2 \! \log{(4x * 3x)} = 6}\]</div>
+<div class="arithmatex">\[\Large{^2 \! \log{(12x^2)} = 6}\]</div>
+<p>Nu kunnen we weer het logaritme weg werken door aan beide kanten <span class="arithmatex">\(2\)</span> tot de macht te doen:</p>
+<div class="arithmatex">\[\Large{2^{^2 \log{(12x^2)}} = 6^2}\]</div>
+<div class="arithmatex">\[\Large{12x^2 = 36,}\]</div>
+<p>(zie eventueel <a href="#regels-met-logaritmes">regel 1</a>). We delen beide kanten door <span class="arithmatex">\(12\)</span> om alleen <span class="arithmatex">\(x^2\)</span> over te houden:</p>
+<div class="arithmatex">\[\Large{x^2 = 3}\]</div>
+<p>En nu nemen we aan beide kanten een wortel om over te houden (zie eventueel <a href="#regels-met-wortels">Regels met Wortels</a>):</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\Large{x = \sqrt{3}}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 4: <span class="arithmatex">\(^{25} \! \log{(4x^4)} - 2 = ^5 \! \log{(2x)}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken x: <span class="arithmatex">\(^{25} \! \log{(4x^4)} - 2 = ^5 \! \log{(2x)}\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Net zoals bij het vorig voorbeeld willen we eerst alle termen met <span class="arithmatex">\(x\)</span> aan de linkerkant hebben en alle getallen aan de rechterkant:</p>
+<div class="arithmatex">\[\Large{^{25} \! \log{(4x^4)} - ^5 \! \log{(2x)} = 2}\]</div>
+<p>We kunnen nu alleen niet meteen onze logaritmes combineren, want ze hebben andere grondgetallen. Dit betekent dat we van een van de twee logaritmes het grondgetal moeten veranderen met behulp van regel 5 van de <a href="#regels-met-logaritmes">Regels met Logaritmes</a>. </p>
+<div class="arithmatex">\[\Large{\frac{^{5} \! \log{(4x^4)}}{^5 \! \log{(25)}} - ^5 \! \log{(2x)} = 2}\]</div>
+<p>In dit geval veranderen we de <span class="arithmatex">\(^{25} \! \log\)</span> naar een <span class="arithmatex">\(^{5} \! \log\)</span>, maar andersom kan ook. Nu werken we de <span class="arithmatex">\(5 \! \log{(25)}\)</span> uit:</p>
+<div class="arithmatex">\[\Large{\frac{^{5} \! \log{(4x^4)}}{2} - ^5 \! \log{(2x)} = 2}\]</div>
+<p>En dit kunnen we weer schrijven als:</p>
+<div class="arithmatex">\[\Large{\frac{1}{2} * ^{5} \! \log{(4x^4)} - ^5 \! \log{(2x)} = 2}\]</div>
+<p>Met behulp van regel 2 van de <a href="#regels-met-logaritmes">Regels met Logaritmes</a> kunnen we de <span class="arithmatex">\(\frac{1}{2}\)</span> in de logaritme halen:</p>
+<div class="arithmatex">\[\Large{ ^{5} \! \log{\left(\left(4x^4\right)^{\frac{1}{2}}\right)} - ^5 \! \log{(2x)} = 2}\]</div>
+<p>oftewel:</p>
+<div class="arithmatex">\[\Large{ ^{5} \! \log{\left(\sqrt{4x^4}\right)} - ^5 \! \log{(2x)} = 2}\]</div>
+<div class="arithmatex">\[\Large{ ^{5} \! \log{\left(2x^2\right)} - ^5 \! \log{(2x)} = 2}\]</div>
+<p>Nu kunnen we met regel 4 van de <a href="#regels-met-logaritmes">Regels met Logaritmes</a> dit combineren tot <span class="arithmatex">\(1\)</span> logaritme:</p>
+<div class="arithmatex">\[\Large{ ^{5} \! \log{\left(\frac{2x^2}{2x}\right)} = 2}\]</div>
+<div class="arithmatex">\[\Large{ ^{5} \! \log{\left(x\right)} = 2}\]</div>
+<p>Nu doen we aan beide kanten <span class="arithmatex">\(5\)</span> tot de macht om van het logaritme af te komen:</p>
+<div class="arithmatex">\[\Large{5^{^{5} \log{(x)}} = 5^2}\]</div>
+<p>En dus met <a href="#regels-met-logaritmes">regel 1</a>:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\Large{x = 25}\]</div>
+</div>
 </details>
 
 
@@ -1078,7 +1267,7 @@ En weer is dit vergelijkbaar aan de vorige twee regels:</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "search.suggest"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
     
     
       <script src="../assets/javascripts/bundle.6c14ae12.min.js"></script>
