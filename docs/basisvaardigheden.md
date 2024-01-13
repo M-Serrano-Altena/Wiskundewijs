@@ -311,6 +311,8 @@ Voor wortels gelden dus precies dezelfde regels als voor machten, wat logisch is
 
     6. $$\large{\sqrt{a^2} = a}$$
 
+    7. $$\large{\sqrt[m]{a^n} = a^{\frac{n}{m}}}$$
+
 ??? note "Opmerking Regel 6"
     Bij de regel 6 staat er dat
 
@@ -347,23 +349,164 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 </figure>
 
 ??? note "Opmerking Notatie"
+    ### Opmerking Notatie
     De afspraak is dat als er geen grondgetal staat bij de logaritme, dat we er dan vanuit gaan dat het een $^{10} \! \log$ is, dus een logaritme met een grondgetal 10.
 
 ???+ Belangrijk
     ### Regels met Logaritmes
-    $$\large{^a \! \log{(a^n)} = n = \Large{a^{^a \! \log{(n)}}}}$$
 
-    $$\large{^a \! \log{(b^n)} = n \ ^a \! \log{(b)}}$$
+    1. $$\large{^a \! \log{(a^n)} = n = \Large{a^{^a \! \log{(n)}}}}$$
 
-    $$\large{^a \! \log{(b*c)} =  ^a \! \log{(b)} + ^a \! \log{(c)}}$$
+    2. $$\large{^a \! \log{(b^n)} = n \ ^a \! \log{(b)}}$$
 
-    $$\large{^a \! \log{(\frac{b}{c})} =  ^a \! \log{(b)} - ^a \! \log{(c)}}$$
+    3. $$\large{^a \! \log{(b*c)} =  ^a \! \log{(b)} + ^a \! \log{(c)}}$$
 
-    $$\large{^a \! \log{(b)} = \frac{^c \! \log{(b)}}{^c \! \log{(a)}}}$$
+    4. $$\large{^a \! \log{(\frac{b}{c})} =  ^a \! \log{(b)} - ^a \! \log{(c)}}$$
+
+    5. $$\large{^a \! \log{(b)} = \frac{^c \! \log{(b)}}{^c \! \log{(a)}}}$$
 
 ??? note "Opmerking $\ln$"
+    ### Opmerking ln
     Voor een logaritme met een speciaal grondgetal hebben we een aparte notatie. Namelijk voor het grondgetal $e$, het getal van euler.
 
     $$\large{^e \log \equiv \ln}$$
 
     Dus in plaats van een logaritme met een grondgetal $e$ schrijven we $\ln$, wat staat voor "natuurlijke logaritme". Maar dit is alleen een verschil in notatie en dus zijn alle regels gewoon hetzelfde als met logaritmes die een ander grondgetal hebben.
+
+
+### Voorbeelden Logaritmes
+??? example "Voorbeeld 1: $^3 \! \log{(x)} = 2$"
+    **<p style="text-align: center;font-size:20px;">Bereken x: $^3 \! \log{(x)} = 2$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We hebben hier een logaritme met een grondgetal $3$. Dit betekent dat we aan beide kanten van het '$=$' teken 3 tot de macht kunnen doen om van ons logaritme af te komen:
+
+    $$\Large{3^{^3 \log{(x)}} = 3^2}$$
+
+    Dit mogen we doen, omdat we aan beide kanten van het '$=$' teken hetzelfde doen. Nu kunnen we dit versimpelen met behulp van regel 1 van de [Regels met Logaritmes](#regels-met-logaritmes):
+
+    $$\Large{x = 3^2}$$
+
+    En dus:
+
+    !!! quote ""
+        $$\Large{x = 9}$$
+
+
+??? example "Voorbeeld 2: $\log{(x^4)} = 3$"
+    **<p style="text-align: center;font-size:20px;">Bereken x: $\log{(x^4)} = 3$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Net zoals bij het vorig voorbeeld is ons doel uiteindelijk de logaritme wegwerken. Maar we moeten nu eerst van de vierde macht afkomen. Dit doen we met behulp van regel 2 van de [Regels met Logaritmes](#regels-met-logaritmes):
+
+
+    $$\Large{4 \log{(x)} = 3}$$
+
+    Nu delen we aan beide kanten van het '$=$' teken door $4$ om alleen de logaritme aan de linkerkant over te houden:
+
+    $$\Large{\log{(x)} = \frac{3}{4}}$$
+
+    Er staat hier geen grondgetal bij de logaritme, wat dus betekent dat het een grondgetal 10 heeft (zie [Opmerking Notatie](#opmerking-notatie)). We doen nu aan beide kanten 10 tot de macht om van ons logaritme af te komen:
+
+    $$\Large{10^{\log{(x)}} = 10^{\frac{3}{4}}}$$
+
+    En we kunnen dit weer versimpelen met regel 1 van de [Regels met Logaritmes](#regels-met-logaritmes):
+
+    $$\Large{x = 10^{\frac{3}{4}}}$$
+
+    En omdat we weten dat we deze $4$ in de noemer van de exponent kunnen schrijven als een vierdemachtswortel (zie regel 7 van [Regels met Wortels](#regels-met-wortels)), wordt ons eindantwoord:
+
+    $$\Large{x = \sqrt[4]{10^3}}$$
+
+    En dus:
+
+    !!! quote ""
+        $$\Large{x = \sqrt[4]{1000}}$$
+
+    ??? note "Andere uitwerking"
+        Als we willen kunnen we ook eerst het logaritme wegwerken en daarna pas rekening houden met de vierdemacht:
+
+        $$\Large{10^{\log{(x^4)}} = 10^3}$$
+
+        $$\Large{x^4 = 1000}$$
+
+        $$\Large{\sqrt[4]{x^4} = \sqrt[4]{1000}}$$
+
+        !!! quote ""
+            $$\Large{x = \sqrt[4]{1000}}$$
+
+
+??? example "Voorbeeld 3: $^2 \! \log{(4x)} = - ^2 \! \log{(3x)} + 6$"
+    **<p style="text-align: center;font-size:20px;">Bereken x: $^2 \! \log{(4x)} = - ^2 \! \log{(3x)} + 6$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We willen eerst alle termen met $x$ aan de linkerkant hebben. Dit doen we door aan beide kanten van het '$=$' teken $+ ^2 \! \log{(3x)}$ te doen, zodat het rechts weg valt:
+
+    $$\Large{^2 \! \log{(4x)} + ^2 \! \log{(3x)} = 6}$$
+
+    Nu kunnen we dit met behulp van regel 3 van de [Regels met Logaritmes](#regels-met-logaritmes) samenvoegen tot $1$ logaritme:
+
+    $$\Large{^2 \! \log{(4x * 3x)} = 6}$$
+
+    $$\Large{^2 \! \log{(12x^2)} = 6}$$
+
+    Nu kunnen we weer het logaritme weg werken door aan beide kanten $2$ tot de macht te doen:
+
+    $$\Large{2^{^2 \log{(12x^2)}} = 6^2}$$
+
+    $$\Large{12x^2 = 36,}$$
+
+    (zie eventueel [regel 1](#regels-met-logaritmes)). We delen beide kanten door $12$ om alleen $x^2$ over te houden:
+
+    $$\Large{x^2 = 3}$$
+
+    En nu nemen we aan beide kanten een wortel om over te houden (zie eventueel [Regels met Wortels](#regels-met-wortels)):
+
+    !!! quote ""
+        $$\Large{x = \sqrt{3}}$$
+
+
+??? example "Voorbeeld 4: $^{25} \! \log{(4x^4)} - 2 = ^5 \! \log{(2x)}$"
+    **<p style="text-align: center;font-size:20px;">Bereken x: $^{25} \! \log{(4x^4)} - 2 = ^5 \! \log{(2x)}$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Net zoals bij het vorig voorbeeld willen we eerst alle termen met $x$ aan de linkerkant hebben en alle getallen aan de rechterkant:
+
+    $$\Large{^{25} \! \log{(4x^4)} - ^5 \! \log{(2x)} = 2}$$
+
+    We kunnen nu alleen niet meteen onze logaritmes combineren, want ze hebben andere grondgetallen. Dit betekent dat we van een van de twee logaritmes het grondgetal moeten veranderen met behulp van regel 5 van de [Regels met Logaritmes](#regels-met-logaritmes). 
+    
+    $$\Large{\frac{^{5} \! \log{(4x^4)}}{^5 \! \log{(25)}} - ^5 \! \log{(2x)} = 2}$$
+
+    In dit geval veranderen we de $^{25} \! \log$ naar een $^{5} \! \log$, maar andersom kan ook. Nu werken we de $5 \! \log{(25)}$ uit:
+
+    $$\Large{\frac{^{5} \! \log{(4x^4)}}{2} - ^5 \! \log{(2x)} = 2}$$
+
+    En dit kunnen we weer schrijven als:
+
+    $$\Large{\frac{1}{2} * ^{5} \! \log{(4x^4)} - ^5 \! \log{(2x)} = 2}$$
+
+    Met behulp van regel 2 van de [Regels met Logaritmes](#regels-met-logaritmes) kunnen we de $\frac{1}{2}$ in de logaritme halen:
+
+    $$\Large{ ^{5} \! \log{\left(\left(4x^4\right)^{\frac{1}{2}}\right)} - ^5 \! \log{(2x)} = 2}$$
+
+    oftewel:
+
+    $$\Large{ ^{5} \! \log{\left(\sqrt{4x^4}\right)} - ^5 \! \log{(2x)} = 2}$$
+
+    $$\Large{ ^{5} \! \log{\left(2x^2\right)} - ^5 \! \log{(2x)} = 2}$$
+
+    Nu kunnen we met regel 4 van de [Regels met Logaritmes](#regels-met-logaritmes) dit combineren tot $1$ logaritme:
+
+    $$\Large{ ^{5} \! \log{\left(\frac{2x^2}{2x}\right)} = 2}$$
+
+    $$\Large{ ^{5} \! \log{\left(x\right)} = 2}$$
+
+    Nu doen we aan beide kanten $5$ tot de macht om van het logaritme af te komen:
+
+    $$\Large{5^{^{5} \log{(x)}} = 5^2}$$
+
+    En dus met [regel 1](#regels-met-logaritmes):
+
+    !!! quote ""
+        $$\Large{x = 25}$$

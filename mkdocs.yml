@@ -1,4 +1,9 @@
 site_name: Wiskundewijs
+site_author: Marc Serrano Altena
+site_url: https://m-serrano-altena.github.io/Wiskundewijs/
+site_description: Hier worden verschillende wiskundige onderwerpen duidelijk en helder behandelt. De hoofdstukken hebben een theorie sectie waar de stof wordt uitgelegt en daarna worden wat voorbeelden behandelt om te laten zien hoe de theorie toegepast wordt in de opdrachten. 
+copyright: Copyright &copy; 2024, Marc Serrano Altena
+
 
 theme:
   name: "material"
@@ -15,8 +20,7 @@ theme:
 
   features:
     - navigation.footer
-
-copyright: Copyright &copy; 2024, Marc Serrano Altena
+    - search.suggest
 
 extra:
   social:
@@ -31,6 +35,7 @@ extra:
 
   generator: false
 
+
 nav:
   - Home: index.md
   - basisvaardigheden.md
@@ -38,9 +43,13 @@ nav:
   - De Afgeleide Functie: derivative.md
   - goniometrie.md
 
+not_in_nav:
+  contact.md
+
 
 plugins:
   - mkdocstrings
+  - search
 
 
 markdown_extensions:
@@ -63,6 +72,8 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+
+
 
 
 
