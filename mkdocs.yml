@@ -39,12 +39,14 @@ extra:
 nav:
   - Home: index.md
   - basisvaardigheden.md
-  - Stelling van Pythagoras: pythagoras.md
+  - De Stelling van Pythagoras: pythagoras.md
+  
   - De Afgeleide Functie: derivative.md
   - goniometrie.md
 
 not_in_nav:
   contact.md
+  kwadratische_vergelijkingen.md
 
 
 plugins:

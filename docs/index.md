@@ -13,5 +13,6 @@ En ben je geïnteresseerd in een-op-een bijles? Klik dan op de **contact** knop!
 ## Hoofdstukken
 1. [Basisvaardigheden](basisvaardigheden.md)
 2. [De Stelling van Pythagoras](pythagoras.md)
-3. [De Afgeleide Functie](derivative.md)
-4. [Goniometrie](goniometrie.md)
+3. [Kwadratische Vergelijkingen](kwadratische_vergelijkingen.md)
+4. [De Afgeleide Functie](derivative.md)
+5. [Goniometrie](goniometrie.md)

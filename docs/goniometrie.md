@@ -45,17 +45,206 @@ Dit kan je onthouden met het ezelsbruggetje: "SOS CAS TOA"
     </figure>
 
 ## De Sinus en Cosinus functies
-Zowel de sinus als de cosinus functie, zijn periodieke functies. Dit betekent dat de functie zich herhaalt over een bepaalt interval. In dit geval is dat over een domein van $2 \pi$. We zeggen dan dat de functie en periode heeft van $2 \pi$. 
+Zowel de sinus als de cosinus functie, zijn periodieke functies. Dit betekent dat de functie zich herhaalt over een bepaalt interval. In dit geval is dat over een domein van $2 \pi$. We zeggen dan dat de functie en periode heeft van $2 \pi$ (zie ook Figuur 2 en Figuur 3). 
+
+In formule form houdt dit in dat:
+
+???+ Belangrijk
+    $$\large{\sin{(x + 2 \pi)} = \sin{(x)}}$$
+
+    $$\large{\cos{(x + 2 \pi)} = \cos{(x)}}$$
+
 
 <figure markdown>
-  ![Rechte driehoek](assets/Sinus.svg){ width="450"}
+  ![Sinus functie](assets/Sinus.svg){ width="450"}
   <figcaption>Figuur 2. De sinus functie over een domein van [0, 6π].</figcaption>
 </figure>
 
 <figure markdown>
-  ![Rechte driehoek](assets/Cosinus.svg){ width="450"}
+  ![Cosinus functie](assets/Cosinus.svg){ width="450"}
   <figcaption>Figuur 3. De cosinus functie over een domein van [0, 6π].</figcaption>
 </figure>
+
+Het feit dat deze functies periodiek zijn, is een belangrijk punt als we vergelijkingen moeten oplossen. Laten we naar de volgende vraag kijken:
+
+**<p style="text-align: center;font-size:20px;">Bereken x: $\cos{(x)} = 1$</p>**
+
+We kunnen in Figuur 3 (of op de [eenheidscirkel](#de-eenheidscirkel)) aflezen dat dit geldt voor $x = 0$. Maar omdat de functie zich herhaalt, geldt dit ook voor $x = 2 \pi, \ x = 4 \pi, \ x = 6 \pi$, etc.. Om met al deze oplossingen rekening te houden, schrijven we:
+
+$$\cos{(x)} = \cos{(0)},$$
+
+want $\cos{(0)} = 1$. Om dus met alle oplossing reking te houden, schrijven dit dus als:
+
+$$x = k * 2 \pi,$$
+
+waarbij er geldt dat:
+
+$$k = 0, 1, 2, 3, ...$$
+
+Laten we naar nog een vraag kijken:
+
+**<p style="text-align: center;font-size:20px;">Bereken x: $\sin{(x)} = 0$</p>**
+
+We zien nu in Figuur 2 dat dit geldt voor $x = 0, \ x = \pi, \ x = 2 \pi, \ x = 3 \pi$, etc.. We beginnen weer met het schrijven van het getal als een sinus. Dit wordt dan:
+
+$$\sin{(x)} = \sin{(0)}$$
+
+En we hebben dus net gezien dat we er geldt dat:
+
+$$x = k * \pi.$$
+
+Bij de vorige twee voorbeelden hebben we gewoon afgelezen hoe vaak het geldt, maar kunnen we ook een algemene oplossing verzinnen die altijd geldt? Het antwoord is ja! 
+
+???+ Belangrijk
+    ### Uitwerken sin/cos vergelijkingen
+
+    Met een sinus:
+
+    $$\large{\sin{(x)} = \sin{(a)}}$$
+
+    geeft:
+
+    $$\large{x = a + k * 2 \pi \ \vee \ x = \pi - a + k * 2 \pi}$$
+
+    en met een cosinus:
+
+    $$\large{\cos{(x)} = \cos{(a)}}$$
+
+    geeft:
+
+    $$\large{x = a + k * 2 \pi \ \vee \  x = - a + k * 2 \pi}$$
+
+    waarbij er geldt dat:
+
+    $$\large{k = 0, 1, 2, 3, ...}$$
+
+In de $\cos$ en $\sin$ functies zit een bepaalde symmetrie. De sinus functie heeft een symmetrie punt op de oorsprong, terwijl de cosinus functie een symmetrie as heeft bij de $y$-as. Deze symmetrie is op de volgende manier weer te geven in formule form:
+
+???+ Belangrijk
+    ### Symmetrieformules
+    
+    1. $$\large{\sin{(-x)} = - \sin{(x)}}$$
+
+    2. $$\large{\cos{(x)} = \cos{(-x)}}$$
+
+    3. $$\large{\cos{(\pi - x)} = \cos{(-x)}}$$
+
+    4. $$\large{\sin{(\pi - x)} = \sin{(x)}}$$
+
+De cosinus functie is eigenlijk hetzelfde als de sinus functie, alleen is het $\frac{1}{2} \pi$ opgeschoven naar rechts. In formule form wordt dit dan:
+
+???+ Belangrijk
+    ### Sinus en Cosinus omschrijven
+
+    1. $$\large{\sin{(x)} = \cos{(x - \frac{1}{2} \pi)}}$$
+
+    2. $$\large{\cos{(x)} = \sin{(x + \frac{1}{2} \pi)}}$$
+
+    Als je niet wilt onthouden bij welke functie je $+ \frac{1}{2} \pi$ doet, en bij welke je $- \frac{1}{2} \pi$, kan je het ook op de volgende manier omschrijven:
+
+    ??? note "Andere omschrijving"
+        1. $$\large{\sin{(x)} = \cos{(\frac{1}{2} \pi - x)}}$$
+
+        2. $$\large{\cos{(x)} = \sin{(\frac{1}{2} \pi - x)}}$$
+
+        En dit verband werkt ook altijd.
+
+        ??? abstract "Bewijs"
+            Dit kunnen we zelf bewijzen met behulp van de [Symmetrieformules](#symmetrieformules). 
+            
+            Laten we eerst kijken om van $\sin$ naar $\cos$ te gaan. Als we [regel 2](#symmetrieformules) gebruiken zien we het eigenlijk al meteen:
+
+            $$\large{\cos{(x - \frac{1}{2} \pi)} = \cos{(-(x - \frac{1}{2} \pi))} = \cos{(\frac{1}{2} \pi - x)}}$$
+
+            Nu kijken we om van $\cos$ naar $\sin$ te gaan. Hiervoor gebruiken we [regel 4](#symmetrieformules):
+
+            $$\large{\sin{(x + \frac{1}{2} \pi)} = \sin{(\pi - (x + \frac{1}{2} \pi))} = }$$
+
+            $$\large{\sin{(\pi - \frac{1}{2} \pi - x)} = \sin{(\frac{1}{2} \pi - x)}}$$
+
+### Voorbeelden
+??? example "Voorbeeld 1: $\cos{(2x)} = 0$"
+    **<p style="text-align: center;font-size:20px;">Bereken x: $\cos{(2x)} = 0$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We lossen dit op door eerst van de $0$ een $\cos$ te maken. In dit geval kunnen we in Figuur 3 of met de [Eenheidscirkel](#de-eenheidscirkel) zien dat dit geldt bij $\cos{(\frac{1}{2} \pi)}$.
+
+    We kunnen dus zeggen dat:
+
+    $$\large{\cos{(2x)} = \cos{(\frac{1}{2} \pi)}}$$
+
+    En dus kunnen we zeggen dat (zie [uitwerken sin/cos](#uitwerken-sincos-vergelijkingen)):
+
+    $$\large{2x = \frac{1}{2} \pi + k * 2 \pi \ \vee \ 2x = - \frac{1}{2} \pi + k *2 \pi}$$
+
+    En nu delen we alles door $2$ om te vinden dat:
+
+    !!! quote ""
+        $$\large{x = \frac{1}{4} \pi + k * \pi \ \vee \ x = - \frac{1}{4} \pi + k * \pi}$$
+
+
+??? example "Voorbeeld 2: $\sin{(3x)} = \cos{(-x)}$"
+    **<p style="text-align: center;font-size:20px;">Bereken x: $\sin{(3x)} = \cos{(-x)}$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Als eerst beginnen we met het realiseren dat we dit ook kunnen schrijven als:
+
+    $$\large{\sin{(3x)} = \cos{(x)},}$$
+
+    zie de [Symmetrieformules](#symmetrieformules). Nu moeten we de $\cos$ omschrijven naar een $\sin$ (of andersom). Dit doen we met [deze](#sinus-en-cosinus-omschrijven) regel:
+
+    $$\large{\sin{(3x)} = \sin{(x + \frac{1}{2} \pi)}.}$$
+
+    Nu kunnen we dit uitwerken (zie [uitwerken sin/cos](#uitwerken-sincos-vergelijkingen)):
+
+    $$\large{3x = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ 3x = \pi - (x + \frac{1}{2} \pi + k * 2 \pi)}$$
+
+    $$\large{3x = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ 3x = \frac{1}{2} \pi - x + k * 2 \pi}$$
+
+    Nu doen we alle termen met $x$ naar de linkerkant:
+
+    $$\large{2x = \frac{1}{2} \pi + k * 2 \pi \ \vee \ 4x = \frac{1}{2} \pi + k * 2 \pi}$$
+
+    Nu delen we alles door $2$ en $4$ respectievelijk om te vinden:
+    
+    !!! quote ""
+        $$\large{x = \frac{1}{4} \pi + k * \pi \ \vee \ x = \frac{1}{8} \pi + k * \frac{1}{2} \pi}$$
+
+
+??? example "Voorbeeld 3: $\cos{(3x + \pi)} = \cos{(x + \frac{1}{2} \pi)}$ op het interval $[0, \ 2 \pi]$"
+    **<p style="text-align: center;font-size:20px;">Bereken x: $\cos{(3x + \pi)} = \cos{(x + \frac{1}{2} \pi)}$ op het interval $[0, \ 2 \pi]$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We hebben hier aan beide kanten al iets met $\cos$ staan, dus we kunnen dit meteen gaan uitwerken:
+
+    $$\large{3x + \pi = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ 3x + \pi = - (x + \frac{1}{2} \pi) + k * 2 \pi}$$
+
+    $$\large{3x + \pi = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ 3x + \pi = - x - \frac{1}{2} \pi + k * 2 \pi}$$
+
+    Nu alle termen met $x$ naar de linkerkant en alle getallen rechts:
+
+    $$\large{2x = - \frac{1}{2} \pi + k * 2 \pi \ \vee \ 4x = - 1 \frac{1}{2} \pi + k * 2 \pi}$$
+
+    En nu alles gedeelt door $2$ en $4$ respectievelijk:
+
+    $$\large{x = - \frac{1}{4} \pi + k * \pi \ \vee \ x = - \frac{3}{8} \pi + k * \frac{1}{2} \pi}$$
+
+    Maar let op! Nu wordt er gevraagd naar alle oplossingen op het interval $[0, \ 2 \pi]$. Dit betekent dat we alle verschillende waardes voor $k$ moeten invullen totdat we alle verschillende waardes tussen $0$ en $2 \pi$ gehad hebben.
+
+    |  | Linker vergelijking | Rechter vergelijking |    
+    | - | - | - |    
+    | $\large{k = 0}$ | $\large{x = - \frac{1}{4} \pi}$ | $\large{x = - \frac{3}{8} \pi}$ |    
+    | $\large{k = 1}$ | $\large{x = \frac{3}{4} \pi}$ | $\large{x = \frac{1}{8} \pi}$ |
+    | $\large{k = 2}$ | $\large{x = 1 \frac{3}{4} \pi}$ | $\large{x = \frac{5}{8} \pi}$ |
+    | $\large{k = 3}$ | $\large{x = 2 \frac{3}{4} \pi}$ | $\large{x = 1 \frac{1}{8} \pi}$ |
+    | $\large{k = 4}$ | $\large{x = 3 \frac{3}{4} \pi}$ | $\large{x = 1 \frac{5}{8} \pi}$  |
+    | $\large{k = 5}$ | $\large{x = 4 \frac{3}{4} \pi}$ | $\large{x = 2 \frac{1}{8} \pi}$ |
+
+    Uit deze waardes noteren we alle waardes voor $x$ die op het interval liggen. Dat zijn de waardes bij $k = 1$ en $k = 2$ bij de linker vergelijking en de waardes bij $k = 1,2,3,4$ bij de rechter vergelijking. Ons eindantwoord wordt dan:
+
+    !!! quote ""
+        $\Large{x = \frac{1}{8} \pi \ \vee \ x = \frac{5}{8} \pi \ \vee \ x = \frac{3}{4} \pi \ \vee \ x = 1 \frac{1}{8} \pi \ \vee \ x = 1 \frac{5}{8} \pi \ \vee \ x = 1 \frac{3}{4} \pi}$
+
 
 ## De Eenheidscirkel
 De eenheidscirkel is een manier om de verschillende waardes van $\sin$ en $\cos$ te bepalen bij verschillende hoeken. De eenheidscirkel is een cirkel met een straal van $1$, vandaar dat het de eenheidscirkel wordt genoemt. In het onderstaande filmpje wordt de eenheidscirkel geschetst en wordt er kort een trucje vertelt hoe je de waardes kan achterhalen van $\sin$ en $\cos$ bij verschillende hoeken door alleen maar $3$ hoeken en $3$ bijbehorende waardes te onthouden.
@@ -70,7 +259,7 @@ De eenheidscirkel is een manier om de verschillende waardes van $\sin$ en $\cos$
 Laten we eerst kijken hoe we de eenheidscirkel kunnen gebruiken.
 
 <figure markdown>
-  ![Rechte driehoek](assets/Unit_Circle.svg){ width="1000"}
+  ![Eenheidscirkel](assets/Unit_Circle.svg){ width="1000"}
   <figcaption>Figuur 4. Eenheidscirkel uit het filmpje. De hoeken zijn in het groen weergegeven, de sinus waardes zijn de y-coördinaten bij elke hoek, de cosinus waardes de x-coördinaten bij elke hoek.</figcaption>
 </figure>
 
@@ -78,11 +267,11 @@ Stel dus dat we bijvoorbeeld er achter willen komen wat $\sin{(\frac{1}{3} \pi)}
 
 $$\large{\sin{(\frac{1}{3} \pi)} = \frac{1}{2} \sqrt{3}}.$$
 
-???+ note "Opmerking: $x$-coördinaat hoort bij cosinus, $y$-coördinaat hoort bij sinus."
+??? note "Opmerking: $x$-coördinaat hoort bij cosinus, $y$-coördinaat hoort bij sinus."
     Hiervoor wordt er gezegd dat het $x$-coördinaat bij de cosinus hoort en dat het $y$-coördinaat bij de sinus hoort. Maar hoezo is dit het geval? Dat wordt hieronder laten zien. 
 
     <figure markdown>
-      ![Rechte driehoek](assets/Unit_Circle_triangle.svg){ width="300"}
+      ![Eenheidscirkel met driehoek](assets/Unit_Circle_triangle.svg){ width="300"}
       <figcaption>Figuur 5. Eenheidscirkel met daarin een driehoek getekent met een bepaalde hoek θ.</figcaption>
     </figure>
 
@@ -113,6 +302,8 @@ $$\large{\sin{(\frac{1}{3} \pi)} = \frac{1}{2} \sqrt{3}}.$$
 
 
 Maar we hebben niet altijd de eenheidscirkel bij de hand en is het dus handig om de eenheidscirkel te onthouden. Om niet alles te hoeven onthouden, kan het volgende trucje handig zijn.
+
+
 ### Trucje om de Eenheidscirkel te Onthouden
 We onthouden de volgende waardes en hoeken en de volgorde van klein naar groot:
 
@@ -180,9 +371,9 @@ Dit zijn goniometrische vergelijkingen die iets ingewikkelder zijn, maar vaak ge
     | $\Large{\cos{(2 \theta)} = \cos^2{(\theta)} - \sin^2{(\theta)}}$                            |
     | $\Large{\cos{(2 \theta)} = 1 - 2 \sin^2{(\theta)}}$                                         |
     | $\Large{\sin{(\theta + \phi)} = \sin{(\theta)} \cos{(\phi)} + \cos{(\theta)} \sin{(\phi)}}$ |
-    | $\Large{\sin{(\theta + \phi)} = \sin{(\theta)} \cos{(\phi)} - \cos{(\theta)} \sin{(\phi)}}$ |
+    | $\Large{\sin{(\theta - \phi)} = \sin{(\theta)} \cos{(\phi)} - \cos{(\theta)} \sin{(\phi)}}$ |
     | $\Large{\cos{(\theta + \phi)} = \cos{(\theta)} \cos{(\phi)} - \sin{(\theta)} \sin{(\phi)}}$ |
-    | $\Large{\cos{(\theta + \phi)} = \cos{(\theta)} \cos{(\phi)} + \sin{(\theta)} \sin{(\phi)}}$ |
+    | $\Large{\cos{(\theta - \phi)} = \cos{(\theta)} \cos{(\phi)} + \sin{(\theta)} \sin{(\phi)}}$ |
 
 De eerste twee vergelijkingen kunnen we bewijzen met behulp van de [Goniometrische Regels](#regels-goniometrische-functies) die we eerder hebben gezien.
 
@@ -223,3 +414,44 @@ De eerste twee vergelijkingen kunnen we bewijzen met behulp van de [Goniometrisc
     
     En omdat iets gedeelt door zichzelf altijd gelijk is aan 1, betekent dat dus dat deze vergelijking klopt en dus ook dat onze originele vergelijking klopt.
 
+
+### Voorbeelden
+
+???+ example "Voorbeeld 1: $\sin^2{(x)}  = - \cos^2{(x)} + \tan{(x)}$"
+    **<p style="text-align: center;font-size:20px;">Bereken x: $\sin^2{(x)}  = - \cos^2{(x)} + \tan{(x)}$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We beginnen eerst met de $\cos^2$ naar de linkerkant te doen:
+
+    $$\large{\sin^2{(x)} + \cos^2{(x)} = \tan{(x)}}$$
+
+    We kunnen nu regel 2 toepassen van de [Regels Goniometrische Vergelijkingen](#goniometrische-vergelijkingen):
+
+    $$\large{\tan{(x)} = 1}$$
+
+    We kunnen nu gebruik maken van regel 1 van de [Regels Goniometrische Vergelijkingen](#goniometrische-vergelijkingen) om dit te schrijven als:
+
+    $$\large{\frac{\sin{(x)}}{\cos{(x)}} = 1}$$
+
+    Nu kunnen we beide kanten vermenigvuldigen met $\cos$:
+
+    $$\large{\sin{(x)} = \cos{(x)}}$$
+
+    Nu kunnen we de $\cos$ omschrijven naar een $\sin$ (zie [uitwerken sin/cos](#uitwerken-sincos-vergelijkingen)):
+
+    $$\large{\sin{(x)} = \sin{(x + \frac{1}{2} \pi)}}$$
+
+    Dit kunnen we nu uitwerken:
+
+    $$\large{x = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ x = \pi - (x + \frac{1}{2} \pi) + k * 2 \pi}$$
+
+    $$\large{x = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ x = \frac{1}{2} \pi - x + k * 2 \pi}$$
+
+    Nu halen we alle termen met x aan de linkerkant:
+
+    $$\large{0 = \frac{1}{2} \pi + k * 2 \pi \ \vee \ 2x = \frac{1}{2} \pi + k * 2 \pi}$$
+
+    Alle x termen zijn in de linker vergelijking weggevallen, dus daar hebben we niks meer aan. Met de rechter vergelijking kunnen we wel door. We delen aan beide kanten door $2$, om als eindantwoord te vinden:
+
+    !!! quote ""
+        $$\large{x = \frac{1}{4} \pi + k * \pi}$$

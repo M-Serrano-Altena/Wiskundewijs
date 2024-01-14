@@ -344,7 +344,7 @@ Ze heffen dus elkaar op.
 Net zoals een exponent heeft een logaritme een grondgetal.
 
 <figure markdown>
-  ![Rechte driehoek](assets/Logarithm.svg){ width="300"}
+  ![Vergelijking exponent en logartime](assets/Logarithm.svg){ width="300"}
   <figcaption>Figuur 1. Vergelijking exponent en logaritme. Een exponent vergroot hier het antwoord, en het logaritme doet het omgekeerde.</figcaption>
 </figure>
 
