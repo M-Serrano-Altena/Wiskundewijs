@@ -11,6 +11,8 @@ Ik ben begonnen met het schrijven van deze site, omdat het voor mij voelde alsof
 
 Daarom heb ik dit probleem geprobeerd op te lossen met deze site. Maar het kan natuurlijk zo zijn dat je het nog steeds niet helemaal begrijpt en met vragen zit. Daarom biedt ik **persoonlijk een-op-een bijles** aan, om op die manier jou nóg beter te kunnen helpen met de stof begrijpen.
 
+De bijles is **fysiek** aan huis (Regio Noord-Holland) voor **€25** per uur of **online** voor **€20** per uur.
+
 Maar waarom ben ik de **juiste keuze**?
 
 Niet alleen heb ik dankzij mijn vaardigheden momenteel een **gemiddelde van 8.6** voor mijn studie waar wiskundige kennis erg belangrijk is, maar ik heb ook **jaren ervaring als bijlesdocent**. Zelfs toen ik zelf nog op de middelbare school zat, gaf ik al wiskunde bijles aan lagerejaars leerlingen. 
