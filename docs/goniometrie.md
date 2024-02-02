@@ -417,7 +417,7 @@ De eerste twee vergelijkingen kunnen we bewijzen met behulp van de [Goniometrisc
 
 ### Voorbeelden
 
-???+ example "Voorbeeld 1: $\sin^2{(x)}  = - \cos^2{(x)} + \tan{(x)}$"
+??? example "Voorbeeld 1: $\sin^2{(x)}  = - \cos^2{(x)} + \tan{(x)}$"
     **<p style="text-align: center;font-size:20px;">Bereken x: $\sin^2{(x)}  = - \cos^2{(x)} + \tan{(x)}$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
