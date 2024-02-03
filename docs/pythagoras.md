@@ -19,7 +19,7 @@ Hieronder is er een filmpje om te laten zien waar de stelling van Pythagoras van
       <source src="../videos/Pythagoras.mp4" type="video/mp4">
     </video>
 
-    *<p style="text-align: center;">Visueel bewijs van de stelling van Pythagoras</p>*
+    *<p style="text-align: center;">Filmpje: Visueel bewijs van de stelling van Pythagoras</p>*
 
 ## Voorbeelden 
 ??? example "Voorbeeld 1"

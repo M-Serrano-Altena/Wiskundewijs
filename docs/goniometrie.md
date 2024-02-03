@@ -254,7 +254,7 @@ De eenheidscirkel is een manier om de verschillende waardes van $\sin$ en $\cos$
     <source src="../videos/UnitCircle.mp4" type="video/mp4">
     </video>
 
-    *<p style="text-align: center;">Een schets van de eenheidscirkel met de verschillende cosinus en sinus waardes bij verschillende hoeken. De x-coördinaten zijn de cosinus waardes en de y-coördinaten zijn de sinus waardes.</p>*
+    *<p style="text-align: center;">Filmpje: Een schets van de eenheidscirkel met de verschillende cosinus en sinus waardes bij verschillende hoeken. De x-coördinaten zijn de cosinus waardes en de y-coördinaten zijn de sinus waardes.</p>*
 
 Laten we eerst kijken hoe we de eenheidscirkel kunnen gebruiken.
 

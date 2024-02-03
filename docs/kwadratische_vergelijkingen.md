@@ -110,7 +110,7 @@ In het algemeen wordt dit:
 
     $$\large{(-1)^2 = -1 * -1 = 1 \neq -1.}$$
 
-    Dit is ook een positief getal, en dus ook niet gelijk aan $-1$. We kunnen dus op geen enkele manier een negatief getal krijgen uit een kwadraat. Met andere woorden, deze vergelijking heeft geen oplossing. 
+    Dit is ook een positief getal, en dus ook niet gelijk aan $-1$. We kunnen dus op geen enkele manier een negatief getal krijgen uit een kwadraat. Met andere woorden, deze vergelijking heeft geen oplossing. Dit is dus ook de reden dat een wortel van een negatief getal niet bestaat, er is namelijk geen oplossing.
 
     !!! quote ""
         **<p style="text-align: center;font-size:19px;">Geen Oplossing</p>**
@@ -118,6 +118,9 @@ In het algemeen wordt dit:
 ### Voorbeelden
 
 ??? example "Voorbeeld 1: $x^2= 1$"
+    **<p style="text-align: center;font-size:20px;">Los op: $x^2= 1$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
     We kunnen dit oplossen met de [Algemene oplossing](#algemene-oplossing). We krijgen dan:
 
     $$\large{x = \sqrt{1} \ \vee \ x = -\sqrt{1}}$$
@@ -129,6 +132,9 @@ In het algemeen wordt dit:
 
 
 ??? example "Voorbeeld 2: $5x^2 - 9 = 16$"
+    **<p style="text-align: center;font-size:20px;">Los op: $5x^2 - 9 = 16$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
     We kunnen dit voorbeeld ook oplossen met de [Algemene oplossing](#algemene-oplossing), maar we moeten het eerst in de juiste vorm schrijven. Dit doen we door eerst alle losse getallen naar de rechterkant te halen. We doen dit door aan beide kanten $+9$ te doen:
 
     $$\large{5x^2 = 25}$$
@@ -146,6 +152,9 @@ In het algemeen wordt dit:
 
 
 ??? example "Voorbeeld 3: $-4x^2 + 5 = 13$"
+    **<p style="text-align: center;font-size:20px;">Los op: $-4x^2 + 5 = 13$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
     We lossen dit weer op door het in de juiste vorm te schrijven. We doen dit door eerst aan beide kanten $-5$ te doen:
 
     $$\large{-4x^2 = 8.}$$
@@ -187,6 +196,9 @@ In het algemeen wordt dit:
 ### Voorbeelden
 
 ??? example "Voorbeeld 1: $x^2 - x = 0$"
+    **<p style="text-align: center;font-size:20px;">Los op: $x^2 - x = 0$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+    
     Om dit op te lossen passen we hetzelfde trucje toe als hierboven. We beginnen dus met het ontbinden van de $x$ die in beide termen aanwezig is:
 
     $$\large{x(x-1) = 0}$$
@@ -202,6 +214,9 @@ In het algemeen wordt dit:
 
 
 ??? example "Voorbeeld 2: $2x + x^2 = 7x^2 - 10x$"
+    **<p style="text-align: center;font-size:20px;">Los op: $2x + x^2 = 7x^2 - 10x$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
     Om dit op te lossen moeten we het eerst naar de algemene vorm brengen. We willen alle termen met $x$ en $x^2$ naar de linker kant halen. We doen dit door beide kanten $-7x^2$ te doen en beide kanten $+10x$. We krijgen dan
 
     $$\large{12x - 6x^2 = 0}$$
@@ -315,6 +330,9 @@ $$x + 8 = 0 \ \vee \ x + 3 = 0.$$
 #### Voorbeelden
 
 ??? example "Voorbeeld 1: $x^2 -2x - 8 = 0$"
+    **<p style="text-align: center;font-size:20px;">Los op: $x^2 -2x - 8 = 0$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
     We willen dit weer op lossen door te ontbinden in factoren. Dit kunnen we doen met de product-som methode. We beginnen met het maken van een tabel van alle mogelijkheden om op $-8$ te komen als product
 
     | Factor 1 | Factor 2 | Product |
@@ -347,6 +365,9 @@ $$x + 8 = 0 \ \vee \ x + 3 = 0.$$
 
     
 ??? example "Voorbeeld 2: $-5x^2 = 25x + 20$"
+    **<p style="text-align: center;font-size:20px;">Los op: $-5x^2 = 25x + 20$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
     In dit voorbeeld staat onze kwadratische vergelijking nog niet in de algemene vorm. We doen dit door eerst alle termen naar de linker kant te halen door aan beide kanten $-25x$ en $-20$ te doen:
 
     $$\large{-5x^2 - 25x - 20 = 0}$$
@@ -387,8 +408,159 @@ $$x + 8 = 0 \ \vee \ x + 3 = 0.$$
 
 
 ### De *abc* formule
-De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat. Dit gebeurt wanneer de product-som methode niet de jusite factoren geeft, of wanneer $b$ of $c$ in $x^2 + bx + c$ geen gehele getallen zijn. Maar wat is de *abc* formule en hoe gebruiken we het?
+De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat. Dit gebeurt wanneer de product-som methode niet de juiste factoren geeft, of wanneer $b$ of $c$ in $x^2 + bx + c$ geen gehele getallen zijn. Maar wat is de *abc* formule en hoe gebruiken we het?
 
 ???+ Belangrijk
-    
+    De *abc* formule gaat als volgt:
+
+    Voor een vergelijking van de vorm:
+
+    $$\large{ax^2 + bx + c = 0}$$
+
+    geldt er dat de oplossingen zijn:
+
+    $$\Large{x = \frac{-b \pm \sqrt{D}}{2a},}$$
+
+    waarbij $D$ de zogenaamde discriminant is:
+
+    $$\Large{D = b^2 - 4ac.}$$
+
+Hieronder is een filmpje om te zien waar de *abc* formule vandaan komt.
+???+ video
+    <video controls>
+      <source src="../videos/Kwadratisch.mp4" type="video/mp4">
+    </video>
+
+    *<p style="text-align: center;">Filmpje: Bewijs voor de *abc* formule</p>*
+
+
+Laten we naar een voorbeeld kijken. Stel we hebben de vergelijking:
+
+$$3x^2 + 4x - 5 = 0.$$
+
+In dit geval kunnen we eerst proberen om het op te lossen door te ontbinden in factoren. De eerste stap is om alles te delen door $3$.
+
+$$x^2 + 1 \frac{1}{3}x - 1 \frac{2}{3} = 0.$$
+
+Deze vergelijking heeft geen gehele getallen voor $b$ en $c$, dus wordt ontbinden in factoren lastig. In dat geval gebruiken we de *abc* formule. We beginnen altijd met eerst bepalen wat $a$, $b$ en $c$ zijn. In dit geval geldt er dat
+
+$$a = 1, \ b = 1 \frac{1}{3} \ \mathrm{en} \ c = -1 \frac{2}{3}$$
+
+Nu bepalen we eerst de discriminant:
+
+$$D = (1 \frac{1}{3})^2 - 4 * 1 * - 1 \frac{2}{3} = 8 \frac{4}{9}$$
+
+Met deze discriminant kunnen we nu de oplossingen bepalen:
+
+$$x = \frac{-1 \frac{1}{3} + \sqrt{8 \frac{4}{9}}}{2*1} \ \vee \ x = \frac{-1 \frac{1}{3} - \sqrt{8 \frac{4}{9}}}{2*1}$$
+
+Als we dit uitwerken vinden we 
+
+$$x = \frac{1}{3} \left(\sqrt{19} - 2 \right) \ \vee \ x = -\frac{1}{3} \left(\sqrt{19} + 2 \right)$$
+
+Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwoord:
+
+!!! quote ""
+    $$\large{x = 0.79 \ \vee \ x = -2.12}$$
+
+
+#### Voorbeelden
+
+??? example "Voorbeeld 1: $2x^2 + 48 \frac{1}{2}x + 12 = 0$"
+    **<p style="text-align: center;font-size:20px;">Los op: $2x^2 + 48 \frac{1}{2}x + 12 = 0$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We zien hier dat de $b$ al een breuk is, dus waarschijnlijk wordt het lastig om dit op te lossen door te [ontbinden in factoren](#ontbinden-in-factoren). We kiezen er dus in dit geval voor om meteen de *abc* formule toe te passen. Hier geldt er dat:
+
+    $$\large{a = 2, \ b = 48 \frac{1}{2} \ \mathrm{en} \ c = 12.}$$
+
+    We berekenen eerst de discriminant:
+
+    $$\large{D = (48 \frac{1}{2})^2 - 4 *2 *12 = 2256 \frac{1}{4}}$$
+
+    Nu kunnen we x bepalen:
+
+    $$\large{x = \frac{-48 \frac{1}{2} + \sqrt{2256 \frac{1}{4}}}{2*2} \ \vee \ x = \frac{-48 \frac{1}{2} - \sqrt{2256 \frac{1}{4}}}{2*2}}$$
+
+    Als we dit uitwerken vinden we:
+
+    !!! quote ""
+        $$\large{x = -\frac{1}{4} \ \vee \ x = -8}$$
+
+
+    ??? note "Opmerking"
+        Ondanks dat dit een breuk in de $b$ term had, hadden we dit nog steeds kunnen op lossen met [ontbinden in factoren](#ontbinden-in-factoren). 
+
+        We beginnen met in de originele vergelijking alle termen te delen door $2$. We vinden dan:
+
+        $$\large{x^2 + 24 \frac{1}{4} + 6 = 0.}$$
+
+        In dit geval is het een kwestie van zien dat de factoren $24$ en $\frac{1}{4}$ hieraan voldoen. Het product is namelijk $6$ en de som is $24 \frac{1}{4}$. Maar als je dit niet ziet, dan is dat oké. In dat geval gebruik je gewoon de *abc* formule zoals hierboven is gedaan en kom je er ook.
+        
+        Met dit inzicht kunnen we de vergelijking schrijven als:
+
+        $$\large{(x + \frac{1}{4})(x + 8) = 0.}$$
+
+        Hieruit kunnen we de conclusie trekken dat
+
+        $$\large{x + \frac{1}{4} = 0 \ \vee \ x + 8 = 0}$$
+
+        !!! quote ""
+            $$\large{x = -\frac{1}{4} \ \vee \ x = -8}$$
+
+
+??? example "Voorbeeld 2: $x^2 + 5 \frac{19}{25} = 4\frac{4}{5}x$"
+    **<p style="text-align: center;font-size:20px;">Los op: $x^2 + 5 \frac{19}{25} = 4\frac{4}{5}x$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We willen deze vergelijking schrijven in de standaard vorm, dus we willen alle termen naar de linker kant halen. Dit doen we door beide kanten $-4 \frac{4}{5}$ te doen. We krijgen dan:
+
+    $x^2 - 4\frac{4}{5}x + 5 \frac{19}{25} = 0.$
+
+    In dit geval is het lastig te zien in welke factoren we dit kunnen ontbinden. Daarom gaan we over op de *abc* formule. We hebben:
+
+    $$\large{a = 1, \ b = - 4\frac{4}{5} \ \mathrm{en} \ c = 5 \frac{19}{25}.}$$
+
+    Onze discriminant wordt:
+
+    $$\large{D = (- 4\frac{4}{5})^2 - 4 * 1 * 5 \frac{19}{25} = 0}$$
+
+    Onze discriminant is dus $0$. De oplossing voor x wordt:
+
+    $$\large{x = \frac{- -4\frac{4}{5} \pm \sqrt{0}}{2}}$$
+
+    Omdat in dit geval plus of min $0$ precies hetzelfde antwoord geeft, hebben we nu maar $1$ oplossing:
+
+    !!! quote ""
+        $$\large{x = 2 \frac{2}{5}}$$
+
+
+??? example "Voorbeeld 3: $-2x^2 + x + 9 =  3x + 11$"
+    **<p style="text-align: center;font-size:20px;">Los op: $-2x^2 + x + 9 =  3x + 11$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We beginnen hier weer met de vergelijking schrijven in de algemene vorm. We halen alles naar de linker kant door beide kanten $-3x$ en $-10$ te doen:
+
+    $$\large{-2x^2 + -2x + -2 = 0}$$
+
+    We delen nu alle termen door $-2$ om over te houden:
+
+    $$\large{x^2 + x + 1 = 0.}$$
+
+    Deze vergelijking lijkt makkelijk om te [ontbinden in factoren](#ontbinden-in-factoren), maar dit blijkt erg lastig (probeer zelf maar). We gebruiken daarom de *abc* formule. We hebben:
+
+    $$\large{a = 1, \ b = 1 \ \mathrm{en} \ c = 1}$$
+
+    We berekenen eerst de discriminant:
+
+    $$\large{D = 1^2 - 4 * 1 * 1 = -3}$$
+
+    De discriminant is in dit geval dus negatief, namelijk $-3$. Als we dit proberen in te vullen, gebeurt er iets interessants
+
+    $$\large{x = \frac{-1 \pm \sqrt{-3}}{2}.}$$
+
+    Zoals we hier kunnen zien, krijgen we hier een wortel van een negatief getal omdat de discriminant negatief is. En we weten dat een wortel van een negatief getal niet bestaat (zie eventueel de [opmerking](#opmerkingen) over een negatief getal). Met andere woorden, deze vergelijking heeft geen oplossing.
+
+    !!! quote ""
+        **<p style="text-align: center;font-size:19px;">Geen Oplossing</p>**
 

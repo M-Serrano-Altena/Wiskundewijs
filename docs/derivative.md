@@ -24,7 +24,7 @@ $$f'(x) = 0.$$
     <source src="../videos/Parabola.mp4" type="video/mp4">
     </video>
 
-    *<p style="text-align: center;">Visuele weergave van de afgeleide van de functie $f(x) = x^2$. Bij de top geldt dat de helling gelijk is aan 0. </p>*
+    *<p style="text-align: center;">Filmpje: Visuele weergave van de afgeleide van de functie $f(x) = x^2$. Bij de top geldt dat de helling gelijk is aan 0. </p>*
 
 ### Exponentiële funtie 
 Een exponentiële functie heeft de vorm
@@ -44,7 +44,7 @@ De afgeleide is dus hetzelfde als de functie zelf. Dit fenomeen is te zien in he
     <source src="../videos/Exponential.mp4" type="video/mp4">
     </video>
 
-    *<p style="text-align: center;">Visuele weergave van de afgeleide van de functie $f(x) = e^x$. Er is te zien dat op elk punt geldt dat $f(x) = f'(x)$. Dit is wat de e-macht zo bijzonder maakt. </p>*
+    *<p style="text-align: center;">Filmpje: Visuele weergave van de afgeleide van de functie $f(x) = e^x$. Er is te zien dat op elk punt geldt dat $f(x) = f'(x)$. Dit is wat de e-macht zo bijzonder maakt. </p>*
 
 ???+ Belangrijk
     ### Tabel met veel voorkomende functies
