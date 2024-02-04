@@ -20,6 +20,8 @@ theme:
 
   features:
     - navigation.footer
+    - navigation.tabs
+    - navigation.top
     - search.suggest
 
 extra:
@@ -38,14 +40,19 @@ extra:
 
 nav:
   - Home: index.md
-  - basisvaardigheden.md
-  - De Stelling van Pythagoras: pythagoras.md
-  - Kwadratische Vergelijkingen: kwadratische_vergelijkingen.md
-  - De Afgeleide Functie: derivative.md
-  - goniometrie.md
+  
+  - Stof:
+    - basisvaardigheden.md
+    - De Stelling van Pythagoras: pythagoras.md
+    - Kwadratische Vergelijkingen: kwadratische_vergelijkingen.md
+    - De Afgeleide Functie: derivative.md
+    - goniometrie.md
 
-not_in_nav:
-  contact.md
+  - contact.md
+
+
+# not_in_nav:
+#   contact.md
   
   
   

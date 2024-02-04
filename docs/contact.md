@@ -1,3 +1,10 @@
+---
+hide:
+  - navigation
+  - toc
+  - footer
+---
+
 # Contact
 **<p style="text-align: left;font-size:20px;">Welkom bij Wiskundewijs!</p>**
 

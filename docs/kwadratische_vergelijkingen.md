@@ -425,13 +425,78 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
 
     $$\Large{D = b^2 - 4ac.}$$
 
-Hieronder is een filmpje om te zien waar de *abc* formule vandaan komt.
-???+ video
-    <video controls>
-      <source src="../videos/Kwadratisch.mp4" type="video/mp4">
-    </video>
+??? abstract "Bewijs *abc* formule"
+    Hieronder is een filmpje om te zien waar de *abc* formule vandaan komt.
 
-    *<p style="text-align: center;">Filmpje: Bewijs voor de *abc* formule</p>*
+    ???+ video
+        <video controls>
+        <source src="../videos/Kwadratisch.mp4" type="video/mp4">
+        </video>
+
+        *<p style="text-align: center;">Filmpje: Bewijs voor de *abc* formule</p>*
+
+    Wat gebeurt hier? Eerst wordt er een functie geplot
+
+    $$\large{f(x) = ax^2 + bx + c.}$$
+
+    Nu wordt deze functie getransleert (verschoven) naar links zodat de top op de $y$-as ligt. Dit doen we door met het $x$ coördinaat van onze top, $-\frac{b}{2a}$, te verschuiven naar links. We doen dit door onze waarde voor $x$ te vervangen voor $x' + x_{top}$ en dus met $x' -\frac{b}{2a}$. We gebruiken hier $x'$ om aan te geven dat dit over $g(x')$ gaat en niet over $f(x)$. Deze nieuwe verschoven functie noemen we $g(x')$.  
+
+    $$\large{g(x') = a(x'-\frac{b}{2a})^2 + b(x'-\frac{b}{2a}) + c}$$
+
+    We kunnen dit uitwerken door de [kwadratische haakjes](basisvaardigheden.md#kwadratisch-haakjes-wegwerken) weg te werken.
+
+    $$\large{g(x') = a(x'^2 - \frac{b}{a}x' + \frac{b^2}{4a^2}) + bx' - \frac{b^2}{2a} + c}$$
+
+    $$\large{g(x') = ax'^2 - bx' + \frac{b^2}{4a} + bx' - \frac{b^2}{2a} + c}$$
+
+    We zien nu dat de alle termen met alleen $x'$ weg vallen. Verder kunnen we $\frac{b^2}{4a} - \frac{b^2}{2a}$ versimpelen tot $-\frac{b^2}{4a}$. We houden dan over:
+
+    $$\large{g(x') = ax'^2 - \frac{b^2}{4a} + c}$$
+
+    Nu bepalen we de snijpunten van onze nieuwe $g(x)$ functie, want dan weten we ook meteen de snijpunten van $f(x)$. Die zijn namelijk precies hetzelfde, alleen naar links verschoven met onze $x_{top}$, $-\frac{b}{2a}$. We bepalen de snijpunten met de $x$-as door te stellen dat:
+
+    $$\large{g(x') = 0,}$$
+
+    en dus
+
+    $$ax'^2 - \frac{b^2}{4a} + c = 0.$$
+
+    Merk op, we hebben hier alleen een term met $x'^2$ en een getal. Het is dus van de vorm $x^2 = c$ en we weten hoe we dit moeten [oplossen](#algemene-oplossing). We schrjven het eerst in de goeie vorm. Dit doen we door aan beide kanten $-(- \frac{b^2}{4a} + c)$ te doen:
+
+    $$\large{ax'^2 = \frac{b^2}{4a} - c}$$
+
+    Nu delen we beide kanten door $a$:
+
+    $$\large{x'^2 = \frac{b^2}{4a^2} - \frac{c}{a}}$$
+
+    De [oplossing](#algemene-oplossing) van deze vergelijking wordt dan (zie eventueel de [opmerking over notatie](#opmerkingen)):
+
+    $$\large{x' = \pm \sqrt{\frac{b^2}{4a^2} - \frac{c}{a}}}$$
+
+    We kunnen dit nog herschrijven door $\frac{1}{4a^2}$ op te splitsen zodat we twee wortels krijgen (zie eventueel de [regels met wortels](basisvaardigheden.md#regels-met-wortels))
+
+    $$\large{x' = \pm \sqrt{\frac{1}{4a^2}} * \sqrt{b^2 - 4ac}}$$
+
+    Omdat we bij de tweede term geen $\frac{1}{4a^2}$, en alleen $\frac{1}{a}$, moeten we dit compenseren door nu een extra $4a$ toe te voegen. Als we nu de nieuwe wortel oplossen, vinden we:
+
+    $$\large{x' = \pm \frac{1}{2a} * \sqrt{b^2 - 4ac}.}$$
+
+    Dit kunnen we nog herschrijven tot:
+
+    $$\large{x' = \pm \frac{\sqrt{b^2 - 4ac}}{2a}.}$$
+
+    Dit zijn dus de oplossingen voor onze functie $g(x')$. De oplossingen van $f(x)$ zijn dus precies hetzelfde, maar met het originele $x_{top}$ erbij opgeteld, omdat het dezelfde functie is als $g(x')$ maar met $x_{top}$ naar rechts verschoven. 
+
+    $$\large{x = \pm \frac{\sqrt{b^2 - 4ac}}{2a} + x_{top}}.$$
+
+    Er geldt dat $x_{top} = - \frac{b}{2a}$ en dus krijgen we:
+
+    $$\large{x = -\frac{b}{2a} \pm \frac{\sqrt{b^2 - 4ac}}{2a}}.$$
+
+    Nu is de $x_{top}$ de eerste term in plaats van de tweede term, maar dat maakt geen verschil. We hebben nu twee dezelfde noemers die we kunnen combineren tot $1$ breuk (zie eventueel de [regels met breuken](basisvaardigheden.md#regels-bij-breuken)). Als we dit doen, dan zien we dat we nu de *abc* formule zelf afgeleid!
+
+    !!! quote ""
+        $$\Large{x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}}.$$
 
 
 Laten we naar een voorbeeld kijken. Stel we hebben de vergelijking:
@@ -564,3 +629,41 @@ Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwo
     !!! quote ""
         **<p style="text-align: center;font-size:19px;">Geen Oplossing</p>**
 
+
+## Grafieken met Parabolen
+We hebben net allemaal methodes gezien om kwadratische vergelijkingen op te lossen, maar waar is dat eigenlijk nuttig voor? 
+
+Het is vooral handig om snijpuntent te berekenen. Bijvoorbeeld snijpunten met de $x$-as of snijpunten van twee grafieken met elkaar. Laten we eerst kijken naar snijpunten met de $x$-as. 
+
+### Snijpunten met de x-as
+Hieronder zien we de functie $f(x) = x^2 - 1$ en de snijpunten met de $x$-as. 
+
+<figure markdown>
+  ![Eenheidscirkel](assets/f(x) = x² - 1.svg){ width="500"}
+  <figcaption>Figuur 1. De grafiek f(x) = x² - 1 geplot met de snijpunten met de x-as.</figcaption>
+</figure>
+
+Als we het niet konden aflezen, hoe zouden we de snijpunten bepalen? Dit doen we door een vergelijking op te stellen.
+
+Als iets de $x$-as snijdt, betekent dit altijd dat er moet gelden dat $y=0$. En omdat we willen weten wat de $x$-coördinaten zijn van de functie waar $y=0$ (oftewel het met de $x$-as snijdt), moeten we stellen dat:
+
+$$f(x) = 0.$$
+
+Als we $f(x)$ nu invullen, krijgen we de volgende vergelijking:
+
+$$x^2 - 1 = 0.$$
+
+En dit kunnen we oplossen door te herkenen dat dit de vorm van [$x^2 = c$](#oplossen-vorm-x2-c) is. Als we dit oplossen vinden we:
+
+$$x^2 = 1$$
+
+$$x = -1 \ \vee \ x = 1,$$
+
+en dit is ook wat we kunnen aflezen in Figuur 1.
+
+### Snijpunten met andere grafieken
+
+<figure markdown>
+  ![Eenheidscirkel](assets/f(x) = x² - 6x - 1; g(x) = -x² + 2x + 3.svg){ width="500"}
+  <figcaption>Figuur 2. De grafieken f(x) = x² - 6x - 1 en g(x) = -x² + 2x + 3 geplot met waar de twee functies elkaar snijden.</figcaption>
+</figure>

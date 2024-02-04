@@ -1,6 +1,12 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Wiskundewijs
 
- **<p style="text-align: left;font-size:20px;">Welkom bij Wiskundewijs!</p>**
+**<p style="text-align: left;font-size:20px;">Welkom bij Wiskundewijs!</p>**
 
 Hier worden verschillende wiskundige onderwerpen voor de middelbare school **duidelijk** en **helder** behandelt. De hoofdstukken hebben een theorie sectie waar de stof wordt uitgelegt en daarna worden wat voorbeelden stap voor stap behandelt om te laten zien hoe de theorie toegepast moet worden in de opdrachten. 
 
