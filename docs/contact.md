@@ -18,7 +18,7 @@ Ik ben begonnen met het schrijven van deze site, omdat het voor mij voelde alsof
 
 Daarom heb ik dit probleem geprobeerd op te lossen met deze site. Maar het kan natuurlijk zo zijn dat je het nog steeds niet helemaal begrijpt en met vragen zit. Daarom biedt ik **persoonlijk een-op-een bijles** aan, om op die manier jou nóg beter te kunnen helpen met de stof begrijpen.
 
-De bijles is **fysiek** aan huis (Regio Noord-Holland) voor **€25** per uur of **online** voor **€20** per uur.
+De bijles is **fysiek** op locatie naar wens (in Regio Noord-Holland) of **online** voor **€25** per uur.
 
 Maar waarom ben ik de **juiste keuze**?
 
