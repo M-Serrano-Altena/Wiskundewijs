@@ -1,6 +1,6 @@
 site_name: Wiskundewijs
 site_author: Marc Serrano Altena
-site_url: https://m-serrano-altena.github.io/Wiskundewijs/
+site_url: https://wiskundewijs.com/
 site_description: Hier worden verschillende wiskundige onderwerpen duidelijk en helder behandelt. De hoofdstukken hebben een theorie sectie waar de stof wordt uitgelegt en daarna worden wat voorbeelden behandelt om te laten zien hoe de theorie toegepast wordt in de opdrachten. 
 copyright: Copyright &copy; 2024, Marc Serrano Altena
 
@@ -45,19 +45,14 @@ nav:
     - basisvaardigheden.md
     - De Stelling van Pythagoras: pythagoras.md
     - Kwadratische Vergelijkingen: kwadratische_vergelijkingen.md
-    - De Afgeleide Functie: derivative.md
+    - De Afgeleide Functie: afgeleide.md
     - goniometrie.md
 
   - contact.md
 
-
 # not_in_nav:
 #   contact.md
   
-  
-  
-
-
 plugins:
   - mkdocstrings
   - search

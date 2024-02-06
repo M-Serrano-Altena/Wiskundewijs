@@ -662,8 +662,55 @@ $$x = -1 \ \vee \ x = 1,$$
 en dit is ook wat we kunnen aflezen in Figuur 1.
 
 ### Snijpunten met andere grafieken
+We zien nu twee functies, $f(x) = x^2 -6x - 1$ en $g(x) = -x^2 + 2x + 3$ en de snijpunten tussen de twee.
 
 <figure markdown>
   ![Eenheidscirkel](assets/f(x) = x² - 6x - 1; g(x) = -x² + 2x + 3.svg){ width="500"}
   <figcaption>Figuur 2. De grafieken f(x) = x² - 6x - 1 en g(x) = -x² + 2x + 3 geplot met waar de twee functies elkaar snijden.</figcaption>
 </figure>
+
+Als we nu de snijpunten willen berekenen van de twee functies met elkaar moeten we een vergelijking opstellen. We willen weten bij welke punten de twee grafieken dezelfde waarde hebben, met andere woorden:
+
+$$f(x) = g(x).$$
+
+Nu vullen we voor beide de functie in:
+
+$$x^2 -6x - 1 = -x^2 + 2x + 3$$
+
+Dit kunnen we nu oplossen om achter de $x$-coördinaten te komen van het snijpunt. We doen dit door eerst alle termen naar de linker kant te halen. Om dit te doen, doen we aan beide kanten $+x^2$, $-2x$ en $-3$:
+
+$$2x^2 - 8x - 4 = 0.$$
+
+We kunnen nu alles delen door $2$ om te kijken of we het kunnen [ontbinden in factoren](#ontbinden-in-factoren):
+
+$$x^2 - 4x - 2.$$
+
+We kunnen dit proberen te ontbinden, maar we zien al snel dat dit niet zo makkelijk gaat.
+
+| Factor 1 | Factor 2 | Product |
+| -------- | -------- | ------- |
+| -1 | 2 | -2 |
+| 1 | -2 | -2 |
+
+| Factor 1 | Factor 2 | som |
+| -------- | -------- | --- |
+| -1 | 2 | 1 :x:|
+| 1 | -2 | -1 :x:|
+
+In dat geval gebruiken we [de *abc* formule](#de-abc-formule). We hebben:
+
+$$a = 1, \ b = -4, \ \mathrm{en} \ c = -2$$
+
+De discriminant wordt:
+
+$$D = (-4)^2 - 4 *1 * -2 = 24$$
+
+Als we dit invullen vinden we:
+
+$$x = \frac{4 + \sqrt{24}}{2} \ \vee \ x = \frac{4 - \sqrt{24}}{2}$$
+
+Dit uitwerken geeft:
+
+!!! quote ""
+    $$\large{x = 2 + \sqrt{6} \ \vee \ x = 2 - \sqrt{6}}$$
+
