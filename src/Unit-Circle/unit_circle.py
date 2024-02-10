@@ -219,5 +219,43 @@ def draw_sine(func, title):
 
     plt.clf()
 
-draw_sine(lambda x: np.sin(x), "Sinus")
-draw_sine(lambda x: np.cos(x), "Cosinus")
+# draw_sine(lambda x: np.sin(x), "Sinus")
+# draw_sine(lambda x: np.cos(x), "Cosinus")
+
+
+def draw_unit_circle():
+    fig = plt.figure()
+
+    ax = fig.add_subplot(111)
+
+    ax.set_xlabel('X-as')
+    ax.set_ylabel('Y-as')
+
+    ax.spines['bottom'].set_color('#D3D3D3')
+    ax.spines['top'].set_color('#D3D3D3')
+    ax.spines['left'].set_color('#D3D3D3')
+    ax.spines['right'].set_color('#D3D3D3')
+    ax.xaxis.label.set_color('#D3D3D3')
+    ax.yaxis.label.set_color('#D3D3D3')
+    ax.tick_params(axis='both', colors='#D3D3D3')
+    ax.set_facecolor("#FF0000")
+    
+
+    ax.set_title("De Eenheidscirkel", loc='center', color='#D3D3D3')
+
+    circ = plt.Circle((0, 0), radius=1, edgecolor='darkturquoise', facecolor='None')
+    ax.add_patch(circ)
+    ax.set_aspect('equal')
+
+    plt.xlim(-1.1,1.1)
+    plt.ylim(-1.1,1.1) 
+
+    plt.vlines(x=0, ymin=-1.1, ymax=1.1, colors='#D3D3D3')
+    plt.hlines(y=0, xmin=-1.1, xmax=1.1, colors='#D3D3D3')
+
+    for angle in [1/6 * np.pi, 1/4 * np.pi, 1/3 * np.pi, 2/3  * np.pi, 3/4 * np.pi, 5/6 * np.pi, 7/6 * np.pi, 5/4 * np.pi, 4/3 * np.pi, 5/3 * np.pi, 7/4 * np.pi, 11/6 * np.pi]:
+        plt.plot([0, np.cos(angle)], [0, np.sin(angle)], 'darkturquoise')
+
+    plt.show()
+
+draw_unit_circle()

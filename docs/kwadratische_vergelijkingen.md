@@ -630,6 +630,129 @@ Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwo
         **<p style="text-align: center;font-size:19px;">Geen Oplossing</p>**
 
 
+### Kwadraat afsplitsen
+Dit is een andere methode om kwadratische vergelijkingen op te lossen. Net zoals de *abc* formule werkt het in alle gevallen. Het duurt vaak iets langer dan de *abc* formule, maar je hoeft geen formule te onthouden. Laten we kijken hoe het werkt met behulp van een voorbeeld.
+
+Laten we kijken naar de volgende vergelijking:
+
+$$x^2 + 6x - 7 = 0.$$
+
+Bij kwadraat afsplitsen doen we het volgende. We willen het stuk $x^2 + 6x$ herschrijven naar de vorm $(x+p)^2$.
+
+In dit geval kijken we naar welke haakjes van de vorm $(x+p)^2$ we zouden moeten uitwerken om een term met $x^2 + 6x$ te krijgen. Dat is altijd voor $p = \frac{b}{2}$ met $b$ in de vorm $ax^2 + bx + c$, dus in dit geval $b=6$ (zie eventueel [Kwadratische haakjes wegwerken](basisvaardigheden.md#kwadratisch-haakjes-wegwerken)). Kijk maar:
+
+$$(x+3)^2 = \underline{x^2 + 6x} + 9.$$
+
+We krijgen dus onze $x^2 + 6x$ term door de haakjes $(x+3)^2$ uit te werken. Maar we krijgen dan ook een extra $9$ die we niet willen hebben. Om deze weg te halen moeten we nog beide kanten $-9$ doen:
+
+$$(x+3)^2 - 9 = \underline{x^2 + 6x}.$$
+
+Nu kunnen we dit in gaan vullen in de vergelijking:
+
+$$(x+3)^2 - 9 - 7 = 0.$$
+
+Het enige wat we dus hier hebben gedaan is de $x^2 + 6x$ in de vergelijking vervangen met $(x+3)^2 - 9$. Dit kunnen we verder versimpelen naar:
+
+$$(x+3)^2 - 16 = 0.$$
+
+Wat we nu kunnen doen is aan beide kanten $+16$ doen om de 16 naar de andere kant te halen:
+
+$$(x+3)^2 = 16.$$
+
+Deze vorm lijkt misschien lastig op te lossen, maar het is eigenlijk hetzelfde als de vorm $x^2 = c$, alleen hebben we nu in plaats van een $x$ een $x+3$. Maar de manier van [oplossen](#algemene-oplossing) gaat op vrijwel dezelfde manier. Onze oplossingen worden:
+
+$$x+3 = \sqrt{16} \ \vee x + 3 = -\sqrt{16}$$
+
+Dus we hebben hier hetzelfde gedaan als bij de [algemene oplossing](#algemene-oplossing), alleen hebben wij in plaats van $x$ een $x+3$. Dat is het. We kunnen de vergelijking nu versimpelen tot:
+
+$$x+3 = 4 \ \vee x + 3 = -4$$
+
+Door nu aan beide kanten $-3$ te doen vinden we onze eindoplossing:
+
+!!! quote ""
+    $$\large{x = 1 \ \vee \ x = -7}$$
+
+#### Voorbeelden
+
+??? example "Voorbeeld 1: $x^2 - 2x = 3$"
+    **<p style="text-align: center;font-size:20px;">Los op door middel van kwadraat afsplitsen: $x^2 - 2x = 3$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We willen hier weer kwadraat afsplitsen, dus moeten we eerst de term $x^2 - 2x$ opschrijven naar iets met een kwadratisch haakje. We nemen de helft van $-2$, dus $-1$, en dat wordt ons getal in de haakjes:
+
+    $$\large{(x-1)^2 = \underline{x^2 - 2x} + 1}$$
+
+    We hebben hier een $+1$ te veel en dus doen we die naar de andere kant:
+
+    $$\large{(x-1)^2 - 1 = \underline{x^2 - 2x}.}$$
+
+    We vervangen dus nu de $x^2 - 2x$ in onze originele vergelijking voor $(x-1)^2 - 1$:
+
+    $$\large{(x-1)^2 - 1 = 3}$$
+
+    We doen aan beide kanten $+1$:
+
+    $$\large{(x-1)^2 = 4}$$
+
+    We kunnen dit nu oplossen met de [algemene oplossing](#algemene-oplossing) van de vorm $x^2 = c$, waar wij nu $x-1$ hebben in plaats van alleen $x$:
+
+    $$\large{x - 1 = \sqrt{4} \ \vee \ x - 1 = -\sqrt{4}}$$
+
+    $$\large{x - 1 = 2 \ \vee \ x - 1 = -2}$$
+
+    Door beide kanten $+1$ te doen vinden we onze eindoplossing:
+
+    !!! quote ""
+        $$\large{x = 3 \ \vee \ x = -1}$$
+
+
+??? example "Voorbeeld 2: $x^2 + 3x + 1 = 0$"
+    **<p style="text-align: center;font-size:20px;">Los op door middel van kwadraat afsplitsen: $x^2 + 3x + 1 = 0$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We beginnen weer door de term $x^2 + 3x$ te vervangen door iets met haakjes. Het getal in de haakjes moet de helft van $3$ zijn en dus gebruiken we de volgende haakjes:
+
+    $$\large{(x + 1\frac{1}{2})^2 = \underline{x^2 + 3x} + 2 \frac{1}{4}}$$
+
+    We doen nu aan beide kanten $-2 \frac{1}{4}$ om te weten wat we moeten vervangen voor $x^2 + 3x$:
+
+    $$\large{(x + 1\frac{1}{2})^2 - 2 \frac{1}{4} = \underline{x^2 + 3x}}$$
+
+    Dit stoppen we in onze originele vergelijking:
+
+    $$\large{(x + 1\frac{1}{2})^2 - 2 \frac{1}{4} + 1 = 0}$$
+
+    $$\large{(x + 1\frac{1}{2})^2 - 1 \frac{1}{4} = 0}$$
+
+    We doen nu aan beide kanten $+1 \frac{1}{4}$:
+
+    $$\large{(x + 1\frac{1}{2})^2 = 1 \frac{1}{4}}$$
+
+    We lossen nu de vergelijking op met de [algemene oplossing](#algemene-oplossing) van de vorm $x^2 = c$, waar wij nu $x + 1\frac{1}{2}$ hebben in plaats van alleen $x$:
+
+    $$\large{x + 1\frac{1}{2} = \sqrt{1 \frac{1}{4}} \ \vee \ x + 1\frac{1}{2} = -\sqrt{1 \frac{1}{4}}}$$
+
+    We kunnen $1 \frac{1}{4}$ ook schrijven als $\frac{5}{4}$. Als we dit doen kunnen we onze wortel ook op de volgende manier schrijven:
+
+    $$\large{x + 1\frac{1}{2} = \sqrt{\frac{5}{4}} \ \vee \ x + 1\frac{1}{2} = -\sqrt{\frac{5}{4}}}$$
+
+    Met behulp van de [Regels met Wortels](basisvaardigheden.md#regels-met-wortels) kunnen we dit schrijven als:
+
+    $$\large{x + 1\frac{1}{2} = \frac{\sqrt{5}}{\sqrt{4}} \ \vee \ x + 1\frac{1}{2} = -\frac{\sqrt{5}}{\sqrt{4}}}$$
+
+    $$\large{x + 1\frac{1}{2} = \frac{1}{2} \sqrt{5} \ \vee \ x + 1\frac{1}{2} = -\frac{1}{2} \sqrt{5}}$$
+
+    Nu kunnen we aan beide kanten $- 1\frac{1}{2}$ doen om ons eindantwoord te vinden:
+
+    !!! quote ""
+        $$\large{x =  \frac{1}{2} \sqrt{5} - 1\frac{1}{2} \ \vee \ x = -\frac{1}{2} \sqrt{5} - 1\frac{1}{2}}$$
+    
+    (we kunnen dit namelijk niet verder exact versimpelen)
+
+
+??? example "Voorbeeld 3: $$"
+
+
 ## Grafieken met Parabolen
 We hebben net allemaal methodes gezien om kwadratische vergelijkingen op te lossen, maar waar is dat eigenlijk nuttig voor? 
 
@@ -669,7 +792,7 @@ We zien nu twee functies, $f(x) = x^2 -6x - 1$ en $g(x) = -x^2 + 2x + 3$ en de s
   <figcaption>Figuur 2. De grafieken f(x) = x² - 6x - 1 en g(x) = -x² + 2x + 3 geplot met waar de twee functies elkaar snijden.</figcaption>
 </figure>
 
-Als we nu de snijpunten willen berekenen van de twee functies met elkaar moeten we een vergelijking opstellen. We willen weten bij welke punten de twee grafieken dezelfde waarde hebben, met andere woorden:
+Nu wordt het lastig om de snijpunten af te lezen met de grafiek. We moeten dus een vergelijking opstellen om de twee snijpunten te bepalen van de twee functies met elkaar. We willen weten bij welke punten de twee grafieken dezelfde waarde hebben, dus met andere woorden, voor welke gemeenschappelijke x er geldt dat:
 
 $$f(x) = g(x).$$
 

@@ -461,3 +461,33 @@ De eerste twee vergelijkingen kunnen we bewijzen met behulp van de [Goniometrisc
 
     !!! quote ""
         $$\large{x = \frac{1}{4} \pi + k * \pi}$$
+
+
+??? example "Voorbeeld 2: $\frac{1}{2} \sin{(x)} \cos{(x)} = \frac{1}{4}$"
+    **<p style="text-align: center;font-size:20px;">Bereken x: $\frac{1}{2} \sin{(x)} \cos{(x)} = \frac{1}{4}$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We zien hier een $\sin{(x)} \cos{(x)}$ term, dus is het handig om dit te herschrijven met behulp van regel 3 van de [Goniometrische Vergelijkingen](#goniometrische-vergelijkingen). Om dit te doen, doen we beide kanten keer $4$ om de $2 \sin{(x)} \cos{(x)}$ te krijgen die we nodig hebben:
+
+    $$\large{2 \sin{(x)} \cos{(x)} = 1}$$
+
+    Nu passen we dus regel 3 van de [Goniometrische Vergelijkingen](#goniometrische-vergelijkingen) toe:
+
+    $$\large{\sin{(2x)} = 1}$$
+
+    Nu willen we aan beide kanten een $\sin$ hebben. We maken dus van de $1$ een $\sin$. Met behulp van de eenheidscirkel kunnen we zien dat $\sin{(\frac{1}{2} \pi) = 1}$ en dus dat:
+
+    $$\large{\sin{(2x)} = \sin{(\frac{1}{2} \pi)}}$$
+
+    Als we dit nu [uitwerken](#uitwerken-sincos-vergelijkingen) vinden we:
+
+    $$\large{2x = \frac{1}{2} \pi + k * 2 \pi \ \vee \ 2x = \pi - \frac{1}{2} \pi + k * 2 \pi}$$
+
+    In dit geval geldt er dat $\pi - \frac{1}{2} \pi = \frac{1}{2} \pi$ en dus zijn beide oplossingen dezelfde oplossing. We houden dus alleen over:
+
+    $$\large{2x = \frac{1}{2} \pi + k * 2 \pi}$$
+
+    Nu delen we beide kanten door $2$ om te vinden dat:
+
+    !!! quote ""
+        $$\large{x = \frac{1}{4} \pi + k * \pi}$$
