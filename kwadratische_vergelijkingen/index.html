@@ -1064,7 +1064,7 @@ We kunnen in dit geval ook <span class="arithmatex">\(-3\)</span> invullen in on
 <h2 id="oplossen-vorm-x2-bx-c-0">Oplossen vorm x² + bx + c = 0</h2>
 <p>Nu kijken we naar het oplossen van de algemene vorm</p>
 <div class="arithmatex">\[x^2 + bx+ c = 0.\]</div>
-<p>We hebben hiervoor twee methodes. De snellere methode van ontbinden in factoren en de minder snelle methode die altijd werkt: de <em>abc</em> formule. Laten we beginnen met ontbinden in factoren.</p>
+<p>We hebben hiervoor drie methodes. De snellere methode van ontbinden in factoren, de relatief eenvoudige methode die iets minder snel is, maar altijd werkt: de <em>abc</em> formule en kwadraat afsplitsen dat ook altijd werkt, maar vaak meer stappen zijn. Laten we beginnen met ontbinden in factoren.</p>
 <h3 id="ontbinden-in-factoren">Ontbinden in factoren</h3>
 <p>Zoals de naam eigenlijk al zegt, willen we de kwadratische vergelijking ontbinden in twee factoren. Stel we hebben bijvoorbeeld de volgende vergelijking:</p>
 <div class="arithmatex">\[x^2 + 3x + 2 = 0.\]</div>
@@ -1343,21 +1343,21 @@ We kunnen in dit geval ook <span class="arithmatex">\(-3\)</span> invullen in on
 <details class="video" open="open"><summary>Video</summary><p><video controls>
 <source src="../videos/Kwadratisch.mp4" type="video/mp4">
 </video></p>
-<p><em><p style="text-align: center;">Filmpje: Bewijs voor de </em>abc<em> formule</p></em></p>
+<p><em><p style="text-align: center;">Filmpje: Bewijs voor de abc formule. De stappen gaan redelijk snel, dus zie tekst hieronder voor meer uitleg over de stappen.</p></em></p>
 </details>
 <p>Wat gebeurt hier? Eerst wordt er een functie geplot</p>
 <div class="arithmatex">\[\large{f(x) = ax^2 + bx + c.}\]</div>
-<p>Nu wordt deze functie getransleert (verschoven) naar links zodat de top op de <span class="arithmatex">\(y\)</span>-as ligt. Dit doen we door met het <span class="arithmatex">\(x\)</span> coördinaat van onze top, <span class="arithmatex">\(-\frac{b}{2a}\)</span>, te verschuiven naar links. We doen dit door onze waarde voor <span class="arithmatex">\(x\)</span> te vervangen voor <span class="arithmatex">\(x' + x_{top}\)</span> en dus met <span class="arithmatex">\(x' -\frac{b}{2a}\)</span>. We gebruiken hier <span class="arithmatex">\(x'\)</span> om aan te geven dat dit over <span class="arithmatex">\(g(x')\)</span> gaat en niet over <span class="arithmatex">\(f(x)\)</span>. Deze nieuwe verschoven functie noemen we <span class="arithmatex">\(g(x')\)</span>.  </p>
+<p>Nu wordt deze functie getransleert (verschoven) naar links zodat de top op de <span class="arithmatex">\(y\)</span>-as ligt. Dit doen we door met het <span class="arithmatex">\(x\)</span> coördinaat van onze top, <span class="arithmatex">\(-\frac{b}{2a}\)</span>, te verschuiven naar links. We doen dit door onze waarde voor <span class="arithmatex">\(x\)</span> te vervangen voor <span class="arithmatex">\(x' + x_{top}\)</span> en dus met <span class="arithmatex">\(x' -\frac{b}{2a}\)</span>. We gebruiken hier <span class="arithmatex">\(x'\)</span> om aan te geven dat dit over onze nieuwe verschoven functie <span class="arithmatex">\(g(x')\)</span> gaat en niet over <span class="arithmatex">\(f(x)\)</span>.</p>
 <div class="arithmatex">\[\large{g(x') = a(x'-\frac{b}{2a})^2 + b(x'-\frac{b}{2a}) + c}\]</div>
 <p>We kunnen dit uitwerken door de <a href="../basisvaardigheden/#kwadratisch-haakjes-wegwerken">kwadratische haakjes</a> weg te werken.</p>
 <div class="arithmatex">\[\large{g(x') = a(x'^2 - \frac{b}{a}x' + \frac{b^2}{4a^2}) + bx' - \frac{b^2}{2a} + c}\]</div>
 <div class="arithmatex">\[\large{g(x') = ax'^2 - bx' + \frac{b^2}{4a} + bx' - \frac{b^2}{2a} + c}\]</div>
 <p>We zien nu dat de alle termen met alleen <span class="arithmatex">\(x'\)</span> weg vallen. Verder kunnen we <span class="arithmatex">\(\frac{b^2}{4a} - \frac{b^2}{2a}\)</span> versimpelen tot <span class="arithmatex">\(-\frac{b^2}{4a}\)</span>. We houden dan over:</p>
 <div class="arithmatex">\[\large{g(x') = ax'^2 - \frac{b^2}{4a} + c}\]</div>
-<p>Nu bepalen we de snijpunten van onze nieuwe <span class="arithmatex">\(g(x)\)</span> functie, want dan weten we ook meteen de snijpunten van <span class="arithmatex">\(f(x)\)</span>. Die zijn namelijk precies hetzelfde, alleen naar links verschoven met onze <span class="arithmatex">\(x_{top}\)</span>, <span class="arithmatex">\(-\frac{b}{2a}\)</span>. We bepalen de snijpunten met de <span class="arithmatex">\(x\)</span>-as door te stellen dat:</p>
+<p>Nu bepalen we de snijpunten van onze nieuwe <span class="arithmatex">\(g(x)\)</span> functie, want dan weten we ook meteen de snijpunten van <span class="arithmatex">\(f(x)\)</span>. Die zijn namelijk precies hetzelfde, alleen naar links verschoven met onze <span class="arithmatex">\(x_{top} = -\frac{b}{2a}\)</span>. We bepalen de snijpunten met de <span class="arithmatex">\(x\)</span>-as door te stellen dat:</p>
 <div class="arithmatex">\[\large{g(x') = 0,}\]</div>
-<p>en dus</p>
-<div class="arithmatex">\[ax'^2 - \frac{b^2}{4a} + c = 0.\]</div>
+<p>(zie eventueel <a href="#snijpunten-met-de-x-as">Snijpunten met de x-as</a>). Als we <span class="arithmatex">\(g(x')\)</span> invullen krijgen we:</p>
+<div class="arithmatex">\[\large{ax'^2 - \frac{b^2}{4a} + c = 0.}\]</div>
 <p>Merk op, we hebben hier alleen een term met <span class="arithmatex">\(x'^2\)</span> en een getal. Het is dus van de vorm <span class="arithmatex">\(x^2 = c\)</span> en we weten hoe we dit moeten <a href="#algemene-oplossing">oplossen</a>. We schrjven het eerst in de goeie vorm. Dit doen we door aan beide kanten <span class="arithmatex">\(-(- \frac{b^2}{4a} + c)\)</span> te doen:</p>
 <div class="arithmatex">\[\large{ax'^2 = \frac{b^2}{4a} - c}\]</div>
 <p>Nu delen we beide kanten door <span class="arithmatex">\(a\)</span>:</p>
@@ -1389,12 +1389,28 @@ We kunnen in dit geval ook <span class="arithmatex">\(-3\)</span> invullen in on
 <div class="arithmatex">\[D = (1 \frac{1}{3})^2 - 4 * 1 * - 1 \frac{2}{3} = 8 \frac{4}{9}\]</div>
 <p>Met deze discriminant kunnen we nu de oplossingen bepalen:</p>
 <div class="arithmatex">\[x = \frac{-1 \frac{1}{3} + \sqrt{8 \frac{4}{9}}}{2*1} \ \vee \ x = \frac{-1 \frac{1}{3} - \sqrt{8 \frac{4}{9}}}{2*1}\]</div>
-<p>Als we dit uitwerken vinden we </p>
-<div class="arithmatex">\[x = \frac{1}{3} \left(\sqrt{19} - 2 \right) \ \vee \ x = -\frac{1}{3} \left(\sqrt{19} + 2 \right)\]</div>
+<p>Als we dit uitwerken (invullen in een rekenmachine) vinden we </p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = \frac{1}{3} \left(\sqrt{19} - 2 \right) \ \vee \ x = -\frac{1}{3} \left(\sqrt{19} + 2 \right)}\]</div>
+</div>
 <p>Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwoord:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{x = 0.79 \ \vee \ x = -2.12}\]</div>
 </div>
+<details class="note"><summary>Opmerking</summary><p>We hadden hier net zo goed ook er voor kunnen kiezen om meteen te werken met de vorm:</p>
+<div class="arithmatex">\[\large{3x^2 + 4x - 5 = 0}\]</div>
+<p>Onze <span class="arithmatex">\(a\)</span>, <span class="arithmatex">\(b\)</span> en <span class="arithmatex">\(c\)</span> worden dan:</p>
+<div class="arithmatex">\[\large{a = 3, \ b = 4 \ \mathrm{en} \ c = -5}\]</div>
+<p>De discriminant wordt dan:</p>
+<div class="arithmatex">\[\large{D = (4)^2 - 4 * 3 * -5 = 76}\]</div>
+<p>Vullen we dit in, dan vinden we:</p>
+<div class="arithmatex">\[\large{x = \frac{-4 + \sqrt{76}}{2*3} \ \vee \ x = \frac{-4 - \sqrt{76}}{2*3}}\]</div>
+<p>En dit kunnen we weer versimpelen tot:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = \frac{1}{3} \left(\sqrt{19} - 2 \right) \ \vee \ x = -\frac{1}{3} \left(\sqrt{19} + 2 \right)}\]</div>
+</div>
+<p>En dit is precies hetzelfde als dat we net ook hadden gevonden.</p>
+</details>
 <h4 id="voorbeelden_3">Voorbeelden</h4>
 <details class="example"><summary>Voorbeeld 1: <span class="arithmatex">\(2x^2 + 48 \frac{1}{2}x + 12 = 0\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(2x^2 + 48 \frac{1}{2}x + 12 = 0\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
@@ -1406,25 +1422,25 @@ We kunnen in dit geval ook <span class="arithmatex">\(-3\)</span> invullen in on
 <div class="arithmatex">\[\large{x = \frac{-48 \frac{1}{2} + \sqrt{2256 \frac{1}{4}}}{2*2} \ \vee \ x = \frac{-48 \frac{1}{2} - \sqrt{2256 \frac{1}{4}}}{2*2}}\]</div>
 <p>Als we dit uitwerken vinden we:</p>
 <div class="admonition quote">
-<div class="arithmatex">\[\large{x = -\frac{1}{4} \ \vee \ x = -8}\]</div>
+<div class="arithmatex">\[\large{x = -\frac{1}{4} \ \vee \ x = -24}\]</div>
 </div>
 <details class="note"><summary>Opmerking</summary><p>Ondanks dat dit een breuk in de <span class="arithmatex">\(b\)</span> term had, hadden we dit nog steeds kunnen op lossen met <a href="#ontbinden-in-factoren">ontbinden in factoren</a>. </p>
 <p>We beginnen met in de originele vergelijking alle termen te delen door <span class="arithmatex">\(2\)</span>. We vinden dan:</p>
 <div class="arithmatex">\[\large{x^2 + 24 \frac{1}{4} + 6 = 0.}\]</div>
 <p>In dit geval is het een kwestie van zien dat de factoren <span class="arithmatex">\(24\)</span> en <span class="arithmatex">\(\frac{1}{4}\)</span> hieraan voldoen. Het product is namelijk <span class="arithmatex">\(6\)</span> en de som is <span class="arithmatex">\(24 \frac{1}{4}\)</span>. Maar als je dit niet ziet, dan is dat oké. In dat geval gebruik je gewoon de <em>abc</em> formule zoals hierboven is gedaan en kom je er ook.</p>
 <p>Met dit inzicht kunnen we de vergelijking schrijven als:</p>
-<div class="arithmatex">\[\large{(x + \frac{1}{4})(x + 8) = 0.}\]</div>
+<div class="arithmatex">\[\large{(x + \frac{1}{4})(x + 24) = 0.}\]</div>
 <p>Hieruit kunnen we de conclusie trekken dat</p>
-<div class="arithmatex">\[\large{x + \frac{1}{4} = 0 \ \vee \ x + 8 = 0}\]</div>
+<div class="arithmatex">\[\large{x + \frac{1}{4} = 0 \ \vee \ x + 24 = 0}\]</div>
 <div class="admonition quote">
-<div class="arithmatex">\[\large{x = -\frac{1}{4} \ \vee \ x = -8}\]</div>
+<div class="arithmatex">\[\large{x = -\frac{1}{4} \ \vee \ x = -24}\]</div>
 </div>
 </details>
 </details>
 <details class="example"><summary>Voorbeeld 2: <span class="arithmatex">\(x^2 + 5 \frac{19}{25} = 4\frac{4}{5}x\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(x^2 + 5 \frac{19}{25} = 4\frac{4}{5}x\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
 <p>We willen deze vergelijking schrijven in de standaard vorm, dus we willen alle termen naar de linker kant halen. Dit doen we door beide kanten <span class="arithmatex">\(-4 \frac{4}{5}\)</span> te doen. We krijgen dan:</p>
-<p><span class="arithmatex">\(x^2 - 4\frac{4}{5}x + 5 \frac{19}{25} = 0.\)</span></p>
+<div class="arithmatex">\[\large{x^2 - 4\frac{4}{5}x + 5 \frac{19}{25} = 0.}\]</div>
 <p>In dit geval is het lastig te zien in welke factoren we dit kunnen ontbinden. Daarom gaan we over op de <em>abc</em> formule. We hebben:</p>
 <div class="arithmatex">\[\large{a = 1, \ b = - 4\frac{4}{5} \ \mathrm{en} \ c = 5 \frac{19}{25}.}\]</div>
 <p>Onze discriminant wordt:</p>
@@ -1446,7 +1462,7 @@ We kunnen in dit geval ook <span class="arithmatex">\(-3\)</span> invullen in on
 <div class="arithmatex">\[\large{a = 1, \ b = 1 \ \mathrm{en} \ c = 1}\]</div>
 <p>We berekenen eerst de discriminant:</p>
 <div class="arithmatex">\[\large{D = 1^2 - 4 * 1 * 1 = -3}\]</div>
-<p>De discriminant is in dit geval dus negatief, namelijk <span class="arithmatex">\(-3\)</span>. Als we dit proberen in te vullen, gebeurt er iets interessants</p>
+<p>De discriminant is in dit geval dus negatief, namelijk <span class="arithmatex">\(-3\)</span>. Als we dit proberen in te vullen, gebeurt er iets interessants:</p>
 <div class="arithmatex">\[\large{x = \frac{-1 \pm \sqrt{-3}}{2}.}\]</div>
 <p>Zoals we hier kunnen zien, krijgen we hier een wortel van een negatief getal omdat de discriminant negatief is. En we weten dat een wortel van een negatief getal niet bestaat (zie eventueel de <a href="#opmerkingen">opmerking</a> over een negatief getal). Met andere woorden, deze vergelijking heeft geen oplossing.</p>
 <div class="admonition quote">
@@ -1458,7 +1474,7 @@ We kunnen in dit geval ook <span class="arithmatex">\(-3\)</span> invullen in on
 <p>Laten we kijken naar de volgende vergelijking:</p>
 <div class="arithmatex">\[x^2 + 6x - 7 = 0.\]</div>
 <p>Bij kwadraat afsplitsen doen we het volgende. We willen het stuk <span class="arithmatex">\(x^2 + 6x\)</span> herschrijven naar de vorm <span class="arithmatex">\((x+p)^2\)</span>.</p>
-<p>In dit geval kijken we naar welke haakjes van de vorm <span class="arithmatex">\((x+p)^2\)</span> we zouden moeten uitwerken om een term met <span class="arithmatex">\(x^2 + 6x\)</span> te krijgen. Dat is altijd voor <span class="arithmatex">\(p = \frac{b}{2}\)</span> met <span class="arithmatex">\(b\)</span> in de vorm <span class="arithmatex">\(ax^2 + bx + c\)</span>, dus in dit geval <span class="arithmatex">\(b=6\)</span> (zie eventueel <a href="../basisvaardigheden/#kwadratisch-haakjes-wegwerken">Kwadratische haakjes wegwerken</a>). Kijk maar:</p>
+<p>In dit geval kijken we naar welke haakjes van de vorm <span class="arithmatex">\((x+p)^2\)</span> we zouden moeten uitwerken om een term met <span class="arithmatex">\(x^2 + 6x\)</span> te krijgen. Dat is altijd voor <span class="arithmatex">\(p = \frac{b}{2}\)</span> met <span class="arithmatex">\(b\)</span> in de vorm <span class="arithmatex">\(ax^2 + bx + c\)</span>. In dit geval gebruiken we dus <span class="arithmatex">\(p = 3\)</span>, want onze <span class="arithmatex">\(b = 6\)</span>. Kijk maar wat er gebeurt als we het uitwerken (zie eventueel <a href="../basisvaardigheden/#kwadratisch-haakjes-wegwerken">Kwadratische haakjes wegwerken</a>):</p>
 <div class="arithmatex">\[(x+3)^2 = \underline{x^2 + 6x} + 9.\]</div>
 <p>We krijgen dus onze <span class="arithmatex">\(x^2 + 6x\)</span> term door de haakjes <span class="arithmatex">\((x+3)^2\)</span> uit te werken. Maar we krijgen dan ook een extra <span class="arithmatex">\(9\)</span> die we niet willen hebben. Om deze weg te halen moeten we nog beide kanten <span class="arithmatex">\(-9\)</span> doen:</p>
 <div class="arithmatex">\[(x+3)^2 - 9 = \underline{x^2 + 6x}.\]</div>
@@ -1470,7 +1486,7 @@ We kunnen in dit geval ook <span class="arithmatex">\(-3\)</span> invullen in on
 <div class="arithmatex">\[(x+3)^2 = 16.\]</div>
 <p>Deze vorm lijkt misschien lastig op te lossen, maar het is eigenlijk hetzelfde als de vorm <span class="arithmatex">\(x^2 = c\)</span>, alleen hebben we nu in plaats van een <span class="arithmatex">\(x\)</span> een <span class="arithmatex">\(x+3\)</span>. Maar de manier van <a href="#algemene-oplossing">oplossen</a> gaat op vrijwel dezelfde manier. Onze oplossingen worden:</p>
 <div class="arithmatex">\[x+3 = \sqrt{16} \ \vee x + 3 = -\sqrt{16}\]</div>
-<p>Dus we hebben hier hetzelfde gedaan als bij de <a href="#algemene-oplossing">algemene oplossing</a>, alleen hebben wij in plaats van <span class="arithmatex">\(x\)</span> een <span class="arithmatex">\(x+3\)</span>. Dat is het. We kunnen de vergelijking nu versimpelen tot:</p>
+<p>Dus we hebben hier hetzelfde gedaan als bij de <a href="#algemene-oplossing">algemene oplossing</a>, alleen hebben wij in plaats van <span class="arithmatex">\(x\)</span> een <span class="arithmatex">\(x+3\)</span>. We kunnen de vergelijking nu versimpelen tot:</p>
 <div class="arithmatex">\[x+3 = 4 \ \vee x + 3 = -4\]</div>
 <p>Door nu aan beide kanten <span class="arithmatex">\(-3\)</span> te doen vinden we onze eindoplossing:</p>
 <div class="admonition quote">
@@ -1519,10 +1535,117 @@ We kunnen in dit geval ook <span class="arithmatex">\(-3\)</span> invullen in on
 </div>
 <p>(we kunnen dit namelijk niet verder exact versimpelen)</p>
 </details>
-<details class="example"><summary>Voorbeeld 3: $$</summary></details>
+<details class="example"><summary>Voorbeeld 3: <span class="arithmatex">\((x + 7)^2 = 81\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\((x + 7)^2 = 81\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Het lijkt hier handig om als eerste stap de <a href="#kwadratisch-haakjes-wegwerken">haakjes weg te werken</a>, maar dit is een omweg! Je komt er dan uiteindelijk wel, maar het kan veel makkelijker, let maar op. Deze vergelijking staat al een vorm die we meteen kunnen <a href="#algemene-oplossing">oplossen</a>, namelijk de vorm <span class="arithmatex">\(x^2 = c\)</span>. We nemen aan beide kanten de wortel (rekening houdend met het feit dat we <span class="arithmatex">\(\pm\)</span> de oplossing hebben):</p>
+<div class="arithmatex">\[\large{x + 7 = \sqrt{81} \ \vee \ x + 7 = -\sqrt{81}.}\]</div>
+<div class="arithmatex">\[\large{x + 7 = 9 \ \vee \ x + 7 = -9.}\]</div>
+<p>We kunnen nu aan beide kanten <span class="arithmatex">\(-7\)</span> doen om ons eindantwoord te vinden:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 2 \ \vee \ x= -16.}\]</div>
+</div>
+<details class="note"><summary>De omweg</summary><p>Zoals net gezecht kunnen we dit ook oplossen via een omweg, door namelijk de haakjes weg te werken (zie eventueel <a href="#kwadratisch-haakjes-wegwerken">Kwadratische haakjes wegwerken</a>):</p>
+<div class="arithmatex">\[\large{(x + 7)^2 = 81}\]</div>
+<div class="arithmatex">\[\large{x^2 + 14x + 49 = 81}\]</div>
+<p>Door nu aan beide kanten <span class="arithmatex">\(-81\)</span> te doen, krijgen we:</p>
+<div class="arithmatex">\[\large{x^2 + 14x - 32 = 0}\]</div>
+<p>We kunnen kijken of we dit kunnen oplossen met <a href="#ontbinden-in-factoren">ontbinden in factoren</a>. We maken weer een tabel met alle factoren die keer elkaar <span class="arithmatex">\(-32\)</span> zijn:</p>
+<table>
+<thead>
+<tr>
+<th>Factor 1</th>
+<th>Factor 2</th>
+<th>Product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-1</td>
+<td>32</td>
+<td>-32</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-32</td>
+<td>-32</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>16</td>
+<td>-32</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-16</td>
+<td>-32</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>8</td>
+<td>-32</td>
+</tr>
+<tr>
+<td>4</td>
+<td>-8</td>
+<td>-32</td>
+</tr>
+</tbody>
+</table>
+<p>We maken nu de bijbehorende som tabel om te kijken welke factoren samen <span class="arithmatex">\(+14\)</span> zijn</p>
+<table>
+<thead>
+<tr>
+<th>Factor 1</th>
+<th>Factor 2</th>
+<th>Som</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-1</td>
+<td>32</td>
+<td>31</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-32</td>
+<td>-31</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>16</td>
+<td>14 <span class="twemoji green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7l233.4-233.3c12.5-12.5 32.8-12.5 45.3 0z"/></svg></span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>-16</td>
+<td>-14</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>8</td>
+<td>4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>-8</td>
+<td>-4</td>
+</tr>
+</tbody>
+</table>
+<p>De juiste factoren zijn dus <span class="arithmatex">\(-2\)</span> en <span class="arithmatex">\(16\)</span>. We krijgen dus:</p>
+<div class="arithmatex">\[\large{(x-2)(x+16) = 0}\]</div>
+<p>Dit geeft ons de oplossingen:</p>
+<div class="arithmatex">\[\large{x - 2 = 0 \ \vee \ x + 16 = 0}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 2 \ \vee \ x= -16.}\]</div>
+</div>
+<p>We komen er op deze manier dus ook, het duurt alleen iets langer. Dus als we het kunnen vermijden dan liever wel, maar het is geen ramp om dit te doen als je de andere manier niet zag, want je komt er zo uiteindelijk ook.</p>
+</details>
+</details>
 <h2 id="grafieken-met-parabolen">Grafieken met Parabolen</h2>
 <p>We hebben net allemaal methodes gezien om kwadratische vergelijkingen op te lossen, maar waar is dat eigenlijk nuttig voor? </p>
-<p>Het is vooral handig om snijpuntent te berekenen. Bijvoorbeeld snijpunten met de <span class="arithmatex">\(x\)</span>-as of snijpunten van twee grafieken met elkaar. Laten we eerst kijken naar snijpunten met de <span class="arithmatex">\(x\)</span>-as. </p>
+<p>Het is vooral handig om snijpunten te berekenen. Bijvoorbeeld snijpunten met de <span class="arithmatex">\(x\)</span>-as of snijpunten van twee grafieken met elkaar. Laten we eerst kijken naar snijpunten met de <span class="arithmatex">\(x\)</span>-as. </p>
 <h3 id="snijpunten-met-de-x-as">Snijpunten met de x-as</h3>
 <p>Hieronder zien we de functie <span class="arithmatex">\(f(x) = x^2 - 1\)</span> en de snijpunten met de <span class="arithmatex">\(x\)</span>-as. </p>
 <figure>
@@ -1531,29 +1654,35 @@ We kunnen in dit geval ook <span class="arithmatex">\(-3\)</span> invullen in on
 <figcaption>Figuur 1. De grafiek f(x) = x² - 1 geplot met de snijpunten met de x-as.</figcaption>
 </figure>
 <p>Als we het niet konden aflezen, hoe zouden we de snijpunten bepalen? Dit doen we door een vergelijking op te stellen.</p>
-<p>Als iets de <span class="arithmatex">\(x\)</span>-as snijdt, betekent dit altijd dat er moet gelden dat <span class="arithmatex">\(y=0\)</span>. En omdat we willen weten wat de <span class="arithmatex">\(x\)</span>-coördinaten zijn van de functie waar <span class="arithmatex">\(y=0\)</span> (oftewel het met de <span class="arithmatex">\(x\)</span>-as snijdt), moeten we stellen dat:</p>
+<p>Als iets de <span class="arithmatex">\(x\)</span>-as snijdt, betekent dit altijd dat er moet gelden dat <span class="arithmatex">\(y=0\)</span>, want per definitie heeft de hele <span class="arithmatex">\(x\)</span>-as een <span class="arithmatex">\(y\)</span>-coördinaat van <span class="arithmatex">\(0\)</span>. En omdat we willen weten wat de <span class="arithmatex">\(x\)</span>-coördinaten zijn van de functie waar <span class="arithmatex">\(y=0\)</span> (oftewel het met de <span class="arithmatex">\(x\)</span>-as snijdt), moeten we stellen dat:</p>
 <div class="arithmatex">\[f(x) = 0.\]</div>
 <p>Als we <span class="arithmatex">\(f(x)\)</span> nu invullen, krijgen we de volgende vergelijking:</p>
 <div class="arithmatex">\[x^2 - 1 = 0.\]</div>
 <p>En dit kunnen we oplossen door te herkenen dat dit de vorm van <a href="#oplossen-vorm-x2-c"><span class="arithmatex">\(x^2 = c\)</span></a> is. Als we dit oplossen vinden we:</p>
 <div class="arithmatex">\[x^2 = 1\]</div>
-<div class="arithmatex">\[x = -1 \ \vee \ x = 1,\]</div>
-<p>en dit is ook wat we kunnen aflezen in Figuur 1.</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = -1 \ \vee \ x = 1,}\]</div>
+</div>
+<p>en dit is ook wat we kunnen aflezen in Figuur 1. </p>
+<p>De coördinaten van de snijpunten zijn dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\left(-1, 0 \right) \ \mathrm{en} \ \left( 1, 0 \right)}\]</div>
+</div>
 <h3 id="snijpunten-met-andere-grafieken">Snijpunten met andere grafieken</h3>
 <p>We zien nu twee functies, <span class="arithmatex">\(f(x) = x^2 -6x - 1\)</span> en <span class="arithmatex">\(g(x) = -x^2 + 2x + 3\)</span> en de snijpunten tussen de twee.</p>
 <figure>
 <p><img alt="Eenheidscirkel" src="../assets/f%28x%29%20%3D%20x%C2%B2%20-%206x%20-%201%3B%20g%28x%29%20%3D%20-x%C2%B2%20%2B%202x%20%2B%203.svg" width="500" />
   </p>
-<figcaption>Figuur 2. De grafieken f(x) = x² - 6x - 1 en g(x) = -x² + 2x + 3 geplot met waar de twee functies elkaar snijden.</figcaption>
+<figcaption>Figuur 2. De grafieken f(x) = x² - 6x - 1 en g(x) = -x² + 2x + 3 geplot met de punten waar de twee functies elkaar snijden.</figcaption>
 </figure>
-<p>Nu wordt het lastig om de snijpunten af te lezen met de grafiek. We moeten dus een vergelijking opstellen om de twee snijpunten te bepalen van de twee functies met elkaar. We willen weten bij welke punten de twee grafieken dezelfde waarde hebben, dus met andere woorden, voor welke gemeenschappelijke x er geldt dat:</p>
+<p>Nu wordt het lastig om de snijpunten af te lezen uit de grafiek. We moeten dus een vergelijking opstellen om de twee snijpunten te bepalen van de twee functies met elkaar. We willen weten bij welke punten de twee grafieken dezelfde waarde hebben, dus met andere woorden, voor welke gemeenschappelijke x er geldt dat:</p>
 <div class="arithmatex">\[f(x) = g(x).\]</div>
 <p>Nu vullen we voor beide de functie in:</p>
 <div class="arithmatex">\[x^2 -6x - 1 = -x^2 + 2x + 3\]</div>
 <p>Dit kunnen we nu oplossen om achter de <span class="arithmatex">\(x\)</span>-coördinaten te komen van het snijpunt. We doen dit door eerst alle termen naar de linker kant te halen. Om dit te doen, doen we aan beide kanten <span class="arithmatex">\(+x^2\)</span>, <span class="arithmatex">\(-2x\)</span> en <span class="arithmatex">\(-3\)</span>:</p>
 <div class="arithmatex">\[2x^2 - 8x - 4 = 0.\]</div>
 <p>We kunnen nu alles delen door <span class="arithmatex">\(2\)</span> om te kijken of we het kunnen <a href="#ontbinden-in-factoren">ontbinden in factoren</a>:</p>
-<div class="arithmatex">\[x^2 - 4x - 2.\]</div>
+<div class="arithmatex">\[x^2 - 4x - 2 = 0.\]</div>
 <p>We kunnen dit proberen te ontbinden, maar we zien al snel dat dit niet zo makkelijk gaat.</p>
 <table>
 <thead>
@@ -1566,13 +1695,23 @@ We kunnen in dit geval ook <span class="arithmatex">\(-3\)</span> invullen in on
 <tbody>
 <tr>
 <td>-1</td>
-<td>2</td>
-<td>-2</td>
+<td>4</td>
+<td>-4</td>
 </tr>
 <tr>
 <td>1</td>
+<td>-4</td>
+<td>-4</td>
+</tr>
+<tr>
 <td>-2</td>
+<td>2</td>
+<td>-4</td>
+</tr>
+<tr>
+<td>2</td>
 <td>-2</td>
+<td>-4</td>
 </tr>
 </tbody>
 </table>
@@ -1581,23 +1720,33 @@ We kunnen in dit geval ook <span class="arithmatex">\(-3\)</span> invullen in on
 <tr>
 <th>Factor 1</th>
 <th>Factor 2</th>
-<th>som</th>
+<th>Som</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>-1</td>
-<td>2</td>
-<td>1 <img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /></td>
+<td>4</td>
+<td>3 <img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /></td>
 </tr>
 <tr>
 <td>1</td>
+<td>-4</td>
+<td>-3 <img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /></td>
+</tr>
+<tr>
+<td>2</td>
 <td>-2</td>
-<td>-1 <img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /></td>
+<td>0 <img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /></td>
+</tr>
+<tr>
+<td>-2</td>
+<td>2</td>
+<td>0 <img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /></td>
 </tr>
 </tbody>
 </table>
-<p>In dat geval gebruiken we <a href="#de-abc-formule">de <em>abc</em> formule</a>. We hebben:</p>
+<p>In dat geval gebruiken we dus <a href="#de-abc-formule">de <em>abc</em> formule</a>. We hebben:</p>
 <div class="arithmatex">\[a = 1, \ b = -4, \ \mathrm{en} \ c = -2\]</div>
 <p>De discriminant wordt:</p>
 <div class="arithmatex">\[D = (-4)^2 - 4 *1 * -2 = 24\]</div>
@@ -1607,6 +1756,17 @@ We kunnen in dit geval ook <span class="arithmatex">\(-3\)</span> invullen in on
 <div class="admonition quote">
 <div class="arithmatex">\[\large{x = 2 + \sqrt{6} \ \vee \ x = 2 - \sqrt{6}}\]</div>
 </div>
+<p>En dus geldt er dit de <span class="arithmatex">\(x\)</span>-coördinaten zijn van onze twee snijpunten. Voor het linker snijpunt is dat dus <span class="arithmatex">\(x = 2 - \sqrt{6}\)</span> en voor het rechter snijpunt is dat <span class="arithmatex">\(x = 2 + \sqrt{6}\)</span>. </p>
+<p>Nu berekenen we de <span class="arithmatex">\(y\)</span>-coördinaten van onze snijpunten. Dit doen we door onze <span class="arithmatex">\(x\)</span>-coördinaten in een van de twee vergelijkingen te stoppen, maakt niet uit welke. In dit geval kiezen we er voor om het in <span class="arithmatex">\(f(x)\)</span> in te vullen:</p>
+<div class="arithmatex">\[f(2 - \sqrt{6}) = (2 - \sqrt{6})^2 - 6(2 - \sqrt{6}) - 1 = 2\sqrt{6} - 3\]</div>
+<div class="arithmatex">\[f(2 + \sqrt{6}) = (2 + \sqrt{6})^2 - 6(2 + \sqrt{6}) - 1 = -2\sqrt{6} - 3\]</div>
+<p>Onze snijpunten zijn dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\left(2 - \sqrt{6}, \ 2\sqrt{6} - 3\right) \ \mathrm{en} \ \left(2 + \sqrt{6}, \ -2\sqrt{6} - 3\right)}\]</div>
+</div>
+<p>Als we het afronden op twee decimalen, dan krijgen we:</p>
+<div class="arithmatex">\[\left(-0.45, 1.90 \right) \ \mathrm{en} \ \left(4.45, -7.90 \right)\]</div>
+<p>en als we kijken naar Figuur 2, dan kunnen we zien dat dit klopt.</p>
 
 
 
@@ -1734,6 +1894,8 @@ We kunnen in dit geval ook <span class="arithmatex">\(-3\)</span> invullen in on
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../javascripts/contactInfo.js"></script>
       
     
   </body>

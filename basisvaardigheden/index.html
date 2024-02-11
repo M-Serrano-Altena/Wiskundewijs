@@ -898,7 +898,7 @@
 
 <h1 id="basisvaardigheden">Basisvaardigheden</h1>
 <h2 id="formules-omschrijven">Formules Omschrijven</h2>
-<p>Formules omschrijven is een hele belangrijke vaardigheid voor alle vakken waar wiskunde in voorkomt. Ook voor natuurkunde is dit heel erg belangrijk. Vaak gaat het lastig omdat de letters het abstract maken, terwijl het met getallen wel goed gaat. Laten we een voorbeeld nemen:</p>
+<p>Formules omschrijven is een hele belangrijke vaardigheid voor alle vakken waar wiskunde in voorkomt. Dit is bijvoorbeeld ook voor natuurkunde heel erg belangrijk. Vaak vinden mensen het lastig omdat de letters het abstract maken, terwijl het met getallen wel goed gaat. Laten we een voorbeeld nemen:</p>
 <p>Stel we hebben de volgende formule:</p>
 <div class="arithmatex">\[A = \frac{B}{C},\]</div>
 <p>en we willen <span class="arithmatex">\(B\)</span> vrijmaken zodat we krijgen <span class="arithmatex">\(B = \  ...\)</span> . Hoe pakken we dit aan? We moeten aan beide kanten van het '<span class="arithmatex">\(=\)</span>' teken vermenigvuldigen met <span class="arithmatex">\(C\)</span>. Hierdoor valt de <span class="arithmatex">\(C\)</span> rechts weg, en komt er links bij:</p>
@@ -1009,12 +1009,12 @@
 <p>We kunnen nu met regel <span class="arithmatex">\(5\)</span> van de <a href="#regels-bij-breuken">Regels bij Breuken</a> dit herschrijven tot:</p>
 <div class="arithmatex">\[\large{\frac{a}{b} + \frac{c}{d} = \frac{a * d}{b * d} + \frac{c * b}{d * b}.}\]</div>
 <p>En omdat de volgorde bij vermenigvuldigen niet uitmaakt, kunnen we dit ook schrijven als:</p>
-<div class="arithmatex">\[\frac{a}{b} + \frac{c}{d} = \frac{a * d}{b * d} + \frac{b * c}{b * d}\]</div>
+<div class="arithmatex">\[\large{\frac{a}{b} + \frac{c}{d} = \frac{a * d}{b * d} + \frac{b * c}{b * d}}\]</div>
 <p>Nu zien we dat de noemers gelijk zijn en we de twee tellers gewoon bij elkaar kunnen optellen volgens regel <span class="arithmatex">\(1\)</span> van de <a href="#regels-bij-breuken">Regels bij Breuken</a>:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{\frac{a}{b} + \frac{c}{d} = \frac{a * d + b * c}{b * d}}\]</div>
 </div>
-<p>Voor aftrekken gelden precies dezelfde stappen, dus voor dat bewijs moet je dezelfde stappen doorlopen en het plus-teken vervangen door een min-teken.</p>
+<p>Voor aftrekken gelden precies dezelfde stappen, dus voor dat bewijs moet je dezelfde stappen doorlopen en het plus-teken vervangen met een min-teken.</p>
 </details>
 <div class="admonition tip"></div>
 <h2 id="operaties-met-variabelen">Operaties met variabelen</h2>
@@ -1108,8 +1108,10 @@
 <p>Dit hebben we opgelost door de haakjes weg te werken op de volgende manier. :</p>
 <div class="arithmatex">\[\large{\left(a + b \right) \left(a + b \right) = a \left( a + b \right) + b \left( a + b \right)}\]</div>
 <p>En nu werken we van beide haakjes de haakjes uit:</p>
-<div class="arithmatex">\[\large{\left(a + b \right) \left(a + b \right) = a^2 + ab + ba + b^2 }\]</div>
+<div class="arithmatex">\[\large{a \left( a + b \right) + b \left( a + b \right) = a^2 + ab + ba + b^2}\]</div>
 <p>En omdat de volgorde niet uitmaakt voor vermenigvuldigen kunnen we dit versimpelen tot:</p>
+<div class="arithmatex">\[\large{a^2 + ab + ba + b^2 = a^2 + 2ab + b^2}\]</div>
+<p>Onze eindconclusie is dus:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{\left(a + b \right) \left(a + b \right) = a^2 + 2ab + b^2}\]</div>
 </div>
@@ -1117,24 +1119,33 @@
 <p><strong><p style="text-align: center;font-size:20px;">Regel 2</p></strong>
 Eigenlijk gaat dit op dezelfde manier als bij de vorige regel:</p>
 <div class="arithmatex">\[\large{\left(a - b \right) \left(a - b \right) = a \left( a - b \right) - b \left( a - b \right)}\]</div>
-<div class="arithmatex">\[\large{\left(a + b \right) \left(a + b \right) = a^2 - ab - ba -- b^2 }\]</div>
-<p>We weten dat min * min is plus, en dus komt hier uit:</p>
+<div class="arithmatex">\[\large{a \left( a - b \right) - b \left( a - b \right) = a^2 - ab - ba -- b^2}\]</div>
+<p>We weten dat min * min is plus, en dus kunnen we dit versimpelen tot:</p>
+<div class="arithmatex">\[\large{a^2 - ab - ba -- b^2 = a^2 - 2ab + b^2.}\]</div>
+<p>Onze eindconclusie wordt dus:</p>
 <div class="admonition quote">
-<div class="arithmatex">\[\large{\left(a + b \right) \left(a + b \right) = a^2 - 2ab + b^2 }\]</div>
+<div class="arithmatex">\[\large{\left(a - b \right) \left(a - b \right) = a^2 - 2ab + b^2 }\]</div>
 </div>
 <p>(zie ook regel 5 van <a href="#regels-bij-operaties-met-variabelen">Regels bij operaties met variabelen</a>)</p>
 <p><strong><p style="text-align: center;font-size:20px;">Regel 3</p></strong>
 En weer is dit vergelijkbaar aan de vorige twee regels:</p>
 <div class="arithmatex">\[\large{\left(a + b \right) \left(a - b \right) = a \left( a - b \right) + b \left( a - b \right)}\]</div>
-<div class="arithmatex">\[\large{\left(a + b \right) \left(a + b \right) = a^2 - ab + ba - b^2 }\]</div>
+<div class="arithmatex">\[\large{a \left( a - b \right) + b \left( a - b \right) = a^2 - ab + ba - b^2 }\]</div>
 <p>Nu zien we dat de kruistermen tegen elkaar wegvallen en we dus overhouden:</p>
+<div class="arithmatex">\[\large{a^2 - ab + ba - b^2 = a^2 - b^2.}\]</div>
+<p>Onze eindconclusie wordt dus:</p>
 <div class="admonition quote">
-<div class="arithmatex">\[\large{\left(a + b \right) \left(a + b \right) = a^2 - b^2 }\]</div>
+<div class="arithmatex">\[\large{\left(a + b \right) \left(a - b \right) = a^2 - b^2 }\]</div>
 </div>
 <p>(zie ook regel 5 van <a href="#regels-bij-operaties-met-variabelen">Regels bij operaties met variabelen</a>)</p>
 </details>
-<p>Dus bij optellen en aftrekken moet je voorzichtig zijn dat je niet alleen de twee variabelen kwadrateerd en bij elkaar optelt of aftrekt, zonder rekening te houden met de kruistermen. </p>
-<p>Deze regels gelden voor alle soorten machten:</p>
+<p>Dus bij optellen en aftrekken moet je voorzichtig zijn dat je niet alleen de twee variabelen kwadrateerd en bij elkaar optelt of aftrekt, zonder rekening te houden met de kruistermen. We kunnen dit ook altijd controleren met een getallen voorbeeld:</p>
+<div class="arithmatex">\[(2 + 3)^2 \neq 2^2 + 3^2\]</div>
+<div class="arithmatex">\[(5)^2 \neq 4 + 9\]</div>
+<div class="arithmatex">\[25 \neq 13\]</div>
+<p>waarbij <span class="arithmatex">\(\neq\)</span> dus betekent: "is <strong>niet</strong> gelijk aan". Als we wel rekening houden met de kruistermen, dan zien we dat het wel klopt:</p>
+<div class="arithmatex">\[(2 + 3)^2 = 2^2 + 2*2*3 + 3^2 = 4 + 12 + 9 = 25\]</div>
+<p>De volgende regels gelden wel voor alle soorten machten:</p>
 <details class="belangrijk" open="open"><summary>Belangrijk</summary><h4 id="machten-algemeen">Machten Algemeen</h4>
 <ol>
 <li>
@@ -1182,11 +1193,13 @@ En weer is dit vergelijkbaar aan de vorige twee regels:</p>
 </details>
 <details class="note"><summary>Opmerking Regel 6</summary><p>Bij de regel 6 staat er dat</p>
 <div class="arithmatex">\[\large{\sqrt{a^2} = a}\]</div>
-<p>Maar dit geldt alleen als <span class="arithmatex">\(a\)</span> een positief getal is. Want als <span class="arithmatex">\(a\)</span> een negatief getal is, dan wordt het getal na het kwadraat positief en met de wortel blijft het positief. Bijvoorbeeld:</p>
+<p>Maar dit geldt eigenlijk alleen als <span class="arithmatex">\(a\)</span> een positief getal is. Want als <span class="arithmatex">\(a\)</span> een negatief getal is, dan wordt het getal na het kwadraat positief en met de wortel blijft het positief. Bijvoorbeeld:</p>
 <div class="arithmatex">\[\large{\sqrt{(-2)^2} = \sqrt{4} = 2 \neq -2}\]</div>
-<p>Om dit probleem op te lossen moeten we eigenlijk absolute waarde nemen van <span class="arithmatex">\(a\)</span>. De absolute waarde is als volgt gedenifiëerd:</p>
+<p>Om dit probleem op te lossen moeten we de absolute waarde nemen van <span class="arithmatex">\(a\)</span>. De absolute waarde is als volgt gedenifiëerd:</p>
 <div class="arithmatex">\[\large{ |a| = \left\{ \begin{array}{ c l } a &amp; \quad \textrm{als } a \geq 0 \\ -a &amp; \quad \textrm{als } a &lt; 0 \end{array} \right.}\]</div>
-<p>Dit zorgt er dus voor dat het getal altijd positief is. En dus om volledig correct te zijn, zouden we eigenlijk moeten zeggen dat:</p>
+<p>Dit zorgt er dus voor dat het getal altijd positief is. Bijvoorbeeld:</p>
+<div class="arithmatex">\[\large{|-2| = 2, \ \mathrm{en} \ |2| = 2.}\]</div>
+<p>En dus om volledig correct te zijn, zouden we eigenlijk moeten zeggen dat:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{\sqrt{a^2} = |a|}\]</div>
 </div>
@@ -1211,7 +1224,7 @@ En weer is dit vergelijkbaar aan de vorige twee regels:</p>
 <div class="arithmatex">\[\large{^a \! \log{(a^n)} = n = \Large{a^{^a \! \log{(n)}}}}\]</div>
 </li>
 <li>
-<div class="arithmatex">\[\large{^a \! \log{(b^n)} = n \ ^a \! \log{(b)}}\]</div>
+<div class="arithmatex">\[\large{^a \! \log{(b^n)} = n * \ ^a \! \log{(b)}}\]</div>
 </li>
 <li>
 <div class="arithmatex">\[\large{^a \! \log{(b*c)} =  ^a \! \log{(b)} + ^a \! \log{(c)}}\]</div>
@@ -1274,13 +1287,13 @@ En weer is dit vergelijkbaar aan de vorige twee regels:</p>
 <div class="arithmatex">\[\Large{^2 \! \log{(4x * 3x)} = 6}\]</div>
 <div class="arithmatex">\[\Large{^2 \! \log{(12x^2)} = 6}\]</div>
 <p>Nu kunnen we weer het logaritme weg werken door aan beide kanten <span class="arithmatex">\(2\)</span> tot de macht te doen:</p>
-<div class="arithmatex">\[\Large{2^{^2 \log{(12x^2)}} = 6^2}\]</div>
-<div class="arithmatex">\[\Large{12x^2 = 36,}\]</div>
+<div class="arithmatex">\[\Large{2^{^2 \log{(12x^2)}} = 2^6}\]</div>
+<div class="arithmatex">\[\Large{12x^2 = 64,}\]</div>
 <p>(zie eventueel <a href="#regels-met-logaritmes">regel 1</a>). We delen beide kanten door <span class="arithmatex">\(12\)</span> om alleen <span class="arithmatex">\(x^2\)</span> over te houden:</p>
-<div class="arithmatex">\[\Large{x^2 = 3}\]</div>
+<div class="arithmatex">\[\Large{x^2 = \frac{16}{3}}\]</div>
 <p>En nu nemen we aan beide kanten een wortel om over te houden (zie eventueel <a href="#regels-met-wortels">Regels met Wortels</a>):</p>
 <div class="admonition quote">
-<div class="arithmatex">\[\Large{x = \sqrt{3}}\]</div>
+<div class="arithmatex">\[\Large{x = \frac{4}{\sqrt{3}}}\]</div>
 </div>
 </details>
 <details class="example"><summary>Voorbeeld 4: <span class="arithmatex">\(^{25} \! \log{(4x^4)} - 2 = ^5 \! \log{(2x)}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken x: <span class="arithmatex">\(^{25} \! \log{(4x^4)} - 2 = ^5 \! \log{(2x)}\)</span></p></strong>
@@ -1435,6 +1448,8 @@ En weer is dit vergelijkbaar aan de vorige twee regels:</p>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../javascripts/contactInfo.js"></script>
       
     
   </body>
