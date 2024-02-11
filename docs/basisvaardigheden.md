@@ -1,7 +1,7 @@
 # Basisvaardigheden
 
 ## Formules Omschrijven
-Formules omschrijven is een hele belangrijke vaardigheid voor alle vakken waar wiskunde in voorkomt. Ook voor natuurkunde is dit heel erg belangrijk. Vaak gaat het lastig omdat de letters het abstract maken, terwijl het met getallen wel goed gaat. Laten we een voorbeeld nemen:
+Formules omschrijven is een hele belangrijke vaardigheid voor alle vakken waar wiskunde in voorkomt. Dit is bijvoorbeeld ook voor natuurkunde heel erg belangrijk. Vaak vinden mensen het lastig omdat de letters het abstract maken, terwijl het met getallen wel goed gaat. Laten we een voorbeeld nemen:
 
 Stel we hebben de volgende formule:
 
@@ -151,14 +151,14 @@ We zien dus dat we bij optellen en aftrekken eerst gelijke noemers moeten hebben
 
     En omdat de volgorde bij vermenigvuldigen niet uitmaakt, kunnen we dit ook schrijven als:
 
-    $$\frac{a}{b} + \frac{c}{d} = \frac{a * d}{b * d} + \frac{b * c}{b * d}$$
+    $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a * d}{b * d} + \frac{b * c}{b * d}}$$
 
     Nu zien we dat de noemers gelijk zijn en we de twee tellers gewoon bij elkaar kunnen optellen volgens regel $1$ van de [Regels bij Breuken](#regels-bij-breuken):
 
     !!! quote ""
         $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a * d + b * c}{b * d}}$$
 
-    Voor aftrekken gelden precies dezelfde stappen, dus voor dat bewijs moet je dezelfde stappen doorlopen en het plus-teken vervangen door een min-teken.
+    Voor aftrekken gelden precies dezelfde stappen, dus voor dat bewijs moet je dezelfde stappen doorlopen en het plus-teken vervangen met een min-teken.
 
 !!! tip ""
 
@@ -237,9 +237,13 @@ Operaties klinkt als een moeilijk woord, maar dit betekent gewoon dingen zoals o
 
     En nu werken we van beide haakjes de haakjes uit:
 
-    $$\large{\left(a + b \right) \left(a + b \right) = a^2 + ab + ba + b^2 }$$
+    $$\large{a \left( a + b \right) + b \left( a + b \right) = a^2 + ab + ba + b^2}$$
 
     En omdat de volgorde niet uitmaakt voor vermenigvuldigen kunnen we dit versimpelen tot:
+
+    $$\large{a^2 + ab + ba + b^2 = a^2 + 2ab + b^2}$$
+
+    Onze eindconclusie is dus:
 
     !!! quote ""
         $$\large{\left(a + b \right) \left(a + b \right) = a^2 + 2ab + b^2}$$
@@ -252,12 +256,16 @@ Operaties klinkt als een moeilijk woord, maar dit betekent gewoon dingen zoals o
 
     $$\large{\left(a - b \right) \left(a - b \right) = a \left( a - b \right) - b \left( a - b \right)}$$
 
-    $$\large{\left(a + b \right) \left(a + b \right) = a^2 - ab - ba -- b^2 }$$
+    $$\large{a \left( a - b \right) - b \left( a - b \right) = a^2 - ab - ba -- b^2}$$
 
-    We weten dat min * min is plus, en dus komt hier uit:
+    We weten dat min * min is plus, en dus kunnen we dit versimpelen tot:
+
+    $$\large{a^2 - ab - ba -- b^2 = a^2 - 2ab + b^2.}$$
+
+    Onze eindconclusie wordt dus:
 
     !!! quote ""
-        $$\large{\left(a + b \right) \left(a + b \right) = a^2 - 2ab + b^2 }$$
+        $$\large{\left(a - b \right) \left(a - b \right) = a^2 - 2ab + b^2 }$$
 
     (zie ook regel 5 van [Regels bij operaties met variabelen](#regels-bij-operaties-met-variabelen))
 
@@ -267,18 +275,32 @@ Operaties klinkt als een moeilijk woord, maar dit betekent gewoon dingen zoals o
 
     $$\large{\left(a + b \right) \left(a - b \right) = a \left( a - b \right) + b \left( a - b \right)}$$
 
-    $$\large{\left(a + b \right) \left(a + b \right) = a^2 - ab + ba - b^2 }$$
+    $$\large{a \left( a - b \right) + b \left( a - b \right) = a^2 - ab + ba - b^2 }$$
 
     Nu zien we dat de kruistermen tegen elkaar wegvallen en we dus overhouden:
 
+    $$\large{a^2 - ab + ba - b^2 = a^2 - b^2.}$$
+
+    Onze eindconclusie wordt dus:
+
     !!! quote ""
-        $$\large{\left(a + b \right) \left(a + b \right) = a^2 - b^2 }$$
+        $$\large{\left(a + b \right) \left(a - b \right) = a^2 - b^2 }$$
 
     (zie ook regel 5 van [Regels bij operaties met variabelen](#regels-bij-operaties-met-variabelen))
 
-Dus bij optellen en aftrekken moet je voorzichtig zijn dat je niet alleen de twee variabelen kwadrateerd en bij elkaar optelt of aftrekt, zonder rekening te houden met de kruistermen. 
+Dus bij optellen en aftrekken moet je voorzichtig zijn dat je niet alleen de twee variabelen kwadrateerd en bij elkaar optelt of aftrekt, zonder rekening te houden met de kruistermen. We kunnen dit ook altijd controleren met een getallen voorbeeld:
 
-Deze regels gelden voor alle soorten machten:
+$$(2 + 3)^2 \neq 2^2 + 3^2$$
+
+$$(5)^2 \neq 4 + 9$$
+
+$$25 \neq 13$$
+
+waarbij $\neq$ dus betekent: "is **niet** gelijk aan". Als we wel rekening houden met de kruistermen, dan zien we dat het wel klopt:
+
+$$(2 + 3)^2 = 2^2 + 2*2*3 + 3^2 = 4 + 12 + 9 = 25$$
+
+De volgende regels gelden wel voor alle soorten machten:
 
 ???+ Belangrijk
 
@@ -318,15 +340,19 @@ Voor wortels gelden dus precies dezelfde regels als voor machten, wat logisch is
 
     $$\large{\sqrt{a^2} = a}$$
 
-    Maar dit geldt alleen als $a$ een positief getal is. Want als $a$ een negatief getal is, dan wordt het getal na het kwadraat positief en met de wortel blijft het positief. Bijvoorbeeld:
+    Maar dit geldt eigenlijk alleen als $a$ een positief getal is. Want als $a$ een negatief getal is, dan wordt het getal na het kwadraat positief en met de wortel blijft het positief. Bijvoorbeeld:
 
     $$\large{\sqrt{(-2)^2} = \sqrt{4} = 2 \neq -2}$$
 
-    Om dit probleem op te lossen moeten we eigenlijk absolute waarde nemen van $a$. De absolute waarde is als volgt gedenifiëerd:
+    Om dit probleem op te lossen moeten we de absolute waarde nemen van $a$. De absolute waarde is als volgt gedenifiëerd:
 
     $$\large{ |a| = \left\{ \begin{array}{ c l } a & \quad \textrm{als } a \geq 0 \\ -a & \quad \textrm{als } a < 0 \end{array} \right.}$$
 
-    Dit zorgt er dus voor dat het getal altijd positief is. En dus om volledig correct te zijn, zouden we eigenlijk moeten zeggen dat:
+    Dit zorgt er dus voor dat het getal altijd positief is. Bijvoorbeeld:
+    
+    $$\large{|-2| = 2, \ \mathrm{en} \ |2| = 2.}$$
+
+    En dus om volledig correct te zijn, zouden we eigenlijk moeten zeggen dat:
 
     !!! quote ""
         $$\large{\sqrt{a^2} = |a|}$$
@@ -357,7 +383,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     1. $$\large{^a \! \log{(a^n)} = n = \Large{a^{^a \! \log{(n)}}}}$$
 
-    2. $$\large{^a \! \log{(b^n)} = n \ ^a \! \log{(b)}}$$
+    2. $$\large{^a \! \log{(b^n)} = n * \ ^a \! \log{(b)}}$$
 
     3. $$\large{^a \! \log{(b*c)} =  ^a \! \log{(b)} + ^a \! \log{(c)}}$$
 
@@ -452,18 +478,18 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     Nu kunnen we weer het logaritme weg werken door aan beide kanten $2$ tot de macht te doen:
 
-    $$\Large{2^{^2 \log{(12x^2)}} = 6^2}$$
+    $$\Large{2^{^2 \log{(12x^2)}} = 2^6}$$
 
-    $$\Large{12x^2 = 36,}$$
+    $$\Large{12x^2 = 64,}$$
 
     (zie eventueel [regel 1](#regels-met-logaritmes)). We delen beide kanten door $12$ om alleen $x^2$ over te houden:
 
-    $$\Large{x^2 = 3}$$
+    $$\Large{x^2 = \frac{16}{3}}$$
 
     En nu nemen we aan beide kanten een wortel om over te houden (zie eventueel [Regels met Wortels](#regels-met-wortels)):
 
     !!! quote ""
-        $$\Large{x = \sqrt{3}}$$
+        $$\Large{x = \frac{4}{\sqrt{3}}}$$
 
 
 ??? example "Voorbeeld 4: $^{25} \! \log{(4x^4)} - 2 = ^5 \! \log{(2x)}$"

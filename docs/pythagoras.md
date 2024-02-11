@@ -42,7 +42,11 @@ Hieronder is er een filmpje om te laten zien waar de stelling van Pythagoras van
 
     $$\large{c^2 = 8}$$
 
+    Nu nemen we aan beide kanten de wortel om van $c^2$ naar $c$ te gaan (zie eventueel de [Regels met Wortels](basisvaardigheden.md#regels-met-wortels))
+
     $$\large{c = \sqrt{8}}$$
+
+    Dit kunnen we versimpelen tot:
 
     !!! quote ""
         $$\large{c = 2\sqrt{2}}$$
@@ -71,6 +75,8 @@ Hieronder is er een filmpje om te laten zien waar de stelling van Pythagoras van
     Dit kunnen we omschrijven door aan beide kanten van het '$=$' teken $-9$ te doen. We krijgen dan:
 
     $$\large{b^2 = 16}$$
+
+    We nemen nu aan beide kanten de wortel:
 
     $$\large{b = \sqrt{16}}$$
 
