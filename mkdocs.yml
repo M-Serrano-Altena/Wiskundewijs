@@ -15,8 +15,8 @@ theme:
       teal
 
   language: nl
-  logo: assets/calculator-variant-outline.svg
-  favicon: assets/calculator-variant.svg
+  logo: assets/images/calculator-variant-outline.svg
+  favicon: assets/images/calculator-variant.svg
 
   features:
     - navigation.footer

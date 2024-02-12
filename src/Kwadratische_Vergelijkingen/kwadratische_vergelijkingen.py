@@ -187,19 +187,19 @@ def draw_func(func, title):
 
 
     plt.xlim(-3, 3)
-    plt.ylim(-2, 8)
+    plt.ylim(-1, 8)
 
     plt.plot(x, y, 'darkturquoise')
     plt.hlines(xmin=-3, xmax=3, y=0, colors='#D3D3D3')
     plt.vlines(ymin=-2, ymax=8, x=0, colors='#D3D3D3')
-    plt.scatter([-1, 1], [0,0], c='darkturquoise')
+    # plt.scatter([2], [0], c='darkturquoise')
 
     plt.savefig(f"{title}.svg")
     plt.show()
 
     plt.clf()
 
-# draw_func(lambda x: x**2 - 1, "f(x) = x² - 1")
+draw_func(lambda x: x**2 + 1, "f(x) = x² + 1")
 
 
 def draw_funcs(func, func2, title):
@@ -243,4 +243,4 @@ def draw_funcs(func, func2, title):
 
     plt.clf()
 
-draw_funcs(lambda x: x**2 -6*x - 1, lambda x: -x**2 + 2*x + 3, "f(x) = x² - 6x - 1; g(x) = -x² + 2x + 3")
+# draw_funcs(lambda x: x**2 -6*x - 1, lambda x: -x**2 + 2*x + 3, "f(x) = x² - 6x - 1; g(x) = -x² + 2x + 3")

@@ -11,7 +11,7 @@ hide:
 Ik ben **Marc Serrano Altena**, een tweedejaars student Natuur- en Sterrenkunde aan de UvA en VU.
 
 
-![Foto Marc Serrano Altena](assets/Marc_Serrano_Altena_photo.png){ width="200" align=right}
+![Foto Marc Serrano Altena](assets/images/Marc_Serrano_Altena_photo.png){ width="200" align=right}
 
 
 Ik ben begonnen met het schrijven van deze site, omdat het voor mij voelde alsof de meeste wiskunde methodes **te snel door de stof** gaan en dat **niet alle stappen duidelijk** zijn. Ook is het vaak lastig om de juiste theorie te vinden die nou net jouw vraag kan beantwoorden.

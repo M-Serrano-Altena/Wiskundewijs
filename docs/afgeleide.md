@@ -21,7 +21,7 @@ $$f'(x) = 0.$$
 
 ???+ video
     <video controls>
-    <source src="../videos/Parabola.mp4" type="video/mp4">
+    <source src="../assets/videos/Parabola.mp4" type="video/mp4">
     </video>
 
     *<p style="text-align: center;">Filmpje: Visuele weergave van de afgeleide van de functie $f(x) = x^2$. Bij de top geldt dat de helling gelijk is aan 0. </p>*
@@ -41,7 +41,7 @@ De afgeleide is dus hetzelfde als de functie zelf. Dit fenomeen is te zien in he
 
 ???+ video
     <video controls>
-    <source src="../videos/Exponential.mp4" type="video/mp4">
+    <source src="../assets/videos/Exponential.mp4" type="video/mp4">
     </video>
 
     *<p style="text-align: center;">Filmpje: Visuele weergave van de afgeleide van de functie $f(x) = e^x$. Er is te zien dat op elk punt geldt dat $f(x) = f'(x)$. Dit is wat de e-macht zo bijzonder maakt. </p>*

@@ -425,12 +425,103 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
 
     $$\Large{D = b^2 - 4ac.}$$
 
+    ??? note "Discriminant"
+        #### Discriminant
+        Waarom schrijven we de discriminant apart op en vullen we het niet gewoon rechtstreeks in de formule om gewoon $1$ formule te hebben?
+
+        Dit doen we omdat we belangrijke eigenschappen van de functie kunnen bepalen aan de hand van de waardes van de discriminant:
+
+        $$\Large{f(x) = 0 \left\{ \begin{array}{l l l } \textrm{Twee oplossingen} & \quad \textrm{voor } D > 0 \\ \textrm{Een oplossing} & \quad \textrm{voor } D = 0 \\ \textrm{Geen oplossingen} & \quad \textrm{voor } D < 0 \end{array} \right.}$$
+
+        Kijk bijvoorbeeld naar de volgende voorbeelden (ook gebruikt in [snijpunten met de $x$-as](#snijpunten-met-de-x-as)). 
+
+        ##### Twee snijpunten
+
+        Stel we hebben de functie $f(x) = x^2 - 1$ en we willen erachter komen hoeveel snijpunten deze functie heeft met de $x$-as. We stellen dan dat:
+        
+        $$\large{f(x) = 0}$$
+
+        (zie eventueel dus ook de sectie [snijpunten met de $x$-as](#snijpunten-met-de-x-as)). 
+
+        $$\large{x^2 - 1 = 0.}$$
+
+        Laten we nu de discriminant bepalen. We hebben in dit geval:
+
+        $$\large{a = 1, \ b = 0 \ \mathrm{en} \ c = -1}$$
+
+        De discriminant wordt dan:
+
+        $$\large{D = 0^2 - 4 * 1 * -1 = 4}$$
+
+        Er geldt hier dus dat:
+
+        $$\large{D > 0}$$
+
+        Dit betekent dus dat $f(x)$ $2$ snijpunten heeft met de $x$-as. Als we de grafiek van $f(x)$ plotten zien we dat dit ook daadwerkelijk het geval is:
+
+        <figure markdown>
+            ![Plot van f(x) met snijpunten x-as](assets/images/f(x) = x² - 1.svg){ width="400"}
+            <figcaption>Figuur 1. De grafiek f(x) = x² - 1 geplot met de snijpunten met de x-as.</figcaption>
+        </figure>
+
+        ##### Een snijpunt
+        Stel we kijken nu naar de grafiek $f(x) = x^2 - 4x + 4$. Hoeveel snijpunten heeft deze functie met de $x$-as? We stellen eerst weer dat:
+
+        $$\large{f(x) = 0}$$
+
+        $$\large{x^2 - 4x + 4 = 0}$$
+
+        We bepalen weer de discriminant. We hebben:
+
+        $$\large{a = 1, \ b = -4 \ \mathrm{en} \ c = 4}$$
+
+        De discriminant wordt dan:
+
+        $$\large{D = (-4)^2 -4 * 1 * 4 = 0.}$$
+
+        Er geldt dus dat:
+
+        $$\large{D = 0}$$
+
+        We weten nu dus dat $f(x)$ maar $1$ snijpunt heeft met de $x$-as (en dus de $x$-as raakt). Als we $f(x)$ plotten zien we dat dit inderdaad het geval is.
+
+        <figure markdown>
+            ![Plot van f(x) met snijpunt x-as](assets/images/f(x) = x² - 4x + 4.svg){ width="500"}
+            <figcaption>Figuur 2. De grafiek f(x) = x² - 4x + 4 geplot met het snijpunt/raakpunt met de x-as.</figcaption>
+        </figure>
+
+        ##### Geen snijpunten
+        We kijken nu als laatst naar de functie $f(x) = x^2 + 1$ om te bepalen hoeveel snijpunten dit heeft met de $x$-as. We stellen $f(x)$ weer gelijk aan $0$:
+
+        $$\large{x^2 + 1 = 0.}$$
+
+        Nu gaan we de discriminant bepalen. We hebben:
+
+        $$\large{a = 1, \ b = 0 \ \mathrm{en} \ c = 1}$$
+
+        De discriminant wordt dan:
+
+        $$\large{D = 0^2 - 4 * 1 * 1 = -4}$$
+
+        Er geldt dus hier dat:
+
+        $$\large{D < 0.}$$
+
+        Deze functie heeft dus geen snijpunten met de $x$-as. We controleren dit weer met een plot van $f(x)$.
+
+        <figure markdown>
+            ![Plot van f(x) met 0 snijpunten x-as](assets/images/f(x) = x² + 1.svg){ width="500"}
+            <figcaption>Figuur 3. De grafiek f(x) = x² +1 geplot.</figcaption>
+        </figure>
+
+        
+
 ??? abstract "Bewijs *abc* formule"
     Hieronder is een filmpje om te zien waar de *abc* formule vandaan komt.
 
     ???+ video
         <video controls>
-        <source src="../videos/Kwadratisch.mp4" type="video/mp4">
+        <source src="../assets/videos/Kwadratisch.mp4" type="video/mp4">
         </video>
 
         *<p style="text-align: center;">Filmpje: Bewijs voor de abc formule. De stappen gaan redelijk snel, dus zie tekst hieronder voor meer uitleg over de stappen.</p>*
@@ -843,10 +934,13 @@ We hebben net allemaal methodes gezien om kwadratische vergelijkingen op te loss
 Het is vooral handig om snijpunten te berekenen. Bijvoorbeeld snijpunten met de $x$-as of snijpunten van twee grafieken met elkaar. Laten we eerst kijken naar snijpunten met de $x$-as. 
 
 ### Snijpunten met de x-as
-Hieronder zien we de functie $f(x) = x^2 - 1$ en de snijpunten met de $x$-as. 
+We gaan kijken naar drie verschillende gevallen, een functie waar we $2$ snijpunten hebben met de $x$-as, een functie waar we maar $1$ snijpunt hebben met de $x$-as (dus waar $f(x)$ de $x$-as raakt) en een functie waar er geen snijpunten zijn met de $x$-as.
+
+#### Twee snijpunten
+Laten we beginnen met een functie die $2$ snijpunten heeft. We zien hieronder de functie $f(x) = x^2 - 1$ en de $2$ snijpunten met de $x$-as. 
 
 <figure markdown>
-  ![Eenheidscirkel](assets/f(x) = x² - 1.svg){ width="500"}
+  ![Plot van f(x) met snijpunten x-as](assets/images/f(x) = x² - 1.svg){ width="500"}
   <figcaption>Figuur 1. De grafiek f(x) = x² - 1 geplot met de snijpunten met de x-as.</figcaption>
 </figure>
 
@@ -874,12 +968,83 @@ De coördinaten van de snijpunten zijn dus:
 !!! quote ""
     $$\large{\left(-1, 0 \right) \ \mathrm{en} \ \left( 1, 0 \right)}$$
 
+
+#### Eén snijpunt
+Laten we nu kijken naar een situatie waar we een functie hebben die maar $1$ snijpunt/raakpunt heeft met de $x$-as. Bij een kwadratische functie geldt er altijd dat als er maar $1$ snijpunt is, dat er dan sprake is van raken. De grafiek van $f(x)$ raakt de grafiek, maar snijdt de $x$-as eigenlijk niet.
+
+We hebben hieronder een grafiek $f(x) = x^2 - 4x + 4.$
+
+<figure markdown>
+  ![Plot van f(x) met snijpunt x-as](assets/images/f(x) = x² - 4x + 4.svg){ width="500"}
+  <figcaption>Figuur 2. De grafiek f(x) = x² - 4x + 4 geplot met het snijpunt/raakpunt met de x-as.</figcaption>
+</figure>
+
+We willen hier het snijpunt berekenen. We stellen weer $f(x)$ gelijk aan $0$:
+
+$$x^2 - 4x + 4 = 0.$$
+
+We proberen dit eerst op te lossen met [ontbinden in factoren](#ontbinden-in-factoren).
+
+We maken een tabel met alle factoren die samen $+4$ geven:
+
+| Factor 1 | Factor 2 | Product |
+| -------- | -------- | ------- |
+| 1 | 4 | 4 |
+| -1 | -4 | 4 |
+| 2 | 2 | 4 |
+| -2 | -2 | 4 |
+
+We maken nu de bijbehorende som tabel om te kijken welke factoren samen $-4$ zijn
+
+| Factor 1 | Factor 2 | Som |
+| -------- | -------- | ------- |
+| 1 | 4 | 5 |
+| -1 | -4 | -5 |
+| 2 | 2 | 4 |
+| -2 | -2 | -4 :fontawesome-solid-check:{ .green } |
+
+De juiste factoren zijn dus twee keer $-2$. We kunnen de vergelijking dus schrijven op de volgende manier:
+
+$$(x-2)(x-2) = 0$$
+
+Dit geeft in dit geval dus ook maar $1$ oplossing, want er moet hier dus gelden dat:
+
+$$x - 2 = 0$$
+
+!!! quote ""
+    $$\large{x = 2}$$
+
+En dit is ook precies wat we af kunnen lezen in Figuur 2.
+
+#### Geen snijpunten
+Als laatst kijken we naar de situatie waar er helemaal geen snijpunten zijn met de $x$-as.
+
+Dit gebeurt bijvoorbeeld bij de functie $f(x) = x^2 + 1$, zoals we kunnen zien in Figuur 3.
+
+<figure markdown>
+  ![Plot van f(x) met 0 snijpunten x-as](assets/images/f(x) = x² + 1.svg){ width="500"}
+  <figcaption>Figuur 3. De grafiek f(x) = x² +1 geplot.</figcaption>
+</figure>
+
+Wat gebeurt er als we toch proberen te kijken op welk $x$-coördinaat $f(x)$ gelijk is aan $0$ en dus de $x$-as snijdt? Laten we het proberen:
+
+$$x^2 + 1 = 0$$
+
+We doen nu aan beide kanten $-1$:
+
+$$x^2 = -1.$$
+
+Een getal in het kwadraat kan nooit negatief zijn en dus geldt er dat er voor deze vergelijking geen oplossing zijn (zie eventueel de [opmerking](#opmerkingen) over een negatief getal voor meer toelichting). En dit is ook precies wat we verwachten als we naar Figuur 3 kijken.
+
+Er is gewoon geen enkel moment dat de grafiek van $f(x)$ de $x$-as snijdt, omdat $f(x)$ altijd boven de $x$-as is. Dit betekent dus dat er ook geen oplossingen zijn voor de vergelijking.
+
+
 ### Snijpunten met andere grafieken
 We zien nu twee functies, $f(x) = x^2 -6x - 1$ en $g(x) = -x^2 + 2x + 3$ en de snijpunten tussen de twee.
 
 <figure markdown>
-  ![Eenheidscirkel](assets/f(x) = x² - 6x - 1; g(x) = -x² + 2x + 3.svg){ width="500"}
-  <figcaption>Figuur 2. De grafieken f(x) = x² - 6x - 1 en g(x) = -x² + 2x + 3 geplot met de punten waar de twee functies elkaar snijden.</figcaption>
+  ![Plot van f(x) en g(x) met snijpunten](assets/images/f(x) = x² - 6x - 1; g(x) = -x² + 2x + 3.svg){ width="500"}
+  <figcaption>Figuur 4. De grafieken f(x) = x² - 6x - 1 en g(x) = -x² + 2x + 3 geplot met de punten waar de twee functies elkaar snijden.</figcaption>
 </figure>
 
 Nu wordt het lastig om de snijpunten af te lezen uit de grafiek. We moeten dus een vergelijking opstellen om de twee snijpunten te bepalen van de twee functies met elkaar. We willen weten bij welke punten de twee grafieken dezelfde waarde hebben, dus met andere woorden, voor welke gemeenschappelijke x er geldt dat:
@@ -948,4 +1113,4 @@ Als we het afronden op twee decimalen, dan krijgen we:
 
 $$\left(-0.45, 1.90 \right) \ \mathrm{en} \ \left(4.45, -7.90 \right)$$
 
-en als we kijken naar Figuur 2, dan kunnen we zien dat dit klopt.
+en als we kijken naar Figuur 4, dan kunnen we zien dat dit klopt.

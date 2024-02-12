@@ -4,7 +4,7 @@
 De stelling van Pythagoras zegt dat bij een rechte driehoek (zie Figuur 1) de twee rechte zijdes in het kwadraat samen gelijk zijn aan de schuine zijde in het kwadraat.
 
 <figure markdown>
-  ![Rechte driehoek](assets/Right_Triangle.svg){ width="300"}
+  ![Rechte driehoek](assets/images/Right_Triangle.svg){ width="300"}
   <figcaption>Figuur 1. Een rechte driehoek, dus een driehoek waarbij 1 hoek 90° is.</figcaption>
 </figure>
 
@@ -16,7 +16,7 @@ In formule form wordt de stelling van Pythagoras:
 Hieronder is er een filmpje om te laten zien waar de stelling van Pythagoras vandaan komt.
 ???+ video
     <video controls>
-      <source src="../videos/Pythagoras.mp4" type="video/mp4">
+      <source src="../assets/videos/Pythagoras.mp4" type="video/mp4">
     </video>
 
     *<p style="text-align: center;">Filmpje: Visueel bewijs van de stelling van Pythagoras</p>*
@@ -27,7 +27,7 @@ Hieronder is er een filmpje om te laten zien waar de stelling van Pythagoras van
     **<p style="text-align: center;font-size:20px;">Vraag: Wat is de lengte van de schuine zijde $c$?</p>** 
     
     <figure markdown>
-      ![Rechte driehoek](assets/Right_Triangle_example1.svg){ width="300"}
+      ![Rechte driehoek](assets/images/Right_Triangle_example1.svg){ width="300"}
       <figcaption>Figuur 2. Een rechte driehoek met twee rechte zijdes met lengte 2.</figcaption>
     </figure>
 
@@ -58,7 +58,7 @@ Hieronder is er een filmpje om te laten zien waar de stelling van Pythagoras van
     **<p style="text-align: center;font-size:20px;">Vraag: Wat is de lengte van de rechte zijde $b$?</p>** 
 
     <figure markdown>
-      ![Rechte driehoek](assets/Right_Triangle_example2.svg){ width="300"}
+      ![Rechte driehoek](assets/images/Right_Triangle_example2.svg){ width="300"}
       <figcaption>Figuur 3. Een rechte driehoek met 1 rechte zijde met lengte 3 en een schuine zijde met lengte 5.</figcaption>
     </figure>
 
