@@ -464,7 +464,7 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
             <figcaption>Figuur 1. De grafiek f(x) = x² - 1 geplot met de snijpunten met de x-as.</figcaption>
         </figure>
 
-        ##### Een snijpunt
+        ##### Eén snijpunt
         Stel we kijken nu naar de grafiek $f(x) = x^2 - 4x + 4$. Hoeveel snijpunten heeft deze functie met de $x$-as? We stellen eerst weer dat:
 
         $$\large{f(x) = 0}$$
@@ -515,7 +515,6 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
         </figure>
 
         
-
 ??? abstract "Bewijs *abc* formule"
     Hieronder is een filmpje om te zien waar de *abc* formule vandaan komt.
 
@@ -1016,6 +1015,11 @@ $$x - 2 = 0$$
 
 En dit is ook precies wat we af kunnen lezen in Figuur 2.
 
+De coördinaat van het snijpunt is dus:
+
+!!! quote ""
+    $$\large{(2,0)}$$
+
 #### Geen snijpunten
 Als laatst kijken we naar de situatie waar er helemaal geen snijpunten zijn met de $x$-as.
 
@@ -1036,7 +1040,7 @@ $$x^2 = -1.$$
 
 Een getal in het kwadraat kan nooit negatief zijn en dus geldt er dat er voor deze vergelijking geen oplossing zijn (zie eventueel de [opmerking](#opmerkingen) over een negatief getal voor meer toelichting). En dit is ook precies wat we verwachten als we naar Figuur 3 kijken.
 
-Er is gewoon geen enkel moment dat de grafiek van $f(x)$ de $x$-as snijdt, omdat $f(x)$ altijd boven de $x$-as is. Dit betekent dus dat er ook geen oplossingen zijn voor de vergelijking.
+Er is gewoon geen enkel moment dat de grafiek van $f(x)$ de $x$-as snijdt, omdat $f(x)$ altijd boven de $x$-as is. Dit betekent dus dat er ook geen oplossingen zijn voor de vergelijking en dus dat er geen snijpunt is.
 
 
 ### Snijpunten met andere grafieken
@@ -1111,6 +1115,7 @@ Onze snijpunten zijn dus:
 
 Als we het afronden op twee decimalen, dan krijgen we:
 
-$$\left(-0.45, 1.90 \right) \ \mathrm{en} \ \left(4.45, -7.90 \right)$$
+!!! quote ""
+    $$\large{\left(-0.45, 1.90 \right) \ \mathrm{en} \ \left(4.45, -7.90 \right)}$$
 
 en als we kijken naar Figuur 4, dan kunnen we zien dat dit klopt.

@@ -22,7 +22,7 @@ $$BC = AB \tan{(\theta)}.$$
 
 
 ## Regels Goniometrische Functies
-Dit zijn de regels voor de goniometrische functies.
+Dit zijn de regels voor de goniometrische functies sinus, cosinus en tangens.
 
 !!! Belangrijk
     $$\large{\sin{(\theta)} = \frac{\mathrm{Overstaand}}{\mathrm{Schuin}}}$$

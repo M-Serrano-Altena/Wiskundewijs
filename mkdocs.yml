@@ -37,6 +37,21 @@ extra:
 
   generator: false
 
+  analytics:
+    provider: google
+    property: G-4JQXCEL3Q5
+
+    feedback:
+      title: Begrijp je de stof nu beter?
+      ratings:
+        - icon: material/thumb-up-outline
+          name: Ik begrijp de stof nu beter
+          data: 1
+          note: Bedankt voor de feedback! Om ervoor te zorgen dat wiskundewijs nóg beter wordt, zou ik <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUuPlxDYomx3nLl63BQcFR0jCbQMaQIpFh37J53_UaVJELeA/viewform?usp=pp_url&entry.1328585866={title}" target="_blank" rel="noopener">jouw feedback</a> heel erg waarderen! 
+        - icon: material/thumb-down-outline
+          name: De stof is nog een beetje onduidelijk
+          data: 0
+          note: Bedankt voor de feedback! Ik zou het heel erg waarderen als je mij vertelt wat jij denkt dat verbeterd kan worden. <a href="https://docs.google.com/forms/d/e/1FAIpQLSebi8Nv-t1BBU7mzvMK8COd_1aHSTnjgzBQWQXhjt64OuVsFQ/viewform?usp=pp_url&entry.1328585866={title}" target="_blank" rel="noopener">Jouw feedback</a> kan mensen helpen die tegen hetzelfde aanlopen!
 
 nav:
   - Home: index.md
@@ -45,6 +60,7 @@ nav:
     - basisvaardigheden.md
     - De Stelling van Pythagoras: pythagoras.md
     - Kwadratische Vergelijkingen: kwadratische_vergelijkingen.md
+    - ongelijkheden.md
     - De Afgeleide Functie: afgeleide.md
     - goniometrie.md
 

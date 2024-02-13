@@ -3,6 +3,7 @@ hide:
   - navigation
   - toc
   - footer
+  - feedback
 ---
 
 # Contact
