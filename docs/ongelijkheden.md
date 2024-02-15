@@ -49,9 +49,9 @@ Dit klopt natuurlijk niet, want $8$ is groter dan $2$ en niet kleiner! Om met di
     ### Vermenigvuldigen met een negatief getal
     Als je bij een ongelijkheid beide kanten vermenigvuldigt met een negatief getal, moet je altijd het teken wisselen:
 
-    $$\Large{ \textrm{‘} > \textrm{'} \ \longleftrightarrow \ \textrm{‘} < \textrm{'}}$$
+    $$\Large{ \textrm{‘} > \textrm{'} \ \ \longleftrightarrow \ \ \textrm{‘} < \textrm{'}}$$
 
-    $$\Large{ \textrm{‘} \geq \textrm{'} \ \longleftrightarrow \ \textrm{‘} \leq \textrm{'}}$$
+    $$\Large{ \textrm{‘} \geq \textrm{'} \ \ \longleftrightarrow \ \ \textrm{‘} \leq \textrm{'}}$$
 
     Dus "groter dan" wordt "kleiner dan" (en andersom), en "groter of gelijk aan" wordt "kleiner of gelijk aan" (en andersom).
 
@@ -121,3 +121,122 @@ Dit klopt natuurlijk niet, want $8$ is groter dan $2$ en niet kleiner! Om met di
 
         !!! quote ""
             $$\large{x \leq -13.}$$
+
+### Oplossen door een schets te maken
+
+Een andere manier van lineaire ongelijkheden oplossen is door twee lijnen te vergelijken. 
+
+Stel we hebben de volgende vergelijking:
+
+$$x - 1 > -x + 2.$$
+
+Laten we nu zeggen dat we $x - 1$ $f(x)$ noemen en $-x+2$ $g(X)$. Met andere woorden:
+
+$$f(x) = x - 1 \ \mathrm{en} \ g(x) = -x + 2.$$
+
+De vergelijking kunnen we dan ook schrijven als:
+
+$$f(x) > g(x)$$
+
+Laten we deze twee functies plotten om te kijken wat er gebeurt.
+
+<figure markdown>
+  ![Twee lijnen plot](assets/images/f(x) = x - 1; g(x) = -x + 2.svg){ width="500"}
+  <figcaption>Figuur 1. De lijnen f(x) = x - 1 en g(x) = -x + 2 geplot met hun snijpunt.</figcaption>
+</figure>
+
+Laten we eerst het snijpunt bepalen van $f(x)$ en $g(x)$. Dit doen we door de twee vergelijkingen gelijk aan elkaar te stellen.
+
+$$x - 2 = -x + 2$$
+
+$$x = 1 \frac{1}{2}$$
+
+en dit is ook wat we op de grafiek kunnen aflezen. We moesten oplossen voor welke waardes van $x$ er geldt dat:
+
+$$f(x) > g(x).$$
+
+Op de grafiek zijn dit de waardes voor $x$ waar de lijn van $f(x)$ boven die van $g(x)$ ligt. Oftewel dit is voor alles rechts van het snijpunt $x = 1 \frac{1}{2}$. Deze waardes zijn allemaal groter dan $x = 1 \frac{1}{2}$ en dus is onze eindconclusie:
+
+!!! quote ""
+    $$\large{x > 1 \frac{1}{2}.}$$
+
+Je hoeft dus dan geen rekening te houden met het wisselen van het ongelijkheidsteken en kan je berederen of het groter of kleiner dan moet zijn.
+
+Hieronder worden dezelfde voorbeelden als [hierboven](#voorbeelden) opgelost, maar nu door middel van een schets.
+
+### Voorbeelden (met grafiek oplossen)
+
+??? example "Voorbeeld 1 (met grafiek): $3x + 2 > 8$"
+    **<p style="text-align: center;font-size:20px;">Los op: $3x + 2 > 8$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Als eerst maken we een grafiek van deze vergelijking. We definiëren het volgende:
+
+    $$\large{f(x) = 3x + 2 \ \mathrm{en} \ g(x) = 8.}$$
+
+    <figure markdown>
+        ![Twee lijnen plot](assets/images/f(x) = 3x + 2; g(x) = 8.svg){ width="500"}
+        <figcaption>Figuur 1. De lijnen f(x) = 3x + 2 en g(x) = 8 geplot met hun snijpunt.</figcaption>
+    </figure>
+
+    We kunnen het $x$ coördinaat van het snijpunt bepalen door te stellen dat $f(x) = g(x)$ (of door het af te lezen). We vinden dan:
+
+    $$\large{x = 2.}$$
+
+    We willen bepalen wanneer $f(x) > g(x)$. De lijn van $f(x)$ is boven die van $g(x)$ als $x$ groter is dan het snijpunt, $x = 2$. En dus:
+
+    !!! quote ""
+        $$\large{x > 2}$$
+
+
+??? example "Voorbeeld 2 (met grafiek): $-8x - 7 \leq 33$"
+    **<p style="text-align: center;font-size:20px;">Los op: $-8x - 7 \leq 33$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We definiëren weer twee functies:
+
+    $$\large{f(x) = -8x - 7 \ \mathrm{en} \ g(x) = 33}$$
+
+    We plotten weer deze twee functies en hun snijpunt.
+
+    <figure markdown>
+        ![Twee lijnen plot](assets/images/f(x) = -8x - 7; g(x) = 33.svg){ width="500"}
+        <figcaption>Figuur 2. De lijnen f(x) = -8x - 7 en g(x) = 33 geplot met hun snijpunt.</figcaption>
+    </figure>
+
+    We bepalen weer eerst het snijpunt van $f(x)$ en $g(x)$. Dit kunnen doen door $-8x - 7 = 33$ op te lossen of door het af te lezen. We vinden:
+
+    $$\large{x = -5}.$$
+
+    We wilden weten voor welke waardes van $x$ er geldt dat $f(x) \leq g(x).$ Met andere woorden, dit zijn de waardes voor $x$ waar $f(x)$ en $g(x)$ elkaar snijden of de lijn van $f(x)$ onder die van $g(x)$ is. In Figuur 2 zien we dat dit geldt voor $x = -5$ en alle $x$ waardes groter dan $x = -5$. Onze oplossing is dus:
+
+    !!! quote ""
+        $$\large{x \geq -5}$$
+
+
+??? example "Voorbeeld 3 (met grafiek): $x - 4 \geq 2x + 9$"
+    **<p style="text-align: center;font-size:20px;">Los op: $x - 4 \geq 2x + 9$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We lossen dit weer op door middel van een plot. We definiëren:
+
+    $$\large{f(x) = x - 4 \ \mathrm{en} \ g(x) = 2x + 9}$$
+
+    We plotten nu de twee lijnen en hun snijpunt.
+
+    <figure markdown>
+        ![Twee lijnen plot](assets/images/f(x) = x - 4; g(x) = 2x + 9.svg){ width="500"}
+        <figcaption>Figuur 3. De lijnen f(x) = x - 4 en g(x) = 2x + 9 geplot met hun snijpunt.</figcaption>
+    </figure>
+
+    Door de vergelijking $x - 4 = 2x + 9$ op te lossen (of het af lezen), vinden we dat het snijpunt is:
+
+    $$\large{x = -13.}$$
+
+    In Figuur 3 zien we dat $f(x) \geq g(x)$ voor $x = -13$ of voor een $x$ kleiner dan $-13$, want dan ligt de grafiek van $f(x)$ boven die van $g(x)$. We hebben dus als eindoplossing:
+
+    !!! quote ""
+        $$\large{x \leq -13}$$
+
+
+<!-- ## Kwadratische ongelijkheden -->
