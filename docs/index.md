@@ -13,7 +13,7 @@ Hier worden verschillende wiskundige onderwerpen voor de middelbare school **dui
 
 Verder kun je de **zoekbalk** gebruiken om direct het onderwerp te vinden waar jij naar op zoek bent!
 
-En ben je geïnteresseerd in **persoonlijk een-op-een bijles**, fysiek of online? Klik dan op de **contact** knop voor meer informatie!
+En ben je als ouder geïnteresseerd in **persoonlijk een-op-een bijles** voor jouw kind, fysiek of online? Klik dan op de **contact** knop voor meer informatie!
 
 [Contact :material-account:](contact.md){ .md-button .md-button--primary }
 

@@ -130,7 +130,7 @@ Stel we hebben de volgende vergelijking:
 
 $$x - 1 > -x + 2.$$
 
-Laten we nu zeggen dat we $x - 1$ $f(x)$ noemen en $-x+2$ $g(X)$. Met andere woorden:
+Laten we zeggen dat we $x - 1$ nu $f(x)$ noemen en $-x+2$ nu $g(x)$. Met andere woorden:
 
 $$f(x) = x - 1 \ \mathrm{en} \ g(x) = -x + 2.$$
 
@@ -239,4 +239,45 @@ Hieronder worden dezelfde voorbeelden als [hierboven](#voorbeelden) opgelost, ma
         $$\large{x \leq -13}$$
 
 
-<!-- ## Kwadratische ongelijkheden -->
+## Kwadratische ongelijkheden
+
+Voor kwadratische vergelijkingen kunnen we ook een ongelijkheid opstellen. Laten we kijken naar het volgende voorbeeld:
+
+$$(x - 1)(x - 2) > 0.$$
+
+Als hier een '$=$' teken had gestaan hadden we dit kunnen zeggen:
+
+$$(x - 1)(x - 2) = 0$$
+
+$$x - 1 = 0 \ \vee \ x - 2 = 0$$
+
+$$x = 1 \vee x = 2$$
+
+(zie eventueel [Oplossen vorm $x^2 + bx = 0$](kwadratische_vergelijkingen.md#algemene-vorm) voor een toelichting).
+
+Maar let op! We kunnen dit niet zomaar zeggen voor $(x - 1)(x - 2) > 0.$ Want het feit dat de twee termen keer elkaar groter dan $0$ zijn, betekent alleen dat $x - 1$ en $x - 2$ óf beide positief zijn óf beide negatief. 
+
+Maar het is lastig om te bepalen wat het precies moet zijn. Daarom is het handig om kwadratische ongelijkheden op te lossen door middel van een tekening. De [methode](#oplossen-door-een-schets-te-maken) is eigenlijk redelijk hetzelfde als bij de lineaire ongelijkheden. Laten we de vergelijking hierboven plotten.
+
+We definiëren de volgende functies:
+
+$$f(x) = (x - 1)(x - 2) \ \mathrm{en} \ g(x) = 0.$$
+
+In dit geval is $g(x)$ dus gewoon de $x$-as. Onze originele vergelijking is dus:
+
+$$f(x) > g(x).$$
+
+<figure markdown>
+![Twee grafieken plot](assets/images/f(x) = (x - 1)(x - 2); g(x) = 0.svg){ width="500"}
+<figcaption>Figuur 1. De lijnen f(x) = (x - 1)(x - 2) en g(x) = 0 geplot met hun snijpunten.</figcaption>
+</figure>
+
+We hebben eerder gezien dat de snijpunten zijn:
+
+$$x = 1 \ \vee \ x = 2.$$
+
+Dit kunnen we ook aflezen uit de grafiek. Nu moeten we bepalen voor welke $x$ er geldt dat $f(x) > g(x)$. Met andere woorden, alle $x$ waardes waar de grafiek van $f(x)$ boven die van $g(x)$ ligt. We zien in Figuur 1 dat dit geldt voor alle $x$ links van $x = 1$ en alle $x$ rechts van $x = 2$. Oftewel, ons eindantwoord wordt dus:
+
+!!! quote ""
+    $$\large{x < -1 \ \vee \ x > 2}$$
+
