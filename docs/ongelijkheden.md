@@ -259,6 +259,11 @@ Maar let op! We kunnen dit niet zomaar zeggen voor $(x - 1)(x - 2) > 0.$ Want he
 
 Maar het is lastig om te bepalen wat het precies moet zijn. Daarom is het handig om kwadratische ongelijkheden op te lossen door middel van een tekening. De [methode](#oplossen-door-een-schets-te-maken) is eigenlijk redelijk hetzelfde als bij de lineaire ongelijkheden. Laten we de vergelijking hierboven plotten.
 
+<figure markdown>
+![Twee grafieken plot](assets/images/f(x) = (x - 1)(x - 2); g(x) = 0.svg){ width="500"}
+<figcaption>Figuur 1. De grafieken f(x) = (x - 1)(x - 2) en g(x) = 0 geplot met hun snijpunten.</figcaption>
+</figure>
+
 We definiëren de volgende functies:
 
 $$f(x) = (x - 1)(x - 2) \ \mathrm{en} \ g(x) = 0.$$
@@ -267,11 +272,6 @@ In dit geval is $g(x)$ dus gewoon de $x$-as. Onze originele vergelijking is dus:
 
 $$f(x) > g(x).$$
 
-<figure markdown>
-![Twee grafieken plot](assets/images/f(x) = (x - 1)(x - 2); g(x) = 0.svg){ width="500"}
-<figcaption>Figuur 1. De lijnen f(x) = (x - 1)(x - 2) en g(x) = 0 geplot met hun snijpunten.</figcaption>
-</figure>
-
 We hebben eerder gezien dat de snijpunten zijn:
 
 $$x = 1 \ \vee \ x = 2.$$
@@ -279,5 +279,193 @@ $$x = 1 \ \vee \ x = 2.$$
 Dit kunnen we ook aflezen uit de grafiek. Nu moeten we bepalen voor welke $x$ er geldt dat $f(x) > g(x)$. Met andere woorden, alle $x$ waardes waar de grafiek van $f(x)$ boven die van $g(x)$ ligt. We zien in Figuur 1 dat dit geldt voor alle $x$ links van $x = 1$ en alle $x$ rechts van $x = 2$. Oftewel, ons eindantwoord wordt dus:
 
 !!! quote ""
-    $$\large{x < -1 \ \vee \ x > 2}$$
+    $$\large{x < -1 \ \vee \ x > 2.}$$
+
+Laten we nu naar een ander voorbeeld kijken. Stel we hebben de vergelijking:
+
+$$x^2 < 1.$$
+
+We definiëren nu dus de volgende functies:
+
+$$f(x) = x^2 \ \mathrm{en} \  g(x) = 1,$$
+
+waarbij er dus geldt dat:
+
+$$f(x) < g(x).$$
+
+Laten we nu deze twee functies plotten.
+
+<figure markdown>
+![Twee grafieken plot](assets/images/f(x) = x²; g(x) = 1.svg){ width="500"}
+<figcaption>Figuur 2. De grafieken f(x) = x² en g(x) = 1 geplot met hun snijpunten.</figcaption>
+</figure>
+
+De snijpunten van deze twee functies zijn bij:
+
+$$x = -1 \ \vee \ x = 1,$$
+
+Dit kunnen we oplossen door te stellen dat $x^2 = 1$ en dan oplossen (zie [dit voorbeeld](kwadratische_vergelijkingen.md#voorbeelden)) of door het af te lezen uit de grafiek.
+
+De vraag was voor welke $x$ er geldt dat $f(x) < g(x)$. Dit zijn dus de $x$ waardes waar de grafiek van $f(x)$ onder die van $g(x)$ ligt. We kunnen in Figuur 2 zien dat dit het gebied is waar $x$ groter is dan $-1$, maar kleiner dan $1$. Dit noteren we wiskundig op de volgende manier:
+
+!!! quote ""
+    $$\large{-1 < x < 1}$$
+
+Hier staat dus eigenlijk dat $-1$ kleiner is dan $x$ (en dus dat $x$ groter is dan $-1$), maar dat $x$ weer kleiner is dan $1$.
+
+???+ Belangrijk
+    ### Kwadratische ongelijkheden oplossen
+
+    De methode om een kwadratische ongelijkheid op te lossen is als volgt:
+
+    1. Definiëer twee functies van beide kanten van het ongelijkheidsteken.
+    2. Bepaal de snijpunten van deze twee grafieken: los de vergelijking op door het ongelijkheidsteken te vervangen door een '$=$' teken ($x = a \vee x = b$).
+    3. Schets de twee functies en bepaal uit deze schets het gebied waar de $x$ waardes voldoen aan de vergelijking: de grafiek van $f(x)$ ligt boven/onder die van $g(x)$.
+    4. Noteer dit wiskundig: $a < x < b$ als de $x$ waardes tussen $a$ en $b$ voldoen aan de vergelijking (hier $f(x) < g(x)$), en noteer $x < a \ \vee x > b$ als alle $x$ waardes buiten het gebied tussen $a$ en $b$ voldoen aan de vergelijking (hier $f(x) > g(x)$).
+
+    <figure markdown>
+        ![Twee grafieken plot](assets/images/f(x) = (x - a)(x - b); g(x) = 0.svg){ width="500"}
+    </figure>
+
+
+### Voorbeelden
+??? example "Voorbeeld 1: $x^2 + 10x + 4 < 15$"
+    **<p style="text-align: center;font-size:20px;">Los op: $x^2 + 10x + 4 < 15$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We beginnen met het definiëren de volgende twee functies:
+
+    $$\large{f(x) = x^2 + 10x + 4 \ \mathrm{en} \ g(x) = 15,}$$
+
+    zodat:
+
+    $$\large{f(x) < g(x).}$$
+
+    We bepalen eerst de snijpunten van de twee functies:
+
+    $$\large{f(x) = g(x)}$$
+
+    $$\large{x^2 + 10x + 4 = 15}$$
+
+    We kunnen hier aan beide kanten $-15$ doen:
+
+    $$\large{x^2 + 10x - 11 = 0}$$
+    
+    We kunnen dit oplossen met behulp van [ontbinden in factoren](#ontbinden-in-factoren). We vinden dan dat we de vergelijking ook kunnen schrijven als:
+
+    $$\large{(x + 11)(x - 1) = 0}$$
+
+    $$\large{x + 11 = 0 \ \vee \ x - 1 = 0}$$
+
+    Onze snijpunten zijn dus bij:
+
+    $$\large{x = -11 \ \vee \ x = 1.}$$
+
+    Nu schetsen we de twee grafieken.
+
+    <figure markdown>
+        ![Twee grafieken plot](assets/images/f(x) = x² + 10x + 4; g(x) = 15.svg){ width="500"}
+        <figcaption>Figuur 1. De grafieken f(x) = x² + 10x + 4 en g(x) = 15 geplot met hun snijpunten.</figcaption>
+    </figure>
+
+    We zien in Figuur 1 dat de $x$ waardes waarvoor geldt dat $f(x) < g(x)$, in het gebied tussen $-11$ en $1$ zitten, want daar is de grafiek van $f(x)$ onder die van $g(x)$. De oplossing is dus:
+
+    !!! quote ""
+        $$\large{-11 < x < 1}$$
+
+
+
+??? example "Voorbeeld 2: $x^2 + 25 \geq 16$"
+    **<p style="text-align: center;font-size:20px;">Los op: $x^2 + 25 \geq 16$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We beginnen weer met het definiëren van de volgende twee functies:
+
+    $$\large{f(x) = x^2 + 15 \ \mathrm{en} \ g(x) = 16,}$$
+
+    zodat:
+
+    $$\large{f(x) \geq g(x).}$$
+
+    We bepalen de snijpunten van de twee functies:
+
+    $$f(x) = g(x)$$
+
+    $$x^2 + 25 = 16$$
+
+    We doen aan beide kanten $-25$:
+
+    $$x^2 = -9.$$
+
+    We zien hier dat we een negatief getal hebben, en dus betekent dit dat er geen oplossingen zijn (zie [Opmerking negatief getal](kwadratische_vergelijkingen.md#opmerkingen)). Met andere woorden, de twee functies snijden elkaar niet. Laten we twee functies schetsen om dit te controleren.
+
+    <figure markdown>
+        ![Twee grafieken plot](assets/images/f(x) = x² + 25; g(x) = 16.svg){ width="500"}
+        <figcaption>Figuur 1. De grafieken f(x) = x² + 25 en g(x) = 16 geplot.</figcaption>
+    </figure>
+
+    We zien inderdaad dat deze twee functies elkaar nooit snijden. We willen weten wanneer er geldt dat $f(x) \geq g(x)$, oftewel wanneer de grafiek van $f(x)$ boven die van $g(x)$ ligt. In Figuur 2 kunnen we zien dat de grafiek van $f(x)$ altijd boven die van $g(x)$ ligt. Ons eindantwoord wordt dus:
+
+    !!! quote ""
+        $$\large{\textrm{Voor alle } x}$$
+
+
+
+<!-- (x - 9/4)^2 -->
+??? example "Voorbeeld 3: $-x^2 + 9x - 12 \geq x^2 - 1 \frac{7}{8}$" 
+    **<p style="text-align: center;font-size:20px;">Los op: $-x^2 + 9x - 12 \geq x^2 - 1 \frac{7}{8}$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We beginnen met het definiëren van de volgende twee functies:
+
+    $$\large{f(x) = - x^2 + 9x - 12 \ \mathrm{en} \ g(x) = x^2 - 1 \frac{7}{8},}$$
+
+    zodat:
+
+    $$\large{f(x) \geq g(x).}$$
+
+    We willen als eerst de snijpunten bepalen van deze twee functies:
+
+    $$\large{f(x) = g(x)}$$
+
+    $$\large{-x^2 + 9x - 12 = x^2 - 1 \frac{7}{8}.}$$
+
+    We halen alle termen naar de linker kant door beide kanten $-x^2$ en $+ 1 \frac{7}{8}$ te doen:
+
+    $$\large{-2x^2 + 9x - 10 \frac{1}{8} = 0.}$$
+
+    Er zit een breuk in deze vergelijking, dus we gebruiken meteen de [*abc* formule](kwadratische_vergelijkingen.md#de-abc-formule). We hebben:
+
+    $$\large{a = -2, \ b = 9, \ c = -10 \frac{1}{8}}$$
+
+    De discriminant wordt dan:
+
+    $$D = 9^2 - 4 * -2 * -10 \frac{1}{8} = 0$$
+
+    We vullen dit nu in:
+
+    $$\large{x = \frac{-9 \pm \sqrt{0}}{2*-2}}$$
+
+    $$\large{x = 2 \frac{1}{4}}$$
+
+    Er is dus maar $1$ oplossing voor deze vergelijking, wat we dus ook hadden kunnen zien aan het feit dat onze discriminant $0$ is. Laten we de twee grafieken schetsen.
+
+    <figure markdown>
+        ![Twee grafieken plot](assets/images/f(x) = - x² + 9x - 12; g(x) = x² - 1.875.svg){ width="500"}
+        <figcaption>Figuur 1. De grafieken $f(x) = - x^2 + 9x - 12$ en $g(x) = x^2 - 1 \frac{7}{8}$ geplot.</figcaption>
+    </figure>
+
+    We willen weten voor welke $x$ er geldt dat $f(x) \geq g(x)$. Dit zijn dus de waardes voor $x$ waarvoor er geldt dat de grafiek van $f(x)$ boven die van $g(x)$ ligt, of dat ze dezelfde hetzelfde zijn en dus elkaar snijden. 
+    
+    In Figuur 3 zien we echter dat de grafiek van $f(x)$ bij elke waarde voor $x$ onder die van $g(x)$ ligt, behalve bij het snijpunt, want daar zijn ze gelijk aan elkaar. Ons eindantwoord is dus dat dit alleen geldt voor het snijpunt, en dus:
+
+    !!! quote ""
+        $$\large{\textrm{Alleen voor } x = 2 \frac{1}{4}}$$
+
+
+
+
+
+
+
 

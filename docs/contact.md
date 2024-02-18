@@ -9,7 +9,7 @@ hide:
 # Contact
 
 <div class="form-container">
-  <h1 class="form-title">Aanmelden voor een vrijblijvend telefonisch intakegesprek</h1>
+  <h2 class="form-title">Aanmelden voor een vrijblijvend telefonisch kennismakingsgesprek</h2>
   <form id="fs-frm" name="registratie-formulier" accept-charset="utf-8" action="https://formspree.io/f/mbjnoanw" method="post">
     <fieldset id="fs-frm-inputs">
       <label for="full-name">Voor- en Achternaam</label>
@@ -184,7 +184,7 @@ hide:
   border-radius: 8px;
 }
 
-.form-container h1 {
+.form-container h2 {
   color: white; /* Set the text color of the title to red */
   font-size: 1.2rem;
   font-weight: bold; /* Add this line to make the title bold */
@@ -203,10 +203,12 @@ Ik ben begonnen met het schrijven van deze site, omdat het voor mij voelde alsof
 
 Daarom heb ik dit probleem geprobeerd op te lossen met deze site. Maar het kan natuurlijk zo zijn dat jouw kind ergens vastloopt en met vragen of onduidelijkheden zit. Daarom biedt ik **persoonlijk een-op-een bijles** aan, om op die manier jouw kind nóg beter te kunnen helpen met de stof begrijpen.
 
-De bijles is **fysiek** op locatie naar wens (in Regio Noord-Holland) of **online** voor **€25** per uur.
+De bijles is **fysiek** op locatie naar wens (in Regio Noord-Holland) of **online**. 
+
+Voordat we beginnen met de bijles van jouw kind maken we kennis via een telefoongesprek. Daarna geef ik een **gratis proefbijles** om te laten zien hoe mijn methode werkt en of het een goeie match is met jouw kind. Ben je daarna geïnteresseerd, dan kunnen we meer bijlessen in plannen voor **€25** per uur. Vind je het na de proefbijles, voor wat voor reden dan ook, geen goeie match of ben je ontevreden? Geen probleem, het is vrijblijvend, dus je zit helemaal **nergens aan vast**. 
 
 Maar waarom ben ik de **juiste keuze**?
 
 Niet alleen heb ik dankzij mijn vaardigheden momenteel een **gemiddelde van 8.5** voor mijn studie waar wiskundige kennis erg belangrijk is, maar ik heb ook **jaren ervaring als bijlesdocent**. Zelfs toen ik zelf nog op de middelbare school zat, gaf ik al wiskunde bijles aan lagerejaars leerlingen. 
 
-Ben je geïntereseerd? Meld je aan voor een **vrijblijvend telefonisch intakegesprek**!
+Ben je geïntereseerd? Meld je aan voor een **vrijblijvend telefonisch kennismakingsgesprek**!
