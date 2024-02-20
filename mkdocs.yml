@@ -58,6 +58,7 @@ nav:
   
   - Stof:
     - basisvaardigheden.md
+    - percentages.md
     - De Stelling van Pythagoras: pythagoras.md
     - Kwadratische Vergelijkingen: kwadratische_vergelijkingen.md
     - ongelijkheden.md
@@ -65,6 +66,7 @@ nav:
     - goniometrie.md
 
   - contact.md
+  
 
 # not_in_nav:
 #   contact.md

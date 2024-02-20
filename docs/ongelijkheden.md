@@ -351,7 +351,7 @@ Hier staat dus eigenlijk dat $-1$ kleiner is dan $x$ (en dus dat $x$ groter is d
 
     $$\large{x^2 + 10x - 11 = 0}$$
     
-    We kunnen dit oplossen met behulp van [ontbinden in factoren](#ontbinden-in-factoren). We vinden dan dat we de vergelijking ook kunnen schrijven als:
+    We kunnen dit oplossen met behulp van [ontbinden in factoren](kwadratische_vergelijkingen.md#ontbinden-in-factoren). We vinden dan dat we de vergelijking ook kunnen schrijven als:
 
     $$\large{(x + 11)(x - 1) = 0}$$
 
