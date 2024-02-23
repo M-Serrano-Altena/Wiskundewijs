@@ -2,7 +2,7 @@
 
 ## Theorie
 
-Een afgeleide functie geeft op elk x coördinaat de bijbehorende helling/richtingscoëfficient. Dit wordt hieronder weergegeven.
+Een afgeleide functie geeft op elk x coördinaat de bijbehorende helling/richtingscoëfficient. De functie geeft dan dus niet meer het $y$-coördinaat als je $x$ invult, maar de helling van de grafiek op dat punt. Dit wordt hieronder weergegeven.
 
 ### Parabool
 Een parabool heeft in het simpleste geval de vorm

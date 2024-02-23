@@ -199,16 +199,13 @@ Ik ben **Marc Serrano Altena**, een tweedejaars student Natuur- en Sterrenkunde 
 
 ![Foto Marc Serrano Altena](assets/images/Marc_Serrano_Altena_photo.png){ width="200" align=right}
 
-Ik ben begonnen met het schrijven van deze site, omdat het voor mij voelde alsof de meeste wiskunde methodes **te snel door de stof** gaan en dat **niet alle stappen duidelijk** zijn. Ook is het vaak lastig om de juiste theorie te vinden die nou net de vragen van jouw kind kan beantwoorden.
+Omdat ik begrijp dat wiskunde soms te snel kan gaan en niet alle stappen even duidelijk zijn, ben ik gestart met deze site. Maar om er met zekerheid voor te zorgen dat jouw kind een van de beste cijfers haalt, bied ik **persoonlijke een-op-een bijles** aan. 
 
-Daarom heb ik dit probleem geprobeerd op te lossen met deze site. Maar het kan natuurlijk zo zijn dat jouw kind ergens vastloopt en met vragen of onduidelijkheden zit. Daarom biedt ik **persoonlijk een-op-een bijles** aan, om op die manier jouw kind nóg beter te kunnen helpen met de stof begrijpen.
+Dit kan zowel **fysiek** op locatie in Regio Noord-Holland als **online**, en dit alles voor **€25 per uur**. De eerste bijles is volledig **gratis** om te bekijken of het een goede match is met jouw kind, en volledig vrijblijvend, dus je zit nergens aan vast!
 
-De bijles is **fysiek** op locatie naar wens (in Regio Noord-Holland) of **online**. 
+Waarom kiezen voor mijn bijles?
 
-Voordat we beginnen met de bijles van jouw kind maken we kennis via een telefoongesprek. Daarna geef ik een **gratis proefbijles** om te laten zien hoe mijn methode werkt en of het een goeie match is met jouw kind. Ben je daarna geïnteresseerd, dan kunnen we meer bijlessen in plannen voor **€25** per uur. Vind je het na de proefbijles, voor wat voor reden dan ook, geen goeie match of ben je ontevreden? Geen probleem, het is vrijblijvend, dus je zit helemaal **nergens aan vast**. 
+- **Gemiddelde van 8.5** voor mijn studie, waar wiskundige kennis essentieel is.
+- **Jaren ervaring als bijlesdocent**, zelfs tijdens mijn middelbare schooljaren.
 
-Maar waarom ben ik de **juiste keuze**?
-
-Niet alleen heb ik dankzij mijn vaardigheden momenteel een **gemiddelde van 8.5** voor mijn studie waar wiskundige kennis erg belangrijk is, maar ik heb ook **jaren ervaring als bijlesdocent**. Zelfs toen ik zelf nog op de middelbare school zat, gaf ik al wiskunde bijles aan lagerejaars leerlingen. 
-
-Ben je geïntereseerd? Meld je aan voor een **vrijblijvend telefonisch kennismakingsgesprek**!
+Interesse? Meld je aan voor een **vrijblijvend telefonisch kennismakingsgesprek** en ontdek hoe ik jouw kind kan ondersteunen!
