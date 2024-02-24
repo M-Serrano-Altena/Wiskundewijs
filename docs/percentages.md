@@ -298,3 +298,65 @@ $$\textrm{Percentage} = 0.5 * 100\% = 50\%$$
 
 
 ## Procentuele toename/afname bepalen
+We hebben net gekeken naar het percentage van een getal ten opzichte van een ander getal. Nu kijken we naar wat de toename/afname is van een nieuwe prijs ten opzichte van de oude. Dus stel we hadden eerst een product voor €$10$, maar nu is de prijs verhoogt naar €$15$. Wat is de procentuele toename van de prijs?
+
+???+ Belangrijk
+    Om een procentuele toename/afname te bepalen kunnen we de volgende formule gebruiken:
+
+    $$\large{\frac{\textrm{Nieuw} - \textrm{Oud}}{\textrm{Oud}} * 100\%}$$
+
+    "Nieuw" is dus de nieuwe prijs en "oud" is de oude prijs. Een positief getal is een procentuele toename, een negatief getal is een procentuele afname.
+
+Dus als we eerst een product hadden voor €$10$, maar die nu is toegenomen naar €$15$, dan kunnen we de procentuele toename als volgt berekenen:
+
+De €$15$ is de nieuwe prijs en dus "nieuw" en €$10$ is de oude prijs en dus "oud":
+
+$$\frac{\large{\textrm€} \normalsize 15 - \large{\textrm€} \normalsize 10}{\large{\textrm€} \normalsize 10} * 100\% = 50\%$$
+
+Het percentage is positief en dus is er een procentuele toename. Ons eindantwoord wordt dus:
+
+!!! quote ""
+    $$\large{\textrm{Procentuele toename van $50\%$}}$$
+
+### Voorbeelden
+
+??? example "Voorbeeld 1: Bepaal de procentuele toename/afname: van €$100$ naar €$80$"
+    **<p style="text-align: center;font-size:20px;">Bepaal de procentuele toename/afname: van €$100$ naar €$80$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We hebben hier een oude prijs van €$100$ en die is verlaagt naar een nieuwe prijs van €$80$. "Oud" is dus €$100$ en "nieuw" is €$80$. Dit vullen we in:
+
+    $$\large{\frac{\Large{\textrm€} \large 80 - \Large{\textrm€} \large 100}{\Large{\textrm€} \large 100} * 100\% = -20\%}$$
+
+    Het percentage is negatief, en dit betekent dus dat er een procentuele afname is. In dit geval is dit dus een procentuele afname van $20\%$.
+
+    !!! quote ""
+        $$\large{\textrm{Procentuele afname van $20\%$}}$$
+
+
+??? example "Voorbeeld 2: Bepaal de procentuele toename/afname: van €$53.50$ naar €$57$"
+    **<p style="text-align: center;font-size:20px;">Bepaal de procentuele toename/afname: van €$53.50$ naar €$57$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    De oude prijs is hier €$53.50$ en de nieuwe prijs wordt €$57$. Als we dit invullen vinden we:
+
+    $$\large{\frac{\Large{\textrm€} \large 57 - \Large{\textrm€} \large 53.50}{\Large{\textrm€} \large 53.50} * 100\% \approx 6.5\%}$$
+
+    We ronden hier af op $1$ decimaal omdat het een percentage is. Dit percentage is positief, dus er is een procentuele toename. Ons eindantwoord wordt dan:
+
+    !!! quote ""
+        $$\large{\textrm{Procentuele toename van $6.5\%$}}$$   
+
+
+??? example "Voorbeeld 3: Bepaal de procentuele toename/afname: van €$9.50$ naar €$3.95$"
+    **<p style="text-align: center;font-size:20px;">Bepaal de procentuele toename/afname: van €$9.50$ naar €$3.95$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We hebben hier een prijs die van €$9.50$ naar €$3.95$ gaat. Onze oude prijs is dus €$9.50$ en de nieuwe prijs wordt €$3.95$. Dit kunnen we invullen:
+
+    $$\large{\frac{\Large{\textrm€} \large 3.95 - \Large{\textrm€} \large 9.50}{\Large{\textrm€} \large 9.50} * 100\% \approx -58.4\%}$$
+
+    Weer ronden we af op $1$ decimaal omdat het een percentage is. Dit percentage is negatief, en dus er is sprake van een procentuele afname. Ons eindantwoord wordt dus:
+
+    !!! quote ""
+        $$\large{\textrm{Procentuele afname van $58.4\%$}}$$
