@@ -23,5 +23,6 @@ Ben je als ouder geïnteresseerd in **persoonlijke een-op-een bijles** voor jouw
 3. [De Stelling van Pythagoras](pythagoras.md)
 4. [Kwadratische Vergelijkingen](kwadratische_vergelijkingen.md)
 5. [Ongelijkheden](ongelijkheden.md)
+6. [Stelsels van Vergelijkingen](stelsels_van_vergelijkingen.md)
 6. [De Afgeleide Functie](afgeleide.md)
 7. [Goniometrie](goniometrie.md)

@@ -164,19 +164,21 @@ We zien dus dat we bij optellen en aftrekken eerst gelijke noemers moeten hebben
 
 
 ## Operaties met variabelen
-Operaties klinkt als een moeilijk woord, maar dit betekent gewoon dingen zoals optellen, aftrekken, vermenigvuldigen en delen. 
+Een operatie klinkt als een lastig woord, maar dit betekent gewoon dingen zoals optellen, aftrekken, vermenigvuldigen en delen.
+
+Alle onderstaande regels gaan twee kanten op, dus je kan iets in de linker vorm altijd schrijven als iets in de rechter vorm, en andersom. 
 
 ???+ Belangrijk
     ### Regels bij operaties met variabelen
-    1. $$\large{nA + mA = (n + m)A}$$
+    1. $$\large{nA + mA \iff (n + m)A}$$
 
-    2. $$\large{nA - mA = (n - m)A}$$
+    2. $$\large{nA - mA \iff (n - m)A}$$
 
-    3. $$\large{n(A + B) = nA + nB}$$
-    
-    4. $$\large{n(A - B) = nA - nB}$$
+    3. $$\large{(A + B) (C + D) \iff AC + AD + BC + BD}$$
 
-    5. $$\large{(A + B) (C + D) = AC + AD + BC + BD}$$
+    4. $$\large{(A - B) (C - D) \iff AC - AD - BC + BD}$$
+
+    5. $$\large{A(B*C) \iff A*B*C}$$
 
 
 ??? example "Getallen Voorbeelden"
@@ -235,7 +237,7 @@ Operaties klinkt als een moeilijk woord, maar dit betekent gewoon dingen zoals o
 
     $$\large{\left(a + b \right) \left(a + b \right) = a \left( a + b \right) + b \left( a + b \right)}$$
 
-    En nu werken we van beide haakjes de haakjes uit:
+    En nu werken we beide haakjes uit:
 
     $$\large{a \left( a + b \right) + b \left( a + b \right) = a^2 + ab + ba + b^2}$$
 
@@ -248,17 +250,19 @@ Operaties klinkt als een moeilijk woord, maar dit betekent gewoon dingen zoals o
     !!! quote ""
         $$\large{\left(a + b \right) \left(a + b \right) = a^2 + 2ab + b^2}$$
 
-    (zie ook regel 5 van [Regels bij operaties met variabelen](#regels-bij-operaties-met-variabelen))
+    (zie ook regel 3 van [Regels bij operaties met variabelen](#regels-bij-operaties-met-variabelen))
 
 
     **<p style="text-align: center;font-size:20px;">Regel 2</p>**
     Eigenlijk gaat dit op dezelfde manier als bij de vorige regel:
 
-    $$\large{\left(a - b \right) \left(a - b \right) = a \left( a - b \right) - b \left( a - b \right)}$$
+    $$\large{\left(a - b \right) \left(a - b \right) = a \left( a - b \right) - b \left( a - b \right).}$$
 
-    $$\large{a \left( a - b \right) - b \left( a - b \right) = a^2 - ab - ba -- b^2}$$
+    We werken weer beide haakjes uit:
 
-    We weten dat min * min is plus, en dus kunnen we dit versimpelen tot:
+    $$\large{a \left( a - b \right) - b \left( a - b \right) = a^2 - ab - (ba - b^2).}$$
+
+    We weten dat min * min is plus, en dus wordt de $b^2$ term positief:
 
     $$\large{a^2 - ab - ba -- b^2 = a^2 - 2ab + b^2.}$$
 
@@ -267,7 +271,7 @@ Operaties klinkt als een moeilijk woord, maar dit betekent gewoon dingen zoals o
     !!! quote ""
         $$\large{\left(a - b \right) \left(a - b \right) = a^2 - 2ab + b^2 }$$
 
-    (zie ook regel 5 van [Regels bij operaties met variabelen](#regels-bij-operaties-met-variabelen))
+    (zie ook regel 4 van [Regels bij operaties met variabelen](#regels-bij-operaties-met-variabelen))
 
 
     **<p style="text-align: center;font-size:20px;">Regel 3</p>**
@@ -281,13 +285,12 @@ Operaties klinkt als een moeilijk woord, maar dit betekent gewoon dingen zoals o
 
     $$\large{a^2 - ab + ba - b^2 = a^2 - b^2.}$$
 
-    Onze eindconclusie wordt dus:
+    Onze eindconclusie wordt dus ook:
 
     !!! quote ""
         $$\large{\left(a + b \right) \left(a - b \right) = a^2 - b^2 }$$
 
-    (zie ook regel 5 van [Regels bij operaties met variabelen](#regels-bij-operaties-met-variabelen))
-
+### Controle met Getallen Voorbeeld
 Dus bij optellen en aftrekken moet je voorzichtig zijn dat je niet alleen de twee variabelen kwadrateerd en bij elkaar optelt of aftrekt, zonder rekening te houden met de kruistermen. We kunnen dit ook altijd controleren met een getallen voorbeeld:
 
 $$(2 + 3)^2 \neq 2^2 + 3^2$$
@@ -304,7 +307,7 @@ De volgende regels gelden wel voor alle soorten machten:
 
 ???+ Belangrijk
 
-    #### Machten Algemeen
+    #### Machten in het Algemeen
 
     4. $$\large{(a*b)^n = a^n*b^n}$$
 
@@ -317,7 +320,10 @@ De volgende regels gelden wel voor alle soorten machten:
     6. $$\large{\left(a^n\right)^m = a^{n * m}}$$
 
 
-Voor wortels gelden dus precies dezelfde regels als voor machten, wat logisch is aangezien je een wortel kan schrijven als tot de macht $\frac{1}{2}$.
+Voor wortels gelden dus precies dezelfde regels als voor machten, wat logisch is aangezien je een wortel kan schrijven als tot de macht $\frac{1}{2}$:
+
+$$\sqrt{x} \equiv x^{\frac{1}{2}}$$
+
 
 ???+ Belangrijk
     ### Regels met wortels
@@ -344,7 +350,7 @@ Voor wortels gelden dus precies dezelfde regels als voor machten, wat logisch is
 
     $$\large{\sqrt{(-2)^2} = \sqrt{4} = 2 \neq -2}$$
 
-    Om dit probleem op te lossen moeten we de absolute waarde nemen van $a$. De absolute waarde is als volgt gedenifiëerd:
+    Om dit probleem op te lossen moeten we de absolute waarde nemen van $a$. De absolute waarde is als volgt gedenifieerd:
 
     $$\large{ |a| = \left\{ \begin{array}{ c l } a & \quad \textrm{als } a \geq 0 \\ -a & \quad \textrm{als } a < 0 \end{array} \right.}$$
 
@@ -352,7 +358,7 @@ Voor wortels gelden dus precies dezelfde regels als voor machten, wat logisch is
     
     $$\large{|-2| = 2, \ \mathrm{en} \ |2| = 2.}$$
 
-    En dus om volledig correct te zijn, zouden we eigenlijk moeten zeggen dat:
+    En dus voor volledige correctheid moeten we de absolute waarde nemen van $a$:
 
     !!! quote ""
         $$\large{\sqrt{a^2} = |a|}$$
@@ -361,7 +367,7 @@ Voor wortels gelden dus precies dezelfde regels als voor machten, wat logisch is
 
 
 ## Logaritmes
-Een logaritme is eigenlijk het omgekeerde van een exponent. Er geldt dus dat:
+Een logaritme is eigenlijk het omgekeerde van een exponent. Met andere woorden:
 
 $$\large{\log{(10^2)} = 2 = 10^{\log{(2)}}}$$
 
@@ -399,17 +405,40 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     Dus in plaats van een logaritme met een grondgetal $e$ schrijven we $\ln$, wat staat voor "natuurlijke logaritme". Maar dit is alleen een verschil in notatie en dus zijn alle regels gewoon hetzelfde als met logaritmes die een ander grondgetal hebben.
 
+??? note "Domein en Bereik"
+    ### Domein en Bereik
+    **<p style="text-align: center;font-size:18px;">Exponent</p>**
+    Het domein van een exponent met een positief grondgetal is alle reële getallen:
+
+    $$\large{\textrm{Domein} = \langle \leftarrow, \rightarrow \rangle \textrm{ of } \mathbb{R}}$$
+
+    Het bereik is echter alle getallen groter dan $0$, want je kan nooit een negatief getal krijgen als het grondgetal niet negatief is. Dus $2^x > 0$ voor alle waardes van $x$:
+
+    $$\large{\textrm{Bereik} = \langle 0, \rightarrow \rangle}$$
+
+    **<p style="text-align: center;font-size:18px;">Logaritme</p>**
+
+    Omdat een logaritme de inverse is van een exponent, is het domein en bereik precies omgekeerd. Er geldt dus dat:
+
+    $$\large{\textrm{Domein} = \langle 0, \rightarrow \rangle}$$
+
+    Dit betekent dus dat een logaritme alleen gedefinieerd is voor getallen groter dan $0$. Voor $0$ of kleiner dan $0$ is er dus geen oplossing (net zoals dat er voor een wortel geen oplossing is voor een negatief getal). 
+    
+    Het bereik van een logaritme is dus het domein van een exponent en dus alle reële getallen:
+
+    $$\large{\textrm{Bereik} = \langle \leftarrow, \rightarrow \rangle \textrm{ of } \mathbb{R}}$$
+
 
 ### Voorbeelden Logaritmes
 ??? example "Voorbeeld 1: $^3 \! \log{(x)} = 2$"
     **<p style="text-align: center;font-size:20px;">Bereken x: $^3 \! \log{(x)} = 2$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We hebben hier een logaritme met een grondgetal $3$. Dit betekent dat we aan beide kanten van het '$=$' teken 3 tot de macht kunnen doen om van ons logaritme af te komen:
+    We hebben hier een logaritme met een grondgetal $3$. Dit betekent dat we aan beide kanten van het '$=$'-teken de exponent kunnen nemen met $3$ als grondgetal om van ons logaritme af te komen:
 
     $$\Large{3^{^3 \log{(x)}} = 3^2}$$
 
-    Dit mogen we doen, omdat we aan beide kanten van het '$=$' teken hetzelfde doen. Nu kunnen we dit versimpelen met behulp van regel 1 van de [Regels met Logaritmes](#regels-met-logaritmes):
+    Dit mogen we doen, omdat we aan beide kanten van het '$=$'-teken dezelfde bewerking doen. Nu kunnen we dit versimpelen met behulp van regel 1 van de [Regels met Logaritmes](#regels-met-logaritmes):
 
     $$\Large{x = 3^2}$$
 
@@ -428,11 +457,11 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     $$\Large{4 \log{(x)} = 3}$$
 
-    Nu delen we aan beide kanten van het '$=$' teken door $4$ om alleen de logaritme aan de linkerkant over te houden:
+    Nu delen we aan beide kanten van het '$=$'-teken door $4$ om alleen de logaritme aan de linkerkant over te houden:
 
     $$\Large{\log{(x)} = \frac{3}{4}}$$
 
-    Er staat hier geen grondgetal bij de logaritme, wat dus betekent dat het een grondgetal 10 heeft (zie [Opmerking Notatie](#opmerking-notatie)). We doen nu aan beide kanten 10 tot de macht om van ons logaritme af te komen:
+    Er staat hier geen grondgetal bij de logaritme, wat dus betekent dat het een grondgetal $10$ heeft (zie [Opmerking Notatie](#opmerking-notatie)). We nemen nu aan beide kanten de exponent met $10$ als grondgetal om van ons logaritme af te komen:
 
     $$\Large{10^{\log{(x)}} = 10^{\frac{3}{4}}}$$
 
@@ -449,7 +478,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
     !!! quote ""
         $$\Large{x = \sqrt[4]{1000}}$$
 
-    ??? note "Andere uitwerking"
+    ??? note "Alternatieve uitwerking"
         Als we willen kunnen we ook eerst het logaritme wegwerken en daarna pas rekening houden met de vierdemacht:
 
         $$\Large{10^{\log{(x^4)}} = 10^3}$$
@@ -466,7 +495,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
     **<p style="text-align: center;font-size:20px;">Bereken x: $^2 \! \log{(4x)} = - ^2 \! \log{(3x)} + 6$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We willen eerst alle termen met $x$ aan de linkerkant hebben. Dit doen we door aan beide kanten van het '$=$' teken $+ ^2 \! \log{(3x)}$ te doen, zodat het rechts weg valt:
+    We willen eerst alle termen met $x$ aan de linkerkant hebben. Dit doen we door aan beide kanten van het '$=$'-teken $+ ^2 \! \log{(3x)}$ toe te voegen, zodat het rechts wegvalt:
 
     $$\Large{^2 \! \log{(4x)} + ^2 \! \log{(3x)} = 6}$$
 
@@ -476,20 +505,34 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     $$\Large{^2 \! \log{(12x^2)} = 6}$$
 
-    Nu kunnen we weer het logaritme weg werken door aan beide kanten $2$ tot de macht te doen:
+    Nu kunnen we weer het logaritme weg werken door aan beide kanten de exponent te nemen met $2$ als grondgetal:
 
     $$\Large{2^{^2 \log{(12x^2)}} = 2^6}$$
 
     $$\Large{12x^2 = 64,}$$
 
-    (zie eventueel [regel 1](#regels-met-logaritmes)). We delen beide kanten door $12$ om alleen $x^2$ over te houden:
+    (zie eventueel regel 1 van de [Regels met Logaritmes](#regels-met-logaritmes)). We delen beide kanten door $12$ om alleen $x^2$ over te houden:
 
     $$\Large{x^2 = \frac{16}{3}}$$
 
-    En nu nemen we aan beide kanten een wortel om over te houden (zie eventueel [Regels met Wortels](#regels-met-wortels)):
+    En nu nemen we aan beide kanten de wortel om over te houden (zie eventueel de [Regels met Wortels](#regels-met-wortels)):
 
     !!! quote ""
         $$\Large{x = \frac{4}{\sqrt{3}}}$$
+
+
+    ??? note "Opmerking Negatieve Oplossing"
+        De oplettenden zullen misschien opgemerkt hebben dat we hier alleen de positieve oplossing hebben gegeven, terwijl een vergelijking van de vorm [$x^2 = c$](kwadratische_vergelijkingen.md#oplossen-vorm-x2-c) een positieve en een negatieve oplossing heeft. Dus de twee oplossingen zouden dan zijn:
+
+        $$\large{x = \frac{4}{\sqrt{3}} \ \vee \ x = -\frac{4}{\sqrt{3}}}$$
+
+        Maar let op wat er gebeurt als we de negatieve oplossing weer invullen in de vergelijking:
+
+        $$\large{^2 \! \log{(4 * -\frac{4}{\sqrt{3}})} = - ^2 \! \log{(3 * -\frac{4}{\sqrt{3}})} + 6}$$
+
+        $$\large{^2 \! \log{(-\frac{16}{\sqrt{3}})} = - ^2 \! \log{(-\frac{12}{\sqrt{3}})} + 6}$$
+
+        We krijgen nu dus negatieve getallen in onze logaritmes. Maar we weten dat het [domein](#domein-en-bereik) van een logaritme alleen positieve getallen zijn, en dus dat een logaritme van een negatief getal niet gedefinieerd is. De oplossing $x = -\frac{4}{\sqrt{3}}$ voldoet dus niet aan de vergelijking en dus is het ook geen oplossing.
 
 
 ??? example "Voorbeeld 4: $^{25} \! \log{(4x^4)} - 2 = ^5 \! \log{(2x)}$"
@@ -500,11 +543,11 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     $$\Large{^{25} \! \log{(4x^4)} - ^5 \! \log{(2x)} = 2}$$
 
-    We kunnen nu alleen niet meteen onze logaritmes combineren, want ze hebben andere grondgetallen. Dit betekent dat we van een van de twee logaritmes het grondgetal moeten veranderen met behulp van regel 5 van de [Regels met Logaritmes](#regels-met-logaritmes). 
+    We kunnen nu alleen niet meteen onze logaritmes combineren, want ze hebben andere grondgetallen. Dit betekent dat we van een van de twee logaritmes het grondgetal moeten veranderen met behulp van regel 5 van de [Regels met Logaritmes](#regels-met-logaritmes): 
     
     $$\Large{\frac{^{5} \! \log{(4x^4)}}{^5 \! \log{(25)}} - ^5 \! \log{(2x)} = 2}$$
 
-    In dit geval veranderen we de $^{25} \! \log$ naar een $^{5} \! \log$, maar andersom kan ook. Nu werken we de $5 \! \log{(25)}$ uit:
+    In dit geval veranderen we de $^{25} \! \log$ naar een $^{5} \! \log$. Andersom is ook goed, zolang we maar twee logaritmes hebben met hetzelfde grondgetal. Nu werken we de $5 \! \log{(25)}$ uit:
 
     $$\Large{\frac{^{5} \! \log{(4x^4)}}{2} - ^5 \! \log{(2x)} = 2}$$
 
@@ -514,7 +557,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     Met behulp van regel 2 van de [Regels met Logaritmes](#regels-met-logaritmes) kunnen we de $\frac{1}{2}$ in de logaritme halen:
 
-    $$\Large{ ^{5} \! \log{\left(\left(4x^4\right)^{\frac{1}{2}}\right)} - ^5 \! \log{(2x)} = 2}$$
+    $$\Large{ ^{5} \! \log{\left(\left(4x^4\right)^{\frac{1}{2}}\right)} - ^5 \! \log{(2x)} = 2,}$$
 
     oftewel:
 
@@ -528,11 +571,11 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     $$\Large{ ^{5} \! \log{\left(x\right)} = 2}$$
 
-    Nu doen we aan beide kanten $5$ tot de macht om van het logaritme af te komen:
+    Nu nemen we aan beide kanten de exponent met $5$ als grondgetal om van het logaritme af te komen:
 
     $$\Large{5^{^{5} \log{(x)}} = 5^2}$$
 
-    En dus met [regel 1](#regels-met-logaritmes):
+    En dus met regel 1 van de [Regels met Logaritmes](#regels-met-logaritmes):
 
     !!! quote ""
         $$\Large{x = 25}$$
