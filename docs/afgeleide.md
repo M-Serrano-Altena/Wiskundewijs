@@ -409,3 +409,38 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     !!! quote ""
         $$\large{f'(x) = \frac{2 \sqrt{x}}{\left( x + 1 \right)}  +  \frac{\ln{\left((x+1)^2 \right)}}{2 \sqrt{x}}}$$
+
+## Extreme waardes
+Zoals in we in het filmpje bij een [parabool](#parabool) kunnen zien, is de helling gelijk aan $0$ bij een top/extreme waarde. Dit komt omdat op dit punt de functie van toenemend naar afnemend wisselt, of andersom. Omdat de afgeleide de helling geeft op elk punt, betekent dit dus dat als we de coördinaten willen bepalen van de extreme waarde, we moeten stellen dat:
+
+$$\large{f'(x) = 0}$$
+
+Laten we naar een voorbeeld kijken. We hebben de volgende functie gegeven:
+
+$$f(x) = -x^2 + 2.$$
+
+We willen van deze functie berekenen wat het coordinaat van de top is met behulp van de afgeleide. Hoe pakken we dit aan?
+
+<figure markdown>
+![Twee grafieken plot](assets/images/f(x) = -x² + 2.svg){ width="500"}
+    <figcaption>Figuur 1. De grafiek $f(x) = - x^2 + 2$ geplot met de extreme waarde.</figcaption>
+</figure>
+
+We beginnen met de afgeleide bepalen van $f(x)$. Voor het $-x^2$ term kunnen we gebruik maken van de tweede regel uit de [tabel](#tabel-met-veel-voorkomende-functies). De $2$ term valt weg, want deze is constant (eerste regel uit de [tabel](#tabel-met-veel-voorkomende-functies)). De afgeleide wordt dus:
+
+$$f'(x) = -2x^{2-1} = -2x$$
+
+Omdat we het coordinaat van de top willen bepalen, moeten we kijken bij welk $x$-coördinaat de afgeleide gelijk is aan $0$. Onze vergelijking wordt dus:
+
+$$2x = 0 \Rightarrow x = 0$$
+
+Het $x$ coördinaat van onze top is dus $0$. Om het $y$-coördinaat te bepalen moeten we ons gevonden $x$ coördinaat van de top invullen in de originele functie $f(x)$. We krijgen dan:
+
+$$f(x=0) = -0^2 + 2 = 2$$
+
+Het $y$-coördinaat van de top is dus bij $y=2$. De coördinaten van de top zijn dus:
+
+!!! quote ""
+    $$\large{(0, 2)}$$
+
+en dit kunnen we ook aflezen in Figuur 1.
