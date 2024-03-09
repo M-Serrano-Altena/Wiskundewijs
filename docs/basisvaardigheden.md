@@ -78,7 +78,7 @@ $$\frac{1}{2}x = -\frac{1}{3} x + 2\frac{1}{12}$$
 
 $$\frac{1}{2}x + \frac{1}{3} x  =  2\frac{1}{12}$$
 
-- Combineer deze twee breuken (zie eventueel dit [voorbeeld](#voorbeeld-2)):
+- Combineer deze twee breuken (zie eventueel [getallen voorbeeld 3](#getallen-voorbeeld-breuken) bij de [Regels bij Breuken](#regels-bij-breuken)):
 
 $$\frac{5}{6}x =  2\frac{1}{12}$$
 
@@ -376,7 +376,7 @@ Ze heffen dus elkaar op.
 Net zoals een exponent heeft een logaritme een grondgetal.
 
 <figure markdown>
-  ![Vergelijking exponent en logartime](assets/images/Logarithm.svg){ width="300"}
+  ![Vergelijking exponent en logartime](assets/images/basisvaardigheden/Logarithm.svg){ width="300"}
   <figcaption>Figuur 1. Vergelijking exponent en logaritme. Een exponent vergroot hier het antwoord, en het logaritme doet het omgekeerde.</figcaption>
 </figure>
 

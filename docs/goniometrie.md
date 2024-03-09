@@ -4,7 +4,7 @@ Goniometrie gaat vooral over driehoeken en over de goniometrische functies: sinu
 In Figuur 1 is er een rechte driehoek getekend. Hier zijn drie punten gegeven en de hoek.
 
 <figure markdown>
-  ![Rechte driehoek](assets/images/Right_Triangle_Gonio.svg){ width="300"}
+  ![Rechte driehoek](assets/images/goniometrie/Right_Triangle_Gonio.svg){ width="300"}
   <figcaption>Figuur 1. Een rechte driehoek, met een hoek θ en punten A, B en C.</figcaption>
 </figure>
 
@@ -41,7 +41,7 @@ Dit kan je onthouden met het ezelsbruggetje: "SOS CAS TOA"
     "Overstaand" de zijde $BC$, "Aanliggend" de zijde $AB$ en "Schuin" de zijde $AC$.
 
     <figure markdown>
-        ![Rechte driehoek](assets/images/Right_Triangle_Gonio.svg){ width="200"}
+        ![Rechte driehoek](assets/images/goniometrie/Right_Triangle_Gonio.svg){ width="200"}
     </figure>
 
 ## De Sinus en Cosinus functies
@@ -56,12 +56,12 @@ In formule form houdt dit in dat:
 
 
 <figure markdown>
-  ![Sinus functie](assets/images/Sinus.svg){ width="450"}
+  ![Sinus functie](assets/images/goniometrie/Sinus.svg){ width="450"}
   <figcaption>Figuur 2. De sinus functie over een domein van [0, 6π].</figcaption>
 </figure>
 
 <figure markdown>
-  ![Cosinus functie](assets/images/Cosinus.svg){ width="450"}
+  ![Cosinus functie](assets/images/goniometrie/Cosinus.svg){ width="450"}
   <figcaption>Figuur 3. De cosinus functie over een domein van [0, 6π].</figcaption>
 </figure>
 
@@ -259,7 +259,7 @@ De eenheidscirkel is een manier om de verschillende waardes van $\sin$ en $\cos$
 Laten we eerst kijken hoe we de eenheidscirkel kunnen gebruiken.
 
 <figure markdown>
-  ![Eenheidscirkel](assets/images/Unit_Circle.svg){ width="1000"}
+  ![Eenheidscirkel](assets/images/goniometrie/Unit_Circle.svg){ width="1000"}
   <figcaption>Figuur 4. Eenheidscirkel uit het filmpje. De hoeken zijn in het groen weergegeven, de sinus waardes zijn de y-coördinaten bij elke hoek, de cosinus waardes de x-coördinaten bij elke hoek.</figcaption>
 </figure>
 
@@ -271,7 +271,7 @@ $$\large{\sin{(\frac{1}{3} \pi)} = \frac{1}{2} \sqrt{3}}.$$
     Hiervoor wordt er gezegd dat het $x$-coördinaat bij de cosinus hoort en dat het $y$-coördinaat bij de sinus hoort. Maar hoezo is dit het geval? Dat wordt hieronder laten zien. 
 
     <figure markdown>
-      ![Eenheidscirkel met driehoek](assets/images/Unit_Circle_triangle.svg){ width="300"}
+      ![Eenheidscirkel met driehoek](assets/images/goniometrie/Unit_Circle_triangle.svg){ width="300"}
       <figcaption>Figuur 5. Eenheidscirkel met daarin een driehoek getekent met een bepaalde hoek θ.</figcaption>
     </figure>
 

@@ -460,7 +460,7 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
         Dit betekent dus dat $f(x)$ $2$ snijpunten heeft met de $x$-as. Als we de grafiek van $f(x)$ plotten zien we dat dit ook daadwerkelijk het geval is:
 
         <figure markdown>
-            ![Plot van f(x) met snijpunten x-as](assets/images/f(x) = x² - 1.svg){ width="400"}
+            ![Plot van f(x) met snijpunten x-as](assets/images/kwadratische_vergelijkingen/f(x) = x² - 1.svg){ width="400"}
             <figcaption>Figuur 1. De grafiek f(x) = x² - 1 geplot met de snijpunten met de x-as.</figcaption>
         </figure>
 
@@ -486,7 +486,7 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
         We weten nu dus dat $f(x)$ maar $1$ snijpunt heeft met de $x$-as (en dus de $x$-as raakt). Als we $f(x)$ plotten zien we dat dit inderdaad het geval is.
 
         <figure markdown>
-            ![Plot van f(x) met snijpunt x-as](assets/images/f(x) = x² - 4x + 4.svg){ width="500"}
+            ![Plot van f(x) met snijpunt x-as](assets/images/kwadratische_vergelijkingen/f(x) = x² - 4x + 4.svg){ width="500"}
             <figcaption>Figuur 2. De grafiek f(x) = x² - 4x + 4 geplot met het snijpunt/raakpunt met de x-as.</figcaption>
         </figure>
 
@@ -510,7 +510,7 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
         Deze functie heeft dus geen snijpunten met de $x$-as. We controleren dit weer met een plot van $f(x)$.
 
         <figure markdown>
-            ![Plot van f(x) met 0 snijpunten x-as](assets/images/f(x) = x² + 1.svg){ width="500"}
+            ![Plot van f(x) met 0 snijpunten x-as](assets/images/kwadratische_vergelijkingen/f(x) = x² + 1.svg){ width="500"}
             <figcaption>Figuur 3. De grafiek f(x) = x² +1 geplot.</figcaption>
         </figure>
 
@@ -939,7 +939,7 @@ We gaan kijken naar drie verschillende gevallen, een functie waar we $2$ snijpun
 Laten we beginnen met een functie die $2$ snijpunten heeft. We zien hieronder de functie $f(x) = x^2 - 1$ en de $2$ snijpunten met de $x$-as. 
 
 <figure markdown>
-  ![Plot van f(x) met snijpunten x-as](assets/images/f(x) = x² - 1.svg){ width="500"}
+  ![Plot van f(x) met snijpunten x-as](assets/images/kwadratische_vergelijkingen/f(x) = x² - 1.svg){ width="500"}
   <figcaption>Figuur 1. De grafiek f(x) = x² - 1 geplot met de snijpunten met de x-as.</figcaption>
 </figure>
 
@@ -974,7 +974,7 @@ Laten we nu kijken naar een situatie waar we een functie hebben die maar $1$ sni
 We hebben hieronder een grafiek $f(x) = x^2 - 4x + 4.$
 
 <figure markdown>
-  ![Plot van f(x) met snijpunt x-as](assets/images/f(x) = x² - 4x + 4.svg){ width="500"}
+  ![Plot van f(x) met snijpunt x-as](assets/images/kwadratische_vergelijkingen/f(x) = x² - 4x + 4.svg){ width="500"}
   <figcaption>Figuur 2. De grafiek f(x) = x² - 4x + 4 geplot met het snijpunt/raakpunt met de x-as.</figcaption>
 </figure>
 
@@ -1026,7 +1026,7 @@ Als laatst kijken we naar de situatie waar er helemaal geen snijpunten zijn met 
 Dit gebeurt bijvoorbeeld bij de functie $f(x) = x^2 + 1$, zoals we kunnen zien in Figuur 3.
 
 <figure markdown>
-  ![Plot van f(x) met 0 snijpunten x-as](assets/images/f(x) = x² + 1.svg){ width="500"}
+  ![Plot van f(x) met 0 snijpunten x-as](assets/images/kwadratische_vergelijkingen/f(x) = x² + 1.svg){ width="500"}
   <figcaption>Figuur 3. De grafiek f(x) = x² +1 geplot.</figcaption>
 </figure>
 
@@ -1047,7 +1047,7 @@ Er is gewoon geen enkel moment dat de grafiek van $f(x)$ de $x$-as snijdt, omdat
 We zien nu twee functies, $f(x) = x^2 -6x - 1$ en $g(x) = -x^2 + 2x + 3$ en de snijpunten tussen de twee.
 
 <figure markdown>
-  ![Plot van f(x) en g(x) met snijpunten](assets/images/f(x) = x² - 6x - 1; g(x) = -x² + 2x + 3.svg){ width="500"}
+  ![Plot van f(x) en g(x) met snijpunten](assets/images/kwadratische_vergelijkingen/f(x) = x² - 6x - 1; g(x) = -x² + 2x + 3.svg){ width="500"}
   <figcaption>Figuur 4. De grafieken f(x) = x² - 6x - 1 en g(x) = -x² + 2x + 3 geplot met de punten waar de twee functies elkaar snijden.</figcaption>
 </figure>
 
@@ -1111,11 +1111,11 @@ $$f(2 + \sqrt{6}) = (2 + \sqrt{6})^2 - 6(2 + \sqrt{6}) - 1 = -2\sqrt{6} - 3$$
 Onze snijpunten zijn dus:
 
 !!! quote ""
-    $$\large{\left(2 - \sqrt{6}, \ 2\sqrt{6} - 3\right) \ \mathrm{en} \ \left(2 + \sqrt{6}, \ -2\sqrt{6} - 3\right)}$$
+    $$\large{\left(2 - \sqrt{6}, \ 2\sqrt{6} - 3\right) \textrm{ en } \left(2 + \sqrt{6}, \ -2\sqrt{6} - 3\right)}$$
 
 Als we het afronden op twee decimalen, dan krijgen we:
 
 !!! quote ""
-    $$\large{\left(-0.45, 1.90 \right) \ \mathrm{en} \ \left(4.45, -7.90 \right)}$$
+    $$\large{\left(-0.45, 1.90 \right) \textrm{ en } \left(4.45, -7.90 \right)}$$
 
 en als we kijken naar Figuur 4, dan kunnen we zien dat dit klopt.

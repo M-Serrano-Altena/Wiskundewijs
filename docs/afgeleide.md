@@ -70,7 +70,7 @@ De afgeleide is dus hetzelfde als de functie zelf. Dit fenomeen is te zien in he
     | Productregel (eenvoudig)  | $\large{f(x) = a * g(x)}$ | $\large{f'(x) = a \  * \ g'(x)}$                                                    |
     | Productregel  | $\large{f(x) = g(x) * h(x)}$       | $\large{f'(x) = g'(x) \  * \ h(x) + g(x) * h'(x)}$                                                    |
     | Quotiëntregel | $\large{f(x) = \frac{g(x)}{h(x)}}$ | $\large{f'(x) = \frac{g'(x) \ * \ h(x) \ - \ g(x) \ * \ h'(x)}{h(x)^2}}$                              |
-    | Kettingregel  | $\large{f(x) = g(h(x))}$           | $\large{f'(x) = \frac{\mathrm{d} \ g(h)}{\mathrm{d} h} \ * \ \frac{\mathrm{d} \ h(x)}{\mathrm{d} x}}$ |
+    | Kettingregel  | $\large{f(x) = f(g(x))}$           | $\large{f'(x) = \frac{\mathrm{d} \ f(g)}{\mathrm{d} g} \ * \ \frac{\mathrm{d} \ g(x)}{\mathrm{d} x}}$ |
 
 De quotiëntregel kan je onthouden met het ezelsbruggetje: "nat - tan gedeelt door n kwadraat".
 
@@ -84,7 +84,7 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
 ### Voorbeelden
 
-??? example "Voorbeeld 1: f(x) = x²"
+??? example "Voorbeeld 1: Bereken de afgeleide van $f(x) = x^2$"
     **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = x^2$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
@@ -104,43 +104,68 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     $$\large{f'(x) = 2x^{1}}$$
 
+    En omdat we kunnen zeggen dat $x^1 \equiv x$:
+
     !!! quote ""
         $$\large{f'(x) = 2x}.$$
 
 
-??? example "Voorbeeld 2: f(x) = 4x"
+??? example "Voorbeeld 2: Bereken de afgeleide van $f(x) = 4x$"
     **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = 4x$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Net zoals bij het vorig voorbeeld kunnen we dit oplossen met behulp van de tweede rij van de [Tabel](#tabel-met-veel-voorkomende-functies). Maar nu hebben we ook het getal $4$ voor onze x. Als we gebruik maken van de [eenvoudige productregel](#regels) dan zien we dat de constante, in dit geval het getal $4$, niet uitmaakt voor onze afgeleide en we het gewoon ervoor kunnen laten.
-
-    We moeten dus de afgeleide bepalen van $g(x) \equiv x$ en dan kunnen we zeggen dat $f'(x) = 4 \ g'(x)$.
+    Net zoals bij het vorig voorbeeld kunnen we dit oplossen met behulp van de tweede rij van de [Tabel](#tabel-met-veel-voorkomende-functies). Maar nu hebben we ook het getal $4$ voor onze x. Als we gebruik maken van de [eenvoudige productregel](#regels) dan zien we dat een constante keer de functie niet uitmaakt voor onze afgeleide. We kunnen hier het getal $4$ er dus gewoon voor laten.
 
     We weten dat er voor de functie
 
-    $$\large{g(x) = x^n}$$
+    $$\large{f(x) = x^n}$$
 
     geldt dat
 
-    $$\large{g'(x) = nx^{n-1}}.$$
+    $$\large{f'(x) = nx^{n-1}}.$$
 
-    Er geldt nu dat $n=1$, zodat $g(x) = x$. Onze afgeleide wordt dan:
+    Er geldt nu dat $n=1$, zodat $f(x) = x$. Onze afgeleide wordt dan:
 
-    $$\large{g'(x) = 1*x^{1-1}}$$
+    $$\large{f'(x) = 4*1x^{1-1}}$$
 
-    $$\large{g'(x) = x^{0}}$$
+    $$\large{f'(x) = 4x^{0}}$$
 
     En omdat een getal tot de macht $0$ altijd gelijk is aan $1$, wordt onze afgeleide
 
-    $$\large{g'(x) = 1}$$
+    !!! quote ""
+        $$\large{f'(x) = 4}$$
 
-    Dit betekent dus dat
+    ??? note "Shortcut"
+        Stel dat we in plaats van de $f(x)$ hierboven de functie $g(x) = 5x$ hadden, dan was onze afgeleide geworden:
+
+        $$\large{g'(x) = 5,}$$
+
+        volgens precies dezelfde stappen als hierboven. Er volgt dus dat voor een willekeurige constante $a$ geldt dat:
+
+        $$\Large{f(x) = ax \Rightarrow f'(x) = a}$$       
+
+
+??? example "Voorbeeld 3: Bereken de afgeleide van $f(x) = 5x^3 + 3x^2 - 15x + 100$"
+    **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = 5x^3 + 3x^2 - 15x + 100$</p>**
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Met behulp van de [somregel](#regels) weten we dat de afgeleide van $f(x)$ de som is van de afgeleide van de individuele termen. De afgeleide wordt dan:
+
+    $$\large{f'(x) = 5*3x^{3-1} + 3*2x^{2-1} - 15}$$
+
+    Dit hebben we opgelost met de tweede regel uit de [tabel](#tabel-met-veel-voorkomende-functies) voor alle $x$ termen en de $+100$ term valt weg volgens de eerste regel uit de [tabel](#tabel-met-veel-voorkomende-functies). 
+
+    We kunnen dit dan verder versimpelen naar:
+
+    $$\large{f'(x) = 15x^2 + 6x^1 - 15}$$
+
+    En omdat we kunnen zeggen dat $x^1 \equiv x$:
 
     !!! quote ""
-        $$\large{f'(x) = 4}$$      
+        $$\large{f'(x) = 15x^2 + 6x - 15}$$
 
 
-??? example "Voorbeeld 3: Somregel"
+??? example "Voorbeeld 4: Bereken de afgeleide van $f(x) = 3(\cos{(x)} + 2)$"
     **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = 3(\cos{(x)} + 2)$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
@@ -148,77 +173,53 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     $$\large{f(x) = 3\cos{(x)} + 6.}$$
 
-    Daarna gebruiken we de [somregel](#regels) om dit op te splitsten in twee gedeeltes. We zeggen dat:
+    Met behulp van de [somregel](#regels) weten we dat de afgeleide van $f(x)$ de som is van de afgeleide van de individuele termen. De $+6$ term valt weg volgens regel 1 van de [tabel](#tabel-met-veel-voorkomende-functies). De afgeleide van de cosinus term kunnen we ook vinden in de [tabel](#tabel-met-veel-voorkomende-functies). 
 
-    $$\large{f(x) = g(x) + h(x),}$$
-    
-    waarbij we zeggen dat
-
-    $$\large{g(x) = 3\cos{(x)} \ \& \ h(x) = 6.}$$
-
-    De afgeleide van $f(x)$ wordt dan volgens de [somregel](#regels):
-
-    $$\large{f'(x) = g'(x) + h'(x)}$$
-
-    We kunnen dan met behulp van de eerste rij uit de [Tabel](#tabel-met-veel-voorkomende-functies) zeggen dat als
-
-    $$\large{h(x) = 6,}$$
-
-    wat dus een constante is die niet afhankelijk is van x, dan is de afgeleide:
-
-    $$\large{h'(x) = 0}$$
-
-    en dus
-
-    $$\large{f'(x) = g'(x).}$$
-
-    Zoals we bij het vorig voorbeeld hebben gezien, maken de constantes vóór de funtie niet uit en kunnen die ervoor blijven (zie [eenvoudige productregel](#regels)). In de [Tabel](#tabel-met-veel-voorkomende-functies) zien we dat de afgeleide van $\cos{(x)}$ gelijk is aan $-\sin{(x)}$.
-
-    Onze afgeleide wordt dan:
+    De afgeleide wordt dan:
 
     $$\large{g'(x) = 3 * - \sin{(x)}}$$
 
-    $$\large{g'(x) = -3 \sin{(x)}}$$
-
-    en dus
+    Waarbij we dus de factor $3$ er gewoon voor mogen laten en geen extra rekening mee hoeven te houden als we de afgeleide nemen ([eenvoudige productregel](#regels)). 
+    
+    Ons eindantwoord wordt dus:
 
     !!! quote ""
         $$\large{f'(x) = -3 \sin{(x)}}$$
 
 
-??? example "Voorbeeld 4: Productregel"
+??? example "Voorbeeld 5: Bereken de afgeleide van $f(x) = xe^x$"
     **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = xe^x$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
     Hier zien we dat onze functie $f(x)$ bestaat uit twee functies keer elkaar. Namelijk de functies:
 
-    $$\large{g(x) = x \ \& \ h(x) = e^x}$$
+    $$\large{g(x) = x \textrm{ en } h(x) = e^x}$$
 
     Dit kunnen we dus oplossen met behulp van de [productregel](#regels). Deze zegt dat:
 
     $$\large{f'(x) = g'(x) * h(x) + g(x) * h'(x)}$$
 
-    Laten we eerst de $g'(x)$ en $h'(x)$ bepalen.
+    Laten we eerst $g'(x)$ en $h'(x)$ bepalen.
 
-    Uit [Voorbeeld 2](#voorbeeld-2-fx-4x) is gebleken dat
+    Uit [Voorbeeld 2](#voorbeeld-2-fx-4x) is gebleken dat de afgeleide van $x$ $1$ is:
 
     $$\large{g'(x) = 1.}$$
 
     $h'(x)$ kunnen we bepalen met de [Tabel](#tabel-met-veel-voorkomende-functies). We zien dan dat er geldt dat
 
-    $$\large{h'(x) = h(x) = e^x.}$$
+    $$\large{h'(x) = e^x = h(x).}$$
 
-    Onze afgeleide wordt dus:
+    Als we dit invullen in de [productregel](#regels), dan vinden we dus de afgeleide:
 
     $$\large{f'(x) = 1 * e^x + x * e^x}$$
 
-    Dit kunnen we nog herschrijven tot:
+    Dit kunnen we herschrijven tot:
 
     !!! quote ""
         $$\large{f'(x) = e^x \left( 1+x \right)}$$
 
 
-??? example "Voorbeeld 5: Quotiëntregel"
+??? example "Voorbeeld 6: Bereken de afgeleide van $f(x) = \tan{(x)}$"
 
     **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = \tan{(x)}$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
@@ -239,11 +240,11 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     In ons geval geldt er dus dat
 
-    $$\large{g(x) = \sin{(x)} \ \ \mathrm{en} \ \ h(x) = \cos{(x)}}$$
+    $$\large{g(x) = \sin{(x)} \textrm{ en } h(x) = \cos{(x)}}$$
 
     De afgeleides zijn dan volgens de [Tabel](#tabel-met-veel-voorkomende-functies):
 
-    $$\large{g'(x) = \cos{(x)} \ \ \mathrm{en} \ \ h'(x) = - \sin{(x)}}$$
+    $$\large{g'(x) = \cos{(x)} \textrm{ en } h'(x) = - \sin{(x)}}$$
 
     Nu vullen we dat in bij de quotiëntregel:
 
@@ -259,48 +260,48 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
         $$\large{f'(x) = \frac{1}{\cos^2{(x)}}}$$
 
 
-??? example "Voorbeeld 6: Kettingregel"
+??? example "Voorbeeld 7: Bereken de afgeleide van $f(x) = e^{x^2}$"
 
     **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = e^{x^2}$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
     Om dit op te lossen maken we gebruik van de [kettingregel](#regels). Deze zegt dat voor een functie:
 
-    $$\large{f(x) = g(h(x))}$$
+    $$\large{f(x) \equiv f(g(x))}$$
 
     Er geldt dat:
 
-    $$\large{f'(x) = \frac{\mathrm{d} \ g(h)}{\mathrm{d} h} \ * \ \frac{\mathrm{d} \ h(x)}{\mathrm{d} x}}$$
+    $$\large{f'(x) = \frac{\mathrm{d} \ f(g)}{\mathrm{d} g} \ * \ \frac{\mathrm{d} \ g(x)}{\mathrm{d} x}}$$
 
-    Hier is $g$ een functie van $h$ en $h$ is weer een functie van $x$. In ons geval kunnen we stellen dat:
+    We definiëren dus een interne functie $g(x)$ binnen $f(x)$. Dus in dit geval is dit de functie:
 
-    $$\large{h(x) = x^2}$$
+    $$\large{g(x) = x^2}$$
 
-    Onze functie $g(h)$ wordt dan:
+    Onze functie $f(g(x))$ wordt dan:
 
-    $$\large{g(h) = e^h}$$
+    $$\large{f(g(x)) = e^{g(x)}}$$
 
-    Laten we eerst de afgeleide van $g$ naar $h$ bepalen:
+    Laten we eerst de afgeleide van $f$ naar $g$ bepalen:
 
-    $$\large{\frac{\mathrm{d} \ g(h)}{\mathrm{d} h} = e^h,}$$
+    $$\large{\frac{\mathrm{d} \ f(g)}{\mathrm{d} g} = e^{g},}$$
     
-    want de afgeleide van een e-macht is zichzelf (zie de [Tabel](#tabel-met-veel-voorkomende-functies)). Nu bepalen we de afgeleide van $h$ naar $x$:
+    want de afgeleide van een e-macht is zichzelf (zie de [Tabel](#tabel-met-veel-voorkomende-functies)). Nu bepalen we de afgeleide van $g$ naar $x$:
 
-    $$\large{\frac{\mathrm{d} \ h(x)}{\mathrm{d} x} = 2x,}$$
+    $$\large{\frac{\mathrm{d} \ g(x)}{\mathrm{d} x} = 2x,}$$
     
     zie [Voorbeeld 1](#voorbeeld-1-fx-x2) voor eventuele toelichting.
 
     Nu kunnen we de [kettingregel](#regels) invullen:
 
-    $$\large{f'(x) = e^h * 2x}$$
+    $$\large{f'(x) = e^{g(x)} * 2x}$$
 
-    Nu kunnen we $h$ terug substitueren:
+    Nu kunnen we $g(x)$ terug substitueren:
 
     !!! quote ""
-        $$\large{f'(x) = 2x * e^{x^2}}$$
+        $$\large{f'(x) = 2x*e^{x^2}}$$
 
 
-??? example "Voorbeeld 7: Combinatie"
+??? example "Voorbeeld 8: Bereken de afgeleide van $f(x) = \ln{\left((x+1)^2 \right)} * \sqrt{x} + 5$"
 
     *<p style="text-align: left;font-size:15px;color:red "> \* Lastige opdracht</p>*
     **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = \ln{\left((x+1)^2 \right)} * \sqrt{x} + 5$</p>**
@@ -308,9 +309,9 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     Bij zo'n soort opdracht waar je veel verschillende dingen moet doen is het erg belangrijk om echt stap voor stap te werken. Laten we beginnen met het herkenen van de functies. Er is aan het begin een functie in een functie, dus dat is iets voor de [kettingregel](#regels). Die functie wordt vermenigvuldigd met een andere functie, dus daar moeten we de [productregel](#regels) op toepassen. En dan als laatst wordt er iets opgeteld, dus dat is de [somregel](#regels).
 
-    Laten we wat dingen definiëren:
+    Laten we wat functies definiëren:
 
-    $$\large{g(x) \equiv \ln{\left((x+1)^2 \right)} * \sqrt{x} \ \ \mathrm{en} \ \ h(x) \equiv 5}$$
+    $$\large{g(x) \equiv \ln{\left((x+1)^2 \right)} * \sqrt{x} \textrm{ en } h(x) \equiv 5}$$
 
     Volgens de [somregel](#regels) weten we dat:
 
@@ -320,11 +321,11 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     $$\large{h'(x) = 0,}$$
 
-    zie de [Tabel](#tabel-met-veel-voorkomende-functies). En dus geldt er dat:
+    (zie evenuteel regel 1 van de [Tabel](#tabel-met-veel-voorkomende-functies)). En dus geldt er dat:
 
     $$\large{f'(x) = g'(x)}$$
 
-    Laten we meer functies definiëren:
+    Deze $g(x)$ bestaat uit meerdere functies:
 
     $$\large{k(x) = \ln{\left((x+1)^2 \right)} \ \ \mathrm{en} \ \ l(x) = \sqrt{x},}$$
 
@@ -332,7 +333,7 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     $$\large{g(x) = k(x) * l(x).}$$
 
-    Volgens de [productregel](#regels) geldt er dat:
+    Volgens de [productregel](#regels) geldt er dan dat:
 
     $$\large{g'(x) = k'(x) \  * \ l(x) + k(x) * l'(x)}.$$
 
@@ -349,6 +350,8 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
     $$\large{l(x) = \sqrt{x} \equiv x^{\frac{1}{2}}}.$$
 
     Dit betekent dus dat er voor ons geldt dat $n=\frac{1}{2}$. Onze afgeleide wordt dan:
+
+    $$\large{l'(x) = \frac{1}{2} x^{\frac{1}{2} - 1}}$$
 
     $$\large{l'(x) = \frac{1}{2} x^{- \frac{1}{2}}.}$$
 
@@ -372,36 +375,39 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     $$\large{k'(p(u(x))) = \frac{\mathrm{d} \ k(p)}{\mathrm{d} p} \ * \ \frac{\mathrm{d} \ p(u)}{\mathrm{d} u} \ * \ \frac{\mathrm{d} \ u(x)}{\mathrm{d} x}.}$$
 
-    En nu berekenen we de afgeleides:
+    En nu berekenen we de afgeleides. De afgeleide van $\ln(x)$ is $\frac{1}{x}$ (zie eventueel de [tabel](#tabel-met-veel-voorkomende-functies)):
 
     $$\large{\frac{\mathrm{d} \ k(p)}{\mathrm{d} p} = \frac{1}{p} = \frac{1}{u^2} = \frac{1}{\left( x + 1 \right)^2}, }$$
 
-    zie [Tabel](#tabel-met-veel-voorkomende-functies).
+    Nu bepalen we de afgeleide van $p(u) = u^2$ naar $u$:
 
     $$\large{\frac{\mathrm{d} \ p(u)}{\mathrm{d} u} = 2u = 2 (x + 1),}$$
 
-    zie [Voorbeeld 1](#voorbeeld-1-fx-x2).
+    (zie eventueel [voorbeeld 1](#voorbeeld-1-fx-x2)).
+
+    Als laatst bepalen we de afgeleide van $u(x) = x + 1$ naar $x$:
 
     $$\large{\frac{\mathrm{d} \ u(x)}{\mathrm{d} x} = 1,}$$
 
-    Dit is de [somregel](#regels). De afgeleide van $x$ wordt $1$ en de afgeleide van $1$ wordt $0$ (zie [Tabel](#tabel-met-veel-voorkomende-functies)).
+    De afgeleide van $x$ wordt $1$ en de afgeleide van $1$ wordt $0$ (zie eventueel de [tabel](#tabel-met-veel-voorkomende-functies)).
 
     Als we dit combineren en invullen vinden we:
 
-    $$\large{k'(x) = \frac{1}{\left( x + 1 \right)^2} * 2 (x + 1)}$$
+    $$\large{k'(x) = \frac{1}{\left( x + 1 \right)^2} * 2 (x + 1) * 1}$$
 
     Dit versimpelt weer tot:
 
     $$\large{k'(x) = \frac{2}{\left( x + 1 \right)}}$$
 
-    Als we dit ook weer invullen, vinden we:
+    Nu kunnen we $g'(x)$ bepalen doordat we $k(x), l(x), k'(x) \textrm{ en } l'(x)$ hebben:
 
     $$\large{g'(x) = \frac{2}{\left( x + 1 \right)} * \sqrt{x} + \ln{\left((x+1)^2 \right)} * \frac{1}{2 \sqrt{x}}}$$
 
-    Omdat we weten dat $f'(x) = g'(x)$ wordt ons eindantwoord (herschreven):
+    Omdat we weten dat $f'(x) = g'(x)$ wordt ons eindantwoord:
 
     !!! quote ""
         $$\large{f'(x) = \frac{2 \sqrt{x}}{\left( x + 1 \right)}  +  \frac{\ln{\left((x+1)^2 \right)}}{2 \sqrt{x}}}$$
+
 
 ## Extreme waardes berekenen
 Zoals in we in het filmpje bij een [parabool](#parabool) kunnen zien, is de helling gelijk aan $0$ bij een top/extreme waarde. Dit komt omdat op dit punt de functie van toenemend naar afnemend wisselt, of andersom en dit betekent dus dat er op dat punt geen toename of afname is bij een kleine toename of afname in $x$. Omdat de afgeleide de helling geeft op elk punt, betekent dit dus dat als we de coördinaten willen bepalen van de extreme waarde, we moeten stellen dat de afgeleide gelijk is aan $0$:
@@ -415,7 +421,7 @@ $$f(x) = -x^2 + 2.$$
 We willen van deze functie berekenen wat het coordinaat van de top is met behulp van de afgeleide. Hoe pakken we dit aan?
 
 <figure markdown>
-![Top van functie](assets/images/f(x) = -x² + 2.svg){ width="500"}
+![Top van functie](assets/images/afgeleide/f(x) = -x² + 2.svg){ width="500"}
     <figcaption>Figuur 1. De grafiek $f(x) = - x^2 + 2$ geplot met de extreme waarde.</figcaption>
 </figure>
 
@@ -472,13 +478,13 @@ en dit kunnen we ook aflezen in Figuur 1.
     Als we de functie tekenen in Figuur 2, dan zien we dat dit klopt.
 
     <figure markdown>
-        ![Top van functie](assets/images/f(x) = 6x² - 12x + 9.svg){ width="500"}
+        ![Top van functie](assets/images/afgeleide/f(x) = 6x² - 12x + 9.svg){ width="500"}
         <figcaption>Figuur 2. De grafiek $f(x) = 6x^2 - 12x + 9$ geplot met de extreme waarde.</figcaption>
     </figure>
 
 
 ??? example "Voorbeeld 2: Bepaal de extreme waardes van $f(x) = -x^3 + 6x^2 - 9x + 3$"
-    **<p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waardes van $f(x) = -x^3 - 6x^2 + 9x + 3$</p>**
+    **<p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waardes van $f(x) = -x^3 + 6x^2 - 9x + 3$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
     We moeten de extreme waardes bepalen, en dus moeten we stellen dat de afgeleide van $f(x)$ gelijk is aan $0$. Laten we eerst de afgeleide bepalen.
@@ -534,7 +540,7 @@ en dit kunnen we ook aflezen in Figuur 1.
     Als we de functie tekenen in Figuur 3, dan zien we dat dit klopt.
 
     <figure markdown>
-        ![Top van functie](assets/images/f(x) = -x³ + 6x² - 9x + 3.svg){ width="500"}
+        ![Top van functie](assets/images/afgeleide/f(x) = -x³ + 6x² - 9x + 3.svg){ width="500"}
         <figcaption>Figuur 3. De grafiek $f(x) = -x^3 + 6x^2 - 9x + 3$ geplot met de extreme waardes.</figcaption>
     </figure>
 
@@ -597,13 +603,13 @@ en dit kunnen we ook aflezen in Figuur 1.
     Als we de functie tekenen in Figuur 4, dan zien we dat dit klopt.
 
     <figure markdown>
-        ![Top van functie](assets/images/f(x) = (x - 2)⁷.svg){ width="500"}
+        ![Top van functie](assets/images/afgeleide/f(x) = (x - 2)⁷.svg){ width="500"}
         <figcaption>Figuur 4. De grafiek $f(x) = (x-2)^{7}$ geplot met de extreme waarde.</figcaption>
     </figure>
 
 
 ??? example "Voorbeeld 4: Bepaal de extreme waardes van $f(x) = 10e^x(x^2 + 4x + 0.4)$"
-    **<p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waardes van $f(x) = e^x(x^2 + 4x + 6)$</p>**
+    **<p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waardes van $f(x) = e^x(x^2 + 4x + 0.4)$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
     We willen de extreme waardes bepalen en dus moeten we stellen dat de afgeleide gelijk is aan $0$. We berekenen de afgeleide van $f(X)$ met de [productregel](#regels) door te definieren:
@@ -668,7 +674,7 @@ en dit kunnen we ook aflezen in Figuur 1.
     En als we de functie tekenen in Figuur 5, dan zien we dat dit klopt.
 
     <figure markdown>
-        ![Top van functie](assets/images/f(x) = 10eˣ(x² + 4x + 0.4).svg){ width="500"}
+        ![Top van functie](assets/images/afgeleide/f(x) = 10eˣ(x² + 4x + 0.4).svg){ width="500"}
         <figcaption>Figuur 5. De grafiek $f(x) = 10e^x(x^2 + 4x + 0.4)$ geplot met de extreme waardes.</figcaption>
     </figure>
 
@@ -737,6 +743,6 @@ en dit kunnen we ook aflezen in Figuur 1.
     En als we de functie tekenen in Figuur 6, dan zien we dat dit klopt.
 
     <figure markdown>
-        ![Top van functie](assets/images/f(x) = cos²(2x).svg){ width="500"}
+        ![Top van functie](assets/images/afgeleide/f(x) = cos²(2x).svg){ width="500"}
         <figcaption>Figuur 6. De grafiek $f(x) = \cos^2(2x)$ geplot met de extreme waardes in het domein $[-\frac{\pi}{2}, \frac{\pi}{2}]$.</figcaption>
     </figure>

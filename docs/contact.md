@@ -95,7 +95,7 @@ hide:
   -moz-appearance: button;
   appearance: button;
   color: white; /* Set text color to white for button text */
-  background-color: rgb(0, 140, 115); /* Set background color to teal for the button */
+  background-color: rgb(6, 143, 115); /* Set background color to teal for the button */
   border: none;
   padding: .75em 1rem;
 }
@@ -119,7 +119,7 @@ hide:
 
 #fs-frm [type="submit"]:hover,
 #fs-frm [type="reset"]:hover {
-  background-color: rgb(0, 170, 140); /* Set the highlight color when hovering */
+  background-color: rgb(6, 170, 140); /* Set the highlight color when hovering */
 }
 
 #fs-frm input[type="tel"] {
@@ -197,15 +197,17 @@ hide:
 
 Ik ben **Marc Serrano Altena**, een tweedejaars student Natuur- en Sterrenkunde aan de UvA en VU.
 
-![Foto Marc Serrano Altena](assets/images/Marc_Serrano_Altena_photo.png){ width="200" align=right}
+![Foto Marc Serrano Altena](assets/images/general/Marc_Serrano_Altena_photo.png){ width="200" align=right}
 
 Omdat ik begrijp dat wiskunde soms te snel kan gaan en niet alle stappen even duidelijk zijn, ben ik gestart met deze site. Maar om er met zekerheid voor te zorgen dat jouw kind een van de beste cijfers haalt, bied ik **persoonlijke een-op-een bijles** aan. 
 
 Dit kan zowel **fysiek** op locatie in Regio Noord-Holland als **online**, en dit alles voor **€25 per uur**. De eerste bijles is volledig **gratis** om te bekijken of het een goede match is met jouw kind, en volledig vrijblijvend, dus je zit nergens aan vast!
 
-Waarom kiezen voor mijn bijles?
 
-- **Gemiddelde van 8.5** voor mijn studie, waar wiskundige kennis essentieel is.
-- **Jaren ervaring als bijlesdocent**, zelfs tijdens mijn middelbare schooljaren.
+**<p style="text-align: left;font-size:19px;">Waarom mijn bijles?</p>**
+
+:fontawesome-solid-check:{ .green }  **Gemiddelde van 8.5** voor mijn studie, waar wiskundige kennis essentieel is.
+
+:fontawesome-solid-check:{ .green }  **Jaren ervaring als bijlesdocent**, zelfs tijdens mijn middelbare schooljaren.
 
 Interesse? Meld je aan voor een **vrijblijvend telefonisch kennismakingsgesprek** en ontdek hoe ik jouw kind kan ondersteunen!

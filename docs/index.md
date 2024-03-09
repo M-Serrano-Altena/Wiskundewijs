@@ -20,6 +20,7 @@ Ben je als ouder geïnteresseerd in **persoonlijke een-op-een bijles** voor jouw
 ## Hoofdstukken
 1. [Basisvaardigheden](basisvaardigheden.md)
 2. [Percentages](percentages.md)
+2. [Statistiek](statistiek.md)
 3. [De Stelling van Pythagoras](pythagoras.md)
 4. [Kwadratische Vergelijkingen](kwadratische_vergelijkingen.md)
 5. [Ongelijkheden](ongelijkheden.md)
