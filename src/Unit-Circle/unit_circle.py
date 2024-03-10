@@ -247,15 +247,73 @@ def draw_unit_circle():
     ax.add_patch(circ)
     ax.set_aspect('equal')
 
-    plt.xlim(-1.1,1.1)
-    plt.ylim(-1.1,1.1) 
+    plt.xlim(-1.2,1.2)
+    plt.ylim(-1.2,1.2) 
 
     plt.vlines(x=0, ymin=-1.1, ymax=1.1, colors='#D3D3D3')
     plt.hlines(y=0, xmin=-1.1, xmax=1.1, colors='#D3D3D3')
 
-    for angle in [1/6 * np.pi, 1/4 * np.pi, 1/3 * np.pi, 2/3  * np.pi, 3/4 * np.pi, 5/6 * np.pi, 7/6 * np.pi, 5/4 * np.pi, 4/3 * np.pi, 5/3 * np.pi, 7/4 * np.pi, 11/6 * np.pi]:
-        plt.plot([0, np.cos(angle)], [0, np.sin(angle)], 'darkturquoise')
+    angles = [1/6 * sp.pi, 1/4 * sp.pi, 1/3 * sp.pi, 2/3  * sp.pi, 3/4 * sp.pi, 5/6 * sp.pi, 7/6 * sp.pi, 5/4 * sp.pi, 4/3 * sp.pi, 5/3 * sp.pi, 7/4 * sp.pi, 11/6 * sp.pi]
+    counter = 0
 
+    for theta in angles:
+        plt.plot([0, sp.cos(theta)], [0, sp.sin(theta)], 'darkturquoise')
+
+        integer, remainder = divmod(sp.nsimplify(theta/sp.pi), 1)
+        remainder = sp.nsimplify(remainder)
+        angle_split1, angle_split2 = str(sp.nsimplify(remainder)).split('/')
+
+        if theta < sp.pi/2:
+            plt.text(sp.cos(theta), sp.sin(theta) + 0.04, f"$\\theta = \\frac{{{angle_split1}}}{{{angle_split2}}} \\pi$", color="darkturquoise")
+
+        elif theta < sp.pi:
+            plt.text(sp.cos(theta) - 0.275, sp.sin(theta) + 0.025, f"$\\theta = \\frac{{{angle_split1}}}{{{angle_split2}}} \\pi$", color="darkturquoise")  
+        
+        elif theta < 3/2*sp.pi:
+            plt.text(sp.cos(theta) - 0.28, sp.sin(theta) - 0.125, f"$\\theta = {integer} \\frac{{{angle_split1}}}{{{angle_split2}}} \\pi$", color="darkturquoise")
+        
+        elif theta < 2*sp.pi:
+            plt.text(sp.cos(theta) - 0.02, sp.sin(theta) - 0.11, f"$\\theta = {integer} \\frac{{{angle_split1}}}{{{angle_split2}}} \\pi$", color="darkturquoise")
+        
+        x_pos_split1, x_pos_split2 = str(sp.nsimplify(sp.cos(theta))).split('/')
+        y_pos_split1, y_pos_split2 = str(sp.nsimplify(sp.sin(theta))).split('/')
+
+
+        if sp.sympify(x_pos_split1) > 0:
+            try:
+                plt.text(sp.cos(theta) - 0.019, 0.1, f"$\\frac{{{int((x_pos_split1))}}}{{{x_pos_split2}}}$", color="#D3D3D3")
+            except ValueError:
+                plt.text(sp.cos(theta) - 0.05, 0.1, f"$\\frac{{\\{x_pos_split1.replace('(', '{').replace(')', '}')}}}{{{x_pos_split2}}}$", color="#D3D3D3")
+        
+        else:
+            try:
+                plt.text(sp.cos(theta) - 0.0519, 0.1, f"$- \\frac{{{-int(x_pos_split1)}}}{{{x_pos_split2}}}$", color="#D3D3D3")
+            except ValueError:
+                if counter < 1 or counter > 2:
+                    plt.text(sp.cos(theta) - 0.09, 0.1, f"$- \\frac{{\\{str(-sp.sympify(x_pos_split1)).replace('(', '{').replace(')', '}')}}}{{{x_pos_split2}}}$", color="#D3D3D3")
+                else:
+                    plt.text(sp.cos(theta) - 0.125, 0.1, f"$- \\frac{{\\{str(-sp.sympify(x_pos_split1)).replace('(', '{').replace(')', '}')}}}{{{x_pos_split2}}}$", color="#D3D3D3")
+                
+                counter += 1
+
+        # positive y value
+        if sp.sympify(y_pos_split1) > 0:
+            try:
+                plt.text(0.1, sp.sin(theta) - 0.01, f"$\\frac{{{int(y_pos_split1)}}}{{{y_pos_split2}}}$", color="#D3D3D3")
+            except ValueError:
+                plt.text(0.1, sp.sin(theta) - 0.01, f"$\\frac{{\\{y_pos_split1.replace('(', '{').replace(')', '}')}}}{{{y_pos_split2}}}$", color="#D3D3D3")
+
+        else:
+            try:
+                plt.text(0.1, sp.sin(theta) - 0.01, f"$- \\frac{{{-int((y_pos_split1))}}}{{{(y_pos_split2)}}}$", color="#D3D3D3")
+            except ValueError:
+                    plt.text(0.1, sp.sin(theta) - 0.01, f"$- \\frac{{\\{str(-sp.sympify(y_pos_split1)).replace('(', '{').replace(')', '}')}}}{{{y_pos_split2}}}$", color="#D3D3D3")
+       
+        plt.hlines(y=float(sp.sin(theta)), xmin=-0.05, xmax=0.05, color="#D3D3D3")
+        plt.vlines(x=float(sp.cos(theta)), ymin=-0.05, ymax=0.05, color="#D3D3D3")
+
+    plt.savefig("Unit_Circle.svg")
     plt.show()
+    
 
 draw_unit_circle()

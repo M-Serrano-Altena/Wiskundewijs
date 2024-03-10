@@ -142,25 +142,26 @@ De cosinus functie is eigenlijk hetzelfde als de sinus functie, alleen is het $\
 
     Als je niet wilt onthouden bij welke functie je $+ \frac{1}{2} \pi$ doet, en bij welke je $- \frac{1}{2} \pi$, kan je het ook op de volgende manier omschrijven:
 
-    ??? note "Andere omschrijving"
-        1. $$\large{\sin{(x)} = \cos{(\frac{1}{2} \pi - x)}}$$
+    <p style="text-align: left;font-size:17px;">Alternatieve manier</p>
 
-        2. $$\large{\cos{(x)} = \sin{(\frac{1}{2} \pi - x)}}$$
+    1. $$\large{\sin{(x)} = \cos{(\frac{1}{2} \pi - x)}}$$
 
-        En dit verband werkt ook altijd.
+    2. $$\large{\cos{(x)} = \sin{(\frac{1}{2} \pi - x)}}$$
 
-        ??? abstract "Bewijs"
-            Dit kunnen we zelf bewijzen met behulp van de [Symmetrieformules](#symmetrieformules). 
-            
-            Laten we eerst kijken om van $\sin$ naar $\cos$ te gaan. Als we [regel 2](#symmetrieformules) gebruiken zien we het eigenlijk al meteen:
+    En dit verband werkt ook altijd.
 
-            $$\large{\cos{(x - \frac{1}{2} \pi)} = \cos{(-(x - \frac{1}{2} \pi))} = \cos{(\frac{1}{2} \pi - x)}}$$
+    ??? abstract "Bewijs"
+        Dit kunnen we zelf bewijzen met behulp van de [Symmetrieformules](#symmetrieformules). 
+        
+        Laten we eerst kijken om van $\sin$ naar $\cos$ te gaan. Als we [regel 2](#symmetrieformules) gebruiken zien we het eigenlijk al meteen:
 
-            Nu kijken we om van $\cos$ naar $\sin$ te gaan. Hiervoor gebruiken we [regel 4](#symmetrieformules):
+        $$\large{\cos{(x - \frac{1}{2} \pi)} = \cos{(-(x - \frac{1}{2} \pi))} = \cos{(\frac{1}{2} \pi - x)}}$$
 
-            $$\large{\sin{(x + \frac{1}{2} \pi)} = \sin{(\pi - (x + \frac{1}{2} \pi))} = }$$
+        Nu kijken we om van $\cos$ naar $\sin$ te gaan. Hiervoor gebruiken we [regel 4](#symmetrieformules):
 
-            $$\large{\sin{(\pi - \frac{1}{2} \pi - x)} = \sin{(\frac{1}{2} \pi - x)}}$$
+        $$\large{\sin{(x + \frac{1}{2} \pi)} = \sin{(\pi - (x + \frac{1}{2} \pi))} = }$$
+
+        $$\large{\sin{(\pi - \frac{1}{2} \pi - x)} = \sin{(\frac{1}{2} \pi - x)}}$$
 
 ### Voorbeelden
 ??? example "Voorbeeld 1: $\cos{(2x)} = 0$"
@@ -260,7 +261,7 @@ Laten we eerst kijken hoe we de eenheidscirkel kunnen gebruiken.
 
 <figure markdown>
   ![Eenheidscirkel](assets/images/goniometrie/Unit_Circle.svg){ width="1000"}
-  <figcaption>Figuur 4. Eenheidscirkel uit het filmpje. De hoeken zijn in het groen weergegeven, de sinus waardes zijn de y-coördinaten bij elke hoek, de cosinus waardes de x-coördinaten bij elke hoek.</figcaption>
+    <figcaption>Figuur 4. De eenheidscirkel. De hoeken zijn in het blauw weergegeven. De sinus van de hoek is het $y$-coördinaat, en de cosinus van de hoek is het $x$-coördinaat (zie eventueel de opmerking hieronder voor toelichting).</figcaption>
 </figure>
 
 Stel dus dat we bijvoorbeeld er achter willen komen wat $\sin{(\frac{1}{3} \pi)}$ is. Als we de eenheidscirkel bij de hand hebben, kunnen we daar kijken en dan zien we dat bij een hoek van $\frac{1}{3} \pi$, het coördinaat $\left(\frac{1}{2}, \frac{1}{2} \sqrt{3} \right)$ hoort. We willen de sinus weten en dus moeten we het $y$-coördinaat gebruiken. Onze eindconclusie wordt dan:
