@@ -22,8 +22,13 @@ Hiermee kunnen we precies zien hoeveel fietsen er op elke dag zijn verkocht en z
 
 Namelijk op zaterdag waren er de meeste fietsen verkocht: $24$ fietsen, en op donderdag de minste fietsen: $4$ fietsen. 
 
+???+ belangrijk
+    We gebruiken vooral staafdiagrammen bij data waar we verschillende type categorieën of groepen met elkaar vergelijken. 
+    
+    Dus in dit geval zijn de verschillende groepen de verschillende dagen van de week.
+
 ### Histogrammen
-We kijken nu naar een klas die een wiskunde toets heeft gemaakt. Daarbij hebben de leerlingen verschillende cijfers gehaald, en die zijn weergegeven met een **histogram** in Figuur 2.
+Laten we nu kijken naar een klas die een wiskunde toets heeft gemaakt. Daarbij hebben de leerlingen verschillende cijfers gehaald, en die zijn weergegeven met een **histogram** in Figuur 2.
 
 <figure markdown>
 ![Histogram](assets/images/statistiek/Behaalde cijfers wiskunde toets - hg.svg){ width="500"}
@@ -31,6 +36,12 @@ We kijken nu naar een klas die een wiskunde toets heeft gemaakt. Daarbij hebben 
 </figure>
 
 We kunnen hier aflezen hoeveel leerlingen een bepaald cijfer hebben gehaald. Dus $4$ leerlingen hebben een $4$ gehaald, $8$ leerlingen een $7$ en $3$ leerlingen een $7$.
+
+???+ belangrijk
+    We gebruiken een histogram wanneer we continue data willen weergeven en het meer gaat om de absolute waardes van de dataverdeling. 
+    
+    Dus in dit geval gaat de cijferverdeling van een $4$ naar een $9$ en zien we hoeveel leerlingen een bepaald cijfer hebben gehaald.
+
 
 ### Cirkeldiagrammen
 We kunnen het voorbeeld van net over de cijfers van een wiskunde toets ook weergeven in een **cirkeldiagram**.
@@ -42,6 +53,12 @@ We kunnen het voorbeeld van net over de cijfers van een wiskunde toets ook weerg
 
 In Figuur 3 kunnen aflezen welk percentage van de leerlingen een bepaald cijfer heeft gehaald. Dus $26.7 \%$ heeft een $7$ gehaald, $20 \%$ een $8$, $10 \%$ een 9, etc.
 
+???+ belangrijk
+    We gebruiken cirkeldiagrammen als we een kleine hoeveelheid verschillende groepen willen weergeven. En dan met name de relatieve grootte van de groepen, en niet zozeer de absolute hoeveelheden. 
+    
+    Dus in dit geval om te laten zien welk percentage van de leerlingen welk cijfer heeft gehaald en niet per se dat bijvoorbeeld het $8$ leerlingen waren die een $7$ hebben gehaald. 
+
+
 ### Lijndiagrammen
 De laatste manier om data weer te geven is met een **lijndiagram**. We kijken nu naar de temperatuur in de maand Juli. 
 
@@ -52,7 +69,44 @@ De laatste manier om data weer te geven is met een **lijndiagram**. We kijken nu
 
 We kunnen in Figuur 4 precies aflezen wat de minimum en maximum temperatuur is op elke dag van de maand Juli. Dus op 10 Juli was de minimum temperatuur ongeveer $23 \ ^{\circ} \textrm C$ en de maximum temperatuur ongeveer $29 \ ^{\circ} \textrm C$.
 
+???+ belangrijk
+    We gebruiken lijndiagrammen als we een relatie tussen twee waardes willen weergeven. Het is vooral nuttig om de groei of afname van een bepaalde waarde te laten zien. Bij lijndiagrammen kun je ook meerdere datasets vergelijken.
+
+    In dit geval kijken we naar de relatie tussen de temperatuur en de tijd. We kunnen dan precies zijn hoe de temperatuur verandert in de tijd. We vergelijken ook twee datasets, namelijk die van de maximum temperatuur en die van de minimum temperatuur.  
+
+
 ## Gemiddelde
+Het gemiddelde is handig om een uitspraak te kunnen doen over de hele dataset. Je kunt over het algemeen ermee kijken waar de meeste data zich bevindt en het maakt het vergelijken van verschillende datasets makkelijker. 
+
+Laten we bijvoorbeeld naar twee verschillende klassen kijken: klas A en klas B. De twee verschillende klassen hebben net een toets gemaakt en de leerlingen hebben verschillende cijfers gehaald. De cijfers van beide klassen is weergegeven met een histogram in Figuur 5.  
+
+<figure markdown>
+![Histogram](assets/images/statistiek/Cijfers van klas A en klas B - hg.svg){ width="500"}
+    <figcaption>Figuur 5. Histogram van de behaalde cijfers voor een wiskunde toets.</figcaption>
+</figure>
+
+We zien hier dat de cijfers van klas A over het algemeen hoger zijn dan die van klas B. Een gemiddelde kan heel handig zijn om te bekijken hoe de leerlingen het over het algemeen of gemiddeld hebben gedaan. 
+
+We berekenen een gemiddelde op de volgende manier:
+
+???+ Belangrijk
+    Een gemiddelde bereken je als volgt:
+
+    - Tel alle getallen bij elkaar op
+    - Deel het door het aantal getallen
+    
+
+    Dus voor de getallen $\large{2, 4, 6, 8}$ kunnen we het gemiddelde als volgt berekenen:
+
+    - We tellen alle getallen bij elkaar op:
+
+    $$\large{2 + 4 + 6 + 8 = 20}$$
+
+    - Dan delen we het door het aantal getallen:
+
+    $$\large{\frac{20}{4} = 5}$$
+
+    Het gemiddelde van deze reeks getallen is dus $5$.
 
 
 ## Mediaan en Modus
