@@ -482,6 +482,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Gemiddelde">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gemiddelde-berekenen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gemiddelde berekenen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -732,6 +747,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Gemiddelde">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gemiddelde-berekenen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gemiddelde berekenen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -835,14 +865,17 @@
 <p><img alt="Histogram" src="../assets/images/statistiek/Cijfers%20van%20klas%20A%20en%20klas%20B%20-%20hg.svg" width="500" />
     <figcaption>Figuur 5. Histogram van de behaalde cijfers voor een wiskunde toets.</figcaption></p>
 </figure>
-<p>We zien hier dat de cijfers van klas A over het algemeen hoger zijn dan die van klas B. Een gemiddelde kan heel handig zijn om te bekijken hoe de leerlingen het over het algemeen of gemiddeld hebben gedaan. </p>
+<p>We zien hier dat de cijfers van klas A over het algemeen hoger zijn dan die van klas B. Om te bekijken hoeveel klas A het precies over het algemeen beter heeft gedaan, is het handig om de gemiddeldes te berekenen en die te vergelijken.  </p>
 <p>We berekenen een gemiddelde op de volgende manier:</p>
-<details class="belangrijk" open="open"><summary>Belangrijk</summary><p>Een gemiddelde bereken je als volgt:</p>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="gemiddelde-berekenen">Gemiddelde berekenen</h3>
+<p>Een gemiddelde bereken je als volgt:</p>
 <ul>
 <li>Tel alle getallen bij elkaar op</li>
 <li>Deel het door het aantal getallen</li>
 </ul>
-<p>Dus voor de getallen <span class="arithmatex">\(\large{2, 4, 6, 8}\)</span> kunnen we het gemiddelde als volgt berekenen:</p>
+<div class="arithmatex">\[\Large{\textrm{Gemiddelde} = \frac{\textrm{Som van de getallen}}{\textrm{Aantal getallen}}}\]</div>
+</details>
+<details class="example"><summary>Simpel Voorbeeld</summary><p>Dus bijvoorbeeld voor de getallen <span class="arithmatex">\(\large{2, 4, 6, 8}\)</span> kunnen we het gemiddelde als volgt berekenen:</p>
 <ul>
 <li>We tellen alle getallen bij elkaar op:</li>
 </ul>
@@ -853,6 +886,140 @@
 <div class="arithmatex">\[\large{\frac{20}{4} = 5}\]</div>
 <p>Het gemiddelde van deze reeks getallen is dus <span class="arithmatex">\(5\)</span>.</p>
 </details>
+<p>Om het gemiddelde van de twee klassen te bepalen moeten we dus eerst alle cijfers van alle leerlingen bij elkaar op tellen. Hiervoor hebben we voor elk cijfer nodig hoeveel leerlingen dat cijfer hebben gehaald. Uit Figuur 5 kunnen we de volgende tabel maken:</p>
+<div style="display: flex;">
+    <div style="flex: 1; margin-right: 20px;">
+
+<h2 style="margin-left:70px;">klas A</h2>
+
+<table style="float:left;">
+  <tr>
+    <th>Cijfers</th>
+    <th>Frequentie</th>
+  </tr>
+  <tr>
+    <td>4.5</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>5.0</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>5.5</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>6.0</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>6.5</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td>7.0</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td>7.5</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>8.0</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>8.5</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>9.0</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>9.5</td>
+    <td>1</td>
+  </tr>
+</table>
+
+    </div>
+    <div style="flex: 1;">
+
+<h2 style="margin-left:100px;">klas B</h2>
+<table style="float:left; margin-left:20px;">
+  <tr>
+    <th>Cijfers</th>
+    <th>Frequentie</th>
+  </tr>
+  <tr>
+    <td>3.0</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>3.5</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>4.0</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>4.5</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>5.0</td>
+    <td>11</td>
+  </tr>
+  <tr>
+    <td>5.5</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>6.0</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>6.5</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td>7.0</td>
+    <td>3</td>
+  </tr>
+</table>
+
+    </div>
+</div>
+
+<p>Om nu het gemiddelde te berekenen, berekenen we eerst de som van alle cijfers. We beginnen met klas A. We doen eigenlijk steeds de frequentie keer het cijfer en dit tellen we dan allemaal bij elkaar op:</p>
+<!-- Sorted Dictionary 1: {4.5: 5, 5.0: 4, 5.5: 5, 6.0: 6, 6.5: 7, 7.0: 7, 7.5: 9, 8.0: 8, 8.5: 6, 9.0: 4, 9.5: 1}
+Sorted Dictionary 2: {3.0: 5, 3.5: 6, 4.0: 9, 4.5: 10, 5.0: 11, 5.5: 9, 6.0: 8, 6.5: 7, 7.0: 3} -->
+
+<div class="arithmatex">\[\textrm{Som cijfers klas A} = 4.5*5 + 5.0*4 + 5.5*5 + 6.0*6 + 6.5*7 + 7.0*7 + 7.5*9 + 8.0*8 + 8.5*6 + 9.0*4 + 9.5*1\]</div>
+<div class="arithmatex">\[\textrm{Som cijfers klas A} = 428.5\]</div>
+<p>Nu berekenen we het totaal aantal leerlingen. Dit zijn dus eigenlijk alle frequenties bij elkaar opgetelt, want elke leerling heeft maar 1 cijfer gehaald:</p>
+<div class="arithmatex">\[\textrm{Aantal leerlingen klas A} = 5 + 4 + 5 + 6 + 7 + 7 + 9 + 8 + 6 + 4 + 1\]</div>
+<div class="arithmatex">\[\textrm{Aantal leerlingen klas A} = 62\]</div>
+<p>We kunnen nu het <a href="#gemiddelde-berekenen">gemiddelde berekenen</a> door deze twee dingen door elkaar te delen:</p>
+<div class="arithmatex">\[\textrm{Gemiddelde klas A} = \frac{428.5}{62} \approx 6.9\]</div>
+<p>Het gemiddelde van klas A is dus een <span class="arithmatex">\(6.9\)</span>. </p>
+<p>Om het gemiddelde van klas B te bepalen doen we precies dezelfde stappen:</p>
+<p>We tellen eerst weer alle cijfers keer de frequentie bij elkaar op:</p>
+<div class="arithmatex">\[\textrm{Som cijfers klas B} = 3.0*5 + 3.5*6 + 4.0*9 + 4.5*10 + 5.0*11 + 5.5*9 + 6.0*8 + 6.5*7 + 7.0*3\]</div>
+<div class="arithmatex">\[\textrm{Som cijfers klas B} = 336\]</div>
+<p>Het totaal aantal leerlingen is de frequenties bij elkaar opgeteld:</p>
+<div class="arithmatex">\[\textrm{Aantal leerlingen klas B} =  5 + 6 + 9 + 10 + 11 + 9 + 8 + 7 + 3\]</div>
+<div class="arithmatex">\[\textrm{Aantal leerlingen klas B} = 68\]</div>
+<p>En het gemiddelde wordt dan:</p>
+<div class="arithmatex">\[\textrm{Gemiddelde klas B} = \frac{336}{68} \approx 4.9\]</div>
+<p>Het gemiddelde van klas B is dus een <span class="arithmatex">\(4.9\)</span>. </p>
+<p>Dit betekent dus dat klas A gemiddeld <span class="arithmatex">\(2\)</span> cijferpunten hoger heeft gescoord op de toets. Dus sommige leerlingen van klas A hebben iets minder dan <span class="arithmatex">\(2\)</span> cijferpunten hoger gehaald (dan de gemiddelde leerling uit klas B) en andere leerlingen van klas A hebben juist iets meer dan <span class="arithmatex">\(2\)</span> cijferpunten hoger gehaald. Maar gemiddeld is dit dus <span class="arithmatex">\(2\)</span> cijferpunten hoger.</p>
+<figure>
+<p><img alt="Histogram" src="../assets/images/statistiek/Cijfers%20van%20klas%20A%20en%20klas%20B%20-%20hg%20%28Settings%20%3D%20Gemiddelde%2C%20-%2C%20-%29.svg" width="500" />
+    <figcaption>Figuur 5. Histogram van de behaalde cijfers voor een wiskunde toets.</figcaption></p>
+</figure>
 <h2 id="mediaan-en-modus">Mediaan en Modus</h2>
 
 
