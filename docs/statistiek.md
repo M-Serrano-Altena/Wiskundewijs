@@ -4,7 +4,7 @@ We gebruiken statistiek om gegevens beter te kunnen begrijpen. Dit kunnen we doe
 ## Data weergeven
 We kunnen informatie handig weergeven in grafieken en in diagrammen. We kijken naar een paar verschillende type diagrammen en bekijken hoe je ze af moet lezen en zelf maken. 
 
-### Staafdiagrammen
+### **Staafdiagrammen**
 We beginnen met staafdiagrammen. Stel we willen bijvoorbeeld kijken naar het aantal fietsen dat een fietsenwinkel verkoopt in $1$ week. We krijgen de volgende data:
 
 | Maandag   | Dinsdag   | Woensdag  | Donderdag | Vrijdag   | Zaterdag  | Zondag    |
@@ -27,7 +27,7 @@ Namelijk op zaterdag waren er de meeste fietsen verkocht: $24$ fietsen, en op do
     
     Dus in dit geval zijn de verschillende groepen de verschillende dagen van de week.
 
-### Histogrammen
+### **Histogrammen**
 Laten we nu kijken naar een klas die een wiskunde toets heeft gemaakt. Daarbij hebben de leerlingen verschillende cijfers gehaald, en die zijn weergegeven met een **histogram** in Figuur 2.
 
 <figure markdown>
@@ -43,7 +43,7 @@ We kunnen hier aflezen hoeveel leerlingen een bepaald cijfer hebben gehaald. Dus
     Dus in dit geval gaat de cijferverdeling van een $4$ naar een $9$ en zien we hoeveel leerlingen een bepaald cijfer hebben gehaald.
 
 
-### Cirkeldiagrammen
+### **Cirkeldiagrammen**
 We kunnen het voorbeeld van net over de cijfers van een wiskunde toets ook weergeven in een **cirkeldiagram**.
 
 <figure markdown>
@@ -59,7 +59,7 @@ In Figuur 3 kunnen aflezen welk percentage van de leerlingen een bepaald cijfer 
     Dus in dit geval om te laten zien welk percentage van de leerlingen welk cijfer heeft gehaald en niet per se dat bijvoorbeeld het $8$ leerlingen waren die een $7$ hebben gehaald. 
 
 
-### Lijndiagrammen
+### **Lijndiagrammen**
 De laatste manier om data weer te geven is met een **lijndiagram**. We kijken nu naar de temperatuur in de maand Juli. 
 
 <figure markdown>
@@ -82,7 +82,7 @@ Laten we bijvoorbeeld naar twee verschillende klassen kijken: klas A en klas B. 
 
 <figure markdown>
 ![Histogram](assets/images/statistiek/Cijfers van klas A en klas B - hg.svg){ width="500"}
-    <figcaption>Figuur 5. Histogram van de behaalde cijfers voor een wiskunde toets.</figcaption>
+    <figcaption>Figuur 5. Histogram van de behaalde cijfers voor een wiskunde toets van klas A en klas B.</figcaption>
 </figure>
 
 We zien hier dat de cijfers van klas A over het algemeen hoger zijn dan die van klas B. Om te bekijken hoeveel klas A het precies over het algemeen beter heeft gedaan, is het handig om de gemiddeldes te berekenen en die te vergelijken.  
@@ -90,11 +90,10 @@ We zien hier dat de cijfers van klas A over het algemeen hoger zijn dan die van 
 We berekenen een gemiddelde op de volgende manier:
 
 ???+ Belangrijk
-    ### Gemiddelde berekenen
-    Een gemiddelde bereken je als volgt:
+    ### **Gemiddelde berekenen**
 
-    - Tel alle getallen bij elkaar op
-    - Deel het door het aantal getallen
+    - <span style="font-size: 16px;">Tel alle getallen bij elkaar op</span>
+    - <span style="font-size: 16px;">Deel het door het aantal getallen</span>
 
     $$\Large{\textrm{Gemiddelde} = \frac{\textrm{Som van de getallen}}{\textrm{Aantal getallen}}}$$
 
@@ -265,8 +264,59 @@ Dit betekent dus dat klas A gemiddeld $2$ cijferpunten hoger heeft gescoord op d
 
 <figure markdown>
 ![Histogram](assets/images/statistiek/Cijfers van klas A en klas B - hg (Settings = Gemiddelde, -, -).svg){ width="500"}
-    <figcaption>Figuur 5. Histogram van de behaalde cijfers voor een wiskunde toets.</figcaption>
+    <figcaption>Figuur 5 (met gemiddelde). Histogram van de behaalde cijfers voor een wiskunde toets van klas A en klas B.</figcaption>
 </figure>
 
 ## Mediaan en Modus
+Soms is een gemiddelde echter niet representatief voor de meeste gevallen. Laten we kijken naar inkomens van $100$ mensen waar er $1$ biljonair bij zit. In Figuur 6 is het inkomen weergegeven van de andere $99$ mensen.
 
+<figure markdown>
+![Histogram](assets/images/statistiek/Inkomen van 99 mensen - hg.svg){ width="500"}
+    <figcaption>Figuur 6. Inkomen van 99 mensen weergegeven in een histogram.</figcaption>
+</figure>
+
+Nu voegen we aan deze groep mensen de biljonair toe die een inkomen heeft van $1$ miljard. Nu berekenen we het gemiddelde. Als we dit doen, dan vinden we het volgende:
+
+$$\large{\textrm{Gemiddelde} = \Large{\textrm{€}} \large 10.052.841}$$
+
+Het gemiddelde is dus ongeveer $10$ miljoen! Maar dit is een vertekend beeld, want dit is niet representatief voor de mensen uit deze groep. Het gemiddelde is dus gevoelig voor extreem hoge/lage waardes. Daarom is het in dit geval handiger om de **mediaan** te gebruiken.
+
+???+ Belangrijk
+    ### **Mediaan bepalen**
+
+    <span style="font-size: 14px;">De mediaan is de middelste waarde uit een dataset wanneer de data gesorteerd is van laag naar hoog. Dus om de mediaan te bepalen kunnen we het volgende doen:</span>
+    <br></br>
+  
+    - <span style="font-size: 17px;">Sorteer de data van laag naar hoog</span>
+    - <span style="font-size: 17px;">Is de data oneven? $\Longrightarrow$ Kies het middelste getal.</span>
+    - <span style="font-size: 17px;">Is de data even? $\Longrightarrow$ Bereken het gemiddelde van de middelste twee getallen.</span>
+
+??? example "Simpel Voorbeeld"
+    **<p style="text-align: center;font-size:18px;">Oneven dataset</p>**
+    Stel we hebben de volgende dataset: 
+
+    $$\large{9,4,2,3,5}$$
+
+    We sorteren deze dataset van laag naar hoog:
+
+    $$\large{2,3,4,5,9}$$
+
+    Deze data set is oneven en dus kunnen we gelijk het middelste getal kiezen. In dit geval is dit $4$ en dus wordt onze mediaan:
+
+    !!! quote ""
+        $$\large{\textrm{Mediaan} = 4}$$
+
+    **<p style="text-align: center;font-size:18px;">Even dataset</p>**
+
+    Stel we hebben nu de volgende dataset
+
+    $$\large{5,4,8,12,78,2}$$
+
+    We sorteren dit weer van laag naar hoog:
+
+    $$\large{2,4,5,8,12,78}$$
+
+    Deze dataset is even en dus moeten we het gemiddelde nemen van de middelste twee getallen. De middelste twee getallen zijn $5$ en $8$ en dus wordt onze mediaan:
+
+    !!! quote ""
+        $$\large{\textrm{Mediaan} = \frac{5 + 8}{2} = 6.5}$$
