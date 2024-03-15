@@ -22,7 +22,7 @@ Hieronder is er een filmpje om te laten zien waar de Stelling van Pythagoras van
     *<p style="text-align: center;">Filmpje: Visueel bewijs van de Stelling van Pythagoras</p>*
 
 ## Voorbeelden 
-??? example "Voorbeeld 1"
+??? example "Voorbeeld 1: Bereken de lengte van de schuine zijde"
     ### Voorbeeld 1
     **<p style="text-align: center;font-size:20px;">Vraag: Wat is de lengte van de schuine zijde $c$?</p>**
         **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
@@ -54,7 +54,7 @@ Hieronder is er een filmpje om te laten zien waar de Stelling van Pythagoras van
     
      
 
-??? example "Voorbeeld 2"
+??? example "Voorbeeld 2: Bereken de lengte van een van de rechte zijdes"
     ### Voorbeeld 2
     **<p style="text-align: center;font-size:20px;">Vraag: Wat is de lengte van de rechte zijde $b$?</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>** 

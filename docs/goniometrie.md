@@ -1,5 +1,5 @@
 # Goniometrie
-Goniometrie gaat vooral over driehoeken en over de goniometrische functies: sinus ($\sin$), cosinus ($\cos$) en tangens ($\tan$). Deze goniometrische functies kunnen we gebruiken om verschillende zijdes te bepalen als we alleen maar 1 zijde hebben en een hoek, in plaats van twee zijdes. Want als we niet twee zijdes hebben, kunnen we geen Pythagoras gebruiken. Deze functies zijn dus erg handig! Maar hoe gebruiken we ze?
+Goniometrie gaat vooral over driehoeken en over de goniometrische functies: sinus (**sin**), cosinus (**cos**) en tangens (**tan**). Deze goniometrische functies kunnen we gebruiken om verschillende zijdes te bepalen als we alleen maar 1 zijde hebben en een hoek, in plaats van twee zijdes. Want als we niet twee zijdes hebben, kunnen we geen Pythagoras gebruiken. Deze functies zijn dus erg handig! Maar hoe gebruiken we ze?
 
 In Figuur 1 is er een rechte driehoek getekend. Hier zijn drie punten gegeven en de hoek.
 
@@ -9,8 +9,6 @@ In Figuur 1 is er een rechte driehoek getekend. Hier zijn drie punten gegeven en
 </figure>
 
 Stel nu eens voor dat we de zijde $AB$ en de hoek $\theta$ weten en dat we achter de lengte van zijde $BC$ willen komen. 
-
-
 
 Zoals eerder gezegd, kunnen we dit probleem niet oplossen met Pythagoras. Hiervoor hebben we de goniometrische funties nodig. In dit geval gebruiken we de tangens omdat we de aanliggende zijde hebben $(AB)$ en we de overstaande zijde willen weten $(BC)$ (zie [Regels Goniometrische Functies](#regels-goniometrische-functies)). We krijgen dan:
 
@@ -96,7 +94,7 @@ $$x = k * \pi.$$
 Bij de vorige twee voorbeelden hebben we gewoon afgelezen hoe vaak het geldt, maar kunnen we ook een algemene oplossing verzinnen die altijd geldt? Het antwoord is ja! 
 
 ???+ Belangrijk
-    ### Uitwerken sin/cos vergelijkingen
+    ### **Uitwerken sin/cos vergelijkingen**
 
     Met een sinus:
 
@@ -121,7 +119,7 @@ Bij de vorige twee voorbeelden hebben we gewoon afgelezen hoe vaak het geldt, ma
 In de $\cos$ en $\sin$ functies zit een bepaalde symmetrie. De sinus functie heeft een symmetrie punt op de oorsprong, terwijl de cosinus functie een symmetrie as heeft bij de $y$-as. Deze symmetrie is op de volgende manier weer te geven in formule form:
 
 ???+ Belangrijk
-    ### Symmetrieformules
+    ### **Symmetrieformules**
     
     1. $$\large{\sin{(-x)} = - \sin{(x)}}$$
 
@@ -134,7 +132,7 @@ In de $\cos$ en $\sin$ functies zit een bepaalde symmetrie. De sinus functie hee
 De cosinus functie is eigenlijk hetzelfde als de sinus functie, alleen is het $\frac{1}{2} \pi$ opgeschoven naar rechts. In formule form wordt dit dan:
 
 ???+ Belangrijk
-    ### Sinus en Cosinus omschrijven
+    ### **Sinus en Cosinus omschrijven**
 
     1. $$\large{\sin{(x)} = \cos{(x - \frac{1}{2} \pi)}}$$
 
@@ -163,7 +161,7 @@ De cosinus functie is eigenlijk hetzelfde als de sinus functie, alleen is het $\
 
         $$\large{\sin{(\pi - \frac{1}{2} \pi - x)} = \sin{(\frac{1}{2} \pi - x)}}$$
 
-### Voorbeelden
+### **Voorbeelden**
 ??? example "Voorbeeld 1: $\cos{(2x)} = 0$"
     **<p style="text-align: center;font-size:20px;">Bereken x: $\cos{(2x)} = 0$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
@@ -305,7 +303,7 @@ $$\large{\sin{(\frac{1}{3} \pi)} = \frac{1}{2} \sqrt{3}}.$$
 Maar we hebben niet altijd de eenheidscirkel bij de hand en is het dus handig om de eenheidscirkel te onthouden. Om niet alles te hoeven onthouden, kan het volgende trucje handig zijn.
 
 
-### Trucje om de Eenheidscirkel te Onthouden
+### **Trucje om de Eenheidscirkel te Onthouden**
 We onthouden de volgende waardes en hoeken en de volgorde van klein naar groot:
 
 ???+ Belangrijk
@@ -422,7 +420,7 @@ De eerste twee vergelijkingen kunnen we bewijzen met behulp van de [Goniometrisc
     En omdat iets gedeelt door zichzelf altijd gelijk is aan 1, betekent dat dus dat deze vergelijking klopt en dus ook dat onze originele vergelijking klopt.
 
 
-### Voorbeelden
+### **Voorbeelden**
 
 ??? example "Voorbeeld 1: $\sin^2{(x)}  = - \cos^2{(x)} + \tan{(x)}$"
     **<p style="text-align: center;font-size:20px;">Bereken x: $\sin^2{(x)}  = - \cos^2{(x)} + \tan{(x)}$</p>**

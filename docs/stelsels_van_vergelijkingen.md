@@ -41,7 +41,7 @@ $$a + \large \textrm{€} \normalsize 8 = \large \textrm{€} \normalsize 10$$
 
 Appels en bananen zijn in dit voorbeeld dus allebei €$2$.
 
-### Voorbeelden
+### **Voorbeelden**
 
 ??? example "Voorbeeld 1: Los dit stelsel van vergelijkingen op: $\large{\left\{ \begin{array}{ l l } 4x + 6y = 14  \\ 8x - 3y = 3 \end{array} \right.}$"
     **<p style="text-align: center;font-size:16px;">Los dit stelsel van vergelijkingen op: $\large{\left\{ \begin{array}{ l l } 4x + 6y = 14  \\ 8x - 3y = 3 \end{array} \right.}$</p>**
@@ -139,7 +139,7 @@ $$a = \large \textrm{€} \normalsize 10 - 4 * \textrm{€} \normalsize 2$$
     $$\large{a = \Large \textrm{€} \large 2}$$
 
 
-### Voorbeelden
+### **Voorbeelden**
 
 ??? example "Voorbeeld 1: Los dit stelsel van vergelijkingen op: $\large{\left\{ \begin{array}{ c l } -8x - 22y = 56  \\ x + 4y = 12 \end{array} \right.}$"
     **<p style="text-align: center;font-size:16px;">Los dit stelsel van vergelijkingen op: $\large{\left\{ \begin{array}{ c c } -8x - 22y = 56  \\ x + 4y = 12 \end{array} \right.}$</p>**

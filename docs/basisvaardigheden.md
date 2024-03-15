@@ -39,7 +39,7 @@ Als we dit controleren met ons getallen voorbeeld, waar $2 = \frac{6}{3}$, klopt
 ## Vergelijkingen Omschrijven
 Vergelijkingen omschrijven is eigenlijk hetzelfde als een formule omschrijven. In beide gevallen doe je aan beide kanten van het '$=$'-teken hetzelfde, waardoor de vorm van de formule of vergelijking verandert. Laten we kijken naar een paar voorbeelden van vergelijkingen:
 
-### Voorbeeld 1
+### **Voorbeeld 1**
 
 $$2x = 4.$$
 
@@ -48,7 +48,7 @@ De meesten zullen in een keer zien dat dit betekent dat $x = 2$. Maar laten we h
 !!! quote ""
     $$\Large{x = 2.}$$
 
-### Voorbeeld 2
+### **Voorbeeld 2**
 
 $$35x + 17 = 262.$$
 
@@ -64,7 +64,7 @@ Nu delen we beide kanten door $35$ en vinden:
     $$\Large{x = 7.}$$
 
 
-### Voorbeeld 3
+### **Voorbeeld 3**
 
 $$\frac{1}{2}x - \frac{1}{12} = -\frac{1}{3} x + 2$$
 
@@ -103,7 +103,7 @@ Breuken worden vaak gebruikt in de wiskunde. Het is daarom belangrijk om goed te
 Voor breuken gelden er de volgende regels:
 
 ???+ Belangrijk
-    ### Regels bij Breuken
+    ### **Regels bij Breuken**
 
     1. $$\large{\frac{a}{b} + \frac{c}{b} = \frac{a + c}{b}}$$  
 
@@ -120,7 +120,7 @@ Voor breuken gelden er de volgende regels:
 Vaak ziet dit er nog abstract uit, dus in het onderstaande voorbeeld is er voor elke regel een getallen voorbeeld weergegeven om de regels te verduidelijken.
 
 ??? example "Getallen Voorbeeld Breuken"
-    ### Getallen Voorbeeld Breuken
+    ### **Getallen Voorbeeld Breuken**
     1. $$\large{\frac{2}{6} + \frac{1}{6} = \frac{2 + 1}{6} = \frac{3}{6} = \frac{1}{2}}$$
 
     2. $$\large{\frac{2}{6} - \frac{1}{6} = \frac{2 - 1}{6} = \frac{1}{6}}$$
@@ -169,7 +169,7 @@ Een operatie klinkt als een lastig woord, maar dit betekent gewoon dingen zoals 
 Alle onderstaande regels gaan twee kanten op, dus je kan iets in de linker vorm altijd schrijven als iets in de rechter vorm, en andersom. 
 
 ???+ Belangrijk
-    ### Regels bij operaties met variabelen
+    ### **Regels bij operaties met variabelen**
     1. $$\large{nA + mA \iff (n + m)A}$$
 
     2. $$\large{nA - mA \iff (n - m)A}$$
@@ -220,10 +220,10 @@ Alle onderstaande regels gaan twee kanten op, dus je kan iets in de linker vorm 
 
 
 ## Machten en Wortels
-### Regels met Machten
+### **Regels met Machten**
 
 ???+ Belangrijk
-    #### Kwadratisch haakjes wegwerken
+    #### <span style="font-size: 16px;"> Kwadratisch haakjes wegwerken</span>
     1. $$\large{\left(a + b\right)^2 \equiv \left(a + b \right) \left(a + b \right) = a^2 + 2ab + b^2}$$
 
     2. $$\large{\left(a - b\right)^2 \equiv \left(a - b \right) \left(a - b \right) = a^2 - 2ab + b^2}$$
@@ -290,7 +290,7 @@ Alle onderstaande regels gaan twee kanten op, dus je kan iets in de linker vorm 
     !!! quote ""
         $$\large{\left(a + b \right) \left(a - b \right) = a^2 - b^2 }$$
 
-### Controle met Getallen Voorbeeld
+### **Controle met Getallen Voorbeeld**
 Dus bij optellen en aftrekken moet je voorzichtig zijn dat je niet alleen de twee variabelen kwadrateerd en bij elkaar optelt of aftrekt, zonder rekening te houden met de kruistermen. We kunnen dit ook altijd controleren met een getallen voorbeeld:
 
 $$(2 + 3)^2 \neq 2^2 + 3^2$$
@@ -307,7 +307,7 @@ De volgende regels gelden wel voor alle soorten machten:
 
 ???+ Belangrijk
 
-    #### Machten in het Algemeen
+    #### <span style="font-size: 16px;">Machten in het Algemeen</span>
 
     4. $$\large{(a*b)^n = a^n*b^n}$$
 
@@ -326,7 +326,7 @@ $$\sqrt{x} \equiv x^{\frac{1}{2}}$$
 
 
 ???+ Belangrijk
-    ### Regels met wortels
+    ### **Regels met wortels**
     1. $$\large{\sqrt{a + b} \rightarrow} \ \small{\mathrm{kan \ niet \ verder \ worden \ versimpelt}}$$
 
     2. $$\large{\sqrt{a - b} \rightarrow} \ \small{\mathrm{kan \ niet \ verder \ worden \ versimpelt}}$$
@@ -381,11 +381,11 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 </figure>
 
 ??? note "Opmerking Notatie"
-    ### Opmerking Notatie
+    ### **Opmerking Notatie**
     De afspraak is dat als er geen grondgetal staat bij de logaritme, dat we er dan vanuit gaan dat het een $^{10} \! \log$ is, dus een logaritme met een grondgetal 10.
 
 ???+ Belangrijk
-    ### Regels met Logaritmes
+    ### **Regels met Logaritmes**
 
     1. $$\large{^a \! \log{(a^n)} = n = \Large{a^{^a \! \log{(n)}}}}$$
 
@@ -398,7 +398,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
     5. $$\large{^a \! \log{(b)} = \frac{^c \! \log{(b)}}{^c \! \log{(a)}}}$$
 
 ??? note "Opmerking $\ln$"
-    ### Opmerking ln
+    ### **Opmerking ln**
     Voor een logaritme met een speciaal grondgetal hebben we een aparte notatie. Namelijk voor het grondgetal $e$, het getal van euler.
 
     $$\large{^e \log \equiv \ln}$$
@@ -406,7 +406,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
     Dus in plaats van een logaritme met een grondgetal $e$ schrijven we $\ln$, wat staat voor "natuurlijke logaritme". Maar dit is alleen een verschil in notatie en dus zijn alle regels gewoon hetzelfde als met logaritmes die een ander grondgetal hebben.
 
 ??? note "Domein en Bereik"
-    ### Domein en Bereik
+    ### **Domein en Bereik**
     **<p style="text-align: center;font-size:18px;">Exponent</p>**
     Het domein van een exponent met een positief grondgetal is alle reële getallen:
 
@@ -429,7 +429,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
     $$\large{\textrm{Bereik} = \langle \leftarrow, \rightarrow \rangle \textrm{ of } \mathbb{R}}$$
 
 
-### Voorbeelden Logaritmes
+### **Voorbeelden Logaritmes**
 ??? example "Voorbeeld 1: $^3 \! \log{(x)} = 2$"
     **<p style="text-align: center;font-size:20px;">Bereken x: $^3 \! \log{(x)} = 2$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**

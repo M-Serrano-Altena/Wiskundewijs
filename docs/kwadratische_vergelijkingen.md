@@ -52,7 +52,7 @@ En hieruit volgt dus als we het oplossen dat:
 In het algemeen wordt dit:
 
 ???+ Belangrijk
-    ### Algemene oplossing
+    ### **Algemene oplossing**
     Voor de vergelijking
 
     $$\Large{x^2 = c,}$$
@@ -61,7 +61,7 @@ In het algemeen wordt dit:
 
     $$\Large{x = \sqrt{c} \ \vee \ x = - \sqrt{c}}$$
 
-### Opmerkingen
+### **Opmerkingen**
 
 ??? note "Opmerking over de vorm"
     De vergelijking moet soms misschien nog omgeschreven worden naar de juiste vorm. Bijvoorbeeld de vergelijking
@@ -115,7 +115,7 @@ In het algemeen wordt dit:
     !!! quote ""
         **<p style="text-align: center;font-size:19px;">Geen Oplossing</p>**
 
-### Voorbeelden
+### **Voorbeelden**
 
 ??? example "Voorbeeld 1: $x^2= 1$"
     **<p style="text-align: center;font-size:20px;">Los op: $x^2= 1$</p>**
@@ -193,7 +193,7 @@ In het algemeen wordt dit:
         $$\large{x = 0 \ \vee \ x = - b}$$
 
 
-### Voorbeelden
+### **Voorbeelden**
 
 ??? example "Voorbeeld 1: $x^2 - x = 0$"
     **<p style="text-align: center;font-size:20px;">Los op: $x^2 - x = 0$</p>**
@@ -251,7 +251,7 @@ $$x^2 + bx+ c = 0.$$
 
 We hebben hiervoor drie methodes. De snellere methode van ontbinden in factoren, de relatief eenvoudige methode die iets minder snel is, maar altijd werkt: de *abc* formule en kwadraat afsplitsen dat ook altijd werkt, maar vaak meer stappen zijn. Laten we beginnen met ontbinden in factoren.
 
-### Ontbinden in factoren
+### **Ontbinden in factoren**
 Zoals de naam eigenlijk al zegt, willen we de kwadratische vergelijking ontbinden in twee factoren. Stel we hebben bijvoorbeeld de volgende vergelijking:
 
 $$x^2 + 3x + 2 = 0.$$
@@ -327,7 +327,7 @@ $$x + 8 = 0 \ \vee \ x + 3 = 0.$$
     $$\large{x = -8 \ \vee \ x = -3.}$$
 
 
-#### Voorbeelden
+#### <span style="font-size: 18px;">Voorbeelden</span>
 
 ??? example "Voorbeeld 1: $x^2 -2x - 8 = 0$"
     **<p style="text-align: center;font-size:20px;">Los op: $x^2 -2x - 8 = 0$</p>**
@@ -407,7 +407,7 @@ $$x + 8 = 0 \ \vee \ x + 3 = 0.$$
         $$\large{x = -1 \ \vee \ x = -4.}$$
 
 
-### De *abc* formule
+### **De *abc* formule**
 De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat. Dit gebeurt wanneer de product-som methode niet de juiste factoren geeft, of wanneer $b$ of $c$ in $x^2 + bx + c$ geen gehele getallen zijn. Maar wat is de *abc* formule en hoe gebruiken we het?
 
 ???+ Belangrijk
@@ -426,7 +426,7 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
     $$\Large{D = b^2 - 4ac.}$$
 
     ??? note "Discriminant"
-        #### Discriminant
+        #### **<span style="font-size: 18px;">Discriminant</span>**
         Waarom schrijven we de discriminant apart op en vullen we het niet gewoon rechtstreeks in de formule om gewoon $1$ formule te hebben?
 
         Dit doen we omdat we belangrijke eigenschappen van de functie kunnen bepalen aan de hand van de waardes van de discriminant:
@@ -435,7 +435,7 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
 
         Kijk bijvoorbeeld naar de volgende voorbeelden (ook gebruikt in [snijpunten met de $x$-as](#snijpunten-met-de-x-as)). 
 
-        ##### Twee snijpunten
+        ##### <span style="font-size: 14px; color: #D3D3D3">Twee snijpunten</span>
 
         Stel we hebben de functie $f(x) = x^2 - 1$ en we willen erachter komen hoeveel snijpunten deze functie heeft met de $x$-as. We stellen dan dat:
         
@@ -464,7 +464,7 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
             <figcaption>Figuur 1. De grafiek f(x) = x² - 1 geplot met de snijpunten met de x-as.</figcaption>
         </figure>
 
-        ##### Eén snijpunt
+        ##### <span style="font-size: 14px; color: #D3D3D3">Eén snijpunt</span>
         Stel we kijken nu naar de grafiek $f(x) = x^2 - 4x + 4$. Hoeveel snijpunten heeft deze functie met de $x$-as? We stellen eerst weer dat:
 
         $$\large{f(x) = 0}$$
@@ -490,7 +490,7 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
             <figcaption>Figuur 2. De grafiek f(x) = x² - 4x + 4 geplot met het snijpunt/raakpunt met de x-as.</figcaption>
         </figure>
 
-        ##### Geen snijpunten
+        ##### <span style="font-size: 14px; color: #D3D3D3">Geen snijpunten</span>
         We kijken nu als laatst naar de functie $f(x) = x^2 + 1$ om te bepalen hoeveel snijpunten dit heeft met de $x$-as. We stellen $f(x)$ weer gelijk aan $0$:
 
         $$\large{x^2 + 1 = 0.}$$
@@ -644,7 +644,7 @@ Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwo
     En dit is precies hetzelfde als dat we net ook hadden gevonden.
 
 
-#### Voorbeelden
+#### <span style="font-size: 18px;">Voorbeelden</span>
 
 ??? example "Voorbeeld 1: $2x^2 + 48 \frac{1}{2}x + 12 = 0$"
     **<p style="text-align: center;font-size:20px;">Los op: $2x^2 + 48 \frac{1}{2}x + 12 = 0$</p>**
@@ -745,7 +745,7 @@ Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwo
         **<p style="text-align: center;font-size:19px;">Geen Oplossing</p>**
 
 
-### Kwadraat afsplitsen
+### **Kwadraat afsplitsen**
 Dit is een andere methode om kwadratische vergelijkingen op te lossen. Net zoals de *abc* formule werkt het in alle gevallen. Het duurt vaak iets langer dan de *abc* formule, maar je hoeft geen formule te onthouden. Laten we kijken hoe het werkt met behulp van een voorbeeld.
 
 Laten we kijken naar de volgende vergelijking:
@@ -787,7 +787,7 @@ Door nu aan beide kanten $-3$ te doen vinden we onze eindoplossing:
 !!! quote ""
     $$\large{x = 1 \ \vee \ x = -7}$$
 
-#### Voorbeelden
+#### <span style="font-size: 18px;">Voorbeelden</span>
 
 ??? example "Voorbeeld 1: $x^2 - 2x = 3$"
     **<p style="text-align: center;font-size:20px;">Los op door middel van kwadraat afsplitsen: $x^2 - 2x = 3$</p>**
@@ -932,10 +932,10 @@ We hebben net allemaal methodes gezien om kwadratische vergelijkingen op te loss
 
 Het is vooral handig om snijpunten te berekenen. Bijvoorbeeld snijpunten met de $x$-as of snijpunten van twee grafieken met elkaar. Laten we eerst kijken naar snijpunten met de $x$-as. 
 
-### Snijpunten met de x-as
+### **Snijpunten met de x-as**
 We gaan kijken naar drie verschillende gevallen, een functie waar we $2$ snijpunten hebben met de $x$-as, een functie waar we maar $1$ snijpunt hebben met de $x$-as (dus waar $f(x)$ de $x$-as raakt) en een functie waar er geen snijpunten zijn met de $x$-as.
 
-#### Twee snijpunten
+#### <span style="font-size: 18px;">Twee snijpunten</span>
 Laten we beginnen met een functie die $2$ snijpunten heeft. We zien hieronder de functie $f(x) = x^2 - 1$ en de $2$ snijpunten met de $x$-as. 
 
 <figure markdown>
@@ -968,7 +968,7 @@ De coördinaten van de snijpunten zijn dus:
     $$\large{\left(-1, 0 \right) \ \mathrm{en} \ \left( 1, 0 \right)}$$
 
 
-#### Eén snijpunt
+#### <span style="font-size: 18px;">Eén snijpunt</span>
 Laten we nu kijken naar een situatie waar we een functie hebben die maar $1$ snijpunt/raakpunt heeft met de $x$-as. Bij een kwadratische functie geldt er altijd dat als er maar $1$ snijpunt is, dat er dan sprake is van raken. De grafiek van $f(x)$ raakt de grafiek, maar snijdt de $x$-as eigenlijk niet.
 
 We hebben hieronder een grafiek $f(x) = x^2 - 4x + 4.$
@@ -1020,7 +1020,7 @@ De coördinaat van het snijpunt is dus:
 !!! quote ""
     $$\large{(2,0)}$$
 
-#### Geen snijpunten
+#### <span style="font-size: 18px;">Geen snijpunten</span>
 Als laatst kijken we naar de situatie waar er helemaal geen snijpunten zijn met de $x$-as.
 
 Dit gebeurt bijvoorbeeld bij de functie $f(x) = x^2 + 1$, zoals we kunnen zien in Figuur 3.
@@ -1043,7 +1043,7 @@ Een getal in het kwadraat kan nooit negatief zijn en dus geldt er dat er voor de
 Er is gewoon geen enkel moment dat de grafiek van $f(x)$ de $x$-as snijdt, omdat $f(x)$ altijd boven de $x$-as is. Dit betekent dus dat er ook geen oplossingen zijn voor de vergelijking en dus dat er geen snijpunt is.
 
 
-### Snijpunten met andere grafieken
+### **Snijpunten met andere grafieken**
 We zien nu twee functies, $f(x) = x^2 -6x - 1$ en $g(x) = -x^2 + 2x + 3$ en de snijpunten tussen de twee.
 
 <figure markdown>

@@ -4,7 +4,7 @@
 
 Een afgeleide functie geeft op elk x coördinaat de bijbehorende helling/richtingscoëfficient. De functie geeft dan dus niet meer het $y$-coördinaat als je $x$ invult, maar de helling van de grafiek op dat punt. Dit wordt hieronder weergegeven.
 
-### Parabool
+### **Parabool**
 Een parabool heeft in het simpleste geval de vorm
 
 $$f(x) = x^2.$$
@@ -26,7 +26,7 @@ $$f'(x) = 0.$$
 
     *<p style="text-align: center;">Filmpje: Visuele weergave van de afgeleide van de functie $f(x) = x^2$. Bij de top geldt dat de helling gelijk is aan 0. </p>*
 
-### Exponentiële funtie 
+### **Exponentiële funtie**
 Een exponentiële functie heeft de vorm
 
 $$f(x) = e^x,$$
@@ -47,7 +47,7 @@ De afgeleide is dus hetzelfde als de functie zelf. Dit fenomeen is te zien in he
     *<p style="text-align: center;">Filmpje: Visuele weergave van de afgeleide van de functie $f(x) = e^x$. Er is te zien dat op elk punt geldt dat $f(x) = f'(x)$. Dit is wat de e-macht zo bijzonder maakt. </p>*
 
 ???+ Belangrijk
-    ### Tabel met veel voorkomende functies
+    ### **Tabel met veel voorkomende functies**
 
     | Functie                            | Afgeleide                                    |
     | ---------------------------------- | -------------------------------------------- |
@@ -62,7 +62,7 @@ De afgeleide is dus hetzelfde als de functie zelf. Dit fenomeen is te zien in he
 
     waarbij $n$ en $a$ constantes zijn die niet afhankelijk van x zijn.
 
-    ### Regels
+    ### **Regels**
 
     |               | Functie                            | Afgeleide                                                                                             |
     | ------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -77,12 +77,12 @@ De quotiëntregel kan je onthouden met het ezelsbruggetje: "nat - tan gedeelt do
 Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
 ??? note "Opmerking Notatie"
-    ### Notatie
+    ### **Notatie**
     Een afgeleide kan op verschillende manieren worden weergegeven:
     
     $$\Large{f'(x), \ y', \ \frac{\mathrm{d} f(x)}{\mathrm{d} x}, \ \frac{\mathrm{d} y}{\mathrm{d} x}, \frac{\mathrm{d}}{\mathrm{d} x} y, \frac{\mathrm{d}}{\mathrm{d} x} f(x)} $$
 
-### Voorbeelden
+### **Voorbeelden**
 
 ??? example "Voorbeeld 1: Bereken de afgeleide van $f(x) = x^2$"
     **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = x^2$</p>**
@@ -444,7 +444,7 @@ Het $y$-coördinaat van de top is dus bij $y=2$. De coördinaten van de top zijn
 
 en dit kunnen we ook aflezen in Figuur 1.
 
-### Voorbeelden
+### **Voorbeelden**
 
 ??? example "Voorbeeld 1: Bepaal de extreme waarde van $f(x) = 6x^2 - 12x + 9$"
     **<p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waarde van $f(x) = 6x^2 - 12x + 9$</p>**

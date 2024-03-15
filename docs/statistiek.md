@@ -267,6 +267,8 @@ Dit betekent dus dat klas A gemiddeld $2$ cijferpunten hoger heeft gescoord op d
     <figcaption>Figuur 5 (met gemiddelde). Histogram van de behaalde cijfers voor een wiskunde toets van klas A en klas B.</figcaption>
 </figure>
 
+<!-- ### **Voorbeelden** -->
+
 ## Mediaan en Modus
 Soms is een gemiddelde echter niet representatief voor de meeste gevallen. Laten we kijken naar inkomens van $100$ mensen waar er $1$ biljonair bij zit. In Figuur 6 is het inkomen weergegeven van de andere $99$ mensen.
 
@@ -279,7 +281,7 @@ Nu voegen we aan deze groep mensen de biljonair toe die een inkomen heeft van $1
 
 $$\large{\textrm{Gemiddelde} = \Large{\textrm{€}} \large 10.052.841}$$
 
-Het gemiddelde is dus ongeveer $10$ miljoen! Maar dit is een vertekend beeld, want dit is niet representatief voor de mensen uit deze groep. Het gemiddelde is dus gevoelig voor extreem hoge/lage waardes. Daarom is het in dit geval handiger om de **mediaan** te gebruiken.
+Het gemiddelde is dus ongeveer $10$ miljoen! Maar dit is een vertekend beeld, want dit is niet representatief voor de mensen uit deze groep. De biljonair zorgt er dus voor dat het gemiddelde heel erg hoog wordt. We zien dus dat het gemiddelde erg gevoelig is voor extreem hoge/lage waardes. Daarom is het in dit geval handiger om de **mediaan** te gebruiken.
 
 ???+ Belangrijk
     ### **Mediaan bepalen**
@@ -291,7 +293,7 @@ Het gemiddelde is dus ongeveer $10$ miljoen! Maar dit is een vertekend beeld, wa
     - <span style="font-size: 17px;">Is de data oneven? $\Longrightarrow$ Kies het middelste getal.</span>
     - <span style="font-size: 17px;">Is de data even? $\Longrightarrow$ Bereken het gemiddelde van de middelste twee getallen.</span>
 
-??? example "Simpel Voorbeeld"
+??? example "Simpel Voorbeeld: Mediaan"
     **<p style="text-align: center;font-size:18px;">Oneven dataset</p>**
     Stel we hebben de volgende dataset: 
 
@@ -320,3 +322,143 @@ Het gemiddelde is dus ongeveer $10$ miljoen! Maar dit is een vertekend beeld, wa
 
     !!! quote ""
         $$\large{\textrm{Mediaan} = \frac{5 + 8}{2} = 6.5}$$
+
+Dus als we de mediaan willen bepalen van de groep, dan moeten we eerst alle $100$ inkomens op volgorde van laag naar hoog zetten. $100$ is een even getal en dus berekenen we het gemiddelde van de middelste twee waardes. Als we dit doen, dan vinden we als mediaan:
+
+$$\large{\textrm{Mediaan} = \Large{\textrm{€}} \large 55.834}$$
+
+En we zien dat dit representatiever is voor de meeste mensen uit de groep dan het gemiddelde van €$10$ miljoen.
+
+Apart van de **mediaan**, kunnen we ook de **modus** bepalen om meer grip op de data te krijgen. De modus verteld ons welk getal het vaakst voorkomt.
+
+???+ Belangrijk
+    ### **Modus bepalen**
+
+    - <span style="font-size: 17px;">De modus is het getal dat het vaakst voorkomt.</span>
+    - <span style="font-size: 17px;">Het is handig om de data te sorteren van laag naar hoog om dit te bepalen.</span>
+    - <span style="font-size: 17px;">Als er twee getallen zijn die allebei het meest voorkomen, dan is er geen modus.</span>
+
+??? example "Simpel Voorbeeld: Modus"
+    **<p style="text-align: center;font-size:18px;">Modus bepalen</p>**
+    Stel we hebben de volgende dataset:
+
+    $$\large{1,4,2,3,2}$$
+
+    Om te bepalen welk getal het vaakst voorkomt, is het handig om de data te sorteren van laag naar hoog. Als we dit doen, dan vinden we:
+
+    $$\large{1,2,2,3,4}$$
+
+    We zien nu dat het getal $2$ het vaakst voorkomt en dus is onze modus $2$.
+
+    $$\large{\textrm{Modus} = 2}$$
+
+    **<p style="text-align: center;font-size:18px;">Geen Modus</p>**
+
+    Stel we hebben nu deze dataset:
+
+    $$\large{1,3,4,3,6,4,7,8}$$
+
+    We sorteren het eerst weer van laag naar hoog:
+
+    $$\large{1,3,3,4,4,6,7,8}$$
+
+    We zien nu dat $3$ en $4$ allebei het meest voorkomen en omdat dit dus twee getallen zijn, hebben we geen modus.
+
+    $$\large{\textrm{Geen Modus}}$$
+
+### **Voorbeelden**
+
+??? example "Voorbeeld 1: Bepaal de Mediaan en de Modus"
+    **<p style="text-align: center;font-size:20px;">Bepaal de Mediaan en de Modus</p>**
+
+    *<span style="font-size: 17px;">Er is meerdere keren met een dobbelsteen gegooid en de uitslagen van het aantal ogen zijn hier rechts weergegeven. Wat is de mediaan en wat is de modus van deze worpen?</span>*
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    ![Plaatje met verschillende dobbelsteen waardes](assets/images/statistiek/Dice dataset.svg){ width="200" align=right }
+
+    Om te bepalen wat de mediaan is, is het handig om de worpen te sorteren van laag naar hoog aantal ogen. Als we dit doen, dan vinden we:
+
+    $$\large{1,1,1,2,2,2,2,3,3,4,5,6}$$
+
+    Nu berekenen we de mediaan. Er waren $12$ worpen en dit is een even getal. We moeten dus de middelste twee getallen nemen en daar het gemiddelde van nemen. De middelste twee getallen zijn:
+
+    <div style="margin-left: 480px;">
+        <span style="font-size: 13px;">Figuur 1. Weergave van de verschillende worpen van een dobbelsteen.</span>
+    </div>
+
+    $$\large{1,1,1,2,2, \boxed{2,2} ,3,3,4,5,6}$$
+
+    Het gemiddelde van $2$ met zichzelf is gewoon $2$ en dus krijgen we:
+
+    !!! quote ""
+        $$\large{\textrm{Mediaan} = 2}$$
+
+    Om de modus te bepalen moeten we kijken welk getal het vaakst voorkomt. Met de gesorteerde worpen kunnen we zien dat $2$ ogen het vaakst is gegooid en dus krijgen we:
+
+    !!! quote ""
+        $$\large{\textrm{Modus} = 2}$$
+
+
+???+ example "Voorbeeld 2: Bepaal de Mediaan en de Modus"
+    **<p style="text-align: center;font-size:20px;">Bepaal de Mediaan en de Modus</p>**
+
+    *<p style="font-size: 17px;text-align: center;">Een groep leerlingen hebben allemaal gemeten wat hun schoenmaat is, en dit is weergegeven in Figuur 2. Bepaal van deze data de mediaan en de modus.</p>*
+
+    ![Schoenmaten van leerlingen](assets/images/statistiek/Shoe sizes dataset.svg){ width="300" align=right }
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+    Om te bepalen wat de mediaan is, moeten we eerst alle schoenmaten sorteren van laag naar hoog. Als we dit doen, dan vinden we het volgende:
+
+    $$\large{35, 36, 37, 38, 39, 40, 41, 42, 43, 44}$$
+
+    De mediaan is het gemiddelde van de middelste twee getallen, want dit is een even dataset. De middelste twee getallen zijn:
+
+    <div style="margin-left: 350px;">
+        <span style="font-size: 13px;">Figuur 2. De verschillende schoenmaten van de groep leerlingen.</span>
+    </div>
+
+    $$\large{35, 36, 37, 38, \boxed{39, 40} , 41, 42, 43, 44}$$
+
+    De mediaan is dus het gemiddelde van $39$ en $40$:
+
+    $$\large{\textrm{Mediaan} = \frac{39 + 40}{2}}$$
+
+    !!! quote ""
+        $$\large{\textrm{Mediaan} = 39.5}$$
+
+    De modus is het getal dat het vaakst voorkomt. In dit geval komen alle getallen even vaak voor, en is er dus geen modus
+
+    !!! quote ""
+        $$\large{\textrm{Geen Modus}}$$
+
+
+??? example "Voorbeeld 3: Bepaal de Mediaan en de Modus"
+    **<p style="text-align: center;font-size:20px;">Bepaal de Mediaan en de Modus</p>**
+
+    *<span style="font-size: 17px;">Leerlingen uit een klas hebben allemaal doorgegeven hoeveel huisdieren ze hadden, en dit is weergegeven in Figuur 3. Bepaal van deze data de mediaan en de modus.</span>*
+
+    <figure markdown>
+    ![Histogram](assets/images/statistiek/Aantal huisdieren per huishouden - hg (Settings = Gemiddelde, -, -).svg){ width="500"}
+        <figcaption>Figuur 3. Histogram van het aantal huisdieren per leerling.</figcaption>
+    </figure>
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We kunnen uit de histogram van Figuur 3 meteen aflezen dat het getal dat het vaakst voorkomt $1$ is en dus is de modus $1$
+
+    !!! quote ""
+        $$\large{\textrm{Modus} = 1}$$
+
+    Om de mediaan te bepalen zouden we de data uitkunnen schrijven, maar we kunnen het ook doen met de grafiek. De totaal aantal leerlingen is-:
+
+    $$\large{\textrm{Aantal leerlingen} = 8 + 9 + 7 + 3 + 2 + 1}$$
+
+    $$\large{\textrm{Aantal leerlingen} = 30}$$
+
+    Dit is een even aantal en dus moeten we het gemiddelde nemen van de middelste twee getallen. De middelste twee getallen zijn het $15^{\textrm{e}}$ en het $16^{\textrm{e}}$ getal uit de gesorteerde dataset. 
+    
+    In Figuur 3 is de data al gesorteerd, dus daar kunnen we aflezen dat we eerst $8$ keer $0$ huisdieren hebben en daarna $9$ keer $1$ huisdier. Samen zijn dit de eerste $17$ getallen van de dataset en dus weten we dat zowel het $15^{\textrm{e}}$ als het $16^{\textrm{e}}$ getal $1$ moet zijn. Het gemiddelde van twee keer hetzelfde getal is het getal zelf, en dus vinden we dat de mediaan $1$ is. 
+
+    !!! quote ""
+        $$\large{\textrm{Mediaan} = 1}$$

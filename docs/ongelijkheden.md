@@ -10,6 +10,8 @@ Hier staat dat $3$ groter is dan $2$, en in dit geval klopt deze ongelijkheid, w
 
 $$\left\{ \begin{array}{l l l l} < & \quad \textrm{betekent: “groter dan"}  \\ \leq & \quad \textrm{betekent: “kleiner of gelijk aan"} \\ > & \quad \textrm{betekent: “groter dan"} \\ \geq & \quad \textrm{betekent: “groter of gelijk aan"} \end{array} \right.$$
 
+### **Lineaire ongelijkheden oplossen**
+
 We kunnen ook vergelijkingen opstellen met ongelijkheden. Over het algemeen gaat het oplossen van zo een vergelijking hetzelfde als dat er gewoon een '$=$' teken staat (zie [Vergelijkingen omschrijven](basisvaardigheden.md#vergelijkingen-omschrijven) om te kijken hoe dat moet). Kijk maar bijvoorbeeld het volgende voorbeeld:
 
 $$2x < 4.$$
@@ -46,7 +48,7 @@ $$8 < 2.$$
 Dit klopt natuurlijk niet, want $8$ is groter dan $2$ en niet kleiner! Om met dit effect rekening te houden moeten we de ongelijkheid altijd wisselen als we vermenigvuldigen met een negatief getal.
 
 ???+ Belangrijk
-    ### Vermenigvuldigen met een negatief getal
+    #### <span style="font-size: 16px;">Vermenigvuldigen met een negatief getal</span>
     Als je bij een ongelijkheid beide kanten vermenigvuldigt met een negatief getal, moet je altijd het teken wisselen:
 
     $$\Large{ \textrm{‘} > \textrm{'} \ \ \longleftrightarrow \ \ \textrm{‘} < \textrm{'}}$$
@@ -56,19 +58,19 @@ Dit klopt natuurlijk niet, want $8$ is groter dan $2$ en niet kleiner! Om met di
     Dus "groter dan" wordt "kleiner dan" (en andersom), en "groter of gelijk aan" wordt "kleiner of gelijk aan" (en andersom).
 
 ???+ Belangrijk
-    ### Linker en rechter kant omdraaien
+    #### <span style="font-size: 16px;">Linker en rechter kant omdraaien</span>
     Bij een vergelijking met een '$=$' teken kan je de volgorde gewoon omdraaien:
 
-    $$2 = x \iff x = 2.$$
+    $$\Large{2 = x \iff x = 2.}$$
 
-    Maar bij ongelijkheden is dit zomaar het geval. Bijvoorbeeld:
+    Maar bij ongelijkheden is dit niet zomaar het geval. Bijvoorbeeld:
 
-    $$2 > 1 \iff 1 < 2.$$
+    $$\Large{2 > 1 \iff 1 < 2.}$$
 
     Als we bij ongelijkheden de linker en rechter kant omwisselen, dan [wisselt](#vermenigvuldigen-met-een-negatief-getal) het ongelijkheidsteken ook mee.
 
 
-### Voorbeelden
+#### <span style="font-size: 18px;">Voorbeelden</span>
 
 ??? example "Voorbeeld 1: $3x + 2 > 8$"
     **<p style="text-align: center;font-size:20px;">Los op: $3x + 2 > 8$</p>**
@@ -122,7 +124,7 @@ Dit klopt natuurlijk niet, want $8$ is groter dan $2$ en niet kleiner! Om met di
         !!! quote ""
             $$\large{x \leq -13.}$$
 
-### Oplossen door een schets te maken
+### **Oplossen met een schets**
 
 Een andere manier van lineaire ongelijkheden oplossen is door twee lijnen te vergelijken. 
 
@@ -164,7 +166,7 @@ Je hoeft dus dan geen rekening te houden met het wisselen van het ongelijkheidst
 
 Hieronder worden dezelfde voorbeelden als [hierboven](#voorbeelden) opgelost, maar nu door middel van een schets.
 
-### Voorbeelden (met grafiek oplossen)
+#### <span style="font-size: 18px;">Voorbeelden (met schets oplossen)</span>
 
 ??? example "Voorbeeld 1 (met grafiek): $3x + 2 > 8$"
     **<p style="text-align: center;font-size:20px;">Los op: $3x + 2 > 8$</p>**
@@ -257,7 +259,7 @@ $$x = 1 \vee x = 2$$
 
 Maar let op! We kunnen dit niet zomaar zeggen voor $(x - 1)(x - 2) > 0.$ Want het feit dat de twee termen keer elkaar groter dan $0$ zijn, betekent alleen dat $x - 1$ en $x - 2$ óf beide positief zijn óf beide negatief. 
 
-Maar het is lastig om te bepalen wat het precies moet zijn. Daarom is het handig om kwadratische ongelijkheden op te lossen door middel van een tekening. De [methode](#oplossen-door-een-schets-te-maken) is eigenlijk redelijk hetzelfde als bij de lineaire ongelijkheden. Laten we de vergelijking hierboven plotten.
+Maar het is lastig om te bepalen wat het precies moet zijn. Daarom is het handig om kwadratische ongelijkheden op te lossen door middel van een tekening. De [methode](#oplossen-met-een-schets) is eigenlijk redelijk hetzelfde als bij de lineaire ongelijkheden. Laten we de vergelijking hierboven plotten.
 
 <figure markdown>
 ![Twee grafieken plot](assets/images/ongelijkheden/f(x) = (x - 1)(x - 2); g(x) = 0.svg){ width="500"}
@@ -314,7 +316,7 @@ De vraag was voor welke $x$ er geldt dat $f(x) < g(x)$. Dit zijn dus de $x$ waar
 Hier staat dus eigenlijk dat $-1$ kleiner is dan $x$ (en dus dat $x$ groter is dan $-1$), maar dat $x$ weer kleiner is dan $1$.
 
 ???+ Belangrijk
-    ### Kwadratische ongelijkheden oplossen
+    ### **Kwadratische ongelijkheden oplossen**
 
     De methode om een kwadratische ongelijkheid op te lossen is als volgt:
 
@@ -328,7 +330,7 @@ Hier staat dus eigenlijk dat $-1$ kleiner is dan $x$ (en dus dat $x$ groter is d
     </figure>
 
 
-### Voorbeelden
+### **Voorbeelden**
 ??? example "Voorbeeld 1: $x^2 + 10x + 4 < 15$"
     **<p style="text-align: center;font-size:20px;">Los op: $x^2 + 10x + 4 < 15$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
@@ -461,11 +463,3 @@ Hier staat dus eigenlijk dat $-1$ kleiner is dan $x$ (en dus dat $x$ groter is d
 
     !!! quote ""
         $$\large{\textrm{Alleen voor } x = 2 \frac{1}{4}}$$
-
-
-
-
-
-
-
-

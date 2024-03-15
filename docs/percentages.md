@@ -59,7 +59,7 @@ Ons eindantwoord is dus:
 
     Je kunt dit eventueel zelf controleren door het te berekenen zonder de percentage en het getal om te keren.
 
-### Voorbeelden
+### **Voorbeelden**
 ??? example "Voorbeeld 1: Bepaal $10 \%$ van $90$"
     **<p style="text-align: center;font-size:20px;">Bepaal $10 \%$ van $90$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
@@ -187,7 +187,7 @@ Onze nieuwe prijs wordt dus:
     - $$\large{0.1 * 53.4\% \approx 5.3\%}$$
 
 
-### Voorbeelden
+### **Voorbeelden**
 ??? example "Voorbeeld 1: Bereken de nieuwe prijs: $75 \%$ korting op €$200$"
     **<p style="text-align: center;font-size:20px;">Bereken de nieuwe prijs: $75 \%$ korting op een product van €$200$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
@@ -258,7 +258,7 @@ $$\textrm{Percentage} = \frac{\large{\textrm€} \normalsize 5}{\large{\textrm�
 
 $$\textrm{Percentage} = 0.5 * 100\% = 50\%$$
 
-### Voorbeelden
+### **Voorbeelden**
 ??? example "Voorbeeld 1: Bepaal het percentage: €$20$ van €$1000$"
     **<p style="text-align: center;font-size:20px;">Bepaal het percentage: €$20$ van €$1000$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
@@ -318,7 +318,7 @@ Het percentage is positief en dus is er een procentuele toename. Ons eindantwoor
 !!! quote ""
     $$\large{\textrm{Procentuele toename van $50\%$}}$$
 
-### Voorbeelden
+### **Voorbeelden**
 
 ??? example "Voorbeeld 1: Bepaal de procentuele toename/afname: van €$100$ naar €$80$"
     **<p style="text-align: center;font-size:20px;">Bepaal de procentuele toename/afname: van €$100$ naar €$80$</p>**
