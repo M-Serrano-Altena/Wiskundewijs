@@ -518,6 +518,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#modus-bepalen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modus bepalen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -798,6 +816,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#modus-bepalen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modus bepalen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1049,6 +1085,8 @@ Sorted Dictionary 2: {3.0: 5, 3.5: 6, 4.0: 9, 4.5: 10, 5.0: 11, 5.5: 9, 6.0: 8, 
 <p><img alt="Histogram" src="../assets/images/statistiek/Cijfers%20van%20klas%20A%20en%20klas%20B%20-%20hg%20%28Settings%20%3D%20Gemiddelde%2C%20-%2C%20-%29.svg" width="500" />
     <figcaption>Figuur 5 (met gemiddelde). Histogram van de behaalde cijfers voor een wiskunde toets van klas A en klas B.</figcaption></p>
 </figure>
+<!-- ### **Voorbeelden** -->
+
 <h2 id="mediaan-en-modus">Mediaan en Modus</h2>
 <p>Soms is een gemiddelde echter niet representatief voor de meeste gevallen. Laten we kijken naar inkomens van <span class="arithmatex">\(100\)</span> mensen waar er <span class="arithmatex">\(1\)</span> biljonair bij zit. In Figuur 6 is het inkomen weergegeven van de andere <span class="arithmatex">\(99\)</span> mensen.</p>
 <figure>
@@ -1057,7 +1095,7 @@ Sorted Dictionary 2: {3.0: 5, 3.5: 6, 4.0: 9, 4.5: 10, 5.0: 11, 5.5: 9, 6.0: 8, 
 </figure>
 <p>Nu voegen we aan deze groep mensen de biljonair toe die een inkomen heeft van <span class="arithmatex">\(1\)</span> miljard. Nu berekenen we het gemiddelde. Als we dit doen, dan vinden we het volgende:</p>
 <div class="arithmatex">\[\large{\textrm{Gemiddelde} = \Large{\textrm{€}} \large 10.052.841}\]</div>
-<p>Het gemiddelde is dus ongeveer <span class="arithmatex">\(10\)</span> miljoen! Maar dit is een vertekend beeld, want dit is niet representatief voor de mensen uit deze groep. Het gemiddelde is dus gevoelig voor extreem hoge/lage waardes. Daarom is het in dit geval handiger om de <strong>mediaan</strong> te gebruiken.</p>
+<p>Het gemiddelde is dus ongeveer <span class="arithmatex">\(10\)</span> miljoen! Maar dit is een vertekend beeld, want dit is niet representatief voor de mensen uit deze groep. De biljonair zorgt er dus voor dat het gemiddelde heel erg hoog wordt. We zien dus dat het gemiddelde erg gevoelig is voor extreem hoge/lage waardes. Daarom is het in dit geval handiger om de <strong>mediaan</strong> te gebruiken.</p>
 <details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="mediaan-bepalen"><strong>Mediaan bepalen</strong></h3>
 <p><span style="font-size: 14px;">De mediaan is de middelste waarde uit een dataset wanneer de data gesorteerd is van laag naar hoog. Dus om de mediaan te bepalen kunnen we het volgende doen:</span>
 <br></br></p>
@@ -1067,7 +1105,7 @@ Sorted Dictionary 2: {3.0: 5, 3.5: 6, 4.0: 9, 4.5: 10, 5.0: 11, 5.5: 9, 6.0: 8, 
 <li><span style="font-size: 17px;">Is de data even? <span class="arithmatex">\(\Longrightarrow\)</span> Bereken het gemiddelde van de middelste twee getallen.</span></li>
 </ul>
 </details>
-<details class="example"><summary>Simpel Voorbeeld</summary><p><strong><p style="text-align: center;font-size:18px;">Oneven dataset</p></strong>
+<details class="example"><summary>Simpel Voorbeeld: Mediaan</summary><p><strong><p style="text-align: center;font-size:18px;">Oneven dataset</p></strong>
 Stel we hebben de volgende dataset: </p>
 <div class="arithmatex">\[\large{9,4,2,3,5}\]</div>
 <p>We sorteren deze dataset van laag naar hoog:</p>
@@ -1084,6 +1122,94 @@ Stel we hebben de volgende dataset: </p>
 <p>Deze dataset is even en dus moeten we het gemiddelde nemen van de middelste twee getallen. De middelste twee getallen zijn <span class="arithmatex">\(5\)</span> en <span class="arithmatex">\(8\)</span> en dus wordt onze mediaan:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{\textrm{Mediaan} = \frac{5 + 8}{2} = 6.5}\]</div>
+</div>
+</details>
+<p>Dus als we de mediaan willen bepalen van de groep, dan moeten we eerst alle <span class="arithmatex">\(100\)</span> inkomens op volgorde van laag naar hoog zetten. <span class="arithmatex">\(100\)</span> is een even getal en dus berekenen we het gemiddelde van de middelste twee waardes. Als we dit doen, dan vinden we als mediaan:</p>
+<div class="arithmatex">\[\large{\textrm{Mediaan} = \Large{\textrm{€}} \large 55.834}\]</div>
+<p>En we zien dat dit representatiever is voor de meeste mensen uit de groep dan het gemiddelde van €<span class="arithmatex">\(10\)</span> miljoen.</p>
+<p>Apart van de <strong>mediaan</strong>, kunnen we ook de <strong>modus</strong> bepalen om meer grip op de data te krijgen. De modus verteld ons welk getal het vaakst voorkomt.</p>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="modus-bepalen"><strong>Modus bepalen</strong></h3>
+<ul>
+<li><span style="font-size: 17px;">De modus is het getal dat het vaakst voorkomt.</span></li>
+<li><span style="font-size: 17px;">Het is handig om de data te sorteren van laag naar hoog om dit te bepalen.</span></li>
+<li><span style="font-size: 17px;">Als er twee getallen zijn die allebei het meest voorkomen, dan is er geen modus.</span></li>
+</ul>
+</details>
+<details class="example"><summary>Simpel Voorbeeld: Modus</summary><p><strong><p style="text-align: center;font-size:18px;">Modus bepalen</p></strong>
+Stel we hebben de volgende dataset:</p>
+<div class="arithmatex">\[\large{1,4,2,3,2}\]</div>
+<p>Om te bepalen welk getal het vaakst voorkomt, is het handig om de data te sorteren van laag naar hoog. Als we dit doen, dan vinden we:</p>
+<div class="arithmatex">\[\large{1,2,2,3,4}\]</div>
+<p>We zien nu dat het getal <span class="arithmatex">\(2\)</span> het vaakst voorkomt en dus is onze modus <span class="arithmatex">\(2\)</span>.</p>
+<div class="arithmatex">\[\large{\textrm{Modus} = 2}\]</div>
+<p><strong><p style="text-align: center;font-size:18px;">Geen Modus</p></strong></p>
+<p>Stel we hebben nu deze dataset:</p>
+<div class="arithmatex">\[\large{1,3,4,3,6,4,7,8}\]</div>
+<p>We sorteren het eerst weer van laag naar hoog:</p>
+<div class="arithmatex">\[\large{1,3,3,4,4,6,7,8}\]</div>
+<p>We zien nu dat <span class="arithmatex">\(3\)</span> en <span class="arithmatex">\(4\)</span> allebei het meest voorkomen en omdat dit dus twee getallen zijn, hebben we geen modus.</p>
+<div class="arithmatex">\[\large{\textrm{Geen Modus}}\]</div>
+</details>
+<h3 id="voorbeelden"><strong>Voorbeelden</strong></h3>
+<details class="example"><summary>Voorbeeld 1: Bepaal de Mediaan en de Modus</summary><p><strong><p style="text-align: center;font-size:20px;">Bepaal de Mediaan en de Modus</p></strong></p>
+<p><em><span style="font-size: 17px;">Er is meerdere keren met een dobbelsteen gegooid en de uitslagen van het aantal ogen zijn hier rechts weergegeven. Wat is de mediaan en wat is de modus van deze worpen?</span></em></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p><img align="right" alt="Plaatje met verschillende dobbelsteen waardes" src="../assets/images/statistiek/Dice%20dataset.svg" width="200" /></p>
+<p>Om te bepalen wat de mediaan is, is het handig om de worpen te sorteren van laag naar hoog aantal ogen. Als we dit doen, dan vinden we:</p>
+<div class="arithmatex">\[\large{1,1,1,2,2,2,2,3,3,4,5,6}\]</div>
+<p>Nu berekenen we de mediaan. Er waren <span class="arithmatex">\(12\)</span> worpen en dit is een even getal. We moeten dus de middelste twee getallen nemen en daar het gemiddelde van nemen. De middelste twee getallen zijn:</p>
+<p><div style="margin-left: 480px;">
+    <span style="font-size: 13px;">Figuur 1. Weergave van de verschillende worpen van een dobbelsteen.</span>
+</div></p>
+<div class="arithmatex">\[\large{1,1,1,2,2, \boxed{2,2} ,3,3,4,5,6}\]</div>
+<p>Het gemiddelde van <span class="arithmatex">\(2\)</span> met zichzelf is gewoon <span class="arithmatex">\(2\)</span> en dus krijgen we:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\textrm{Mediaan} = 2}\]</div>
+</div>
+<p>Om de modus te bepalen moeten we kijken welk getal het vaakst voorkomt. Met de gesorteerde worpen kunnen we zien dat <span class="arithmatex">\(2\)</span> ogen het vaakst is gegooid en dus krijgen we:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\textrm{Modus} = 2}\]</div>
+</div>
+</details>
+<details class="example" open="open"><summary>Voorbeeld 2: Bepaal de Mediaan en de Modus</summary><p><strong><p style="text-align: center;font-size:20px;">Bepaal de Mediaan en de Modus</p></strong></p>
+<p><em><p style="font-size: 17px;text-align: center;">Een groep leerlingen hebben allemaal gemeten wat hun schoenmaat is, en dit is weergegeven in Figuur 2. Bepaal van deze data de mediaan en de modus.</p></em></p>
+<p><img align="right" alt="Schoenmaten van leerlingen" src="../assets/images/statistiek/Shoe%20sizes%20dataset.svg" width="300" /></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong>
+Om te bepalen wat de mediaan is, moeten we eerst alle schoenmaten sorteren van laag naar hoog. Als we dit doen, dan vinden we het volgende:</p>
+<div class="arithmatex">\[\large{35, 36, 37, 38, 39, 40, 41, 42, 43, 44}\]</div>
+<p>De mediaan is het gemiddelde van de middelste twee getallen, want dit is een even dataset. De middelste twee getallen zijn:</p>
+<p><div style="margin-left: 350px;">
+    <span style="font-size: 13px;">Figuur 2. De verschillende schoenmaten van de groep leerlingen.</span>
+</div></p>
+<div class="arithmatex">\[\large{35, 36, 37, 38, \boxed{39, 40} , 41, 42, 43, 44}\]</div>
+<p>De mediaan is dus het gemiddelde van <span class="arithmatex">\(39\)</span> en <span class="arithmatex">\(40\)</span>:</p>
+<div class="arithmatex">\[\large{\textrm{Mediaan} = \frac{39 + 40}{2}}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\textrm{Mediaan} = 39.5}\]</div>
+</div>
+<p>De modus is het getal dat het vaakst voorkomt. In dit geval komen alle getallen even vaak voor, en is er dus geen modus</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\textrm{Geen Modus}}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 3: Bepaal de Mediaan en de Modus</summary><p><strong><p style="text-align: center;font-size:20px;">Bepaal de Mediaan en de Modus</p></strong></p>
+<p><em><span style="font-size: 17px;">Leerlingen uit een klas hebben allemaal doorgegeven hoeveel huisdieren ze hadden, en dit is weergegeven in Figuur 3. Bepaal van deze data de mediaan en de modus.</span></em></p>
+<p><figure markdown>
+<img alt="Histogram" src="../assets/images/statistiek/Aantal%20huisdieren%20per%20huishouden%20-%20hg%20%28Settings%20%3D%20Gemiddelde%2C%20-%2C%20-%29.svg" width="500" />
+    <figcaption>Figuur 3. Histogram van het aantal huisdieren per leerling.</figcaption>
+</figure></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We kunnen uit de histogram van Figuur 3 meteen aflezen dat het getal dat het vaakst voorkomt <span class="arithmatex">\(1\)</span> is en dus is de modus <span class="arithmatex">\(1\)</span></p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\textrm{Modus} = 1}\]</div>
+</div>
+<p>Om de mediaan te bepalen zouden we de data uitkunnen schrijven, maar we kunnen het ook doen met de grafiek. De totaal aantal leerlingen is-:</p>
+<div class="arithmatex">\[\large{\textrm{Aantal leerlingen} = 8 + 9 + 7 + 3 + 2 + 1}\]</div>
+<div class="arithmatex">\[\large{\textrm{Aantal leerlingen} = 30}\]</div>
+<p>Dit is een even aantal en dus moeten we het gemiddelde nemen van de middelste twee getallen. De middelste twee getallen zijn het <span class="arithmatex">\(15^{\textrm{e}}\)</span> en het <span class="arithmatex">\(16^{\textrm{e}}\)</span> getal uit de gesorteerde dataset. </p>
+<p>In Figuur 3 is de data al gesorteerd, dus daar kunnen we aflezen dat we eerst <span class="arithmatex">\(8\)</span> keer <span class="arithmatex">\(0\)</span> huisdieren hebben en daarna <span class="arithmatex">\(9\)</span> keer <span class="arithmatex">\(1\)</span> huisdier. Samen zijn dit de eerste <span class="arithmatex">\(17\)</span> getallen van de dataset en dus weten we dat zowel het <span class="arithmatex">\(15^{\textrm{e}}\)</span> als het <span class="arithmatex">\(16^{\textrm{e}}\)</span> getal <span class="arithmatex">\(1\)</span> moet zijn. Het gemiddelde van twee keer hetzelfde getal is het getal zelf, en dus vinden we dat de mediaan <span class="arithmatex">\(1\)</span> is. </p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\textrm{Mediaan} = 1}\]</div>
 </div>
 </details>
 
