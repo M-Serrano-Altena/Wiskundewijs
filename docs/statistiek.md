@@ -7,9 +7,20 @@ We kunnen informatie handig weergeven in grafieken en in diagrammen. We kijken n
 ### **Staafdiagrammen**
 We beginnen met staafdiagrammen. Stel we willen bijvoorbeeld kijken naar het aantal fietsen dat een fietsenwinkel verkoopt in $1$ week. We krijgen de volgende data:
 
-| Maandag   | Dinsdag   | Woensdag  | Donderdag | Vrijdag   | Zaterdag  | Zondag    |
-| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-| 8         | 5         | 9         | 4         | 15        | 24        | 11        |
+<center>
+
+| Dag       | Aantal fietsen |
+|-----------|----------------|
+| Maandag   | 8              |
+| Dinsdag   | 5              |
+| Woensdag  | 9              |
+| Donderdag | 4              |
+| Vrijdag   | 15             |
+| Zaterdag  | 24             |
+| Zondag    | 11             |
+
+</center>
+
 
 We willen nu dit op een handige en duidelijke manier weergeven in een grafiek, zodat we de dagen goed met elkaar kunnen vergelijking. We kunnen dit doen door middel van een **staafdiagram**. In Figuur 1 is er een staafdiagram weergegeven van deze data. 
 
@@ -23,9 +34,12 @@ Hiermee kunnen we precies zien hoeveel fietsen er op elke dag zijn verkocht en z
 Namelijk op zaterdag waren er de meeste fietsen verkocht: $24$ fietsen, en op donderdag de minste fietsen: $4$ fietsen. 
 
 ???+ belangrijk
-    We gebruiken vooral staafdiagrammen bij data waar we verschillende type categorieën of groepen met elkaar vergelijken. 
+    **<p style="font-size: 18px;">Wanneer een Histogram?</p>**
+
+    - <span style="font-size: 16px;">Frequentie van verschillende groepen of categorieën weergeven en vergelijken</span>
+    - <span style="font-size: 16px;">Frequenties vergelijken van dezelfde groep met meerdere datasets</span>
     
-    Dus in dit geval zijn de verschillende groepen de verschillende dagen van de week.
+Dus in dit geval zijn de verschillende groepen de verschillende dagen van de week en zien we hoeveel fietsen er verkocht zijn per dag.
 
 ### **Histogrammen**
 Laten we nu kijken naar een klas die een wiskunde toets heeft gemaakt. Daarbij hebben de leerlingen verschillende cijfers gehaald, en die zijn weergegeven met een **histogram** in Figuur 2.
@@ -37,10 +51,14 @@ Laten we nu kijken naar een klas die een wiskunde toets heeft gemaakt. Daarbij h
 
 We kunnen hier aflezen hoeveel leerlingen een bepaald cijfer hebben gehaald. Dus $4$ leerlingen hebben een $4$ gehaald, $8$ leerlingen een $7$ en $3$ leerlingen een $7$.
 
-???+ belangrijk
-    We gebruiken een histogram wanneer we continue data willen weergeven en het meer gaat om de absolute waardes van de dataverdeling. 
+???+ Belangrijk
+    **<p style="font-size: 18px;">Wanneer een Histogram?</p>**
+
+    - <span style="font-size: 16px;">Continue dataverdeling weergeven</span>
+    - <span style="font-size: 16px;">Meerdere datasets tegelijk weergeven</span>
+    - <span style="font-size: 16px;">Verdelingen van verschillende datasets vergelijken</span>
     
-    Dus in dit geval gaat de cijferverdeling van een $4$ naar een $9$ en zien we hoeveel leerlingen een bepaald cijfer hebben gehaald.
+Dus in dit geval gaat de cijferverdeling van een $4$ naar een $9$ en zien we hoeveel leerlingen een bepaald cijfer hebben gehaald.
 
 
 ### **Cirkeldiagrammen**
@@ -53,10 +71,13 @@ We kunnen het voorbeeld van net over de cijfers van een wiskunde toets ook weerg
 
 In Figuur 3 kunnen aflezen welk percentage van de leerlingen een bepaald cijfer heeft gehaald. Dus $26.7 \%$ heeft een $7$ gehaald, $20 \%$ een $8$, $10 \%$ een 9, etc.
 
-???+ belangrijk
-    We gebruiken cirkeldiagrammen als we een kleine hoeveelheid verschillende groepen willen weergeven. En dan met name de relatieve grootte van de groepen, en niet zozeer de absolute hoeveelheden. 
+???+ Belangrijk
+    **<p style="font-size: 18px;">Wanneer een Cirkeldiagram?</p>**
+
+    - <span style="font-size: 16px;">Vergelijken van (klein aantal) verschillende groepen </span>
+    - <span style="font-size: 16px;">Met name om relatieve/procentuele verschillen weer te geven</span>
     
-    Dus in dit geval om te laten zien welk percentage van de leerlingen welk cijfer heeft gehaald en niet per se dat bijvoorbeeld het $8$ leerlingen waren die een $7$ hebben gehaald. 
+Dus in dit geval om te laten zien welk percentage van de leerlingen welk cijfer heeft gehaald, maar niet per se dat bijvoorbeeld het $8$ leerlingen waren die een $7$ hebben gehaald.
 
 
 ### **Lijndiagrammen**
@@ -69,10 +90,15 @@ De laatste manier om data weer te geven is met een **lijndiagram**. We kijken nu
 
 We kunnen in Figuur 4 precies aflezen wat de minimum en maximum temperatuur is op elke dag van de maand Juli. Dus op 10 Juli was de minimum temperatuur ongeveer $23 \ ^{\circ} \textrm C$ en de maximum temperatuur ongeveer $29 \ ^{\circ} \textrm C$.
 
-???+ belangrijk
-    We gebruiken lijndiagrammen als we een relatie tussen twee waardes willen weergeven. Het is vooral nuttig om de groei of afname van een bepaalde waarde te laten zien. Bij lijndiagrammen kun je ook meerdere datasets vergelijken.
+???+ Belangrijk
+    **<p style="font-size: 18px;">Wanneer een Lijndiagram?</p>**
 
-    In dit geval kijken we naar de relatie tussen de temperatuur en de tijd. We kunnen dan precies zijn hoe de temperatuur verandert in de tijd. We vergelijken ook twee datasets, namelijk die van de maximum temperatuur en die van de minimum temperatuur.  
+    - <span style="font-size: 16px;">Relatie tussen twee waardes weergeven</span>
+    - <span style="font-size: 16px;">Met name handig om groei/afname weer te geven</span>
+    - <span style="font-size: 16px;">Meerdere datasets tegelijk weergeven</span>
+
+
+In dit geval kijken we naar de relatie tussen de temperatuur en de tijd. We kunnen dan precies zijn hoe de temperatuur verandert in de tijd. We vergelijken ook twee datasets, namelijk die van de maximum temperatuur en die van de minimum temperatuur.
 
 
 ## Gemiddelde
@@ -116,7 +142,7 @@ Om het gemiddelde van de twee klassen te bepalen moeten we dus eerst alle cijfer
 <div style="display: flex;">
     <div style="flex: 1; margin-right: 20px;">
 
-<h2 style="margin-left:70px;">klas A</h2>
+<h2 style="margin-left:70px;">Klas A</h2>
 
 <table style="float:left;">
   <tr>
@@ -172,7 +198,7 @@ Om het gemiddelde van de twee klassen te bepalen moeten we dus eerst alle cijfer
     </div>
     <div style="flex: 1;">
 
-<h2 style="margin-left:100px;">klas B</h2>
+<h2 style="margin-left:100px;">Klas B</h2>
 <table style="float:left; margin-left:20px;">
   <tr>
     <th>Cijfers</th>
@@ -224,7 +250,7 @@ Om nu het gemiddelde te berekenen, berekenen we eerst de som van alle cijfers. W
 <!-- Sorted Dictionary 1: {4.5: 5, 5.0: 4, 5.5: 5, 6.0: 6, 6.5: 7, 7.0: 7, 7.5: 9, 8.0: 8, 8.5: 6, 9.0: 4, 9.5: 1}
 Sorted Dictionary 2: {3.0: 5, 3.5: 6, 4.0: 9, 4.5: 10, 5.0: 11, 5.5: 9, 6.0: 8, 6.5: 7, 7.0: 3} -->
 
-$$\textrm{Som cijfers klas A} = 4.5*5 + 5.0*4 + 5.5*5 + 6.0*6 + 6.5*7 + 7.0*7 + 7.5*9 + 8.0*8 + 8.5*6 + 9.0*4 + 9.5*1$$
+$$\textrm{Som cijfers klas A} = 5 \times 4.5 + 4 \times 5.0 + 5 \times 5.5 + 6 \times 6.0 + 7 \times 6.5 + 7 \times 7.0 + 9 \times 7.5 + 8 \times 8.0 + 6 \times 8.5 + 4 \times 9.0 + 1 \times 9.5$$
 
 $$\textrm{Som cijfers klas A} = 428.5$$
 
@@ -244,7 +270,7 @@ Om het gemiddelde van klas B te bepalen doen we precies dezelfde stappen:
 
 We tellen eerst weer alle cijfers keer de frequentie bij elkaar op:
 
-$$\textrm{Som cijfers klas B} = 3.0*5 + 3.5*6 + 4.0*9 + 4.5*10 + 5.0*11 + 5.5*9 + 6.0*8 + 6.5*7 + 7.0*3$$
+$$\textrm{Som cijfers klas B} = 5 \times 3.0 + 6 \times 3.5 + 9 \times 4.0 + 10 \times 4.5 + 11 \times 5.0 + 9 \times 5.5 + 8 \times 6.0 + 7 \times 6.5 + 3 \times 7.0$$
 
 $$\textrm{Som cijfers klas B} = 336$$
 
@@ -267,7 +293,197 @@ Dit betekent dus dat klas A gemiddeld $2$ cijferpunten hoger heeft gescoord op d
     <figcaption>Figuur 5 (met gemiddelde). Histogram van de behaalde cijfers voor een wiskunde toets van klas A en klas B.</figcaption>
 </figure>
 
-<!-- ### **Voorbeelden** -->
+
+### **Voorbeelden**
+??? example "Voorbeeld 1: Gemiddelde temperatuur eerste week December"
+    **<p style="text-align: center;font-size:20px;">Bereken de gemiddelde temperatuur in de eerste week van December</p>**
+
+    *<span style="font-size: 17px;">De temperaturen van de eerste week van December zijn weergegeven in Figuur 1. Bereken de gemiddelde temperatuur van deze week.</span>*
+    <figure markdown>
+
+    ![Temperatuur lijndiagram](assets/images/statistiek/Temperaturen in eerste week December - ldg.svg){ width="450"}
+        <figcaption>Figuur 1. Temperatuur in de eerste week van December.</figcaption>
+    </figure>
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Om de gemiddelde temperatuur te berekenen maken we een tabel van de temperatuur op elke dag.
+
+    <center>
+
+    | Dag | Temperatuur (°C) |
+    |-----|------------------|
+    | 1   | -3.7             |
+    | 2   | 3.5              |
+    | 3   | 2.6              |
+    | 4   | -2.4             |
+    | 5   | 0.0              |
+    | 6   | -0.5             |
+    | 7   | 1.5              |
+
+    </center>
+
+    Nu kunnen we het [gemiddelde berekenen](#gemiddelde-berekenen). We bepalen eerst de som van alle temperaturen:
+
+    $$\large{\textrm{Som} = -3.7 + 3.5 + 2.6 + -2.4 + 0.0 + -0.5 + 1.5}$$
+
+    $$\large{\textrm{Som} = 1}$$
+
+    Nu moeten we dit delen door het aantal dagen, dus door $7$. We vinden dan als gemiddelde:
+
+    $$\large{\textrm{Gemiddelde} \frac{1}{7}}$$
+
+    !!! quote ""
+        $$\large{\textrm{Gemiddelde} \approx 0.14 \ ^{\circ}\textrm{C}}$$
+
+    Als we dit tekenen in Figuur 1, dan kunnen we controleren dat dit antwoord inderdaad zou kunnen kloppen.
+
+    <figure markdown>
+    ![Temperatuur lijndiagram](assets/images/statistiek/Temperaturen in eerste week December - ldg (Settings = Gemiddelde, -, -).svg){ width="450"}
+        <figcaption>Figuur 1 (met Gemiddelde). Temperatuur in de eerste week van December.</figcaption>
+    </figure>
+
+
+??? example "Voorbeeld 2: Gemiddelde lengte van groep jongens en meisjes"
+    **<p style="text-align: center;font-size:20px;">Bereken de gemiddelde lengte van een groep met 5 jongens en 5 meisjes</p>**
+
+    *<span style="font-size: 17px;">Een groep van 5 jongens en 5 meisjes meten allemaal hun lengte, en dit is weergegeven in de onderstaande tabel. </span>*
+    
+    *<span style="font-size: 17px;">Bereken de gemiddelde lengte van de jongens en de gemiddelde lengte van de meisjes. Hoeveel zijn de jongens gemiddeld langer dan de meisjes?</span>*
+
+    |       | Lengte Meisje (cm) |       |       | Lengte Jongen (cm) |       |
+    |-------|--------------------|-------|-------|--------------------|-------|
+    | **1** | 161                |       | **1** | 176                |       |
+    | **2** | 167                |       | **2** | 182                |       |
+    | **3** | 172                |       | **3** | 187                |       |
+    | **4** | 154                |       | **4** | 171                |       |
+    | **5** | 176                |       | **5** | 191                |       |
+
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    We beginnen met de [gemiddelde](#gemiddelde-berekenen) lengte te berekenen van de meisjes. We beginnen met alle lengtes bij elkaar op te tellen:
+
+    $$\large{\textrm{Som meisjes} = 161 + 167 + 172 + 154 + 176}$$
+
+    $$\large{\textrm{Som meisjes} = 830}$$
+
+    Om het gemiddelde te berekenen delen we de som door het totaal aantal meisjes, dus door $5$:
+
+    $$\large{\textrm{Gemiddelde meisjes}} = \frac{830}{5}$$
+
+    !!! quote ""
+        $$\large{\textrm{Gemiddelde meisjes}} = 166 \textrm{ cm}$$
+    
+    We herhalen deze stappen ook voor de jongens:
+
+    $$\large{\textrm{Som jongens} = 176 + 182 + 187 + 171 + 191}$$
+
+    $$\large{\textrm{Som jongens} = 907}$$
+
+    Nu delen we de som weer door het totaal aantal jongens, dus ook door $5$:
+
+    $$\large{\textrm{Gemiddelde jongens}} = \frac{907}{5}$$
+
+    !!! quote ""
+        $$\large{\textrm{Gemiddelde jongens}} = 181.4 \textrm{ cm}$$
+
+    Hoeveel de jongens gemiddeld langer zijn dan de meisjes kunnen we bepalen door de twee gemiddeldes van elkaar af te trekken:
+
+    $$\large{\textrm{Gemiddeld verschil} = 181.4 \textrm{ cm} - 166 \textrm{ cm}}$$
+
+    !!! quote ""
+        $$\large{\textrm{Gemiddeld verschil} = 15.4 \textrm{ cm}}$$
+
+
+??? example "Voorbeeld 3: Gemiddelde leeftijd"
+    **<p style="text-align: center;font-size:20px;">Bereken de gemiddelde leeftijd van een opa en oma met/zonder hun kleinkinderen</p>**
+
+    *<span style="font-size: 17px;">Er zijn wat kleinkinderen op bezoek bij hun opa en oma. De kleinkinderen en hun grootouders verschillen best veel van leeftijd. Bereken de gemiddelde leeftijd van de kleinkinderen met hun grootouders en zonder hun grootouders. Hoeveel neemt het gemiddelde af als we de grootouders weglaten?</span>*
+
+    <center>
+
+    | Persoon | Leeftijd |
+    |---------|----------|
+    | **1**   |  78      |
+    | **2**   |  74      |
+    | **3**   |  17      |
+    | **4**   |  15      |
+    | **5**   |  19      |
+    | **6**   |  24      |
+    | **7**   |  11      |
+    | **8**   |  21      |
+
+    </center>
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Het [gemiddelde](#gemiddelde-berekenen) berekenen we door eerst alle leeftijden bij elkaar op te tellen en dan te delen door het aantal mensen. We beginnen met het gemiddelde berekenen met de grootouders erbij, dus in dit geval zijn er $8$ mensen en dus delen we door $8$. 
+
+    $$\large{\textrm{Som met grootouders} = 78 + 74 + 17 + 15 + 19 + 24 + 11 + 21}$$
+
+    $$\large{\textrm{Som met grootouders} = 259}$$
+
+    Het gemiddelde wordt dus:
+
+    $$\large{\textrm{Gemiddelde met grootouders} = \frac{259}{8}}$$
+
+    !!! quote ""
+        $$\large{\textrm{Gemiddelde met grootouders} = 32.375 \approx 32 \textrm{ jaar}}$$
+
+    Nu bereken we het gemiddelde zonder de grootouders. We berekenen eerst de som:
+    
+    $$\large{\textrm{Som zonder grootouders} = 17 + 15 + 19 + 24 + 11 + 21}$$
+
+    $$\large{\textrm{Som zonder grootouders} = 107}$$
+
+    Er zijn $6$ kleinkinderen en dus delen we door $6$.
+
+    $$\large{\textrm{Gemiddelde zonder grootouders} = \frac{107}{6}}$$
+
+    !!! quote ""
+        $$\large{\textrm{Gemiddelde zonder grootouders} \approx 18 \textrm{ jaar}}$$
+
+    Het gemiddelde neemt dus af met ongeveer:
+
+    !!! quote ""
+        $$\large{32 - 18 = 14 \textrm{ jaar}}$$ 
+
+
+??? example "Voorbeeld 4: Gemiddelde cijfers met weging"
+    **<p style="text-align: center;font-size:20px;">Bereken het gewogen gemiddelde van alle cijfers.</p>**
+
+    *<span style="font-size: 17px;">Een leerling heeft de volgende cijfers gehaald (zie Figuur 2). Wat staat de leerling gemiddeld voor alle vakken samen als we de weging van de cijfers meenemen?</span>*
+
+    ![Plaatje met verschillende dobbelsteen waardes](assets/images/statistiek/Magister Cijfers.png){ width="250" align=right }
+
+    Om het [gemiddelde](#gemiddelde-berekenen) te berekenen, berekenen we eerst de som van alle cijfers. Omdat we het gewogen gemiddelde willen, moeten we alle individuele cijfers vermenigvuldigen met de weging om ervoor te zorgen dat sommige cijfers zwaarder mee tellen dan andere:
+
+    $$\large{\textrm{Som} = 4 \times 8.5 + 1 \times 6.3 + 1 \times 5.1 + 2 \times 8.9 + 2 \times 4.4 + 1.6 \times 8.1 + 5 \times 8.2 + 4 \times 9.1 }$$
+
+    $$\large{\textrm{Som} = 162.36}$$
+
+    Als we het aantal cijfers willen bepalen, dan moeten we de wegingen bij elkaar op tellen:
+
+    $$\large{\textrm{Aantal cijfers} = 4 + 1 + 1 + 2 + 2 + 1.6 + 5 + 4}$$
+
+    $$\large{\textrm{Aantal cijfers} = 20.6}$$
+
+    <div style="margin-left: 420px;">
+        <span style="font-size: 13px;">Figuur 2. Cijfers voor verschillende vakken met hun verschillende wegingen.</span>
+    </div>
+
+    Nu delen we de som en het aantal cijfers om het gemiddelde te berekenen:
+
+
+
+    $$\large{\textrm{Gemiddelde} = \frac{162.36}{20.6}}$$
+
+    !!! quote ""
+        $$\large{\textrm{Gemiddelde} \approx 7.9}$$
+
+
+
 
 ## Mediaan en Modus
 Soms is een gemiddelde echter niet representatief voor de meeste gevallen. Laten we kijken naar inkomens van $100$ mensen waar er $1$ biljonair bij zit. In Figuur 6 is het inkomen weergegeven van de andere $99$ mensen.
@@ -368,10 +584,10 @@ Apart van de **mediaan**, kunnen we ook de **modus** bepalen om meer grip op de 
 
 ### **Voorbeelden**
 
-??? example "Voorbeeld 1: Bepaal de Mediaan en de Modus"
-    **<p style="text-align: center;font-size:20px;">Bepaal de Mediaan en de Modus</p>**
+??? example "Voorbeeld 1: Mediaan en de Modus van het aantal dobbelsteen ogen"
+    **<p style="text-align: center;font-size:20px;">Bepaal de Mediaan en de Modus van het aantal dobbelsteen ogen</p>**
 
-    *<span style="font-size: 17px;">Er is meerdere keren met een dobbelsteen gegooid en de uitslagen van het aantal ogen zijn hier rechts weergegeven. Wat is de mediaan en wat is de modus van deze worpen?</span>*
+    *<span style="font-size: 17px;">Er is meerdere keren met een dobbelsteen gegooid en de uitslagen van het aantal ogen zijn hier rechts weergegeven in Figuur 1. Wat is de mediaan en wat is de modus van deze worpen?</span>*
 
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
@@ -400,8 +616,8 @@ Apart van de **mediaan**, kunnen we ook de **modus** bepalen om meer grip op de 
         $$\large{\textrm{Modus} = 2}$$
 
 
-???+ example "Voorbeeld 2: Bepaal de Mediaan en de Modus"
-    **<p style="text-align: center;font-size:20px;">Bepaal de Mediaan en de Modus</p>**
+??? example "Voorbeeld 2: Mediaan en de Modus van de verschillende schoenmaten"
+    **<p style="text-align: center;font-size:20px;">Bepaal de Mediaan en de Modus van de verschillende schoenmaten</p>**
 
     *<p style="font-size: 17px;text-align: center;">Een groep leerlingen hebben allemaal gemeten wat hun schoenmaat is, en dit is weergegeven in Figuur 2. Bepaal van deze data de mediaan en de modus.</p>*
 
@@ -433,8 +649,8 @@ Apart van de **mediaan**, kunnen we ook de **modus** bepalen om meer grip op de 
         $$\large{\textrm{Geen Modus}}$$
 
 
-??? example "Voorbeeld 3: Bepaal de Mediaan en de Modus"
-    **<p style="text-align: center;font-size:20px;">Bepaal de Mediaan en de Modus</p>**
+??? example "Voorbeeld 3: Mediaan en de Modus van het aantal huisdieren"
+    **<p style="text-align: center;font-size:20px;">Bepaal de Mediaan en de Modus van het aantal huisdieren</p>**
 
     *<span style="font-size: 17px;">Leerlingen uit een klas hebben allemaal doorgegeven hoeveel huisdieren ze hadden, en dit is weergegeven in Figuur 3. Bepaal van deze data de mediaan en de modus.</span>*
 

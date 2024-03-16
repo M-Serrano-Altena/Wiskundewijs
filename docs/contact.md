@@ -201,7 +201,7 @@ Ik ben **Marc Serrano Altena**, een tweedejaars student Natuur- en Sterrenkunde 
 
 Omdat ik begrijp dat wiskunde soms te snel kan gaan en niet alle stappen even duidelijk zijn, ben ik gestart met deze site. Maar om er met zekerheid voor te zorgen dat jouw kind een van de beste cijfers haalt, bied ik **persoonlijke een-op-een bijles** aan. 
 
-Dit kan zowel **fysiek** op locatie in Regio Noord-Holland als **online**, en dit alles voor **€25 per uur**. De eerste bijles is volledig **gratis** om te bekijken of het een goede match is met jouw kind, en volledig vrijblijvend, dus je zit nergens aan vast!
+Dit kan zowel **fysiek** op locatie in Regio Noord-Holland als **online**, en dit alles voor **€30 per uur**. De eerste bijles is volledig **gratis** om te bekijken of het een goede match is met jouw kind, en volledig vrijblijvend, dus je zit nergens aan vast!
 
 
 **<p style="text-align: left;font-size:19px;">Waarom mijn bijles?</p>**
