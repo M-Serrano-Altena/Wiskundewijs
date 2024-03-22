@@ -5,7 +5,7 @@ hide:
   - feedback
 ---
 
-# Wiskundewijs
+# **<span style="color: black;">:material-calculator-variant-outline:</span>** **<span style ="color: #D3D3D3;"> Wiskundewijs</span>**
 
 **<p style="text-align: left;font-size:20px;">Welkom bij Wiskundewijs!</p>**
 

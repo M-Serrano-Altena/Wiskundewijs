@@ -115,6 +115,10 @@ In het algemeen wordt dit:
     !!! quote ""
         **<p style="text-align: center;font-size:19px;">Geen Oplossing</p>**
 
+### **Uitleg Filmpje**
+???+ youtube
+    <iframe width="673" height="378" src="https://www.youtube.com/embed/nrvL2meMVwY?si=94T2_RytVVydRgnj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ### **Voorbeelden**
 
 ??? example "Voorbeeld 1: $x^2= 1$"
@@ -191,6 +195,10 @@ In het algemeen wordt dit:
 
     !!! quote ""
         $$\large{x = 0 \ \vee \ x = - b}$$
+
+### **Uitleg Filmpje**
+???+ Youtube
+    <iframe width="673" height="378" src="https://www.youtube.com/embed/gUjHYmIcKpQ?si=TjuljNTWJi5j6dZU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 ### **Voorbeelden**
@@ -326,6 +334,9 @@ $$x + 8 = 0 \ \vee \ x + 3 = 0.$$
 !!! quote ""
     $$\large{x = -8 \ \vee \ x = -3.}$$
 
+#### <span style="font-size: 18ps;">Uitleg Filmpje</span>
+???+ Youtube
+    <iframe width="673" height="378" src="https://www.youtube.com/embed/9F5gCcSLNqQ?si=koGXxBO0ifRnhgdI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 #### <span style="font-size: 18px;">Voorbeelden</span>
 

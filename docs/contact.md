@@ -193,18 +193,18 @@ hide:
 
 </style>
 
-**<p style="text-align: left;font-size:20px;">Welkom bij Wiskundewijs!</p>**
+**<p style="text-align: left;font-size:20px;">Wiskundewijs - Bijles wiskunde voor de middelbare school</p>**
 
 Ik ben **Marc Serrano Altena**, een tweedejaars student Natuur- en Sterrenkunde aan de UvA en VU.
 
 ![Foto Marc Serrano Altena](assets/images/general/Marc_Serrano_Altena_photo.png){ width="200" align=right}
 
-Omdat ik begrijp dat wiskunde soms te snel kan gaan en niet alle stappen even duidelijk zijn, ben ik gestart met deze site. Maar om er met zekerheid voor te zorgen dat jouw kind een van de beste cijfers haalt, bied ik **persoonlijke een-op-een bijles** aan. 
+Omdat ik begrijp dat wiskunde soms te snel kan gaan en niet alle stappen even duidelijk zijn, ben ik gestart met deze site. Maar om er met zekerheid voor te zorgen dat jouw kind een van de beste cijfers haalt, bied ik **persoonlijke een-op-een bijles wiskunde** aan. 
 
 Dit kan zowel **fysiek** op locatie in Regio Noord-Holland als **online**, en dit alles voor **€30 per uur**. De eerste bijles is volledig **gratis** om te bekijken of het een goede match is met jouw kind, en volledig vrijblijvend, dus je zit nergens aan vast!
 
 
-**<p style="text-align: left;font-size:19px;">Waarom mijn bijles?</p>**
+**<p style="text-align: left;font-size:19px;">Waarom mijn wiskundebijles?</p>**
 
 :fontawesome-solid-check:{ .green }  **Gemiddelde van 8.5** voor mijn studie, waar wiskundige kennis essentieel is.
 

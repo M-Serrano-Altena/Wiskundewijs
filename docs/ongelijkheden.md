@@ -316,14 +316,22 @@ De vraag was voor welke $x$ er geldt dat $f(x) < g(x)$. Dit zijn dus de $x$ waar
 Hier staat dus eigenlijk dat $-1$ kleiner is dan $x$ (en dus dat $x$ groter is dan $-1$), maar dat $x$ weer kleiner is dan $1$.
 
 ???+ Belangrijk
-    ### **Kwadratische ongelijkheden oplossen**
+    ### <span style="font-size: 20px;">**Kwadratische ongelijkheden oplossen**</span>
 
-    De methode om een kwadratische ongelijkheid op te lossen is als volgt:
+    <span style="font-size: 16px;">De methode om een kwadratische ongelijkheid op te lossen is als volgt:</span>
 
-    1. Definiëer twee functies van beide kanten van het ongelijkheidsteken.
-    2. Bepaal de snijpunten van deze twee grafieken: los de vergelijking op door het ongelijkheidsteken te vervangen door een '$=$' teken ($x = a \vee x = b$).
-    3. Schets de twee functies en bepaal uit deze schets het gebied waar de $x$ waardes voldoen aan de vergelijking: de grafiek van $f(x)$ ligt boven/onder die van $g(x)$.
-    4. Noteer dit wiskundig: $a < x < b$ als de $x$ waardes tussen $a$ en $b$ voldoen aan de vergelijking (hier $f(x) < g(x)$), en noteer $x < a \ \vee x > b$ als alle $x$ waardes buiten het gebied tussen $a$ en $b$ voldoen aan de vergelijking (hier $f(x) > g(x)$).
+    - <span style="font-size: 16px;">Definiëer twee functies van beide kanten van het ongelijkheidsteken.</span>
+    - <span style="font-size: 16px;">Bepaal de snijpunten van deze twee grafieken: los de vergelijking op door het ongelijkheidsteken te vervangen door een '$=$' teken. $\quad \Longrightarrow x = a \vee x = b$</span>
+    - <span style="font-size: 16px;">Schets de twee functies en bepaal uit deze schets het gebied waar de $x$ waardes voldoen aan de vergelijking, dus waar de grafiek van $f(x)$ boven/onder die van $g(x)$ ligt.</span>
+
+    *<span style="font-size: 16px;">$\Longrightarrow f(x) > g(x)$ betekent dat we moeten kijken naar het gebied waar $f(x)$ boven $g(x)$ ligt. 
+    $\Longrightarrow f(x) < g(x)$ betekent dat we moeten kijken naar het gebied waar $f(x)$ onder $g(x)$ ligt.</span>*
+
+    - <span style="font-size: 16px;">Noteer dit wiskundig:</span>
+    
+        * <span style="font-size: 15px;">Als het gebied alle waardes tussen $a$ en $b$ is: $a < x < b$.</span>
+        
+        * <span style="font-size: 15px;">Als het gebied alle waardes behalve het gebied tussen $a$ en $b$ is: $x < a \ \vee x > b$.</span>
 
     <figure markdown>
         ![Twee grafieken plot](assets/images/ongelijkheden/f(x) = (x - a)(x - b); g(x) = 0.svg){ width="500"}
