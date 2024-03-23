@@ -1,6 +1,6 @@
-# Basisvaardigheden
+# *Basisvaardigheden*
 
-## Formules Omschrijven
+## **Formules Omschrijven**
 Het kunnen omschrijven van formules is een belangrijke vaardigheid, ook bij vakken waar wiskunde gebruikt wordt, zoals natuurkunde. Sommige mensen vinden het moeilijk vanwege de letters, maar laten we het eenvoudiger maken met een voorbeeld.
 
 Stel je hebt deze formule:
@@ -36,7 +36,7 @@ Als we dit controleren met ons getallen voorbeeld, waar $2 = \frac{6}{3}$, klopt
 !!! tip ""
 
 
-## Vergelijkingen Omschrijven
+## **Vergelijkingen Omschrijven**
 Vergelijkingen omschrijven is eigenlijk hetzelfde als een formule omschrijven. In beide gevallen doe je aan beide kanten van het '$=$'-teken hetzelfde, waardoor de vorm van de formule of vergelijking verandert. Laten we kijken naar een paar voorbeelden van vergelijkingen:
 
 ### **Voorbeeld 1**
@@ -89,7 +89,7 @@ $$\frac{5}{6}x =  2\frac{1}{12}$$
 
 !!! tip ""
 
-## Breuken
+## **Breuken**
 Breuken worden vaak gebruikt in de wiskunde. Het is daarom belangrijk om goed te leren rekenen met deze breuken. Daarom staan de belangrijkste regels en hoe je met breuken moet rekenen hier op een rijtje.
 
 
@@ -163,7 +163,7 @@ We zien dus dat we bij optellen en aftrekken eerst gelijke noemers moeten hebben
 !!! tip ""
 
 
-## Operaties met variabelen
+## **Operaties met variabelen**
 Een operatie klinkt als een lastig woord, maar dit betekent gewoon dingen zoals optellen, aftrekken, vermenigvuldigen en delen.
 
 Alle onderstaande regels gaan twee kanten op, dus je kan iets in de linker vorm altijd schrijven als iets in de rechter vorm, en andersom. 
@@ -219,7 +219,7 @@ Alle onderstaande regels gaan twee kanten op, dus je kan iets in de linker vorm 
 !!! tip ""
 
 
-## Machten en Wortels
+## **Machten en Wortels**
 ### **Regels met Machten**
 
 ???+ Belangrijk
@@ -366,7 +366,7 @@ $$\sqrt{x} \equiv x^{\frac{1}{2}}$$
 !!! tip ""
 
 
-## Logaritmes
+## **Logaritmes**
 Een logaritme is eigenlijk het omgekeerde van een exponent. Met andere woorden:
 
 $$\large{\log{(10^2)} = 2 = 10^{\log{(2)}}}$$

@@ -1,7 +1,7 @@
-# Statistiek
+# *Statistiek*
 We gebruiken statistiek om gegevens beter te kunnen begrijpen. Dit kunnen we doen door het op een begrijpelijke manier weer te geven. Bijvoorbeeld in een staafdiagram, histogram of een cirkeldiagram. Maar we kunnen ook bepaalde gegevens berekenen die ons meer informatie geven, zoals bijvoorbeeld het gemiddelde, de mediaan of de modus. Hiermee krijgen we beter grip op de data. 
 
-## Data weergeven
+## **Data weergeven**
 We kunnen informatie handig weergeven in grafieken en in diagrammen. We kijken naar een paar verschillende type diagrammen en bekijken hoe je ze af moet lezen en zelf maken. 
 
 ### **Staafdiagrammen**
@@ -101,7 +101,7 @@ We kunnen in Figuur 4 precies aflezen wat de minimum en maximum temperatuur is o
 In dit geval kijken we naar de relatie tussen de temperatuur en de tijd. We kunnen dan precies zijn hoe de temperatuur verandert in de tijd. We vergelijken ook twee datasets, namelijk die van de maximum temperatuur en die van de minimum temperatuur.
 
 
-## Gemiddelde
+## **Gemiddelde**
 Het gemiddelde is handig om een uitspraak te kunnen doen over de hele dataset. Je kunt over het algemeen ermee kijken waar de meeste data zich bevindt en het maakt het vergelijken van verschillende datasets makkelijker. 
 
 Laten we bijvoorbeeld naar twee verschillende klassen kijken: klas A en klas B. De twee verschillende klassen hebben net een toets gemaakt en de leerlingen hebben verschillende cijfers gehaald. De cijfers van beide klassen is weergegeven met een histogram in Figuur 5.  
@@ -481,11 +481,9 @@ Dit betekent dus dat klas A gemiddeld $2$ cijferpunten hoger heeft gescoord op d
 
     !!! quote ""
         $$\large{\textrm{Gemiddelde} \approx 7.9}$$
+        
 
-
-
-
-## Mediaan en Modus
+## **Mediaan en Modus**
 Soms is een gemiddelde echter niet representatief voor de meeste gevallen. Laten we kijken naar inkomens van $100$ mensen waar er $1$ biljonair bij zit. In Figuur 6 is het inkomen weergegeven van de andere $99$ mensen.
 
 <figure markdown>

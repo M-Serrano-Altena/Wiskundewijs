@@ -6,7 +6,7 @@ hide:
   - feedback
 ---
 
-# Contact
+# *Contact*
 
 <div class="form-container">
   <h2 class="form-title">Aanmelden voor een vrijblijvend telefonisch kennismakingsgesprek</h2>

@@ -1,6 +1,6 @@
-# De Afgeleide Functie
+# *De Afgeleide Functie*
 
-## Afgeleide bepalen
+## **Afgeleide bepalen**
 
 Een afgeleide functie geeft op elk x coördinaat de bijbehorende helling/richtingscoëfficient. De functie geeft dan dus niet meer het $y$-coördinaat als je $x$ invult, maar de helling van de grafiek op dat punt. Dit wordt hieronder weergegeven.
 
@@ -409,7 +409,7 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
         $$\large{f'(x) = \frac{2 \sqrt{x}}{\left( x + 1 \right)}  +  \frac{\ln{\left((x+1)^2 \right)}}{2 \sqrt{x}}}$$
 
 
-## Extreme waardes berekenen
+## **Extreme waardes berekenen**
 Zoals in we in het filmpje bij een [parabool](#parabool) kunnen zien, is de helling gelijk aan $0$ bij een top/extreme waarde. Dit komt omdat op dit punt de functie van toenemend naar afnemend wisselt, of andersom en dit betekent dus dat er op dat punt geen toename of afname is bij een kleine toename of afname in $x$. Omdat de afgeleide de helling geeft op elk punt, betekent dit dus dat als we de coördinaten willen bepalen van de extreme waarde, we moeten stellen dat de afgeleide gelijk is aan $0$:
 
 $$\large{f'(x) = 0}$$

@@ -1,4 +1,4 @@
-# Goniometrie
+# *Goniometrie*
 Goniometrie gaat vooral over driehoeken en over de goniometrische functies: sinus (**sin**), cosinus (**cos**) en tangens (**tan**). Deze goniometrische functies kunnen we gebruiken om verschillende zijdes te bepalen als we alleen maar 1 zijde hebben en een hoek, in plaats van twee zijdes. Want als we niet twee zijdes hebben, kunnen we geen Pythagoras gebruiken. Deze functies zijn dus erg handig! Maar hoe gebruiken we ze?
 
 In Figuur 1 is er een rechte driehoek getekend. Hier zijn drie punten gegeven en de hoek.
@@ -19,7 +19,7 @@ Dit kunnen we dan omschrijven om $BC$ vrij te maken:
 $$BC = AB \tan{(\theta)}.$$
 
 
-## Regels Goniometrische Functies
+## **Regels Goniometrische Functies**
 Dit zijn de regels voor de goniometrische functies sinus, cosinus en tangens.
 
 !!! Belangrijk
@@ -42,7 +42,7 @@ Dit kan je onthouden met het ezelsbruggetje: "SOS CAS TOA"
         ![Rechte driehoek](assets/images/goniometrie/Right_Triangle_Gonio.svg){ width="200"}
     </figure>
 
-## De Sinus en Cosinus functies
+## **De Sinus en Cosinus functies**
 Zowel de sinus als de cosinus functie, zijn periodieke functies. Dit betekent dat de functie zich herhaalt over een bepaalt interval. In dit geval is dat over een domein van $2 \pi$. We zeggen dan dat de functie en periode heeft van $2 \pi$ (zie ook Figuur 2 en Figuur 3). 
 
 In formule form houdt dit in dat:
@@ -245,7 +245,7 @@ De cosinus functie is eigenlijk hetzelfde als de sinus functie, alleen is het $\
         $\Large{x = \frac{1}{8} \pi \ \vee \ x = \frac{5}{8} \pi \ \vee \ x = \frac{3}{4} \pi \ \vee \ x = 1 \frac{1}{8} \pi \ \vee \ x = 1 \frac{5}{8} \pi \ \vee \ x = 1 \frac{3}{4} \pi}$
 
 
-## De Eenheidscirkel
+## **De Eenheidscirkel**
 De eenheidscirkel is een manier om de verschillende waardes van $\sin$ en $\cos$ te bepalen bij verschillende hoeken. De eenheidscirkel is een cirkel met een straal van $1$, vandaar dat het de eenheidscirkel wordt genoemt. In het onderstaande filmpje wordt de eenheidscirkel geschetst en wordt er kort een trucje vertelt hoe je de waardes kan achterhalen van $\sin$ en $\cos$ bij verschillende hoeken door alleen maar $3$ hoeken en $3$ bijbehorende waardes te onthouden.
 
 ???+ video
@@ -362,7 +362,7 @@ Als dit nog niet helemaal duidelijk was, staan hieronder nog een paar andere voo
 
 Maar je bent natuurlijk niet verplicht om dit trucje te gebruiken. Als je het handiger vindt om gewoon de eenheidscirkel helemaal uit je hoofd te leren, doe dat vooral!
 
-## Goniometrische Vergelijkingen
+## **Goniometrische Vergelijkingen**
 
 Dit zijn goniometrische vergelijkingen die iets ingewikkelder zijn, maar vaak gebruikt worden.
 

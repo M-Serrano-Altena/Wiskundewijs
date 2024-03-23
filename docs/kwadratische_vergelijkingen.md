@@ -1,4 +1,4 @@
-# Kwadratische Vergelijkingen
+# *Kwadratische Vergelijkingen*
 
 Een kwadratische vergelijking is, zoals de naam zegt, een vergelijking met een kwadratische term. We zien hieronder een voorbeeld van een kwadratische vergelijking:
 
@@ -6,7 +6,7 @@ $$x^2 + 2x + 5 = 1$$
 
 De $x^2$ term maakt dit een kwadratische vergelijking. De vraag is, hoe lossen we dit op? Hier hebben we een aantal methodes voor, afhankelijk van de vorm.
 
-## Oplossen vorm x² = c
+## **Oplossen vorm x² = c**
 We beginnen met het oplossen van een vergelijking in de vorm
 
 $$x^2 = c,$$
@@ -172,7 +172,7 @@ In het algemeen wordt dit:
     !!! quote ""
         **<p style="text-align: center;font-size:19px;">Geen Oplossing</p>**
 
-## Oplossen vorm x² + bx = 0
+## **Oplossen vorm x² + bx = 0**
 ???+ Belangrijk
     ### Algemene vorm
     We gaan nu kijken naar het oplossen van een vergelijking met de algemene vorm:
@@ -252,7 +252,7 @@ In het algemeen wordt dit:
 
 
 
-## Oplossen vorm x² + bx + c = 0
+## **Oplossen vorm x² + bx + c = 0**
 Nu kijken we naar het oplossen van de algemene vorm
 
 $$x^2 + bx+ c = 0.$$
@@ -938,7 +938,7 @@ Door nu aan beide kanten $-3$ te doen vinden we onze eindoplossing:
         We komen er op deze manier dus ook, het duurt alleen iets langer. Dus als we het kunnen vermijden dan liever wel, maar het is geen ramp om dit te doen als je de andere manier niet zag, want je komt er zo uiteindelijk ook.
 
 
-## Grafieken met Parabolen
+## **Grafieken met Parabolen**
 We hebben net allemaal methodes gezien om kwadratische vergelijkingen op te lossen, maar waar is dat eigenlijk nuttig voor? 
 
 Het is vooral handig om snijpunten te berekenen. Bijvoorbeeld snijpunten met de $x$-as of snijpunten van twee grafieken met elkaar. Laten we eerst kijken naar snijpunten met de $x$-as. 

@@ -1,5 +1,5 @@
-# De Stelling van Pythagoras
-##Theorie
+# *De Stelling van Pythagoras*
+## **Theorie**
 
 De Stelling van Pythagoras zegt dat bij een rechte driehoek (zie Figuur 1) de twee rechte zijdes in het kwadraat samen gelijk zijn aan de schuine zijde in het kwadraat.
 
@@ -21,7 +21,7 @@ Hieronder is er een filmpje om te laten zien waar de Stelling van Pythagoras van
 
     *<p style="text-align: center;">Filmpje: Visueel bewijs van de Stelling van Pythagoras</p>*
 
-## Voorbeelden 
+## **Voorbeelden**
 ??? example "Voorbeeld 1: Bereken de lengte van de schuine zijde"
     ### Voorbeeld 1
     **<p style="text-align: center;font-size:20px;">Vraag: Wat is de lengte van de schuine zijde $c$?</p>**

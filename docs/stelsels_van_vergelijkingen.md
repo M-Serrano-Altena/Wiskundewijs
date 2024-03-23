@@ -1,4 +1,4 @@
-# Stelsels van Vergelijkingen
+# *Stelsels van Vergelijkingen*
 ???+ info "Achtergrond kennis" 
     - [Vergelijkingen omschrijven](basisvaardigheden.md#vergelijkingen-omschrijven)
 
@@ -10,7 +10,7 @@ $$\left\{ \begin{array}{ l l } 4x + 6y = 14  \\ 8x - 3y = 3 \end{array} \right.$
 
 We kunnen deze vergelijking op meerdere manieren oplossen. 
 
-## De Schoorsteen methode
+## **De Schoorsteen methode**
 Bij de schoorsteen methode vermenigvuldigen we beide vergelijkingen met een getal en dan doen we de ene vergelijking min/plus de andere vergelijking, zodat we een nieuwe vergelijking krijgen met maar $1$ variabele, en die kunnen we dan wel oplossen. Laten we naar het volgende voorbeeld kijken:
 
 Stel we weten bijvoorbeeld dat $3$ appels ($a$) en $3$ bananen ($b$) samen €$12$ kosten. En stel dat we ook weten dat we $1$ appel en $4$ bananen kunnen kopen voor €$10$. We kunnen dan het volgende stelsel op stellen:
@@ -106,7 +106,7 @@ Appels en bananen zijn in dit voorbeeld dus allebei €$2$.
     !!! quote ""
         $$\large{n = 1 \textrm{ en } m = \frac{1}{2}}$$
 
-## De Substitutie methode
+## **De Substitutie methode**
 
 Bij de substitutie methode schrijven we de ene vergelijking om zodat we zeggen dat bijvoorbeeld $y = ax + b$, en dan vervangen we de $y$ in de andere vergelijking voor de $ax+b$ die we gevonden hebben. Laten we naar hetzelfde voorbeeld met de appels en bananen kijken als bij de [Schoorsteen methode](#de-schoorsteen-methode).
 

@@ -1,7 +1,7 @@
-# Percentages
+# *Percentages*
 We zijn allemaal wel een keer percentages tegengekomen. Bijvoorbeeld als je $100 \%$ van €$10$ moet betalen, betekent dat dat je gewoon de volledig prijs van €$10$ moet betalen. Heb je $50 \%$ korting? Dan hoef je alleen maar de helft te betalen, dus €$5$. Maar hoeveel moet je betalen als je $15.3 \%$ korting hebt? Deze vraag kunnen we met behulp van de theorie straks beantwoorden.
 
-## Vermenigvuldigingsfactoren
+## **Vermenigvuldigingsfactoren**
 Een percentage is eigenlijk niks anders dan een een bepaald deel van een getal. $50 \%$ is bijvoorbeeld de helft. Dit kunnen we ook als een vermenigvuldigingsfactor schrijven. 
 
 Stel we hebben bijvoorbeeld $50 \%$ van €$20$. Dit is de helft van $20$ en dus $10$. Dit kunnen we als volgt opschrijven:
@@ -121,7 +121,7 @@ Ons eindantwoord is dus:
         $$\large{43.9 \% \textrm{ van } 1279.2 = 0.439 * 1279.2 = 561.5688}$$
 
 
-## Kortingen
+## **Kortingen**
 Als je korting krijgt, dan betekent dit dat je niet de volledige prijs hoeft te betalen, maar alleen een deel hiervan. Maar hoe groot is dat deel?
 
 ???+ Belangrijk
@@ -244,7 +244,7 @@ Onze nieuwe prijs wordt dus:
     We ronden hier af op twee decimalen omdat het een bedrag is.
 
 
-## Percentages bepalen
+## **Percentages bepalen**
 We hebben net gezien hoe we een bepaald percentage van een getal of bedrag kunnen berekenen. Nu gaan we het omgekeerde bekijken. We willen weten wat het percentage is van een bedrag ten opzichte van een ander bedrag. Stel we moesten bijvoorbeeld maar €5 betalen van iets dat €10 kost. Wat is dan het percentage dat we hebben betaald van het originele bedrag (€10)?
 
 ???+ Belangrijk
@@ -297,7 +297,7 @@ $$\textrm{Percentage} = 0.5 * 100\% = 50\%$$
         $$\large{\textrm{Percentage} \approx 115.1\%}$$
 
 
-## Procentuele toename/afname bepalen
+## **Procentuele toename/afname bepalen**
 We hebben net gekeken naar het percentage van een getal ten opzichte van een ander getal. Nu kijken we naar wat de toename/afname is van een nieuwe prijs ten opzichte van de oude. Dus stel we hadden eerst een product voor €$10$, maar nu is de prijs verhoogt naar €$15$. Wat is de procentuele toename van de prijs?
 
 ???+ Belangrijk
