@@ -169,4 +169,4 @@ def draw_func(
 # draw_func(lambda x: -x**3 + 6*x**2 - 9*x + 3, "f(x) = -x³ + 6x² - 9x + 3", x_range=(-1, 5), y_range=(-15, 15), diff=True)
 # draw_func(lambda x: (x - 2)**7, "f(x) = (x - 2)⁷", x_range=(-0.5, 4), y_range=(-20, 20), diff=True)
 # draw_func(lambda x: 10*np.e**x * (x**2 + 4*x + 0.4), "f(x) = 10eˣ(x² + 4x + 0.4)", x_range=(-8.5, 0.5), y_range=(-11, 10), diff=True)
-draw_func(lambda x: sp.cos(2*x)**2, "f(x) = cos²(2x)", x_range=(-np.pi/2 - 0.1 , np.pi/2 + 0.1), y_range=(-0.1, 1.1), diff=True)
+# draw_func(lambda x: sp.cos(2*x)**2, "f(x) = cos²(2x)", x_range=(-np.pi/2 - 0.1 , np.pi/2 + 0.1), y_range=(-0.1, 1.1), diff=True)

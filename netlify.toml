@@ -2,3 +2,6 @@
 [build]
   command = "mkdocs build"
   publish = "site"
+
+[[plugins]]
+package = "netlify-plugin-checklinks"
