@@ -17,6 +17,8 @@ Ben je als ouder geïnteresseerd in **persoonlijke een-op-een bijles** voor jouw
 
 [Contact :material-account:](contact.md){ .md-button .md-button--primary }
 
+[Solver](solver.md)
+
 ## Hoofdstukken
 1. [Basisvaardigheden](basisvaardigheden.md)
 2. [Percentages](percentages.md)

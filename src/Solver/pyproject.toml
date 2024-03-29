@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "Solver"
+version = "0.1.0"
+description = ""
+authors = ["M-Serrano-Altena <Marc.Serrano.Altena@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9, <3.13"
+pyside6 = "^6.6.3"
+numpy = "^1.26.4"
+pandas = "^2.2.1"
+sympy = "^1.12"
+pyqtgraph = "^0.13.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+solve = "solver:main"
+test = "test:main"
