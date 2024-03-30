@@ -9,6 +9,11 @@ import re
 pg.setConfigOption("background", "w")
 pg.setConfigOption("foreground", "k")
 
+def no_frac(num):
+    if isinstance(num, sp.Rational) and (abs(num.p) > 100 or abs(num.q) > 100):
+        return round(num.evalf(), 4)
+    return num
+
 class UserInterface(QtWidgets.QMainWindow):
     """Graphical User interface
     """
@@ -20,6 +25,10 @@ class UserInterface(QtWidgets.QMainWindow):
         self.plot_widget.setLabel("bottom", "x-as")
         self.plot_widget.setLabel("left", "y-as")
         self.plot_widget.setTitle("Vergelijkingen Plot")
+        self.legend = self.plot_widget.addLegend(offset=(7, 5))
+        self.plot_widget.hideButtons()
+
+        self.start = False
 
         central_widget = QtWidgets.QWidget()
         self.setCentralWidget(central_widget)
@@ -72,15 +81,30 @@ class UserInterface(QtWidgets.QMainWindow):
     def solve_equation(self):
         """Solve the equation and display the results
         """
-        eq_string = self.equation_input.text()
+        self.start = True
+
+        self.plot_widget.sigXRangeChanged.disconnect(self.update_range)
+        self.plot_widget.sigYRangeChanged.disconnect(self.update_range)
+
+        self.plot_widget.setXRange(-10, 10)
+        self.plot_widget.setYRange(-10, 10)
+
         self.plot_widget.clear()
+        self.legend.setBrush('white')
+        self.legend.setPen("white")
+        eq_string = self.equation_input.text()
         self.textedit.clear()
 
         try:
             eq_string = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', eq_string)
             eq_string = re.sub(r'\)(\d)', r')*\1', eq_string)
             eq_string = re.sub(r'(\d)\(', r'\1*(', eq_string)
-            self.eq_string = re.sub(r'\)\(', r')*(', eq_string)
+            eq_string = re.sub(r'(\d)\)\((\d)', r'\1)*(\2', eq_string)
+            eq_string = re.sub(r'([a-zA-Z])\)\((\d)', r'\1)*(\2', eq_string)
+            eq_string = re.sub(r'(\d)\)\(([a-zA-Z])', r'\1)*(\2', eq_string)
+            eq_string = re.sub(r'([a-zA-Z])\)\(([a-zA-Z])', r'\1)*(\2', eq_string)
+
+            self.eq_string = eq_string
 
             eq_split = eq_string.split("=")
 
@@ -92,9 +116,13 @@ class UserInterface(QtWidgets.QMainWindow):
 
                 if eq1.free_symbols:
                     self.symbol = eq1.free_symbols.pop()
-                    self.eq1 = sp.lambdify(self.symbol, eq1)
-                    self.eq2 = sp.lambdify(self.symbol, eq2)
-                    self.equation_output.setText(f"{eq_string} = 0")
+                    if not sp.solveset(self.eq, domain=sp.S.Reals).is_empty:
+                        self.eq1 = sp.lambdify(self.symbol, eq1, "sympy")
+                        self.eq2 = sp.lambdify(self.symbol, eq2, "sympy")
+                        self.equation_output.setText(f"{eq_string} = 0")
+
+                    else:
+                        self.equation_output.setText(eq_string)
 
                 else:
                     self.equation_output.setText(eq_string)
@@ -107,8 +135,8 @@ class UserInterface(QtWidgets.QMainWindow):
 
                 if eq1.free_symbols:
                     self.symbol = self.eq.free_symbols.pop()
-                    self.eq1 = sp.lambdify(self.symbol, eq1)
-                    self.eq2 = sp.lambdify(self.symbol, eq2)
+                    self.eq1 = sp.lambdify(self.symbol, eq1, "sympy")
+                    self.eq2 = sp.lambdify(self.symbol, eq2, "sympy")
 
                 self.equation_output.setText(eq_string)
 
@@ -117,17 +145,53 @@ class UserInterface(QtWidgets.QMainWindow):
                 self.textedit.append("Ongeldige vergelijking")
                 self.textedit.append("")
                 self.textedit.setTextColor('black')
+                self.equation_input.setFocus()
+                self.equation_input.selectAll()
+
+                self.plot_widget.sigXRangeChanged.connect(self.update_range)
+                self.plot_widget.sigYRangeChanged.connect(self.update_range)
                 return
             
-            
-            self.solutions = [sol for sol in sp.solve(self.eq) if sol.is_real]
-            
-            if not self.solutions:
+            self.eq = sp.simplify(self.eq)
+            self.solutions = sp.solveset(self.eq, domain=sp.S.Reals)
+
+            if isinstance(self.solutions, sp.ConditionSet):
+                self.eq = sp.simplify(self.solutions.condition)
+                self.solutions = sp.solveset(self.eq, domain=sp.S.Reals)
+
+
+            # if self.solutions.is_FiniteSet:
+            #     self.solutions = list(self.solutions)
+
+            if not [sol for sol in sp.solve(self.eq) if sol.is_real]:
                 try:
                     if not sp.solve(self.eq):
-                        solution = sp.nsimplify(eq_string)
-                        self.textedit.append(f"{eq_string} = {solution}")
-                        
+                        if len(eq_split) == 1:
+
+                            if not self.symbol:
+                                solution = sp.nsimplify(eq1, [sp.pi])
+                                self.textedit.append(f"{eq_string} = {solution}")
+
+                            else:
+                                solution = sp.simplify(eq1)
+                                self.textedit.append(f"{eq_string} = {solution}")
+
+                        elif len(eq_split) == 2:
+                            lhs = sp.nsimplify(eq1, [sp.pi])
+                            rhs = sp.nsimplify(eq2, [sp.pi])
+                            
+                            if lhs == rhs:
+                                self.textedit.append(f"{lhs} = {rhs}:")
+                                self.textedit.append(f"Deze vergelijking klopt")
+
+                            elif sp.simplify(lhs) == sp.simplify(rhs):
+                                self.textedit.append(f"{sp.simplify(lhs)} = {sp.simplify(rhs)}:")
+                                self.textedit.append(f"Deze vergelijking klopt")
+
+                            else:
+                                self.textedit.append(f"{lhs} ≠ {rhs}:")
+                                self.textedit.append(f"Deze vergelijking klopt niet")
+   
                     else:
                         raise Exception
 
@@ -138,23 +202,51 @@ class UserInterface(QtWidgets.QMainWindow):
                 self.equation_input.setFocus()
                 self.equation_input.selectAll()
 
+                self.plot_widget.sigXRangeChanged.connect(self.update_range)
+                self.plot_widget.sigYRangeChanged.connect(self.update_range)
+
                 return
             
             
+            if self.solutions.is_FiniteSet:
+                if len(eq_split) == 1:
+                    self.textedit.append(f"Vereenvoudigde Vergelijking: \n {sp.simplify(eq1)} = 0 \n")
 
-            if len(self.solutions) == 1:
-                self.textedit.append("De oplossing is:")
-                self.textedit.append(f"{self.symbol} = {self.solutions[0]}")
+                elif len(eq_split) == 2:
+                    self.textedit.append(f"Vereenvoudigde Vergelijking: \n {sp.simplify(eq1)} = {sp.simplify(eq2)} \n")
 
-            else:
-                self.textedit.append("De oplossingen zijn:")
-                counter = 0
-                for solution in self.solutions:
-                    counter +=1
-                    self.textedit.append(f"{counter})   {self.symbol} = {solution}")
+
+                if len(self.solutions) == 1:
+                    self.textedit.append("De oplossing is:")
+                    self.textedit.append(f"{self.symbol} = {self.solutions.args[0]}")
+
+                else:
+                    self.textedit.append("De oplossingen zijn:")
+                    counter = 0
+                    for solution in self.solutions:
+                        counter +=1
+                        self.textedit.append(f"{counter})   {self.symbol} = {solution}")
             
+            else:
+                if isinstance(self.solutions, sp.ConditionSet):
+                    self.solutions = self.solutions.base_set
+
+                self.textedit.append("De oplossing is de set:")
+                self.textedit.append(f"{self.symbol} = ")
+                pretty_solution = sp.pretty(self.solutions)
+                self.textedit.append(pretty_solution)
+
+                self.textedit.append("")
+                self.textedit.append("In het domein [0, 2pi]:")
+                self.interval_solutions = sp.solveset(self.eq, domain=sp.Interval(0, 2*sp.pi))
+                counter = 0
+                for solution in self.interval_solutions:
+                    counter += 1
+                    self.textedit.append(f"{counter})   {self.symbol} = {solution}")
+
+                
             self.set_range()
-            self.plot()
+            self.plot()     
        
         
         except Exception as e:
@@ -166,30 +258,78 @@ class UserInterface(QtWidgets.QMainWindow):
         self.equation_input.setFocus()
         self.equation_input.selectAll()
 
+        self.plot_widget.sigXRangeChanged.connect(self.update_range)
+        self.plot_widget.sigYRangeChanged.connect(self.update_range)
 
+    
+    def set_range(self):
+        if not self.solutions.is_FiniteSet:
+            self.x_intersect = [sol for sol in sp.solveset(self.eq, domain=sp.Interval(0, 2*sp.pi))]
+            self.y_intersect = [self.eq1(sol) for sol in self.x_intersect]
+        
+        else:
+            self.x_intersect = [float(sol) for sol in self.solutions]
+            self.y_intersect = [float(self.eq1(sol)) for sol in self.solutions]
+
+
+        intersect_xrange = float(max(self.x_intersect)) - float(min(self.x_intersect))
+        intersect_yrange = float(max(self.y_intersect)) - float(min(self.y_intersect))
+        self.x_range_og = (float(min(self.x_intersect)) - (intersect_xrange/3 + 2), float(max(self.x_intersect)) + (intersect_xrange/3 + 2))
+        self.x_range = self.x_range_og
+
+        self.y_range_og = (float(min(self.y_intersect)) - (intersect_yrange/3 + 2), float(max(self.y_intersect)) + (intersect_yrange/3 + 2))
+        self.y_range = self.y_range_og
+
+        self.plot_widget.setXRange(*self.x_range)
+        self.plot_widget.setYRange(*self.y_range)
+
+        self.plot_widget.getViewBox().setDefaultPadding(-0.1)
+
+    
     def plot(self):
-        x_coords = np.linspace(*self.x_range, 100)
+        self.plot_widget.clear()
+
+        if self.solutions.is_iterable:
+            self.x_intersect = sorted([float(sol) for sol in sp.solveset(self.eq, domain=sp.Interval(*self.x_range))])
+            self.y_intersect = [float(self.eq1(sol)) for sol in self.x_intersect]
+
+
+        x_coords = np.linspace(self.x_range[0] - 1, self.x_range[1] + 1, 100)
 
         y1_coords = [float(self.eq1(x)) for x in x_coords]
         y2_coords = [float(self.eq2(x)) for x in x_coords]
 
-        self.plot_widget.plot(x_coords, y1_coords, symbol=None, pen={'color': 'darkturquoise', 'width': 3})
-        self.plot_widget.plot(x_coords, y2_coords, symbol=None, pen={'color': 'springgreen', 'width': 3})
-        self.plot_widget.plot(self.x_intersect, self.y_intersect, symbol='o', symbolSize=8, pen=None, symbolBrush='black')
+        self.legend.setBrush('lightgrey')
+        self.legend.setPen("black")
 
+        self.plot_widget.plot(x_coords, y1_coords, symbol=None, pen={'color': 'darkturquoise', 'width': 3}, name=f"f(x) = {self.eq1(self.symbol)}")
+        self.plot_widget.plot(x_coords, y2_coords, symbol=None, pen={'color': 'springgreen', 'width': 3}, name=f"g(x) = {self.eq2(self.symbol)}")
 
-    def set_range(self):
-        self.x_intersect = [float(sol) for sol in self.solutions]
-        self.y_intersect = [float(self.eq1(sol)) for sol in self.solutions]
-        intersect_range = float(max(self.x_intersect)) - float(min(self.x_intersect))
-        self.x_range = (float(min(self.x_intersect)) - (intersect_range/3 + 2), float(max(self.x_intersect)) + (intersect_range/3 + 2))
-        self.plot_widget.setXRange(*self.x_range)
+        if len(self.x_intersect) >= 7:
+            return
+        
+        counter = 0
+        for x,y in zip(self.x_intersect, self.y_intersect):
+            if self.x_range[0] <= x <= self.x_range[1]:
+                counter += 1
+                self.plot_widget.plot([float(x)], [float(y)], symbol='o', symbolSize=8, pen=None, symbolBrush='black', name=f"Snijpunt {counter} = ({no_frac(sp.nsimplify(round(x,13), [sp.pi]))}, {no_frac(sp.nsimplify(round(y,13), [sp.pi]))})")
 
 
     def update_range(self):
+        if not self.start:
+            return
+
+        self.plot_widget.sigXRangeChanged.disconnect(self.update_range)
+        self.plot_widget.sigYRangeChanged.disconnect(self.update_range)
+
         self.plot_widget.clear()
+
         self.x_range = self.plot_widget.getViewBox().viewRange()[0]
         self.plot()
+
+        self.plot_widget.sigXRangeChanged.connect(self.update_range)
+        self.plot_widget.sigYRangeChanged.connect(self.update_range)
+        
 
 
 def main():

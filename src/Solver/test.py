@@ -1,4 +1,5 @@
 import sympy as sp
+import numpy as np
 import re
 
 def main():
@@ -22,8 +23,21 @@ def main():
     for solution in solutions:
         print(f"{symbol} = {solution}")
 
+def no_frac(num):
+    if isinstance(num, sp.Rational) and (abs(num.p) > 100 or abs(num.q) > 100):
+        return num.evalf()
+    return num
+    
+
 if __name__ == "__main__":
+
     x = sp.symbols('x')
-    eq = sp.lambdify(x, 0)
-    print(eq(5))
+    eq = sp.Eq(sp.cos(x)**2+sp.sin(x)**2 + x, 1)
+
+    solution_set = sp.solveset(sp.simplify(eq))
+    if isinstance(solution_set, sp.ConditionSet):
+        print(f"Variable: {solution_set.sym}, Condition: {solution_set.condition}")
+    else:
+        sp.pprint(solution_set)
+        
     # main()
