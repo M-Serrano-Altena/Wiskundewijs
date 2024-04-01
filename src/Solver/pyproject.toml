@@ -12,6 +12,7 @@ numpy = "^1.26.4"
 pandas = "^2.2.1"
 sympy = "^1.12"
 pyqtgraph = "^0.13.4"
+matplotlib = "^3.8.3"
 
 
 [build-system]
