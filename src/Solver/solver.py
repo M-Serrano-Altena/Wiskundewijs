@@ -1,8 +1,9 @@
 import sys
-from PySide6 import QtWidgets, QtGui
+from PySide6 import QtWidgets, QtGui, QtCore
 import pyqtgraph as pg
 import numpy as np
 import sympy as sp
+from sympy.simplify.fu import TR2
 import re
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
@@ -34,6 +35,11 @@ def math_interpreter(eq_string):
 
     return eq_string
 
+def segmented_linspace(start, end, breakpoints, num=10, dx=0.01):
+    breakpoints = list(breakpoints)
+    all_points = sorted([start] + breakpoints + [end])
+    lists_with_breaks = [np.linspace(all_points[i] + dx, all_points[i+1] - dx, num) for i in range(len(all_points)-1)]
+    return lists_with_breaks
 
 
 class UserInterface(QtWidgets.QMainWindow):
@@ -151,7 +157,8 @@ class UserInterface(QtWidgets.QMainWindow):
     def solve_equation(self):
         """Solve the equation and display the results
         """
-        
+        self.vert_asympt = None
+        self.vert_asympt_eq = None
         self.start = True
 
         self.plot_widget.sigXRangeChanged.disconnect(self.update_range)
@@ -230,6 +237,16 @@ class UserInterface(QtWidgets.QMainWindow):
             self.solutions = sp.solveset(self.eq, domain=sp.S.Reals)
             domain = sp.calculus.util.continuous_domain(self.eq, self.symbol, domain=sp.S.Reals)
             domain_string = sp.pretty(domain)
+
+
+            eq12 = sp.simplify(eq1 - eq2)
+            if self.symbol:
+                if len(eq_split) == 1 and TR2(eq1) != eq1:
+                    self.vert_asympt_eq = TR2(eq1).as_numer_denom()[1]
+
+            elif len(eq_split) == 2 and TR2(eq12) != eq12:
+                self.vert_asympt_eq = TR2(eq12).as_numer_denom()[1]
+
 
             if isinstance(self.solutions, sp.ConditionSet):
                 self.eq = sp.simplify(self.solutions.condition)
@@ -323,15 +340,16 @@ class UserInterface(QtWidgets.QMainWindow):
                 for solution in self.interval_solutions:
                     counter += 1
                     self.add_solution_text(f"{counter}) \quad {sp.latex(self.symbol)} = {sp.latex(solution)}")
-
-                
+ 
             self.set_range()
-            self.plot()     
+            self.plot()
+
        
         
         except Exception as e:
             self.solution_text.set_color("red")
             self.add_solution_text(f"Fout: {str(e)}", latex=False)
+            print(e)
 
         self.equation_input.setFocus()
         self.equation_input.selectAll()
@@ -363,18 +381,10 @@ class UserInterface(QtWidgets.QMainWindow):
 
         self.plot_widget.getViewBox().setDefaultPadding(-0.1)
 
-    
-    def plot(self):
-        self.plot_widget.clear()
 
-        if self.solutions.is_iterable:
-            self.x_intersect = sorted([float(sol) for sol in sp.solveset(self.eq, domain=sp.Interval(*self.x_range)) if (sp.N(self.eq1(float(sol))).is_real and sp.N(self.eq2(float(sol))).is_real)])
-            self.y_intersect = [float(self.eq1(sol)) for sol in self.x_intersect]
-
-        x_coords = np.linspace(self.x_range[0] - 1, self.x_range[1] + 1, 100)
-
+    def get_plottable(self, x_coords):
         plottable_x1_coords = [x for x in x_coords if sp.N(self.eq1(x)).is_real]
-        plottable_x2_coords = [x for x in x_coords if sp.N(self.eq2(x)).is_real]         
+        plottable_x2_coords = [x for x in x_coords if sp.N(self.eq2(x)).is_real]      
 
         def add_endpoint(plottable_x_coords, eq):
             domain = sp.calculus.util.continuous_domain(eq, self.symbol, domain=sp.S.Reals)
@@ -397,11 +407,64 @@ class UserInterface(QtWidgets.QMainWindow):
         y1_coords = [float(self.eq1(x)) for x in plottable_x1_coords]
         y2_coords = [float(self.eq2(x)) for x in plottable_x2_coords]
 
+        return plottable_x1_coords, y1_coords, plottable_x2_coords, y2_coords
+
+
+    def plot(self):
+        self.plot_widget.clear()
+
+        if self.solutions.is_iterable:
+            self.x_intersect = sorted([float(sol) for sol in sp.solveset(self.eq, domain=sp.Interval(*self.x_range)) if (sp.N(self.eq1(float(sol))).is_real and sp.N(self.eq2(float(sol))).is_real)])
+            self.y_intersect = [float(self.eq1(sol)) for sol in self.x_intersect]
+
+        if self.vert_asympt_eq is None:
+            x_coords = np.linspace(self.x_range[0] - 1, self.x_range[1] + 1, 100)
+
+        else:
+            self.vert_asympt = sp.solveset(self.vert_asympt_eq, domain=sp.Interval(*self.x_range))
+            self.vert_asympt = [float(sol) for sol in self.vert_asympt if sp.N(sol).is_real]
+            x_coords = segmented_linspace(self.x_range[0] - 1, self.x_range[1] + 1, self.vert_asympt, num=10, dx=0.00001)
+
+        plottable_x1_coords = []
+        y1_coords = []
+        plottable_x2_coords = []
+        y2_coords = []
+
+        if self.vert_asympt_eq is None:
+            plottable_x1_coords, y1_coords, plottable_x2_coords, y2_coords = self.get_plottable(x_coords)
+
+        else:
+            for i in range(len(x_coords)):
+                plottable_x1_coords_i, y1_coords_i, plottable_x2_coords_i, y2_coords_i = self.get_plottable(x_coords[i])
+
+                plottable_x1_coords.append(plottable_x1_coords_i)
+                y1_coords.append(y1_coords_i)
+                plottable_x2_coords.append(plottable_x2_coords_i)
+                y2_coords.append(y2_coords_i)
+
+
         self.legend.setBrush('lightgrey')
         self.legend.setPen("black")
 
-        self.plot_widget.plot(plottable_x1_coords, y1_coords, symbol=None, pen={'color': 'darkturquoise', 'width': 3}, name=f"f(x) = {self.eq1(self.symbol)}")
-        self.plot_widget.plot(plottable_x2_coords, y2_coords, symbol=None, pen={'color': 'springgreen', 'width': 3}, name=f"g(x) = {self.eq2(self.symbol)}")
+        counter = 0
+
+        if self.vert_asympt is None:
+            self.plot_widget.plot(plottable_x1_coords, y1_coords, symbol=None, pen={'color': 'darkturquoise', 'width': 3}, name=f"f(x) = {self.eq1(self.symbol)}")
+            self.plot_widget.plot(plottable_x2_coords, y2_coords, symbol=None, pen={'color': 'springgreen', 'width': 3}, name=f"g(x) = {self.eq2(self.symbol)}")
+
+        else:
+            for i in range(len(x_coords)):
+                counter += 1
+                self.plot_widget.plot(plottable_x1_coords[i], y1_coords[i], symbol=None, pen={'color': 'darkturquoise', 'width': 3}, name=f"f(x) = {self.eq1(self.symbol)}" if counter == 1 else None)
+                self.plot_widget.plot(plottable_x2_coords[i], y2_coords[i], symbol=None, pen={'color': 'springgreen', 'width': 3}, name=f"g(x) = {self.eq2(self.symbol)}" if counter == 1 else None)
+
+            counter = 0
+            if len(self.vert_asympt) >= 10 and len(self.x_intersect) >= 7:
+                return
+
+            for vert_asympt in self.vert_asympt:
+                counter += 1
+                self.plot_widget.plot([vert_asympt, vert_asympt], self.y_range, symbol=None, pen=pg.mkPen('black', width=3, style=QtCore.Qt.DashLine), name=f"Verticale Asymptoot" if counter == 1 else None)
 
         if len(self.x_intersect) >= 7:
             return
@@ -423,6 +486,7 @@ class UserInterface(QtWidgets.QMainWindow):
         self.plot_widget.clear()
 
         self.x_range = self.plot_widget.getViewBox().viewRange()[0]
+        self.y_range = self.plot_widget.getViewBox().viewRange()[1]
         self.plot()
 
         self.plot_widget.sigXRangeChanged.connect(self.update_range)

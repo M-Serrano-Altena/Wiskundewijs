@@ -1,6 +1,8 @@
 import sympy as sp
+from sympy.simplify.fu import TR2
 import numpy as np
 import re
+import matplotlib.pyplot as plt
 
 def main():
     eq_string = "2x^2 + 1 = 9"
@@ -28,26 +30,53 @@ def no_frac(num):
         return num.evalf()
     return num
 
+def segmented_linspace(start, end, breakpoints, num=10):
+    breakpoints = list(breakpoints)
+    breakpoints = sorted(breakpoints)
+    breakpoints = [num - 0.01 for num in breakpoints]
+    all_points = sorted([start] + breakpoints + [end])
+    lists_with_breaks = [np.linspace(all_points[i], all_points[i+1], num=10) for i in range(len(all_points)-1)]
+    return lists_with_breaks
+
+
 
 if __name__ == "__main__":
     x = sp.symbols('x')
-    f = sp.sin(x)#*sp.sqrt(x)
-    eq = sp.nsimplify(sp.Eq(f, 0.5), tolerance=10**-5)
+    f = sp.sin(x)/sp.cos(x)#*sp.sqrt(x)
+    g = sp.tan(x) - 1
+    eq = sp.nsimplify(sp.Eq(g, 0), tolerance=10**-5)
     domain = sp.calculus.util.continuous_domain(f, x, domain=sp.S.Reals)
-    sp.pprint(domain)
-    print(domain.is_Interval)
+    # sp.pprint(domain)
+    # print(domain.is_Interval)
+    print(f.rewrite((sp.cos, sp.sin)))
+    print(TR2(g))
+    print(TR2(g).as_numer_denom())
+
+    start, end = 1, 100
+    breakpoints = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+    num = 10
+    print(segmented_linspace(start, end, breakpoints, num=num))
+
+    print([sp.N(x) for x in (sp.solve(sp.sin(x)))])
+
+    l = []
+    l.append([1,2])
+    l.append([3,4])
+    print(l)
+
+
     # print(domain.is_finite) 
     # # print(sp.is_finite(domain.args[0]))
     # sp.pprint(domain)
     # print(len(domain.args))
 
-    print(sp.pretty(domain) == "ℝ")
-    print(sp.solve(sp.Eq(f, 0.5), x))
-    sp.pprint(sp.solveset(eq, x, domain=sp.S.Reals))
+    # print(sp.pretty(domain) == "ℝ")
+    # print(sp.solve(sp.Eq(f, 0.5), x))
+    # sp.pprint(sp.solveset(eq, x, domain=sp.S.Reals))
 
-    new_line = 2 * "\n"
+    # new_line = 2 * "\n"
 
-    print(r"$\\n$")
+    # print(r"$\\n$")
 
     # print(sp.nsimplify(eq, tolerance=10**-7))
     
