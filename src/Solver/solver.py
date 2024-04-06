@@ -3,10 +3,13 @@ from PySide6 import QtWidgets, QtGui, QtCore
 import pyqtgraph as pg
 import numpy as np
 import sympy as sp
-from sympy.simplify.fu import TR2
+from sympy.simplify.fu import TR2, TR1
 import re
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+import warnings
+
+warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 # PyQtGraph global options
 pg.setConfigOption("background", "w")
@@ -18,20 +21,34 @@ def no_frac(num):
     return num
 
 def math_interpreter(eq_string):
-    function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
-    function_regex = '|'.join(r'\b' + name + r'\b' for name in function_names)
+    for _ in range(10):
+        function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
+        relevant_functions = [func for func in function_names if func in eq_string]
+        
+        eq_string = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', eq_string)
+        eq_string = re.sub(r'\)(\d)', r')*\1', eq_string)
+        eq_string = re.sub(r'(\d)\(', r'\1*(', eq_string)
 
-    
-    eq_string = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', eq_string)
-    eq_string = re.sub(r'\)(\d)', r')*\1', eq_string)
-    eq_string = re.sub(r'(\d)\(', r'\1*(', eq_string)
+        eq_string = re.sub(r'\)([a-zA-Z])', r')*\1', eq_string)
+        eq_string = re.sub(r'([a-zA-Z])\(', r'\1*(', eq_string)
+        eq_string = re.sub(r'\)\(', r')*(', eq_string)
 
-    eq_string = re.sub(r'\)([a-zA-Z])', r')*\1', eq_string)
-    eq_string = re.sub(r'([a-zA-Z])\(', r'\1*(', eq_string)
-    eq_string = re.sub(r'\)\(', r')*(', eq_string)
+        eq_string = re.sub(r'\b' + r'([a-zA-Z])\1', r'\1*\1', eq_string)
 
-    for function_name in function_names:
-        eq_string = re.sub(r'\b' + function_name + r'\*\(', function_name + '(', eq_string)
+        for function_name1 in relevant_functions:
+            for function_name2 in relevant_functions:
+                eq_string = re.sub(function_name1 + function_name2 + r'\((.*?)\)', rf"{function_name1}({function_name2}\1)", eq_string)
+                eq_string = re.sub(function_name2 + function_name1 + r'\((.*?)\)', rf"{function_name2}({function_name1}\1)", eq_string)
+
+            eq_string = re.sub(function_name1 + r'\*' + r'(?!(?:' + '|'.join(map(re.escape, relevant_functions)) + r'))(\d|[a-zA-Z])', function_name1 + r'(x)*\1', eq_string)
+            eq_string = re.sub(function_name1 + r'(?!(?:' + '|'.join(map(re.escape, relevant_functions)) + r'))(\d|[a-zA-Z])', function_name1 + r'(\1)', eq_string)
+            eq_string = re.sub(r'\b' + r'(?!(?:' + '|'.join(map(re.escape, relevant_functions)) + r'))(\d|[a-zA-Z])' + function_name1, r'\1*' + function_name1, eq_string)
+            eq_string = re.sub(function_name1 + r'\*\(', function_name1 + '(', eq_string)
+            
+            for function_name2 in relevant_functions:
+                eq_string = re.sub(function_name1 + function_name2 + r'\((.*?)\)', rf"{function_name1}({function_name2}(\1))", eq_string)
+                eq_string = re.sub(function_name2 + function_name1 + r'\((.*?)\)', rf"{function_name2}({function_name1}(\1))", eq_string)
+
 
     return eq_string
 
@@ -40,6 +57,9 @@ def segmented_linspace(start, end, breakpoints, num=10, dx=0.01):
     all_points = sorted([start] + breakpoints + [end])
     lists_with_breaks = [np.linspace(all_points[i] + dx, all_points[i+1] - dx, num) for i in range(len(all_points)-1)]
     return lists_with_breaks
+
+def trig_simp(x):
+    return TR1(TR2(x))
 
 
 class UserInterface(QtWidgets.QMainWindow):
@@ -176,6 +196,7 @@ class UserInterface(QtWidgets.QMainWindow):
 
         try:
             eq_string = math_interpreter(eq_string)
+            
             self.eq_string = eq_string
 
             eq_split = eq_string.split("=")
@@ -190,7 +211,6 @@ class UserInterface(QtWidgets.QMainWindow):
                 except AttributeError:
                     self.eq = eq1
 
-
                 if eq1.free_symbols:
                     self.symbol = eq1.free_symbols.pop()
                     if not sp.solveset(self.eq, domain=sp.S.Reals).is_empty:
@@ -204,6 +224,7 @@ class UserInterface(QtWidgets.QMainWindow):
                 else:
                     self.equation_output.setText(eq_string)
 
+
             elif len(eq_split) == 2:
                 eq1 = sp.sympify(eq_split[0])
                 eq2 = sp.sympify(eq_split[1])
@@ -213,14 +234,16 @@ class UserInterface(QtWidgets.QMainWindow):
                     self.eq = sp.nsimplify(sp.Eq(eq1, eq2), tolerance=10**-7)
                 except AttributeError:
                     self.eq = sp.Eq(eq1, eq2)
-  
 
-                if eq1.free_symbols:
+                self.eq_string = str(self.eq)
+                
+                if self.eq.free_symbols:
                     self.symbol = self.eq.free_symbols.pop()
                     self.eq1 = sp.lambdify(self.symbol, eq1, "sympy")
                     self.eq2 = sp.lambdify(self.symbol, eq2, "sympy")
 
                 self.equation_output.setText(eq_string)
+
 
             else:
                 self.solution_text.set_color("red")
@@ -241,11 +264,11 @@ class UserInterface(QtWidgets.QMainWindow):
 
             eq12 = sp.simplify(eq1 - eq2)
             if self.symbol:
-                if len(eq_split) == 1 and TR2(eq1) != eq1:
-                    self.vert_asympt_eq = TR2(eq1).as_numer_denom()[1]
+                if len(eq_split) == 1 and not trig_simp(eq1).as_numer_denom()[1].is_number:
+                    self.vert_asympt_eq = trig_simp(eq1).as_numer_denom()[1]
 
-            elif len(eq_split) == 2 and TR2(eq12) != eq12:
-                self.vert_asympt_eq = TR2(eq12).as_numer_denom()[1]
+                elif len(eq_split) == 2 and not trig_simp(eq12).as_numer_denom()[1].is_number:
+                    self.vert_asympt_eq = trig_simp(eq12).as_numer_denom()[1]
 
 
             if isinstance(self.solutions, sp.ConditionSet):
@@ -255,42 +278,48 @@ class UserInterface(QtWidgets.QMainWindow):
 
 
             if not [sol for sol in sp.solve(self.eq) if sol.is_real]:
-                try:
-                    if not sp.solve(self.eq):
-                        if len(eq_split) == 1:
+                
+                if sp.sympify(self.eq_string) == sp.nsimplify(sp.simplify(eq1), [sp.pi]):
+                    self.eq_string = sp.sympify(self.eq_string, evaluate=False)
+                else:
+                    self.eq_string = sp.sympify(self.eq_string)
 
-                            if not self.symbol:
-                                solution = sp.nsimplify(eq1, [sp.pi])
-                                self.add_solution_text(f"{sp.latex(eq_string)} = {sp.latex(solution)}")
+                    
+                if not sp.solve(self.eq):
+                    if len(eq_split) == 1:
 
+                        if not self.symbol:
+                            solution = sp.nsimplify(eq1, [sp.pi])
+                            self.add_solution_text(f"{sp.latex(self.eq_string)} = {sp.latex(solution)}")
 
-                            else:
-                                solution = sp.simplify(eq1)
-                                self.add_solution_text(f"{sp.latex(eq_string)} = {sp.latex(solution)}")
+                        elif sp.nsimplify(sp.simplify(eq1), [sp.pi]).is_number:
+                            solution = sp.simplify(eq1)
+                            self.add_solution_text(f"{sp.latex(self.eq_string)} = {sp.latex(solution)}")
+                        
+                        else:
+                            self.add_solution_text("Geen oplossing gevonden", latex=False)
 
-                        elif len(eq_split) == 2:
-                            lhs = sp.nsimplify(eq1, [sp.pi])
-                            rhs = sp.nsimplify(eq2, [sp.pi])
-                            
-                            if lhs == rhs:
-                                self.add_solution_text(f"{sp.latex(lhs)} = {sp.latex(rhs)}")
-                                self.add_solution_text("Deze vergelijking klopt", latex=False)
+                    elif len(eq_split) == 2:
+                        lhs = sp.nsimplify(sp.simplify(eq1), [sp.pi])
+                        rhs = sp.nsimplify(sp.simplify(eq2), [sp.pi])
+                        
+                        if lhs == rhs:
+                            self.add_solution_text(f"{sp.latex(lhs)} = {sp.latex(rhs)}")
+                            self.add_solution_text("Deze vergelijking klopt", latex=False)
 
-                            elif sp.simplify(lhs) == sp.simplify(rhs):
-                                lhs = sp.simplify(lhs)
-                                rhs = sp.simplify(rhs)
-                                self.add_solution_text(f"{sp.latex(lhs)} = {sp.latex(rhs)}")
-                                self.add_solution_text("Deze vergelijking klopt", latex=False)
+                        elif sp.simplify(lhs) == sp.simplify(rhs):
+                            lhs = sp.simplify(lhs)
+                            rhs = sp.simplify(rhs)
+                            self.add_solution_text(f"{sp.latex(lhs)} = {sp.latex(rhs)}")
+                            self.add_solution_text("Deze vergelijking klopt", latex=False)
 
-                            else:
-                                self.add_solution_text(f"{sp.latex(lhs)} \\neq {sp.latex(rhs)}")
-                                self.add_solution_text("Deze vergelijking klopt niet", latex=False)
+                        else:
+                            self.add_solution_text(f"{sp.latex(lhs)} \\neq {sp.latex(rhs)}")
+                            self.add_solution_text("Deze vergelijking klopt niet", latex=False)
    
-                    else:
-                        raise Exception
-
-                except Exception:
+                else:
                     self.add_solution_text("Geen oplossing gevonden", latex=False)
+                    
 
                 self.equation_input.setFocus()
                 self.equation_input.selectAll()
@@ -323,11 +352,11 @@ class UserInterface(QtWidgets.QMainWindow):
                         self.add_solution_text(f"{counter}) \quad {sp.latex(self.symbol)} = {sp.latex(solution)}")
             
             else:
-                if isinstance(self.solutions, sp.ConditionSet):
-                    self.solutions = self.solutions.base_set
-
                 self.add_solution_text("De oplossingen zijn:", latex=False, new_line=2)
                 self.add_solution_text(f"{sp.latex(self.symbol)} = {sp.latex(self.solutions)}")
+
+                if isinstance(self.solutions, sp.ConditionSet):
+                    self.solutions = self.solutions.base_set                
 
                 if domain_string != "ℝ":
                     self.add_solution_text(f"Met de voorwaarde dat het domein van ${self.symbol}$ is:", latex=False, new_line=2)
@@ -423,7 +452,8 @@ class UserInterface(QtWidgets.QMainWindow):
         else:
             self.vert_asympt = sp.solveset(self.vert_asympt_eq, domain=sp.Interval(*self.x_range))
             self.vert_asympt = [float(sol) for sol in self.vert_asympt if sp.N(sol).is_real]
-            x_coords = segmented_linspace(self.x_range[0] - 1, self.x_range[1] + 1, self.vert_asympt, num=10, dx=0.00001)
+            num = int(round(50/len(self.vert_asympt))) if 0 < len(self.vert_asympt) < 5 else 10
+            x_coords = segmented_linspace(self.x_range[0] - 1, self.x_range[1] + 1, self.vert_asympt, num=num, dx=0.00001)
 
         plottable_x1_coords = []
         y1_coords = []
@@ -459,12 +489,11 @@ class UserInterface(QtWidgets.QMainWindow):
                 self.plot_widget.plot(plottable_x2_coords[i], y2_coords[i], symbol=None, pen={'color': 'springgreen', 'width': 3}, name=f"g(x) = {self.eq2(self.symbol)}" if counter == 1 else None)
 
             counter = 0
-            if len(self.vert_asympt) >= 10 and len(self.x_intersect) >= 7:
-                return
 
-            for vert_asympt in self.vert_asympt:
-                counter += 1
-                self.plot_widget.plot([vert_asympt, vert_asympt], self.y_range, symbol=None, pen=pg.mkPen('black', width=3, style=QtCore.Qt.DashLine), name=f"Verticale Asymptoot" if counter == 1 else None)
+            if len(self.vert_asympt) < 10:
+                for vert_asympt in self.vert_asympt:
+                    counter += 1
+                    self.plot_widget.plot([vert_asympt, vert_asympt], self.y_range, symbol=None, pen=pg.mkPen('black', width=3, style=QtCore.Qt.DashLine), name=f"Verticale Asymptoot" if counter == 1 else None)
 
         if len(self.x_intersect) >= 7:
             return

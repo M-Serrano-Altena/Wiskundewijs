@@ -1,5 +1,5 @@
 import sympy as sp
-from sympy.simplify.fu import TR2
+from sympy.simplify.fu import TR2, TR1
 import numpy as np
 import re
 import matplotlib.pyplot as plt
@@ -38,31 +38,65 @@ def segmented_linspace(start, end, breakpoints, num=10):
     lists_with_breaks = [np.linspace(all_points[i], all_points[i+1], num=10) for i in range(len(all_points)-1)]
     return lists_with_breaks
 
+def math_interpreter(eq_string):
+    for _ in range(10):
+        function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
+        relevant_functions = [func for func in function_names if func in eq_string]
+        
+        eq_string = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', eq_string)
+        eq_string = re.sub(r'\)(\d)', r')*\1', eq_string)
+        eq_string = re.sub(r'(\d)\(', r'\1*(', eq_string)
 
+        eq_string = re.sub(r'\)([a-zA-Z])', r')*\1', eq_string)
+        eq_string = re.sub(r'([a-zA-Z])\(', r'\1*(', eq_string)
+        eq_string = re.sub(r'\)\(', r')*(', eq_string)
+
+        for function_name1 in relevant_functions:
+            eq_string = re.sub(r'\b' + function_name1 + r'\*(\d|[a-zA-Z])', function_name1 + r'(x)*\1', eq_string)
+            eq_string = re.sub(r'\b' + function_name1 + r'(\d|[a-zA-Z])', function_name1 + r'(\1)', eq_string)
+            eq_string = re.sub(r'\b' + r'(\d|[a-zA-Z])' + function_name1, r'\1*' + function_name1, eq_string)
+            eq_string = re.sub(r'\b' + function_name1 + r'\*\(', function_name1 + '(', eq_string)
+            eq_string = re.sub(function_name1 + r'\*\(', function_name1 + '(', eq_string)
+
+            for function_name2 in relevant_functions:
+                eq_string = re.sub(function_name1 + function_name2 + r'\((\d|[a-zA-Z])\)', rf"{function_name1}({function_name2}\1)", eq_string)
+                eq_string = re.sub(function_name1 + function_name2 + r'\((\d|[a-zA-Z])\)', rf"{function_name2}({function_name1}\1)", eq_string)
+
+    return eq_string
+
+print(math_interpreter("xsinxcosx"))
+
+exit()
 
 if __name__ == "__main__":
     x = sp.symbols('x')
-    f = sp.sin(x)/sp.cos(x)#*sp.sqrt(x)
+    f = (x-1)**2/(x-1)
     g = sp.tan(x) - 1
-    eq = sp.nsimplify(sp.Eq(g, 0), tolerance=10**-5)
+    eq = sp.nsimplify(sp.Eq(0, f), tolerance=10**-5)
     domain = sp.calculus.util.continuous_domain(f, x, domain=sp.S.Reals)
     # sp.pprint(domain)
     # print(domain.is_Interval)
-    print(f.rewrite((sp.cos, sp.sin)))
-    print(TR2(g))
-    print(TR2(g).as_numer_denom())
+    print(sp.solveset(eq, x, domain=sp.S.Reals))
+    print(sp.sympify("1+1*4+x^0", evaluate=False))
+    sp.pprint(sp.solveset(x*sp.sin(sp.sin(x)), domain=sp.S.Reals))
+    # print(TR2(g))
+    # print(TR2(g).as_numer_denom())
 
     start, end = 1, 100
     breakpoints = [10, 20, 30, 40, 50, 60, 70, 80, 90]
     num = 10
-    print(segmented_linspace(start, end, breakpoints, num=num))
+    # print(segmented_linspace(start, end, breakpoints, num=num))
 
-    print([sp.N(x) for x in (sp.solve(sp.sin(x)))])
+    # print([sp.N(x) for x in (sp.solve(sp.sin(x)))])
 
-    l = []
-    l.append([1,2])
-    l.append([3,4])
-    print(l)
+    # func = x**2/(x**3)
+    # h = sp.sin(x)*sp.sin(x) + sp.cos(x)*sp.cos(x)
+    # solution = sp.solve(func)
+    # print((func.as_numer_denom()))
+    # print(type(func.as_numer_denom()[1]))
+    # print(func.as_numer_denom()[1].is_number)
+    # print(sp.sympify(h, evaluate=False))
+    # # print(func.subs(x, solution[0]))
 
 
     # print(domain.is_finite) 
