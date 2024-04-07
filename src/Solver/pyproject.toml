@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "Solver"
+name = "solver"
 version = "0.1.0"
 description = ""
 authors = ["M-Serrano-Altena <Marc.Serrano.Altena@gmail.com>"]
@@ -20,5 +20,5 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-solve = "solver:main"
-test = "test:main"
+solve = "solver.results:main"
+test = "solver.test:main"

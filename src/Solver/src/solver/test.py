@@ -39,11 +39,16 @@ def segmented_linspace(start, end, breakpoints, num=10):
     return lists_with_breaks
 
 def math_interpreter(eq_string):
+    function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
+    abs_pattern = re.compile(r"\|([^|]+)\|")
+    eq_string = re.sub(abs_pattern, r"Abs(\1)", eq_string)
+    relevant_functions = [func for func in function_names if func in eq_string]
+
+
     for _ in range(10):
-        function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
-        relevant_functions = [func for func in function_names if func in eq_string]
         
         eq_string = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', eq_string)
+        eq_string = re.sub(r'([a-zA-Z])(\d)', r'\1^\2', eq_string)
         eq_string = re.sub(r'\)(\d)', r')*\1', eq_string)
         eq_string = re.sub(r'(\d)\(', r'\1*(', eq_string)
 
@@ -64,7 +69,16 @@ def math_interpreter(eq_string):
 
     return eq_string
 
-print(math_interpreter("xsinxcosx"))
+print(math_interpreter("xx"))
+print(math_interpreter("x²+1+xx"))
+
+
+superscript_mapping = {'²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁺': '+', '⁻': '-', '⁼': '=', '⁽': '(', '⁾': ')', 'ⁿ': 'n', '⁰': '0'}
+
+text = "This is a sample text with superscripted numbers like 2² and 3³, x²."
+result = re.sub(r'(\w+)([²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿ⁰]+)', r"\1" + '^' + superscript_mapping[str(r'\2')], text)
+
+print(result)
 
 exit()
 
