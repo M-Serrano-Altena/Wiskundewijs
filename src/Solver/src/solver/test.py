@@ -42,8 +42,11 @@ def math_interpreter(eq_string):
     function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
     abs_pattern = re.compile(r"\|([^|]+)\|")
     eq_string = re.sub(abs_pattern, r"Abs(\1)", eq_string)
-    relevant_functions = [func for func in function_names if func in eq_string]
+    relevant_functions = [func for func in function_names if func in eq_string and func not in ["And", "Or", "Not", "Xor", "Implies", "Equivalent"]]
 
+    # relevant_functions = [relevant_functions[i] for i in range(len(relevant_functions)) if relevant_functions[i] not in func for func in relevant_functions[:i] + relevant_functions[i+1:]]
+
+    print(relevant_functions[1] in relevant_functions[0], relevant_functions[0] in relevant_functions[1])
 
     for _ in range(10):
         
@@ -56,6 +59,7 @@ def math_interpreter(eq_string):
         eq_string = re.sub(r'([a-zA-Z])\(', r'\1*(', eq_string)
         eq_string = re.sub(r'\)\(', r')*(', eq_string)
 
+        print(relevant_functions)
         for function_name1 in relevant_functions:
             eq_string = re.sub(r'\b' + function_name1 + r'\*(\d|[a-zA-Z])', function_name1 + r'(x)*\1', eq_string)
             eq_string = re.sub(r'\b' + function_name1 + r'(\d|[a-zA-Z])', function_name1 + r'(\1)', eq_string)
@@ -69,16 +73,23 @@ def math_interpreter(eq_string):
 
     return eq_string
 
-print(math_interpreter("xx"))
-print(math_interpreter("x²+1+xx"))
 
+# superscript_mapping = {'²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁺': '+', '⁻': '-', '⁼': '=', '⁽': '(', '⁾': ')', 'ⁿ': 'n', '⁰': '0'}
 
-superscript_mapping = {'²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁺': '+', '⁻': '-', '⁼': '=', '⁽': '(', '⁾': ')', 'ⁿ': 'n', '⁰': '0'}
+# text = "This is a sample text with superscripted numbers like 2² and 3³, x²."
+# result = re.sub(r'(\w+)([²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿ⁰]+)', r"\1" + superscript_mapping[str(r'\2')], text)
 
-text = "This is a sample text with superscripted numbers like 2² and 3³, x²."
-result = re.sub(r'(\w+)([²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿ⁰]+)', r"\1" + '^' + superscript_mapping[str(r'\2')], text)
+l = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
 
-print(result)
+x = sp.symbols('x', real=True)
+
+domain = sp.calculus.util.continuous_domain(x/(x-1), x, domain=sp.S.Reals)
+domain = sp.calculus.util.continuous_domain(sp.sqrt(x), x, domain=sp.S.Reals)
+print(domain.args[0].args)
+sp.pprint(domain)
+
+print(int(sp.N(4.1)) == sp.N(4.1))
+
 
 exit()
 

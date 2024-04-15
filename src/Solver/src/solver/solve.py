@@ -7,6 +7,7 @@ def math_interpreter(eq_string):
     function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
     abs_pattern = re.compile(r"\|([^|]+)\|")
     eq_string = re.sub(abs_pattern, r"Abs(\1)", eq_string)
+    eq_string = re.sub(r'\b' + r'abs', r'Abs', eq_string)
     relevant_functions = [func for func in function_names if func in eq_string]
 
     for _ in range(10):
@@ -20,6 +21,8 @@ def math_interpreter(eq_string):
         eq_string = re.sub(r'\)\(', r')*(', eq_string)
 
         eq_string = re.sub(r'\b' + r'([a-zA-Z])\1', r'\1*\1', eq_string)
+        eq_string = re.sub(r'\b' + r'([e])' + r'\b', r'E', eq_string)
+        
 
         for function_name1 in relevant_functions:
             for function_name2 in relevant_functions:
@@ -87,6 +90,9 @@ class Solve:
                         self.eq1 = sp.lambdify(self.symbol, eq1, "sympy")
                         self.eq2 = sp.lambdify(self.symbol, eq2, "sympy")
                         self.equation_interpret = f"{self.eq_string} = 0"
+                    
+                    elif not sp.simplify(self.eq).is_number:
+                        self.equation_interpret = f"{self.eq_string} = 0"
 
             elif len(eq_split) == 2:
                 eq1 = sp.sympify(eq_split[0])
@@ -121,20 +127,30 @@ class Solve:
             domain = sp.calculus.util.continuous_domain(self.eq, self.symbol, domain=sp.S.Reals)
             domain_string = sp.pretty(domain)
 
-
-            eq12 = sp.simplify(eq1 - eq2)
-            if self.symbol:
-                if len(eq_split) == 1 and not trig_simp(eq1).as_numer_denom()[1].is_number:
-                    self.vert_asympt_eq = trig_simp(eq1).as_numer_denom()[1]
-
-                elif len(eq_split) == 2 and not trig_simp(eq12).as_numer_denom()[1].is_number:
+            if self.symbol and (sp.solve(self.eq)):
+                eq12 = sp.simplify(eq1 - eq2)
+                self.eq12 = sp.lambdify(self.symbol, eq12, "sympy")
+                if not trig_simp(eq12).as_numer_denom()[1].is_number:
                     self.vert_asympt_eq = trig_simp(eq12).as_numer_denom()[1]
 
+                elif domain != sp.S.Reals and (domain.is_Interval or domain.is_Union):
+                    amt_intervals = len(domain.args) if domain.is_Union else 1
+                    asympt_check = []
+                    asympt_values = []
+                    for i in range(amt_intervals):
+                        sub_domain = domain.args[i] if domain.is_Union else domain
+                        asympt_check.extend([self.eq12(sub_domain.args[j]).is_finite for j in range(2) if sub_domain.args[j].is_finite])
+                        asympt_values.extend([sub_domain.args[j] for j in range(2) if sub_domain.args[j].is_finite])
+
+                    if False in asympt_check:
+                        self.vert_asympt_eq = [asympt_values[i] for i in range(len(asympt_values)) if not asympt_check[i]]
+                        if not self.vert_asympt_eq:
+                            self.vert_asympt_eq = None
+                            
 
             if isinstance(self.solutions, sp.ConditionSet):
                 self.eq = sp.simplify(self.solutions.condition)
                 self.solutions = sp.solveset(self.eq, domain=sp.S.Reals)
-
 
 
             if not sp.solve(self.eq):
@@ -149,6 +165,11 @@ class Solve:
 
                     if not self.symbol:
                         solution = sp.nsimplify(eq1, [sp.pi])
+                        if solution.is_number:
+                            solution = sp.N(solution)
+                            if int(solution) == solution:
+                                solution = int(solution)
+
                         self.output.append(f"{sp.latex(self.eq_string)} = {sp.latex(solution)}")
 
                     elif sp.nsimplify(sp.simplify(eq1), [sp.pi]).is_number:
@@ -187,24 +208,28 @@ class Solve:
 
             if len(eq_split) == 1:
                 self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
-                self.output.append(f"{sp.latex(sp.simplify(eq1))} = 0")
+                self.output.append(f"{sp.latex(sp.simplify(eq1)).replace('log', 'ln')} = 0")
 
             elif len(eq_split) == 2:
                 self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
-                self.output.append(f"{sp.latex(sp.simplify(eq1))} = {sp.latex(sp.simplify(eq2))}")
+                self.output.append(f"{sp.latex(sp.simplify(eq1)).replace('log', 'ln')} = {sp.latex(sp.simplify(eq2)).replace('log', 'ln')}")
 
 
             if self.solutions.is_FiniteSet:
                 if len(self.solutions) == 1:
                     self.output.append((f"De oplossing is:", {"latex":False, "new_line":2}))
-                    self.output.append(f"{sp.latex(self.symbol)} = {sp.latex(self.solutions.args[0])}")
+                    self.output.append(f"{sp.latex(self.symbol)} = {sp.latex(self.solutions.args[0]).replace('log', 'ln')}")
 
                 else:
                     self.output.append((f"De oplossingen zijn:", {"latex":False, "new_line":2}))
                     counter = 0
                     for solution in self.solutions:
                         counter +=1
-                        self.output.append(f"{counter}) \quad {sp.latex(self.symbol)} = {sp.latex(solution)}")
+                        self.output.append(f"{counter}) \quad {sp.latex(self.symbol)} = {sp.latex(solution).replace('log', 'ln')}")
+
+                if domain_string != "ℝ":
+                    self.output.append((f"Het domein van ${self.symbol}$ is:", {"latex":False, "new_line":2}))
+                    self.output.append(sp.latex(domain))
             
             else:
                 self.output.append((f"De oplossingen zijn:", {"latex":False, "new_line":2}))
@@ -226,7 +251,7 @@ class Solve:
                     self.output.append(f"{counter}) \quad {sp.latex(self.symbol)} = {sp.latex(solution)}")        
         
         except Exception as e:
-            self.output.append((f"Fout: {str(e)}", {"latex":False}))
+            self.output.append((f"Error: {str(e)}", {"latex":False}))
             print(e)
     
         return self.equation_interpret, self.output, self.plot
@@ -261,14 +286,19 @@ class Solve:
 
             def add_endpoint(plottable_x_coords, eq):
                 domain = sp.calculus.util.continuous_domain(eq, self.symbol, domain=sp.S.Reals)
+                
 
                 if (not domain.is_Interval) or (type(domain) is type(sp.Reals)):
                     return plottable_x_coords
-        
-                for i in range(2):
-                    if domain.args[i].is_finite and not (min(plottable_x_coords) <= domain.args[i] <= max(plottable_x_coords)):
-                        plottable_x_coords.append(float(domain.args[i]))
-                        plottable_x_coords = sorted(plottable_x_coords)
+
+                input_eq = sp.lambdify(self.symbol, eq, "sympy")
+                amt_intervals = len(domain.args) if domain.is_Union else 1
+                for i in range(amt_intervals):
+                    sub_domain = domain.args[i] if domain.is_Union else domain
+                    for j in range(2):
+                        if domain.args[j].is_finite and input_eq(float(domain.args[j])).is_finite and not (min(plottable_x_coords) <= domain.args[j] <= max(plottable_x_coords)):
+                                plottable_x_coords.append(float(domain.args[j]))
+                                plottable_x_coords = sorted(plottable_x_coords)
 
                 plottable_x_coords = [x for x in plottable_x_coords if domain.args[0] <= x <= domain.args[1]]   
 
@@ -291,7 +321,11 @@ class Solve:
             self.x_coords = np.linspace(x_range[0] - 1, x_range[1] + 1, 100)
 
         else:
-            self.vert_asympt = sp.solveset(self.vert_asympt_eq, domain=sp.Interval(*x_range))
+            if isinstance(self.vert_asympt_eq, list):
+                self.vert_asympt = self.vert_asympt_eq
+            else:
+                self.vert_asympt = sp.solveset(self.vert_asympt_eq, domain=sp.Interval(*x_range))
+
             self.vert_asympt = [float(sol) for sol in self.vert_asympt if sp.N(sol).is_real]
             num = int(round(50/len(self.vert_asympt))) if 0 < len(self.vert_asympt) < 5 else 10
             self.x_coords = segmented_linspace(x_range[0] - 1, x_range[1] + 1, self.vert_asympt, num=num, dx=0.00001)
