@@ -654,6 +654,9 @@ Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwo
 
     En dit is precies hetzelfde als dat we net ook hadden gevonden.
 
+#### <span style="font-size: 18ps;">Uitleg Filmpje</span>
+???+ Youtube
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/kKqyplvyK4Q?si=pLA6MxVocTfMvGE6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 #### <span style="font-size: 18px;">Voorbeelden</span>
 
@@ -797,6 +800,10 @@ Door nu aan beide kanten $-3$ te doen vinden we onze eindoplossing:
 
 !!! quote ""
     $$\large{x = 1 \ \vee \ x = -7}$$
+
+#### <span style="font-size: 18ps;">Uitleg Filmpje</span>
+???+ Youtube
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/w-aemzBWMlk?si=drjgvybYsgNjhAGV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 #### <span style="font-size: 18px;">Voorbeelden</span>
 
