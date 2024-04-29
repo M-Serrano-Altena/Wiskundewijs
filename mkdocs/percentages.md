@@ -1,28 +1,32 @@
 # *Percentages*
-We zijn allemaal wel een keer percentages tegengekomen. Bijvoorbeeld als je $100 \%$ van €$10$ moet betalen, betekent dat dat je gewoon de volledig prijs van €$10$ moet betalen. Heb je $50 \%$ korting? Dan hoef je alleen maar de helft te betalen, dus €$5$. Maar hoeveel moet je betalen als je $15.3 \%$ korting hebt? Deze vraag kunnen we met behulp van de theorie straks beantwoorden.
+We zijn allemaal wel een keer percentages tegengekomen. Bijvoorbeeld als je $80 \%$ van €$10$ moet betalen, dan hoef je maar €$8$ te betalen. Heb je $50 \%$ korting? Dan hoef je alleen maar de helft te betalen, dus €$5$. Maar hoeveel moet je betalen als je $15.3 \%$ korting hebt? Deze vraag kunnen we met behulp van de theorie straks beantwoorden.
 
 ## **Vermenigvuldigingsfactoren**
 Een percentage is eigenlijk niks anders dan een een bepaald deel van een getal. $50 \%$ is bijvoorbeeld de helft. Dit kunnen we ook als een vermenigvuldigingsfactor schrijven. 
 
-Stel we hebben bijvoorbeeld $50 \%$ van €$20$. Dit is de helft van $20$ en dus $10$. Dit kunnen we als volgt opschrijven:
+Stel we hebben bijvoorbeeld $50 \%$ van €$20$. Dit is de helft van €$20$ en dus €$10$. Dit kunnen we als volgt opschrijven:
 
-$$50\% \textrm{ van } 20 = \frac{1}{2} * 20 = 10.$$
+$$50\% \textrm{ van } \large{\textrm{€}} \normalsize 20 = \frac{1}{2} * \large{\textrm{€}} \normalsize 20 = \large{\textrm{€}} \normalsize 10.$$
 
-De $50 \%$ komt dus overeen met een vermenigvuldigingsfactor van $\frac{1}{2}$, omdat als ons getal (in dit geval $20$) keer deze factor doen, we hetzelfde effect krijgen als het percentage nemen. 
+De $50 \%$ komt dus overeen met een vermenigvuldigingsfactor van $\frac{1}{2}$. Want $50 \%$ van een getal is hetzelfde als $\frac{1}{2}$ keer dat getal en dus is $\frac{1}{2}$ hier de vermenigvuldigingsfactor. 
 
-Stel we willen nu weten wat $25 \%$ is van $20$. Dit is de helft van $50 \%$ en dus de helft van $10$, wat $5$ is. Dit is hetzelfde als een vierde van $20$. Er geldt dus dat:
+Stel we willen nu weten wat $25 \%$ is van €$20$. Dit is de helft van $50 \%$ van €$20$ en dus de helft van €$10$, dus €$5$. Dit is hetzelfde als een vierde van €$20$. Er geldt dus dat:
 
-$$25\% \textrm{ van } 20 = \frac{1}{4} * 20 = 10.$$
+$$25\% \textrm{ van } \large{\textrm{€}} \normalsize 20 = \frac{1}{4} * \large{\textrm{€}} \normalsize 20 = \large{\textrm{€}} \normalsize 5.$$
 
-De vermenigvuldigingsfactor die dus bij $25 \%$ hoort is $\frac{1}{4}$. Maar hoe zorgen we er nu voor dat we van elk percentage zo'n vermenigvuldigingsfactor kunnen maken? We doen dit als volgt.
+De vermenigvuldigingsfactor die dus bij $25 \%$ hoort is $\frac{1}{4}$. Maar hoe maken we van elk percentage zo'n vermenigvuldigingsfactor? 
 
 ???+ Belangrijk
     Om van een percentage naar een vermenigvuldigingsfactor te gaan doen we het volgende:
 
-    $100 \%$ komt overeen met een vermenigvuldigingsfactor van $1$, dus moeten we het percentage dat we willen weten delen door $100$ om een vermenigvuldiginsfactor te maken.
+    - <span style="font-size: 14px;">$100 \%$ van een getal is het getal zelf, en dus heeft het een vermenigvuldigingsfactor van $1$.</span>
 
+    - <span style="font-size: 14px;">$50 \%$ van een getal is de helft van dat getal, en dus heeft het een vermenigvuldigingsfactor van $0.5$.</span>
+
+    - <span style="font-size: 14px;">$25 \%$ van een getal is een kwart van dat getal, en dus heeft het een vermenigvuldigingsfactor van $0.25$.</span>
     
-    
+    Begin je het patroon te herkennen? Om dus van een percentage naar een vermenigvuldigingsfactor te gaan, moeten we het percentage delen door $100$. Dus:
+
     $$\large{\textrm{Voor $50\%$: Vermenigvuldigingsfactor} = \frac{50}{100} = 0.5 \textrm{ of } \frac{1}{2}}$$
 
     $$\large{\textrm{Voor $25\%$: Vermenigvuldigingsfactor} = \frac{25}{100} = 0.25 \textrm{ of } \frac{1}{4}}$$
@@ -57,7 +61,7 @@ Ons eindantwoord is dus:
     !!! quote ""
         $$\large{8\% \textrm{ van } 25 = 2}$$
 
-    Je kunt dit eventueel zelf controleren door het te berekenen zonder de percentage en het getal om te keren.
+    Je kunt dit eventueel zelf controleren door het op de normale manier te berekenen.
 
 ### **Voorbeelden**
 ??? example "Voorbeeld 1: Bepaal $10 \%$ van $90$"
@@ -68,7 +72,7 @@ Ons eindantwoord is dus:
 
     $$\large{\textrm{Vermenigvuldigingsfactor} = \frac{10}{100} = \frac{1}{10}}$$
 
-    Nu doen we $90$ keer deze vermenigvuldigingsfactor om ons eindresultaat te vinden:
+    Nu doen we de vermenigvuldigingsfactor keer $90$ om ons eindresultaat te vinden:
 
     !!! quote ""
         $$\large{10 \% \textrm{ van } 90 = \frac{1}{10} * 90 = 9}$$
@@ -82,14 +86,14 @@ Ons eindantwoord is dus:
 
     $$\large{\textrm{Vermenigvuldigingsfactor} = \frac{2.8}{100} = 0.028}$$
 
-    Nu doen we $250$ keer deze vermenigvuldigingsfactor om te vinden:
+    Nu doen we deze vermenigvuldigingsfactor keer $250$ om te vinden:
 
     !!! quote ""
         $$\large{2.8 \% \textrm{ van } 250 = 0.028 * 250 = 7}$$
 
 
     ??? note "Oplossen door omkeren"
-        We kunnen dit ook oplossen door gebruik te maken van het feit dat percentages van een getal omkeerbaar zijn. Met andere woorden:
+        We kunnen dit ook oplossen door het percentage en het getal om te keren. Met andere woorden:
 
         $$\large{2.8 \% \textrm{ van } 250 = 250 \% \textrm{ van } 2.8}$$
 
@@ -115,17 +119,17 @@ Ons eindantwoord is dus:
 
     $$\large{\textrm{Vermenigvuldigingsfactor} = \frac{43.9}{100} = 0.439}$$
 
-    Nu doen we $1279.2$ keer deze vermenigvuldigingsfactor om ons eindantwoord te vinden:
+    Nu doen we deze vermenigvuldigingsfactor keer $1279.2$ om ons eindantwoord te vinden:
 
     !!! quote ""
         $$\large{43.9 \% \textrm{ van } 1279.2 = 0.439 * 1279.2 = 561.5688}$$
 
 
 ## **Kortingen**
-Als je korting krijgt, dan betekent dit dat je niet de volledige prijs hoeft te betalen, maar alleen een deel hiervan. Maar hoe groot is dat deel?
+Als je korting krijgt, dan hoef je alleen maar een deel van de volledige prijs te betalen. Maar hoe groot is dat deel?
 
 ???+ Belangrijk
-    Bij een bepaald percentage korting, is de het percentage dat je moet betalen: $100\%$ min het kortingspercentage. De nieuwe prijs wordt dan het percentage dat je moet betalen keer de oude prijs
+    Als je korting krijgt, dan geldt het volgende: Het percentage dat je moet betalen is $100 \%$ min het kortingspercentage. De nieuwe prijs is dan het percentage dat je moet betalen van de oude prijs.
     
     **<p style="text-align: center;font-size:17px;">Voorbeeld: $25 \%$ korting op een product van €$100$.</p>**
     **<p style="text-align: center;font-size:17px;">Uitwerking</p>**
@@ -134,7 +138,7 @@ Als je korting krijgt, dan betekent dit dat je niet de volledige prijs hoeft te 
 
     $$\large{100\% - 25\% = 75\%}$$
 
-    Nu moeten we dus $75\%$ bepalen van onze €$100$. Dit doen we met een [vermenigvuldigingsfactor](#vermenigvuldigingsfactoren):
+    We moeten dus $75\%$ bepalen van onze €$100$. Dit kunnen we berekenen met een [vermenigvuldigingsfactor](#vermenigvuldigingsfactoren):
 
     $$\large{\textrm{Vermenigvuldigingsfactor} = \frac{75}{100} = 0.75}$$
 
@@ -145,7 +149,7 @@ Als je korting krijgt, dan betekent dit dat je niet de volledige prijs hoeft te 
 
 
     ??? note "Alternatieve methode"
-        We zouden ook eerst het kortingspercentage kunnen bepalen als bedrag, en dan het volledige bedrag min het bedrag korting (het bedrag dat je dus niet hoeft te betalen).
+        We kunnen ook eerst het kortingspercentage omrekenen naar een bedrag. Dit is dan dus hoeveel euro je korting krijgt, en dus niet hoeft te betalen. Om dan de nieuwe prijs te bepalen doen we de oude prijs min het kortingsbedrag (dat je dus niet hoeft te betalen). 
 
         **<p style="text-align: center;font-size:17px;">Voorbeeld: $25 \%$ korting op een product van €$100$.</p>**
         **<p style="text-align: center;font-size:17px;">Uitwerking</p>**
@@ -192,7 +196,7 @@ Onze nieuwe prijs wordt dus:
     **<p style="text-align: center;font-size:20px;">Bereken de nieuwe prijs: $75 \%$ korting op een product van €$200$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We beginnen eerst met het berekenen van het percentage dat we nu moeten betalen na de korting. Dit doen we door de oude prijs $75\%$ goedkoper te maken. De oude prijs is $100 \%$, dus het nieuwe percentage wordt:
+    We beginnen eerst met het berekenen van het percentage dat we nu moeten betalen na de korting. We doen dus 100% min het kortingspercentage:
 
     $$\large{100 \% - 75\% = 25 \%}$$
 
@@ -200,7 +204,7 @@ Onze nieuwe prijs wordt dus:
 
     $$\large{\textrm{Vermenigvuldigingsfactor} = \frac{25}{100} = 0.25}$$
 
-    Nu doen we deze vermenigvuldigingsfactor keer onze oude prijs om de nieuwe prijs te vinden:
+    Om de nieuwe prijs te vinden doen we dit keer onze oude prijs:
 
     !!! quote ""
         $$\large{\textrm{Nieuwe prijs} = 0.25 * \Large{\textrm{€}} \large 200 = \Large{\textrm{€}} \large 50}$$
@@ -210,11 +214,11 @@ Onze nieuwe prijs wordt dus:
     **<p style="text-align: center;font-size:20px;">Bereken de nieuwe prijs: $12\%$ korting op een product van €$19.50$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We beginnen met het bepalen van het percentage dat we moeten bepalen van de originele prijs:
+    We beginnen met het percentage bepalen dat we moeten betalen:
 
     $$\large{100\% - 12\% = 88\%}$$
 
-    Nu bepalen we wat het nieuwe bedrag is met behulp van een [vermenigvuldigingsfactor](#vermenigvuldigingsfactoren):
+    Nu bepalen we wat het nieuwe bedrag is, met behulp van een [vermenigvuldigingsfactor](#vermenigvuldigingsfactoren):
 
     $$\large{\textrm{Vermenigvuldigingsfactor} = \frac{88}{100} = 0.88}$$
 
@@ -228,7 +232,7 @@ Onze nieuwe prijs wordt dus:
     **<p style="text-align: center;font-size:20px;">Bereken de nieuwe prijs: $43.8\%$ korting op een product van €$1992.50$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We beginnen met het bepalen van het percentage dat we moeten bepalen van de originele prijs:
+    We beginnen met het percentage bepalen dat we moeten betalen:
 
     $$\large{100\% - 43.8\% = 56.2\%}$$
 
@@ -248,7 +252,7 @@ Onze nieuwe prijs wordt dus:
 We hebben net gezien hoe we een bepaald percentage van een getal of bedrag kunnen berekenen. Nu gaan we het omgekeerde bekijken. We willen weten wat het percentage is van een bedrag ten opzichte van een ander bedrag. Stel we moesten bijvoorbeeld maar €5 betalen van iets dat €10 kost. Wat is dan het percentage dat we hebben betaald van het originele bedrag (€10)?
 
 ???+ Belangrijk
-    Een bepaald percentage van een getal ten opzichte van een ander berekenen we als volgt:
+    Een bepaald percentage van een getal ten opzichte van een ander getal berekenen we als volgt:
 
     $$\large{\textrm{Percentage} = \frac{\textrm{Deel}}{\textrm{Geheel}} * 100\%}$$
 
@@ -277,7 +281,7 @@ $$\textrm{Percentage} = 0.5 * 100\% = 50\%$$
 
     We willen weer weten wat het "deel" is en wat het "geheel" is. Hier is $32$ cent het deel en $12.79$ het geheel.
 
-    We kunnen $32$ cent ook schrijven als €$0.32$. We moeten namelijk óf twee getallen in euro's door elkaar delen óf twee getallen in centen door elkaar delen, maar gemixt kan niet. Nu kunnen we gewoon de formule invullen:
+    We kunnen $32$ cent ook schrijven als €$0.32$. We moeten namelijk óf twee getallen in euro's door elkaar delen, óf twee getallen in centen door elkaar delen, maar gemixt kan niet. Nu kunnen we gewoon de formule invullen:
 
     $$\large{\textrm{Percentage} = \frac{\Large{\textrm€} \large 0.32}{\Large{\textrm€} \large 12.79} * 100\% }$$
 
@@ -305,9 +309,12 @@ We hebben net gekeken naar het percentage van een getal ten opzichte van een and
 
     $$\large{\frac{\textrm{Nieuw} - \textrm{Oud}}{\textrm{Oud}} * 100\%}$$
 
-    "Nieuw" is dus de nieuwe prijs en "oud" is de oude prijs. Een positief getal is een procentuele toename, een negatief getal is een procentuele afname.
+    "Nieuw" is dus de nieuwe prijs en "oud" is de oude prijs. De uitkomst kan zowel positief als negatief zijn. 
+    
+    - <span style="font-size: 15px;">Een positief antwoord is een procentuele toename.</span>
+    - <span style="font-size: 15px;">Een negatief antwoord is een procentuele afname.</span>
 
-Dus als we eerst een product hadden voor €$10$, maar die nu is toegenomen naar €$15$, dan kunnen we de procentuele toename als volgt berekenen:
+Stel we hebben bijvoorbeeld eerst een product voor €$10$, maar die duurder is geworden en nu €$15$ is. Hoe berekenen we dan de procentuele toename? We kunnen dit als volgt doen:
 
 De €$15$ is de nieuwe prijs en dus "nieuw" en €$10$ is de oude prijs en dus "oud":
 

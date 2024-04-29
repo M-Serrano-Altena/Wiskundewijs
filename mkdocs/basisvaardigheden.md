@@ -1,7 +1,7 @@
 # *Basisvaardigheden*
 
 ## **Formules Omschrijven**
-Het kunnen omschrijven van formules is een belangrijke vaardigheid, ook bij vakken waar wiskunde gebruikt wordt, zoals natuurkunde. Sommige mensen vinden het moeilijk vanwege de letters, maar laten we het eenvoudiger maken met een voorbeeld.
+Formules omschrijven is een belangrijke vaardigheid om te hebben. Ook bij vakken zoals natuurkunde komt het heel erg goed van pas. Laten we naar een voorbeeld kijken om te zien hoe dit moet.
 
 Stel je hebt deze formule:
 
@@ -16,7 +16,7 @@ Als je dit nog een beetje abstract vindt, probeer het dan eens met getallen in p
 
 $$3 = \frac{6}{2}.$$
 
-Waarschijnlijk is het nu makkelijker te zien dat als we de $6$ vrij willen maken, dat we de twee naar de andere kant moeten verplaatsen om te krijgen:
+Nu kun je makkelijker te zien hoe we dit moeten omschrijven. Als we de $6$ vrij willen maken, dan moeten we de $2$ naar de andere kant halen. We krijgen dan:
 
 $$3 * 2 = 6.$$
 
@@ -37,7 +37,7 @@ Als we dit controleren met ons getallen voorbeeld, waar $2 = \frac{6}{3}$, klopt
 
 
 ## **Vergelijkingen Omschrijven**
-Vergelijkingen omschrijven is eigenlijk hetzelfde als een formule omschrijven. In beide gevallen doe je aan beide kanten van het '$=$'-teken hetzelfde, waardoor de vorm van de formule of vergelijking verandert. Laten we kijken naar een paar voorbeelden van vergelijkingen:
+Vergelijkingen omschrijven is eigenlijk hetzelfde als een formule omschrijven. In beide gevallen doe je aan beide kanten van het '$=$'-teken hetzelfde. Hierdoor kunnen we de vorm van de formule of vergelijking veranderen. Laten we kijken naar een paar voorbeelden van vergelijkingen:
 
 ### **Voorbeeld 1**
 
@@ -52,7 +52,7 @@ De meesten zullen in een keer zien dat dit betekent dat $x = 2$. Maar laten we h
 
 $$35x + 17 = 262.$$
 
-We doen weer hetzelfde als eerst, maar nu beginnen we door alle termen met $x$ links te houden en alle getallen rechts van het '$=$'-teken te zetten. We trekken $17$ af aan beide kanten van het '$=$'-teken en krijgen dan:
+Om dit op te lossen willen we alle termen met $x$ links houden en alle getallen naar rechts doen. We trekken dus $17$ af aan beide kanten van het '$=$'-teken en krijgen dan:
 
 $$35x = 262 - 17$$
 
@@ -68,7 +68,7 @@ Nu delen we beide kanten door $35$ en vinden:
 
 $$\frac{1}{2}x - \frac{1}{12} = -\frac{1}{3} x + 2$$
 
-Dit lijkt ingewikkelder, maar het stappenplan is precies hetzelfde. We brengen alle termen met $x$ aan de linkerkant, en de getallen aan de rechterkant. Stap voor stap krijgen we:
+Dit lijkt ingewikkelder, maar het stappenplan is precies hetzelfde. We doen alle termen met $x$ aan de linkerkant, en de getallen aan de rechterkant. Stap voor stap krijgen we dus:
 
 - $+\frac{1}{12}$ aan beide kanten geeft:
 
@@ -78,11 +78,11 @@ $$\frac{1}{2}x = -\frac{1}{3} x + 2\frac{1}{12}$$
 
 $$\frac{1}{2}x + \frac{1}{3} x  =  2\frac{1}{12}$$
 
-- Combineer deze twee breuken (zie eventueel [getallen voorbeeld 3](#getallen-voorbeeld-breuken) bij de [Regels bij Breuken](#regels-bij-breuken)):
+- Nu tellen we deze twee breuken bij elkaar op (zie eventueel de [Regels bij Breuken](#getallen-voorbeeld-breuken) om te zien hoe dit moet):
 
 $$\frac{5}{6}x =  2\frac{1}{12}$$
 
-- Deel beide kanten door $\frac{5}{6}$ om te vinden:
+- Deel ten slotte beide kanten door $\frac{5}{6}$ om te vinden:
 
 !!! quote ""
     $$\Large{x =  2\frac{1}{2}}$$
@@ -117,7 +117,7 @@ Voor breuken gelden er de volgende regels:
 
     6. $$\large{\frac{\frac{a}{b}}{\frac{c}{d}} = \frac{a}{b} * \frac{d}{c} = \frac{a * d}{b * c}}$$
 
-Vaak ziet dit er nog abstract uit, dus in het onderstaande voorbeeld is er voor elke regel een getallen voorbeeld weergegeven om de regels te verduidelijken.
+Vaak ziet dit er nog lastig uit, dus kijk naar het voorbeeld hieronder om de regels met getallen te zien.
 
 ??? example "Getallen Voorbeeld Breuken"
     ### **Getallen Voorbeeld Breuken**
@@ -134,7 +134,7 @@ Vaak ziet dit er nog abstract uit, dus in het onderstaande voorbeeld is er voor 
     6. $$\large{\frac{\frac{1}{2}}{\frac{1}{4}} = \frac{1}{2} * \frac{4}{1} = \frac{4}{2} = 2}$$
 
 
-We zien dus dat we bij optellen en aftrekken eerst gelijke noemers moeten hebben om op te kunnen tellen volgens regel $1$ en $2$ van de [Regels bij Breuken](#regels-bij-breuken). Als we geen gelijke noemers hebben, moeten we regel $3$ en $4$ gebruiken. Maar waar komen regel $3$ en $4$ vandaan? Dat wordt in dit onderstaande bewijs toegelicht. 
+We zien dus dat bij optellen en aftrekken van breuken we eerst gelijke noemers moeten hebben. We kunnen dan gewoon de tellers bij elkaar op tellen of aftrekken (regel $1$ en $2$). Als we geen gelijke noemers hebben, moeten we regel $3$ en $4$ gebruiken om de noemers toch gelijk te maken. Maar waar komen regel $3$ en $4$ vandaan? Het bewijs hieronder laat dat zien.
 
 ??? abstract "Waar komen regel 3 en 4 vandaan?"
     Voor [regel $3$](#regels-bij-breuken) hebben we een bewijs. We beginnen met beide termen keer 1 te doen:
@@ -158,7 +158,7 @@ We zien dus dat we bij optellen en aftrekken eerst gelijke noemers moeten hebben
     !!! quote ""
         $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a * d + b * c}{b * d}}$$
 
-    Voor aftrekken gelden precies dezelfde stappen, dus voor dat bewijs moet je dezelfde stappen doorlopen en het plus-teken vervangen met een min-teken.
+    Voor aftrekken geldt precies dezelfde stappen, maar dan moet je het plus-teken vervangen met een min-teken.
 
 !!! tip ""
 
@@ -166,7 +166,7 @@ We zien dus dat we bij optellen en aftrekken eerst gelijke noemers moeten hebben
 ## **Operaties met variabelen**
 Een operatie klinkt als een lastig woord, maar dit betekent gewoon dingen zoals optellen, aftrekken, vermenigvuldigen en delen.
 
-Alle onderstaande regels gaan twee kanten op, dus je kan iets in de linker vorm altijd schrijven als iets in de rechter vorm, en andersom. 
+Alle onderstaande regels gaan beide kanten op, dus je kan iets in de linker vorm altijd schrijven als iets in de rechter vorm, en andersom. 
 
 ???+ Belangrijk
     ### **Regels bij operaties met variabelen**
@@ -196,7 +196,7 @@ Alle onderstaande regels gaan twee kanten op, dus je kan iets in de linker vorm 
 
     - $$\large{2A - B}$$
 
-    Dus met dezelfde variabelen mag je optellen en aftrekken, met verschillende variabelen mag dit niet. 
+    Dus met dezelfde variabelen mag je optellen en aftrekken, maar met verschillende variabelen mag dit niet. 
 
     Laten we nu kijken naar vermenigvuldigen en delen:
 
@@ -233,7 +233,7 @@ Alle onderstaande regels gaan twee kanten op, dus je kan iets in de linker vorm 
 ??? note "Extra Toelichting regel 1-3"
     **<p style="text-align: center;font-size:20px;">Regel 1</p>**
 
-    Dit hebben we opgelost door de haakjes weg te werken op de volgende manier. :
+    Dit hebben we opgelost door de haakjes weg te werken op de volgende manier:
 
     $$\large{\left(a + b \right) \left(a + b \right) = a \left( a + b \right) + b \left( a + b \right)}$$
 
@@ -245,7 +245,7 @@ Alle onderstaande regels gaan twee kanten op, dus je kan iets in de linker vorm 
 
     $$\large{a^2 + ab + ba + b^2 = a^2 + 2ab + b^2}$$
 
-    Onze eindconclusie is dus:
+    Ons eindantwoord wordt dan dus:
 
     !!! quote ""
         $$\large{\left(a + b \right) \left(a + b \right) = a^2 + 2ab + b^2}$$
@@ -266,7 +266,7 @@ Alle onderstaande regels gaan twee kanten op, dus je kan iets in de linker vorm 
 
     $$\large{a^2 - ab - ba -- b^2 = a^2 - 2ab + b^2.}$$
 
-    Onze eindconclusie wordt dus:
+    Ons eindantwoord wordt dus:
 
     !!! quote ""
         $$\large{\left(a - b \right) \left(a - b \right) = a^2 - 2ab + b^2 }$$
@@ -285,13 +285,13 @@ Alle onderstaande regels gaan twee kanten op, dus je kan iets in de linker vorm 
 
     $$\large{a^2 - ab + ba - b^2 = a^2 - b^2.}$$
 
-    Onze eindconclusie wordt dus ook:
+    Onze eindconclusie wordt dan dus ook:
 
     !!! quote ""
         $$\large{\left(a + b \right) \left(a - b \right) = a^2 - b^2 }$$
 
 ### **Controle met Getallen Voorbeeld**
-Dus bij optellen en aftrekken moet je voorzichtig zijn dat je niet alleen de twee variabelen kwadrateerd en bij elkaar optelt of aftrekt, zonder rekening te houden met de kruistermen. We kunnen dit ook altijd controleren met een getallen voorbeeld:
+Dus bij optellen en aftrekken moet je voorzichtig zijn met kwadrateren. Als je twee variabelen bij elkaar optelt of aftrekt en dan kwadrateerd, dan komen er kruistermen bij. We kunnen dit ook altijd controleren met een getallen voorbeeld:
 
 $$(2 + 3)^2 \neq 2^2 + 3^2$$
 
@@ -303,7 +303,7 @@ waarbij $\neq$ dus betekent: "is **niet** gelijk aan". Als we wel rekening houde
 
 $$(2 + 3)^2 = 2^2 + 2*2*3 + 3^2 = 4 + 12 + 9 = 25$$
 
-De volgende regels gelden wel voor alle soorten machten:
+De volgende regels gelden voor alle soorten machten:
 
 ???+ Belangrijk
 
@@ -320,7 +320,7 @@ De volgende regels gelden wel voor alle soorten machten:
     6. $$\large{\left(a^n\right)^m = a^{n * m}}$$
 
 
-Voor wortels gelden dus precies dezelfde regels als voor machten, wat logisch is aangezien je een wortel kan schrijven als tot de macht $\frac{1}{2}$:
+Voor wortels gelden precies dezelfde regels als voor machten. Dit is ook logisch want je kan een wortel ook schrijven als tot de macht $\frac{1}{2}$:
 
 $$\sqrt{x} \equiv x^{\frac{1}{2}}$$
 
@@ -346,7 +346,7 @@ $$\sqrt{x} \equiv x^{\frac{1}{2}}$$
 
     $$\large{\sqrt{a^2} = a}$$
 
-    Maar dit geldt eigenlijk alleen als $a$ een positief getal is. Want als $a$ een negatief getal is, dan wordt het getal na het kwadraat positief en met de wortel blijft het positief. Bijvoorbeeld:
+    Maar dit geldt eigenlijk alleen als $a$ een positief getal is. Want als $a$ een negatief getal is, dan wordt $\sqrt{a^2}$ door het kwadraat een positief getal. Bijvoorbeeld:
 
     $$\large{\sqrt{(-2)^2} = \sqrt{4} = 2 \neq -2}$$
 
@@ -382,7 +382,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
 ??? note "Opmerking Notatie"
     ### **Opmerking Notatie**
-    De afspraak is dat als er geen grondgetal staat bij de logaritme, dat we er dan vanuit gaan dat het een $^{10} \! \log$ is, dus een logaritme met een grondgetal 10.
+    Als er geen grondgetal staat bij de logaritme, dan gaan we er vanuit dat het een $^{10} \! \log$ is. Dit is dus een logaritme met een grondgetal $10$.
 
 ???+ Belangrijk
     ### **Regels met Logaritmes**
@@ -403,7 +403,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     $$\large{^e \log \equiv \ln}$$
 
-    Dus in plaats van een logaritme met een grondgetal $e$ schrijven we $\ln$, wat staat voor "natuurlijke logaritme". Maar dit is alleen een verschil in notatie en dus zijn alle regels gewoon hetzelfde als met logaritmes die een ander grondgetal hebben.
+    Dus in plaats van een logaritme met een grondgetal $e$ schrijven we $\ln$. Dit staat voor "natuurlijke logaritme". Maar alleen de notatie is anders en het is verder precies hetzelfde als de andere logaritmes.
 
 ??? note "Domein en Bereik"
     ### **Domein en Bereik**
@@ -412,7 +412,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     $$\large{\textrm{Domein} = \langle \leftarrow, \rightarrow \rangle \textrm{ of } \mathbb{R}}$$
 
-    Het bereik is echter alle getallen groter dan $0$, want je kan nooit een negatief getal krijgen als het grondgetal niet negatief is. Dus $2^x > 0$ voor alle waardes van $x$:
+    Maar het bereik is alleen alle getallen groter dan $0$. Dit komt omdat je nooit een negatief getal kan krijgen als het grondgetal niet negatief is. Dus bijvoorbeeld $2^x > 0$ voor alle waardes van $x$:
 
     $$\large{\textrm{Bereik} = \langle 0, \rightarrow \rangle}$$
 
@@ -422,7 +422,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     $$\large{\textrm{Domein} = \langle 0, \rightarrow \rangle}$$
 
-    Dit betekent dus dat een logaritme alleen gedefinieerd is voor getallen groter dan $0$. Voor $0$ of kleiner dan $0$ is er dus geen oplossing (net zoals dat er voor een wortel geen oplossing is voor een negatief getal). 
+    Dit betekent dus dat een logaritme alleen gedefinieerd is voor getallen groter dan 0. Er is dus geen oplossing voor het logaritme van $0$ of een negatief getal. Dit is hetzelfde als dat je geen wortel kan nemen van een negatief getal.
     
     Het bereik van een logaritme is dus het domein van een exponent en dus alle reële getallen:
 
@@ -434,7 +434,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
     **<p style="text-align: center;font-size:20px;">Bereken x: $^3 \! \log{(x)} = 2$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We hebben hier een logaritme met een grondgetal $3$. Dit betekent dat we aan beide kanten van het '$=$'-teken de exponent kunnen nemen met $3$ als grondgetal om van ons logaritme af te komen:
+    We hebben hier een logaritme met een grondgetal $3$. We kunnen daarom aan beide kanten van het '$=$'-teken de exponent nemen met 3 als grondgetal. Als we dit doen dan kunnen we van ons logaritme af komen:
 
     $$\Large{3^{^3 \log{(x)}} = 3^2}$$
 
@@ -461,7 +461,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     $$\Large{\log{(x)} = \frac{3}{4}}$$
 
-    Er staat hier geen grondgetal bij de logaritme, wat dus betekent dat het een grondgetal $10$ heeft (zie [Opmerking Notatie](#opmerking-notatie)). We nemen nu aan beide kanten de exponent met $10$ als grondgetal om van ons logaritme af te komen:
+    Er staat hier geen grondgetal bij de logaritme en dus is het grondgetal $10$ (zie [Opmerking Notatie](#opmerking-notatie)). We nemen nu aan beide kanten de exponent met $10$ als grondgetal om van ons logaritme af te komen:
 
     $$\Large{10^{\log{(x)}} = 10^{\frac{3}{4}}}$$
 
@@ -469,7 +469,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     $$\Large{x = 10^{\frac{3}{4}}}$$
 
-    En omdat we weten dat we deze $4$ in de noemer van de exponent kunnen schrijven als een vierdemachtswortel (zie regel 7 van [Regels met Wortels](#regels-met-wortels)), wordt ons eindantwoord:
+    We kunnen de $4$ in de noemer van de exponent schrijven als een vierdemachtswortel (zie regel 7 van [Regels met Wortels](#regels-met-wortels)). Als we dit doen, wordt ons eindantwoord:
 
     $$\Large{x = \sqrt[4]{10^3}}$$
 
@@ -479,7 +479,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
         $$\Large{x = \sqrt[4]{1000}}$$
 
     ??? note "Alternatieve uitwerking"
-        Als we willen kunnen we ook eerst het logaritme wegwerken en daarna pas rekening houden met de vierdemacht:
+        We kunnen ook eerst het logaritme wegwerken en daarna pas rekening houden met de vierdemacht:
 
         $$\Large{10^{\log{(x^4)}} = 10^3}$$
 
@@ -515,7 +515,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     $$\Large{x^2 = \frac{16}{3}}$$
 
-    En nu nemen we aan beide kanten de wortel om over te houden (zie eventueel de [Regels met Wortels](#regels-met-wortels)):
+    En nu nemen we aan beide kanten de wortel om ons eindantwoord te vinden (zie eventueel de [Regels met Wortels](#regels-met-wortels)):
 
     !!! quote ""
         $$\Large{x = \frac{4}{\sqrt{3}}}$$
@@ -532,7 +532,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
         $$\large{^2 \! \log{(-\frac{16}{\sqrt{3}})} = - ^2 \! \log{(-\frac{12}{\sqrt{3}})} + 6}$$
 
-        We krijgen nu dus negatieve getallen in onze logaritmes. Maar we weten dat het [domein](#domein-en-bereik) van een logaritme alleen positieve getallen zijn, en dus dat een logaritme van een negatief getal niet gedefinieerd is. De oplossing $x = -\frac{4}{\sqrt{3}}$ voldoet dus niet aan de vergelijking en dus is het ook geen oplossing.
+        We krijgen nu dus negatieve getallen in onze logaritmes. Maar we weten dat het [domein](#domein-en-bereik) van een logaritme alleen positieve getallen zijn. Een oplossing waar we een logaritme van een negatief getal krijgen kan dus geen oplossing zijn. De oplossing $x = -\frac{4}{\sqrt{3}}$ voldoet dus niet aan de vergelijking en dus is het ook geen oplossing.
 
 
 ??? example "Voorbeeld 4: $^{25} \! \log{(4x^4)} - 2 = ^5 \! \log{(2x)}$"
@@ -543,7 +543,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     $$\Large{^{25} \! \log{(4x^4)} - ^5 \! \log{(2x)} = 2}$$
 
-    We kunnen nu alleen niet meteen onze logaritmes combineren, want ze hebben andere grondgetallen. Dit betekent dat we van een van de twee logaritmes het grondgetal moeten veranderen met behulp van regel 5 van de [Regels met Logaritmes](#regels-met-logaritmes): 
+    Maar we kunnen nu niet meteen onze logaritmes combineren, want ze hebben andere grondgetallen. Dit betekent dat we van een van de twee logaritmes het grondgetal moeten veranderen. Dit kunnen we doen met behulp van regel 5 van de [Regels met Logaritmes](#regels-met-logaritmes): 
     
     $$\Large{\frac{^{5} \! \log{(4x^4)}}{^5 \! \log{(25)}} - ^5 \! \log{(2x)} = 2}$$
 
@@ -565,17 +565,17 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     $$\Large{ ^{5} \! \log{\left(2x^2\right)} - ^5 \! \log{(2x)} = 2}$$
 
-    Nu kunnen we met regel 4 van de [Regels met Logaritmes](#regels-met-logaritmes) dit combineren tot $1$ logaritme:
+    Nu kunnen dit combineren tot $1$ logaritme met regel 4 van de [Regels met Logaritmes](#regels-met-logaritmes):
 
     $$\Large{ ^{5} \! \log{\left(\frac{2x^2}{2x}\right)} = 2}$$
 
     $$\Large{ ^{5} \! \log{\left(x\right)} = 2}$$
 
-    Nu nemen we aan beide kanten de exponent met $5$ als grondgetal om van het logaritme af te komen:
+    Om van de logaritme af te komen, nemen we nu aan beide kanten de exponent met $5$ als grondgetal:
 
     $$\Large{5^{^{5} \log{(x)}} = 5^2}$$
 
-    En dus met regel 1 van de [Regels met Logaritmes](#regels-met-logaritmes):
+    Ons eindantwoord wordt dus (regel 1 van de [Regels met Logaritmes](#regels-met-logaritmes)):
 
     !!! quote ""
         $$\Large{x = 25}$$
