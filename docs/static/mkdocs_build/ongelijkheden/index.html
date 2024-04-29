@@ -1,0 +1,1324 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Hier worden verschillende wiskundige onderwerpen duidelijk en helder behandelt. De hoofdstukken hebben een theorie sectie waar de stof wordt uitgelegt en daarna worden wat voorbeelden behandelt om te laten zien hoe de theorie toegepast wordt in de opdrachten.">
+      
+      
+        <meta name="author" content="Marc Serrano Altena">
+      
+      
+        <link rel="canonical" href="https://wiskundewijs.com/ongelijkheden/">
+      
+      
+        <link rel="prev" href="../kwadratische_vergelijkingen/">
+      
+      
+        <link rel="next" href="../stelsels_van_vergelijkingen/">
+      
+      
+      <link rel="icon" href="../assets/images/general/calculator-variant.svg">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
+    
+    
+      
+        <title>Ongelijkheden - Wiskundewijs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-4JQXCEL3Q5"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-4JQXCEL3Q5",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-4JQXCEL3Q5",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ongelijkheden" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Wiskundewijs" class="md-header__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+      
+  <img src="../assets/images/general/calculator-variant-outline.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wiskundewijs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ongelijkheden
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../basisvaardigheden/" class="md-tabs__link">
+          
+  
+  Stof
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../contact/" class="md-tabs__link">
+        
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Wiskundewijs" class="md-nav__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+      
+  <img src="../assets/images/general/calculator-variant-outline.svg" alt="logo">
+
+    </a>
+    Wiskundewijs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Stof
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Stof
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basisvaardigheden/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basisvaardigheden
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../percentages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percentages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistiek/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistiek
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pythagoras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Stelling van Pythagoras
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kwadratische_vergelijkingen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kwadratische Vergelijkingen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Ongelijkheden
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Ongelijkheden
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lineaire-ongelijkheden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lineaire ongelijkheden
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lineaire ongelijkheden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ongelijkheidstekens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ongelijkheidstekens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lineaire-ongelijkheden-oplossen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lineaire ongelijkheden oplossen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lineaire ongelijkheden oplossen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ongelijkheidsteken-wisselen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ongelijkheidsteken wisselen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oplossen-met-een-schets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oplossen met een schets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oplossen met een schets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden-met-schets-oplossen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden (met schets oplossen)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kwadratische-ongelijkheden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kwadratische ongelijkheden
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kwadratische ongelijkheden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kwadratische-ongelijkheden-oplossen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kwadratische ongelijkheden oplossen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stelsels_van_vergelijkingen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stelsels van Vergelijkingen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../afgeleide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Afgeleide Functie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../goniometrie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Goniometrie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lineaire-ongelijkheden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lineaire ongelijkheden
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lineaire ongelijkheden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ongelijkheidstekens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ongelijkheidstekens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lineaire-ongelijkheden-oplossen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lineaire ongelijkheden oplossen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lineaire ongelijkheden oplossen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ongelijkheidsteken-wisselen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ongelijkheidsteken wisselen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oplossen-met-een-schets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oplossen met een schets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oplossen met een schets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden-met-schets-oplossen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden (met schets oplossen)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kwadratische-ongelijkheden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kwadratische ongelijkheden
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kwadratische ongelijkheden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kwadratische-ongelijkheden-oplossen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kwadratische ongelijkheden oplossen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="ongelijkheden"><em>Ongelijkheden</em></h1>
+<h2 id="lineaire-ongelijkheden"><strong>Lineaire ongelijkheden</strong></h2>
+<p>Wat zijn ongelijkheden? Een ongelijkheid is eigenlijk een vergelijking waar iets groter/kleiner is dan iets anders. Dus bijvoorbeeld:</p>
+<div class="arithmatex">\[3 &gt; 2.\]</div>
+<p>Hier staat dat <span class="arithmatex">\(3\)</span> groter is dan <span class="arithmatex">\(2\)</span>, en in dit geval klopt deze ongelijkheid, want <span class="arithmatex">\(3\)</span> is inderdaad groter dan <span class="arithmatex">\(2\)</span>. Voor een ongelijkheid hebben we 4 soorten symbolen:</p>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="ongelijkheidstekens"><strong><span style="font-size: 19px;">Ongelijkheidstekens</strong></span></h3>
+<div class="arithmatex">\[\Large{\left\{ \begin{array}{l l l l} &lt; &amp; \quad \textrm{betekent: “kleiner dan"}  \\ \leq &amp; \quad \textrm{betekent: “kleiner of gelijk aan"} \\ &gt; &amp; \quad \textrm{betekent: “groter dan"} \\ \geq &amp; \quad \textrm{betekent: “groter of gelijk aan"} \end{array} \right.}\]</div>
+</details>
+<h3 id="lineaire-ongelijkheden-oplossen"><strong>Lineaire ongelijkheden oplossen</strong></h3>
+<p>We kunnen ook vergelijkingen opstellen met ongelijkheden. Over het algemeen gaat het oplossen van zo een vergelijking vrijwel hetzelfde als met een '<span class="arithmatex">\(=\)</span>' teken (zie <a href="../basisvaardigheden/#vergelijkingen-omschrijven">Vergelijkingen omschrijven</a> om te kijken hoe dat moet). Kijk maar bijvoorbeeld het volgende voorbeeld:</p>
+<div class="arithmatex">\[2x &lt; 4.\]</div>
+<p>We kunnen nu aan beide kanten delen door <span class="arithmatex">\(2\)</span> om te vinden dat:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x &lt; 2}\]</div>
+</div>
+<p>Dit is precies hetzelfde als dat we deden met een de vergelijking <span class="arithmatex">\(2x = 4\)</span> (zie <a href="../basisvaardigheden/#vergelijkingen-omschrijven">Vergelijkingen omschrijven</a>). Dit betekent dus dat als er geldt dat <span class="arithmatex">\(2x\)</span> kleiner is dan <span class="arithmatex">\(4\)</span>, dat er dan ook moet gelden dat <span class="arithmatex">\(x\)</span> een getal is kleiner dan <span class="arithmatex">\(2\)</span>.</p>
+<p>Maar er is een belangrijk onderscheid tussen een vergelijking met een '<span class="arithmatex">\(=\)</span>' teken en met een ongelijkheid.</p>
+<p>We kunnen bij ongelijkheden aan beide dingen optellen/aftrekken en vermenigvuldigen/delen, net zoals bij een vergelijking met een '<span class="arithmatex">\(=\)</span>'-teken. Stel we hebben bijvoorbeeld:</p>
+<div class="arithmatex">\[5 \geq 3.\]</div>
+<p>Deze vergelijking klopt, want <span class="arithmatex">\(5\)</span> is inderdaad groter of gelijk aan <span class="arithmatex">\(3\)</span> (namelijk groter). Als we beide kanten keer <span class="arithmatex">\(3\)</span> doen klopt de vergelijking nog steeds:</p>
+<div class="arithmatex">\[15 \geq 9,\]</div>
+<p>en <span class="arithmatex">\(15\)</span> is inderdaad groter of gelijk aan <span class="arithmatex">\(9\)</span>, dus dit klopt. Doen we bij aan beide kanten <span class="arithmatex">\(-1\)</span>, dan krijgen we:</p>
+<div class="arithmatex">\[14 \geq 9,\]</div>
+<p>en dit klopt ook nog steeds. Maar wat gebeurt er als we beide kanten vermenigvuldigen met een negatief getal? Stel we doen bijvoorbeeld beide kanten keer <span class="arithmatex">\(-1\)</span>:</p>
+<div class="arithmatex">\[-14 \geq -9.\]</div>
+<p>Maar nu klopt de vergelijking niet meer! Want <span class="arithmatex">\(-14\)</span> is kleiner dan <span class="arithmatex">\(-9\)</span>, niet groter of gelijk aan <span class="arithmatex">\(-9\)</span>. </p>
+<p>Dus om ervoor te zorgen dat de vergelijking nog steeds klopt, moeten we het ongelijkheidsteken altijd wisselen als we vermenigvuldigen met een negatief getal.</p>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><h4 id="ongelijkheidsteken-wisselen"><span style="font-size: 19px;">Ongelijkheidsteken wisselen</span></h4>
+<p><span style="font-size: 16px;">Het ongelijkheidsteken wisselt in de volgende twee gevallen:</span></p>
+<ul>
+<li>
+<p><span style="font-size: 16px;">Vermenigvuldiging aan beide kanten met een negatief getal</span></p>
+</li>
+<li>
+<p><span style="font-size: 16px;">Volgorde van vergelijking draait om. <span class="arithmatex">\(\quad \quad \Longrightarrow \quad 2 &lt; x \iff x &gt; 2\)</span></span> <br></br></p>
+</li>
+</ul>
+<p><span style="font-size: 16px;">Het wisselen van het ongelijkheidsteken houdt in:</span></p>
+<div class="arithmatex">\[\Large{ &gt; \textrm{ wordt } &lt; \textrm{ en andersom}}\]</div>
+<div class="arithmatex">\[\Large{ \geq \textrm{ wordt } \leq \textrm{ en andersom}}\]</div>
+</details>
+<h4 id="voorbeelden"><span style="font-size: 18px;">Voorbeelden</span></h4>
+<details class="example"><summary>Voorbeeld 1: <span class="arithmatex">\(3x + 2 &gt; 8\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(3x + 2 &gt; 8\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Om deze vergelijking op te lossen doen we aan beide kanten <span class="arithmatex">\(-2\)</span> om alleen de <span class="arithmatex">\(3x\)</span> term links over te houden:</p>
+<div class="arithmatex">\[\large{3x &gt; 6.}\]</div>
+<p>Nu delen we aan beide kanten door <span class="arithmatex">\(3\)</span> om ons eindantwoord te vinden:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x &gt; 2}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 2: <span class="arithmatex">\(-8x - 7 \leq 33\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(-8x - 7 \leq 33\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We lossen dit op door eerst aan beide kanten <span class="arithmatex">\(+7\)</span> te doen om links alleen de <span class="arithmatex">\(-8x\)</span> term over te houden:</p>
+<div class="arithmatex">\[\large{-8x \leq 40.}\]</div>
+<p>Nu delen we aan beide kanten met <span class="arithmatex">\(-8\)</span>. Omdat dit een negatief getal is, moeten we het '<span class="arithmatex">\(\leq\)</span>' teken verwisselen naar een '<span class="arithmatex">\(\geq\)</span>' teken (zie <a href="##ongelijkheidsteken-wisselen">Ongelijkheidsteken wisselen</a>). We vinden dan als eindantwoord:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x \geq -5}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 3: <span class="arithmatex">\(x - 4 \geq 2x + 9\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(x - 4 \geq 2x + 9\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We lossen dit op door eerst alle termen met <span class="arithmatex">\(x\)</span> naar links te halen en alle getallen rechts. We doen eerst aan beide kanten <span class="arithmatex">\(+4\)</span>:</p>
+<div class="arithmatex">\[\large{2x \geq 2x + 13}\]</div>
+<p>Nu doen we aan beide kanten <span class="arithmatex">\(-2x\)</span>:</p>
+<div class="arithmatex">\[\large{-x \geq 13.}\]</div>
+<p>We doen nu aan beide kanten keer <span class="arithmatex">\(-1\)</span>. Dit is een negatief getal, dus we <a href="##ongelijkheidsteken-wisselen">wisselen</a> het ongelijkheidsteken:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x \leq -13.}\]</div>
+</div>
+<details class="note"><summary>Opmerking</summary><p>We hadden ook alle <span class="arithmatex">\(x\)</span> termen naar de rechterkant kunnen halen en alle getalen naar de linkerkant. Laten we kijken wat er dan gebeurt:</p>
+<p>We doen eerst aan beide kanten <span class="arithmatex">\(-9\)</span>:</p>
+<div class="arithmatex">\[\large{x - 13 \geq 2x}\]</div>
+<p>En nu doen we aan beide kanten <span class="arithmatex">\(-x\)</span>:</p>
+<div class="arithmatex">\[\large{-13 \geq x.}\]</div>
+<p>We willen als oplossing altijd de <span class="arithmatex">\(x\)</span> term aan de linkerkant hebben, dus moeten we de volgorde omdraaien. Als we dit doen, dan <a href="#ongelijkheidsteken-wisselen">wisselt</a> het ongelijkheidsteken ook:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x \leq -13.}\]</div>
+</div>
+</details>
+</details>
+<h3 id="oplossen-met-een-schets"><strong>Oplossen met een schets</strong></h3>
+<p>Een andere manier van lineaire ongelijkheden oplossen is door twee lijnen te vergelijken. </p>
+<p>Stel we hebben de volgende vergelijking:</p>
+<div class="arithmatex">\[x - 1 &gt; -x + 2.\]</div>
+<p>Laten we zeggen dat we <span class="arithmatex">\(x - 1\)</span> nu <span class="arithmatex">\(f(x)\)</span> noemen en <span class="arithmatex">\(-x+2\)</span> nu <span class="arithmatex">\(g(x)\)</span>. Met andere woorden:</p>
+<div class="arithmatex">\[f(x) = x - 1 \ \mathrm{en} \ g(x) = -x + 2.\]</div>
+<p>De vergelijking kunnen we dan ook schrijven als:</p>
+<div class="arithmatex">\[f(x) &gt; g(x)\]</div>
+<p>Laten we deze twee functies plotten om te kijken wat er gebeurt.</p>
+<figure>
+<p><img alt="Twee lijnen plot" src="../assets/images/ongelijkheden/f%28x%29%20%3D%20x%20-%201%3B%20g%28x%29%20%3D%20-x%20%2B%202.svg" width="500" />
+  </p>
+<figcaption>Figuur 1. De lijnen f(x) = x - 1 en g(x) = -x + 2 geplot met hun snijpunt.</figcaption>
+</figure>
+<p>Laten we eerst het snijpunt bepalen van <span class="arithmatex">\(f(x)\)</span> en <span class="arithmatex">\(g(x)\)</span>. Dit doen we door de twee vergelijkingen gelijk aan elkaar te stellen.</p>
+<div class="arithmatex">\[x - 2 = -x + 2\]</div>
+<div class="arithmatex">\[x = 1 \frac{1}{2}\]</div>
+<p>en dit is ook wat we op de grafiek kunnen aflezen. We moesten oplossen voor welke waardes van <span class="arithmatex">\(x\)</span> er geldt dat:</p>
+<div class="arithmatex">\[f(x) &gt; g(x).\]</div>
+<p>Op de grafiek zijn dit de waardes voor <span class="arithmatex">\(x\)</span> waar de lijn van <span class="arithmatex">\(f(x)\)</span> boven die van <span class="arithmatex">\(g(x)\)</span> ligt. Oftewel dit is voor alles rechts van het snijpunt <span class="arithmatex">\(x = 1 \frac{1}{2}\)</span>. Deze waardes zijn allemaal groter dan <span class="arithmatex">\(x = 1 \frac{1}{2}\)</span> en dus is onze eindconclusie:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x &gt; 1 \frac{1}{2}.}\]</div>
+</div>
+<p>Je hoeft dus dan geen rekening te houden met het wisselen van het ongelijkheidsteken en kan je berederen of het groter of kleiner dan moet zijn.</p>
+<p>Hieronder worden dezelfde voorbeelden als <a href="#voorbeelden">hierboven</a> opgelost, maar nu door middel van een schets.</p>
+<h4 id="voorbeelden-met-schets-oplossen"><span style="font-size: 18px;">Voorbeelden (met schets oplossen)</span></h4>
+<details class="example"><summary>Voorbeeld 1 (met grafiek): <span class="arithmatex">\(3x + 2 &gt; 8\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(3x + 2 &gt; 8\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Als eerst maken we een grafiek van deze vergelijking. We definiëren het volgende:</p>
+<div class="arithmatex">\[\large{f(x) = 3x + 2 \ \mathrm{en} \ g(x) = 8.}\]</div>
+<p><figure markdown>
+    <img alt="Twee lijnen plot" src="../assets/images/ongelijkheden/f%28x%29%20%3D%203x%20%2B%202%3B%20g%28x%29%20%3D%208.svg" width="500" />
+    <figcaption>Figuur 1. De lijnen f(x) = 3x + 2 en g(x) = 8 geplot met hun snijpunt.</figcaption>
+</figure></p>
+<p>We kunnen het <span class="arithmatex">\(x\)</span> coördinaat van het snijpunt bepalen door te stellen dat <span class="arithmatex">\(f(x) = g(x)\)</span> (of door het af te lezen). We vinden dan:</p>
+<div class="arithmatex">\[\large{x = 2.}\]</div>
+<p>We willen bepalen wanneer <span class="arithmatex">\(f(x) &gt; g(x)\)</span>. De lijn van <span class="arithmatex">\(f(x)\)</span> is boven die van <span class="arithmatex">\(g(x)\)</span> als <span class="arithmatex">\(x\)</span> groter is dan het snijpunt, <span class="arithmatex">\(x = 2\)</span>. En dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x &gt; 2}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 2 (met grafiek): <span class="arithmatex">\(-8x - 7 \leq 33\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(-8x - 7 \leq 33\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We definiëren weer twee functies:</p>
+<div class="arithmatex">\[\large{f(x) = -8x - 7 \ \mathrm{en} \ g(x) = 33}\]</div>
+<p>We plotten weer deze twee functies en hun snijpunt.</p>
+<p><figure markdown>
+    <img alt="Twee lijnen plot" src="../assets/images/ongelijkheden/f%28x%29%20%3D%20-8x%20-%207%3B%20g%28x%29%20%3D%2033.svg" width="500" />
+    <figcaption>Figuur 2. De lijnen f(x) = -8x - 7 en g(x) = 33 geplot met hun snijpunt.</figcaption>
+</figure></p>
+<p>We bepalen weer eerst het snijpunt van <span class="arithmatex">\(f(x)\)</span> en <span class="arithmatex">\(g(x)\)</span>. Dit kunnen doen door <span class="arithmatex">\(-8x - 7 = 33\)</span> op te lossen of door het af te lezen. We vinden:</p>
+<div class="arithmatex">\[\large{x = -5}.\]</div>
+<p>We wilden weten voor welke waardes van <span class="arithmatex">\(x\)</span> er geldt dat <span class="arithmatex">\(f(x) \leq g(x).\)</span> Met andere woorden, dit zijn de waardes voor <span class="arithmatex">\(x\)</span> waar <span class="arithmatex">\(f(x)\)</span> en <span class="arithmatex">\(g(x)\)</span> elkaar snijden of de lijn van <span class="arithmatex">\(f(x)\)</span> onder die van <span class="arithmatex">\(g(x)\)</span> is. In Figuur 2 zien we dat dit geldt voor <span class="arithmatex">\(x = -5\)</span> en alle <span class="arithmatex">\(x\)</span> waardes groter dan <span class="arithmatex">\(x = -5\)</span>. Onze oplossing is dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x \geq -5}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 3 (met grafiek): <span class="arithmatex">\(x - 4 \geq 2x + 9\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(x - 4 \geq 2x + 9\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We lossen dit weer op door middel van een plot. We definiëren:</p>
+<div class="arithmatex">\[\large{f(x) = x - 4 \ \mathrm{en} \ g(x) = 2x + 9}\]</div>
+<p>We plotten nu de twee lijnen en hun snijpunt.</p>
+<p><figure markdown>
+    <img alt="Twee lijnen plot" src="../assets/images/ongelijkheden/f%28x%29%20%3D%20x%20-%204%3B%20g%28x%29%20%3D%202x%20%2B%209.svg" width="500" />
+    <figcaption>Figuur 3. De lijnen f(x) = x - 4 en g(x) = 2x + 9 geplot met hun snijpunt.</figcaption>
+</figure></p>
+<p>Door de vergelijking <span class="arithmatex">\(x - 4 = 2x + 9\)</span> op te lossen (of het af lezen), vinden we dat het snijpunt is:</p>
+<div class="arithmatex">\[\large{x = -13.}\]</div>
+<p>In Figuur 3 zien we dat <span class="arithmatex">\(f(x) \geq g(x)\)</span> voor <span class="arithmatex">\(x = -13\)</span> of voor een <span class="arithmatex">\(x\)</span> kleiner dan <span class="arithmatex">\(-13\)</span>, want dan ligt de grafiek van <span class="arithmatex">\(f(x)\)</span> boven die van <span class="arithmatex">\(g(x)\)</span>. We hebben dus als eindoplossing:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x \leq -13}\]</div>
+</div>
+</details>
+<h2 id="kwadratische-ongelijkheden"><strong>Kwadratische ongelijkheden</strong></h2>
+<p>Voor kwadratische vergelijkingen kunnen we ook een ongelijkheid opstellen. Laten we kijken naar het volgende voorbeeld:</p>
+<div class="arithmatex">\[(x - 1)(x - 2) &gt; 0.\]</div>
+<p>Als hier een '<span class="arithmatex">\(=\)</span>' teken had gestaan hadden we dit kunnen zeggen:</p>
+<div class="arithmatex">\[(x - 1)(x - 2) = 0\]</div>
+<div class="arithmatex">\[x - 1 = 0 \ \vee \ x - 2 = 0\]</div>
+<div class="arithmatex">\[x = 1 \vee x = 2\]</div>
+<p>(zie eventueel <a href="../kwadratische_vergelijkingen/#algemene-vorm">Oplossen vorm <span class="arithmatex">\(x^2 + bx = 0\)</span></a> voor een toelichting).</p>
+<p>Maar let op! We kunnen dit niet zomaar zeggen voor <span class="arithmatex">\((x - 1)(x - 2) &gt; 0.\)</span> Want het feit dat de twee termen keer elkaar groter dan <span class="arithmatex">\(0\)</span> zijn, betekent alleen dat <span class="arithmatex">\(x - 1\)</span> en <span class="arithmatex">\(x - 2\)</span> óf beide positief zijn óf beide negatief. </p>
+<p>Maar het is lastig om te bepalen wat het precies moet zijn. Daarom is het handig om kwadratische ongelijkheden op te lossen door middel van een tekening. De <a href="#oplossen-met-een-schets">methode</a> is eigenlijk redelijk hetzelfde als bij de lineaire ongelijkheden. Laten we de vergelijking hierboven plotten.</p>
+<figure>
+<p><img alt="Twee grafieken plot" src="../assets/images/ongelijkheden/f%28x%29%20%3D%20%28x%20-%201%29%28x%20-%202%29%3B%20g%28x%29%20%3D%200.svg" width="500" /></p>
+<figcaption>Figuur 1. De grafieken f(x) = (x - 1)(x - 2) en g(x) = 0 geplot met hun snijpunten.</figcaption>
+</figure>
+<p>We definiëren de volgende functies:</p>
+<div class="arithmatex">\[f(x) = (x - 1)(x - 2) \ \mathrm{en} \ g(x) = 0.\]</div>
+<p>In dit geval is <span class="arithmatex">\(g(x)\)</span> dus gewoon de <span class="arithmatex">\(x\)</span>-as. Onze originele vergelijking is dus:</p>
+<div class="arithmatex">\[f(x) &gt; g(x).\]</div>
+<p>We hebben eerder gezien dat de snijpunten zijn:</p>
+<div class="arithmatex">\[x = 1 \ \vee \ x = 2.\]</div>
+<p>Dit kunnen we ook aflezen uit de grafiek. Nu moeten we bepalen voor welke <span class="arithmatex">\(x\)</span> er geldt dat <span class="arithmatex">\(f(x) &gt; g(x)\)</span>. Met andere woorden, alle <span class="arithmatex">\(x\)</span> waardes waar de grafiek van <span class="arithmatex">\(f(x)\)</span> boven die van <span class="arithmatex">\(g(x)\)</span> ligt. We zien in Figuur 1 dat dit geldt voor alle <span class="arithmatex">\(x\)</span> links van <span class="arithmatex">\(x = 1\)</span> en alle <span class="arithmatex">\(x\)</span> rechts van <span class="arithmatex">\(x = 2\)</span>. Oftewel, ons eindantwoord wordt dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x &lt; -1 \ \vee \ x &gt; 2.}\]</div>
+</div>
+<p>Laten we nu naar een ander voorbeeld kijken. Stel we hebben de vergelijking:</p>
+<div class="arithmatex">\[x^2 &lt; 1.\]</div>
+<p>We definiëren nu dus de volgende functies:</p>
+<div class="arithmatex">\[f(x) = x^2 \ \mathrm{en} \  g(x) = 1,\]</div>
+<p>waarbij er dus geldt dat:</p>
+<div class="arithmatex">\[f(x) &lt; g(x).\]</div>
+<p>Laten we nu deze twee functies plotten.</p>
+<figure>
+<p><img alt="Twee grafieken plot" src="../assets/images/ongelijkheden/f%28x%29%20%3D%20x%C2%B2%3B%20g%28x%29%20%3D%201.svg" width="500" /></p>
+<figcaption>Figuur 2. De grafieken f(x) = x² en g(x) = 1 geplot met hun snijpunten.</figcaption>
+</figure>
+<p>De snijpunten van deze twee functies zijn bij:</p>
+<div class="arithmatex">\[x = -1 \ \vee \ x = 1,\]</div>
+<p>Dit kunnen we oplossen door te stellen dat <span class="arithmatex">\(x^2 = 1\)</span> en dan oplossen (zie <a href="../kwadratische_vergelijkingen/#voorbeelden">dit voorbeeld</a>) of door het af te lezen uit de grafiek.</p>
+<p>De vraag was voor welke <span class="arithmatex">\(x\)</span> er geldt dat <span class="arithmatex">\(f(x) &lt; g(x)\)</span>. Dit zijn dus de <span class="arithmatex">\(x\)</span> waardes waar de grafiek van <span class="arithmatex">\(f(x)\)</span> onder die van <span class="arithmatex">\(g(x)\)</span> ligt. We kunnen in Figuur 2 zien dat dit het gebied is waar <span class="arithmatex">\(x\)</span> groter is dan <span class="arithmatex">\(-1\)</span>, maar kleiner dan <span class="arithmatex">\(1\)</span>. Dit noteren we wiskundig op de volgende manier:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{-1 &lt; x &lt; 1}\]</div>
+</div>
+<p>Hier staat dus eigenlijk dat <span class="arithmatex">\(-1\)</span> kleiner is dan <span class="arithmatex">\(x\)</span> (en dus dat <span class="arithmatex">\(x\)</span> groter is dan <span class="arithmatex">\(-1\)</span>), maar dat <span class="arithmatex">\(x\)</span> weer kleiner is dan <span class="arithmatex">\(1\)</span>.</p>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="kwadratische-ongelijkheden-oplossen"><span style="font-size: 20px;"><strong>Kwadratische ongelijkheden oplossen</strong></span></h3>
+<p><span style="font-size: 16px;">De methode om een kwadratische ongelijkheid op te lossen is als volgt:</span></p>
+<ul>
+<li><span style="font-size: 16px;">Definiëer twee functies van beide kanten van het ongelijkheidsteken.</span></li>
+<li><span style="font-size: 16px;">Bepaal de snijpunten van deze twee grafieken: los de vergelijking op door het ongelijkheidsteken te vervangen door een '<span class="arithmatex">\(=\)</span>' teken. <span class="arithmatex">\(\quad \Longrightarrow x = a \vee x = b\)</span></span></li>
+<li><span style="font-size: 16px;">Schets de twee functies en bepaal uit deze schets het gebied waar de <span class="arithmatex">\(x\)</span> waardes voldoen aan de vergelijking, dus waar de grafiek van <span class="arithmatex">\(f(x)\)</span> boven/onder die van <span class="arithmatex">\(g(x)\)</span> ligt.</span><br></br>    </li>
+</ul>
+<p><em><span style="font-size: 16px;"><span class="arithmatex">\(\Longrightarrow f(x) &gt; g(x)\)</span> betekent dat we moeten kijken naar het gebied waar <span class="arithmatex">\(f(x)\)</span> boven <span class="arithmatex">\(g(x)\)</span> ligt. 
+<span class="arithmatex">\(\Longrightarrow f(x) &lt; g(x)\)</span> betekent dat we moeten kijken naar het gebied waar <span class="arithmatex">\(f(x)\)</span> onder <span class="arithmatex">\(g(x)\)</span> ligt.</span></em> <br></br></p>
+<ul>
+<li>
+<p><span style="font-size: 16px;">Noteer dit wiskundig:</span></p>
+<ul>
+<li>
+<p><span style="font-size: 15px;">Als het gebied alle waardes tussen <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> is: <span class="arithmatex">\(a &lt; x &lt; b\)</span>.</span></p>
+</li>
+<li>
+<p><span style="font-size: 15px;">Als het gebied alle waardes behalve het gebied tussen <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> is: <span class="arithmatex">\(x &lt; a \ \vee x &gt; b\)</span>.</span></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><figure markdown>
+    <img alt="Twee grafieken plot" src="../assets/images/ongelijkheden/f%28x%29%20%3D%20%28x%20-%20a%29%28x%20-%20b%29%3B%20g%28x%29%20%3D%200.svg" width="500" />
+</figure></p>
+</details>
+<h3 id="voorbeelden_1"><strong>Voorbeelden</strong></h3>
+<details class="example"><summary>Voorbeeld 1: <span class="arithmatex">\(x^2 + 10x + 4 &lt; 15\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(x^2 + 10x + 4 &lt; 15\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We beginnen met het definiëren de volgende twee functies:</p>
+<div class="arithmatex">\[\large{f(x) = x^2 + 10x + 4 \ \mathrm{en} \ g(x) = 15,}\]</div>
+<p>zodat:</p>
+<div class="arithmatex">\[\large{f(x) &lt; g(x).}\]</div>
+<p>We bepalen eerst de snijpunten van de twee functies:</p>
+<div class="arithmatex">\[\large{f(x) = g(x)}\]</div>
+<div class="arithmatex">\[\large{x^2 + 10x + 4 = 15}\]</div>
+<p>We kunnen hier aan beide kanten <span class="arithmatex">\(-15\)</span> doen:</p>
+<div class="arithmatex">\[\large{x^2 + 10x - 11 = 0}\]</div>
+<p>We kunnen dit oplossen met behulp van <a href="../kwadratische_vergelijkingen/#ontbinden-in-factoren">ontbinden in factoren</a>. We vinden dan dat we de vergelijking ook kunnen schrijven als:</p>
+<div class="arithmatex">\[\large{(x + 11)(x - 1) = 0}\]</div>
+<div class="arithmatex">\[\large{x + 11 = 0 \ \vee \ x - 1 = 0}\]</div>
+<p>Onze snijpunten zijn dus bij:</p>
+<div class="arithmatex">\[\large{x = -11 \ \vee \ x = 1.}\]</div>
+<p>Nu schetsen we de twee grafieken.</p>
+<p><figure markdown>
+    <img alt="Twee grafieken plot" src="../assets/images/ongelijkheden/f%28x%29%20%3D%20x%C2%B2%20%2B%2010x%20%2B%204%3B%20g%28x%29%20%3D%2015.svg" width="500" />
+    <figcaption>Figuur 1. De grafieken f(x) = x² + 10x + 4 en g(x) = 15 geplot met hun snijpunten.</figcaption>
+</figure></p>
+<p>We zien in Figuur 1 dat de <span class="arithmatex">\(x\)</span> waardes waarvoor geldt dat <span class="arithmatex">\(f(x) &lt; g(x)\)</span>, in het gebied tussen <span class="arithmatex">\(-11\)</span> en <span class="arithmatex">\(1\)</span> zitten, want daar is de grafiek van <span class="arithmatex">\(f(x)\)</span> onder die van <span class="arithmatex">\(g(x)\)</span>. De oplossing is dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{-11 &lt; x &lt; 1}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 2: <span class="arithmatex">\(x^2 + 25 \geq 16\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(x^2 + 25 \geq 16\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We beginnen weer met het definiëren van de volgende twee functies:</p>
+<div class="arithmatex">\[\large{f(x) = x^2 + 15 \ \mathrm{en} \ g(x) = 16,}\]</div>
+<p>zodat:</p>
+<div class="arithmatex">\[\large{f(x) \geq g(x).}\]</div>
+<p>We bepalen de snijpunten van de twee functies:</p>
+<div class="arithmatex">\[f(x) = g(x)\]</div>
+<div class="arithmatex">\[x^2 + 25 = 16\]</div>
+<p>We doen aan beide kanten <span class="arithmatex">\(-25\)</span>:</p>
+<div class="arithmatex">\[x^2 = -9.\]</div>
+<p>We zien hier dat we een negatief getal hebben, en dus betekent dit dat er geen oplossingen zijn (zie <a href="../kwadratische_vergelijkingen/#opmerkingen">Opmerking negatief getal</a>). Met andere woorden, de twee functies snijden elkaar niet. Laten we twee functies schetsen om dit te controleren.</p>
+<p><figure markdown>
+    <img alt="Twee grafieken plot" src="../assets/images/ongelijkheden/f%28x%29%20%3D%20x%C2%B2%20%2B%2025%3B%20g%28x%29%20%3D%2016.svg" width="500" />
+    <figcaption>Figuur 1. De grafieken f(x) = x² + 25 en g(x) = 16 geplot.</figcaption>
+</figure></p>
+<p>We zien inderdaad dat deze twee functies elkaar nooit snijden. We willen weten wanneer er geldt dat <span class="arithmatex">\(f(x) \geq g(x)\)</span>, oftewel wanneer de grafiek van <span class="arithmatex">\(f(x)\)</span> boven die van <span class="arithmatex">\(g(x)\)</span> ligt. In Figuur 2 kunnen we zien dat de grafiek van <span class="arithmatex">\(f(x)\)</span> altijd boven die van <span class="arithmatex">\(g(x)\)</span> ligt. Ons eindantwoord wordt dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\textrm{Voor alle } x}\]</div>
+</div>
+</details>
+<!-- (x - 9/4)^2 -->
+<details class="example"><summary>Voorbeeld 3: <span class="arithmatex">\(-x^2 + 9x - 12 \geq x^2 - 1 \frac{7}{8}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(-x^2 + 9x - 12 \geq x^2 - 1 \frac{7}{8}\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We beginnen met het definiëren van de volgende twee functies:</p>
+<div class="arithmatex">\[\large{f(x) = - x^2 + 9x - 12 \ \mathrm{en} \ g(x) = x^2 - 1 \frac{7}{8},}\]</div>
+<p>zodat:</p>
+<div class="arithmatex">\[\large{f(x) \geq g(x).}\]</div>
+<p>We willen als eerst de snijpunten bepalen van deze twee functies:</p>
+<div class="arithmatex">\[\large{f(x) = g(x)}\]</div>
+<div class="arithmatex">\[\large{-x^2 + 9x - 12 = x^2 - 1 \frac{7}{8}.}\]</div>
+<p>We halen alle termen naar de linker kant door beide kanten <span class="arithmatex">\(-x^2\)</span> en <span class="arithmatex">\(+ 1 \frac{7}{8}\)</span> te doen:</p>
+<div class="arithmatex">\[\large{-2x^2 + 9x - 10 \frac{1}{8} = 0.}\]</div>
+<p>Er zit een breuk in deze vergelijking, dus we gebruiken meteen de <a href="../kwadratische_vergelijkingen/#de-abc-formule"><em>abc</em> formule</a>. We hebben:</p>
+<div class="arithmatex">\[\large{a = -2, \ b = 9, \ c = -10 \frac{1}{8}}\]</div>
+<p>De discriminant wordt dan:</p>
+<div class="arithmatex">\[D = 9^2 - 4 * -2 * -10 \frac{1}{8} = 0\]</div>
+<p>We vullen dit nu in:</p>
+<div class="arithmatex">\[\large{x = \frac{-9 \pm \sqrt{0}}{2*-2}}\]</div>
+<div class="arithmatex">\[\large{x = 2 \frac{1}{4}}\]</div>
+<p>Er is dus maar <span class="arithmatex">\(1\)</span> oplossing voor deze vergelijking, wat we dus ook hadden kunnen zien aan het feit dat onze discriminant <span class="arithmatex">\(0\)</span> is. Laten we de twee grafieken schetsen.</p>
+<p><figure markdown>
+    <img alt="Twee grafieken plot" src="../assets/images/ongelijkheden/f%28x%29%20%3D%20-%20x%C2%B2%20%2B%209x%20-%2012%3B%20g%28x%29%20%3D%20x%C2%B2%20-%201.875.svg" width="500" />
+    <figcaption>Figuur 1. De grafieken <span class="arithmatex">\(f(x) = - x^2 + 9x - 12\)</span> en <span class="arithmatex">\(g(x) = x^2 - 1 \frac{7}{8}\)</span> geplot.</figcaption>
+</figure></p>
+<p>We willen weten voor welke <span class="arithmatex">\(x\)</span> er geldt dat <span class="arithmatex">\(f(x) \geq g(x)\)</span>. Dit zijn dus de waardes voor <span class="arithmatex">\(x\)</span> waarvoor er geldt dat de grafiek van <span class="arithmatex">\(f(x)\)</span> boven die van <span class="arithmatex">\(g(x)\)</span> ligt, of dat ze dezelfde hetzelfde zijn en dus elkaar snijden. </p>
+<p>In Figuur 3 zien we echter dat de grafiek van <span class="arithmatex">\(f(x)\)</span> bij elke waarde voor <span class="arithmatex">\(x\)</span> onder die van <span class="arithmatex">\(g(x)\)</span> ligt, behalve bij het snijpunt, want daar zijn ze gelijk aan elkaar. Ons eindantwoord is dus dat dit alleen geldt voor het snijpunt, en dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\textrm{Alleen voor } x = 2 \frac{1}{4}}\]</div>
+</div>
+</details>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Begrijp je de stof nu beter?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="Ik begrijp de stof nu beter" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 9v12H1V9h4m4 12a2 2 0 0 1-2-2V9c0-.55.22-1.05.59-1.41L14.17 1l1.06 1.06c.27.27.44.64.44 1.05l-.03.32L14.69 8H21a2 2 0 0 1 2 2v2c0 .26-.05.5-.14.73l-3.02 7.05C19.54 20.5 18.83 21 18 21H9m0-2h9.03L21 12v-2h-8.79l1.13-5.32L9 9.03V19Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="De stof is nog een beetje onduidelijk" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 15V3h4v12h-4M15 3a2 2 0 0 1 2 2v10c0 .55-.22 1.05-.59 1.41L9.83 23l-1.06-1.06c-.27-.27-.44-.64-.44-1.06l.03-.31.95-4.57H3a2 2 0 0 1-2-2v-2c0-.26.05-.5.14-.73l3.02-7.05C4.46 3.5 5.17 3 6 3h9m0 2H5.97L3 12v2h8.78l-1.13 5.32L15 14.97V5Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Bedankt voor de feedback! Om ervoor te zorgen dat wiskundewijs nóg beter wordt, zou ik <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUuPlxDYomx3nLl63BQcFR0jCbQMaQIpFh37J53_UaVJELeA/viewform?usp=pp_url&entry.1328585866=Ongelijkheden" target="_blank" rel="noopener">jouw feedback</a> heel erg waarderen!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Bedankt voor de feedback! Ik zou het heel erg waarderen als je mij vertelt wat jij denkt dat verbeterd kan worden. <a href="https://docs.google.com/forms/d/e/1FAIpQLSebi8Nv-t1BBU7mzvMK8COd_1aHSTnjgzBQWQXhjt64OuVsFQ/viewform?usp=pp_url&entry.1328585866=Ongelijkheden" target="_blank" rel="noopener">Jouw feedback</a> kan mensen helpen die tegen hetzelfde aanlopen!
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../kwadratische_vergelijkingen/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: Kwadratische Vergelijkingen">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Vorige
+              </span>
+              <div class="md-ellipsis">
+                Kwadratische Vergelijkingen
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../stelsels_van_vergelijkingen/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Stelsels van Vergelijkingen">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Volgende
+              </span>
+              <div class="md-ellipsis">
+                Stelsels van Vergelijkingen
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024, Marc Serrano Altena
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/marc-serrano-altena-a96800285/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/M-Serrano-Altena" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<Marc.Serrano.Altena@gmail.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6m-2 0-8 5-8-5h16m0 12H4V8l8 5 8-5v10Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

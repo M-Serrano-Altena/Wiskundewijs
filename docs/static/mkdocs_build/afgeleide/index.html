@@ -1,0 +1,1503 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Hier worden verschillende wiskundige onderwerpen duidelijk en helder behandelt. De hoofdstukken hebben een theorie sectie waar de stof wordt uitgelegt en daarna worden wat voorbeelden behandelt om te laten zien hoe de theorie toegepast wordt in de opdrachten.">
+      
+      
+        <meta name="author" content="Marc Serrano Altena">
+      
+      
+        <link rel="canonical" href="https://wiskundewijs.com/afgeleide/">
+      
+      
+        <link rel="prev" href="../stelsels_van_vergelijkingen/">
+      
+      
+        <link rel="next" href="../goniometrie/">
+      
+      
+      <link rel="icon" href="../assets/images/general/calculator-variant.svg">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
+    
+    
+      
+        <title>De Afgeleide Functie - Wiskundewijs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-4JQXCEL3Q5"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-4JQXCEL3Q5",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-4JQXCEL3Q5",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#de-afgeleide-functie" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Wiskundewijs" class="md-header__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+      
+  <img src="../assets/images/general/calculator-variant-outline.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wiskundewijs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              De Afgeleide Functie
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../basisvaardigheden/" class="md-tabs__link">
+          
+  
+  Stof
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../contact/" class="md-tabs__link">
+        
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Wiskundewijs" class="md-nav__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+      
+  <img src="../assets/images/general/calculator-variant-outline.svg" alt="logo">
+
+    </a>
+    Wiskundewijs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Stof
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Stof
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basisvaardigheden/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basisvaardigheden
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../percentages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percentages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistiek/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistiek
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pythagoras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Stelling van Pythagoras
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kwadratische_vergelijkingen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kwadratische Vergelijkingen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ongelijkheden/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ongelijkheden
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stelsels_van_vergelijkingen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stelsels van Vergelijkingen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    De Afgeleide Functie
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    De Afgeleide Functie
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#afgeleide-bepalen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Afgeleide bepalen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Afgeleide bepalen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parabool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parabool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exponentiele-funtie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exponentiële funtie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabel-met-veel-voorkomende-functies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabel met veel voorkomende functies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notatie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extreme-waardes-berekenen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extreme waardes berekenen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extreme waardes berekenen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../goniometrie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Goniometrie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#afgeleide-bepalen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Afgeleide bepalen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Afgeleide bepalen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parabool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parabool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exponentiele-funtie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exponentiële funtie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabel-met-veel-voorkomende-functies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabel met veel voorkomende functies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notatie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extreme-waardes-berekenen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extreme waardes berekenen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extreme waardes berekenen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="de-afgeleide-functie"><em>De Afgeleide Functie</em></h1>
+<h2 id="afgeleide-bepalen"><strong>Afgeleide bepalen</strong></h2>
+<p>Een afgeleide functie geeft op elk x coördinaat de bijbehorende helling/richtingscoëfficient. De functie geeft dan dus niet meer het <span class="arithmatex">\(y\)</span>-coördinaat als je <span class="arithmatex">\(x\)</span> invult, maar de helling van de grafiek op dat punt. Dit wordt hieronder weergegeven.</p>
+<h3 id="parabool"><strong>Parabool</strong></h3>
+<p>Een parabool heeft in het simpleste geval de vorm</p>
+<div class="arithmatex">\[f(x) = x^2.\]</div>
+<p>De afgeleide van deze functie is gelijk aan </p>
+<div class="arithmatex">\[f'(x) = 2x,\]</div>
+<p>Waarbij <span class="arithmatex">\(f'(x)\)</span> aangeeft dat het gaat om de afgeleide van de functie <span class="arithmatex">\(f(x)\)</span> (zie dit <a href="#voorbeeld-1-fx-x2">voorbeeld</a> voor de toelichting van het antwoord en <a href="#notatie">Notatie</a> voor de notatie van de afgeleide).</p>
+<p>In het onderstaande filmpje is er te zien dat de afgeleide gelijk is aan de helling op elk punt. Ook is er te zien dat bij een top geldt dat de helling (en dus de afgeleide) gelijk is aan <span class="arithmatex">\(0\)</span>. Dit betekent dus dat als we het x coördinaat van een top willen bepalen, we moeten stellen dat</p>
+<div class="arithmatex">\[f'(x) = 0.\]</div>
+<details class="video" open="open"><summary>Video</summary><p><video controls>
+<source src="../assets/videos/Parabola.mp4" type="video/mp4">
+</video></p>
+<p><em><p style="text-align: center;">Filmpje: Visuele weergave van de afgeleide van de functie <span class="arithmatex">\(f(x) = x^2\)</span>. Bij de top geldt dat de helling gelijk is aan 0. </p></em></p>
+</details>
+<h3 id="exponentiele-funtie"><strong>Exponentiële funtie</strong></h3>
+<p>Een exponentiële functie heeft de vorm</p>
+<div class="arithmatex">\[f(x) = e^x,\]</div>
+<p>waar <span class="arithmatex">\(e\)</span> het getal van euler is. Er geldt dat <span class="arithmatex">\(e = 2.7182818...\)</span></p>
+<p>De afgeleide van <span class="arithmatex">\(f(x) = e^x\)</span> is:</p>
+<div class="arithmatex">\[f'(x) = e^x.\]</div>
+<p>De afgeleide is dus hetzelfde als de functie zelf. Dit fenomeen is te zien in het onderstaande filmpje.</p>
+<details class="video" open="open"><summary>Video</summary><p><video controls>
+<source src="../assets/videos/Exponential.mp4" type="video/mp4">
+</video></p>
+<p><em><p style="text-align: center;">Filmpje: Visuele weergave van de afgeleide van de functie <span class="arithmatex">\(f(x) = e^x\)</span>. Er is te zien dat op elk punt geldt dat <span class="arithmatex">\(f(x) = f'(x)\)</span>. Dit is wat de e-macht zo bijzonder maakt. </p></em></p>
+</details>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="tabel-met-veel-voorkomende-functies"><strong>Tabel met veel voorkomende functies</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Functie</th>
+<th>Afgeleide</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = a}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = 0}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = x^n}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = nx^{n-1}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = e^x}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = e^x}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = a^x}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = a^x \ * \ \ln{(x)}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = \ln{(x)}}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = \frac{1}{x}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = \ ^a \! \log{(x)}}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = \frac{1}{x \ * \ \ln{(a)}}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = \sin{(x)}}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = \cos{(x)}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = \cos{(x)}}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = -\sin{(x)}}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>waarbij <span class="arithmatex">\(n\)</span> en <span class="arithmatex">\(a\)</span> constantes zijn die niet afhankelijk van x zijn.</p>
+<h3 id="regels"><strong>Regels</strong></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Functie</th>
+<th>Afgeleide</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Somregel</td>
+<td><span class="arithmatex">\(\large{f(x) = g(x) + h(x)}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = g'(x) + h'(x)}\)</span></td>
+</tr>
+<tr>
+<td>Productregel (eenvoudig)</td>
+<td><span class="arithmatex">\(\large{f(x) = a * g(x)}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = a \  * \ g'(x)}\)</span></td>
+</tr>
+<tr>
+<td>Productregel</td>
+<td><span class="arithmatex">\(\large{f(x) = g(x) * h(x)}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = g'(x) \  * \ h(x) + g(x) * h'(x)}\)</span></td>
+</tr>
+<tr>
+<td>Quotiëntregel</td>
+<td><span class="arithmatex">\(\large{f(x) = \frac{g(x)}{h(x)}}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = \frac{g'(x) \ * \ h(x) \ - \ g(x) \ * \ h'(x)}{h(x)^2}}\)</span></td>
+</tr>
+<tr>
+<td>Kettingregel</td>
+<td><span class="arithmatex">\(\large{f(x) = f(g(x))}\)</span></td>
+<td><span class="arithmatex">\(\large{f'(x) = \frac{\mathrm{d} \ f(g)}{\mathrm{d} g} \ * \ \frac{\mathrm{d} \ g(x)}{\mathrm{d} x}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>De quotiëntregel kan je onthouden met het ezelsbruggetje: "nat - tan gedeelt door n kwadraat".</p>
+<p>Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.</p>
+<details class="note"><summary>Opmerking Notatie</summary><h3 id="notatie"><strong>Notatie</strong></h3>
+<p>Een afgeleide kan op verschillende manieren worden weergegeven:</p>
+<div class="arithmatex">\[\Large{f'(x), \ y', \ \frac{\mathrm{d} f(x)}{\mathrm{d} x}, \ \frac{\mathrm{d} y}{\mathrm{d} x}, \frac{\mathrm{d}}{\mathrm{d} x} y, \frac{\mathrm{d}}{\mathrm{d} x} f(x)} \]</div>
+</details>
+<h3 id="voorbeelden"><strong>Voorbeelden</strong></h3>
+<details class="example"><summary>Voorbeeld 1: Bereken de afgeleide van <span class="arithmatex">\(f(x) = x^2\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = x^2\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We kunnen dit oplossen met behulp van de tweede rij van de <a href="#tabel-met-veel-voorkomende-functies">Tabel</a>.</p>
+<p>Daar zien we dat er voor een functie</p>
+<div class="arithmatex">\[\large{f(x) = x^n}\]</div>
+<p>geldt dat</p>
+<div class="arithmatex">\[\large{f'(x) = nx^{n-1}}.\]</div>
+<p>In ons geval geldt er dat <span class="arithmatex">\(n=2\)</span> zodat we onze functie <span class="arithmatex">\(f(x) = x^2\)</span> krijgen. Onze afgeleide wordt dan:</p>
+<div class="arithmatex">\[\large{f'(x) = 2x^{2-1}}\]</div>
+<div class="arithmatex">\[\large{f'(x) = 2x^{1}}\]</div>
+<p>En omdat we kunnen zeggen dat <span class="arithmatex">\(x^1 \equiv x\)</span>:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{f'(x) = 2x}.\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 2: Bereken de afgeleide van <span class="arithmatex">\(f(x) = 4x\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = 4x\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Net zoals bij het vorig voorbeeld kunnen we dit oplossen met behulp van de tweede rij van de <a href="#tabel-met-veel-voorkomende-functies">Tabel</a>. Maar nu hebben we ook het getal <span class="arithmatex">\(4\)</span> voor onze x. Als we gebruik maken van de <a href="#regels">eenvoudige productregel</a> dan zien we dat een constante keer de functie niet uitmaakt voor onze afgeleide. We kunnen hier het getal <span class="arithmatex">\(4\)</span> er dus gewoon voor laten.</p>
+<p>We weten dat er voor de functie</p>
+<div class="arithmatex">\[\large{f(x) = x^n}\]</div>
+<p>geldt dat</p>
+<div class="arithmatex">\[\large{f'(x) = nx^{n-1}}.\]</div>
+<p>Er geldt nu dat <span class="arithmatex">\(n=1\)</span>, zodat <span class="arithmatex">\(f(x) = x\)</span>. Onze afgeleide wordt dan:</p>
+<div class="arithmatex">\[\large{f'(x) = 4*1x^{1-1}}\]</div>
+<div class="arithmatex">\[\large{f'(x) = 4x^{0}}\]</div>
+<p>En omdat een getal tot de macht <span class="arithmatex">\(0\)</span> altijd gelijk is aan <span class="arithmatex">\(1\)</span>, wordt onze afgeleide</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{f'(x) = 4}\]</div>
+</div>
+<details class="note"><summary>Shortcut</summary><p>Stel dat we in plaats van de <span class="arithmatex">\(f(x)\)</span> hierboven de functie <span class="arithmatex">\(g(x) = 5x\)</span> hadden, dan was onze afgeleide geworden:</p>
+<div class="arithmatex">\[\large{g'(x) = 5,}\]</div>
+<p>volgens precies dezelfde stappen als hierboven. Er volgt dus dat voor een willekeurige constante <span class="arithmatex">\(a\)</span> geldt dat:</p>
+<div class="arithmatex">\[\Large{f(x) = ax \Rightarrow f'(x) = a}\]</div>
+</details>
+</details>
+<details class="example"><summary>Voorbeeld 3: Bereken de afgeleide van <span class="arithmatex">\(f(x) = 5x^3 + 3x^2 - 15x + 100\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = 5x^3 + 3x^2 - 15x + 100\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Met behulp van de <a href="#regels">somregel</a> weten we dat de afgeleide van <span class="arithmatex">\(f(x)\)</span> de som is van de afgeleide van de individuele termen. De afgeleide wordt dan:</p>
+<div class="arithmatex">\[\large{f'(x) = 5*3x^{3-1} + 3*2x^{2-1} - 15}\]</div>
+<p>Dit hebben we opgelost met de tweede regel uit de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> voor alle <span class="arithmatex">\(x\)</span> termen en de <span class="arithmatex">\(+100\)</span> term valt weg volgens de eerste regel uit de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. </p>
+<p>We kunnen dit dan verder versimpelen naar:</p>
+<div class="arithmatex">\[\large{f'(x) = 15x^2 + 6x^1 - 15}\]</div>
+<p>En omdat we kunnen zeggen dat <span class="arithmatex">\(x^1 \equiv x\)</span>:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{f'(x) = 15x^2 + 6x - 15}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 4: Bereken de afgeleide van <span class="arithmatex">\(f(x) = 3(\cos{(x)} + 2)\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = 3(\cos{(x)} + 2)\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Eerst werken we de haakjes weg zodat we vinden dat</p>
+<div class="arithmatex">\[\large{f(x) = 3\cos{(x)} + 6.}\]</div>
+<p>Met behulp van de <a href="#regels">somregel</a> weten we dat de afgeleide van <span class="arithmatex">\(f(x)\)</span> de som is van de afgeleide van de individuele termen. De <span class="arithmatex">\(+6\)</span> term valt weg volgens regel 1 van de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. De afgeleide van de cosinus term kunnen we ook vinden in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. </p>
+<p>De afgeleide wordt dan:</p>
+<div class="arithmatex">\[\large{g'(x) = 3 * - \sin{(x)}}\]</div>
+<p>Waarbij we dus de factor <span class="arithmatex">\(3\)</span> er gewoon voor mogen laten en geen extra rekening mee hoeven te houden als we de afgeleide nemen (<a href="#regels">eenvoudige productregel</a>). </p>
+<p>Ons eindantwoord wordt dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{f'(x) = -3 \sin{(x)}}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 5: Bereken de afgeleide van <span class="arithmatex">\(f(x) = xe^x\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = xe^x\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Hier zien we dat onze functie <span class="arithmatex">\(f(x)\)</span> bestaat uit twee functies keer elkaar. Namelijk de functies:</p>
+<div class="arithmatex">\[\large{g(x) = x \textrm{ en } h(x) = e^x}\]</div>
+<p>Dit kunnen we dus oplossen met behulp van de <a href="#regels">productregel</a>. Deze zegt dat:</p>
+<div class="arithmatex">\[\large{f'(x) = g'(x) * h(x) + g(x) * h'(x)}\]</div>
+<p>Laten we eerst <span class="arithmatex">\(g'(x)\)</span> en <span class="arithmatex">\(h'(x)\)</span> bepalen.</p>
+<p>Uit <a href="#voorbeeld-2-fx-4x">Voorbeeld 2</a> is gebleken dat de afgeleide van <span class="arithmatex">\(x\)</span> <span class="arithmatex">\(1\)</span> is:</p>
+<div class="arithmatex">\[\large{g'(x) = 1.}\]</div>
+<p><span class="arithmatex">\(h'(x)\)</span> kunnen we bepalen met de <a href="#tabel-met-veel-voorkomende-functies">Tabel</a>. We zien dan dat er geldt dat</p>
+<div class="arithmatex">\[\large{h'(x) = e^x = h(x).}\]</div>
+<p>Als we dit invullen in de <a href="#regels">productregel</a>, dan vinden we dus de afgeleide:</p>
+<div class="arithmatex">\[\large{f'(x) = 1 * e^x + x * e^x}\]</div>
+<p>Dit kunnen we herschrijven tot:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{f'(x) = e^x \left( 1+x \right)}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 6: Bereken de afgeleide van <span class="arithmatex">\(f(x) = \tan{(x)}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = \tan{(x)}\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Om dit op te lossen moeten we eerst beginnen met onze <span class="arithmatex">\(\tan\)</span> functie op een andere manier opschrijven. In het hoofdstuk <a href="../goniometrie/#goniometrische-vergelijkingen">Goniometrie</a> zien we dat we een <span class="arithmatex">\(\tan\)</span> functie ook op de volgende manier kunnen schrijven:</p>
+<div class="arithmatex">\[\large{\tan{(x)} = \frac{\sin{(x)}}{\cos{(x)}}}\]</div>
+<p>Nu kunnen we de <a href="#regels">quotiëntregel</a> gaan toepassen. Deze zegt dat:</p>
+<p>Als:</p>
+<div class="arithmatex">\[\large{f(x) = \frac{g(x)}{h(x)}}\]</div>
+<p>Dan: </p>
+<div class="arithmatex">\[\large{f'(x) = \frac{g'(x) \ * \ h(x) \ - \ g(x) \ * \ h'(x)}{h(x)^2}}.\]</div>
+<p>In ons geval geldt er dus dat</p>
+<div class="arithmatex">\[\large{g(x) = \sin{(x)} \textrm{ en } h(x) = \cos{(x)}}\]</div>
+<p>De afgeleides zijn dan volgens de <a href="#tabel-met-veel-voorkomende-functies">Tabel</a>:</p>
+<div class="arithmatex">\[\large{g'(x) = \cos{(x)} \textrm{ en } h'(x) = - \sin{(x)}}\]</div>
+<p>Nu vullen we dat in bij de quotiëntregel:</p>
+<div class="arithmatex">\[\large{f'(x) = \frac{\cos{(x)} \ * \ \cos{(x)} \ - \ sin{(x)} \ * \ - \sin{(x)}}{\cos^2{(x)}}}\]</div>
+<p>Dit kunnen we versimplen tot:</p>
+<div class="arithmatex">\[\large{f'(x) = \frac{\cos^2{(x)} + sin^2{(x)}}{\cos^2{(x)}}}\]</div>
+<p>We kunnen de teller nog verder versimpelen met behulp van de tweede vergelijking uit de lijst <a href="../goniometrie/#goniometrische-vergelijkingen">Goniometrische Vergelijkingen</a>. We krijgen dan als eindantwoord dat:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{f'(x) = \frac{1}{\cos^2{(x)}}}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 7: Bereken de afgeleide van <span class="arithmatex">\(f(x) = e^{x^2}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = e^{x^2}\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Om dit op te lossen maken we gebruik van de <a href="#regels">kettingregel</a>. Deze zegt dat voor een functie:</p>
+<div class="arithmatex">\[\large{f(x) \equiv f(g(x))}\]</div>
+<p>Er geldt dat:</p>
+<div class="arithmatex">\[\large{f'(x) = \frac{\mathrm{d} \ f(g)}{\mathrm{d} g} \ * \ \frac{\mathrm{d} \ g(x)}{\mathrm{d} x}}\]</div>
+<p>We definiëren dus een interne functie <span class="arithmatex">\(g(x)\)</span> binnen <span class="arithmatex">\(f(x)\)</span>. Dus in dit geval is dit de functie:</p>
+<div class="arithmatex">\[\large{g(x) = x^2}\]</div>
+<p>Onze functie <span class="arithmatex">\(f(g(x))\)</span> wordt dan:</p>
+<div class="arithmatex">\[\large{f(g(x)) = e^{g(x)}}\]</div>
+<p>Laten we eerst de afgeleide van <span class="arithmatex">\(f\)</span> naar <span class="arithmatex">\(g\)</span> bepalen:</p>
+<div class="arithmatex">\[\large{\frac{\mathrm{d} \ f(g)}{\mathrm{d} g} = e^{g},}\]</div>
+<p>want de afgeleide van een e-macht is zichzelf (zie de <a href="#tabel-met-veel-voorkomende-functies">Tabel</a>). Nu bepalen we de afgeleide van <span class="arithmatex">\(g\)</span> naar <span class="arithmatex">\(x\)</span>:</p>
+<div class="arithmatex">\[\large{\frac{\mathrm{d} \ g(x)}{\mathrm{d} x} = 2x,}\]</div>
+<p>zie <a href="#voorbeeld-1-fx-x2">Voorbeeld 1</a> voor eventuele toelichting.</p>
+<p>Nu kunnen we de <a href="#regels">kettingregel</a> invullen:</p>
+<div class="arithmatex">\[\large{f'(x) = e^{g(x)} * 2x}\]</div>
+<p>Nu kunnen we <span class="arithmatex">\(g(x)\)</span> terug substitueren:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{f'(x) = 2x*e^{x^2}}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 8: Bereken de afgeleide van <span class="arithmatex">\(f(x) = \ln{\left((x+1)^2 \right)} * \sqrt{x} + 5\)</span></summary><p><em><p style="text-align: left;font-size:15px;color:red "> * Lastige opdracht</p></em>
+<strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = \ln{\left((x+1)^2 \right)} * \sqrt{x} + 5\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Bij zo'n soort opdracht waar je veel verschillende dingen moet doen is het erg belangrijk om echt stap voor stap te werken. Laten we beginnen met het herkenen van de functies. Er is aan het begin een functie in een functie, dus dat is iets voor de <a href="#regels">kettingregel</a>. Die functie wordt vermenigvuldigd met een andere functie, dus daar moeten we de <a href="#regels">productregel</a> op toepassen. En dan als laatst wordt er iets opgeteld, dus dat is de <a href="#regels">somregel</a>.</p>
+<p>Laten we wat functies definiëren:</p>
+<div class="arithmatex">\[\large{g(x) \equiv \ln{\left((x+1)^2 \right)} * \sqrt{x} \textrm{ en } h(x) \equiv 5}\]</div>
+<p>Volgens de <a href="#regels">somregel</a> weten we dat:</p>
+<div class="arithmatex">\[\large{f'(x) = g'(x) + h'(x)}\]</div>
+<p>Er geldt dat:</p>
+<div class="arithmatex">\[\large{h'(x) = 0,}\]</div>
+<p>(zie evenuteel regel 1 van de <a href="#tabel-met-veel-voorkomende-functies">Tabel</a>). En dus geldt er dat:</p>
+<div class="arithmatex">\[\large{f'(x) = g'(x)}\]</div>
+<p>Deze <span class="arithmatex">\(g(x)\)</span> bestaat uit meerdere functies:</p>
+<div class="arithmatex">\[\large{k(x) = \ln{\left((x+1)^2 \right)} \ \ \mathrm{en} \ \ l(x) = \sqrt{x},}\]</div>
+<p>zodat er geldt dat:</p>
+<div class="arithmatex">\[\large{g(x) = k(x) * l(x).}\]</div>
+<p>Volgens de <a href="#regels">productregel</a> geldt er dan dat:</p>
+<div class="arithmatex">\[\large{g'(x) = k'(x) \  * \ l(x) + k(x) * l'(x)}.\]</div>
+<p>Laten we beginnen met de afgeleide van <span class="arithmatex">\(l(x)\)</span> bepalen. Dit doen we met behulp van de tweede rij uit de <a href="#tabel-met-veel-voorkomende-functies">Tabel</a>. Daar zien we dat er voor de functie:</p>
+<div class="arithmatex">\[\large{f(x) = x^n}\]</div>
+<p>geldt dat:</p>
+<div class="arithmatex">\[\large{f'(x) = nx^{n-1}}.\]</div>
+<p>We maken hier gebruik van het feit dat we een wortel ook op de volgende manier kunnen schrijven:</p>
+<div class="arithmatex">\[\large{l(x) = \sqrt{x} \equiv x^{\frac{1}{2}}}.\]</div>
+<p>Dit betekent dus dat er voor ons geldt dat <span class="arithmatex">\(n=\frac{1}{2}\)</span>. Onze afgeleide wordt dan:</p>
+<div class="arithmatex">\[\large{l'(x) = \frac{1}{2} x^{\frac{1}{2} - 1}}\]</div>
+<div class="arithmatex">\[\large{l'(x) = \frac{1}{2} x^{- \frac{1}{2}}.}\]</div>
+<p>Dit kunnen we weer versimpelen tot:</p>
+<div class="arithmatex">\[\large{l'(x) = \frac{1}{2 \sqrt{x}}.}\]</div>
+<p>Nu bepalen we de afgeleide van <span class="arithmatex">\(k(x)\)</span>. Hiervoor gebruiken we de <a href="#regels">kettingregel</a>. We definiëren:</p>
+<div class="arithmatex">\[\large{k(p) = \ln{p}, \ \ p(u) = u^2 \ \ \mathrm{en} \ \ u(x) = x + 1}\]</div>
+<p>We moeten nu de <a href="#regels">kettingregel</a> twee keer toepassen. Laten we de <a href="#regels">kettingregel</a> opschrijven:</p>
+<div class="arithmatex">\[\large{k'(p(u(x))) = \frac{\mathrm{d} \ k(p)}{\mathrm{d} p} \ * \ \frac{\mathrm{d} \ p(u(x))}{\mathrm{d} x}}\]</div>
+<p>Nu bepalen we de afgeleide van <span class="arithmatex">\(p\)</span> naar <span class="arithmatex">\(x\)</span>. Dit doen we weer met behulp van de <a href="#regels">kettingregel</a>. We krijgen dan:</p>
+<div class="arithmatex">\[\large{ \frac{\mathrm{d} \ p(u(x))}{\mathrm{d} x} = \frac{\mathrm{d} \ p(u)}{\mathrm{d} u} \ * \ \frac{\mathrm{d} \ u(x)}{\mathrm{d} x}.}\]</div>
+<p>We kunnen deze twee vergelijkingen combineren tot:</p>
+<div class="arithmatex">\[\large{k'(p(u(x))) = \frac{\mathrm{d} \ k(p)}{\mathrm{d} p} \ * \ \frac{\mathrm{d} \ p(u)}{\mathrm{d} u} \ * \ \frac{\mathrm{d} \ u(x)}{\mathrm{d} x}.}\]</div>
+<p>En nu berekenen we de afgeleides. De afgeleide van <span class="arithmatex">\(\ln(x)\)</span> is <span class="arithmatex">\(\frac{1}{x}\)</span> (zie eventueel de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>):</p>
+<div class="arithmatex">\[\large{\frac{\mathrm{d} \ k(p)}{\mathrm{d} p} = \frac{1}{p} = \frac{1}{u^2} = \frac{1}{\left( x + 1 \right)^2}, }\]</div>
+<p>Nu bepalen we de afgeleide van <span class="arithmatex">\(p(u) = u^2\)</span> naar <span class="arithmatex">\(u\)</span>:</p>
+<div class="arithmatex">\[\large{\frac{\mathrm{d} \ p(u)}{\mathrm{d} u} = 2u = 2 (x + 1),}\]</div>
+<p>(zie eventueel <a href="#voorbeeld-1-fx-x2">voorbeeld 1</a>).</p>
+<p>Als laatst bepalen we de afgeleide van <span class="arithmatex">\(u(x) = x + 1\)</span> naar <span class="arithmatex">\(x\)</span>:</p>
+<div class="arithmatex">\[\large{\frac{\mathrm{d} \ u(x)}{\mathrm{d} x} = 1,}\]</div>
+<p>De afgeleide van <span class="arithmatex">\(x\)</span> wordt <span class="arithmatex">\(1\)</span> en de afgeleide van <span class="arithmatex">\(1\)</span> wordt <span class="arithmatex">\(0\)</span> (zie eventueel de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>).</p>
+<p>Als we dit combineren en invullen vinden we:</p>
+<div class="arithmatex">\[\large{k'(x) = \frac{1}{\left( x + 1 \right)^2} * 2 (x + 1) * 1}\]</div>
+<p>Dit versimpelt weer tot:</p>
+<div class="arithmatex">\[\large{k'(x) = \frac{2}{\left( x + 1 \right)}}\]</div>
+<p>Nu kunnen we <span class="arithmatex">\(g'(x)\)</span> bepalen doordat we <span class="arithmatex">\(k(x), l(x), k'(x) \textrm{ en } l'(x)\)</span> hebben:</p>
+<div class="arithmatex">\[\large{g'(x) = \frac{2}{\left( x + 1 \right)} * \sqrt{x} + \ln{\left((x+1)^2 \right)} * \frac{1}{2 \sqrt{x}}}\]</div>
+<p>Omdat we weten dat <span class="arithmatex">\(f'(x) = g'(x)\)</span> wordt ons eindantwoord:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{f'(x) = \frac{2 \sqrt{x}}{\left( x + 1 \right)}  +  \frac{\ln{\left((x+1)^2 \right)}}{2 \sqrt{x}}}\]</div>
+</div>
+</details>
+<h2 id="extreme-waardes-berekenen"><strong>Extreme waardes berekenen</strong></h2>
+<p>Zoals in we in het filmpje bij een <a href="#parabool">parabool</a> kunnen zien, is de helling gelijk aan <span class="arithmatex">\(0\)</span> bij een top/extreme waarde. Dit komt omdat op dit punt de functie van toenemend naar afnemend wisselt, of andersom en dit betekent dus dat er op dat punt geen toename of afname is bij een kleine toename of afname in <span class="arithmatex">\(x\)</span>. Omdat de afgeleide de helling geeft op elk punt, betekent dit dus dat als we de coördinaten willen bepalen van de extreme waarde, we moeten stellen dat de afgeleide gelijk is aan <span class="arithmatex">\(0\)</span>:</p>
+<div class="arithmatex">\[\large{f'(x) = 0}\]</div>
+<p>Laten we naar een voorbeeld kijken. We hebben de volgende functie gegeven:</p>
+<div class="arithmatex">\[f(x) = -x^2 + 2.\]</div>
+<p>We willen van deze functie berekenen wat het coordinaat van de top is met behulp van de afgeleide. Hoe pakken we dit aan?</p>
+<figure>
+<p><img alt="Top van functie" src="../assets/images/afgeleide/f%28x%29%20%3D%20-x%C2%B2%20%2B%202.svg" width="500" />
+    <figcaption>Figuur 1. De grafiek <span class="arithmatex">\(f(x) = - x^2 + 2\)</span> geplot met de extreme waarde.</figcaption></p>
+</figure>
+<p>We beginnen met de afgeleide bepalen van <span class="arithmatex">\(f(x)\)</span>. Voor de <span class="arithmatex">\(-x^2\)</span> term kunnen we gebruik maken van de tweede regel uit de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. De <span class="arithmatex">\(+2\)</span> term valt weg, want deze is constant (eerste regel uit de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>). De afgeleide wordt dus:</p>
+<div class="arithmatex">\[f'(x) = -2x^{2-1} = -2x\]</div>
+<p>Omdat we het coordinaat van de top willen bepalen, moeten we kijken bij welk <span class="arithmatex">\(x\)</span>-coördinaat de afgeleide gelijk is aan <span class="arithmatex">\(0\)</span>. Onze vergelijking wordt dus:</p>
+<div class="arithmatex">\[2x = 0 \Rightarrow x = 0\]</div>
+<p>Het <span class="arithmatex">\(x\)</span> coördinaat van onze top is dus <span class="arithmatex">\(0\)</span>. Om het <span class="arithmatex">\(y\)</span>-coördinaat te bepalen moeten we ons gevonden <span class="arithmatex">\(x\)</span> coördinaat van de top invullen in de originele functie <span class="arithmatex">\(f(x)\)</span>. We krijgen dan:</p>
+<div class="arithmatex">\[f(x=0) = -0^2 + 2 = 2\]</div>
+<p>Het <span class="arithmatex">\(y\)</span>-coördinaat van de top is dus bij <span class="arithmatex">\(y=2\)</span>. De coördinaten van de top zijn dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\textrm{De top is bij } (0, 2)}\]</div>
+</div>
+<p>en dit kunnen we ook aflezen in Figuur 1.</p>
+<h3 id="voorbeelden_1"><strong>Voorbeelden</strong></h3>
+<details class="example"><summary>Voorbeeld 1: Bepaal de extreme waarde van <span class="arithmatex">\(f(x) = 6x^2 - 12x + 9\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waarde van <span class="arithmatex">\(f(x) = 6x^2 - 12x + 9\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We moeten de extreme waarde bepalen en dus moeten we stellen dat de afgeleide van onze functie gelijk is aan <span class="arithmatex">\(0\)</span>. Laten we eerst de afgeleide bepalen van <span class="arithmatex">\(f(x)\)</span>.</p>
+<p>We weten dat de afgeleide gelijk is aan de som van de individuele termen (<a href="#regels">somregel</a>). De afgeleide wordt dus:</p>
+<div class="arithmatex">\[\large{f'(x) = 6*2x^{2-1} - 12}\]</div>
+<div class="arithmatex">\[\large{f'(x) = 12x - 12}\]</div>
+<p>Om de extreme waarde te bepalen stellen we dus dat dit gelijk is aan <span class="arithmatex">\(0\)</span> en lossen het op om het <span class="arithmatex">\(x\)</span>-coördinaat te vinden van de extreme waarde:</p>
+<div class="arithmatex">\[\large{12x - 12 = 0}\]</div>
+<div class="arithmatex">\[\large{12x = 12}\]</div>
+<div class="arithmatex">\[\large{x = 1}\]</div>
+<p>Het <span class="arithmatex">\(x\)</span>-coördinaat van de top is dus bij <span class="arithmatex">\(x = 1\)</span>. We bepalen het <span class="arithmatex">\(y\)</span>-coördinaat door <span class="arithmatex">\(x=1\)</span> in te vullen in onze originele vergelijking <span class="arithmatex">\(f(x)\)</span>:</p>
+<div class="arithmatex">\[\large{f(1) = 6*1^2 - 12*1 + 9 = 3}\]</div>
+<p>De coördinaten van de extreme waarde zijn dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\textrm{De top is bij } (1, 3)}\]</div>
+</div>
+<p>Als we de functie tekenen in Figuur 2, dan zien we dat dit klopt.</p>
+<p><figure markdown>
+    <img alt="Top van functie" src="../assets/images/afgeleide/f%28x%29%20%3D%206x%C2%B2%20-%2012x%20%2B%209.svg" width="500" />
+    <figcaption>Figuur 2. De grafiek <span class="arithmatex">\(f(x) = 6x^2 - 12x + 9\)</span> geplot met de extreme waarde.</figcaption>
+</figure></p>
+</details>
+<details class="example"><summary>Voorbeeld 2: Bepaal de extreme waardes van <span class="arithmatex">\(f(x) = -x^3 + 6x^2 - 9x + 3\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waardes van <span class="arithmatex">\(f(x) = -x^3 + 6x^2 - 9x + 3\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We moeten de extreme waardes bepalen, en dus moeten we stellen dat de afgeleide van <span class="arithmatex">\(f(x)\)</span> gelijk is aan <span class="arithmatex">\(0\)</span>. Laten we eerst de afgeleide bepalen.</p>
+<p>De afgeleide van een som is hetzelfde als som van de afgeleide van de individuele termen (<a href="#regels">somregel</a>), en dus wordt de afgeleide:</p>
+<div class="arithmatex">\[\large{f'(x) = -3x^{3-1} + 6*2x^{2-1} - 9}\]</div>
+<div class="arithmatex">\[\large{f'(x) = -3x^2 + 12x - 9}\]</div>
+<p>Nu stellen we deze afgeleide gelijk aan <span class="arithmatex">\(0\)</span>:</p>
+<div class="arithmatex">\[\large{-3x^2 + 12x - 9 = 0}\]</div>
+<p>Dit is een <a href="../kwadratische_vergelijkingen/">kwadratische vergelijking</a> die we gewoon kunnen oplossen. We beginnen met alle termen te delen door <span class="arithmatex">\(-3\)</span>:</p>
+<div class="arithmatex">\[\large{x^2 - 4x + 3 = 0}\]</div>
+<p>Dit kunnen we oplossen met door te <a href="../kwadratische_vergelijkingen/#ontbinden-in-factoren">ontbinden in factoren</a>. We doen dit met behulp van de product-som methode.</p>
+<p>Zoals altijd maken we eerst een tabel met alle factoren die samen <span class="arithmatex">\(3\)</span> geven en daarna berekenen we bij elke combinatie de som en kijken we of dat de <span class="arithmatex">\(-4\)</span> is die we zoeken.</p>
+<table>
+<thead>
+<tr>
+<th>Factor 1</th>
+<th>Factor 2</th>
+<th>Product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>-3</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Factor 1</th>
+<th>Factor 2</th>
+<th>Som</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>-3</td>
+<td>-4 <span class="twemoji green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7l233.4-233.3c12.5-12.5 32.8-12.5 45.3 0z"/></svg></span></td>
+</tr>
+</tbody>
+</table>
+<p>De factoren zijn dus <span class="arithmatex">\(-1\)</span> en <span class="arithmatex">\(-3\)</span> en dus kunnen we de vergelijking schrijven als:</p>
+<div class="arithmatex">\[\large{(x - 1)(x - 3) = 0}\]</div>
+<p>Dit geeft ons de <span class="arithmatex">\(x\)</span>-coördinaten:</p>
+<div class="arithmatex">\[\large{x = 1 \ \vee \ x = 3}\]</div>
+<p>Er zijn dus in dit geval twee extreme waardes. Bij elke van die extreme waardes berekenen we het bijbehorende <span class="arithmatex">\(y\)</span>-coördinaat door het <span class="arithmatex">\(x\)</span>-coördinaat in <span class="arithmatex">\(f(x)\)</span> te stoppen:</p>
+<div class="arithmatex">\[\large{f(1) = -(1)^3 + 6*(1)^2 - 9*1 + 3 = -1}\]</div>
+<div class="arithmatex">\[\large{f(3) = -(3)^3 + 6*(3)^2 - 9*3 + 3 = 3}\]</div>
+<p>De coördinaten van de twee extreme waardes zijn dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\textrm{De toppen zijn bij } (1, -1) \textrm{ en } (3, 3)}\]</div>
+</div>
+<p>Als we de functie tekenen in Figuur 3, dan zien we dat dit klopt.</p>
+<p><figure markdown>
+    <img alt="Top van functie" src="../assets/images/afgeleide/f%28x%29%20%3D%20-x%C2%B3%20%2B%206x%C2%B2%20-%209x%20%2B%203.svg" width="500" />
+    <figcaption>Figuur 3. De grafiek <span class="arithmatex">\(f(x) = -x^3 + 6x^2 - 9x + 3\)</span> geplot met de extreme waardes.</figcaption>
+</figure></p>
+</details>
+<details class="example"><summary>Voorbeeld 3: Bepaal de extreme waarde van <span class="arithmatex">\(f(x) = (x-2)^{7}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waarde van <span class="arithmatex">\(f(x) = (x-2)^{7}\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We willen de extreme waarde bepalen en dus stellen we dat de afgeleide van <span class="arithmatex">\(f(x)\)</span> gelijk is aan <span class="arithmatex">\(0\)</span>. Om dit te doen, berekenen we eerst de afgeleide. We doen dit met behulp van de <a href="#regels">kettingregel</a>. </p>
+<p>We definieren de volgende functie:</p>
+<div class="arithmatex">\[\large{u(x) \equiv x - 2}\]</div>
+<p>waardoor er dus geldt dat:</p>
+<div class="arithmatex">\[\large{f(u) = u^7}\]</div>
+<p>De <a href="#regels">kettingregel</a> vertelt ons het volgende:</p>
+<div class="arithmatex">\[\large{f'(x) = f'(u) * u'(x)}\]</div>
+<p>We berekenen eerst de afgeleide van <span class="arithmatex">\(f(u)\)</span> naar <span class="arithmatex">\(u\)</span>:</p>
+<div class="arithmatex">\[\large{f'(u) = 7u^{7-1} = 7u^6}\]</div>
+<p>Nu de afgeleide van <span class="arithmatex">\(u(x)\)</span> naar <span class="arithmatex">\(x\)</span>:</p>
+<div class="arithmatex">\[\large{u'(x) = 1}\]</div>
+<p>En dus krijgen we dat:</p>
+<div class="arithmatex">\[\large{f'(x) = 7u^6 * 1}\]</div>
+<p>We kunnen de <span class="arithmatex">\(u\)</span> weer terug subsitueren voor <span class="arithmatex">\(x - 2\)</span> en dan krijgen we dus:</p>
+<div class="arithmatex">\[\large{f'(x) = 7(x - 2)^6}\]</div>
+<p>Om de extreme waarde te vinden stellen we dit dus gelijk aan <span class="arithmatex">\(0\)</span>:</p>
+<div class="arithmatex">\[\large{7(x - 2)^6 = 0}\]</div>
+<p>Dit betekent dus dat er moet gelden dat:</p>
+<div class="arithmatex">\[\large{x - 2 = 0,}\]</div>
+<p>want anders kan de vergelijking nooit <span class="arithmatex">\(0\)</span> worden. Het <span class="arithmatex">\(x\)</span>-coördinaat van de top is dus:</p>
+<div class="arithmatex">\[\large{x = 2}\]</div>
+<p>Als we dit in <span class="arithmatex">\(f(x)\)</span> invullen vinden we als <span class="arithmatex">\(y\)</span>-coördinaat:</p>
+<div class="arithmatex">\[\large{f(2) = (2 - 2)^7 = 0}\]</div>
+<p>De coördinaten van onze top zijn dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\textrm{De top is bij } (2, 0)}\]</div>
+</div>
+<p>Als we de functie tekenen in Figuur 4, dan zien we dat dit klopt.</p>
+<p><figure markdown>
+    <img alt="Top van functie" src="../assets/images/afgeleide/f%28x%29%20%3D%20%28x%20-%202%29%E2%81%B7.svg" width="500" />
+    <figcaption>Figuur 4. De grafiek <span class="arithmatex">\(f(x) = (x-2)^{7}\)</span> geplot met de extreme waarde.</figcaption>
+</figure></p>
+</details>
+<details class="example"><summary>Voorbeeld 4: Bepaal de extreme waardes van <span class="arithmatex">\(f(x) = 10e^x(x^2 + 4x + 0.4)\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waardes van <span class="arithmatex">\(f(x) = e^x(x^2 + 4x + 0.4)\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We willen de extreme waardes bepalen en dus moeten we stellen dat de afgeleide gelijk is aan <span class="arithmatex">\(0\)</span>. We berekenen de afgeleide van <span class="arithmatex">\(f(X)\)</span> met de <a href="#regels">productregel</a> door te definieren:</p>
+<div class="arithmatex">\[\large{g(x) \equiv 10e^x \textrm{ en } h(x) = x^2 + 4x + 0.4}\]</div>
+<p>De <a href="#regels">productregel</a> vertelt ons dat:</p>
+<div class="arithmatex">\[\large{f'(x) = g'(x) \  * \ h(x) + g(x) * h'(x)}\]</div>
+<p>Laten we dus <span class="arithmatex">\(g'(x)\)</span> en <span class="arithmatex">\(h'(x)\)</span> bepalen (zie eventueel de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>):</p>
+<div class="arithmatex">\[\large{g'(x) = 10e^x = g(x)}\]</div>
+<div class="arithmatex">\[\large{h'(x) = 2x + 4}\]</div>
+<p>Nu vullen we de <a href="#regels">productregel</a> in:</p>
+<div class="arithmatex">\[\large{f'(x) = 10e^x(x^2 + 4x + 0.4) + 10e^x(2x + 4)}\]</div>
+<p>Dit kunnen we versimpelen naar:</p>
+<div class="arithmatex">\[\large{f'(x) = 10e^x(x^2 + 6x + 4.4)}\]</div>
+<p>Om de extreme waardes te bepalen stellen we deze afgeleide gelijk aan <span class="arithmatex">\(0\)</span>:</p>
+<div class="arithmatex">\[\large{10e^x(x^2 + 6x + 4.4) = 0}\]</div>
+<p>Dit betekent dat een van de twee termen <span class="arithmatex">\(0\)</span> moet zijn:</p>
+<div class="arithmatex">\[\large{e^x = 0 \ \vee \ x^2 + 6x + 4.4 = 0}\]</div>
+<p>Maar <span class="arithmatex">\(e^x\)</span> wordt nooit <span class="arithmatex">\(0\)</span> en dus vereenvoudigt dit naar:</p>
+<div class="arithmatex">\[\large{x^2 + 6x + 4.4 = 0}\]</div>
+<p>Ontbinden in factoren wordt hier lastig en dus gebruiken we de <a href="../kwadratische_vergelijkingen/#de-abc-formule"><em>abc</em> formule</a>. We hebben:</p>
+<div class="arithmatex">\[\large{a = 1, \ b = 6, \ c = 4.4}\]</div>
+<p>De discriminant wordt dan:</p>
+<div class="arithmatex">\[D = 6^2 - 4 * 1 * 4.4 = 18.4\]</div>
+<p>We vullen dit nu in:</p>
+<div class="arithmatex">\[\large{x = \frac{-6 + \sqrt{18.4}}{2*1} \ \vee \ \frac{-6 - \sqrt{18.4}}{2*1}}\]</div>
+<div class="arithmatex">\[\large{x \approx -0.86 \ \vee \ x \approx -5.14}\]</div>
+<p>Deze <span class="arithmatex">\(x\)</span>-coördinaten vullen we vervolgens in <span class="arithmatex">\(f(x)\)</span> om de bijbehorende <span class="arithmatex">\(y\)</span>-coördinaten te bepalen:</p>
+<div class="arithmatex">\[\large{f(-0.86) = 10e^{-0.86}\left((-0.86)^2 + 4*(-0.86) + 0.4 \right) \approx -9.7}\]</div>
+<div class="arithmatex">\[\large{f(-5.14) = 10e^{-5.14}\left((-5.14)^2 + 4*(-5.14) + 0.4 \right) \approx 0.37}\]</div>
+<p>De coördinaten van de twee extreme waardes zijn dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\textrm{De toppen zijn bij } (-0.86, -9.7) \textrm{ en } (-5.14, 0.37)}\]</div>
+</div>
+<p>En als we de functie tekenen in Figuur 5, dan zien we dat dit klopt.</p>
+<p><figure markdown>
+    <img alt="Top van functie" src="../assets/images/afgeleide/f%28x%29%20%3D%2010e%CB%A3%28x%C2%B2%20%2B%204x%20%2B%200.4%29.svg" width="500" />
+    <figcaption>Figuur 5. De grafiek <span class="arithmatex">\(f(x) = 10e^x(x^2 + 4x + 0.4)\)</span> geplot met de extreme waardes.</figcaption>
+</figure></p>
+</details>
+<details class="example"><summary>Voorbeeld 5: Bepaal de extreme waardes van <span class="arithmatex">\(f(x) = \cos^2(2x)\)</span> in het domein <span class="arithmatex">\([-\frac{\pi}{2}, \frac{\pi}{2}]\)</span></summary><p><strong><p style="text-align: center;font-size:18px;">Bepaal de coördinaten van de extreme waardes van <span class="arithmatex">\(f(x) = \cos^2(2x)\)</span> in het domein <span class="arithmatex">\([-\frac{\pi}{2}, \frac{\pi}{2}]\)</span></p></strong>
+<strong><p style="text-align: center;font-size:18px;">Uitwerking</p></strong></p>
+<p>We willen de extreme waardes bepalen en dus moeten we de afgeleide gelijk aan <span class="arithmatex">\(0\)</span> stellen. Om de afgeleide te bepalen maken we gebruik van de <a href="#regels">kettingregel</a>. We herkennen drie verschillende functies binnen <span class="arithmatex">\(f(x)\)</span>:</p>
+<div class="arithmatex">\[\large{f(x) = g^2 \textrm { met } g(h) \equiv \cos(h) \textrm{ en } h(x) \equiv 2x}\]</div>
+<p>De afgeleides van <span class="arithmatex">\(g(h)\)</span> naar <span class="arithmatex">\(h\)</span> en <span class="arithmatex">\(h(x)\)</span> naar <span class="arithmatex">\(x\)</span> kunnen we bepalen met behulp van de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>:</p>
+<div class="arithmatex">\[\large{g'(h) = -\sin(h)}\]</div>
+<div class="arithmatex">\[\large{h'(x) = 2}\]</div>
+<p>De afgeleide wordt dan:</p>
+<div class="arithmatex">\[\large{f'(x) = 2 * g * g'(h) * h'(x)}\]</div>
+<div class="arithmatex">\[\large{f'(x) = 2 * \cos(h) * -\sin(h) * 2}\]</div>
+<p>Als we <span class="arithmatex">\(h\)</span> invullen en dit verder versimpelen vinden we:</p>
+<div class="arithmatex">\[\large{f'(x) = -4 \sin(2x) \cos(2x)}\]</div>
+<p>Dit kunnen we eventueel nog verder versimpelen met de <a href="../goniometrie/#goniometrische-vergelijkingen">sinus verdubbelingsformule</a>. We krijgen dan:</p>
+<div class="arithmatex">\[\large{f'(x) = -2 \sin(4x)}\]</div>
+<p>Nu stellen we deze afgeleide gelijk aan <span class="arithmatex">\(0\)</span>:</p>
+<div class="arithmatex">\[\large{-2 \sin(4x) = 0}\]</div>
+<div class="arithmatex">\[\large{\sin(4x) = 0}\]</div>
+<div class="arithmatex">\[\large{\sin(4x) = \sin(0)}\]</div>
+<p>Dit kunnen we <a href="../goniometrie/#uitwerken-sincos-vergelijkingen">uitwerken</a> om te vinden dat:</p>
+<div class="arithmatex">\[\large{4x = k * 2\pi \ \vee \ 4x = \pi + k * 2\pi}\]</div>
+<p>Dit kunnen we ook schrijven als:</p>
+<div class="arithmatex">\[\large{4x = k\pi}\]</div>
+<div class="arithmatex">\[\large{x = \frac{1}{4} k\pi,}\]</div>
+<p>waarbij <span class="arithmatex">\(k\)</span> een geheel getal is. </p>
+<p>We moesten alle extreme waardes geven in het domein <span class="arithmatex">\([-\frac{\pi}{2}, \frac{\pi}{2}]\)</span>, en dus hebben we de volgende oplossingen voor <span class="arithmatex">\(x:\)</span></p>
+<div class="arithmatex">\[\large{x = \left\{ -\frac{1}{2} \pi, -\frac{1}{4} \pi, 0, \frac{1}{4} \pi, \frac{1}{2} \pi \right\} }\]</div>
+<p>Als we al deze <span class="arithmatex">\(x\)</span>-coördinaten invullen in <span class="arithmatex">\(f(x)\)</span>, dan kunnen we de bijbehorende <span class="arithmatex">\(y\)</span>-coördinaten berekenen:</p>
+<div class="arithmatex">\[\large{y = \left\{1, 0, 1, 0, 1 \right\} }\]</div>
+<p>Onze coördinaten voor de toppen worden dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\Large{(-\frac{1}{2} \pi, 1), \ (-\frac{1}{4} \pi, 0), \ (0, 1), \ (\frac{1}{4} \pi, 0), \textrm{ en } (\frac{1}{2} \pi, 1)}\]</div>
+</div>
+<p>En als we de functie tekenen in Figuur 6, dan zien we dat dit klopt.</p>
+<p><figure markdown>
+    <img alt="Top van functie" src="../assets/images/afgeleide/f%28x%29%20%3D%20cos%C2%B2%282x%29.svg" width="500" />
+    <figcaption>Figuur 6. De grafiek <span class="arithmatex">\(f(x) = \cos^2(2x)\)</span> geplot met de extreme waardes in het domein <span class="arithmatex">\([-\frac{\pi}{2}, \frac{\pi}{2}]\)</span>.</figcaption>
+</figure></p>
+</details>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Begrijp je de stof nu beter?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="Ik begrijp de stof nu beter" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 9v12H1V9h4m4 12a2 2 0 0 1-2-2V9c0-.55.22-1.05.59-1.41L14.17 1l1.06 1.06c.27.27.44.64.44 1.05l-.03.32L14.69 8H21a2 2 0 0 1 2 2v2c0 .26-.05.5-.14.73l-3.02 7.05C19.54 20.5 18.83 21 18 21H9m0-2h9.03L21 12v-2h-8.79l1.13-5.32L9 9.03V19Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="De stof is nog een beetje onduidelijk" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 15V3h4v12h-4M15 3a2 2 0 0 1 2 2v10c0 .55-.22 1.05-.59 1.41L9.83 23l-1.06-1.06c-.27-.27-.44-.64-.44-1.06l.03-.31.95-4.57H3a2 2 0 0 1-2-2v-2c0-.26.05-.5.14-.73l3.02-7.05C4.46 3.5 5.17 3 6 3h9m0 2H5.97L3 12v2h8.78l-1.13 5.32L15 14.97V5Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Bedankt voor de feedback! Om ervoor te zorgen dat wiskundewijs nóg beter wordt, zou ik <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUuPlxDYomx3nLl63BQcFR0jCbQMaQIpFh37J53_UaVJELeA/viewform?usp=pp_url&entry.1328585866=De%20Afgeleide%20Functie" target="_blank" rel="noopener">jouw feedback</a> heel erg waarderen!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Bedankt voor de feedback! Ik zou het heel erg waarderen als je mij vertelt wat jij denkt dat verbeterd kan worden. <a href="https://docs.google.com/forms/d/e/1FAIpQLSebi8Nv-t1BBU7mzvMK8COd_1aHSTnjgzBQWQXhjt64OuVsFQ/viewform?usp=pp_url&entry.1328585866=De%20Afgeleide%20Functie" target="_blank" rel="noopener">Jouw feedback</a> kan mensen helpen die tegen hetzelfde aanlopen!
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../stelsels_van_vergelijkingen/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: Stelsels van Vergelijkingen">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Vorige
+              </span>
+              <div class="md-ellipsis">
+                Stelsels van Vergelijkingen
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../goniometrie/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Goniometrie">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Volgende
+              </span>
+              <div class="md-ellipsis">
+                Goniometrie
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024, Marc Serrano Altena
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/marc-serrano-altena-a96800285/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/M-Serrano-Altena" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<Marc.Serrano.Altena@gmail.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6m-2 0-8 5-8-5h16m0 12H4V8l8 5 8-5v10Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

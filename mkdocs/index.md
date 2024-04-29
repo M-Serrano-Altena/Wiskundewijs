@@ -9,13 +9,13 @@ hide:
 
 **<p style="text-align: left;font-size:20px;">Welkom bij Wiskundewijs!</p>**
 
-Hier worden verschillende wiskundige onderwerpen voor de middelbare school **duidelijk** en **helder** behandelt. Elk hoofdstuk bevat een theoriedeel waar de stof wordt uitgelegt en daarna worden voorbeelden stap voor stap behandelt om te laten zien hoe de theorie toegepast moet worden in de opdrachten. En dat allemaal **volledig gratis**!
+Hier worden verschillende onderwerpen voor de middelbare school **duidelijk** en **helder** behandelt. Elk hoofdstuk heeft een theoriedeel en voorbeelden. In het theoriedeel wordt de stof uitgelegt en daarna worden de voorbeelden stap voor stap behandelt. Zo kun je precies zien hoe de theorie toegepast moet worden in de opdrachten.
 
 Maak gebruik van de **zoekbalk** om direct het onderwerp te vinden waar jij naar op zoek bent!
 
-Ben je als ouder geïnteresseerd in **persoonlijke een-op-een bijles** voor jouw kind, zowel fysiek als online? Klik dan nu op de **contact** knop voor meer informatie en **meld je aan**!
+Heeft jou kind moeite met wiskunde en zou je willen dat hij of zij **twee punten hoger** scoort op de volgende toets? Klik dan hieronder op de **Bijles** knop voor meer informatie!
 
-[Contact :material-account:](contact.md){ .md-button .md-button--primary }
+[Bijles :material-calculator:](bijles.md){ .md-button .md-button--primary }
 
 ## Hoofdstukken
 1. [Basisvaardigheden](basisvaardigheden.md)

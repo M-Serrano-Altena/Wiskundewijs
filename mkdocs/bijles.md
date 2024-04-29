@@ -6,20 +6,18 @@ hide:
   - feedback
 ---
 
-# *Contact*
+# *Bijles*
 
 <div class="form-container">
-  <h2 class="form-title">Aanmelden voor een vrijblijvend telefonisch kennismakingsgesprek</h2>
+  <h2 class="form-title">Kennismakingsgesprek</h2>
   <form id="fs-frm" name="registratie-formulier" accept-charset="utf-8" action="https://formspree.io/f/mbjnoanw" method="post">
     <fieldset id="fs-frm-inputs">
-      <label for="full-name">Voor- en Achternaam</label>
+      <label for="full-name">Naam</label>
       <input type="text" name="name" id="full-name" placeholder="Voornaam en Achternaam" required="" fdprocessedid="3ln1lj">
-      <label for="email-address">E-mailadress</label>
+      <label for="email-address">E-mail</label>
       <input type="email" name="_replyto" id="email-address" placeholder="email@domein.nl" required="" fdprocessedid="w2s8ja">
       <label for="phone-number">Telefoonnummer</label>
       <input type="tel" name="phone" id="phone-number" placeholder="06 12345678" required="" fdprocessedid="r39vu">
-      <label for="note">Opmerking</label>
-      <textarea rows="2" name="note" id="note" placeholder="Voeg eventuele aanvullende informatie toe"></textarea>
       <input type="hidden" name="_subject" id="email-subject" value="Registratieformulier Inzending">
     </fieldset>
     <input type="submit" value="Verzend" fdprocessedid="626xzu">
@@ -193,21 +191,24 @@ hide:
 
 </style>
 
-**<p style="text-align: left;font-size:20px;">Wiskundewijs - Bijles wiskunde voor de middelbare school</p>**
+**<p style="text-align: left;font-size:20px;">Bijles wiskunde voor de middelbare school</p>**
 
 Ik ben **Marc Serrano Altena**, een tweedejaars student Natuur- en Sterrenkunde aan de UvA en VU.
 
 ![Foto Marc Serrano Altena](assets/images/general/Marc_Serrano_Altena_photo.png){ width="200" align=right}
 
-Omdat ik begrijp dat wiskunde soms te snel kan gaan en niet alle stappen even duidelijk zijn, ben ik gestart met deze site. Maar om er met zekerheid voor te zorgen dat jouw kind een van de beste cijfers haalt, bied ik **persoonlijke een-op-een bijles wiskunde** aan. 
+Wiskunde kan soms **te snel** gaan en dat **niet alle stappen duidelijk** zijn. Om wiskunde beter begrijpbaar te maken voor iedereen, ben ik gestart met deze website. Maar ik help graag nog verder!
 
-Dit kan zowel **fysiek** op locatie in Regio Noord-Holland als **online**, en dit alles voor **€30 per uur**. De eerste bijles is volledig **gratis** om te bekijken of het een goede match is met jouw kind, en volledig vrijblijvend, dus je zit nergens aan vast!
+Heeft jouw kind moeite met de stof begrijpen of toepassen? Of juist meer met het bij blijven met de stof en het huiswerk te maken? Om deze problemen op te lossen bied ik **een-op-een bijles** aan. 
 
+Apart van alleen de bijles, krijg je als bonus ook een aantal **stappenplannen**. Jouw kind hoeft dan alleen het stappenplan te volgen om een opdracht goed te kunnen maken. Ook help ik buiten de bijlessen door vragen te beantwoorden over het huiswerk. 
 
-**<p style="text-align: left;font-size:19px;">Waarom mijn wiskundebijles?</p>**
+En ik help de **eerste 5 leerlingen volledig gratis**. En ik garandeer dan dat jouw kind voor de volgende toets **2 cijferpunten hoger** haalt dan zijn of haar gemiddelde. En anders dan blijf ik volledig gratis doorgaan met de bijles totdat het lukt. De eerste **drie plekken zijn al gevult**, dus ik help nu **nog maar 2 leerlingen gratis** voordat de prijs omhoog gaat. 
 
-:fontawesome-solid-check:{ .green }  **Gemiddelde van 8.5** voor mijn studie, waar wiskundige kennis essentieel is.
+**<p style="text-align: left;font-size:19px;">Waarom mijn wiskunde bijles?</p>**
 
-:fontawesome-solid-check:{ .green }  **Jaren ervaring als bijlesdocent**, zelfs tijdens mijn middelbare schooljaren.
+:fontawesome-solid-check:{ .green }  **Gemiddelde van 8.5** voor mijn studie Natuur- en Sterrenkunde.
 
-Interesse? Meld je aan voor een **vrijblijvend telefonisch kennismakingsgesprek** en ontdek hoe ik jouw kind kan ondersteunen!
+:fontawesome-solid-check:{ .green }  **Jaren ervaring als bijlesdocent**, ook tijdens mijn middelbare schooljaren.
+
+Heb je interesse? Vul jouw gegevens in om kennis te maken en om te kijken of de bijles bij jou en jouw kind past!

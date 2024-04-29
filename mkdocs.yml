@@ -4,6 +4,9 @@ site_url: https://wiskundewijs.com/
 site_description: Hier worden verschillende wiskundige onderwerpen duidelijk en helder behandelt. De hoofdstukken hebben een theorie sectie waar de stof wordt uitgelegt en daarna worden wat voorbeelden behandelt om te laten zien hoe de theorie toegepast wordt in de opdrachten. 
 copyright: Copyright &copy; 2024, Marc Serrano Altena
 
+docs_dir: 'mkdocs'
+site_dir: 'docs\static\mkdocs_build'
+
 
 theme:
   name: "material"
@@ -67,7 +70,7 @@ nav:
     - De Afgeleide Functie: afgeleide.md
     - goniometrie.md
 
-  - contact.md
+  - bijles.md
   
 
 # not_in_nav:

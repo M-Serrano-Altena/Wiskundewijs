@@ -1,0 +1,1389 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Hier worden verschillende wiskundige onderwerpen duidelijk en helder behandelt. De hoofdstukken hebben een theorie sectie waar de stof wordt uitgelegt en daarna worden wat voorbeelden behandelt om te laten zien hoe de theorie toegepast wordt in de opdrachten.">
+      
+      
+        <meta name="author" content="Marc Serrano Altena">
+      
+      
+        <link rel="canonical" href="https://wiskundewijs.com/goniometrie/">
+      
+      
+        <link rel="prev" href="../afgeleide/">
+      
+      
+        <link rel="next" href="../contact/">
+      
+      
+      <link rel="icon" href="../assets/images/general/calculator-variant.svg">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
+    
+    
+      
+        <title>Goniometrie - Wiskundewijs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-4JQXCEL3Q5"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-4JQXCEL3Q5",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-4JQXCEL3Q5",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#goniometrie" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Wiskundewijs" class="md-header__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+      
+  <img src="../assets/images/general/calculator-variant-outline.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wiskundewijs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Goniometrie
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../basisvaardigheden/" class="md-tabs__link">
+          
+  
+  Stof
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../contact/" class="md-tabs__link">
+        
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Wiskundewijs" class="md-nav__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+      
+  <img src="../assets/images/general/calculator-variant-outline.svg" alt="logo">
+
+    </a>
+    Wiskundewijs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Stof
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Stof
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basisvaardigheden/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basisvaardigheden
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../percentages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percentages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistiek/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistiek
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pythagoras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Stelling van Pythagoras
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kwadratische_vergelijkingen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kwadratische Vergelijkingen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ongelijkheden/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ongelijkheden
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stelsels_van_vergelijkingen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stelsels van Vergelijkingen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../afgeleide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Afgeleide Functie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Goniometrie
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Goniometrie
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#regels-goniometrische-functies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regels Goniometrische Functies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#de-sinus-en-cosinus-functies" class="md-nav__link">
+    <span class="md-ellipsis">
+      De Sinus en Cosinus functies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="De Sinus en Cosinus functies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uitwerken-sincos-vergelijkingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uitwerken sin/cos vergelijkingen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symmetrieformules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Symmetrieformules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinus-en-cosinus-omschrijven" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sinus en Cosinus omschrijven
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#de-eenheidscirkel" class="md-nav__link">
+    <span class="md-ellipsis">
+      De Eenheidscirkel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="De Eenheidscirkel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trucje-om-de-eenheidscirkel-te-onthouden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trucje om de Eenheidscirkel te Onthouden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goniometrische-vergelijkingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goniometrische Vergelijkingen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Goniometrische Vergelijkingen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#regels-goniometrische-functies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regels Goniometrische Functies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#de-sinus-en-cosinus-functies" class="md-nav__link">
+    <span class="md-ellipsis">
+      De Sinus en Cosinus functies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="De Sinus en Cosinus functies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uitwerken-sincos-vergelijkingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uitwerken sin/cos vergelijkingen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symmetrieformules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Symmetrieformules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinus-en-cosinus-omschrijven" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sinus en Cosinus omschrijven
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#de-eenheidscirkel" class="md-nav__link">
+    <span class="md-ellipsis">
+      De Eenheidscirkel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="De Eenheidscirkel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trucje-om-de-eenheidscirkel-te-onthouden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trucje om de Eenheidscirkel te Onthouden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goniometrische-vergelijkingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goniometrische Vergelijkingen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Goniometrische Vergelijkingen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="goniometrie"><em>Goniometrie</em></h1>
+<p>Goniometrie gaat vooral over driehoeken en over de goniometrische functies: sinus (<strong>sin</strong>), cosinus (<strong>cos</strong>) en tangens (<strong>tan</strong>). Deze goniometrische functies kunnen we gebruiken om verschillende zijdes te bepalen als we alleen maar 1 zijde hebben en een hoek, in plaats van twee zijdes. Want als we niet twee zijdes hebben, kunnen we geen Pythagoras gebruiken. Deze functies zijn dus erg handig! Maar hoe gebruiken we ze?</p>
+<p>In Figuur 1 is er een rechte driehoek getekend. Hier zijn drie punten gegeven en de hoek.</p>
+<figure>
+<p><img alt="Rechte driehoek" src="../assets/images/goniometrie/Right_Triangle_Gonio.svg" width="300" />
+  </p>
+<figcaption>Figuur 1. Een rechte driehoek, met een hoek θ en punten A, B en C.</figcaption>
+</figure>
+<p>Stel nu eens voor dat we de zijde <span class="arithmatex">\(AB\)</span> en de hoek <span class="arithmatex">\(\theta\)</span> weten en dat we achter de lengte van zijde <span class="arithmatex">\(BC\)</span> willen komen. </p>
+<p>Zoals eerder gezegd, kunnen we dit probleem niet oplossen met Pythagoras. Hiervoor hebben we de goniometrische funties nodig. In dit geval gebruiken we de tangens omdat we de aanliggende zijde hebben <span class="arithmatex">\((AB)\)</span> en we de overstaande zijde willen weten <span class="arithmatex">\((BC)\)</span> (zie <a href="#regels-goniometrische-functies">Regels Goniometrische Functies</a>). We krijgen dan:</p>
+<div class="arithmatex">\[\tan{(\theta)} = \frac{BC}{AB}.\]</div>
+<p>Dit kunnen we dan omschrijven om <span class="arithmatex">\(BC\)</span> vrij te maken:</p>
+<div class="arithmatex">\[BC = AB \tan{(\theta)}.\]</div>
+<h2 id="regels-goniometrische-functies"><strong>Regels Goniometrische Functies</strong></h2>
+<p>Dit zijn de regels voor de goniometrische functies sinus, cosinus en tangens.</p>
+<div class="admonition belangrijk">
+<p class="admonition-title">Belangrijk</p>
+<div class="arithmatex">\[\large{\sin{(\theta)} = \frac{\mathrm{Overstaand}}{\mathrm{Schuin}}}\]</div>
+<div class="arithmatex">\[\large{\cos{(\theta)} = \frac{\mathrm{Aanliggend}}{\mathrm{Schuin}}}\]</div>
+<div class="arithmatex">\[\large{\tan{(\theta)} = \frac{\mathrm{Overstaand}}{\mathrm{Aanliggend}}}\]</div>
+</div>
+<p>Dit kan je onthouden met het ezelsbruggetje: "SOS CAS TOA"</p>
+<details class="note"><summary>Overstaand, Aanliggend en Schuin</summary><p>"Overstaand", "Aanliggend" en "Schuin" gaan over de zijdes ten opzichte van de hoek.</p>
+<p>Als we kijken naar figuur 1 (hieronder herhaalt), dan is in dit geval:</p>
+<p>"Overstaand" de zijde <span class="arithmatex">\(BC\)</span>, "Aanliggend" de zijde <span class="arithmatex">\(AB\)</span> en "Schuin" de zijde <span class="arithmatex">\(AC\)</span>.</p>
+<p><figure markdown>
+    <img alt="Rechte driehoek" src="../assets/images/goniometrie/Right_Triangle_Gonio.svg" width="200" />
+</figure></p>
+</details>
+<h2 id="de-sinus-en-cosinus-functies"><strong>De Sinus en Cosinus functies</strong></h2>
+<p>Zowel de sinus als de cosinus functie, zijn periodieke functies. Dit betekent dat de functie zich herhaalt over een bepaalt interval. In dit geval is dat over een domein van <span class="arithmatex">\(2 \pi\)</span>. We zeggen dan dat de functie en periode heeft van <span class="arithmatex">\(2 \pi\)</span> (zie ook Figuur 2 en Figuur 3). </p>
+<p>In formule form houdt dit in dat:</p>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><div class="arithmatex">\[\large{\sin{(x + 2 \pi)} = \sin{(x)}}\]</div>
+<div class="arithmatex">\[\large{\cos{(x + 2 \pi)} = \cos{(x)}}\]</div>
+</details>
+<figure>
+<p><img alt="Sinus functie" src="../assets/images/goniometrie/Sinus.svg" width="450" />
+  </p>
+<figcaption>Figuur 2. De sinus functie over een domein van [0, 6π].</figcaption>
+</figure>
+<figure>
+<p><img alt="Cosinus functie" src="../assets/images/goniometrie/Cosinus.svg" width="450" />
+  </p>
+<figcaption>Figuur 3. De cosinus functie over een domein van [0, 6π].</figcaption>
+</figure>
+<p>Het feit dat deze functies periodiek zijn, is een belangrijk punt als we vergelijkingen moeten oplossen. Laten we naar de volgende vraag kijken:</p>
+<p><strong><p style="text-align: center;font-size:20px;">Bereken x: <span class="arithmatex">\(\cos{(x)} = 1\)</span></p></strong></p>
+<p>We kunnen in Figuur 3 (of op de <a href="#de-eenheidscirkel">eenheidscirkel</a>) aflezen dat dit geldt voor <span class="arithmatex">\(x = 0\)</span>. Maar omdat de functie zich herhaalt, geldt dit ook voor <span class="arithmatex">\(x = 2 \pi, \ x = 4 \pi, \ x = 6 \pi\)</span>, etc.. Om met al deze oplossingen rekening te houden, schrijven we:</p>
+<div class="arithmatex">\[\cos{(x)} = \cos{(0)},\]</div>
+<p>want <span class="arithmatex">\(\cos{(0)} = 1\)</span>. Om dus met alle oplossing reking te houden, schrijven dit dus als:</p>
+<div class="arithmatex">\[x = k * 2 \pi,\]</div>
+<p>waarbij er geldt dat:</p>
+<div class="arithmatex">\[k = 0, 1, 2, 3, ...\]</div>
+<p>Laten we naar nog een vraag kijken:</p>
+<p><strong><p style="text-align: center;font-size:20px;">Bereken x: <span class="arithmatex">\(\sin{(x)} = 0\)</span></p></strong></p>
+<p>We zien nu in Figuur 2 dat dit geldt voor <span class="arithmatex">\(x = 0, \ x = \pi, \ x = 2 \pi, \ x = 3 \pi\)</span>, etc.. We beginnen weer met het schrijven van het getal als een sinus. Dit wordt dan:</p>
+<div class="arithmatex">\[\sin{(x)} = \sin{(0)}\]</div>
+<p>En we hebben dus net gezien dat we er geldt dat:</p>
+<div class="arithmatex">\[x = k * \pi.\]</div>
+<p>Bij de vorige twee voorbeelden hebben we gewoon afgelezen hoe vaak het geldt, maar kunnen we ook een algemene oplossing verzinnen die altijd geldt? Het antwoord is ja! </p>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="uitwerken-sincos-vergelijkingen"><strong>Uitwerken sin/cos vergelijkingen</strong></h3>
+<p>Met een sinus:</p>
+<div class="arithmatex">\[\large{\sin{(x)} = \sin{(a)}}\]</div>
+<p>geeft:</p>
+<div class="arithmatex">\[\large{x = a + k * 2 \pi \ \vee \ x = \pi - a + k * 2 \pi}\]</div>
+<p>en met een cosinus:</p>
+<div class="arithmatex">\[\large{\cos{(x)} = \cos{(a)}}\]</div>
+<p>geeft:</p>
+<div class="arithmatex">\[\large{x = a + k * 2 \pi \ \vee \  x = - a + k * 2 \pi}\]</div>
+<p>waarbij er geldt dat:</p>
+<div class="arithmatex">\[\large{k = 0, 1, 2, 3, ...}\]</div>
+</details>
+<p>In de <span class="arithmatex">\(\cos\)</span> en <span class="arithmatex">\(\sin\)</span> functies zit een bepaalde symmetrie. De sinus functie heeft een symmetrie punt op de oorsprong, terwijl de cosinus functie een symmetrie as heeft bij de <span class="arithmatex">\(y\)</span>-as. Deze symmetrie is op de volgende manier weer te geven in formule form:</p>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="symmetrieformules"><strong>Symmetrieformules</strong></h3>
+<ol>
+<li>
+<div class="arithmatex">\[\large{\sin{(-x)} = - \sin{(x)}}\]</div>
+</li>
+<li>
+<div class="arithmatex">\[\large{\cos{(x)} = \cos{(-x)}}\]</div>
+</li>
+<li>
+<div class="arithmatex">\[\large{\cos{(\pi - x)} = \cos{(-x)}}\]</div>
+</li>
+<li>
+<div class="arithmatex">\[\large{\sin{(\pi - x)} = \sin{(x)}}\]</div>
+</li>
+</ol>
+</details>
+<p>De cosinus functie is eigenlijk hetzelfde als de sinus functie, alleen is het <span class="arithmatex">\(\frac{1}{2} \pi\)</span> opgeschoven naar rechts. In formule form wordt dit dan:</p>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="sinus-en-cosinus-omschrijven"><strong>Sinus en Cosinus omschrijven</strong></h3>
+<ol>
+<li>
+<div class="arithmatex">\[\large{\sin{(x)} = \cos{(x - \frac{1}{2} \pi)}}\]</div>
+</li>
+<li>
+<div class="arithmatex">\[\large{\cos{(x)} = \sin{(x + \frac{1}{2} \pi)}}\]</div>
+</li>
+</ol>
+<p>Als je niet wilt onthouden bij welke functie je <span class="arithmatex">\(+ \frac{1}{2} \pi\)</span> doet, en bij welke je <span class="arithmatex">\(- \frac{1}{2} \pi\)</span>, kan je het ook op de volgende manier omschrijven:</p>
+<p><p style="text-align: left;font-size:17px;">Alternatieve manier</p></p>
+<ol>
+<li>
+<div class="arithmatex">\[\large{\sin{(x)} = \cos{(\frac{1}{2} \pi - x)}}\]</div>
+</li>
+<li>
+<div class="arithmatex">\[\large{\cos{(x)} = \sin{(\frac{1}{2} \pi - x)}}\]</div>
+</li>
+</ol>
+<p>En dit verband werkt ook altijd.</p>
+<details class="abstract"><summary>Bewijs</summary><p>Dit kunnen we zelf bewijzen met behulp van de <a href="#symmetrieformules">Symmetrieformules</a>. </p>
+<p>Laten we eerst kijken om van <span class="arithmatex">\(\sin\)</span> naar <span class="arithmatex">\(\cos\)</span> te gaan. Als we <a href="#symmetrieformules">regel 2</a> gebruiken zien we het eigenlijk al meteen:</p>
+<div class="arithmatex">\[\large{\cos{(x - \frac{1}{2} \pi)} = \cos{(-(x - \frac{1}{2} \pi))} = \cos{(\frac{1}{2} \pi - x)}}\]</div>
+<p>Nu kijken we om van <span class="arithmatex">\(\cos\)</span> naar <span class="arithmatex">\(\sin\)</span> te gaan. Hiervoor gebruiken we <a href="#symmetrieformules">regel 4</a>:</p>
+<div class="arithmatex">\[\large{\sin{(x + \frac{1}{2} \pi)} = \sin{(\pi - (x + \frac{1}{2} \pi))} = }\]</div>
+<div class="arithmatex">\[\large{\sin{(\pi - \frac{1}{2} \pi - x)} = \sin{(\frac{1}{2} \pi - x)}}\]</div>
+</details>
+</details>
+<h3 id="voorbeelden"><strong>Voorbeelden</strong></h3>
+<details class="example"><summary>Voorbeeld 1: <span class="arithmatex">\(\cos{(2x)} = 0\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken x: <span class="arithmatex">\(\cos{(2x)} = 0\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We lossen dit op door eerst van de <span class="arithmatex">\(0\)</span> een <span class="arithmatex">\(\cos\)</span> te maken. In dit geval kunnen we in Figuur 3 of met de <a href="#de-eenheidscirkel">Eenheidscirkel</a> zien dat dit geldt bij <span class="arithmatex">\(\cos{(\frac{1}{2} \pi)}\)</span>.</p>
+<p>We kunnen dus zeggen dat:</p>
+<div class="arithmatex">\[\large{\cos{(2x)} = \cos{(\frac{1}{2} \pi)}}\]</div>
+<p>En dus kunnen we zeggen dat (zie <a href="#uitwerken-sincos-vergelijkingen">uitwerken sin/cos</a>):</p>
+<div class="arithmatex">\[\large{2x = \frac{1}{2} \pi + k * 2 \pi \ \vee \ 2x = - \frac{1}{2} \pi + k *2 \pi}\]</div>
+<p>En nu delen we alles door <span class="arithmatex">\(2\)</span> om te vinden dat:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = \frac{1}{4} \pi + k * \pi \ \vee \ x = - \frac{1}{4} \pi + k * \pi}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 2: <span class="arithmatex">\(\sin{(3x)} = \cos{(-x)}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken x: <span class="arithmatex">\(\sin{(3x)} = \cos{(-x)}\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Als eerst beginnen we met het realiseren dat we dit ook kunnen schrijven als:</p>
+<div class="arithmatex">\[\large{\sin{(3x)} = \cos{(x)},}\]</div>
+<p>zie de <a href="#symmetrieformules">Symmetrieformules</a>. Nu moeten we de <span class="arithmatex">\(\cos\)</span> omschrijven naar een <span class="arithmatex">\(\sin\)</span> (of andersom). Dit doen we met <a href="#sinus-en-cosinus-omschrijven">deze</a> regel:</p>
+<div class="arithmatex">\[\large{\sin{(3x)} = \sin{(x + \frac{1}{2} \pi)}.}\]</div>
+<p>Nu kunnen we dit uitwerken (zie <a href="#uitwerken-sincos-vergelijkingen">uitwerken sin/cos</a>):</p>
+<div class="arithmatex">\[\large{3x = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ 3x = \pi - (x + \frac{1}{2} \pi + k * 2 \pi)}\]</div>
+<div class="arithmatex">\[\large{3x = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ 3x = \frac{1}{2} \pi - x + k * 2 \pi}\]</div>
+<p>Nu doen we alle termen met <span class="arithmatex">\(x\)</span> naar de linkerkant:</p>
+<div class="arithmatex">\[\large{2x = \frac{1}{2} \pi + k * 2 \pi \ \vee \ 4x = \frac{1}{2} \pi + k * 2 \pi}\]</div>
+<p>Nu delen we alles door <span class="arithmatex">\(2\)</span> en <span class="arithmatex">\(4\)</span> respectievelijk om te vinden:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = \frac{1}{4} \pi + k * \pi \ \vee \ x = \frac{1}{8} \pi + k * \frac{1}{2} \pi}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 3: <span class="arithmatex">\(\cos{(3x + \pi)} = \cos{(x + \frac{1}{2} \pi)}\)</span> op het interval <span class="arithmatex">\([0, \ 2 \pi]\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken x: <span class="arithmatex">\(\cos{(3x + \pi)} = \cos{(x + \frac{1}{2} \pi)}\)</span> op het interval <span class="arithmatex">\([0, \ 2 \pi]\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We hebben hier aan beide kanten al iets met <span class="arithmatex">\(\cos\)</span> staan, dus we kunnen dit meteen gaan uitwerken:</p>
+<div class="arithmatex">\[\large{3x + \pi = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ 3x + \pi = - (x + \frac{1}{2} \pi) + k * 2 \pi}\]</div>
+<div class="arithmatex">\[\large{3x + \pi = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ 3x + \pi = - x - \frac{1}{2} \pi + k * 2 \pi}\]</div>
+<p>Nu alle termen met <span class="arithmatex">\(x\)</span> naar de linkerkant en alle getallen rechts:</p>
+<div class="arithmatex">\[\large{2x = - \frac{1}{2} \pi + k * 2 \pi \ \vee \ 4x = - 1 \frac{1}{2} \pi + k * 2 \pi}\]</div>
+<p>En nu alles gedeelt door <span class="arithmatex">\(2\)</span> en <span class="arithmatex">\(4\)</span> respectievelijk:</p>
+<div class="arithmatex">\[\large{x = - \frac{1}{4} \pi + k * \pi \ \vee \ x = - \frac{3}{8} \pi + k * \frac{1}{2} \pi}\]</div>
+<p>Maar let op! Nu wordt er gevraagd naar alle oplossingen op het interval <span class="arithmatex">\([0, \ 2 \pi]\)</span>. Dit betekent dat we alle verschillende waardes voor <span class="arithmatex">\(k\)</span> moeten invullen totdat we alle verschillende waardes tussen <span class="arithmatex">\(0\)</span> en <span class="arithmatex">\(2 \pi\)</span> gehad hebben.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Linker vergelijking</th>
+<th>Rechter vergelijking</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\large{k = 0}\)</span></td>
+<td><span class="arithmatex">\(\large{x = - \frac{1}{4} \pi}\)</span></td>
+<td><span class="arithmatex">\(\large{x = - \frac{3}{8} \pi}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{k = 1}\)</span></td>
+<td><span class="arithmatex">\(\large{x = \frac{3}{4} \pi}\)</span></td>
+<td><span class="arithmatex">\(\large{x = \frac{1}{8} \pi}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{k = 2}\)</span></td>
+<td><span class="arithmatex">\(\large{x = 1 \frac{3}{4} \pi}\)</span></td>
+<td><span class="arithmatex">\(\large{x = \frac{5}{8} \pi}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{k = 3}\)</span></td>
+<td><span class="arithmatex">\(\large{x = 2 \frac{3}{4} \pi}\)</span></td>
+<td><span class="arithmatex">\(\large{x = 1 \frac{1}{8} \pi}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{k = 4}\)</span></td>
+<td><span class="arithmatex">\(\large{x = 3 \frac{3}{4} \pi}\)</span></td>
+<td><span class="arithmatex">\(\large{x = 1 \frac{5}{8} \pi}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{k = 5}\)</span></td>
+<td><span class="arithmatex">\(\large{x = 4 \frac{3}{4} \pi}\)</span></td>
+<td><span class="arithmatex">\(\large{x = 2 \frac{1}{8} \pi}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Uit deze waardes noteren we alle waardes voor <span class="arithmatex">\(x\)</span> die op het interval liggen. Dat zijn de waardes bij <span class="arithmatex">\(k = 1\)</span> en <span class="arithmatex">\(k = 2\)</span> bij de linker vergelijking en de waardes bij <span class="arithmatex">\(k = 1,2,3,4\)</span> bij de rechter vergelijking. Ons eindantwoord wordt dan:</p>
+<div class="admonition quote">
+<p><span class="arithmatex">\(\Large{x = \frac{1}{8} \pi \ \vee \ x = \frac{5}{8} \pi \ \vee \ x = \frac{3}{4} \pi \ \vee \ x = 1 \frac{1}{8} \pi \ \vee \ x = 1 \frac{5}{8} \pi \ \vee \ x = 1 \frac{3}{4} \pi}\)</span></p>
+</div>
+</details>
+<h2 id="de-eenheidscirkel"><strong>De Eenheidscirkel</strong></h2>
+<p>De eenheidscirkel is een manier om de verschillende waardes van <span class="arithmatex">\(\sin\)</span> en <span class="arithmatex">\(\cos\)</span> te bepalen bij verschillende hoeken. De eenheidscirkel is een cirkel met een straal van <span class="arithmatex">\(1\)</span>, vandaar dat het de eenheidscirkel wordt genoemt. In het onderstaande filmpje wordt de eenheidscirkel geschetst en wordt er kort een trucje vertelt hoe je de waardes kan achterhalen van <span class="arithmatex">\(\sin\)</span> en <span class="arithmatex">\(\cos\)</span> bij verschillende hoeken door alleen maar <span class="arithmatex">\(3\)</span> hoeken en <span class="arithmatex">\(3\)</span> bijbehorende waardes te onthouden.</p>
+<details class="video" open="open"><summary>Video</summary><p><video controls>
+<source src="../assets/videos/UnitCircle.mp4" type="video/mp4">
+</video></p>
+<p><em><p style="text-align: center;">Filmpje: Een schets van de eenheidscirkel met de verschillende cosinus en sinus waardes bij verschillende hoeken. De x-coördinaten zijn de cosinus waardes en de y-coördinaten zijn de sinus waardes.</p></em></p>
+</details>
+<p>Laten we eerst kijken hoe we de eenheidscirkel kunnen gebruiken.</p>
+<figure>
+<p><img alt="Eenheidscirkel" src="../assets/images/goniometrie/Unit_Circle.svg" width="1000" />
+    <figcaption>Figuur 4. De eenheidscirkel. De hoeken zijn in het blauw weergegeven. De sinus van de hoek is het <span class="arithmatex">\(y\)</span>-coördinaat, en de cosinus van de hoek is het <span class="arithmatex">\(x\)</span>-coördinaat (zie eventueel de opmerking hieronder voor toelichting).</figcaption></p>
+</figure>
+<p>Stel dus dat we bijvoorbeeld er achter willen komen wat <span class="arithmatex">\(\sin{(\frac{1}{3} \pi)}\)</span> is. Als we de eenheidscirkel bij de hand hebben, kunnen we daar kijken en dan zien we dat bij een hoek van <span class="arithmatex">\(\frac{1}{3} \pi\)</span>, het coördinaat <span class="arithmatex">\(\left(\frac{1}{2}, \frac{1}{2} \sqrt{3} \right)\)</span> hoort. We willen de sinus weten en dus moeten we het <span class="arithmatex">\(y\)</span>-coördinaat gebruiken. Onze eindconclusie wordt dan:</p>
+<div class="arithmatex">\[\large{\sin{(\frac{1}{3} \pi)} = \frac{1}{2} \sqrt{3}}.\]</div>
+<details class="note"><summary>Opmerking: <span class="arithmatex">\(x\)</span>-coördinaat hoort bij cosinus, <span class="arithmatex">\(y\)</span>-coördinaat hoort bij sinus.</summary><p>Hiervoor wordt er gezegd dat het <span class="arithmatex">\(x\)</span>-coördinaat bij de cosinus hoort en dat het <span class="arithmatex">\(y\)</span>-coördinaat bij de sinus hoort. Maar hoezo is dit het geval? Dat wordt hieronder laten zien. </p>
+<p><figure markdown>
+  <img alt="Eenheidscirkel met driehoek" src="../assets/images/goniometrie/Unit_Circle_triangle.svg" width="300" />
+  <figcaption>Figuur 5. Eenheidscirkel met daarin een driehoek getekent met een bepaalde hoek θ.</figcaption>
+</figure></p>
+<p>In Figuur 6 is er een driehoek getekent bij de hoek <span class="arithmatex">\(\theta\)</span>. Hier is zijde <span class="arithmatex">\(b\)</span> onze overstaande zijde en zijde <span class="arithmatex">\(a\)</span> onze aanliggende zijde. Merk op dat lengte <span class="arithmatex">\(a\)</span> het <span class="arithmatex">\(x\)</span>-coördinaat is van ons punt dat op de eenheidscirkel ligt, en lengte <span class="arithmatex">\(b\)</span> het <span class="arithmatex">\(y\)</span>-coördinaat. We weten ook dat volgens onze <a href="#regels-goniometrische-functies">Goniometrische Regels</a> dat er geldt dat:</p>
+<div class="arithmatex">\[\large{\sin{(\theta)} = \frac{\mathrm{Overstaand}}{\mathrm{Schuin}},}\]</div>
+<div class="arithmatex">\[\large{\cos{(\theta)} = \frac{\mathrm{Aanliggend}}{\mathrm{Schuin}},}\]</div>
+<p>en dus in dit geval:</p>
+<div class="arithmatex">\[\large{\sin{(\theta)} = \frac{b}{c},}\]</div>
+<div class="arithmatex">\[\large{\cos{(\theta)} = \frac{a}{c}.}\]</div>
+<p>Maar doordat dit een eenheidscirkel is, betekent het dat de cirkel een straal van <span class="arithmatex">\(1\)</span> heeft, en dus dat <span class="arithmatex">\(c = 1\)</span>. Onze <span class="arithmatex">\(\sin\)</span> en <span class="arithmatex">\(\cos\)</span> wordt dan:</p>
+<div class="arithmatex">\[\large{\sin{(\theta)} = b,}\]</div>
+<div class="arithmatex">\[\large{\cos{(\theta)} = a.}\]</div>
+<p>En omdat we net zeiden dat lengte <span class="arithmatex">\(a\)</span> ons <span class="arithmatex">\(x\)</span>-coördinaat is en lengte <span class="arithmatex">\(b\)</span> ons <span class="arithmatex">\(y\)</span>-coördinaat, kunnen we zeggen dat:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\sin{(\theta)} = x\mathrm{-coordinaat}}\]</div>
+<div class="arithmatex">\[\large{\cos{(\theta)} = y\mathrm{-coordinaat}}\]</div>
+</div>
+</details>
+<p>Maar we hebben niet altijd de eenheidscirkel bij de hand en is het dus handig om de eenheidscirkel te onthouden. Om niet alles te hoeven onthouden, kan het volgende trucje handig zijn.</p>
+<h3 id="trucje-om-de-eenheidscirkel-te-onthouden"><strong>Trucje om de Eenheidscirkel te Onthouden</strong></h3>
+<p>We onthouden de volgende waardes en hoeken en de volgorde van klein naar groot:</p>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><p>Hoeken:</p>
+<div class="arithmatex">\[\large{\frac{1}{6} \pi &lt; \frac{1}{4} \pi &lt;\frac{1}{3} \pi}\]</div>
+<p>Waardes:</p>
+<div class="arithmatex">\[\large{\frac{1}{2} &lt; \frac{1}{2} \sqrt{2} &lt; \frac{1}{2} \sqrt{3}}\]</div>
+</details>
+<p>Nu kunnen we bepalen wat de waardes zijn door steeds bij elk kwart van de cirkel te kijken naar de voortgang van het begin punt van de kwart cirkel en het eindpunt. Dus hoe groter de hoek, hoe meer voortgang. Laten we weer kijken naar <span class="arithmatex">\(\sin{(\frac{1}{3} \pi)}\)</span>.</p>
+<p>We hebben de hoek <span class="arithmatex">\(\theta = \frac{1}{3} \pi\)</span> en dit is de grootste hoek uit de lijst van de <span class="arithmatex">\(3\)</span> hoeken. Dit betekent dus er de meeste voortgang is gemaakt van het begin punt naar het eindpunt. In dit geval is het begin punt van de kwart cirkel <span class="arithmatex">\((1, 0)\)</span> en het eindpunt <span class="arithmatex">\((0, 1)\)</span>. Omdat er de meeste voortgang is gemaakt, moeten de waardes het dichtst bij het eindpunt zitten. Dit betekent dus dat het <span class="arithmatex">\(x\)</span>-coördinaat de kleinste waarde is tussen <span class="arithmatex">\(1\)</span> en <span class="arithmatex">\(0\)</span>, en het <span class="arithmatex">\(y\)</span>-coördinaat de grootste waarde tussen <span class="arithmatex">\(0\)</span> en <span class="arithmatex">\(1\)</span> is. We nemen de sinus en we zijn dus alleen geïntereseerd in het <span class="arithmatex">\(y\)</span>-coördinaat. De grootste waarde tussen <span class="arithmatex">\(0\)</span> en <span class="arithmatex">\(1\)</span> uit de lijst van de <span class="arithmatex">\(3\)</span> waardes is <span class="arithmatex">\(\frac{1}{2} \sqrt{3}\)</span> en dus kunnen we zeggen dat:</p>
+<div class="arithmatex">\[\large{\sin{(\frac{1}{3} \pi)} = \frac{1}{2} \sqrt{3}}.\]</div>
+<details class="note"><summary>Opmerking</summary><p>Als de hoek groter is dan <span class="arithmatex">\(\theta = \frac{1}{2} \pi\)</span>, en dus niet in het eerste kwadrant zit, moet je eerst de hoek van het begin punt aftrekken van de hoek die je wilt berekenen. Stel we hebben bijvoorbeeld de hoek <span class="arithmatex">\(\theta = \frac{5}{6} \pi\)</span>, dan doen we dat eerst min de hoek van het begin punt, en dat is in dit geval <span class="arithmatex">\(\frac{1}{2} \pi\)</span>, omdat dit in het tweede kwadrant zit (het kwart links boven van de cirkel). We krijgen dan <span class="arithmatex">\(\theta = \frac{1}{3} \pi\)</span> en dan zien we dat het dus de meeste voortgang is tussen het begin punt en het eind punt.</p>
+</details>
+<p>Als dit nog niet helemaal duidelijk was, staan hieronder nog een paar andere voorbeelden.</p>
+<details class="example"><summary>Voorbeeld 1: <span class="arithmatex">\(\cos{(\frac{3}{4} \pi)}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken cos(3/4 π)</p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We hebben hier een hoek van <span class="arithmatex">\(\theta = \frac{3}{4} \pi\)</span>. Dat zit tussen het beginpunt van <span class="arithmatex">\(\theta = \frac{1}{2} \pi\)</span> en <span class="arithmatex">\(\theta = \pi\)</span>. Omdat we niet in het eerste kwadrant zitten, doen we eerst onze hoek min de start hoek, en dan vinden we <span class="arithmatex">\(\theta = \frac{1}{4}\)</span>. Dit betekent dat de voortgang precies in het midden zit, en dus ook dat de waarde precies in het midden is van onze waardes.</p>
+<p>Ons begin punt is <span class="arithmatex">\((0, 1)\)</span> en ons eindpunt is <span class="arithmatex">\((-1, 0)\)</span>. We zeiden net al dat onze progressie precies in het midden zit van de twee waardes en dus is ons <span class="arithmatex">\(x\)</span>-coördinaat <span class="arithmatex">\(-\frac{1}{2} \sqrt{2}\)</span> en ons <span class="arithmatex">\(y\)</span>-coördinaat <span class="arithmatex">\(\frac{1}{2} \sqrt{2}\)</span>. We namen de cosinus en dus moeten we de x-waarde hebben. Ons antwoord wordt dan:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\cos{(\frac{3}{4} \pi)} = -\frac{1}{2} \sqrt{2}.}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 2: <span class="arithmatex">\(\sin{(1 \frac{1}{6} \pi)}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken sin(1 1/6 π)</p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We hebben hier een hoek van <span class="arithmatex">\(\theta = 1 \frac{1}{6}\)</span> dat tussen de starthoek <span class="arithmatex">\(\pi\)</span> en de eindhoek <span class="arithmatex">\(1 \frac{1}{2} \pi\)</span> ligt. We halen dus eerst de starthoek van onze hoek af om te vinden <span class="arithmatex">\(\theta = \frac{1}{6} \pi\)</span>. Er is dus de minste voortgang gemaakt tussen het start- en eindpunt uit de <span class="arithmatex">\(3\)</span> waardes die wij kunnen kiezen.</p>
+<p>Het startpunt is (-1, 0) en het eindpunt is (0, -1). We nemen de sinus, dus alleen het <span class="arithmatex">\(y\)</span>-coördinaat is interessant. De minste voortgang hier betekent dus dat <span class="arithmatex">\(y = - \frac{1}{2}\)</span> en dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\sin{(1 \frac{1}{6} \pi)} = - \frac{1}{2}.}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 3: <span class="arithmatex">\(\cos{(1 \frac{2}{3} \pi)}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken cos(1 2/3 π)</p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We hebben hier een hoek van <span class="arithmatex">\(\theta = 1 \frac{2}{3}\)</span> dat tussen de starthoek <span class="arithmatex">\(\theta = 1 \frac{1}{2} \pi\)</span> en de eindhoek <span class="arithmatex">\(2 \pi\)</span> zit. Als eerst doen we onze hoek min onze starthoek: <span class="arithmatex">\(\theta = \frac{1}{6} \pi\)</span>. Er is dus de minste voortgang gemaakt tussen ons startpunt en ons eindpunt. </p>
+<p>Ons startpunt is <span class="arithmatex">\((0, -1)\)</span> en ons eindpunt is <span class="arithmatex">\((1, 0)\)</span>. We nemen de cosinus en dus zijn we alleen geïntereseerd in het <span class="arithmatex">\(x\)</span>-coördinaat. De minste voortgang geeft hier <span class="arithmatex">\(x = \frac{1}{2}\)</span> en dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\cos{(1 \frac{2}{3} \pi)} = \frac{1}{2} .}\]</div>
+</div>
+</details>
+<p>Maar je bent natuurlijk niet verplicht om dit trucje te gebruiken. Als je het handiger vindt om gewoon de eenheidscirkel helemaal uit je hoofd te leren, doe dat vooral!</p>
+<h2 id="goniometrische-vergelijkingen"><strong>Goniometrische Vergelijkingen</strong></h2>
+<p>Dit zijn goniometrische vergelijkingen die iets ingewikkelder zijn, maar vaak gebruikt worden.</p>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><table>
+<thead>
+<tr>
+<th>Regels</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\Large{\tan{(\theta)} = \frac{\sin{(\theta)}}{\cos{(\theta)}}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\Large{\sin{(\theta)}^2 + \cos{(\theta)}^2 = 1}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\Large{\sin{(2 \theta)} = 2 \sin{(\theta)} \cos{(\theta)}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\Large{\cos{(2 \theta)} = 2 \cos^2{(\theta)} - 1}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\Large{\cos{(2 \theta)} = \cos^2{(\theta)} - \sin^2{(\theta)}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\Large{\cos{(2 \theta)} = 1 - 2 \sin^2{(\theta)}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\Large{\sin{(\theta + \phi)} = \sin{(\theta)} \cos{(\phi)} + \cos{(\theta)} \sin{(\phi)}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\Large{\sin{(\theta - \phi)} = \sin{(\theta)} \cos{(\phi)} - \cos{(\theta)} \sin{(\phi)}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\Large{\cos{(\theta + \phi)} = \cos{(\theta)} \cos{(\phi)} - \sin{(\theta)} \sin{(\phi)}}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\Large{\cos{(\theta - \phi)} = \cos{(\theta)} \cos{(\phi)} + \sin{(\theta)} \sin{(\phi)}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>De eerste twee vergelijkingen kunnen we bewijzen met behulp van de <a href="#regels-goniometrische-functies">Goniometrische Regels</a> die we eerder hebben gezien.</p>
+<details class="abstract"><summary>Bewijs</summary><p><strong><p style="text-align: center;font-size:20px;">Bewijs eerste vergelijking</p></strong> </p>
+<p>Laten we als eerst kijken naar </p>
+<div class="arithmatex">\[\large{\tan{(\theta)} = \frac{\sin{(\theta)}}{\cos{(\theta)}}}\]</div>
+<p>Door de <a href="#regels-goniometrische-functies">Goniometrische Regels</a> te gebruiken en de <span class="arithmatex">\(\sin\)</span> en <span class="arithmatex">\(\cos\)</span> in te vullen kunnen we dit herschrijven tot:</p>
+<div class="arithmatex">\[\large{\tan{(\theta)} = \frac{\frac{\mathrm{Overstaand}}{\mathrm{Schuin}}}{\frac{\mathrm{Aanliggend}}{\mathrm{Schuin}}}}\]</div>
+<p>Dit kunnen we weer versimpelen door de <span class="arithmatex">\(\mathrm{Schuin}\)</span> in de teller en noemer tegen elkaar weg te delen. We houden dan over:</p>
+<div class="arithmatex">\[\large{\tan{(\theta)} = \frac{\mathrm{Overstaand}}{\mathrm{Aanliggend}}}\]</div>
+<p>En dit is precies de formule die we in al de <a href="#regels-goniometrische-functies">Goniometrische Regels</a> hebben staan, en dus klopt onze originele vergelijking voor <span class="arithmatex">\(\tan\)</span>.</p>
+<p><strong><p style="text-align: center;font-size:20px;">Bewijs tweede vergelijking</p></strong></p>
+<p>Laten we nu naar de tweede vergelijking kijken:</p>
+<div class="arithmatex">\[\large{\sin{(\theta)}^2 + \cos{(\theta)}^2 = 1}\]</div>
+<p>Weer vullen we de definitie in van de <span class="arithmatex">\(\sin\)</span> en <span class="arithmatex">\(\cos\)</span> uit de <a href="#regels-goniometrische-functies">Goniometrische Regels</a>:</p>
+<div class="arithmatex">\[\large{\frac{\mathrm{Overstaand}^2}{\mathrm{Schuin}^2} + \frac{\mathrm{Aanliggend}^2}{\mathrm{Schuin}^2} = 1}\]</div>
+<p>Omdat de noemers hetzelfde zijn kunnen we hier 1 breuk van maken:</p>
+<div class="arithmatex">\[\large{\frac{\mathrm{Overstaand}^2 + \mathrm{Aanliggend}^2}{\mathrm{Schuin}^2} = 1}.\]</div>
+<p>Kunnen we dit nog verder versimpelen? Ja! We kunnen namelijk de met behulp van de <a href="../pythagoras/">Stelling van Pythagoras</a> de teller herschrijven op deze manier:</p>
+<div class="arithmatex">\[\large{\frac{\mathrm{Schuin}^2}{\mathrm{Schuin}^2} = 1},\]</div>
+<p>En omdat iets gedeelt door zichzelf altijd gelijk is aan 1, betekent dat dus dat deze vergelijking klopt en dus ook dat onze originele vergelijking klopt.</p>
+</details>
+<h3 id="voorbeelden_1"><strong>Voorbeelden</strong></h3>
+<details class="example"><summary>Voorbeeld 1: <span class="arithmatex">\(\sin^2{(x)}  = - \cos^2{(x)} + \tan{(x)}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken x: <span class="arithmatex">\(\sin^2{(x)}  = - \cos^2{(x)} + \tan{(x)}\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We beginnen eerst met de <span class="arithmatex">\(\cos^2\)</span> naar de linkerkant te doen:</p>
+<div class="arithmatex">\[\large{\sin^2{(x)} + \cos^2{(x)} = \tan{(x)}}\]</div>
+<p>We kunnen nu regel 2 toepassen van de <a href="#goniometrische-vergelijkingen">Regels Goniometrische Vergelijkingen</a>:</p>
+<div class="arithmatex">\[\large{\tan{(x)} = 1}\]</div>
+<p>We kunnen nu gebruik maken van regel 1 van de <a href="#goniometrische-vergelijkingen">Regels Goniometrische Vergelijkingen</a> om dit te schrijven als:</p>
+<div class="arithmatex">\[\large{\frac{\sin{(x)}}{\cos{(x)}} = 1}\]</div>
+<p>Nu kunnen we beide kanten vermenigvuldigen met <span class="arithmatex">\(\cos\)</span>:</p>
+<div class="arithmatex">\[\large{\sin{(x)} = \cos{(x)}}\]</div>
+<p>Nu kunnen we de <span class="arithmatex">\(\cos\)</span> omschrijven naar een <span class="arithmatex">\(\sin\)</span> (zie <a href="#uitwerken-sincos-vergelijkingen">uitwerken sin/cos</a>):</p>
+<div class="arithmatex">\[\large{\sin{(x)} = \sin{(x + \frac{1}{2} \pi)}}\]</div>
+<p>Dit kunnen we nu uitwerken:</p>
+<div class="arithmatex">\[\large{x = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ x = \pi - (x + \frac{1}{2} \pi) + k * 2 \pi}\]</div>
+<div class="arithmatex">\[\large{x = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ x = \frac{1}{2} \pi - x + k * 2 \pi}\]</div>
+<p>Nu halen we alle termen met x aan de linkerkant:</p>
+<div class="arithmatex">\[\large{0 = \frac{1}{2} \pi + k * 2 \pi \ \vee \ 2x = \frac{1}{2} \pi + k * 2 \pi}\]</div>
+<p>Alle x termen zijn in de linker vergelijking weggevallen, dus daar hebben we niks meer aan. Met de rechter vergelijking kunnen we wel door. We delen aan beide kanten door <span class="arithmatex">\(2\)</span>, om als eindantwoord te vinden:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = \frac{1}{4} \pi + k * \pi}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 2: <span class="arithmatex">\(\frac{1}{2} \sin{(x)} \cos{(x)} = \frac{1}{4}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken x: <span class="arithmatex">\(\frac{1}{2} \sin{(x)} \cos{(x)} = \frac{1}{4}\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We zien hier een <span class="arithmatex">\(\sin{(x)} \cos{(x)}\)</span> term, dus is het handig om dit te herschrijven met behulp van regel 3 van de <a href="#goniometrische-vergelijkingen">Goniometrische Vergelijkingen</a>. Om dit te doen, doen we beide kanten keer <span class="arithmatex">\(4\)</span> om de <span class="arithmatex">\(2 \sin{(x)} \cos{(x)}\)</span> te krijgen die we nodig hebben:</p>
+<div class="arithmatex">\[\large{2 \sin{(x)} \cos{(x)} = 1}\]</div>
+<p>Nu passen we dus regel 3 van de <a href="#goniometrische-vergelijkingen">Goniometrische Vergelijkingen</a> toe:</p>
+<div class="arithmatex">\[\large{\sin{(2x)} = 1}\]</div>
+<p>Nu willen we aan beide kanten een <span class="arithmatex">\(\sin\)</span> hebben. We maken dus van de <span class="arithmatex">\(1\)</span> een <span class="arithmatex">\(\sin\)</span>. Met behulp van de eenheidscirkel kunnen we zien dat <span class="arithmatex">\(\sin{(\frac{1}{2} \pi) = 1}\)</span> en dus dat:</p>
+<div class="arithmatex">\[\large{\sin{(2x)} = \sin{(\frac{1}{2} \pi)}}\]</div>
+<p>Als we dit nu <a href="#uitwerken-sincos-vergelijkingen">uitwerken</a> vinden we:</p>
+<div class="arithmatex">\[\large{2x = \frac{1}{2} \pi + k * 2 \pi \ \vee \ 2x = \pi - \frac{1}{2} \pi + k * 2 \pi}\]</div>
+<p>In dit geval geldt er dat <span class="arithmatex">\(\pi - \frac{1}{2} \pi = \frac{1}{2} \pi\)</span> en dus zijn beide oplossingen dezelfde oplossing. We houden dus alleen over:</p>
+<div class="arithmatex">\[\large{2x = \frac{1}{2} \pi + k * 2 \pi}\]</div>
+<p>Nu delen we beide kanten door <span class="arithmatex">\(2\)</span> om te vinden dat:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = \frac{1}{4} \pi + k * \pi}\]</div>
+</div>
+</details>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Begrijp je de stof nu beter?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="Ik begrijp de stof nu beter" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 9v12H1V9h4m4 12a2 2 0 0 1-2-2V9c0-.55.22-1.05.59-1.41L14.17 1l1.06 1.06c.27.27.44.64.44 1.05l-.03.32L14.69 8H21a2 2 0 0 1 2 2v2c0 .26-.05.5-.14.73l-3.02 7.05C19.54 20.5 18.83 21 18 21H9m0-2h9.03L21 12v-2h-8.79l1.13-5.32L9 9.03V19Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="De stof is nog een beetje onduidelijk" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 15V3h4v12h-4M15 3a2 2 0 0 1 2 2v10c0 .55-.22 1.05-.59 1.41L9.83 23l-1.06-1.06c-.27-.27-.44-.64-.44-1.06l.03-.31.95-4.57H3a2 2 0 0 1-2-2v-2c0-.26.05-.5.14-.73l3.02-7.05C4.46 3.5 5.17 3 6 3h9m0 2H5.97L3 12v2h8.78l-1.13 5.32L15 14.97V5Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Bedankt voor de feedback! Om ervoor te zorgen dat wiskundewijs nóg beter wordt, zou ik <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUuPlxDYomx3nLl63BQcFR0jCbQMaQIpFh37J53_UaVJELeA/viewform?usp=pp_url&entry.1328585866=Goniometrie" target="_blank" rel="noopener">jouw feedback</a> heel erg waarderen!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Bedankt voor de feedback! Ik zou het heel erg waarderen als je mij vertelt wat jij denkt dat verbeterd kan worden. <a href="https://docs.google.com/forms/d/e/1FAIpQLSebi8Nv-t1BBU7mzvMK8COd_1aHSTnjgzBQWQXhjt64OuVsFQ/viewform?usp=pp_url&entry.1328585866=Goniometrie" target="_blank" rel="noopener">Jouw feedback</a> kan mensen helpen die tegen hetzelfde aanlopen!
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../afgeleide/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: De Afgeleide Functie">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Vorige
+              </span>
+              <div class="md-ellipsis">
+                De Afgeleide Functie
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../contact/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Contact">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Volgende
+              </span>
+              <div class="md-ellipsis">
+                Contact
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024, Marc Serrano Altena
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/marc-serrano-altena-a96800285/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/M-Serrano-Altena" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<Marc.Serrano.Altena@gmail.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6m-2 0-8 5-8-5h16m0 12H4V8l8 5 8-5v10Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
