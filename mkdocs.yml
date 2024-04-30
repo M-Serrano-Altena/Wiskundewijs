@@ -19,7 +19,7 @@ theme:
 
   language: nl
   logo: assets/images/general/calculator-variant-outline.svg
-  favicon: assets/images/general/calculator-variant.svg
+  favicon: assets/images/general/calculator-variant.ico
 
   features:
     - navigation.footer
