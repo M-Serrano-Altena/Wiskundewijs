@@ -203,7 +203,20 @@ Heeft jouw kind moeite met de stof begrijpen of toepassen? Of juist meer met het
 
 Apart van alleen de bijles, krijg je als bonus ook een aantal **stappenplannen**. Jouw kind hoeft dan alleen het stappenplan te volgen om een opdracht goed te kunnen maken. Ook help ik buiten de bijlessen door vragen te beantwoorden over het huiswerk. 
 
-De **eerste 5 leerlingen help ik volledig gratis**. En ik garandeer dat jouw kind voor de volgende toets **2 cijferpunten hoger** haalt dan zijn of haar gemiddelde. En anders dan blijf ik volledig gratis doorgaan met de bijles totdat het wel lukt. De eerste **drie plekken zijn al gevult**, dus ik help nu **nog maar 2 leerlingen gratis** voordat de prijs omhoog gaat. 
+<!-- De **eerste 5 leerlingen help ik volledig gratis**. En ik garandeer dat jouw kind voor de volgende toets **2 cijferpunten hoger** haalt dan zijn of haar gemiddelde. En anders dan blijf ik volledig gratis doorgaan met de bijles totdat het wel lukt. De eerste **drie plekken zijn al gevult**, dus ik help nu **nog maar 2 leerlingen gratis** voordat de prijs omhoog gaat.  -->
+
+
+<!-- 
+Woon jij in Zaandam en heb jij moeite met wiskunde op de middelbare school? Misschien dat de stof te snel gaat of juist dat de uitleg vaag is? 
+
+Dit kan er voor zorgen dat je blijft zitten, maar ook dat je later minder kunt verdienen. Gemiddeld kan dit €20 000  per jaar minder zijn. 
+
+Op je hele leven verdien je dan in totaal €800 000 minder. En dit zou echt zonde zijn, vooral wanneer er een oplossing voor is. 
+
+Met de Gratis 6-Weken Twee-Punten-Hoger Training kan jij twee cijferpunten hoger halen voor de volgende toets. En niet alleen dat, voor de eerste 5 mensen is dit volledig gratis. Er zijn nog twee plekken beschikbaar, dus heb je interesse? Stuur dan een bericht naar: 
+
+0638391419
+ -->
 
 **<p style="text-align: left;font-size:19px;">Waarom mijn wiskunde bijles?</p>**
 

@@ -2,7 +2,7 @@
 
 ## **Lineaire ongelijkheden**
 
-Wat zijn ongelijkheden? Een ongelijkheid is eigenlijk een vergelijking waar iets groter/kleiner is dan iets anders. Dus bijvoorbeeld:
+Wat zijn ongelijkheden? Een ongelijkheid is een vergelijking waar iets groter of kleiner is dan iets anders. Dus bijvoorbeeld:
 
 $$3 > 2.$$
 
@@ -14,7 +14,7 @@ Hier staat dat $3$ groter is dan $2$, en in dit geval klopt deze ongelijkheid, w
 
 ### **Lineaire ongelijkheden oplossen**
 
-We kunnen ook vergelijkingen opstellen met ongelijkheden. Over het algemeen gaat het oplossen van zo een vergelijking vrijwel hetzelfde als met een '$=$' teken (zie [Vergelijkingen omschrijven](basisvaardigheden.md#vergelijkingen-omschrijven) om te kijken hoe dat moet). Kijk maar bijvoorbeeld het volgende voorbeeld:
+We kunnen ook vergelijkingen opstellen met ongelijkheden. Het oplossen van zo een vergelijking is vrijwel hetzelfde als met een '$=$' teken (zie [Vergelijkingen omschrijven](basisvaardigheden.md#vergelijkingen-omschrijven) om te kijken hoe dat moet). Kijk maar bijvoorbeeld deze ongelijkheid:
 
 $$2x < 4.$$
 
@@ -23,11 +23,9 @@ We kunnen nu aan beide kanten delen door $2$ om te vinden dat:
 !!! quote ""
     $$\large{x < 2}$$
 
-Dit is precies hetzelfde als dat we deden met een de vergelijking $2x = 4$ (zie [Vergelijkingen omschrijven](basisvaardigheden.md#vergelijkingen-omschrijven)). Dit betekent dus dat als er geldt dat $2x$ kleiner is dan $4$, dat er dan ook moet gelden dat $x$ een getal is kleiner dan $2$.
+En dit is precies hetzelfde als dat we deden met de vergelijking $2x = 4$ (zie [Vergelijkingen omschrijven](basisvaardigheden.md#vergelijkingen-omschrijven)). Dit betekent dus dat als er geldt dat $2x$ kleiner is dan $4$, dat er dan ook moet gelden dat $x$ een getal is kleiner dan $2$.
 
-Maar er is een belangrijk onderscheid tussen een vergelijking met een '$=$' teken en met een ongelijkheid.
-
-We kunnen bij ongelijkheden aan beide dingen optellen/aftrekken en vermenigvuldigen/delen, net zoals bij een vergelijking met een '$=$'-teken. Stel we hebben bijvoorbeeld:
+We kunnen bij ongelijkheden ook aan beide kanten optellen/aftrekken en vermenigvuldigen/delen, net zoals bij een vergelijking met een '$=$'-teken. Stel we hebben bijvoorbeeld:
 
 $$5 \geq 3.$$
 
@@ -35,17 +33,29 @@ Deze vergelijking klopt, want $5$ is inderdaad groter of gelijk aan $3$ (namelij
 
 $$15 \geq 9,$$
 
-en $15$ is inderdaad groter of gelijk aan $9$, dus dit klopt. Doen we bij aan beide kanten $-1$, dan krijgen we:
+want $15$ is inderdaad groter of gelijk aan $9$, dus dit klopt. Doen we bij aan beide kanten $-1$, dan krijgen we:
 
-$$14 \geq 9,$$
+$$14 \geq 8,$$
 
-en dit klopt ook nog steeds. Maar wat gebeurt er als we beide kanten vermenigvuldigen met een negatief getal? Stel we doen bijvoorbeeld beide kanten keer $-1$:
+en dit klopt ook nog steeds. Maar er is een belangrijk verschil tussen een vergelijking met een '$=$' teken en met een ongelijkheid.
 
-$$-14 \geq -9.$$
+Want wat gebeurt er als we beide kanten vermenigvuldigen met een negatief getal? Stel we doen bijvoorbeeld beide kanten keer $-1$:
 
-Maar nu klopt de vergelijking niet meer! Want $-14$ is kleiner dan $-9$, niet groter of gelijk aan $-9$. 
+$$-14 \geq -8.$$
 
-Dus om ervoor te zorgen dat de vergelijking nog steeds klopt, moeten we het ongelijkheidsteken altijd wisselen als we vermenigvuldigen met een negatief getal.
+Nu klopt de vergelijking niet meer! Want $-14$ is *kleiner* dan $-8$, niet groter of gelijk aan $-8$. Hier moeten we dus van maken:
+
+$$-14 \leq -8.$$
+
+We moeten dus het ongelijkheidsteken [wisselen](#ongelijkheidsteken-wisselen) als we de vergelijking willen laten kloppen. En dit doen we dus als we vermenigvuldigen met een negatief getal. Maar ook als we de volgorde omdraaien van een vergelijking. Dus als we hebben dat:
+
+$$5 > 3,$$
+
+en we willen de volgorde omdraaien, dan krijgen we dat:
+
+$$3 < 5.$$
+
+Het ongelijkheidsteken [wisselt](#ongelijkheidsteken-wisselen) dus ook mee. 
 
 ???+ Belangrijk
     #### <span style="font-size: 19px;">Ongelijkheidsteken wisselen</span>
@@ -68,7 +78,7 @@ Dus om ervoor te zorgen dat de vergelijking nog steeds klopt, moeten we het onge
     **<p style="text-align: center;font-size:20px;">Los op: $3x + 2 > 8$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Om deze vergelijking op te lossen doen we aan beide kanten $-2$ om alleen de $3x$ term links over te houden:
+    Om deze vergelijking op te lossen, doen we aan beide kanten $-2$ om alleen de $3x$ term links over te houden:
 
     $$\large{3x > 6.}$$
 
@@ -86,7 +96,7 @@ Dus om ervoor te zorgen dat de vergelijking nog steeds klopt, moeten we het onge
 
     $$\large{-8x \leq 40.}$$
 
-    Nu delen we aan beide kanten met $-8$. Omdat dit een negatief getal is, moeten we het '$\leq$' teken verwisselen naar een '$\geq$' teken (zie [Ongelijkheidsteken wisselen](##ongelijkheidsteken-wisselen)). We vinden dan als eindantwoord:
+    Nu delen we aan beide kanten met $-8$. Dit is een negatief getal, dus moeten we het '$\leq$' teken veranderen naar een '$\geq$' teken (zie [Ongelijkheidsteken wisselen](##ongelijkheidsteken-wisselen)). We vinden dan als eindantwoord:
 
     !!! quote ""
         $$\large{x \geq -5}$$
@@ -97,7 +107,7 @@ Dus om ervoor te zorgen dat de vergelijking nog steeds klopt, moeten we het onge
 
     We lossen dit op door eerst alle termen met $x$ naar links te halen en alle getallen rechts. We doen eerst aan beide kanten $+4$:
 
-    $$\large{2x \geq 2x + 13}$$
+    $$\large{x \geq 2x + 13}$$
 
     Nu doen we aan beide kanten $-2x$:
 
@@ -109,7 +119,7 @@ Dus om ervoor te zorgen dat de vergelijking nog steeds klopt, moeten we het onge
         $$\large{x \leq -13.}$$
 
     ??? note "Opmerking"
-        We hadden ook alle $x$ termen naar de rechterkant kunnen halen en alle getalen naar de linkerkant. Laten we kijken wat er dan gebeurt:
+        We hadden ook alle $x$ termen rechts kunnen halen en alle getalen links kunnen doen. Laten we kijken wat er dan gebeurt:
 
         We doen eerst aan beide kanten $-9$:
 
@@ -119,7 +129,7 @@ Dus om ervoor te zorgen dat de vergelijking nog steeds klopt, moeten we het onge
 
         $$\large{-13 \geq x.}$$
 
-        We willen als oplossing altijd de $x$ term aan de linkerkant hebben, dus moeten we de volgorde omdraaien. Als we dit doen, dan [wisselt](#ongelijkheidsteken-wisselen) het ongelijkheidsteken ook:
+        We willen een oplossing altijd schrijven als iets met $x = ...$, dus met $x$ aan de linkerkant. We moeten dus de volgorde omdraaien. Als we dit doen, dan [wisselt](#ongelijkheidsteken-wisselen) het ongelijkheidsteken ook:
 
         !!! quote ""
             $$\large{x \leq -13.}$$

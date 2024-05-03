@@ -15,7 +15,7 @@ Maak gebruik van de **zoekbalk** om direct het onderwerp te vinden waar jij naar
 
 Heeft jou kind moeite met wiskunde en zou je willen dat hij of zij **twee punten hoger** scoort op de volgende toets? Klik dan hieronder op de **Bijles** knop voor meer informatie!
 
-[Bijles :material-calculator:](bijles.md){ .md-button .md-button--primary }
+[Bijles :material-school:](bijles.md){ .md-button .md-button--primary }
 
 ## Hoofdstukken
 1. [Basisvaardigheden](basisvaardigheden.md)

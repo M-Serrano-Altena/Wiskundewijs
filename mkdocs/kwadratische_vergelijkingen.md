@@ -1,10 +1,10 @@
 # *Kwadratische Vergelijkingen*
 
-Een kwadratische vergelijking is, zoals de naam zegt, een vergelijking met een kwadratische term. We zien hieronder een voorbeeld van een kwadratische vergelijking:
+Een kwadratische vergelijking is een vergelijking met een kwadratische term als hoogste orde. Dus de hoogste macht die voor komt in de vergelijking is een 2. We zien hieronder een voorbeeld van een kwadratische vergelijking:
 
 $$x^2 + 2x + 5 = 1$$
 
-De $x^2$ term maakt dit een kwadratische vergelijking. De vraag is, hoe lossen we dit op? Hier hebben we een aantal methodes voor, afhankelijk van de vorm.
+De $x^2$ term maakt dit een kwadratische vergelijking. Maar de vraag is, hoe lossen we dit op? Hier hebben we een aantal methodes voor, afhankelijk van de vorm van de vergelijking.
 
 ## **Oplossen vorm x² = c**
 We beginnen met het oplossen van een vergelijking in de vorm
@@ -19,35 +19,39 @@ We lossen dit op door aan beide kanten de wortel te nemen. We krijgen dan het vo
 
 $$\sqrt{x^2} = \sqrt{9}$$
 
-De wortel en het kwadraat heffen elkaar op zodat er alleen $x$ over blijft
+De wortel en het kwadraat heffen elkaar op zodat er alleen $x$ over blijft:
 
 $$x = \sqrt{9}$$
 
-En de wortel van 9 kunnen we schrijven als:
+(zie eventueel regel 6 van de [Regels met Wortels](basisvaardigheden.md#regels-met-wortels)). De wortel van $9$ kunnen we schrijven als:
 
 $$x = 3.$$
 
 *<p style="text-align: left;font-size:19px;">Maar let op!</p>*
-We kunnen in dit geval ook $-3$ invullen in onze originele vergelijking, en dat is ook een oplossing, want de vergelijking klopt:
+Als we $−3$ invullen in onze originele vergelijking, dan klopt de vergelijking ook:
 
 $$(-3)^2 = 9$$
 
-Deze vergelijking heeft dus $2$ oplossingen! De oplossing $x=3$ en de oplossing $x=-3$. Dit komt doordat het kwadraat het min teken weg laat vallen. We houden hier rekening mee op de volgende manier.
+Dit betekent dus dat $-3$ ook een oplossing is voor $x$. Deze vergelijking heeft dus $2$ oplossingen! De oplossing $x=3$ en de oplossing $x=-3$. Dit komt doordat het kwadraat het min-teken laat wegvallen. Hier willen we rekening mee houden.
 
-Als we een kwadraat willen weg werken moeten we het volgende zeggen:
+Als we een kwadraat willen weg werken, dan moeten we het volgende zeggen:
+
+Voor de vergelijking:
 
 $$x^2 = 9$$
 
-$$\sqrt{x^2} = \sqrt{9} \ \ \mathrm{of} \ \ \sqrt{x^2}  = -\sqrt{9}$$
+geldt er dat:
+
+$$x = \sqrt{9} \ \ \mathrm{of} \ \ x  = -\sqrt{9}.$$
 
 Wiskundig noteren we deze "of" op de volgende manier:
 
-$$\sqrt{x^2} = \sqrt{9} \ \vee \ \sqrt{x^2}  = -\sqrt{9}$$
+$$x = \sqrt{9} \ \vee \ x  = -\sqrt{9}.$$
 
-En hieruit volgt dus als we het oplossen dat:
+Als we die $\sqrt{9}$ weer uitwerken, dan vinden we dat:
 
 !!! quote ""
-    $$\Large{x = 3 \ \vee \ x  = -3}$$
+    $$\large{x = 3 \ \vee \ x  = -3}$$
 
 In het algemeen wordt dit:
 
@@ -64,11 +68,11 @@ In het algemeen wordt dit:
 ### **Opmerkingen**
 
 ??? note "Opmerking over de vorm"
-    De vergelijking moet soms misschien nog omgeschreven worden naar de juiste vorm. Bijvoorbeeld de vergelijking
+    De vergelijking moet soms misschien nog omgeschreven worden naar de juiste vorm. Laten we bijvoorbeeld naar deze vergelijking kijken:
 
-    $$\large{2x^2 - 16 = 2}$$
+    $$\large{2x^2 - 16 = 2.}$$
 
-    Kan worden omgeschreven naar de vorm $x^2 = c$. Dit doen we door eerst aan beide kanten van het '$=$' teken $16$ op te tellen om de $-16$ weg te laten vallen:
+    Deze vergelijking heeft alleen getallen en termen met $x^2$. Dit betekent dus dat we deze vergelijking kunnen omschrijven naar de vorm $x^2 = c$. Dit doen we door eerst aan beide kanten van het '$=$'-teken $16$ op te tellen om de $-16$ weg te laten vallen:
 
     $$\large{x^2 - 16 + 16 = 2 + 16}$$
 
@@ -76,7 +80,7 @@ In het algemeen wordt dit:
 
     $$\large{2x^2 = 18.}$$
 
-    Door nu aan beide kanten van '$=$' teken te delen door $2$, kunnen we dit in de gewenste vorm schrijven:
+    We kunnen dit nu in de juiste vorm schrijven door aan beide kanten van '$=$'-teken te delen door $2$:
 
     $$\large{x^2 = 9.}$$
 
@@ -84,15 +88,15 @@ In het algemeen wordt dit:
 
 
 ??? note "Opmerking notatie"
-    De oplossing
+    We kunnen de oplossing
 
     $$\Large{x = \sqrt{c} \ \vee \ x = - \sqrt{c}}$$
 
-    kan ook worden geschreven als
+    ook schrijven als
 
     $$\Large{x = \pm \sqrt{c}}.$$
 
-    Dit betekent precies hetzelfde. Er zijn twee oplossingen, een oplossing met een plus, en een oplossing met een min.
+    En dit betekent verder precies hetzelfde. Er zijn twee oplossingen, een oplossing met een plus, en een oplossing met een min. Het is dus alleen een verschil in notatie.
 
 
 ??? note "Opmerking negatief getal"
@@ -139,11 +143,11 @@ In het algemeen wordt dit:
     **<p style="text-align: center;font-size:20px;">Los op: $5x^2 - 9 = 16$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We kunnen dit voorbeeld ook oplossen met de [Algemene oplossing](#algemene-oplossing), maar we moeten het eerst in de juiste vorm schrijven. Dit doen we door eerst alle losse getallen naar de rechterkant te halen. We doen dit door aan beide kanten $+9$ te doen:
+    Om dit op te lossen, moeten we het eerst in de juiste vorm van [$x^2=c$](#algemene-oplossing) schrijven.  Dit doen we door eerst alle losse getallen naar de rechterkant te halen. En dit kunnen we doen door aan beide kanten $+9$ te doen:
 
     $$\large{5x^2 = 25}$$
 
-    Nu doen we aan beide kanten gedeelt door $5$ om alleen $x^2$ links over te houden:
+    Nu delen we aan beide kanten door $5$ om links alleen $x^2$ over te houden:
 
     $$\large{x^2 = 5}$$
 
@@ -152,7 +156,7 @@ In het algemeen wordt dit:
     !!! quote ""
         $$\large{x = \sqrt{5} \ \vee \ x = -\sqrt{5}}$$
 
-    In dit geval kunnen we dit niet versimpelen en is dit dus ook gelijk ons eindantwoord.
+    In dit geval kunnen we deze wortels niet versimpelen en is dit dus ook gelijk ons eindantwoord.
 
 
 ??? example "Voorbeeld 3: $-4x^2 + 5 = 13$"
@@ -167,34 +171,51 @@ In het algemeen wordt dit:
 
     $$\large{x^2 = -2.}$$
 
-    Maar let op! We hebben nu een negatief getal rechts staan. Dit heeft geen oplossingen, want een getal keer zichzelf (dus in het kwadraat) kan nooit negatief zijn (zie eventueel de [opmerking](#opmerkingen) over een negatief getal).
+    Maar let op! We hebben nu een negatief getal rechts staan. In de [Opmerking over een Negatief Getal](#opmerkingen) hebben we gezien dat dit geen oplossingen heeft. Dit komt omdat een getal in het kwadraat kan nooit negatief kan zijn.  
 
     !!! quote ""
         **<p style="text-align: center;font-size:19px;">Geen Oplossing</p>**
 
 ## **Oplossen vorm x² + bx = 0**
+Laten we nu kijken naar het oplossen van een vergelijking met de algemene vorm:
+
+$$x^2 + bx = 0.$$
+
+Deze vorm heeft een $x^2$ term en een $x$ term, maar geen los getal. Bij deze vorm willen we de $x$ ontbinden op de volgende manier:
+
+$$x(x + b) = 0.$$
+
+Zie eventueel regel 3 uit de [Basisvaardigheden](basisvaardigheden.md#regels-bij-operaties-met-variabelen). We kunnen dit nu oplossen met een belangrijk inzicht. 
+
+Twee dingen keer elkaar kunnen alleen $0$ zijn als een van de twee termen gelijk is aan $0$.
+
+Het maakt niet uit hoe groot of klein beide getallen zijn, als een van de twee termen niet $0$ is, dan kan het product nooit $0$ worden. We kunnen dus de volgende conclusie trekken:
+
+$$x = 0 \ \vee \ x + b = 0$$
+
+De tweede vergelijking kunnen we nu oplossen door aan beide kanten van het '='-teken $-b$ te doen. We vinden dan de oplossing: 
+
+!!! quote ""
+    $$\large{x = 0 \ \vee \ x = - b}$$
+
 ???+ Belangrijk
-    ### Algemene vorm
-    We gaan nu kijken naar het oplossen van een vergelijking met de algemene vorm:
+    ### Algemene Oplossing
+    Een vergelijking van de vorm:
 
-    $$\large{x^2 + bx = 0.}$$
+    $$\large{x^2 + bx = 0}$$
 
-    Deze vorm heeft een $x^2$ term en een $x$ term, maar geen los staand getal. Bij deze vorm willen we de $x$ ontbinden op de volgende manier:
+    kan worden ontbonden tot:
 
     $$\large{x(x + b) = 0.}$$
 
-    Zie eventueel regel 3 uit de [Basisvaardigheden](basisvaardigheden.md#regels-bij-operaties-met-variabelen). We kunnen dit nu oplossen met een belangrijk inzicht. 
-
-    Twee dingen keer elkaar kunnen alleen gelijk zijn aan $0$ als een van de twee termen gelijk is aan $0.$
-
-    Het maakt niet uit hoe groot of klein beide getallen zijn, als een van de twee termen niet $0$ is, dan kan het product nooit $0$ worden. We kunnen dus de volgende conclusie trekken:
+    Als twee dingen keer elkaar $0$ zijn, dan moet een van de twee factoren $0$ zijn:
 
     $$\large{x = 0 \ \vee \ x + b = 0}$$
 
-    De tweede vergelijking kunnen we nu oplossen door aan beide kanten $-b$ te doen. We vinden dan de oplossing: 
+    Onze eindoplossing wordt dan:
 
     !!! quote ""
-        $$\large{x = 0 \ \vee \ x = - b}$$
+        $$\large{x = 0 \ \vee \ x = -b}$$
 
 ### **Uitleg Filmpje**
 ???+ Youtube
@@ -215,7 +236,7 @@ In het algemeen wordt dit:
 
     $$\large{x = 0 \ \vee \ x - 1 = 0}$$
 
-    En dit wordt dus:
+    En nu kunnen we rechts aan beide kanten van het '$=$'-teken $+1$ doen:
 
     !!! quote ""
         $$\large{x = 0 \ \vee \ x = 1}$$
@@ -225,11 +246,11 @@ In het algemeen wordt dit:
     **<p style="text-align: center;font-size:20px;">Los op: $2x + x^2 = 7x^2 - 10x$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Om dit op te lossen moeten we het eerst naar de algemene vorm brengen. We willen alle termen met $x$ en $x^2$ naar de linker kant halen. We doen dit door beide kanten $-7x^2$ te doen en beide kanten $+10x$. We krijgen dan
+    Om dit op te lossen, moeten we het eerst naar de [algemene vorm](#oplossen-vorm-x2-bx-0) brengen. We willen alle termen met $x$ en $x^2$ naar de linker kant halen. We doen dit door aan beide kanten $-7x^2$ en $+10x$ te doen. We krijgen dan:
 
     $$\large{12x - 6x^2 = 0}$$
 
-    We kunnen de volgorde ook omdraaien en het schrijven op de volgende manier
+    We kunnen de volgorde ook omdraaien en het schrijven op de volgende manier:
 
     $$\large{-6x^2 + 12x = 0.}$$
 
@@ -237,15 +258,15 @@ In het algemeen wordt dit:
 
     $$\large{x^2 - 2x = 0.}$$
 
-    We kunnen hier nu weer de $x$ ontbinden
+    Nu kunnen we weer de $x$ buiten haakjes halen:
 
     $$\large{x(x-2) = 0.}$$
 
-    En omdat hier weer een van de twee termen gelijk moet zijn aan $0$, kunnen we zeggen dat
+    Dit kan alleen gelden als een van de twee factoren $0$ is. Dus:
 
     $$\large{x = 0 \ \vee \ x - 2 = 0}$$
 
-    En dit wordt dus:
+    Nu kunnen we rechts aan beide kanten van het '$=$'-teken $+2$ doen. We vinden dan als eindantwoord:
 
     !!! quote ""
         $$\large{x = 0 \ \vee \ x = 2}$$
@@ -253,50 +274,89 @@ In het algemeen wordt dit:
 
 
 ## **Oplossen vorm x² + bx + c = 0**
-Nu kijken we naar het oplossen van de algemene vorm
+Laten we nu kijken naar het oplossen van de algemene vorm
 
 $$x^2 + bx+ c = 0.$$
 
-We hebben hiervoor drie methodes. De snellere methode van ontbinden in factoren, de relatief eenvoudige methode die iets minder snel is, maar altijd werkt: de *abc* formule en kwadraat afsplitsen dat ook altijd werkt, maar vaak meer stappen zijn. Laten we beginnen met ontbinden in factoren.
+We hebben hiervoor drie methodes. Als eerst hebben we de snellere methode van [ontbinden in factoren](#ontbinden-in-factoren). Daarna hebben we de iets minder snelle methode, maar die altijd werkt: [De *abc* formule](#de-abc-formule). En als laatst hebben we [kwadraat afsplitsen](#kwadraat-afsplitsen) dat ook altijd werkt, maar vaak meer stappen zijn.
+
+Laten we als eerst beginnen met ontbinden in factoren.
 
 ### **Ontbinden in factoren**
-Zoals de naam eigenlijk al zegt, willen we de kwadratische vergelijking ontbinden in twee factoren. Stel we hebben bijvoorbeeld de volgende vergelijking:
+Zoals de naam eigenlijk al zegt, willen we de vergelijking ontbinden in twee factoren. Stel we hebben bijvoorbeeld de volgende vergelijking:
 
 $$x^2 + 3x + 2 = 0.$$
 
-We kunnen dit ook op de volgende manier schrijven:
+Deze vergelijking kunnen we ook op de volgende manier schrijven:
 
 $$(x + 2)(x + 1) = 0.$$
 
-Dit is het omgekeerde van [Kwadratische haakjes wegwerken](basisvaardigheden.md#kwadratisch-haakjes-wegwerken). We kunnen nu net zoals bij het oplossen van de [algemene vorm](#algemene-vorm) $x^2 + bx = 0$ zeggen dat een van de twee termen $0$ moet zijn, omdat dat de enige manier is om een product te hebben die gelijk is aan $0$. Met andere woorden, we kunnen hieruit de volgende conclusie trekken:
+Dit is eigenlijk het omgekeerde van [Kwadratische haakjes wegwerken](basisvaardigheden.md#kwadratisch-haakjes-wegwerken). De factoren om te kunnen ontbinden zijn hier dus $+2$ en $+1$. We zullen straks zien hoe we zelf de factoren moeten bepalen. 
+
+Deze twee factoren keer elkaar kunnen alleen $0$ zijn als een van de twee factoren gelijk is aan $0$. Dit is eigenlijk dezelfde denkstap als bij het [oplossen](#oplossen-vorm-x2-bx-0) van $x^2+bx=0$. We kunnen hieruit dus de volgende conclusie trekken:
 
 $$x + 2 = 0 \ \vee \ x + 1 = 0.$$
 
-Dit kunnen we uitwerken tot ons eindantwoord:
+We kunnen de linker vergelijking versimpelen door aan beide kanten van het '$=$'-teken $−2$ te doen. De rechter vergelijking kunnen we versimpelen door aan beide kanten van het '$=$'-teken $−1$ te doen. We vinden dan als eindantwoord:
 
 !!! quote ""
     $$\large{x = -2 \ \vee \ x = -1.}$$
 
-Maar de vraag is, hoe weten wat de factoren zijn om te ontbinden? Dit kunnen we doen met de product-som methode. 
+Maar hoe weten we wat de factoren zijn om te kunnen ontbinden? Dit kunnen we doen met de product-som methode. 
+
+<br>
+#### **<span style="font-size: 18px;">Product-Som methode</span>**
+Als we een vergelijking ontbinden in factoren, dan heeft het de volgende vorm:
+
+$$(x + p)(x + q).$$
+
+We kunnen dit weer uitwerken door de [Kwadratische haakjes](basisvaardigheden.md#kwadratisch-haakjes-wegwerken) weg te werken. We krijgen dan
+
+$$x^2 + (p + q)x + p*q.$$
+
+Dus als we een vergelijking in de vorm $x^2 + bx + c$ hebben, dan weten we dat de factoren moeten voldoen aan:
+
+$$c = p*q.$$
+
+en
+
+$$b = p + q$$
+
+Vandaar de naam "product-som" methode. 
+
+We moeten dus twee getallen vinden die keer elkaar gelijk zijn aan $c$ en plus elkaar gelijk zijn aan $b$. Als we twee getallen vinden die daaraan voldoen, dan kunnen we het ontbinden met die getallen.
+
+Dus in het voorbeeld hadden we de vergelijking:
+
+$$x^2 + 3x + 2 = 0.$$
+
+En nu moeten we kijken welke twee getallen keer elkaar $2$ zijn, en plus elkaar $3$. Dit zijn de getallen $2$ en $1$, want $2 \times 1 = 2$ en $2 + 1 = 3$. Dus we kunnen de vergelijking ontbinden naar de vorm:
+
+$$(x + 2)(x + 1) = 0,$$
+
+en dat is ook wat we in het voorbeeld hadden.
 
 ???+ Belangrijk
-    De vorm van de twee ontbonden factoren is altijd
+    <span style="font-size: 14px;">Voor een vergelijking van de vorm</span>
 
-    $$\large{(x + p)(x + q)}$$
+    $$\large{x^2 + bx + c = 0}$$
 
-    Dit kunnen we uitwerken door de [Kwadratische haakjes](basisvaardigheden.md#kwadratisch-haakjes-wegwerken) weg te werken. We krijgen dan
+    <span style="font-size: 14px;">kunnen we het ontbinden naar de vorm</span>
 
-    $$\large{x^2 + (p + q)x + p*q.}$$
+    $$\large{(x + p)(x + q) = 0}$$
 
-    Oftewel als we de vorm $x^2 + bx + c$ hebben, dan moet er gelden dat:
+    <span style="font-size: 14px;">als:</span>
 
-    $$\large{c = p*q.}$$
-
-    en dat
-
-    $$\large{b = p + q}$$
+    - <span style="font-size: 16px;">$p \times q = c$, en</span>
+    - <span style="font-size: 16px;">$p + q = b$.</span>
     
-    Vandaar de naam "product-som" methode.
+    <br>
+    **<span style="font-size: 16px;">Stappenplan</span>**
+
+    - <span style="font-size: 15px;">Verzin twee getallen die samen gelijk zijn aan $c$.</span>
+    - <span style="font-size: 15px;">Check of deze twee getallen samen gelijk zijn aan $b$</span>
+    - <span style="font-size: 15px;">Klopt dit? Dan heb je de juiste $2$ factoren gevonden.</span>
+
 
 Nu een concreet voorbeeld om dit te verduidelijken.
 
@@ -304,7 +364,7 @@ Stel we hebben de volgende vergelijking die we willen ontbinden:
 
 $$x^2 + 11x + 24 = 0.$$
 
-We pakken dit probleem aan door te beginnen met kijken welke (gehele) getallen keer elkaar gelijk zijn aan $24$. We maken hier de volgende tabel van
+We pakken dit aan door te kijken welke (gehele) getallen keer elkaar gelijk zijn aan 24. We maken hier de volgende tabel van
 
 | Factor 1 | Factor 2 | Product |
 | -------- | -------- | ------- |
@@ -312,9 +372,8 @@ We pakken dit probleem aan door te beginnen met kijken welke (gehele) getallen k
 | 2 | 12 | 24 |
 | 3 |  8 | 24 |
 | 4 |  6 | 24 |
-| 6 |  4 | 24 |
 
-We doen dit dus door factor 1 steeds groter te maken, totdat we uiteindelijk twee keer dezelfde twee factoren gebruiken (in dit geval $4 * 6$ en $6 * 4$). We kijken nu welke twee factoren we samen kunnen optellen om $11$ te krijgen. 
+We kijken nu welke twee factoren we samen kunnen optellen om $11$ te krijgen. 
 
 | Factor 1 | Factor 2 | Som |
 | -------- | -------- | --- |
@@ -344,7 +403,7 @@ $$x + 8 = 0 \ \vee \ x + 3 = 0.$$
     **<p style="text-align: center;font-size:20px;">Los op: $x^2 -2x - 8 = 0$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We willen dit weer op lossen door te ontbinden in factoren. Dit kunnen we doen met de product-som methode. We beginnen met het maken van een tabel van alle mogelijkheden om op $-8$ te komen als product
+    We willen dit weer op lossen door te ontbinden in factoren. Dit kunnen we doen met de product-som methode. We maken een tabel met alle combinaties 2 factoren die keer elkaar −8 zijn:
 
     | Factor 1 | Factor 2 | Product |
     | -------- | -------- | ------- |
@@ -352,9 +411,8 @@ $$x + 8 = 0 \ \vee \ x + 3 = 0.$$
     | 1 | -8 | -8 |
     | -2 | 4 | -8 |
     | 2 | -4 | -8 |
-    | -4 |  2 | -8 |
 
-    We zien dat we een combinatie factoren herhalen ($2 * -4$ en $-4 * 2$) en dus hebben we alle combinaties van factoren die we willen. Nu herhalen we de tabel met de som in plaats van het product
+    Nu tellen we de twee factoren bij elkaar op en kijken we welke samen $-2$ zijn:
 
     | Factor 1 | Factor 2 | Som |
     | -------- | -------- | --- |
@@ -363,7 +421,7 @@ $$x + 8 = 0 \ \vee \ x + 3 = 0.$$
     | -2 | 4 | 2 |
     | 2 | -4 | -2 :fontawesome-solid-check:{ .green }|
 
-    We weten nu dus dat de juiste factoren $2$ en $-4$ zijn en dus dat we dit kunnen ontbinden naar
+    We weten nu dus dat de juiste factoren $2$ en $-4$ zijn. We kunnen dit dus ontbinden naar:
 
     $$\large{(x + 2)(x - 4) = 0}$$
 
@@ -379,15 +437,15 @@ $$x + 8 = 0 \ \vee \ x + 3 = 0.$$
     **<p style="text-align: center;font-size:20px;">Los op: $-5x^2 = 25x + 20$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    In dit voorbeeld staat onze kwadratische vergelijking nog niet in de algemene vorm. We doen dit door eerst alle termen naar de linker kant te halen door aan beide kanten $-25x$ en $-20$ te doen:
+    In dit voorbeeld staat onze vergelijking nog niet in de [algemene vorm](#oplossen-vorm-x2-bx-c-0) van $x^2 + bx + c = 0$. Om het in de juiste vorm te schrijven, willen we alles aan de linker kant hebben. Dit doen we door aan beide kanten $-25x$ en $-20$ te doen:
 
     $$\large{-5x^2 - 25x - 20 = 0}$$
 
-    Nu delen we door $-5$ om het naar de algemene vorm te brengen
+    Nu delen we door $-5$ om het naar de algemene vorm te brengen:
 
     $$\large{x^2 + 5x + 4 = 0}$$
 
-    Nu willen we het ontbinden in factoren. Dit kunnen we doen met de product-som methode (of als je het in een keer ziet mag dat natuurlijk ook). We maken weer een tabel met de factoren om 4 als product te krijgen
+    Nu willen we dit ontbinden in factoren. Dit kunnen we doen met de product-som methode (of als je het in een keer ziet mag dat natuurlijk ook). We maken weer een tabel met de factoren om 4 als product te krijgen.
 
     | Factor 1 | Factor 2 | Product |
     | -------- | -------- | ------- |
@@ -395,9 +453,8 @@ $$x + 8 = 0 \ \vee \ x + 3 = 0.$$
     | -1 | -4 | 4 |
     | 2 | 2 | 4 |
     | -2 | -2 | 4 |
-    | 4 |  1 | 4 |
 
-    We komen in herhaling en dus hebben we alle combinaties gehad. We maken nu de som tabel om te kijken welke factoren samen $5$ zijn
+    We maken nu de som tabel om te kijken welke factoren samen $5$ zijn.
 
     | Factor 1 | Factor 2 | som |
     | -------- | -------- | --- |
@@ -406,7 +463,7 @@ $$x + 8 = 0 \ \vee \ x + 3 = 0.$$
     | 2 | 2 | 4 |
     | -2 | -2 | -4 |
 
-    De juiste factoren zijn dus $1$ en $4$ en dus kunnen we de vergelijking ontbinden tot
+    De juiste factoren zijn dus $1$ en $4$ en dus kunnen we de vergelijking ontbinden naar:
 
     $$\large{(x + 1)(x + 4) = 0}$$
 
@@ -419,7 +476,9 @@ $$x + 8 = 0 \ \vee \ x + 3 = 0.$$
 
 
 ### **De *abc* formule**
-De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat. Dit gebeurt wanneer de product-som methode niet de juiste factoren geeft, of wanneer $b$ of $c$ in $x^2 + bx + c$ geen gehele getallen zijn. Maar wat is de *abc* formule en hoe gebruiken we het?
+In sommige gevallen gaat ontbinden in factoren lastig. Dit is vaak als je alle combinaties van gehele getallen hebt geprobeerd, maar dat de som niet is wat je zoekt. Of als $b$ of $c$ in $𝑥^2+𝑏𝑥+𝑐$ geen gehele getallen zijn, dan gaat ontbinden in factoren vaak ook lastig. 
+
+In dat soort gevallen gebruiken we de *abc* formule. Maar wat is de *abc* formule precies en hoe gebruiken we het?
 
 ???+ Belangrijk
     De *abc* formule gaat als volgt:
@@ -428,7 +487,7 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
 
     $$\large{ax^2 + bx + c = 0}$$
 
-    geldt er dat de oplossingen zijn:
+    zijn de oplossingen:
 
     $$\Large{x = \frac{-b \pm \sqrt{D}}{2a},}$$
 
@@ -436,11 +495,13 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
 
     $$\Large{D = b^2 - 4ac.}$$
 
+    *<span style="font-size: 15px;">$\pm$ betekent dat er $1$ oplossing is waar we $+$ gebruiken en 1 oplossing is waar we $-$ gebruiken.</span>*
+
     ??? note "Discriminant"
         #### **<span style="font-size: 18px;">Discriminant</span>**
-        Waarom schrijven we de discriminant apart op en vullen we het niet gewoon rechtstreeks in de formule om gewoon $1$ formule te hebben?
+        Waarom gebruiken we een discriminant? We zouden het toch ook meteen in de formule kunnen invullen en maar $1$ ding hoeven te onthouden?
 
-        Dit doen we omdat we belangrijke eigenschappen van de functie kunnen bepalen aan de hand van de waardes van de discriminant:
+        Nou, de waarde van de discriminant vertelt ons hoeveel oplossingen er zijn. En voor sommige vragen kan dit heel nuttig zijn om te gebruiken. 
 
         $$\Large{f(x) = 0 \left\{ \begin{array}{l l l } \textrm{Twee oplossingen} & \quad \textrm{voor } D > 0 \\ \textrm{Een oplossing} & \quad \textrm{voor } D = 0 \\ \textrm{Geen oplossingen} & \quad \textrm{voor } D < 0 \end{array} \right.}$$
 
@@ -452,7 +513,7 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
         
         $$\large{f(x) = 0}$$
 
-        (zie eventueel dus ook de sectie [snijpunten met de $x$-as](#snijpunten-met-de-x-as)). 
+        (zie eventueel dus ook de sectie [snijpunten met de $x$-as](#snijpunten-met-de-x-as)). Als we $f(x)$ invullen, wordt dit:
 
         $$\large{x^2 - 1 = 0.}$$
 
@@ -462,33 +523,35 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
 
         De discriminant wordt dan:
 
-        $$\large{D = 0^2 - 4 * 1 * -1 = 4}$$
+        $$\large{D = 0^2 - 4 \times 1 \times -1 = 4}$$
 
         Er geldt hier dus dat:
 
         $$\large{D > 0}$$
 
-        Dit betekent dus dat $f(x)$ $2$ snijpunten heeft met de $x$-as. Als we de grafiek van $f(x)$ plotten zien we dat dit ook daadwerkelijk het geval is:
+        $f(x)$ heeft dus $2$ snijpunten met de $x$-as. Als we de grafiek van $f(x)$ plotten, zien we dat dit ook daadwerkelijk het geval is:
 
         <figure markdown>
             ![Plot van f(x) met snijpunten x-as](assets/images/kwadratische_vergelijkingen/f(x) = x² - 1.svg){ width="400"}
-            <figcaption>Figuur 1. De grafiek f(x) = x² - 1 geplot met de snijpunten met de x-as.</figcaption>
+            <figcaption>Figuur 1. De grafiek $f(x) = x^2 - 1$ geplot met de snijpunten met de x-as.</figcaption>
         </figure>
 
         ##### <span style="font-size: 14px; color: #D3D3D3">Eén snijpunt</span>
-        Stel we kijken nu naar de grafiek $f(x) = x^2 - 4x + 4$. Hoeveel snijpunten heeft deze functie met de $x$-as? We stellen eerst weer dat:
+        Stel we kijken nu naar de grafiek $f(x) = x^2 - 4x + 4$. Hoeveel snijpunten heeft deze functie met de $x$-as? Om dit te bepalen, moeten we eerst stellen dat:
 
         $$\large{f(x) = 0}$$
 
+        Dus als we $f(x)$ invullen:
+
         $$\large{x^2 - 4x + 4 = 0}$$
 
-        We bepalen weer de discriminant. We hebben:
+        Nu bepalen we weer de discriminant. We hebben:
 
         $$\large{a = 1, \ b = -4 \ \mathrm{en} \ c = 4}$$
 
         De discriminant wordt dan:
 
-        $$\large{D = (-4)^2 -4 * 1 * 4 = 0.}$$
+        $$\large{D = (-4)^2 -4 \times 1 \times 4 = 0.}$$
 
         Er geldt dus dat:
 
@@ -512,7 +575,7 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
 
         De discriminant wordt dan:
 
-        $$\large{D = 0^2 - 4 * 1 * 1 = -4}$$
+        $$\large{D = 0^2 - 4 \times 1 \times 1 = -4}$$
 
         Er geldt dus hier dat:
 
@@ -525,6 +588,8 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
             <figcaption>Figuur 3. De grafiek f(x) = x² +1 geplot.</figcaption>
         </figure>
 
+        We zien dat de grafiek van $f(x)$ overal boven de $x$-as ligt, en dus zijn er inderdaad geen snijpunten. 
+
         
 ??? abstract "Bewijs *abc* formule"
     Hieronder is een filmpje om te zien waar de *abc* formule vandaan komt.
@@ -536,11 +601,11 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
 
         *<p style="text-align: center;">Filmpje: Bewijs voor de abc formule. De stappen gaan redelijk snel, dus zie tekst hieronder voor meer uitleg over de stappen.</p>*
 
-    Wat gebeurt hier? Eerst wordt er een functie geplot
+    Wat gebeurt hier? Eerst wordt er een functie geplot:
 
     $$\large{f(x) = ax^2 + bx + c.}$$
 
-    Nu wordt deze functie getransleert (verschoven) naar links zodat de top op de $y$-as ligt. Dit doen we door met het $x$ coördinaat van onze top, $-\frac{b}{2a}$, te verschuiven naar links. We doen dit door onze waarde voor $x$ te vervangen voor $x' + x_{top}$ en dus met $x' -\frac{b}{2a}$. We gebruiken hier $x'$ om aan te geven dat dit over onze nieuwe verschoven functie $g(x')$ gaat en niet over $f(x)$.
+    We verschuiven nu deze functie naar links, zodat de top op de $𝑦$-as komt te liggen. Het oude $x$-coordinaat van de top is $- \frac{b}{2a}$, dus moeten we de functie verschuiven met $\frac{b}{2a}$ om de top op de $y$-as te zetten. Dus vervangen we alle $x$ termen met $x' − \frac{b}{2a}$. We gebruiken hier $x'$ om aan te geven dat dit over onze nieuwe verschoven functie $g(x')$ gaat en niet over $f(x)$.
 
     $$\large{g(x') = a(x'-\frac{b}{2a})^2 + b(x'-\frac{b}{2a}) + c}$$
 
@@ -554,15 +619,15 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
 
     $$\large{g(x') = ax'^2 - \frac{b^2}{4a} + c}$$
 
-    Nu bepalen we de snijpunten van onze nieuwe $g(x)$ functie, want dan weten we ook meteen de snijpunten van $f(x)$. Die zijn namelijk precies hetzelfde, alleen naar links verschoven met onze $x_{top} = -\frac{b}{2a}$. We bepalen de snijpunten met de $x$-as door te stellen dat:
+    Als we nu de snijpunten bepalen van onze nieuwe $g(x)$ functie met de $x$-as, dan weten we ook meteen de snijpunten van $f(x)$ met de $x$-as. Die zijn namelijk precies hetzelfde als van $g(x), alleen terug verschoven met $\frac{b}{2a}$. We bepalen de snijpunten met de $x$-as door te stellen dat:
 
-    $$\large{g(x') = 0,}$$
+    $$\large{g(x') = 0}$$
 
     (zie eventueel [Snijpunten met de x-as](#snijpunten-met-de-x-as)). Als we $g(x')$ invullen krijgen we:
 
     $$\large{ax'^2 - \frac{b^2}{4a} + c = 0.}$$
 
-    Merk op, we hebben hier alleen een term met $x'^2$ en een getal. Het is dus van de vorm $x^2 = c$ en we weten hoe we dit moeten [oplossen](#algemene-oplossing). We schrjven het eerst in de goeie vorm. Dit doen we door aan beide kanten $-(- \frac{b^2}{4a} + c)$ te doen:
+    Merk op, we hebben hier alleen een term met $x'^2$ en een getal. Het is dus van de vorm $x^2 = c$ en we weten hoe we dit moeten [oplossen](#algemene-oplossing). We schrjven het eerst in de goeie vorm. Dit doen we door aan beide kanten $+ \frac{b^2}{4a}$ en $-c$ te doen:
 
     $$\large{ax'^2 = \frac{b^2}{4a} - c}$$
 
@@ -574,30 +639,30 @@ De *abc* formule gebruiken we in gevallen waar ontbinden in factoren lastig gaat
 
     $$\large{x' = \pm \sqrt{\frac{b^2}{4a^2} - \frac{c}{a}}}$$
 
-    We kunnen dit nog herschrijven door $\frac{1}{4a^2}$ op te splitsen zodat we twee wortels krijgen (zie eventueel de [regels met wortels](basisvaardigheden.md#regels-met-wortels))
+    We kunnen dit nog herschrijven door $\frac{1}{4a^2}$ te ontbinden. We krijgen dan twee losse wortels (zie eventueel de [regels met wortels](basisvaardigheden.md#regels-met-wortels))
 
     $$\large{x' = \pm \sqrt{\frac{1}{4a^2}} * \sqrt{b^2 - 4ac}}$$
 
-    Omdat we bij de tweede term geen $\frac{1}{4a^2}$, en alleen $\frac{1}{a}$, moeten we dit compenseren door nu een extra $4a$ toe te voegen. Als we nu de nieuwe wortel oplossen, vinden we:
+    We hebben bij de tweede term een extra $4a$ toegevoegd zodat als we dit weer delen door $4a^2$, we weer terug komen op $\frac{c}{a}$. Als we nu de nieuwe wortel oplossen, vinden we:
 
     $$\large{x' = \pm \frac{1}{2a} * \sqrt{b^2 - 4ac}.}$$
 
-    Dit kunnen we nog herschrijven tot:
+    Als we hier $1$ breuk van maken, dan vinden we:
 
     $$\large{x' = \pm \frac{\sqrt{b^2 - 4ac}}{2a}.}$$
 
-    Dit zijn dus de oplossingen voor onze functie $g(x')$. De oplossingen van $f(x)$ zijn dus precies hetzelfde, maar met het originele $x_{top}$ erbij opgeteld, omdat het dezelfde functie is als $g(x')$ maar met $x_{top}$ naar rechts verschoven. 
+    Dit zijn dus de oplossingen voor onze functie 𝑔(𝑥′). De oplossingen van 𝑓(𝑥) zijn dus precies hetzelfde, maar dan terug verschoven met $\frac{b}{2a}$. We hadden eerst $x$ vervangen met $x' - \frac{b}{2a}$, dus nu moeten we $x'$ vervangen met $x + \frac{b}{2a}$ om het terug te verschuiven:
 
-    $$\large{x = \pm \frac{\sqrt{b^2 - 4ac}}{2a} + x_{top}}.$$
+    $$\large{x + \frac{b}{2a} = \pm \frac{\sqrt{b^2 - 4ac}}{2a}}.$$
 
-    Er geldt dat $x_{top} = - \frac{b}{2a}$ en dus krijgen we:
+    We kunnen nu aan beide kanten $- \frac{b}{2a}$ doen:
 
     $$\large{x = -\frac{b}{2a} \pm \frac{\sqrt{b^2 - 4ac}}{2a}}.$$
 
-    Nu is de $x_{top}$ de eerste term in plaats van de tweede term, maar dat maakt geen verschil. We hebben nu twee dezelfde noemers die we kunnen combineren tot $1$ breuk (zie eventueel de [regels met breuken](basisvaardigheden.md#regels-bij-breuken)). Als we dit doen, dan zien we dat we nu de *abc* formule zelf afgeleid!
+    We hebben nu twee dezelfde noemers en dus kunnen we hier $1$ breuk van maken (zie eventueel de [regels met breuken](basisvaardigheden.md#regels-bij-breuken)). Als we dit doen, dan zien we dat we nu de *abc* formule zelf afgeleid!
 
     !!! quote ""
-        $$\Large{x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}}.$$
+        $$\Large{x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}}$$
 
 
 Laten we naar een voorbeeld kijken. Stel we hebben de vergelijking:
@@ -608,11 +673,11 @@ In dit geval kunnen we eerst proberen om het op te lossen door te ontbinden in f
 
 $$x^2 + 1 \frac{1}{3}x - 1 \frac{2}{3} = 0.$$
 
-Deze vergelijking heeft geen gehele getallen voor $b$ en $c$, dus wordt ontbinden in factoren lastig. In dat geval gebruiken we de *abc* formule. We beginnen altijd met eerst bepalen wat $a$, $b$ en $c$ zijn. In dit geval geldt er dat
+$b$ en $c$ zijn geen gehele getallen, dus ontbinden in factoren wordt lastig. In dat geval gebruiken we dus de *abc* formule. We beginnen altijd met eerst bepalen wat $a$, $b$ en $c$ zijn. In dit geval geldt er dat
 
 $$a = 1, \ b = 1 \frac{1}{3} \ \mathrm{en} \ c = -1 \frac{2}{3}$$
 
-Nu bepalen we eerst de discriminant:
+We bepalen eerst de discriminant:
 
 $$D = (1 \frac{1}{3})^2 - 4 * 1 * - 1 \frac{2}{3} = 8 \frac{4}{9}$$
 
@@ -620,10 +685,10 @@ Met deze discriminant kunnen we nu de oplossingen bepalen:
 
 $$x = \frac{-1 \frac{1}{3} + \sqrt{8 \frac{4}{9}}}{2*1} \ \vee \ x = \frac{-1 \frac{1}{3} - \sqrt{8 \frac{4}{9}}}{2*1}$$
 
-Als we dit uitwerken (invullen in een rekenmachine) vinden we 
+Als we dit uitwerken vinden we:
 
 !!! quote ""
-    $$\large{x = \frac{1}{3} \left(\sqrt{19} - 2 \right) \ \vee \ x = -\frac{1}{3} \left(\sqrt{19} + 2 \right)}$$
+    $$\large{x = - \frac{1}{3} \left(2 - \sqrt{19} \right) \ \vee \ x = -\frac{1}{3} \left(2 + \sqrt{19} \right)}$$
 
 Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwoord:
 
@@ -650,9 +715,9 @@ Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwo
     En dit kunnen we weer versimpelen tot:
 
     !!! quote ""
-        $$\large{x = \frac{1}{3} \left(\sqrt{19} - 2 \right) \ \vee \ x = -\frac{1}{3} \left(\sqrt{19} + 2 \right)}$$
+        $$\large{x = - \frac{1}{3} \left(2 - \sqrt{19} \right) \ \vee \ x = -\frac{1}{3} \left(2 + \sqrt{19} \right)}$$
 
-    En dit is precies hetzelfde als dat we net ook hadden gevonden.
+    En dit is precies hetzelfde als wat we net ook hadden gevonden.
 
 #### <span style="font-size: 18ps;">Uitleg Filmpje</span>
 ???+ Youtube
@@ -664,7 +729,7 @@ Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwo
     **<p style="text-align: center;font-size:20px;">Los op: $2x^2 + 48 \frac{1}{2}x + 12 = 0$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We zien hier dat de $b$ al een breuk is, dus waarschijnlijk wordt het lastig om dit op te lossen door te [ontbinden in factoren](#ontbinden-in-factoren). We kiezen er dus in dit geval voor om meteen de *abc* formule toe te passen. Hier geldt er dat:
+    We zien hier dat $b$ een breuk is, dus waarschijnlijk wordt [ontbinden in factoren](#ontbinden-in-factoren) lastig. We kiezen er nu dus voor om meteen de *abc* formule te gebruiken. Hier geldt er dat:
 
     $$\large{a = 2, \ b = 48 \frac{1}{2} \ \mathrm{en} \ c = 12.}$$
 
@@ -672,7 +737,7 @@ Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwo
 
     $$\large{D = (48 \frac{1}{2})^2 - 4 *2 *12 = 2256 \frac{1}{4}}$$
 
-    Nu kunnen we x bepalen:
+    Nu kunnen we $x$ bepalen:
 
     $$\large{x = \frac{-48 \frac{1}{2} + \sqrt{2256 \frac{1}{4}}}{2*2} \ \vee \ x = \frac{-48 \frac{1}{2} - \sqrt{2256 \frac{1}{4}}}{2*2}}$$
 
@@ -683,7 +748,7 @@ Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwo
 
 
     ??? note "Opmerking"
-        Ondanks dat dit een breuk in de $b$ term had, hadden we dit nog steeds kunnen op lossen met [ontbinden in factoren](#ontbinden-in-factoren). 
+        Ondanks dat $b$ een breuk was, hadden we dit nog steeds op kunnen lossen met [ontbinden in factoren](#ontbinden-in-factoren). 
 
         We beginnen met in de originele vergelijking alle termen te delen door $2$. We vinden dan:
 
@@ -699,6 +764,8 @@ Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwo
 
         $$\large{x + \frac{1}{4} = 0 \ \vee \ x + 24 = 0}$$
 
+        Als we dit uitwerken dan vinden we:
+
         !!! quote ""
             $$\large{x = -\frac{1}{4} \ \vee \ x = -24}$$
 
@@ -707,23 +774,23 @@ Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwo
     **<p style="text-align: center;font-size:20px;">Los op: $x^2 + 5 \frac{19}{25} = 4\frac{4}{5}x$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We willen deze vergelijking schrijven in de standaard vorm, dus we willen alle termen naar de linker kant halen. Dit doen we door beide kanten $-4 \frac{4}{5}$ te doen. We krijgen dan:
+    We willen deze vergelijking eerst schrijven in de [standaard vorm](#oplossen-vorm-x2-bx-c-0). Om dit te doen, willen we alle termen naar de linker kant halen. Dit doen we door beide kanten $-4 \frac{4}{5}$ te doen. We krijgen dan:
 
     $$\large{x^2 - 4\frac{4}{5}x + 5 \frac{19}{25} = 0.}$$
 
-    In dit geval is het lastig te zien in welke factoren we dit kunnen ontbinden. Daarom gaan we over op de *abc* formule. We hebben:
+    Het is lastig om hier te zien in welke factoren we dit kunnen ontbinden. Daarom gaan we over op de *abc* formule. We hebben:
 
     $$\large{a = 1, \ b = - 4\frac{4}{5} \ \mathrm{en} \ c = 5 \frac{19}{25}.}$$
 
-    Onze discriminant wordt:
+    Onze discriminant wordt dan:
 
     $$\large{D = (- 4\frac{4}{5})^2 - 4 * 1 * 5 \frac{19}{25} = 0}$$
 
-    Onze discriminant is dus $0$. De oplossing voor x wordt:
+    Onze discriminant is dus $0$. Dit betekent dat we maar $1$ oplossing verwachten. Deze oplossing voor $x$ wordt:
 
     $$\large{x = \frac{- -4\frac{4}{5} \pm \sqrt{0}}{2}}$$
 
-    Omdat in dit geval plus of min $0$ precies hetzelfde antwoord geeft, hebben we nu maar $1$ oplossing:
+    En dus omdat plus of min $0$ precies hetzelfde antwoord geeft, hebben we maar $1$ oplossing. Als we dit versimpelen, dan vinden we:
 
     !!! quote ""
         $$\large{x = 2 \frac{2}{5}}$$
@@ -733,11 +800,11 @@ Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwo
     **<p style="text-align: center;font-size:20px;">Los op: $-2x^2 + x + 9 =  3x + 11$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We beginnen hier weer met de vergelijking schrijven in de algemene vorm. We halen alles naar de linker kant door beide kanten $-3x$ en $-10$ te doen:
+    We beginnen hier weer met de vergelijking schrijven in de algemene vorm. We halen alles naar de linker kant door aan beide kanten $-3x$ en $-10$ te doen:
 
     $$\large{-2x^2 + -2x + -2 = 0}$$
 
-    We delen nu alle termen door $-2$ om over te houden:
+    We delen nu alle termen door $-2$:
 
     $$\large{x^2 + x + 1 = 0.}$$
 
@@ -753,30 +820,28 @@ Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwo
 
     $$\large{x = \frac{-1 \pm \sqrt{-3}}{2}.}$$
 
-    Zoals we hier kunnen zien, krijgen we hier een wortel van een negatief getal omdat de discriminant negatief is. En we weten dat een wortel van een negatief getal niet bestaat (zie eventueel de [opmerking](#opmerkingen) over een negatief getal). Met andere woorden, deze vergelijking heeft geen oplossing.
+    Zoals we hier kunnen zien, krijgen we hier een wortel van een negatief getal. En we weten dat een wortel van een negatief getal niet bestaat (zie eventueel de opmerking over een negatief getal). Met andere woorden, deze vergelijking heeft geen oplossing. En dit is ook wat we verwachten voor een [discriminant kleiner dan $0$](#discriminant).
 
     !!! quote ""
         **<p style="text-align: center;font-size:19px;">Geen Oplossing</p>**
 
 
 ### **Kwadraat afsplitsen**
-Dit is een andere methode om kwadratische vergelijkingen op te lossen. Net zoals de *abc* formule werkt het in alle gevallen. Het duurt vaak iets langer dan de *abc* formule, maar je hoeft geen formule te onthouden. Laten we kijken hoe het werkt met behulp van een voorbeeld.
+Dit is een andere methode om kwadratische vergelijkingen op te lossen. Net zoals de *abc* formule werkt het in alle gevallen. Het duurt vaak iets langer dan de *abc* formule, maar je hoeft er geen formule voor te onthouden. Laten we kijken hoe het werkt met behulp van een voorbeeld.
 
 Laten we kijken naar de volgende vergelijking:
 
 $$x^2 + 6x - 7 = 0.$$
 
-Bij kwadraat afsplitsen doen we het volgende. We willen het stuk $x^2 + 6x$ herschrijven naar de vorm $(x+p)^2$.
-
-In dit geval kijken we naar welke haakjes van de vorm $(x+p)^2$ we zouden moeten uitwerken om een term met $x^2 + 6x$ te krijgen. Dat is altijd voor $p = \frac{b}{2}$ met $b$ in de vorm $ax^2 + bx + c$. In dit geval gebruiken we dus $p = 3$, want onze $b = 6$. Kijk maar wat er gebeurt als we het uitwerken (zie eventueel [Kwadratische haakjes wegwerken](basisvaardigheden.md#kwadratisch-haakjes-wegwerken)):
+Bij kwadraat afsplitsen willen we de $x^2 + 6x$ term vervangen door iets tussen haakjes en dan in het kwadraat. In dit geval willen we het vervangen met $\left(x + 3\right)^2$. Kijk maar wat er gebeurt als we de haakjes uitwerken (zie eventueel [Kwadratische haakjes wegwerken](basisvaardigheden.md#kwadratisch-haakjes-wegwerken)):
 
 $$(x+3)^2 = \underline{x^2 + 6x} + 9.$$
 
-We krijgen dus onze $x^2 + 6x$ term door de haakjes $(x+3)^2$ uit te werken. Maar we krijgen dan ook een extra $9$ die we niet willen hebben. Om deze weg te halen moeten we nog beide kanten $-9$ doen:
+We krijgen dus onze $x^2 + 6x$ term terug door de haakjes $(x+3)^2$ uit te werken. Maar we krijgen dan ook een extra $9$ die we niet willen hebben. Om deze weg te halen moeten we nog beide kanten $-9$ doen:
 
 $$(x+3)^2 - 9 = \underline{x^2 + 6x}.$$
 
-Nu kunnen we dit in gaan vullen in de vergelijking:
+Nu kunnen we dit in gaan vullen in de vergelijking in plaats van de $x^2 + 6x$:
 
 $$(x+3)^2 - 9 - 7 = 0.$$
 
@@ -784,15 +849,15 @@ Het enige wat we dus hier hebben gedaan is de $x^2 + 6x$ in de vergelijking verv
 
 $$(x+3)^2 - 16 = 0.$$
 
-Wat we nu kunnen doen is aan beide kanten $+16$ doen om de 16 naar de andere kant te halen:
+We kunnen nu aan beide kanten $+16$ doen om de $16$ naar de andere kant te halen:
 
 $$(x+3)^2 = 16.$$
 
-Deze vorm lijkt misschien lastig op te lossen, maar het is eigenlijk hetzelfde als de vorm $x^2 = c$, alleen hebben we nu in plaats van een $x$ een $x+3$. Maar de manier van [oplossen](#algemene-oplossing) gaat op vrijwel dezelfde manier. Onze oplossingen worden:
+Deze vorm lijkt misschien lastig op te lossen, maar het is eigenlijk hetzelfde als de vorm [$x^2 = c$](#oplossen-vorm-x2-c). Het enige verschil is dat we nu in plaats van een $x$ een $x+3$ term hebben. Maar de manier van [oplossen](#algemene-oplossing) gaat eigenlijk op dezelfde manier. We nemen aan beide kanten de wortel en onze oplossingen worden dan:
 
 $$x+3 = \sqrt{16} \ \vee x + 3 = -\sqrt{16}$$
 
-Dus we hebben hier hetzelfde gedaan als bij de [algemene oplossing](#algemene-oplossing), alleen hebben wij in plaats van $x$ een $x+3$. We kunnen de vergelijking nu versimpelen tot:
+Als we $\sqrt{16}$ versimpelen dan vinden we:
 
 $$x+3 = 4 \ \vee x + 3 = -4$$
 
@@ -801,9 +866,54 @@ Door nu aan beide kanten $-3$ te doen vinden we onze eindoplossing:
 !!! quote ""
     $$\large{x = 1 \ \vee \ x = -7}$$
 
+???+ Belangrijk
+    #### **<span style="font-size: 18px;">Algemene Oplossing</span>**
+
+    Een vergelijking in de vorm
+
+    $$\large{x^2 + bx + c = 0}$$
+
+    kunnen we schrijven naar de vorm
+
+    $$\large{\left(x + p \right)^2 = q.}$$
+
+    Dit doen we door eerst de $x^2 + bx$ term te vervangen met $\left(x + \frac{b}{2} \right)^2$. Als we deze haakjes uitwerken krijgen we: 
+    
+    $$\large{x^2 + bx + \left(\frac{b}{2} \right)^2}$$
+    
+    Maar de extra $\left(\frac{b}{2} \right)^2$ term willen we niet hebben. Daarom moeten we de $x^2 + bx$ term vervangen met $\left(x + \frac{b}{2} \right)^2 - \left(\frac{b}{2} \right)^2$. Want alleen dan kunnen we de $x^2 + bx$ term volledig vervangen:
+
+    $$\large{\left(x + \frac{b}{2} \right)^2 - \left(\frac{b}{2} \right)^2 + c = 0}$$
+
+    De $- \left(\frac{b}{2} \right)^2 + c$ term is ook gewoon een getal, dus die noemen we even $q$:
+
+    $$\large{\left(x + \frac{b}{2} \right)^2 - q = 0}$$
+
+    $\frac{b}{2}$ is ook gewoon een getal, dus die noemen we even $p$:
+
+    $$\large{\left(x + p \right)^2 - q = 0.}$$
+
+    Door aan beide kanten $+q$ te doen, kunnen we dit schrijven naar de vorm:
+
+    $$\large{\left(x + p \right)^2 = q.}$$
+
+    Dit kunnen we oplossen net zoals we de vorm [$x^2 = c$](#oplossen-vorm-x2-c) oplossen.
+
+    <br>
+    **<span style="font-size: 16px;">Stappenplan</span>**
+
+    - <span style="font-size: 15px;">Vervang de $x^2 + bx$ term door $\left(x + p \right)^2$, waarbij $p$ de helft is van $b$.</span>
+    - <span style="font-size: 15px;">Doe het nog $-p^2$ om de extra factor die erbij komt weg te halen.</span>
+    - <span style="font-size: 15px;">Tel de getallen bij elkaar op.</span>
+    - <span style="font-size: 15px;">Haal het losse getal naar de andere kant. Je krijgt dus iets in de vorm $\left(x + p \right)^2 = q$.</span>
+    - <span style="font-size: 15px;">Los dit nu op zoals de vorm [$x^2 = c$](#algemene-oplossing), maar nu met $x + p$ in plaats van $x$.</span>
+    - <span style="font-size: 15px;">Doe uiteindelijk aan beide kanten $-p$ om de oplossingen te vinden: $x = -p \pm \sqrt{q}$</span>
+
+
 #### <span style="font-size: 18ps;">Uitleg Filmpje</span>
 ???+ Youtube
     <iframe width="560" height="315" src="https://www.youtube.com/embed/w-aemzBWMlk?si=drjgvybYsgNjhAGV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 #### <span style="font-size: 18px;">Voorbeelden</span>
 
@@ -811,29 +921,27 @@ Door nu aan beide kanten $-3$ te doen vinden we onze eindoplossing:
     **<p style="text-align: center;font-size:20px;">Los op door middel van kwadraat afsplitsen: $x^2 - 2x = 3$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We willen hier weer kwadraat afsplitsen, dus moeten we eerst de term $x^2 - 2x$ opschrijven naar iets met een kwadratisch haakje. We nemen de helft van $-2$, dus $-1$, en dat wordt ons getal in de haakjes:
+    We willen hier kwadraat afsplitsen, dus moeten we eerst de $x^2 - 2x$ term vervangen naar iets met haakjes. De factor in de haakjes wordt de helft van $-2$, dus $-1$. Als we deze haakjes zouden uitwerken, dan vinden we een factor $+1$ te veel:
 
-    $$\large{(x-1)^2 = \underline{x^2 - 2x} + 1}$$
+    $$\large{(x-1)^2 = x^2 - 2x + 1}$$
 
-    We hebben hier een $+1$ te veel en dus doen we die naar de andere kant:
-
-    $$\large{(x-1)^2 - 1 = \underline{x^2 - 2x}.}$$
-
-    We vervangen dus nu de $x^2 - 2x$ in onze originele vergelijking voor $(x-1)^2 - 1$:
+    Deze extra factor willen we niet hebben, dus trekken we die van de haakjes af. We moeten dus $x^2 - 2x$ vervangen met $(x-1)^2 - 1$:
 
     $$\large{(x-1)^2 - 1 = 3}$$
 
-    We doen aan beide kanten $+1$:
+    We doen nu aan beide kanten $+1$:
 
     $$\large{(x-1)^2 = 4}$$
 
-    We kunnen dit nu oplossen met de [algemene oplossing](#algemene-oplossing) van de vorm $x^2 = c$, waar wij nu $x-1$ hebben in plaats van alleen $x$:
+    We kunnen dit nu oplossen net zoals bij de vorm [$x^2 = c$](#algemene-oplossing). Wij hebben nu $x-1$ in plaats van alleen $x$, maar de methode is hetzelfde. We nemen aan beide kanten de wortel:
 
     $$\large{x - 1 = \sqrt{4} \ \vee \ x - 1 = -\sqrt{4}}$$
 
+    We kunnen $\sqrt{4}$ versimpelen tot:
+
     $$\large{x - 1 = 2 \ \vee \ x - 1 = -2}$$
 
-    Door beide kanten $+1$ te doen vinden we onze eindoplossing:
+    Door aan beide kanten $+1$ te doen, vinden we onze eindoplossing:
 
     !!! quote ""
         $$\large{x = 3 \ \vee \ x = -1}$$
@@ -845,33 +953,37 @@ Door nu aan beide kanten $-3$ te doen vinden we onze eindoplossing:
 
     We beginnen weer door de term $x^2 + 3x$ te vervangen door iets met haakjes. Het getal in de haakjes moet de helft van $3$ zijn en dus gebruiken we de volgende haakjes:
 
-    $$\large{(x + 1\frac{1}{2})^2 = \underline{x^2 + 3x} + 2 \frac{1}{4}}$$
+    $$\large{\left(x + 1\frac{1}{2}\right)^2 = \underline{x^2 + 3x} + 2 \frac{1}{4}}$$
 
-    We doen nu aan beide kanten $-2 \frac{1}{4}$ om te weten wat we moeten vervangen voor $x^2 + 3x$:
+    We doen nu aan beide kanten $-2 \frac{1}{4}$ om de extra factor weg te halen:
 
-    $$\large{(x + 1\frac{1}{2})^2 - 2 \frac{1}{4} = \underline{x^2 + 3x}}$$
+    $$\large{\left(x + 1\frac{1}{2}\right)^2 - 2 \frac{1}{4} = \underline{x^2 + 3x}}$$
 
-    Dit stoppen we in onze originele vergelijking:
+    We kunnen nu dus $x^2 + 3x$ vervangen met $\left(x + 1\frac{1}{2}\right)^2 - 2 \frac{1}{4}$:
 
-    $$\large{(x + 1\frac{1}{2})^2 - 2 \frac{1}{4} + 1 = 0}$$
+    $$\large{\left(x + 1\frac{1}{2}\right)^2 - 2 \frac{1}{4} + 1 = 0}$$
 
-    $$\large{(x + 1\frac{1}{2})^2 - 1 \frac{1}{4} = 0}$$
+    We kunnen dit nog versimpelen door de getallen bij elkaar op te tellen:
+
+    $$\large{\left(x + 1\frac{1}{2}\right)^2 - 1 \frac{1}{4} = 0}$$
 
     We doen nu aan beide kanten $+1 \frac{1}{4}$:
 
-    $$\large{(x + 1\frac{1}{2})^2 = 1 \frac{1}{4}}$$
+    $$\large{\left(x + 1\frac{1}{2}\right)^2 = 1 \frac{1}{4}}$$
 
-    We lossen nu de vergelijking op met de [algemene oplossing](#algemene-oplossing) van de vorm $x^2 = c$, waar wij nu $x + 1\frac{1}{2}$ hebben in plaats van alleen $x$:
+    We lossen dit nu op zoals bij de vorm [$x^2 = c$](#algemene-oplossing). Wij hebben nu alleen $x + 1\frac{1}{2}$ in plaats van alleen $x$, maar de methode is hetzelfde:
 
     $$\large{x + 1\frac{1}{2} = \sqrt{1 \frac{1}{4}} \ \vee \ x + 1\frac{1}{2} = -\sqrt{1 \frac{1}{4}}}$$
 
-    We kunnen $1 \frac{1}{4}$ ook schrijven als $\frac{5}{4}$. Als we dit doen kunnen we onze wortel ook op de volgende manier schrijven:
+    We kunnen $1 \frac{1}{4}$ ook schrijven als $\frac{5}{4}$. Als we dit doen kunnen we onze wortel op de volgende manier schrijven:
 
     $$\large{x + 1\frac{1}{2} = \sqrt{\frac{5}{4}} \ \vee \ x + 1\frac{1}{2} = -\sqrt{\frac{5}{4}}}$$
 
     Met behulp van de [Regels met Wortels](basisvaardigheden.md#regels-met-wortels) kunnen we dit schrijven als:
 
     $$\large{x + 1\frac{1}{2} = \frac{\sqrt{5}}{\sqrt{4}} \ \vee \ x + 1\frac{1}{2} = -\frac{\sqrt{5}}{\sqrt{4}}}$$
+
+    We kunnen $\sqrt{4}$ versimpelen naar $2$. Daarna kunnen we $\frac{\sqrt{5}}{2}$ schrijven als $\frac{1}{2}\sqrt{5}$ (gedeelt door $2$ of keer $\frac{1}{2}$ is hetzelfde):
 
     $$\large{x + 1\frac{1}{2} = \frac{1}{2} \sqrt{5} \ \vee \ x + 1\frac{1}{2} = -\frac{1}{2} \sqrt{5}}$$
 
@@ -887,13 +999,15 @@ Door nu aan beide kanten $-3$ te doen vinden we onze eindoplossing:
     **<p style="text-align: center;font-size:20px;">Los op: $(x + 7)^2 = 81$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Het lijkt hier handig om als eerste stap de [haakjes weg te werken](#kwadratisch-haakjes-wegwerken), maar dit is een omweg! Je komt er dan uiteindelijk wel, maar het kan veel makkelijker, let maar op. Deze vergelijking staat al een vorm die we meteen kunnen [oplossen](#algemene-oplossing), namelijk de vorm $x^2 = c$. We nemen aan beide kanten de wortel (rekening houdend met het feit dat we $\pm$ de oplossing hebben):
+    Het lijkt hier handig om als eerste stap de [haakjes weg te werken](#kwadratisch-haakjes-wegwerken), maar dit is een omweg! Je komt er dan uiteindelijk wel, maar het kan veel makkelijker, let maar op. Deze vergelijking staat al een vorm die we meteen kunnen [oplossen](#algemene-oplossing), namelijk de vorm $x^2 = c$. We nemen aan beide kanten de wortel:
 
     $$\large{x + 7 = \sqrt{81} \ \vee \ x + 7 = -\sqrt{81}.}$$
 
+    De $\sqrt{81}$ kunnen we versimpelen naar $9$:
+
     $$\large{x + 7 = 9 \ \vee \ x + 7 = -9.}$$
 
-    We kunnen nu aan beide kanten $-7$ doen om ons eindantwoord te vinden:
+    Nu kunnen we aan beide kanten $-7$ doen om ons eindantwoord te vinden:
 
     !!! quote ""
         $$\large{x = 2 \ \vee \ x= -16.}$$
@@ -909,7 +1023,7 @@ Door nu aan beide kanten $-3$ te doen vinden we onze eindoplossing:
 
         $$\large{x^2 + 14x - 32 = 0}$$
 
-        We kunnen kijken of we dit kunnen oplossen met [ontbinden in factoren](#ontbinden-in-factoren). We maken weer een tabel met alle factoren die keer elkaar $-32$ zijn:
+        We kunnen kijken of we dit kunnen oplossen met [ontbinden in factoren](#ontbinden-in-factoren). We maken een tabel met alle factoren die keer elkaar $-32$ zijn:
 
         | Factor 1 | Factor 2 | Product |
         | -------- | -------- | ------- |
@@ -920,7 +1034,7 @@ Door nu aan beide kanten $-3$ te doen vinden we onze eindoplossing:
         | -4 |  8 | -32 |
         | 4 |  -8 | -32 |
 
-        We maken nu de bijbehorende som tabel om te kijken welke factoren samen $+14$ zijn
+        Nu maken we de bijbehorende som tabel om te kijken welke factoren samen $+14$ zijn
 
         | Factor 1 | Factor 2 | Som |
         | -------- | -------- | ------- |
@@ -942,16 +1056,16 @@ Door nu aan beide kanten $-3$ te doen vinden we onze eindoplossing:
         !!! quote ""
             $$\large{x = 2 \ \vee \ x= -16.}$$
 
-        We komen er op deze manier dus ook, het duurt alleen iets langer. Dus als we het kunnen vermijden dan liever wel, maar het is geen ramp om dit te doen als je de andere manier niet zag, want je komt er zo uiteindelijk ook.
+        We komen er op deze manier dus ook, het duurt alleen iets langer. Dus als we het kunnen vermijden dan liever wel. Maar als je de andere manier niet zag, dan kom je er zo natuurlijk ook.
 
 
 ## **Grafieken met Parabolen**
-We hebben net allemaal methodes gezien om kwadratische vergelijkingen op te lossen, maar waar is dat eigenlijk nuttig voor? 
+We hebben gezien hoe we een kwadratische vergelijking kunnen oplossen op verschillende manieren. Heel leuk en aardig, maar waar is dat eigenlijk nuttig voor?
 
 Het is vooral handig om snijpunten te berekenen. Bijvoorbeeld snijpunten met de $x$-as of snijpunten van twee grafieken met elkaar. Laten we eerst kijken naar snijpunten met de $x$-as. 
 
 ### **Snijpunten met de x-as**
-We gaan kijken naar drie verschillende gevallen, een functie waar we $2$ snijpunten hebben met de $x$-as, een functie waar we maar $1$ snijpunt hebben met de $x$-as (dus waar $f(x)$ de $x$-as raakt) en een functie waar er geen snijpunten zijn met de $x$-as.
+We gaan kijken naar drie verschillende gevallen. Als eerste kijken we naar een functie die $2$ snijpunten heeft met de $x$-as. Daarna kijken we naar een functie met maar $1$ snijpunt met de $x$-as (dus waar $f(x)$ de $x$-as raakt). En als laatst kijken we naar een functie die de $x$-as niet snijdt, en dus $0$ snijpunten heeft.
 
 #### <span style="font-size: 18px;">Twee snijpunten</span>
 Laten we beginnen met een functie die $2$ snijpunten heeft. We zien hieronder de functie $f(x) = x^2 - 1$ en de $2$ snijpunten met de $x$-as. 
@@ -961,9 +1075,9 @@ Laten we beginnen met een functie die $2$ snijpunten heeft. We zien hieronder de
   <figcaption>Figuur 1. De grafiek f(x) = x² - 1 geplot met de snijpunten met de x-as.</figcaption>
 </figure>
 
-Als we het niet konden aflezen, hoe zouden we de snijpunten bepalen? Dit doen we door een vergelijking op te stellen.
+Als we geen grafiek gekregen hadden, hoe zouden we de snijpunten bepalen? Dit doen we door een vergelijking op te stellen.
 
-Als iets de $x$-as snijdt, betekent dit altijd dat er moet gelden dat $y=0$, want per definitie heeft de hele $x$-as een $y$-coördinaat van $0$. En omdat we willen weten wat de $x$-coördinaten zijn van de functie waar $y=0$ (oftewel het met de $x$-as snijdt), moeten we stellen dat:
+Als iets de $x$-as snijdt, betekent dit altijd dat er moet gelden dat $y=0$, want per definitie heeft de hele $x$-as een $y$-coördinaat van $0$. En omdat we willen weten wat de $x$-coördinaten zijn van de functie waar $y=0$ (dus waar het met de $x$-as snijdt), moeten we stellen dat:
 
 $$f(x) = 0.$$
 
@@ -972,8 +1086,6 @@ Als we $f(x)$ nu invullen, krijgen we de volgende vergelijking:
 $$x^2 - 1 = 0.$$
 
 En dit kunnen we oplossen door te herkenen dat dit de vorm van [$x^2 = c$](#oplossen-vorm-x2-c) is. Als we dit oplossen vinden we:
-
-$$x^2 = 1$$
 
 !!! quote ""
     $$\large{x = -1 \ \vee \ x = 1,}$$
@@ -987,22 +1099,22 @@ De coördinaten van de snijpunten zijn dus:
 
 
 #### <span style="font-size: 18px;">Eén snijpunt</span>
-Laten we nu kijken naar een situatie waar we een functie hebben die maar $1$ snijpunt/raakpunt heeft met de $x$-as. Bij een kwadratische functie geldt er altijd dat als er maar $1$ snijpunt is, dat er dan sprake is van raken. De grafiek van $f(x)$ raakt de grafiek, maar snijdt de $x$-as eigenlijk niet.
+Laten we nu kijken naar een situatie waar we een functie hebben die maar $1$ snijpunt/raakpunt heeft met de $x$-as. Bij een kwadratische functie is er bij $1$ snijpunt met de $x$-as altijd sprake van raken. De grafiek van $f(x)$ raakt de grafiek, maar snijdt de $x$-as eigenlijk niet. Toch noemen we het nog steeds vaak een snijpunt. 
 
-We hebben hieronder een grafiek $f(x) = x^2 - 4x + 4.$
+Laten we kijken naar de grafiek van $f(x) = x^2 - 4x + 4$.
 
 <figure markdown>
   ![Plot van f(x) met snijpunt x-as](assets/images/kwadratische_vergelijkingen/f(x) = x² - 4x + 4.svg){ width="500"}
   <figcaption>Figuur 2. De grafiek f(x) = x² - 4x + 4 geplot met het snijpunt/raakpunt met de x-as.</figcaption>
 </figure>
 
-We willen hier het snijpunt berekenen. We stellen weer $f(x)$ gelijk aan $0$:
+Laten we het snijpunt gaan berekenen. We stellen weer $f(x)$ gelijk aan $0$:
 
 $$x^2 - 4x + 4 = 0.$$
 
 We proberen dit eerst op te lossen met [ontbinden in factoren](#ontbinden-in-factoren).
 
-We maken een tabel met alle factoren die samen $+4$ geven:
+We maken een tabel met alle factoren die keer elkaar $+4$ zijn:
 
 | Factor 1 | Factor 2 | Product |
 | -------- | -------- | ------- |
@@ -1011,7 +1123,7 @@ We maken een tabel met alle factoren die samen $+4$ geven:
 | 2 | 2 | 4 |
 | -2 | -2 | 4 |
 
-We maken nu de bijbehorende som tabel om te kijken welke factoren samen $-4$ zijn
+We maken nu de bijbehorende som tabel om te kijken welke factoren samen $-4$ zijn:
 
 | Factor 1 | Factor 2 | Som |
 | -------- | -------- | ------- |
@@ -1027,6 +1139,8 @@ $$(x-2)(x-2) = 0$$
 Dit geeft in dit geval dus ook maar $1$ oplossing, want er moet hier dus gelden dat:
 
 $$x - 2 = 0$$
+
+We kunnen aan beide kanten $+2$ doen om te vinden:
 
 !!! quote ""
     $$\large{x = 2}$$
@@ -1048,7 +1162,9 @@ Dit gebeurt bijvoorbeeld bij de functie $f(x) = x^2 + 1$, zoals we kunnen zien i
   <figcaption>Figuur 3. De grafiek f(x) = x² +1 geplot.</figcaption>
 </figure>
 
-Wat gebeurt er als we toch proberen te kijken op welk $x$-coördinaat $f(x)$ gelijk is aan $0$ en dus de $x$-as snijdt? Laten we het proberen:
+Maar wat gebeurt er als we toch proberen te kijken waar $f(x)$ de $x$-as snijdt? Laten we het proberen:
+
+$$f(x) = 0$$
 
 $$x^2 + 1 = 0$$
 
@@ -1056,28 +1172,28 @@ We doen nu aan beide kanten $-1$:
 
 $$x^2 = -1.$$
 
-Een getal in het kwadraat kan nooit negatief zijn en dus geldt er dat er voor deze vergelijking geen oplossing zijn (zie eventueel de [opmerking](#opmerkingen) over een negatief getal voor meer toelichting). En dit is ook precies wat we verwachten als we naar Figuur 3 kijken.
+Maar zoals we eerder hebben gezien bij deze [opmerking](#opmerkingen), kan een getal in het kwadraat nooit negatief zijn. Deze vergelijking heeft dus geen oplossing. En dit is ook precies wat we verwachten als we naar Figuur 3 kijken.
 
-Er is gewoon geen enkel moment dat de grafiek van $f(x)$ de $x$-as snijdt, omdat $f(x)$ altijd boven de $x$-as is. Dit betekent dus dat er ook geen oplossingen zijn voor de vergelijking en dus dat er geen snijpunt is.
+Er is gewoon geen enkel moment dat de grafiek van $f(x)$ de $x$-as snijdt, omdat $f(x)$ altijd boven de $x$-as is. En daarom heeft de vergelijking om de snijpunten met de $x$-as te vinden dus ook geen oplossing.
 
 
 ### **Snijpunten met andere grafieken**
-We zien nu twee functies, $f(x) = x^2 -6x - 1$ en $g(x) = -x^2 + 2x + 3$ en de snijpunten tussen de twee.
+Laten we nu kijken naar de snijpunten van twee functies. Stel we hebben bijvoorbeeld de twee functies $f(x) = x^2 -6x - 1$ en $g(x) = -x^2 + 2x + 3$ en we willen de snijpunten bepalen tussen de twee functies.
 
 <figure markdown>
   ![Plot van f(x) en g(x) met snijpunten](assets/images/kwadratische_vergelijkingen/f(x) = x² - 6x - 1; g(x) = -x² + 2x + 3.svg){ width="500"}
   <figcaption>Figuur 4. De grafieken f(x) = x² - 6x - 1 en g(x) = -x² + 2x + 3 geplot met de punten waar de twee functies elkaar snijden.</figcaption>
 </figure>
 
-Nu wordt het lastig om de snijpunten af te lezen uit de grafiek. We moeten dus een vergelijking opstellen om de twee snijpunten te bepalen van de twee functies met elkaar. We willen weten bij welke punten de twee grafieken dezelfde waarde hebben, dus met andere woorden, voor welke gemeenschappelijke x er geldt dat:
+Nu wordt het lastig om een precieze waarde voor de snijpunten af te lezen uit de grafiek. We moeten dus een vergelijking gaan opstellen om de twee snijpunten te bepalen. Bij een snijpunt hebben de twee grafiek dezelfde $x$ en $y$-coördinaten. Dus de vraag is: bij welke $x$-coördinaten hebben de twee grafieken ook dezelfde waarde $y$-coördinaten? Daar hoort de volgende vergelijking bij:
 
 $$f(x) = g(x).$$
 
-Nu vullen we voor beide de functie in:
+Nu vullen we beide functies in:
 
 $$x^2 -6x - 1 = -x^2 + 2x + 3$$
 
-Dit kunnen we nu oplossen om achter de $x$-coördinaten te komen van het snijpunt. We doen dit door eerst alle termen naar de linker kant te halen. Om dit te doen, doen we aan beide kanten $+x^2$, $-2x$ en $-3$:
+Als we dit oplossen, dan weten we de $x$-coördinaten van de snijpunten. We doen dit door eerst alle termen naar de linker kant te halen. Om dit te doen, doen we aan beide kanten $+x^2$, $-2x$ en $-3$:
 
 $$2x^2 - 8x - 4 = 0.$$
 
@@ -1118,20 +1234,28 @@ Dit uitwerken geeft:
 !!! quote ""
     $$\large{x = 2 + \sqrt{6} \ \vee \ x = 2 - \sqrt{6}}$$
 
-En dus geldt er dit de $x$-coördinaten zijn van onze twee snijpunten. Voor het linker snijpunt is dat dus $x = 2 - \sqrt{6}$ en voor het rechter snijpunt is dat $x = 2 + \sqrt{6}$. 
+Dit zijn dus de $x$-coördinaten van onze twee snijpunten. Het linker snijpunt is dus $x = 2 - \sqrt{6}$ en het rechter snijpunt is dus $x = 2 + \sqrt{6}$. 
 
-Nu berekenen we de $y$-coördinaten van onze snijpunten. Dit doen we door onze $x$-coördinaten in een van de twee vergelijkingen te stoppen, maakt niet uit welke. In dit geval kiezen we er voor om het in $f(x)$ in te vullen:
+Nu willen we de $y$-coördinaten weten van onze snijpunten. En dit kunnen we bepalen door onze $x$-coördinaten in een van de twee vergelijkingen te stoppen. Het maakt daarbij niet uit welke je kiest. In dit geval kiezen we er voor om het in te vullen bij $f(x)$:
 
-$$f(2 - \sqrt{6}) = (2 - \sqrt{6})^2 - 6(2 - \sqrt{6}) - 1 = 2\sqrt{6} - 3$$
+Voor $x = 2 - \sqrt{6}$:
 
-$$f(2 + \sqrt{6}) = (2 + \sqrt{6})^2 - 6(2 + \sqrt{6}) - 1 = -2\sqrt{6} - 3$$
+$$f(2 - \sqrt{6}) = (2 - \sqrt{6})^2 - 6(2 - \sqrt{6}) - 1$$
+
+$$f(2 - \sqrt{6}) = 2\sqrt{6} - 3 \phantom{mmmmmmmmm}$$
+
+Voor $x = 2 + \sqrt{6}$:
+
+$$f(2 + \sqrt{6}) = (2 + \sqrt{6})^2 - 6(2 + \sqrt{6}) - 1$$
+
+$$f(2 + \sqrt{6}) = -2\sqrt{6} - 3 \phantom{mmmmmmmm}$$
 
 Onze snijpunten zijn dus:
 
 !!! quote ""
     $$\large{\left(2 - \sqrt{6}, \ 2\sqrt{6} - 3\right) \textrm{ en } \left(2 + \sqrt{6}, \ -2\sqrt{6} - 3\right)}$$
 
-Als we het afronden op twee decimalen, dan krijgen we:
+Als we deze waardes afronden op twee decimalen, dan krijgen we:
 
 !!! quote ""
     $$\large{\left(-0.45, 1.90 \right) \textrm{ en } \left(4.45, -7.90 \right)}$$

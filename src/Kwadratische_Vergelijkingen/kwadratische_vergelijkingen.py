@@ -2,6 +2,7 @@ import math
 from manim import *
 import matplotlib.pyplot as plt
 import numpy as np
+import sympy as sp
 
 class Kwadratisch(Scene):
     def construct(self):
@@ -161,13 +162,12 @@ class Kwadratisch(Scene):
         self.wait(3)
 
 
-def draw_func(func, title):
-    x = np.arange(-3, 3, 0.01)
+def draw_func(func, title, x_range=(-10,10), y_range=(-10,10), x_intersect=False):
+    x = np.arange(x_range[0], x_range[1], 0.01)
     y = [func(num) for num in x]
 
     fig = plt.figure()
     
-
     ax = fig.add_subplot(111)
 
     ax.set_xlabel('X-as')
@@ -185,62 +185,103 @@ def draw_func(func, title):
 
     ax.set_title(title, loc='center', color='#D3D3D3')
 
+    plt.xlim(x_range)
+    plt.ylim(y_range)
 
-    plt.xlim(-3, 3)
-    plt.ylim(-1, 8)
+    plt.plot(x, y, 'darkturquoise', zorder=1)
+    plt.hlines(xmin=x_range[0], xmax=x_range[1], y=0, colors='#D3D3D3', zorder=1)
+    plt.vlines(ymin=y_range[0], ymax=y_range[1], x=0, colors='#D3D3D3', zorder=1)
 
-    plt.plot(x, y, 'darkturquoise')
-    plt.hlines(xmin=-3, xmax=3, y=0, colors='#D3D3D3')
-    plt.vlines(ymin=-2, ymax=8, x=0, colors='#D3D3D3')
-    # plt.scatter([2], [0], c='darkturquoise')
+    if x_intersect:
+        x = sp.symbols('x', real=True)
+        x_intersects = sp.solve(func(x), x)
+        y_intersects = [func(num) for num in x_intersects]
+
+        for x, y in zip(x_intersects, y_intersects):
+            plt.scatter(x, y, c='aquamarine', zorder=2)
 
     plt.savefig(f"{title}.svg")
     plt.show()
 
-    plt.clf()
 
-draw_func(lambda x: x**2 + 1, "f(x) = x² + 1")
-
-
-def draw_funcs(func, func2, title):
-    x = np.arange(-2, 6, 0.01)
+def draw_funcs(
+    func, func2, title, x_range=(-10,10), y_range=(-10,10), svg=True, intersect1=None, intersect2=None, no_ax=False, intersect_line=True
+):
+    x = np.arange(x_range[0], x_range[1], 0.01)
     f = [func(num) for num in x]
     g = [func2(num) for num in x]
 
     fig = plt.figure()
-    
 
     ax = fig.add_subplot(111)
 
-    ax.set_xlabel('X-as')
-    ax.set_ylabel('Y-as')
+    ax.set_xlabel("X-as")
+    ax.set_ylabel("Y-as")
 
-    ax.spines['bottom'].set_color('#D3D3D3')
-    ax.spines['top'].set_color('#D3D3D3')
-    ax.spines['left'].set_color('#D3D3D3')
-    ax.spines['right'].set_color('#D3D3D3')
-    ax.xaxis.label.set_color('#D3D3D3')
-    ax.yaxis.label.set_color('#D3D3D3')
-    ax.tick_params(axis='both', colors='#D3D3D3')
-    ax.set_facecolor("#FF0000")
+    if svg:
+        ax.set_facecolor("#FF0000")
+        main_color = "#D3D3D3"
+        dot_color = "aquamarine"
+    else:
+        main_color = "#000000"
+        dot_color = "black"
+
+    ax.spines["bottom"].set_color(main_color)
+    ax.spines["top"].set_color(main_color)
+    ax.spines["left"].set_color(main_color)
+    ax.spines["right"].set_color(main_color)
+    ax.xaxis.label.set_color(main_color)
+    ax.yaxis.label.set_color(main_color)
+    ax.tick_params(axis="both", colors=main_color)
     
 
-    ax.set_title(title, loc='center', color='#D3D3D3')
+    ax.set_title(title, loc="center", color=main_color)
 
+    if no_ax:
+        ax.set_yticks([])
+        ax.set_xticks([])
 
-    plt.xlim(-2, 6)
-    plt.ylim(-10, 10)
+        sf = abs(x_range[1] - x_range[0]) / 8
 
-    plt.plot(x, f, 'darkturquoise', label='f(x)')
-    plt.plot(x, g, 'springgreen', label='g(x)')
-    plt.hlines(xmin=-2, xmax=6, y=0, colors='#D3D3D3')
-    plt.vlines(ymin=-10, ymax=10, x=0, colors='#D3D3D3')
-    plt.scatter([2 - np.sqrt(6), 2 + np.sqrt(6)], [(2 - np.sqrt(6))**2 - 6*(2 - np.sqrt(6)) - 1, (2 + np.sqrt(6))**2 - 6*(2 + np.sqrt(6)) - 1], c='aquamarine')
+        if intersect1 is not None:
+            plt.text(s=r"$a$", x=intersect1[0] - 0.075*sf, y=-0.65*sf, color=main_color)
+            if intersect_line:
+                plt.vlines(x=intersect1[0], ymin=-0.25*sf, ymax=0.25*sf, color=main_color)
+
+        if intersect2 is not None:
+            plt.text(s=r"$b$", x=intersect2[0] - 0.075*sf, y=-0.65*sf, color=main_color)
+            if intersect_line:
+                plt.vlines(x=intersect2[0], ymin=-0.25*sf, ymax=0.25*sf, color=main_color)
+
+    plt.xlim(x_range)
+    plt.ylim(y_range)
+
+    # x and y axes
+    plt.hlines(xmin=x_range[0], xmax=x_range[1], y=0, colors=main_color, zorder=1)
+    plt.vlines(ymin=y_range[0], ymax=y_range[1], x=0, colors=main_color, zorder=1)
+
+    # graphs
+    plt.plot(x, f, "darkturquoise", label="f(x)", zorder=1)
+    plt.plot(x, g, "springgreen", label="g(x)", zorder=1)
+
+    x = sp.symbols("x")
+    x_intersects = sp.solve(func(x) - func2(x), x)
+    y_intersects = [func(num) for num in x_intersects]
+
+    for x, y in zip(x_intersects, y_intersects):
+        plt.scatter(x, y, c=dot_color, zorder=2)
+
     plt.legend(loc="upper right")
 
-    plt.savefig(f"{title}.svg")
+    if svg:
+        plt.savefig(f"{title}.svg")
+    else:
+        plt.savefig(f"{title}.png")
+
     plt.show()
 
-    plt.clf()
+# draw_func(lambda x: x**2 - 1, title="f(x) = x² - 1", x_range=(-3,3), y_range=(-2,8), x_intersect=True)
+draw_func(lambda x: x**2 -4*x + 4, title="f(x) = x² - 4x + 4", x_range=(-1,5), y_range=(-1,8), x_intersect=True)
+# draw_func(lambda x: x**2 + 1, title="f(x) = x² + 1", x_range=(-3,3), y_range=(-1,8), x_intersect=True)
 
-# draw_funcs(lambda x: x**2 -6*x - 1, lambda x: -x**2 + 2*x + 3, "f(x) = x² - 6x - 1; g(x) = -x² + 2x + 3")
+# draw_funcs(lambda x: x**2 - 6*x - 1, lambda x: -x**2 + 2*x + 3, title="f(x) = x² - 6x - 1; g(x) = -x² + 2x + 3",  x_range=(-2, 6), y_range=(-10, 7.5), no_ax=False, svg=True)
