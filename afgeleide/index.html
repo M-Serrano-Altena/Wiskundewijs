@@ -838,7 +838,8 @@
 
 <h1 id="de-afgeleide-functie"><em>De Afgeleide Functie</em></h1>
 <h2 id="introductie-afgeleide"><strong>Introductie Afgeleide</strong></h2>
-<p>De afgeleide van een functie geeft je op elk <span class="arithmatex">\(x\)</span>-coördinaat de bijbehorende richtingscoëfficient (ook wel de helling genoemt). De functie geeft dan dus niet meer het <span class="arithmatex">\(y\)</span>-coördinaat als je <span class="arithmatex">\(x\)</span> invult, maar de helling van de grafiek op dat punt. Laten we naar een paar verschillende functies kijken.</p>
+<p>De afgeleide van een functie geeft je op elk <span class="arithmatex">\(x\)</span>-coördinaat de bijbehorende <em>richtingscoëfficient</em>.* De functie geeft dan dus niet meer het <span class="arithmatex">\(y\)</span>-coördinaat als je <span class="arithmatex">\(x\)</span> invult, maar de helling van de grafiek op dat punt. Laten we naar een paar verschillende functies kijken.</p>
+<p><em><div> * Richtingscoëfficient is een ander woord voor helling.</div></em></p>
 <h3 id="parabool"><strong>Parabool</strong></h3>
 <p>Een parabool heeft in het simpleste geval de vorm</p>
 <div class="arithmatex">\[f(x) = x^2.\]</div>
@@ -871,7 +872,7 @@
 </details>
 <p>De helling op elk punt is dus hetzelfde als het <span class="arithmatex">\(y\)</span>-coördinaat op dat punt. De functie blijft dus maar steeds sneller stijgen als <span class="arithmatex">\(y\)</span> toeneemt. Als iets op deze manier steeds sneller blijft toenemen, noemen we dat <em>exponentieel</em>.</p>
 <h2 id="afgeleides-bepalen"><strong>Afgeleides Bepalen</strong></h2>
-<p>Om een afgeleide te bepalen, kunnen we de onderstaande <a href="#tabel-met-veel-voorkomende-functies">tabel</a> gebruiken. Daarin staan de meest voorkomende afgeleides van verschillende functies. En voor samenstellingen van functies kunnen we kijken naar de <a href="#regels">regels</a> om de afgeleide te bepalen.</p>
+<p>Om een afgeleide te bepalen, kunnen we de onderstaande <a href="#tabel-met-veel-voorkomende-functies">tabel</a> gebruiken. Daarin staan de meest voorkomende afgeleides van verschillende functies. En hier vind je de <a href="#regels">regels</a> voor functies die bestaan uit andere kleinere functies.</p>
 <details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="tabel-met-veel-voorkomende-functies"><strong>Tabel met veel voorkomende functies</strong></h3>
 <table>
 <thead>
@@ -1230,7 +1231,7 @@
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
 <p>We moeten weer de extreme waardes bepalen. Dus dit betekent dat we de afgeleide gelijk aan <span class="arithmatex">\(0\)</span> moeten stellen. Laten we weer eerst de afgeleide bepalen.</p>
 <p>De afgeleide is de afgeleide van de individuele termen (<a href="#regels">somregel</a>):</p>
-<div class="arithmatex">\[\large{f'(x) = -3x^{3-1} + 6*2x^{2-1} - 9}\]</div>
+<div class="arithmatex">\[\large{f'(x) = -3x^{3-1} + 6 \cdot 2x^{2-1} - 9}\]</div>
 <div class="arithmatex">\[\large{f'(x) = -3x^2 + 12x - 9}\]</div>
 <p>Nu stellen we deze afgeleide gelijk aan <span class="arithmatex">\(0\)</span>:</p>
 <div class="arithmatex">\[\large{-3x^2 + 12x - 9 = 0}\]</div>
@@ -1287,9 +1288,9 @@
 <p>Dit geeft ons de <span class="arithmatex">\(x\)</span>-coördinaten:</p>
 <div class="arithmatex">\[\large{\boxed{x = 1 \ \vee \ x = 3}}\]</div>
 <p>In dit geval zijn er dus twee extreme waardes. We berekenen bij beide extreme waardes de bijbehorende <span class="arithmatex">\(y\)</span>-coördinaten. Dit doen we door elk <span class="arithmatex">\(x\)</span>-coördinaat in <span class="arithmatex">\(f(x)\)</span> te stoppen:</p>
-<div class="arithmatex">\[\large{f(1) = -(1)^3 + 6*(1)^2 - 9*1 + 3}\]</div>
+<div class="arithmatex">\[\large{f(1) = -(1)^3 + 6 \cdot (1)^2 - 9 \cdot 1 + 3}\]</div>
 <div class="arithmatex">\[\large{\boxed{f(1) = -1}}\]</div>
-<div class="arithmatex">\[\large{f(3) = -(3)^3 + 6*(3)^2 - 9*3 + 3}\]</div>
+<div class="arithmatex">\[\large{f(3) = -(3)^3 + 6 \cdot (3)^2 - 9 \cdot 3 + 3}\]</div>
 <div class="arithmatex">\[\large{\boxed{f(3) = 3}}\]</div>
 <p>De coördinaten van de twee extreme waardes zijn dus:</p>
 <div class="admonition quote">
@@ -1303,34 +1304,39 @@
 </details>
 <details class="example"><summary>Voorbeeld 3: Bepaal de extreme waarde van <span class="arithmatex">\(f(x) = (x-2)^{7}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waarde van <span class="arithmatex">\(f(x) = (x-2)^{7}\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>We willen de extreme waarde bepalen en dus stellen we dat de afgeleide van <span class="arithmatex">\(f(x)\)</span> gelijk is aan <span class="arithmatex">\(0\)</span>. Om dit te doen, berekenen we eerst de afgeleide. We doen dit met behulp van de <a href="#regels">kettingregel</a>. </p>
-<p>We definieren de volgende functie:</p>
-<div class="arithmatex">\[\large{u(x) \equiv x - 2}\]</div>
-<p>waardoor er dus geldt dat:</p>
+<p>Om de extreme waarde te bepalen, stellen we de afgeleide van <span class="arithmatex">\(f(x)\)</span> gelijk aan <span class="arithmatex">\(0\)</span>. We beginnen dus met het bepalen van de afgeleide:</p>
+<p>We zien dat deze functie bestaat uit een functie in een functie. We hebben namelijk:</p>
+<ul>
+<li><span class="arithmatex">\(\large{u(x) = x - 2}\)</span></li>
+<li><span class="arithmatex">\(\large{f(u) = u^7}\)</span></li>
+</ul>
+<p>Om de afgeleide te bepalen, moeten we de <a href="#regels">kettingregel</a> toepassen:</p>
+<div class="arithmatex">\[\large{f'(x) = \frac{\mathrm{d}f}{\mathrm{d} u} \ \cdot \ \frac{\mathrm{d} u}{\mathrm{d} x}}\]</div>
+<p>We berekenen eerst de afgeleide van <span class="arithmatex">\(f\)</span> naar <span class="arithmatex">\(u\)</span>. Dit doen we met regel <span class="arithmatex">\(3\)</span> van de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>:</p>
 <div class="arithmatex">\[\large{f(u) = u^7}\]</div>
-<p>De <a href="#regels">kettingregel</a> vertelt ons het volgende:</p>
-<div class="arithmatex">\[\large{f'(x) = f'(u) * u'(x)}\]</div>
-<p>We berekenen eerst de afgeleide van <span class="arithmatex">\(f(u)\)</span> naar <span class="arithmatex">\(u\)</span>:</p>
-<div class="arithmatex">\[\large{f'(u) = 7u^{7-1} = 7u^6}\]</div>
-<p>Nu de afgeleide van <span class="arithmatex">\(u(x)\)</span> naar <span class="arithmatex">\(x\)</span>:</p>
-<div class="arithmatex">\[\large{u'(x) = 1}\]</div>
-<p>En dus krijgen we dat:</p>
-<div class="arithmatex">\[\large{f'(x) = 7u^6 * 1}\]</div>
-<p>We kunnen de <span class="arithmatex">\(u\)</span> weer terug subsitueren voor <span class="arithmatex">\(x - 2\)</span> en dan krijgen we dus:</p>
+<div class="arithmatex">\[\large{\frac{\mathrm{d}f}{\mathrm{d} u} = 7 \cdot u^{7-1}}\]</div>
+<div class="arithmatex">\[\large{\frac{\mathrm{d}f}{\mathrm{d} u} = 7u^6}\]</div>
+<p>Nu bepalen we de afgeleide van <span class="arithmatex">\(u\)</span> naar <span class="arithmatex">\(x\)</span>:</p>
+<div class="arithmatex">\[\large{u(x) = x - 2}\]</div>
+<div class="arithmatex">\[\large{\frac{\mathrm{d} u}{\mathrm{d} x} = 1 + 0 = 1}\]</div>
+<p>Want de afgeleide van <span class="arithmatex">\(x\)</span> is <span class="arithmatex">\(1\)</span> (<a href="#tabel-met-veel-voorkomende-functies">regel <span class="arithmatex">\(2\)</span></a>) en de afgeleide van <span class="arithmatex">\(-2\)</span> is <span class="arithmatex">\(0\)</span> (<a href="#tabel-met-veel-voorkomende-functies">regel <span class="arithmatex">\(1\)</span></a>). Als we dit combineren, dan krijgen we:</p>
+<div class="arithmatex">\[\large{f'(x) = 7u^6 \cdot 1}\]</div>
+<p>Als we <span class="arithmatex">\(u\)</span> weer schrijven in termen van <span class="arithmatex">\(x\)</span> krijgen we als afgeleide:</p>
 <div class="arithmatex">\[\large{f'(x) = 7(x - 2)^6}\]</div>
-<p>Om de extreme waarde te vinden stellen we dit dus gelijk aan <span class="arithmatex">\(0\)</span>:</p>
+<p>Om de extreme waarde te bepalen, moeten we de afgeleide dus gelijk aan <span class="arithmatex">\(0\)</span> stellen:</p>
+<div class="arithmatex">\[\large{f'(x) = 0}\]</div>
 <div class="arithmatex">\[\large{7(x - 2)^6 = 0}\]</div>
-<p>Dit betekent dus dat er moet gelden dat:</p>
+<p>Dit kan alleen <span class="arithmatex">\(0\)</span> zijn als:</p>
 <div class="arithmatex">\[\large{x - 2 = 0,}\]</div>
-<p>want anders kan de vergelijking nooit <span class="arithmatex">\(0\)</span> worden. Het <span class="arithmatex">\(x\)</span>-coördinaat van de top is dus:</p>
+<p>Als we dit oplossen, vinden we:</p>
 <div class="arithmatex">\[\large{x = 2}\]</div>
-<p>Als we dit in <span class="arithmatex">\(f(x)\)</span> invullen vinden we als <span class="arithmatex">\(y\)</span>-coördinaat:</p>
+<p>Het <span class="arithmatex">\(x\)</span>-coördinaat van de top is dus <span class="arithmatex">\(2\)</span>. Als we dit in <span class="arithmatex">\(f(x)\)</span> invullen, vinden we als <span class="arithmatex">\(y\)</span>-coördinaat:</p>
 <div class="arithmatex">\[\large{f(2) = (2 - 2)^7 = 0}\]</div>
 <p>De coördinaten van onze top zijn dus:</p>
 <div class="admonition quote">
-<div class="arithmatex">\[\large{\textrm{De top is bij } (2, 0)}\]</div>
+<div class="arithmatex">\[\large{(2, 0)}\]</div>
 </div>
-<p>Als we de functie tekenen in Figuur 4, dan zien we dat dit klopt.</p>
+<p>Als we de functie tekenen, dan zien we dat dit klopt.</p>
 <p><figure markdown>
     <img alt="Top van functie" src="../assets/images/afgeleide/f%28x%29%20%3D%20%28x%20-%202%29%E2%81%B7.svg" width="500" />
     <figcaption>Figuur 4. De grafiek <span class="arithmatex">\(f(x) = (x-2)^{7}\)</span> geplot met de extreme waarde.</figcaption>
@@ -1338,38 +1344,47 @@
 </details>
 <details class="example"><summary>Voorbeeld 4: Bepaal de extreme waardes van <span class="arithmatex">\(f(x) = 10e^x(x^2 + 4x + 0.4)\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waardes van <span class="arithmatex">\(f(x) = e^x(x^2 + 4x + 0.4)\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>We willen de extreme waardes bepalen en dus moeten we stellen dat de afgeleide gelijk is aan <span class="arithmatex">\(0\)</span>. We berekenen de afgeleide van <span class="arithmatex">\(f(X)\)</span> met de <a href="#regels">productregel</a> door te definieren:</p>
-<div class="arithmatex">\[\large{g(x) \equiv 10e^x \textrm{ en } h(x) = x^2 + 4x + 0.4}\]</div>
+<p>Om de extreme waardes te bepalen moeten we stellen dat de afgeleide gelijk is aan <span class="arithmatex">\(0\)</span>. Dus als eerst berekenen we de afgeleide van <span class="arithmatex">\(f(x)\)</span>.</p>
+<p>Dit zijn twee functies keer elkaar, dus moeten we de <a href="#regels">productregel</a> gebruiken. We hebben de volgende twee functies:</p>
+<ul>
+<li><span class="arithmatex">\(\large{g(x) = 10e^x}\)</span></li>
+<li><span class="arithmatex">\(\large{h(x) = x^2 + 4x + 0.4}\)</span></li>
+</ul>
 <p>De <a href="#regels">productregel</a> vertelt ons dat:</p>
-<div class="arithmatex">\[\large{f'(x) = g'(x) \  * \ h(x) + g(x) * h'(x)}\]</div>
-<p>Laten we dus <span class="arithmatex">\(g'(x)\)</span> en <span class="arithmatex">\(h'(x)\)</span> bepalen (zie eventueel de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>):</p>
-<div class="arithmatex">\[\large{g'(x) = 10e^x = g(x)}\]</div>
+<div class="arithmatex">\[\large{f'(x) = g'(x) \cdot h(x) + g(x) \cdot h'(x)}\]</div>
+<p>Laten we dus <span class="arithmatex">\(g'(x)\)</span> en <span class="arithmatex">\(h'(x)\)</span> bepalen:</p>
+<p><span class="arithmatex">\(g(x)\)</span> is een <span class="arithmatex">\(e\)</span>-macht, dus de afgeleide is weer zichzelf (zie eventueel de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>):</p>
+<div class="arithmatex">\[\large{g'(x) = 10e^x}\]</div>
+<p>De afgeleide van <span class="arithmatex">\(h(x)\)</span> kunnen we bepalen met de eerste drie regels van de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>:</p>
 <div class="arithmatex">\[\large{h'(x) = 2x + 4}\]</div>
-<p>Nu vullen we de <a href="#regels">productregel</a> in:</p>
-<div class="arithmatex">\[\large{f'(x) = 10e^x(x^2 + 4x + 0.4) + 10e^x(2x + 4)}\]</div>
+<p>Nu vullen we passen we de productregel toe:</p>
+<div class="arithmatex">\[\large{f'(x) = 10e^x \cdot (x^2 + 4x + 0.4) + 10e^x \cdot (2x + 4)}\]</div>
 <p>Dit kunnen we versimpelen naar:</p>
 <div class="arithmatex">\[\large{f'(x) = 10e^x(x^2 + 6x + 4.4)}\]</div>
 <p>Om de extreme waardes te bepalen stellen we deze afgeleide gelijk aan <span class="arithmatex">\(0\)</span>:</p>
 <div class="arithmatex">\[\large{10e^x(x^2 + 6x + 4.4) = 0}\]</div>
-<p>Dit betekent dat een van de twee termen <span class="arithmatex">\(0\)</span> moet zijn:</p>
-<div class="arithmatex">\[\large{e^x = 0 \ \vee \ x^2 + 6x + 4.4 = 0}\]</div>
-<p>Maar <span class="arithmatex">\(e^x\)</span> wordt nooit <span class="arithmatex">\(0\)</span> en dus vereenvoudigt dit naar:</p>
+<p>We zien hier dat deze twee factoren keer elkaar <span class="arithmatex">\(0\)</span> zijn. Dit kan alleen als een van de twee factoren <span class="arithmatex">\(0\)</span> is:</p>
+<div class="arithmatex">\[\large{10e^x = 0 \ \vee \ x^2 + 6x + 4.4 = 0}\]</div>
+<p>Maar <span class="arithmatex">\(e^x\)</span> wordt nooit <span class="arithmatex">\(0\)</span>, ongeacht welke <span class="arithmatex">\(x\)</span> je invult. Dit betekent dus dat de rechter vergelijking <span class="arithmatex">\(0\)</span> moet zijn:</p>
 <div class="arithmatex">\[\large{x^2 + 6x + 4.4 = 0}\]</div>
 <p>Ontbinden in factoren wordt hier lastig en dus gebruiken we de <a href="../kwadratische_vergelijkingen/#de-abc-formule"><em>abc</em> formule</a>. We hebben:</p>
 <div class="arithmatex">\[\large{a = 1, \ b = 6, \ c = 4.4}\]</div>
 <p>De discriminant wordt dan:</p>
-<div class="arithmatex">\[D = 6^2 - 4 * 1 * 4.4 = 18.4\]</div>
-<p>We vullen dit nu in:</p>
-<div class="arithmatex">\[\large{x = \frac{-6 + \sqrt{18.4}}{2*1} \ \vee \ \frac{-6 - \sqrt{18.4}}{2*1}}\]</div>
+<div class="arithmatex">\[D = 6^2 - 4 \cdot 1 \cdot 4.4 = 18.4\]</div>
+<p>Nu kunnen we <span class="arithmatex">\(x\)</span> bepalen:</p>
+<div class="arithmatex">\[\large{x = \frac{-6 + \sqrt{18.4}}{2 \cdot 1} \ \vee \ \frac{-6 - \sqrt{18.4}}{2 \cdot 1}}\]</div>
+<p>We kunnen dit met een rekenmachine berekenen:</p>
 <div class="arithmatex">\[\large{x \approx -0.86 \ \vee \ x \approx -5.14}\]</div>
-<p>Deze <span class="arithmatex">\(x\)</span>-coördinaten vullen we vervolgens in <span class="arithmatex">\(f(x)\)</span> om de bijbehorende <span class="arithmatex">\(y\)</span>-coördinaten te bepalen:</p>
-<div class="arithmatex">\[\large{f(-0.86) = 10e^{-0.86}\left((-0.86)^2 + 4*(-0.86) + 0.4 \right) \approx -9.7}\]</div>
-<div class="arithmatex">\[\large{f(-5.14) = 10e^{-5.14}\left((-5.14)^2 + 4*(-5.14) + 0.4 \right) \approx 0.37}\]</div>
+<p>De bijbehorende <span class="arithmatex">\(y\)</span>-coördinaten kunnen we bepalen door dit in te vullen in <span class="arithmatex">\(f(x)\)</span>:</p>
+<div class="arithmatex">\[\large{f(-0.86) = 10e^{-0.86}\left((-0.86)^2 + 4 \cdot (-0.86) + 0.4 \right)}\]</div>
+<div class="arithmatex">\[\large{f(-0.86) \approx -9.7}\]</div>
+<div class="arithmatex">\[\large{f(-5.14) = 10e^{-5.14}\left((-5.14)^2 + 4 \cdot (-5.14) + 0.4 \right)}\]</div>
+<div class="arithmatex">\[\large{f(-5.14) \approx 0.37}\]</div>
 <p>De coördinaten van de twee extreme waardes zijn dus:</p>
 <div class="admonition quote">
-<div class="arithmatex">\[\large{\textrm{De toppen zijn bij } (-0.86, -9.7) \textrm{ en } (-5.14, 0.37)}\]</div>
+<div class="arithmatex">\[\large{(-0.86, -9.7) \textrm{ en } (-5.14, 0.37)}\]</div>
 </div>
-<p>En als we de functie tekenen in Figuur 5, dan zien we dat dit klopt.</p>
+<p>En als we de functie tekenen, dan zien we dat dit klopt.</p>
 <p><figure markdown>
     <img alt="Top van functie" src="../assets/images/afgeleide/f%28x%29%20%3D%2010e%CB%A3%28x%C2%B2%20%2B%204x%20%2B%200.4%29.svg" width="500" />
     <figcaption>Figuur 5. De grafiek <span class="arithmatex">\(f(x) = 10e^x(x^2 + 4x + 0.4)\)</span> geplot met de extreme waardes.</figcaption>
@@ -1377,37 +1392,60 @@
 </details>
 <details class="example"><summary>Voorbeeld 5: Bepaal de extreme waardes van <span class="arithmatex">\(f(x) = \cos^2(2x)\)</span> in het domein <span class="arithmatex">\([-\frac{\pi}{2}, \frac{\pi}{2}]\)</span></summary><p><strong><p style="text-align: center;font-size:18px;">Bepaal de coördinaten van de extreme waardes van <span class="arithmatex">\(f(x) = \cos^2(2x)\)</span> in het domein <span class="arithmatex">\([-\frac{\pi}{2}, \frac{\pi}{2}]\)</span></p></strong>
 <strong><p style="text-align: center;font-size:18px;">Uitwerking</p></strong></p>
-<p>We willen de extreme waardes bepalen en dus moeten we de afgeleide gelijk aan <span class="arithmatex">\(0\)</span> stellen. Om de afgeleide te bepalen maken we gebruik van de <a href="#regels">kettingregel</a>. We herkennen drie verschillende functies binnen <span class="arithmatex">\(f(x)\)</span>:</p>
-<div class="arithmatex">\[\large{f(x) = g^2 \textrm { met } g(h) \equiv \cos(h) \textrm{ en } h(x) \equiv 2x}\]</div>
-<p>De afgeleides van <span class="arithmatex">\(g(h)\)</span> naar <span class="arithmatex">\(h\)</span> en <span class="arithmatex">\(h(x)\)</span> naar <span class="arithmatex">\(x\)</span> kunnen we bepalen met behulp van de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>:</p>
-<div class="arithmatex">\[\large{g'(h) = -\sin(h)}\]</div>
-<div class="arithmatex">\[\large{h'(x) = 2}\]</div>
-<p>De afgeleide wordt dan:</p>
-<div class="arithmatex">\[\large{f'(x) = 2 * g * g'(h) * h'(x)}\]</div>
-<div class="arithmatex">\[\large{f'(x) = 2 * \cos(h) * -\sin(h) * 2}\]</div>
-<p>Als we <span class="arithmatex">\(h\)</span> invullen en dit verder versimpelen vinden we:</p>
+<p>Om de extreme waardes te bepalen, moeten we de afgeleide gelijk aan <span class="arithmatex">\(0\)</span> stellen. We beginnen dus met de afgeleide van <span class="arithmatex">\(f(x)\)</span> te bepalen. Deze functie bestaat uit meerdere functies in elkaar:</p>
+<ul>
+<li><span class="arithmatex">\(\large{u(x) = \cos(2x)}\)</span></li>
+<li><span class="arithmatex">\(\large{f(u) = u^2}\)</span></li>
+</ul>
+<p>De <a href="#regels">kettingregel</a> vertelt ons:</p>
+<div class="arithmatex">\[\large{f'(x) = \frac{\mathrm{d}f}{\mathrm{d} u} \ \cdot \ \frac{\mathrm{d} u}{\mathrm{d} x}}\]</div>
+<p>We beginnen met <span class="arithmatex">\(\large{\frac{\mathrm{d}f}{\mathrm{d} u}}\)</span> bepalen:</p>
+<div class="arithmatex">\[\large{\frac{\mathrm{d}f}{\mathrm{d} u} = 2 \cdot u^{2-1}}\]</div>
+<div class="arithmatex">\[\large{\frac{\mathrm{d}f}{\mathrm{d} u} = 2u}\]</div>
+<p>Als we dit schrijven in termen van <span class="arithmatex">\(x\)</span>:</p>
+<div class="arithmatex">\[\large{\boxed{\frac{\mathrm{d}f}{\mathrm{d} u} = 2 \cos(2x)}}\]</div>
+<p>Nu bepalen we <span class="arithmatex">\(\large{\frac{\mathrm{d}u}{\mathrm{d} x}}\)</span>. Maar let op! Deze functie bestaat ook uit meerdere functies in elkaar:</p>
+<ul>
+<li><span class="arithmatex">\(\large{g(x) = 2x}\)</span></li>
+<li><span class="arithmatex">\(\large{u(g) = \cos(g)}\)</span></li>
+</ul>
+<p>Dus we kunnen <span class="arithmatex">\(\large{\frac{\mathrm{d}u}{\mathrm{d} x}}\)</span> bepalen door weer de kettingregel te gebruiken:</p>
+<div class="arithmatex">\[\large{\frac{\mathrm{d}u}{\mathrm{d} x} = \frac{\mathrm{d}u}{\mathrm{d} g} \cdot \frac{\mathrm{d}g}{\mathrm{d} x}}\]</div>
+<p>De afgeleide van <span class="arithmatex">\(g\)</span> naar <span class="arithmatex">\(x\)</span> is:</p>
+<div class="arithmatex">\[\large{\frac{\mathrm{d}g}{\mathrm{d} x} = 2}\]</div>
+<p>En de afgeleide van <span class="arithmatex">\(u\)</span> naar <span class="arithmatex">\(g\)</span> kunnen we in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> opzoeken:</p>
+<div class="arithmatex">\[\large{\frac{\mathrm{d}u}{\mathrm{d} g} = -\sin(g)}\]</div>
+<p>De afgeleide van <span class="arithmatex">\(u\)</span> naar <span class="arithmatex">\(x\)</span> wordt dan dus:</p>
+<div class="arithmatex">\[\large{\frac{\mathrm{d}u}{\mathrm{d} x} = -\sin(g) \cdot 2}\]</div>
+<p>En als we <span class="arithmatex">\(g\)</span> weer in termen van <span class="arithmatex">\(x\)</span> doen:</p>
+<div class="arithmatex">\[\large{\boxed{\frac{\mathrm{d}u}{\mathrm{d} x} = -2 \sin(2x)}}\]</div>
+<p>De afgeleide van <span class="arithmatex">\(f\)</span> naar <span class="arithmatex">\(x\)</span> wordt dan dus:</p>
+<div class="arithmatex">\[\large{f'(x) = \frac{\mathrm{d}f}{\mathrm{d} u} \cdot \frac{\mathrm{d}u}{\mathrm{d} x}}\]</div>
+<p>Als we dit nu invullen, vinden we:</p>
+<div class="arithmatex">\[\large{f'(x) = 2 \cos(2x) \cdot -2 \sin(2x)}\]</div>
 <div class="arithmatex">\[\large{f'(x) = -4 \sin(2x) \cos(2x)}\]</div>
 <p>Dit kunnen we eventueel nog verder versimpelen met de <a href="../goniometrie/#goniometrische-vergelijkingen">sinus verdubbelingsformule</a>. We krijgen dan:</p>
 <div class="arithmatex">\[\large{f'(x) = -2 \sin(4x)}\]</div>
-<p>Nu stellen we deze afgeleide gelijk aan <span class="arithmatex">\(0\)</span>:</p>
+<p>Nu kunnen we deze afgeleide gelijk aan <span class="arithmatex">\(0\)</span> stellen om de extreme waardes te bepalen:</p>
 <div class="arithmatex">\[\large{-2 \sin(4x) = 0}\]</div>
 <div class="arithmatex">\[\large{\sin(4x) = 0}\]</div>
 <div class="arithmatex">\[\large{\sin(4x) = \sin(0)}\]</div>
-<p>Dit kunnen we <a href="../goniometrie/#uitwerken-sincos-vergelijkingen">uitwerken</a> om te vinden dat:</p>
-<div class="arithmatex">\[\large{4x = k * 2\pi \ \vee \ 4x = \pi + k * 2\pi}\]</div>
+<p>Als we dit <a href="../goniometrie/#uitwerken-sincos-vergelijkingen">oplossen</a> dan vinden we:</p>
+<div class="arithmatex">\[\large{4x = k \cdot 2\pi \ \vee \ 4x = \pi + k \cdot 2\pi}\]</div>
 <p>Dit kunnen we ook schrijven als:</p>
-<div class="arithmatex">\[\large{4x = k\pi}\]</div>
-<div class="arithmatex">\[\large{x = \frac{1}{4} k\pi,}\]</div>
+<div class="arithmatex">\[\large{4x = k \cdot \pi}\]</div>
+<p>Als we aan beide kanten door <span class="arithmatex">\(4\)</span> delen:</p>
+<div class="arithmatex">\[\large{x = \frac{1}{4} k \cdot \pi,}\]</div>
 <p>waarbij <span class="arithmatex">\(k\)</span> een geheel getal is. </p>
-<p>We moesten alle extreme waardes geven in het domein <span class="arithmatex">\([-\frac{\pi}{2}, \frac{\pi}{2}]\)</span>, en dus hebben we de volgende oplossingen voor <span class="arithmatex">\(x:\)</span></p>
-<div class="arithmatex">\[\large{x = \left\{ -\frac{1}{2} \pi, -\frac{1}{4} \pi, 0, \frac{1}{4} \pi, \frac{1}{2} \pi \right\} }\]</div>
+<p>We moesten alle extreme waardes geven in het domein <span class="arithmatex">\([-\frac{\pi}{2}, \frac{\pi}{2}]\)</span>. Dus dan krijgen we de volgende oplossingen:</p>
+<div class="arithmatex">\[\large{x = -\frac{1}{2} \pi \ \vee \ x = -\frac{1}{4} \pi \ \vee \ x = 0 \ \vee \ x = \frac{1}{4} \pi \ \vee \ x = \frac{1}{2} \pi}\]</div>
 <p>Als we al deze <span class="arithmatex">\(x\)</span>-coördinaten invullen in <span class="arithmatex">\(f(x)\)</span>, dan kunnen we de bijbehorende <span class="arithmatex">\(y\)</span>-coördinaten berekenen:</p>
-<div class="arithmatex">\[\large{y = \left\{1, 0, 1, 0, 1 \right\} }\]</div>
+<div class="arithmatex">\[\large{y = \left\{ \begin{array}{ c c c c c } f(- \frac{1}{2} \pi) = 1  \\ f(- \frac{1}{4} \pi) = 0 \\ f(0) = 1 \\ f(\frac{1}{4} \pi) = 0 \\ f(\frac{1}{2} \pi) = 1 \\ \end{array} \right. }\]</div>
 <p>Onze coördinaten voor de toppen worden dus:</p>
 <div class="admonition quote">
-<div class="arithmatex">\[\Large{(-\frac{1}{2} \pi, 1), \ (-\frac{1}{4} \pi, 0), \ (0, 1), \ (\frac{1}{4} \pi, 0), \textrm{ en } (\frac{1}{2} \pi, 1)}\]</div>
+<div class="arithmatex">\[\large{(-\frac{1}{2} \pi, 1), \ (-\frac{1}{4} \pi, 0), \ (0, 1), \ (\frac{1}{4} \pi, 0) \textrm{ en } (\frac{1}{2} \pi, 1)}\]</div>
 </div>
-<p>En als we de functie tekenen in Figuur 6, dan zien we dat dit klopt.</p>
+<p>En als we de functie tekenen, dan zien we dat dit klopt.</p>
 <p><figure markdown>
     <img alt="Top van functie" src="../assets/images/afgeleide/f%28x%29%20%3D%20cos%C2%B2%282x%29.svg" width="500" />
     <figcaption>Figuur 6. De grafiek <span class="arithmatex">\(f(x) = \cos^2(2x)\)</span> geplot met de extreme waardes in het domein <span class="arithmatex">\([-\frac{\pi}{2}, \frac{\pi}{2}]\)</span>.</figcaption>

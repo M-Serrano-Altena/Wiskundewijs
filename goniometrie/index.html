@@ -837,34 +837,47 @@
 
 
 <h1 id="goniometrie"><em>Goniometrie</em></h1>
-<p>Goniometrie gaat vooral over driehoeken en over de goniometrische functies: sinus (<strong>sin</strong>), cosinus (<strong>cos</strong>) en tangens (<strong>tan</strong>). Deze goniometrische functies kunnen we gebruiken om verschillende zijdes te bepalen als we alleen maar 1 zijde hebben en een hoek, in plaats van twee zijdes. Want als we niet twee zijdes hebben, kunnen we geen Pythagoras gebruiken. Deze functies zijn dus erg handig! Maar hoe gebruiken we ze?</p>
-<p>In Figuur 1 is er een rechte driehoek getekend. Hier zijn drie punten gegeven en de hoek.</p>
-<figure>
-<p><img alt="Rechte driehoek" src="../assets/images/goniometrie/Right_Triangle_Gonio.svg" width="300" />
-  </p>
-<figcaption>Figuur 1. Een rechte driehoek, met een hoek θ en punten A, B en C.</figcaption>
-</figure>
-<p>Stel nu eens voor dat we de zijde <span class="arithmatex">\(AB\)</span> en de hoek <span class="arithmatex">\(\theta\)</span> weten en dat we achter de lengte van zijde <span class="arithmatex">\(BC\)</span> willen komen. </p>
-<p>Zoals eerder gezegd, kunnen we dit probleem niet oplossen met Pythagoras. Hiervoor hebben we de goniometrische funties nodig. In dit geval gebruiken we de tangens omdat we de aanliggende zijde hebben <span class="arithmatex">\((AB)\)</span> en we de overstaande zijde willen weten <span class="arithmatex">\((BC)\)</span> (zie <a href="#regels-goniometrische-functies">Regels Goniometrische Functies</a>). We krijgen dan:</p>
-<div class="arithmatex">\[\tan{(\theta)} = \frac{BC}{AB}.\]</div>
-<p>Dit kunnen we dan omschrijven om <span class="arithmatex">\(BC\)</span> vrij te maken:</p>
-<div class="arithmatex">\[BC = AB \tan{(\theta)}.\]</div>
-<h2 id="regels-goniometrische-functies"><strong>Regels Goniometrische Functies</strong></h2>
-<p>Dit zijn de regels voor de goniometrische functies sinus, cosinus en tangens.</p>
-<div class="admonition belangrijk">
-<p class="admonition-title">Belangrijk</p>
+<p>Goniometrie gaat vooral over driehoeken en wat we daar allemaal mee kunnen berekenen. We kunnen de goniometrische functies gebruiken om hiermee te helpen. We gebruiken ze als we een hoek en een zijde hebben van een rechthoekige driehoek. We kunnen dan de andere twee zijdes berekenen met de goede goniometrische functie. Dit is erg handig, want met <a href="../pythagoras/">Pythagoras</a> kunnen we dit niet doen. </p>
+<p>Er zijn drie soorten goniometrische functies die we vaak gebruiken. De <strong>sinus</strong>, de <strong>cosinus</strong> en de <strong>tangens</strong>. Welke functie we gebruiken is afhankelijk van wat we hebben en wat we willen berekenen. Hieronder zie je het verband tussen de functies en de zijdes van een rechthoekige driehoek.</p>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><h2 id="regels-goniometrische-functies"><strong>Regels Goniometrische Functies</strong></h2>
 <div class="arithmatex">\[\large{\sin{(\theta)} = \frac{\mathrm{Overstaand}}{\mathrm{Schuin}}}\]</div>
 <div class="arithmatex">\[\large{\cos{(\theta)} = \frac{\mathrm{Aanliggend}}{\mathrm{Schuin}}}\]</div>
 <div class="arithmatex">\[\large{\tan{(\theta)} = \frac{\mathrm{Overstaand}}{\mathrm{Aanliggend}}}\]</div>
-</div>
-<p>Dit kan je onthouden met het ezelsbruggetje: "SOS CAS TOA"</p>
-<details class="note"><summary>Overstaand, Aanliggend en Schuin</summary><p>"Overstaand", "Aanliggend" en "Schuin" gaan over de zijdes ten opzichte van de hoek.</p>
-<p>Als we kijken naar figuur 1 (hieronder herhaalt), dan is in dit geval:</p>
-<p>"Overstaand" de zijde <span class="arithmatex">\(BC\)</span>, "Aanliggend" de zijde <span class="arithmatex">\(AB\)</span> en "Schuin" de zijde <span class="arithmatex">\(AC\)</span>.</p>
+</details>
+<p>Dit kan je onthouden met het ezelsbruggetje: "SOS CAS TOA". Dit kun je als volgt begrijpen:</p>
+<ul>
+<li>SOS: <u>S</u>inus is <u>O</u>verstaand gedeelt door <u>S</u>chuin.</li>
+<li>CAS: <u>C</u>osinus is <u>A</u>anliggend gedeelt door <u>S</u>chuin.</li>
+<li>TOA: <u>T</u>angens is <u>O</u>verstaand gedeelt door <u>A</u>anliggend.</li>
+</ul>
+<details class="note"><summary>Overstaand, Aanliggend en Schuin</summary><p><em>Overstaand</em>, <em>Aanliggend</em> en <em>Schuin</em> gaan over de soort zijde van de rechthoekige driehoek. Dit is altijd bepaald ten opzichte van de hoek waar je naar kijkt. Dus in Figuur 1 kijken we ten opzichte van de hoek <span class="arithmatex">\(\theta\)</span>.</p>
+<p>De kenmerken van de verschillende soorten zijdes:</p>
+<ul>
+<li>Schuine zijde: De zijde tegenover de hoek van <span class="arithmatex">\(90 ^{\circ}\)</span>. Het is ook de langste zijde van de rechthoekige driehoek.</li>
+<li>Aanliggende zijde: De andere zijde die samen met de schuine zijde de hoek <span class="arithmatex">\(\theta\)</span> maakt. </li>
+<li>Overstaande zijde: De zijde die tegenover de hoek <span class="arithmatex">\(\theta\)</span> is.  </li>
+</ul>
 <p><figure markdown>
-    <img alt="Rechte driehoek" src="../assets/images/goniometrie/Right_Triangle_Gonio.svg" width="200" />
+    <img alt="Rechthoekige driehoek" src="../assets/images/goniometrie/Right_Triangle_sides.svg" width="200" />
 </figure></p>
 </details>
+<p>Laten we naar een voorbeeld kijken. In Figuur 2 hieronder hebben we een rechthoekige driehoek gegeven gekregen. </p>
+<figure>
+<p><img align="middle" alt="Rechthoekige driehoek" src="../assets/images/goniometrie/Right_Triangle_Gonio.svg" width="300" /></p>
+</figure>
+<p><em><p style="text-align: center; font-size: 14px;">Figuur 2. Een rechthoekige driehoek met de hoek <span class="arithmatex">\(\theta\)</span> en de punten <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(B\)</span> en <span class="arithmatex">\(C\)</span>.</p></em> <br></p>
+<p>Stel we willen zijde <span class="arithmatex">\(BC\)</span> bepalen en we weten dat <span class="arithmatex">\(\theta = 60 ^{\circ}\)</span> en <span class="arithmatex">\(AB = 2\)</span>. Hoe pakken we dit dan aan?</p>
+<p>Zoals we eerder zagen, kunnen we dit probleem niet oplossen met <a href="../pythagoras/">Pythagoras</a>. Hiervoor hebben we de goniometrische funties nodig. Maar welke moeten we gebruiken, de sinus, cosinus of de tangens? </p>
+<p>We hebben de hoek <span class="arithmatex">\(\theta\)</span> en de zijde <span class="arithmatex">\(AB\)</span>. Dit is de overstaande zijde, want het is de zijde tegenover hoek <span class="arithmatex">\(\theta\)</span>. Verder willen we zijde <span class="arithmatex">\(BC\)</span> weten. Dit is de aanliggende zijde, want het maakt samen met de schuine zijde de hoek <span class="arithmatex">\(\theta\)</span>. Dus we willen een functie hebben met de overstaande en aanliggende zijde. Dus moeten we de tangens gebruiken, want deze functie heeft beide zijdes die we willen. We krijgen dan dus:</p>
+<div class="arithmatex">\[\tan{(\theta)} = \frac{BC}{AB}.\]</div>
+<p>Dit kunnen we dan omschrijven om <span class="arithmatex">\(BC\)</span> vrij te maken:</p>
+<div class="arithmatex">\[BC = AB \cdot \tan{(\theta)}.\]</div>
+<p>En nu kunnen we de gegevens invullen die we hebben:</p>
+<div class="arithmatex">\[BC = 2 \cdot \tan{(60 ^{\circ})}.\]</div>
+<p>Als we dit in een rekenmachine stoppen, dan vinden we:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[BC \approx 3.46\]</div>
+</div>
 <h2 id="de-sinus-en-cosinus-functies"><strong>De Sinus en Cosinus functies</strong></h2>
 <p>Zowel de sinus als de cosinus functie, zijn periodieke functies. Dit betekent dat de functie zich herhaalt over een bepaalt interval. In dit geval is dat over een domein van <span class="arithmatex">\(2 \pi\)</span>. We zeggen dan dat de functie en periode heeft van <span class="arithmatex">\(2 \pi\)</span> (zie ook Figuur 2 en Figuur 3). </p>
 <p>In formule form houdt dit in dat:</p>
