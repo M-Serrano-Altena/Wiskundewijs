@@ -133,11 +133,11 @@ def draw_func(
     plt.ylim(y_range)
 
     # x and y axes
-    plt.hlines(xmin=x_range[0], xmax=x_range[1], y=0, colors="#D3D3D3")
-    plt.vlines(ymin=y_range[0], ymax=y_range[1], x=0, colors="#D3D3D3")
+    plt.hlines(xmin=x_range[0], xmax=x_range[1], y=0, colors="#D3D3D3", zorder=1)
+    plt.vlines(ymin=y_range[0], ymax=y_range[1], x=0, colors="#D3D3D3", zorder=1)
 
     # graph(s)
-    plt.plot(x, f, "darkturquoise")
+    plt.plot(x, f, "darkturquoise", zorder=2)
 
     x = sp.Symbol('x')
 
@@ -148,7 +148,7 @@ def draw_func(
         y_extrm = [func(x) for x in x_extrm]
 
         for x_coord, y_coord in zip(x_extrm, y_extrm):
-            plt.scatter([x_coord], [y_coord], c="springgreen")
+            plt.scatter([x_coord], [y_coord], c="springgreen", zorder=3)
 
 
     # calculate and plot intercepts
@@ -158,15 +158,15 @@ def draw_func(
         print(x_intercepts)
 
         for x_intercept in x_intercepts:
-            plt.scatter([x_intercept], [func(x_intercept)], c="aquamarine")
+            plt.scatter([x_intercept], [func(x_intercept)], c="aquamarine", zorder=3)
 
     plt.savefig(f"{title}.svg")
     plt.show()
 
-# draw_func(lambda x: -x**2 + 2, "f(x) = -x² + 2", x_range=(-3, 3), y_range=(-4, 4), diff=True, intercept=False)
+draw_func(lambda x: -x**2 + 2, "f(x) = -x² + 2", x_range=(-3, 3), y_range=(-4, 4), diff=True, intercept=False)
 
-# draw_func(lambda x: 6*x**2 - 12*x + 9, "f(x) = 6x² - 12x + 9", x_range=(-0.5, 2.5), y_range=(-1, 14), diff=True)
-# draw_func(lambda x: -x**3 + 6*x**2 - 9*x + 3, "f(x) = -x³ + 6x² - 9x + 3", x_range=(-1, 5), y_range=(-15, 15), diff=True)
-# draw_func(lambda x: (x - 2)**7, "f(x) = (x - 2)⁷", x_range=(-0.5, 4), y_range=(-20, 20), diff=True)
-# draw_func(lambda x: 10*np.e**x * (x**2 + 4*x + 0.4), "f(x) = 10eˣ(x² + 4x + 0.4)", x_range=(-8.5, 0.5), y_range=(-11, 10), diff=True)
-# draw_func(lambda x: sp.cos(2*x)**2, "f(x) = cos²(2x)", x_range=(-np.pi/2 - 0.1 , np.pi/2 + 0.1), y_range=(-0.1, 1.1), diff=True)
+draw_func(lambda x: 6*x**2 - 12*x + 9, "f(x) = 6x² - 12x + 9", x_range=(-0.5, 2.5), y_range=(-1, 14), diff=True)
+draw_func(lambda x: -x**3 + 6*x**2 - 9*x + 3, "f(x) = -x³ + 6x² - 9x + 3", x_range=(-1, 5), y_range=(-15, 15), diff=True)
+draw_func(lambda x: (x - 2)**7, "f(x) = (x - 2)⁷", x_range=(-0.5, 4), y_range=(-20, 20), diff=True)
+draw_func(lambda x: 10*np.e**x * (x**2 + 4*x + 0.4), "f(x) = 10eˣ(x² + 4x + 0.4)", x_range=(-8.5, 0.5), y_range=(-11, 10), diff=True)
+draw_func(lambda x: sp.cos(2*x)**2, "f(x) = cos²(2x)", x_range=(-np.pi/2 - 0.1 , np.pi/2 + 0.1), y_range=(-0.1, 1.1), diff=True)
