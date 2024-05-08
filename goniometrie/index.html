@@ -1024,7 +1024,7 @@
 <p>Om de hoek te bepalen, nemen we de <span class="arithmatex">\(\arccos\)</span>:</p>
 <div class="arithmatex">\[\large{\theta = \arccos(\frac{3}{4})}\]</div>
 <p>Als we dit invullen op onze rekenmachine (dus <span class="arithmatex">\(\cos^{-1}(\frac{3}{4})\)</span>), dan vinden we:</p>
-<div class="arithmatex">\[\large{\theta = 41.41 ^{\circ}}\]</div>
+<div class="arithmatex">\[\large{\theta = 41.41... ^{\circ}}\]</div>
 <p>Graden ronden we af op <span class="arithmatex">\(1\)</span> decimaal, dus ons eindantwoord wordt dan:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{\theta \approx 41.4 ^{\circ}}\]</div>
@@ -1070,29 +1070,44 @@
 <div class="arithmatex">\[\large{AB \cdot \sin(\theta) = BC}\]</div>
 <div class="arithmatex">\[\large{AB = \frac{BC}{\sin(\theta)}}\]</div>
 <p>Nu vullen we <span class="arithmatex">\(\theta = 36.869...\)</span> en <span class="arithmatex">\(BC = 6\)</span>:</p>
-<div class="arithmatex">\[\large{AB = \frac{6}{\sin(36.869..)}}\]</div>
+<div class="arithmatex">\[\large{AB = \frac{6}{\sin(36.869... ^{\circ})}}\]</div>
 <p>Zorg er dus voor dat je <span class="arithmatex">\(\theta\)</span> niet tussendoor afrond, want dan krijg je ook een (iets) ander antwoord. Als we dit invullen op onze rekenmachine, dan vinden we:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{AB = 10}\]</div>
 </div>
 </details>
 <h2 id="de-sinus-en-cosinus-functies"><strong>De Sinus en Cosinus functies</strong></h2>
-<p>Zowel de sinus als de cosinus functie, zijn periodieke functies. Dit betekent dat de functie zich herhaalt over een bepaalt interval. In dit geval is dat over een domein van <span class="arithmatex">\(2 \pi\)</span>. We zeggen dan dat de functie en periode heeft van <span class="arithmatex">\(2 \pi\)</span> (zie ook Figuur 2 en Figuur 3). </p>
-<p>In formule form houdt dit in dat:</p>
-<details class="belangrijk" open="open"><summary>Belangrijk</summary><div class="arithmatex">\[\large{\sin{(x + 2 \pi)} = \sin{(x)}}\]</div>
-<div class="arithmatex">\[\large{\cos{(x + 2 \pi)} = \cos{(x)}}\]</div>
+<p>Laten we nu iets dieper ingaan op de <strong>sinus</strong> en <strong>cosinus</strong> functies. Wat deze functies bijzonder maakt, is dat het periodieke functies zijn. Dit betekent dat de functie zich herhaalt na een bepaalde tijd. In dit geval is dat elke <span class="arithmatex">\(2 \pi\)</span>. Dus elke <span class="arithmatex">\(2 \pi\)</span> begint de functie weer opnieuw en herhaalt het zich weer. We zeggen dan dat deze functie een periode heeft van <span class="arithmatex">\(2 \pi\)</span> (zie ook Figuur 7 en Figuur 8). </p>
+<details class="note"><summary>Graden vs Radialen</summary><p>In de meetkunde gebruiken we vaak graden. Maar als we meer gaan kijken naar de goniometrische functies zelf en hun vorm, dan zijn radialen vaak handiger. </p>
+<p>Radialen is een eenheid voor hoeken, net zoals graden. Radialen gaan niet van <span class="arithmatex">\(0\)</span> tot <span class="arithmatex">\(360 ^{\circ}\)</span>, maar van <span class="arithmatex">\(0\)</span> tot <span class="arithmatex">\(2 \pi\)</span>. We kiezen voor <span class="arithmatex">\(2 \pi\)</span> als eindpunt omdat dit de omtrek is van een cirkel met straal <span class="arithmatex">\(1\)</span>. Dus als we <span class="arithmatex">\(1\)</span> rondje doen, hebben we <span class="arithmatex">\(2 \pi\)</span> afgelegd, <span class="arithmatex">\(2\)</span> rondjes hebben we <span class="arithmatex">\(4 \pi\)</span> afgelegd, <span class="arithmatex">\(3\)</span> rondjes <span class="arithmatex">\(6 \pi\)</span> enzovoort. Een half rondje is dan <span class="arithmatex">\(\pi\)</span> of <span class="arithmatex">\(180 ^{\circ}\)</span>.</p>
+<p>We kunnen van radialen naar graden omrekenen en andersom:</p>
+<p>Om van graden naar radialen te gaan doen we:</p>
+<ul>
+<li>Graden naar Radialen: <span class="arithmatex">\(\large{\quad \theta_{grad} \cdot \Large \frac{2 \pi}{360 ^{\circ}} \large = \theta_{rad}}\)</span></li>
+<li>Radialen naar Graden: <span class="arithmatex">\(\large{\quad \theta_{rad} \cdot \Large \frac{360 ^{\circ}}{2 \pi} \large = \theta_{grad}}\)</span></li>
+</ul>
 </details>
 <figure>
-<p><img alt="Sinus functie" src="../assets/images/goniometrie/Sinus.svg" width="450" />
-  </p>
-<figcaption>Figuur 2. De sinus functie over een domein van [0, 6π].</figcaption>
+<p><img alt="Sinus functie" src="../assets/images/goniometrie/Sinus.svg" width="500" />
+    <figcaption>Figuur 7. De sinus functie over een domein van <span class="arithmatex">\([-3 \pi, 3 \pi]\)</span>. Je kan zien dat bij elke <span class="arithmatex">\(2 \pi\)</span> de functie weer begint op hetzelfde punt (stijgend bij <span class="arithmatex">\(y=0\)</span>).</figcaption></p>
 </figure>
 <figure>
-<p><img alt="Cosinus functie" src="../assets/images/goniometrie/Cosinus.svg" width="450" />
-  </p>
-<figcaption>Figuur 3. De cosinus functie over een domein van [0, 6π].</figcaption>
+<p><img alt="Cosinus functie" src="../assets/images/goniometrie/Cosinus.svg" width="500" />
+    <figcaption>Figuur 8. De cosinus functie over een domein van <span class="arithmatex">\([-3 \pi, 3 \pi]\)</span>. Je kan zien dat de functie zich na elke <span class="arithmatex">\(2 \pi\)</span> herhaald. Dus de punten <span class="arithmatex">\(\large \frac{5}{2} \pi\)</span> en <span class="arithmatex">\(\large - \frac{3}{2} \pi\)</span> zijn hetzelfde als het punt <span class="arithmatex">\(\large \frac{1}{2} \pi\)</span>.</figcaption></p>
 </figure>
-<p>Het feit dat deze functies periodiek zijn, is een belangrijk punt als we vergelijkingen moeten oplossen. Laten we naar de volgende vraag kijken:</p>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><p>Het feit dat de functie zich herhaald kunnen we ook terug zien in de functie zelf.</p>
+<div class="arithmatex">\[\large{\sin(x + 2 \pi) = \sin(x)}\]</div>
+<div class="arithmatex">\[\large{\cos(x + 2 \pi) = \cos(x)}\]</div>
+<p>Dus dit betekent bijvoorbeeld dat:</p>
+<ul>
+<li><span class="arithmatex">\(\large \sin(\pi) = \sin(3 \pi)\)</span></li>
+<li><span class="arithmatex">\(\large \cos(1 \frac{1}{2}) = \cos(- \frac{1}{2} \pi)\)</span></li>
+<li><span class="arithmatex">\(\large \cos(4 \pi) = \cos(6 \pi)\)</span></li>
+<li><span class="arithmatex">\(\large \sin(- \frac{1}{4} \pi) = \sin(1 \frac{3}{4} \pi)\)</span></li>
+<li><span style="font-size: 15px;">etc.</span></li>
+</ul>
+</details>
+<p>Het feit dat deze functies periodiek zijn, is erg belangrijk als we er vergelijkingen mee gaan oplossen. Laten we naar de volgende vraag kijken:</p>
 <p><strong><p style="text-align: center;font-size:20px;">Bereken x: <span class="arithmatex">\(\cos{(x)} = 1\)</span></p></strong></p>
 <p>We kunnen in Figuur 3 (of op de <a href="#de-eenheidscirkel">eenheidscirkel</a>) aflezen dat dit geldt voor <span class="arithmatex">\(x = 0\)</span>. Maar omdat de functie zich herhaalt, geldt dit ook voor <span class="arithmatex">\(x = 2 \pi, \ x = 4 \pi, \ x = 6 \pi\)</span>, etc.. Om met al deze oplossingen rekening te houden, schrijven we:</p>
 <div class="arithmatex">\[\cos{(x)} = \cos{(0)},\]</div>
