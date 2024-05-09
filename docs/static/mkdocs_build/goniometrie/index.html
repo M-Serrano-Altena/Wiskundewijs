@@ -597,9 +597,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#uitwerken-sincos-vergelijkingen" class="md-nav__link">
+  <a href="#periodiciteit-van-sinus-en-cosinus" class="md-nav__link">
     <span class="md-ellipsis">
-      Uitwerken sin/cos vergelijkingen
+      Periodiciteit van Sinus en Cosinus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinus-en-cosinus-vergelijkingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sinus en Cosinus vergelijkingen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symmetrie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Symmetrie
     </span>
   </a>
   
@@ -609,6 +627,15 @@
   <a href="#symmetrieformules" class="md-nav__link">
     <span class="md-ellipsis">
       Symmetrieformules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oplossen-van-sincos-vergelijkingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oplossen van sin/cos vergelijkingen
     </span>
   </a>
   
@@ -799,9 +826,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#uitwerken-sincos-vergelijkingen" class="md-nav__link">
+  <a href="#periodiciteit-van-sinus-en-cosinus" class="md-nav__link">
     <span class="md-ellipsis">
-      Uitwerken sin/cos vergelijkingen
+      Periodiciteit van Sinus en Cosinus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinus-en-cosinus-vergelijkingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sinus en Cosinus vergelijkingen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symmetrie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Symmetrie
     </span>
   </a>
   
@@ -811,6 +856,15 @@
   <a href="#symmetrieformules" class="md-nav__link">
     <span class="md-ellipsis">
       Symmetrieformules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oplossen-van-sincos-vergelijkingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oplossen van sin/cos vergelijkingen
     </span>
   </a>
   
@@ -1024,7 +1078,7 @@
 <p>Om de hoek te bepalen, nemen we de <span class="arithmatex">\(\arccos\)</span>:</p>
 <div class="arithmatex">\[\large{\theta = \arccos(\frac{3}{4})}\]</div>
 <p>Als we dit invullen op onze rekenmachine (dus <span class="arithmatex">\(\cos^{-1}(\frac{3}{4})\)</span>), dan vinden we:</p>
-<div class="arithmatex">\[\large{\theta = 41.41 ^{\circ}}\]</div>
+<div class="arithmatex">\[\large{\theta = 41.41... ^{\circ}}\]</div>
 <p>Graden ronden we af op <span class="arithmatex">\(1\)</span> decimaal, dus ons eindantwoord wordt dan:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{\theta \approx 41.4 ^{\circ}}\]</div>
@@ -1070,72 +1124,120 @@
 <div class="arithmatex">\[\large{AB \cdot \sin(\theta) = BC}\]</div>
 <div class="arithmatex">\[\large{AB = \frac{BC}{\sin(\theta)}}\]</div>
 <p>Nu vullen we <span class="arithmatex">\(\theta = 36.869...\)</span> en <span class="arithmatex">\(BC = 6\)</span>:</p>
-<div class="arithmatex">\[\large{AB = \frac{6}{\sin(36.869..)}}\]</div>
+<div class="arithmatex">\[\large{AB = \frac{6}{\sin(36.869... ^{\circ})}}\]</div>
 <p>Zorg er dus voor dat je <span class="arithmatex">\(\theta\)</span> niet tussendoor afrond, want dan krijg je ook een (iets) ander antwoord. Als we dit invullen op onze rekenmachine, dan vinden we:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{AB = 10}\]</div>
 </div>
 </details>
 <h2 id="de-sinus-en-cosinus-functies"><strong>De Sinus en Cosinus functies</strong></h2>
-<p>Zowel de sinus als de cosinus functie, zijn periodieke functies. Dit betekent dat de functie zich herhaalt over een bepaalt interval. In dit geval is dat over een domein van <span class="arithmatex">\(2 \pi\)</span>. We zeggen dan dat de functie en periode heeft van <span class="arithmatex">\(2 \pi\)</span> (zie ook Figuur 2 en Figuur 3). </p>
-<p>In formule form houdt dit in dat:</p>
-<details class="belangrijk" open="open"><summary>Belangrijk</summary><div class="arithmatex">\[\large{\sin{(x + 2 \pi)} = \sin{(x)}}\]</div>
-<div class="arithmatex">\[\large{\cos{(x + 2 \pi)} = \cos{(x)}}\]</div>
+<p>Laten we nu iets dieper ingaan op de <strong>sinus</strong> en <strong>cosinus</strong> functies. Wat deze functies bijzonder maakt, is dat het periodieke functies zijn. Dit betekent dat de functie zich herhaalt na een bepaalde tijd. In dit geval is dat elke <span class="arithmatex">\(2 \pi\)</span>. Dus elke <span class="arithmatex">\(2 \pi\)</span> begint de functie weer opnieuw en herhaalt het zich weer. We zeggen dan dat deze functie een periode heeft van <span class="arithmatex">\(2 \pi\)</span> (zie ook Figuur 7 en Figuur 8). </p>
+<details class="note"><summary>Graden vs Radialen</summary><p>In de meetkunde gebruiken we vaak graden. Maar als we meer gaan kijken naar de goniometrische functies zelf en hun vorm, dan zijn radialen vaak handiger. </p>
+<p>Radialen is een eenheid voor hoeken, net zoals graden. Radialen gaan niet van <span class="arithmatex">\(0\)</span> tot <span class="arithmatex">\(360 ^{\circ}\)</span>, maar van <span class="arithmatex">\(0\)</span> tot <span class="arithmatex">\(2 \pi\)</span>. We kiezen voor <span class="arithmatex">\(2 \pi\)</span> als eindpunt omdat dit de omtrek is van een cirkel met straal <span class="arithmatex">\(1\)</span>. Dus als we <span class="arithmatex">\(1\)</span> rondje doen, hebben we <span class="arithmatex">\(2 \pi\)</span> afgelegd, <span class="arithmatex">\(2\)</span> rondjes hebben we <span class="arithmatex">\(4 \pi\)</span> afgelegd, <span class="arithmatex">\(3\)</span> rondjes <span class="arithmatex">\(6 \pi\)</span> enzovoort. Een half rondje is dan <span class="arithmatex">\(\pi\)</span> of <span class="arithmatex">\(180 ^{\circ}\)</span>.</p>
+<p>We kunnen van radialen naar graden omrekenen en andersom:</p>
+<p>Om van graden naar radialen te gaan doen we:</p>
+<ul>
+<li>Graden naar Radialen: <span class="arithmatex">\(\large{\quad \theta_{grad} \cdot \Large \frac{2 \pi}{360 ^{\circ}} \large = \theta_{rad}}\)</span></li>
+<li>Radialen naar Graden: <span class="arithmatex">\(\large{\quad \theta_{rad} \cdot \Large \frac{360 ^{\circ}}{2 \pi} \large = \theta_{grad}}\)</span></li>
+</ul>
 </details>
 <figure>
-<p><img alt="Sinus functie" src="../assets/images/goniometrie/Sinus.svg" width="450" />
-  </p>
-<figcaption>Figuur 2. De sinus functie over een domein van [0, 6π].</figcaption>
+<p><img alt="Sinus functie" src="../assets/images/goniometrie/Sinus.svg" width="500" />
+    <figcaption>Figuur 7. De sinus functie over een domein van <span class="arithmatex">\([-3 \pi, 3 \pi]\)</span>. Je kan zien dat bij elke <span class="arithmatex">\(2 \pi\)</span> de functie weer begint op hetzelfde punt (stijgend bij <span class="arithmatex">\(y=0\)</span>).</figcaption></p>
 </figure>
 <figure>
-<p><img alt="Cosinus functie" src="../assets/images/goniometrie/Cosinus.svg" width="450" />
-  </p>
-<figcaption>Figuur 3. De cosinus functie over een domein van [0, 6π].</figcaption>
+<p><img alt="Cosinus functie" src="../assets/images/goniometrie/Cosinus.svg" width="500" />
+    <figcaption>Figuur 8. De cosinus functie over een domein van <span class="arithmatex">\([-3 \pi, 3 \pi]\)</span>. Je kan zien dat de functie zich na elke <span class="arithmatex">\(2 \pi\)</span> herhaald. Dus de punten <span class="arithmatex">\(\large \frac{5}{2} \pi\)</span> en <span class="arithmatex">\(\large - \frac{3}{2} \pi\)</span> zijn hetzelfde als het punt <span class="arithmatex">\(\large \frac{1}{2} \pi\)</span>.</figcaption></p>
 </figure>
-<p>Het feit dat deze functies periodiek zijn, is een belangrijk punt als we vergelijkingen moeten oplossen. Laten we naar de volgende vraag kijken:</p>
-<p><strong><p style="text-align: center;font-size:20px;">Bereken x: <span class="arithmatex">\(\cos{(x)} = 1\)</span></p></strong></p>
-<p>We kunnen in Figuur 3 (of op de <a href="#de-eenheidscirkel">eenheidscirkel</a>) aflezen dat dit geldt voor <span class="arithmatex">\(x = 0\)</span>. Maar omdat de functie zich herhaalt, geldt dit ook voor <span class="arithmatex">\(x = 2 \pi, \ x = 4 \pi, \ x = 6 \pi\)</span>, etc.. Om met al deze oplossingen rekening te houden, schrijven we:</p>
-<div class="arithmatex">\[\cos{(x)} = \cos{(0)},\]</div>
-<p>want <span class="arithmatex">\(\cos{(0)} = 1\)</span>. Om dus met alle oplossing reking te houden, schrijven dit dus als:</p>
-<div class="arithmatex">\[x = k * 2 \pi,\]</div>
-<p>waarbij er geldt dat:</p>
-<div class="arithmatex">\[k = 0, 1, 2, 3, ...\]</div>
-<p>Laten we naar nog een vraag kijken:</p>
-<p><strong><p style="text-align: center;font-size:20px;">Bereken x: <span class="arithmatex">\(\sin{(x)} = 0\)</span></p></strong></p>
-<p>We zien nu in Figuur 2 dat dit geldt voor <span class="arithmatex">\(x = 0, \ x = \pi, \ x = 2 \pi, \ x = 3 \pi\)</span>, etc.. We beginnen weer met het schrijven van het getal als een sinus. Dit wordt dan:</p>
-<div class="arithmatex">\[\sin{(x)} = \sin{(0)}\]</div>
-<p>En we hebben dus net gezien dat we er geldt dat:</p>
-<div class="arithmatex">\[x = k * \pi.\]</div>
-<p>Bij de vorige twee voorbeelden hebben we gewoon afgelezen hoe vaak het geldt, maar kunnen we ook een algemene oplossing verzinnen die altijd geldt? Het antwoord is ja! </p>
-<details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="uitwerken-sincos-vergelijkingen"><strong>Uitwerken sin/cos vergelijkingen</strong></h3>
-<p>Met een sinus:</p>
-<div class="arithmatex">\[\large{\sin{(x)} = \sin{(a)}}\]</div>
-<p>geeft:</p>
-<div class="arithmatex">\[\large{x = a + k * 2 \pi \ \vee \ x = \pi - a + k * 2 \pi}\]</div>
-<p>en met een cosinus:</p>
-<div class="arithmatex">\[\large{\cos{(x)} = \cos{(a)}}\]</div>
-<p>geeft:</p>
-<div class="arithmatex">\[\large{x = a + k * 2 \pi \ \vee \  x = - a + k * 2 \pi}\]</div>
-<p>waarbij er geldt dat:</p>
-<div class="arithmatex">\[\large{k = 0, 1, 2, 3, ...}\]</div>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="periodiciteit-van-sinus-en-cosinus"><strong>Periodiciteit van Sinus en Cosinus</strong></h3>
+<p>Het feit dat de functie zich herhaald kunnen we ook terug zien in de functie zelf:</p>
+<div class="arithmatex">\[\large{\sin(x + 2 \pi) = \sin(x)}\]</div>
+<div class="arithmatex">\[\large{\cos(x + 2 \pi) = \cos(x)}\]</div>
+<p>Dus dit betekent bijvoorbeeld dat:</p>
+<ul>
+<li><span class="arithmatex">\(\large \sin(\pi) = \sin(3 \pi)\)</span></li>
+<li><span class="arithmatex">\(\large \cos(1 \frac{1}{2}) = \cos(- \frac{1}{2} \pi)\)</span></li>
+<li><span class="arithmatex">\(\large \cos(4 \pi) = \cos(6 \pi)\)</span></li>
+<li><span class="arithmatex">\(\large \sin(- \frac{1}{4} \pi) = \sin(1 \frac{3}{4} \pi)\)</span></li>
+<li><span style="font-size: 15px;">etc.</span></li>
+</ul>
 </details>
-<p>In de <span class="arithmatex">\(\cos\)</span> en <span class="arithmatex">\(\sin\)</span> functies zit een bepaalde symmetrie. De sinus functie heeft een symmetrie punt op de oorsprong, terwijl de cosinus functie een symmetrie as heeft bij de <span class="arithmatex">\(y\)</span>-as. Deze symmetrie is op de volgende manier weer te geven in formule form:</p>
+<h3 id="sinus-en-cosinus-vergelijkingen"><strong>Sinus en Cosinus vergelijkingen</strong></h3>
+<p>Het feit dat deze functies periodiek zijn, is erg belangrijk als we er vergelijkingen mee gaan oplossen. Laten we kijken hoe dat moet.</p>
+<p>Stel we willen de volgende vergelijking oplossen:</p>
+<div class="arithmatex">\[\sin(x) = 0.\]</div>
+<p>Hoe doen we dat? We willen dus kijken waar de <strong>sinus</strong> functie een <span class="arithmatex">\(y\)</span>-waarde heeft van <span class="arithmatex">\(0\)</span>. In Figuur 7 kunnen we aflezen dat dit geldt bij <span class="arithmatex">\(x=0\)</span>, maar ook bij andere <span class="arithmatex">\(x\)</span>-waardes. Namelijk <span class="arithmatex">\(x = -2 \pi\)</span>, <span class="arithmatex">\(x = -\pi\)</span>, <span class="arithmatex">\(x = \pi\)</span> en <span class="arithmatex">\(x = 2 \pi\)</span>. En deze functie gaat oneindig lang door, dus dit blijft maar zo door gaan. Hoe noteren we dit wiskundig? </p>
+<p>We schrijven dit als volgt op:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = k \cdot \pi}\]</div>
+</div>
+<p>En <span class="arithmatex">\(k\)</span> is hier een geheel getal. Dus <span class="arithmatex">\(k = 0, \pm 1, \pm 2, \pm 3, ...\)</span> </p>
+<p>De waardes van <span class="arithmatex">\(k\)</span> gaan oneindig lang door, en dat is ook wat we willen om onze oplossingen te beschrijven. Maar stel nou dat we alle oplossingen willen weten in het domein <span class="arithmatex">\([0, 2 \pi]\)</span>. Hoe doen we dat dan met de oplossing die we net hebben gevonden?</p>
+<p>We moeten dan alle mogelijke waardes voor <span class="arithmatex">\(k\)</span> proberen die ons een <span class="arithmatex">\(x\)</span> geeft binnen het domein van <span class="arithmatex">\([0, 2\pi]\)</span>. Dus welke waardes van <span class="arithmatex">\(k\)</span> moeten we invullen in <span class="arithmatex">\(x = k \cdot \pi\)</span> om een <span class="arithmatex">\(x\)</span> te krijgen tussen <span class="arithmatex">\(0\)</span> en <span class="arithmatex">\(2 \pi\)</span>?</p>
+<p>Dit zijn de waardes <span class="arithmatex">\(k = 0\)</span>, <span class="arithmatex">\(k = 1\)</span> en <span class="arithmatex">\(k = 2\)</span>. Want als we <span class="arithmatex">\(k = 3\)</span> proberen, dan krijgen we <span class="arithmatex">\(x = 3 \pi\)</span> en dit is te groot. Als we aan de andere kant <span class="arithmatex">\(k = -1\)</span> proberen, dan krijgen we <span class="arithmatex">\(x = -\pi\)</span> en dit is weer te klein. Dus de oplossingen in het domein <span class="arithmatex">\([0, 2 \pi]\)</span> worden:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 0 \ \vee \ x = \pi \ \vee \ x = 2 \pi}\]</div>
+</div>
+<p>Laten we naar een ander voorbeeld kijken. Stel we willen nu de volgende vergelijking oplossen:</p>
+<div class="arithmatex">\[\cos{(x)} = 1.\]</div>
+<p>Hoe doen we dit? We moeten dus kijken voor welke <span class="arithmatex">\(x\)</span>-waardes de cosinus een <span class="arithmatex">\(y\)</span>-waarde heeft van <span class="arithmatex">\(1\)</span>. In Figuur 8 kunnen we zien dat dit is bij <span class="arithmatex">\(x = 0\)</span>. Maar ook bij <span class="arithmatex">\(x = -2\pi\)</span> en bij <span class="arithmatex">\(x = 2\pi\)</span>. De functie herhaalt zich steeds, dus dit patroon herhaalt zich ook. Onze oplossing wordt dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = k \cdot 2\pi}\]</div>
+</div>
+<p><span class="arithmatex">\(k\)</span> is hier weer een geheel getal. Dus de oplossingen in het domein <span class="arithmatex">\([0, 2 \pi]\)</span> worden dan:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 0 \ \vee \ x = 2 \pi}\]</div>
+</div>
+<p>Dit is dus voor <span class="arithmatex">\(k = 0\)</span> of <span class="arithmatex">\(k = 1\)</span>. Als we andere waardes voor <span class="arithmatex">\(k\)</span> proberen, dan is <span class="arithmatex">\(x\)</span> niet meer tussen <span class="arithmatex">\(0\)</span> en <span class="arithmatex">\(2 \pi\)</span>. Dus <span class="arithmatex">\(x = 0\)</span> en <span class="arithmatex">\(x = 2 \pi\)</span> moeten de enige twee oplossingen zijn in het domein <span class="arithmatex">\([0, 2 \pi]\)</span>.</p>
+<p>We hebben dit opgelost door de functies te schetsen, maar kunnen we het ook oplossen zonder een schets? Het antwoord is ja! Om goed te begrijpen hoe dit moet, moeten we eerst kijken naar de symmetrie in de sinus en cosinus functies. </p>
+<h3 id="symmetrie"><strong>Symmetrie</strong></h3>
+<p>De cosinus is gespiegeld in de <span class="arithmatex">\(y\)</span>-as (zie eventueel Figuur 8). Dus alles links van de <span class="arithmatex">\(y\)</span>-as is hetzelfde als rechts van de <span class="arithmatex">\(y\)</span>-as. Links van de <span class="arithmatex">\(y\)</span>-as is bij een negatieve <span class="arithmatex">\(x\)</span>, rechts van de <span class="arithmatex">\(y\)</span>-as is bij een positieve <span class="arithmatex">\(x\)</span>. Dus met andere woorden:</p>
+<div class="arithmatex">\[\boxed{\cos(-x) = \cos(x)}\]</div>
+<p>Bij de sinus is dit juist omgekeerd. Het is niet gespiegeld in de <span class="arithmatex">\(y\)</span>-as, maar gespiegeld bij de oorsprong (zie eventueel Figuur 7). Dus alles dat rechts van de <span class="arithmatex">\(y\)</span>-as positief is, wordt negatief links van de <span class="arithmatex">\(y\)</span>-as. Andersom geldt dit natuurlijk ook. Dit betekent dus dat er geldt dat:</p>
+<div class="arithmatex">\[\boxed{\sin(-x) = - \sin(x)}\]</div>
+<details class="video" open="open"><summary>Video</summary><p><video controls>
+<source src="../assets/videos/Sin.mp4" type="video/mp4">
+</video></p>
+<p><em><p style="text-align: center;">Filmpje: Een sinus functie wordt aangepast om te bewijzen dat <span class="arithmatex">\(\sin(x) = \sin(\pi - x)\)</span>. Eerst wordt de transformatie <span class="arithmatex">\(\sin(x) \rightarrow \sin(-x)\)</span> toegepast. Vervolgens wordt deze functie naar rechts verschoven met <span class="arithmatex">\(\pi\)</span>. Deze nieuwe functie wordt beschreven door <span class="arithmatex">\(\sin(\pi - x)\)</span> en we zien dat dit precies hetzelfde is als onze oude functie <span class="arithmatex">\(\sin(x)\)</span>.</p></em></p>
+</details>
+<details class="video" open="open"><summary>Video</summary><p><video controls>
+<source src="../assets/videos/Cos.mp4" type="video/mp4">
+</video></p>
+<p><em><p style="text-align: center;">Filmpje: Een cosinus functie wordt aangepast om te bewijzen dat <span class="arithmatex">\(-\cos(x) = \cos(\pi - x)\)</span>. Eerst verandert de <span class="arithmatex">\(\cos(x)\)</span> naar <span class="arithmatex">\(-\cos(x)\)</span> en tegelijkertijd wordt laten zien dat <span class="arithmatex">\(\cos(x) = \cos(-x)\)</span>. Daarna wordt de <span class="arithmatex">\(\cos(-x)\)</span> functie naar rechts verschoven met <span class="arithmatex">\(\pi\)</span>. Deze verplaatste functie wordt beschreven door <span class="arithmatex">\(\cos(\pi - x)\)</span> en dit is precies hetzelfde als <span class="arithmatex">\(- \cos(x)\)</span>.</p></em></p>
+</details>
 <details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="symmetrieformules"><strong>Symmetrieformules</strong></h3>
 <ol>
 <li>
-<div class="arithmatex">\[\large{\sin{(-x)} = - \sin{(x)}}\]</div>
+<div class="arithmatex">\[\large{\sin(-x) = - \sin(x)}\]</div>
 </li>
 <li>
-<div class="arithmatex">\[\large{\cos{(x)} = \cos{(-x)}}\]</div>
+<div class="arithmatex">\[\large{\cos(-x) = \cos{(x)}}\]</div>
 </li>
 <li>
-<div class="arithmatex">\[\large{\cos{(\pi - x)} = \cos{(-x)}}\]</div>
+<div class="arithmatex">\[\large{\sin(\pi - x) = \sin(x)}\]</div>
 </li>
 <li>
-<div class="arithmatex">\[\large{\sin{(\pi - x)} = \sin{(x)}}\]</div>
+<div class="arithmatex">\[\large{\cos(\pi - x) = - \cos(x)}\]</div>
 </li>
 </ol>
 </details>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="oplossen-van-sincos-vergelijkingen"><strong>Oplossen van sin/cos vergelijkingen</strong></h3>
+<p>Een vergelijking van de vorm:</p>
+<div class="arithmatex">\[\large{\sin(x) = \sin(a)}\]</div>
+<p>geeft de volgende oplossingen:</p>
+<div class="arithmatex">\[\large{x = a + k \cdot 2 \pi \ \vee \ x = \pi - a + k \cdot 2 \pi}\]</div>
+<p>Een vergelijking van de vorm:</p>
+<div class="arithmatex">\[\large{\cos(x) = \cos(a)}\]</div>
+<p>geeft de volgende oplossingen:</p>
+<div class="arithmatex">\[\large{x = a + k \cdot 2 \pi \ \vee \  x = - a + k \cdot 2 \pi}\]</div>
+<p>Hier is <span class="arithmatex">\(k\)</span> een geheel getal, dus <span class="arithmatex">\(k\)</span> is:</p>
+<div class="arithmatex">\[\large{k = 0, \pm 1, \pm 2, \pm 3, ...}\]</div>
+</details>
+<p>Om een vergelijking met een sinus of cosinus op te lossen, moeten we aan beide kanten dezelfde functie hebben. Dus aan beide kanten van het '<span class="arithmatex">\(=\)</span>'-teken een sinus of aan beide kanten een cosinus. Dus bij de vergelijking:</p>
+<div class="arithmatex">\[\sin(x) = 1,\]</div>
+<p>moeten we de <span class="arithmatex">\(0\)</span> als een sinus functie opschrijven. We kunnen in Figuur 7 (of later de <a href="#de-eenheidscirkel">Eenheidscirkel</a>) aflezen dat <span class="arithmatex">\(\sin(\frac{1}{2} \pi) = 1\)</span>. Dus we kunnen de vergelijking schrijven als:</p>
+<div class="arithmatex">\[\sin(x) = \sin(\frac{1}{2} \pi)\]</div>
+<p>En nu kunnen we aan beide kanten de sinus weghalen.</p>
 <p>De cosinus functie is eigenlijk hetzelfde als de sinus functie, alleen is het <span class="arithmatex">\(\frac{1}{2} \pi\)</span> opgeschoven naar rechts. In formule form wordt dit dan:</p>
 <details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="sinus-en-cosinus-omschrijven"><strong>Sinus en Cosinus omschrijven</strong></h3>
 <ol>
@@ -1146,8 +1248,9 @@
 <div class="arithmatex">\[\large{\cos{(x)} = \sin{(x + \frac{1}{2} \pi)}}\]</div>
 </li>
 </ol>
+<p><br>
+<strong><p style="text-align: left;font-size:18px;">Alternatieve manier</p></strong></p>
 <p>Als je niet wilt onthouden bij welke functie je <span class="arithmatex">\(+ \frac{1}{2} \pi\)</span> doet, en bij welke je <span class="arithmatex">\(- \frac{1}{2} \pi\)</span>, kan je het ook op de volgende manier omschrijven:</p>
-<p><p style="text-align: left;font-size:17px;">Alternatieve manier</p></p>
 <ol>
 <li>
 <div class="arithmatex">\[\large{\sin{(x)} = \cos{(\frac{1}{2} \pi - x)}}\]</div>

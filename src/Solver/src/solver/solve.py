@@ -243,7 +243,7 @@ class Solve:
                     self.output.append(sp.latex(domain))
 
 
-                self.output.append(("In het domein $[0, 2\pi]$: ", {"latex":False, "new_line":2}))
+                self.output.append(("Oplossingen in het domein $[0, 2\pi]$: ", {"latex":False, "new_line":2}))
                 self.interval_solutions = sp.solveset(self.eq, domain=sp.Interval(0, 2*sp.pi))
                 counter = 0
                 for solution in self.interval_solutions:

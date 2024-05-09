@@ -198,7 +198,7 @@ En als we kijken in Figuur 3, dan kunnen we controleren dat dit een logisch antw
 
     Als we dit invullen op onze rekenmachine (dus $\cos^{-1}(\frac{3}{4})$), dan vinden we:
 
-    $$\large{\theta = 41.41 ^{\circ}}$$
+    $$\large{\theta = 41.41... ^{\circ}}$$
 
     Graden ronden we af op $1$ decimaal, dus ons eindantwoord wordt dan:
 
@@ -275,7 +275,7 @@ En als we kijken in Figuur 3, dan kunnen we controleren dat dit een logisch antw
 
     Nu vullen we $\theta = 36.869...$ en $BC = 6$:
 
-    $$\large{AB = \frac{6}{\sin(36.869..)}}$$
+    $$\large{AB = \frac{6}{\sin(36.869... ^{\circ})}}$$
 
     Zorg er dus voor dat je $\theta$ niet tussendoor afrond, want dan krijg je ook een (iets) ander antwoord. Als we dit invullen op onze rekenmachine, dan vinden we:
 
@@ -284,91 +284,163 @@ En als we kijken in Figuur 3, dan kunnen we controleren dat dit een logisch antw
 
 
 ## **De Sinus en Cosinus functies**
-Zowel de sinus als de cosinus functie, zijn periodieke functies. Dit betekent dat de functie zich herhaalt over een bepaalt interval. In dit geval is dat over een domein van $2 \pi$. We zeggen dan dat de functie en periode heeft van $2 \pi$ (zie ook Figuur 2 en Figuur 3). 
+Laten we nu iets dieper ingaan op de **sinus** en **cosinus** functies. Wat deze functies bijzonder maakt, is dat het periodieke functies zijn. Dit betekent dat de functie zich herhaalt na een bepaalde tijd. In dit geval is dat elke $2 \pi$. Dus elke $2 \pi$ begint de functie weer opnieuw en herhaalt het zich weer. We zeggen dan dat deze functie een periode heeft van $2 \pi$ (zie ook Figuur 7 en Figuur 8). 
 
-In formule form houdt dit in dat:
+??? note "Graden vs Radialen"
+    In de meetkunde gebruiken we vaak graden. Maar als we meer gaan kijken naar de goniometrische functies zelf en hun vorm, dan zijn radialen vaak handiger. 
 
-???+ Belangrijk
-    $$\large{\sin{(x + 2 \pi)} = \sin{(x)}}$$
+    Radialen is een eenheid voor hoeken, net zoals graden. Radialen gaan niet van $0$ tot $360 ^{\circ}$, maar van $0$ tot $2 \pi$. We kiezen voor $2 \pi$ als eindpunt omdat dit de omtrek is van een cirkel met straal $1$. Dus als we $1$ rondje doen, hebben we $2 \pi$ afgelegd, $2$ rondjes hebben we $4 \pi$ afgelegd, $3$ rondjes $6 \pi$ enzovoort. Een half rondje is dan $\pi$ of $180 ^{\circ}$.
 
-    $$\large{\cos{(x + 2 \pi)} = \cos{(x)}}$$
+    We kunnen van radialen naar graden omrekenen en andersom:
 
+    Om van graden naar radialen te gaan doen we:
+
+    - Graden naar Radialen: $\large{\quad \theta_{grad} \cdot \Large \frac{2 \pi}{360 ^{\circ}} \large = \theta_{rad}}$
+    - Radialen naar Graden: $\large{\quad \theta_{rad} \cdot \Large \frac{360 ^{\circ}}{2 \pi} \large = \theta_{grad}}$
 
 <figure markdown>
-  ![Sinus functie](assets/images/goniometrie/Sinus.svg){ width="450"}
-  <figcaption>Figuur 2. De sinus functie over een domein van [0, 6π].</figcaption>
+  ![Sinus functie](assets/images/goniometrie/Sinus.svg){ width="500"}
+    <figcaption>Figuur 7. De sinus functie over een domein van $[-3 \pi, 3 \pi]$. Je kan zien dat bij elke $2 \pi$ de functie weer begint op hetzelfde punt (stijgend bij $y=0$).</figcaption>
 </figure>
 
 <figure markdown>
-  ![Cosinus functie](assets/images/goniometrie/Cosinus.svg){ width="450"}
-  <figcaption>Figuur 3. De cosinus functie over een domein van [0, 6π].</figcaption>
+  ![Cosinus functie](assets/images/goniometrie/Cosinus.svg){ width="500"}
+    <figcaption>Figuur 8. De cosinus functie over een domein van $[-3 \pi, 3 \pi]$. Je kan zien dat de functie zich na elke $2 \pi$ herhaald. Dus de punten $\large \frac{5}{2} \pi$ en $\large - \frac{3}{2} \pi$ zijn hetzelfde als het punt $\large \frac{1}{2} \pi$.</figcaption>
 </figure>
 
-Het feit dat deze functies periodiek zijn, is een belangrijk punt als we vergelijkingen moeten oplossen. Laten we naar de volgende vraag kijken:
-
-**<p style="text-align: center;font-size:20px;">Bereken x: $\cos{(x)} = 1$</p>**
-
-We kunnen in Figuur 3 (of op de [eenheidscirkel](#de-eenheidscirkel)) aflezen dat dit geldt voor $x = 0$. Maar omdat de functie zich herhaalt, geldt dit ook voor $x = 2 \pi, \ x = 4 \pi, \ x = 6 \pi$, etc.. Om met al deze oplossingen rekening te houden, schrijven we:
-
-$$\cos{(x)} = \cos{(0)},$$
-
-want $\cos{(0)} = 1$. Om dus met alle oplossing reking te houden, schrijven dit dus als:
-
-$$x = k * 2 \pi,$$
-
-waarbij er geldt dat:
-
-$$k = 0, 1, 2, 3, ...$$
-
-Laten we naar nog een vraag kijken:
-
-**<p style="text-align: center;font-size:20px;">Bereken x: $\sin{(x)} = 0$</p>**
-
-We zien nu in Figuur 2 dat dit geldt voor $x = 0, \ x = \pi, \ x = 2 \pi, \ x = 3 \pi$, etc.. We beginnen weer met het schrijven van het getal als een sinus. Dit wordt dan:
-
-$$\sin{(x)} = \sin{(0)}$$
-
-En we hebben dus net gezien dat we er geldt dat:
-
-$$x = k * \pi.$$
-
-Bij de vorige twee voorbeelden hebben we gewoon afgelezen hoe vaak het geldt, maar kunnen we ook een algemene oplossing verzinnen die altijd geldt? Het antwoord is ja! 
 
 ???+ Belangrijk
-    ### **Uitwerken sin/cos vergelijkingen**
+    ### **Periodiciteit van Sinus en Cosinus**
+    Het feit dat de functie zich herhaald kunnen we ook terug zien in de functie zelf:
 
-    Met een sinus:
+    $$\large{\sin(x + 2 \pi) = \sin(x)}$$
 
-    $$\large{\sin{(x)} = \sin{(a)}}$$
+    $$\large{\cos(x + 2 \pi) = \cos(x)}$$
 
-    geeft:
+    Dus dit betekent bijvoorbeeld dat:
 
-    $$\large{x = a + k * 2 \pi \ \vee \ x = \pi - a + k * 2 \pi}$$
+    - $\large \sin(\pi) = \sin(3 \pi)$
+    - $\large \cos(1 \frac{1}{2}) = \cos(- \frac{1}{2} \pi)$
+    - $\large \cos(4 \pi) = \cos(6 \pi)$
+    - $\large \sin(- \frac{1}{4} \pi) = \sin(1 \frac{3}{4} \pi)$
+    - <span style="font-size: 15px;">etc.</span>
 
-    en met een cosinus:
+### **Sinus en Cosinus vergelijkingen**
 
-    $$\large{\cos{(x)} = \cos{(a)}}$$
+Het feit dat deze functies periodiek zijn, is erg belangrijk als we er vergelijkingen mee gaan oplossen. Laten we kijken hoe dat moet.
 
-    geeft:
+Stel we willen de volgende vergelijking oplossen:
 
-    $$\large{x = a + k * 2 \pi \ \vee \  x = - a + k * 2 \pi}$$
+$$\sin(x) = 0.$$
 
-    waarbij er geldt dat:
+Hoe doen we dat? We willen dus kijken waar de **sinus** functie een $y$-waarde heeft van $0$. In Figuur 7 kunnen we aflezen dat dit geldt bij $x=0$, maar ook bij andere $x$-waardes. Namelijk $x = -2 \pi$, $x = -\pi$, $x = \pi$ en $x = 2 \pi$. En deze functie gaat oneindig lang door, dus dit blijft maar zo door gaan. Hoe noteren we dit wiskundig? 
 
-    $$\large{k = 0, 1, 2, 3, ...}$$
+We schrijven dit als volgt op:
 
-In de $\cos$ en $\sin$ functies zit een bepaalde symmetrie. De sinus functie heeft een symmetrie punt op de oorsprong, terwijl de cosinus functie een symmetrie as heeft bij de $y$-as. Deze symmetrie is op de volgende manier weer te geven in formule form:
+!!! quote ""
+    $$\large{x = k \cdot \pi}$$
+
+En $k$ is hier een geheel getal. Dus $k = 0, \pm 1, \pm 2, \pm 3, ...$ 
+
+De waardes van $k$ gaan oneindig lang door, en dat is ook wat we willen om onze oplossingen te beschrijven. Maar stel nou dat we alle oplossingen willen weten in het domein $[0, 2 \pi]$. Hoe doen we dat dan met de oplossing die we net hebben gevonden?
+
+We moeten dan alle mogelijke waardes voor $k$ proberen die ons een $x$ geeft binnen het domein van $[0, 2\pi]$. Dus welke waardes van $k$ moeten we invullen in $x = k \cdot \pi$ om een $x$ te krijgen tussen $0$ en $2 \pi$?
+
+Dit zijn de waardes $k = 0$, $k = 1$ en $k = 2$. Want als we $k = 3$ proberen, dan krijgen we $x = 3 \pi$ en dit is te groot. Als we aan de andere kant $k = -1$ proberen, dan krijgen we $x = -\pi$ en dit is weer te klein. Dus de oplossingen in het domein $[0, 2 \pi]$ worden:
+
+!!! quote ""
+    $$\large{x = 0 \ \vee \ x = \pi \ \vee \ x = 2 \pi}$$
+
+Laten we naar een ander voorbeeld kijken. Stel we willen nu de volgende vergelijking oplossen:
+
+$$\cos{(x)} = 1.$$
+
+Hoe doen we dit? We moeten dus kijken voor welke $x$-waardes de cosinus een $y$-waarde heeft van $1$. In Figuur 8 kunnen we zien dat dit is bij $x = 0$. Maar ook bij $x = -2\pi$ en bij $x = 2\pi$. De functie herhaalt zich steeds, dus dit patroon herhaalt zich ook. Onze oplossing wordt dus:
+
+!!! quote ""
+    $$\large{x = k \cdot 2\pi}$$
+
+$k$ is hier weer een geheel getal. Dus de oplossingen in het domein $[0, 2 \pi]$ worden dan:
+
+!!! quote ""
+    $$\large{x = 0 \ \vee \ x = 2 \pi}$$
+
+Dit is dus voor $k = 0$ of $k = 1$. Als we andere waardes voor $k$ proberen, dan is $x$ niet meer tussen $0$ en $2 \pi$. Dus $x = 0$ en $x = 2 \pi$ moeten de enige twee oplossingen zijn in het domein $[0, 2 \pi]$.
+
+We hebben dit opgelost door de functies te schetsen, maar kunnen we het ook oplossen zonder een schets? Het antwoord is ja! Om goed te begrijpen hoe dit moet, moeten we eerst kijken naar de symmetrie in de sinus en cosinus functies. 
+
+### **Symmetrie**
+De cosinus is gespiegeld in de $y$-as (zie eventueel Figuur 8). Dus alles links van de $y$-as is hetzelfde als rechts van de $y$-as. Links van de $y$-as is bij een negatieve $x$, rechts van de $y$-as is bij een positieve $x$. Dus met andere woorden:
+
+$$\boxed{\cos(-x) = \cos(x)}$$
+
+Bij de sinus is dit juist omgekeerd. Het is niet gespiegeld in de $y$-as, maar gespiegeld bij de oorsprong (zie eventueel Figuur 7). Dus alles dat rechts van de $y$-as positief is, wordt negatief links van de $y$-as. Andersom geldt dit natuurlijk ook. Dit betekent dus dat er geldt dat:
+
+$$\boxed{\sin(-x) = - \sin(x)}$$
+
+???+ video
+    <video controls>
+    <source src="../assets/videos/Sin.mp4" type="video/mp4">
+    </video>
+
+    *<p style="text-align: center;">Filmpje: Een sinus functie wordt aangepast om te bewijzen dat $\sin(x) = \sin(\pi - x)$. Eerst wordt de transformatie $\sin(x) \rightarrow \sin(-x)$ toegepast. Vervolgens wordt deze functie naar rechts verschoven met $\pi$. Deze nieuwe functie wordt beschreven door $\sin(\pi - x)$ en we zien dat dit precies hetzelfde is als onze oude functie $\sin(x)$.</p>*
+
+???+ video
+    <video controls>
+    <source src="../assets/videos/Cos.mp4" type="video/mp4">
+    </video>
+
+    *<p style="text-align: center;">Filmpje: Een cosinus functie wordt aangepast om te bewijzen dat $-\cos(x) = \cos(\pi - x)$. Eerst verandert de $\cos(x)$ naar $-\cos(x)$ en tegelijkertijd wordt laten zien dat $\cos(x) = \cos(-x)$. Daarna wordt de $\cos(-x)$ functie naar rechts verschoven met $\pi$. Deze verplaatste functie wordt beschreven door $\cos(\pi - x)$ en dit is precies hetzelfde als $- \cos(x)$.</p>*
 
 ???+ Belangrijk
     ### **Symmetrieformules**
     
-    1. $$\large{\sin{(-x)} = - \sin{(x)}}$$
+    1. $$\large{\sin(-x) = - \sin(x)}$$
 
-    2. $$\large{\cos{(x)} = \cos{(-x)}}$$
+    2. $$\large{\cos(-x) = \cos{(x)}}$$
 
-    3. $$\large{\cos{(\pi - x)} = \cos{(-x)}}$$
+    3. $$\large{\sin(\pi - x) = \sin(x)}$$
 
-    4. $$\large{\sin{(\pi - x)} = \sin{(x)}}$$
+    4. $$\large{\cos(\pi - x) = - \cos(x)}$$
+    
+
+
+
+
+???+ Belangrijk
+    ### **Oplossen van sin/cos vergelijkingen**
+
+    Een vergelijking van de vorm:
+
+    $$\large{\sin(x) = \sin(a)}$$
+
+    geeft de volgende oplossingen:
+
+    $$\large{x = a + k \cdot 2 \pi \ \vee \ x = \pi - a + k \cdot 2 \pi}$$
+
+    Een vergelijking van de vorm:
+
+    $$\large{\cos(x) = \cos(a)}$$
+
+    geeft de volgende oplossingen:
+
+    $$\large{x = a + k \cdot 2 \pi \ \vee \  x = - a + k \cdot 2 \pi}$$
+
+    Hier is $k$ een geheel getal, dus $k$ is:
+
+    $$\large{k = 0, \pm 1, \pm 2, \pm 3, ...}$$
+
+Om een vergelijking met een sinus of cosinus op te lossen, moeten we aan beide kanten dezelfde functie hebben. Dus aan beide kanten van het '$=$'-teken een sinus of aan beide kanten een cosinus. Dus bij de vergelijking:
+
+$$\sin(x) = 1,$$
+
+moeten we de $0$ als een sinus functie opschrijven. We kunnen in Figuur 7 (of later de [Eenheidscirkel](#de-eenheidscirkel)) aflezen dat $\sin(\frac{1}{2} \pi) = 1$. Dus we kunnen de vergelijking schrijven als:
+
+$$\sin(x) = \sin(\frac{1}{2} \pi)$$
+
+En nu kunnen we aan beide kanten de sinus weghalen.
+
+
 
 De cosinus functie is eigenlijk hetzelfde als de sinus functie, alleen is het $\frac{1}{2} \pi$ opgeschoven naar rechts. In formule form wordt dit dan:
 
@@ -379,9 +451,10 @@ De cosinus functie is eigenlijk hetzelfde als de sinus functie, alleen is het $\
 
     2. $$\large{\cos{(x)} = \sin{(x + \frac{1}{2} \pi)}}$$
 
-    Als je niet wilt onthouden bij welke functie je $+ \frac{1}{2} \pi$ doet, en bij welke je $- \frac{1}{2} \pi$, kan je het ook op de volgende manier omschrijven:
+    <br>
+    **<p style="text-align: left;font-size:18px;">Alternatieve manier</p>**
 
-    <p style="text-align: left;font-size:17px;">Alternatieve manier</p>
+    Als je niet wilt onthouden bij welke functie je $+ \frac{1}{2} \pi$ doet, en bij welke je $- \frac{1}{2} \pi$, kan je het ook op de volgende manier omschrijven:
 
     1. $$\large{\sin{(x)} = \cos{(\frac{1}{2} \pi - x)}}$$
 
