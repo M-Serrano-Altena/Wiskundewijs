@@ -1,10 +1,12 @@
 # *Goniometrie*
+## **De Goniometrische Functies**
+
 Goniometrie gaat vooral over driehoeken en wat we daar allemaal mee kunnen berekenen. We kunnen de goniometrische functies gebruiken om hiermee te helpen. We gebruiken ze als we een hoek en een zijde hebben van een rechthoekige driehoek. We kunnen dan de andere twee zijdes berekenen met de goede goniometrische functie. Dit is erg handig, want met [Pythagoras](pythagoras.md) kunnen we dit niet doen. 
 
 Er zijn drie soorten goniometrische functies die we vaak gebruiken. De **sinus**, de **cosinus** en de **tangens**. Welke functie we gebruiken is afhankelijk van wat we hebben en wat we willen berekenen. Hieronder zie je het verband tussen de functies en de zijdes van een rechthoekige driehoek.
 
 ???+ Belangrijk
-    ## **De Goniometrische Functies**
+    ### **Goniometrische Functies**
     $$\large{\sin(\theta) = \frac{\mathrm{Overstaand}}{\mathrm{Schuin}}}$$
 
     $$\large{\cos(\theta) = \frac{\mathrm{Aanliggend}}{\mathrm{Schuin}}}$$
@@ -25,7 +27,7 @@ Dit kan je onthouden met het ezelsbruggetje: "SOS CAS TOA". Dit kun je als volgt
     <figure markdown>
         ![Rechthoekige driehoek](assets/images/goniometrie/Right_Triangle_Sides.svg){ width="250"}
     </figure>
-    *<p style="text-align: center; font-size: 14px;">Figuur 1. Een rechthoekige driehoek met de overstaande, aanliggende en schuine zijdes aangegeven.</p>* <br>
+    *<p style="text-align: center; font-size: 15px;">Figuur 1. Een rechthoekige driehoek met de overstaande, aanliggende en schuine zijdes aangegeven.</p>* <br>
 
     <span style="font-size: 14px;">De kenmerken van de verschillende soorten zijdes:</span>
     
@@ -40,7 +42,7 @@ Laten we naar een voorbeeld kijken. In Figuur 2 hieronder hebben we een rechthoe
 <figure markdown>
 ![Rechthoekige driehoek](assets/images/goniometrie/Right_Triangle_Gonio.svg){ width="300" align=middle}
 </figure>
-*<p style="text-align: center; font-size: 14px;">Figuur 2. Een rechthoekige driehoek met de hoek $\theta$ en de punten $A$, $B$ en $C$.</p>* <br>
+*<p style="text-align: center; font-size: 15px;">Figuur 2. Een rechthoekige driehoek met de hoek $\theta$ en de punten $A$, $B$ en $C$.</p>* <br>
 
 Stel we willen zijde $BC$ bepalen en we weten dat $\theta = 60 ^{\circ}$ en $AB = 2$. Hoe pakken we dit dan aan?
 
@@ -48,7 +50,7 @@ Zoals we eerder zagen, kunnen we dit probleem niet oplossen met [Pythagoras](pyt
 
 We hebben de hoek $\theta$ en de zijde $AB$. Dit is de overstaande zijde, want het is de zijde tegenover hoek $\theta$. Verder willen we zijde $BC$ weten. Dit is de aanliggende zijde, want het maakt samen met de schuine zijde de hoek $\theta$.
 
-We zoeken dus een functie die iets met een overstaande en aanliggende zijde heeft. We kunnen bij de [goniometrische functies](#de-goniometrische-functies) zien dat we dus de **tangens** moeten gebruiken. Deze functie heeft namelijk beide zijdes die we willen. Laten we als eerst de tangens opschrijven:
+We zoeken dus een functie die iets met een overstaande en aanliggende zijde heeft. We kunnen bij de [goniometrische functies](#goniometrische-functies) zien dat we dus de **tangens** moeten gebruiken. Deze functie heeft namelijk beide zijdes die we willen. Laten we als eerst de tangens opschrijven:
 
 $$\tan(\theta) = \frac{\mathrm{Overstaand}}{\mathrm{Aanliggend}}$$
 
@@ -73,7 +75,7 @@ Als we dit in een rekenmachine stoppen, dan vinden we:
 We kunnen in Figuur 2 controleren dat dit antwoord best zou kunnen kloppen.
 
 ### **Hoeken Bepalen**
-We kunnen de [goniometrische functies](#de-goniometrische-functies) ook gebruiken om een hoek te bepalen. We hebben daarvoor $2$ zijdes van de rechthoekige driehoek nodig. 
+We kunnen de [goniometrische functies](#goniometrische-functies) ook gebruiken om een hoek te bepalen. We hebben daarvoor $2$ zijdes van de rechthoekige driehoek nodig. 
 
 We gebruiken dan de inverse van de goniometrische functie. Dit noteren we dan met een *arc* of met een $^{-1}$. 
 
@@ -102,7 +104,7 @@ Laten we naar een voorbeeld kijken om te zien hoe dit werkt. In Figuur 3 hebben 
 <figure markdown>
 ![Rechthoekige driehoek](assets/images/goniometrie/Right_Triangle_Angle.svg){ width="250"}
 </figure>
-*<p style="text-align: center; font-size: 14px;">Figuur 3. Een rechthoekige driehoek met zijdes $BC = 2$ en $AB = 2$.</p>* <br>
+*<p style="text-align: center; font-size: 15px;">Figuur 3. Een rechthoekige driehoek met zijdes $BC = 2$ en $AB = 2$.</p>* <br>
 
 We willen nu de hoek $\theta$ bepalen. Om dit te doen, kijken we als eerst naar welke zijdes we hebben. 
 
@@ -130,7 +132,6 @@ $$\theta = 45 ^{\circ}$$
 
 En als we kijken in Figuur 3, dan kunnen we controleren dat dit een logisch antwoord is. Het ziet er namelijk ook uit als de helft van een rechte ($90 ^{\circ}$) hoek.
 
-
 ### **Voorbeelden**
 ??? example "Voorbeeld 1: Bereken zijde $BC$"
     **<p style="text-align: center;font-size:20px;">Bereken zijde $BC$ in de onderstaande rechthoekige driehoek.</p>**
@@ -144,7 +145,7 @@ En als we kijken in Figuur 3, dan kunnen we controleren dat dit een logisch antw
 
     We hebben dus de hoek $\theta=30 ^{\circ}$ en een zijde $AC = 4$. Zijde $AC$ is de schuine zijde, want het is de zijde tegenover de hoek van $90 ^{\circ}$. We willen zijde $BC$ bepalen en dat is de overstaande zijde. $BC$ is namelijk de zijde tegenover $\theta$.
 
-    Dus onze functie moet iets met een schuine zijde hebben en iets met een overstaande zijde. Als we bij de [goniometrische functies](#de-goniometrische-functies) kijken, dan zien we dat we de **sinus** moeten gebruiken. Laten we deze opschrijven:
+    Dus onze functie moet iets met een schuine zijde hebben en iets met een overstaande zijde. Als we bij de [goniometrische functies](#goniometrische-functies) kijken, dan zien we dat we de **sinus** moeten gebruiken. Laten we deze opschrijven:
 
     $$\large{\sin(\theta) = \frac{\mathrm{Overstaand}}{\mathrm{Schuin}}}$$
 
@@ -282,7 +283,7 @@ En als we kijken in Figuur 3, dan kunnen we controleren dat dit een logisch antw
     !!! quote ""
         $$\large{AB = 10}$$
 
-
+<br>
 ## **De Sinus en Cosinus functies**
 Laten we nu iets dieper ingaan op de **sinus** en **cosinus** functies. Wat deze functies bijzonder maakt, is dat het periodieke functies zijn. Dit betekent dat de functie zich herhaalt na een bepaalde tijd. In dit geval is dat elke $2 \pi$. Dus elke $2 \pi$ begint de functie weer opnieuw en herhaalt het zich weer. We zeggen dan dat deze functie een periode heeft van $2 \pi$ (zie ook Figuur 7 en Figuur 8). 
 
@@ -317,17 +318,18 @@ Laten we nu iets dieper ingaan op de **sinus** en **cosinus** functies. Wat deze
 
     $$\large{\cos(x + 2 \pi) = \cos(x)}$$
 
-    Dus dit betekent bijvoorbeeld dat:
+Dus dit betekent bijvoorbeeld dat:
 
-    - $\large \sin(\pi) = \sin(3 \pi)$
-    - $\large \cos(1 \frac{1}{2}) = \cos(- \frac{1}{2} \pi)$
-    - $\large \cos(4 \pi) = \cos(6 \pi)$
-    - $\large \sin(- \frac{1}{4} \pi) = \sin(1 \frac{3}{4} \pi)$
-    - <span style="font-size: 15px;">etc.</span>
-
-### **Sinus en Cosinus vergelijkingen**
+- $\sin(\pi) = \sin(3 \pi)$
+- $\cos(1 \frac{1}{2}) = \cos(- \frac{1}{2} \pi)$
+- $\cos(4 \pi) = \cos(6 \pi)$
+- $\sin(- \frac{1}{4} \pi) = \sin(1 \frac{3}{4} \pi)$
+- <span style="font-size: 15px;">etc.</span>
 
 Het feit dat deze functies periodiek zijn, is erg belangrijk als we er vergelijkingen mee gaan oplossen. Laten we kijken hoe dat moet.
+
+<br>
+### **Sinus en Cosinus vergelijkingen**
 
 Stel we willen de volgende vergelijking oplossen:
 
@@ -340,13 +342,13 @@ We schrijven dit als volgt op:
 !!! quote ""
     $$\large{x = k \cdot \pi}$$
 
-En $k$ is hier een geheel getal. Dus $k = 0, \pm 1, \pm 2, \pm 3, ...$ 
+$k$ kan hier elk geheel getal zijn. Dus $k = 0, \pm 1, \pm 2, \pm 3, ...$ 
 
-De waardes van $k$ gaan oneindig lang door, en dat is ook wat we willen om onze oplossingen te beschrijven. Maar stel nou dat we alle oplossingen willen weten in het domein $[0, 2 \pi]$. Hoe doen we dat dan met de oplossing die we net hebben gevonden?
+De waardes van $k$ gaan oneindig lang door, en dat is ook wat we willen om onze oplossingen te beschrijven. Maar stel nou dat we alle oplossingen willen weten op het domein $[0, 2 \pi]$. Hoe doen we dat dan met de oplossing die we net hebben gevonden?
 
 We moeten dan alle mogelijke waardes voor $k$ proberen die ons een $x$ geeft binnen het domein van $[0, 2\pi]$. Dus welke waardes van $k$ moeten we invullen in $x = k \cdot \pi$ om een $x$ te krijgen tussen $0$ en $2 \pi$?
 
-Dit zijn de waardes $k = 0$, $k = 1$ en $k = 2$. Want als we $k = 3$ proberen, dan krijgen we $x = 3 \pi$ en dit is te groot. Als we aan de andere kant $k = -1$ proberen, dan krijgen we $x = -\pi$ en dit is weer te klein. Dus de oplossingen in het domein $[0, 2 \pi]$ worden:
+Dit zijn de waardes $k = 0$, $k = 1$ en $k = 2$. Want als we $k = 3$ proberen, dan krijgen we $x = 3 \pi$ en dit is te groot. Als we aan de andere kant $k = -1$ proberen, dan krijgen we $x = -\pi$ en dit is weer te klein. Dus de oplossingen op het domein $[0, 2 \pi]$ worden:
 
 !!! quote ""
     $$\large{x = 0 \ \vee \ x = \pi \ \vee \ x = 2 \pi}$$
@@ -360,15 +362,16 @@ Hoe doen we dit? We moeten dus kijken voor welke $x$-waardes de cosinus een $y$-
 !!! quote ""
     $$\large{x = k \cdot 2\pi}$$
 
-$k$ is hier weer een geheel getal. Dus de oplossingen in het domein $[0, 2 \pi]$ worden dan:
+$k$ kan weer elk geheel getal zijn. Dus de oplossingen op het domein $[0, 2 \pi]$ worden dan:
 
 !!! quote ""
     $$\large{x = 0 \ \vee \ x = 2 \pi}$$
 
-Dit is dus voor $k = 0$ of $k = 1$. Als we andere waardes voor $k$ proberen, dan is $x$ niet meer tussen $0$ en $2 \pi$. Dus $x = 0$ en $x = 2 \pi$ moeten de enige twee oplossingen zijn in het domein $[0, 2 \pi]$.
+Dit is dus voor $k = 0$ of $k = 1$. Want als we andere waardes voor $k$ proberen, dan is $x$ niet meer tussen $0$ en $2 \pi$. Dus dit moeten de enige twee oplossingen zijn op het domein $[0, 2 \pi]$.
 
-We hebben dit opgelost door de functies te schetsen, maar kunnen we het ook oplossen zonder een schets? Het antwoord is ja! Om goed te begrijpen hoe dit moet, moeten we eerst kijken naar de symmetrie in de sinus en cosinus functies. 
+We hebben dit opgelost door de functies te schetsen, maar kunnen we het ook oplossen zonder een schets? Het antwoord is ja! Om goed te begrijpen hoe dit moet, moeten we eerst kijken naar de symmetrie in de sinus en cosinus functies. We zullen dat nodig hebben om de [algemene oplossing](#oplossen-van-sincos-vergelijkingen) te kunnen begrijpen.
 
+<br>
 ### **Symmetrie**
 De cosinus is gespiegeld in de $y$-as (zie eventueel Figuur 8). Dus alles links van de $y$-as is hetzelfde als rechts van de $y$-as. Links van de $y$-as is bij een negatieve $x$, rechts van de $y$-as is bij een positieve $x$. Dus met andere woorden:
 
@@ -378,249 +381,433 @@ Bij de sinus is dit juist omgekeerd. Het is niet gespiegeld in de $y$-as, maar g
 
 $$\boxed{\sin(-x) = - \sin(x)}$$
 
+Apart van deze symmetrieën hebben de sinus en cosinus nog een andere symmetrie. Deze symmetrie is als je $\sin(-x)$ of $\cos(-x)$ met $\pi$ naar rechts verschuift. En ik denk dat dit makkelijker te zien is met wat filmpjes. Laten we beginnen met de symmetrie van de sinus functies.
+
 ???+ video
+    **<p style="font-size: 20px;">Sinus symmetrie</p>**
+
     <video controls>
     <source src="../assets/videos/Sin.mp4" type="video/mp4">
     </video>
 
+
     *<p style="text-align: center;">Filmpje: Een sinus functie wordt aangepast om te bewijzen dat $\sin(x) = \sin(\pi - x)$. Eerst wordt de transformatie $\sin(x) \rightarrow \sin(-x)$ toegepast. Vervolgens wordt deze functie naar rechts verschoven met $\pi$. Deze nieuwe functie wordt beschreven door $\sin(\pi - x)$ en we zien dat dit precies hetzelfde is als onze oude functie $\sin(x)$.</p>*
 
+We zien dus dat we een $\sin(x)$ functie op zo'n manier kunnen aanpassen dat we de functie $\sin(\pi - x)$ krijgen. En deze functie is weer precies dezelfde functie als de $\sin(x)$ die we eerst hadden. Dit betekent dus dat we de volgende symmetrie hebben:
+
+$$\boxed{\sin(\pi - x) = \sin(x)}$$
+
+Voor consinus functies hebben we een soort gelijke symmetrie.
+
 ???+ video
+    **<p style="font-size: 20px;">Cosinus symmetrie</p>**
+
     <video controls>
     <source src="../assets/videos/Cos.mp4" type="video/mp4">
     </video>
 
+
     *<p style="text-align: center;">Filmpje: Een cosinus functie wordt aangepast om te bewijzen dat $-\cos(x) = \cos(\pi - x)$. Eerst verandert de $\cos(x)$ naar $-\cos(x)$ en tegelijkertijd wordt laten zien dat $\cos(x) = \cos(-x)$. Daarna wordt de $\cos(-x)$ functie naar rechts verschoven met $\pi$. Deze verplaatste functie wordt beschreven door $\cos(\pi - x)$ en dit is precies hetzelfde als $- \cos(x)$.</p>*
+
+We zien dus dat als we een $\cos(-x)$ functie met $\pi$ naar rechts verschuiven, dat we dezelfde functie krijgen als $- \cos(x)$. Voor cosinus functies hebben we dus de volgende symmetrie:
+
+$$\boxed{\cos(\pi - x) = -\cos(x)}$$
+
+We zetten hieronder nog even alle symmetrieën op een rijtje.
 
 ???+ Belangrijk
     ### **Symmetrieformules**
     
     1. $$\large{\sin(-x) = - \sin(x)}$$
 
-    2. $$\large{\cos(-x) = \cos{(x)}}$$
+    2. $$\large{\cos(-x) = \cos(x)}$$
 
     3. $$\large{\sin(\pi - x) = \sin(x)}$$
 
     4. $$\large{\cos(\pi - x) = - \cos(x)}$$
     
+Met deze kennis kunnen we nu sinus en cosinus vergelijking gaan oplossen. We hebben daarvoor de [symmetrieformules](#symmetrieformules) en de [periodiciteit](#periodiciteit-van-sinus-en-cosinus) van de functies nodig. Laten we eerst kijken naar een sinus vergelijking.
 
+<br>
+**<p style="font-size: 20px;">Sinus vergelijking oplossen</p>**
 
+Laten we [weer](#sinus-en-cosinus-vergelijkingen) kijken naar de volgende vergelijking:
 
+$$\sin(x) = 0.$$
+
+Om dit op te lossen willen we eerst aan beide kanten een $\sin$ functie hebben. We moeten dus de $0$ schrijven als $\sin(a)$. We willen er dus achter komen van welk getal we de sinus moeten nemen om $0$ te krijgen. Om dit te doen kunnen we de $\arcsin$ van $0$ nemen (later zullen we de [eenheidscirkel](#de-eenheidscirkel) gebruiken). 
+
+We krijgen dan dus $a = \arcsin(0)$. Als we dit invullen, dan vinden we $a = 0$. Dit betekent dus dat $\sin(0) = 0$. Onze vergelijking wordt dan dus:
+
+$$\sin(x) = \sin(0)$$
+
+Nu kunnen we aan beide kanten de sinus weghalen om te vinden:
+
+$$x = 0$$
+
+Dit is dus $1$ oplossing, maar we moeten nog rekening houden met de [periodiciteit](#periodiciteit-van-sinus-en-cosinus) en [symmetrie](#symmetrieformules). We weten dus dat de functie periodiek is en dat het elke $2\pi$ zich herhaalt. Dit betekent dus dat $x = 2\pi$, $x = 4\pi$, $x=6\pi$, etc. ook oplossingen zijn. Dus om hier rekening mee te houden schrijven we:
+
+$$x = 0 + k \cdot 2\pi$$
+
+$$x = k \cdot 2\pi$$
+
+$k$ kan hier dus alle gehele getallen zijn. Maar we hebben ook nog de symmetrie die we in de [symmetrieformules](#symmetrieformules) hebben gezien. Dus we weten dat:
+
+$$\sin(x) = \sin(\pi - x)$$
+
+Dit betekent dus dat er moet gelden dat:
+
+$$\sin(0) = \sin(\pi - 0)$$
+
+Om hier rekening mee te houden moeten we nog een set oplossingen toevoegen:
+
+$$x = k \cdot 2 \pi \ \vee \ x = \pi - 0 + k \cdot 2 \pi$$
+
+$$x = k \cdot 2 \pi \ \vee \ x = \pi + k \cdot 2 \pi$$
+
+In dit geval kunnen we deze twee verschillende sets combineren. Want we krijgen met de linker oplossing $x = 0, 2\pi, 4\pi, ...$ en met de rechter oplossing $x = \pi, 3 \pi, 5 \pi, ...$. Dus samen zijn onze oplossingen $x = 0, \pi, 2 \pi, 3\pi, 4\pi, 5\pi, ...$. Dit is hetzelfde als:
+
+!!! quote ""
+    $$\large{x = k \cdot \pi}$$
+
+En dat is ook wat we [eerder](#sinus-en-cosinus-vergelijkingen) gevonden hadden. In het algemeen hebben we dus voor een vergelijking van de vorm:
+
+$$\large{\sin(x) = \sin(a)}$$
+
+de volgende oplossingen:
+
+$$\large{x = a + k \cdot 2\pi \ \vee \ x = \pi - a + k \cdot 2\pi}$$
+
+<br>
+**<p style="font-size: 20px;">Cosinus vergelijking oplossen</p>**
+
+We kijken nu [weer](#sinus-en-cosinus-vergelijkingen) naar de volgende cosinus vergelijking:
+
+$$\cos(x) = 1$$
+
+We willen hier ook weer aan beide kanten dezelfde functie hebben, dus aan beide kanten een cosinus. Dus van welk getal is de cosinus gelijk aan $1$. Dus wat is $a$ voor $\cos(a) = 1$? Als we de $\arccos$ nemen, dan vinden we $a = \arccos(1) = 0$.
+
+We weten nu dus dat $\cos(0) = 1$. De vergelijking wordt dan dus:
+
+$$\cos(x) = \cos(0)$$
+
+Als we aan beide kanten de $\cos$ weg halen, dan vinden we dus dat $1$ van onze oplossingen is:
+
+$$x = 0$$
+
+Maar we moeten weer rekening houden met de [periodiciteit](#periodiciteit-van-sinus-en-cosinus) en de [symmetrie](#symmetrieformules) van de cosinus. Net zoals bij de sinus herhaalt de cosinus zich elke $2 \pi$, dus onze oplossingen herhaling zich ook op dezelfde manier:
+
+$$x = 0 + k \cdot 2 \pi$$
+
+$$x = k \cdot 2 \pi$$
+
+Bij de cosinus hebben we een andere symmetrie dan bij de sinus. Bij de cosinus hebben we:
+
+$$\cos(x) = \cos(-x)$$
+
+Dus om hier rekening mee te houden moeten we nog een set oplossingen toevoegen:
+
+$$x = k \cdot 2 \pi \ \vee -0 + k \cdot 2 \pi$$
+
+$$x = k \cdot 2 \pi \ \vee k \cdot 2 \pi$$
+
+Maar in dit geval geldt er dat $0 = -0$, dus dit kunnen we gewoon weer versimpelen naar wat we eerst hadden:
+
+!!! quote ""
+    $$\large{x = k \cdot 2 \pi}$$
+
+En dat is ook wat we [eerder](#sinus-en-cosinus-vergelijkingen) gevonden hadden. In het algemeen hebben we dus voor een vergelijking van de vorm:
+
+$$\cos(x) = \cos(a)$$
+
+de volgende oplossingen:
+
+$$x = a + k \cdot 2 \pi \ \vee \ x = -a + k \cdot 2 \pi$$
+
+We hebben nu dus de algemene oplossingen gevonden voor sinus en cosinus vergelijkingen!
 
 ???+ Belangrijk
-    ### **Oplossen van sin/cos vergelijkingen**
+    ### **Algemene Oplossing**
+
+    <br>
+    **<p style="font-size: 17px;">Sinus</p>**
 
     Een vergelijking van de vorm:
 
     $$\large{\sin(x) = \sin(a)}$$
 
-    geeft de volgende oplossingen:
+    heeft de volgende oplossingen:
 
     $$\large{x = a + k \cdot 2 \pi \ \vee \ x = \pi - a + k \cdot 2 \pi}$$
+
+    $k$ kan hier elk geheel getal zijn, dus $k = 0, \pm 1, \pm 2, \pm 3, ...$
+
+    <br>
+    **<p style="font-size: 17px;">Cosinus</p>**
 
     Een vergelijking van de vorm:
 
     $$\large{\cos(x) = \cos(a)}$$
 
-    geeft de volgende oplossingen:
+    heeft de volgende oplossingen:
 
     $$\large{x = a + k \cdot 2 \pi \ \vee \  x = - a + k \cdot 2 \pi}$$
 
-    Hier is $k$ een geheel getal, dus $k$ is:
+    $k$ kan hier elk geheel getal zijn, dus $k = 0, \pm 1, \pm 2, \pm 3, ...$
 
-    $$\large{k = 0, \pm 1, \pm 2, \pm 3, ...}$$
+**<p style="font-size: 20px;">Sinus en Cosinus naar elkaar omschrijven</p>**
 
-Om een vergelijking met een sinus of cosinus op te lossen, moeten we aan beide kanten dezelfde functie hebben. Dus aan beide kanten van het '$=$'-teken een sinus of aan beide kanten een cosinus. Dus bij de vergelijking:
+De sinus en de cosinus functies lijken best veel op elkaar: ze hebben dezelfde vorm, herhalen elke $2 \pi$ en gaan beide van $-1$ tot $1$. Het enige verschil is dat ze op andere punten beginnen. De sinus begint bij $y=0$ en de cosinus bij $y=1$. Dat is het enige verschil tussen de twee functies.
 
-$$\sin(x) = 1,$$
+Dus als we de sinus functie een klein beetje kunnen verschuiven zodat het bij $y=1$ begint, dan hebben we een cosinus gemaakt. Het blijkt dat we $\sin(x)$ met $\dfrac{1}{2} \pi$ naar links moeten verschuiven om dit te bereiken. De verschoven sinus krijgt de vorm $\sin(x + \frac{1}{2} \pi)$ en dit is dus hetzelfde als $\cos(x)$:
 
-moeten we de $0$ als een sinus functie opschrijven. We kunnen in Figuur 7 (of later de [Eenheidscirkel](#de-eenheidscirkel)) aflezen dat $\sin(\frac{1}{2} \pi) = 1$. Dus we kunnen de vergelijking schrijven als:
+$$\boxed{\sin(x + \frac{1}{2} \pi) = \cos(x)}$$
 
-$$\sin(x) = \sin(\frac{1}{2} \pi)$$
+???+ video
+    <video controls>
+    <source src="../assets/videos/SinToCos.mp4" type="video/mp4">
+    </video>
 
-En nu kunnen we aan beide kanten de sinus weghalen.
+We kunnen natuurlijk ook de cosinus naar rechts verschuiven met $\frac{1}{2} \pi$ in plaats van de sinus naar links te verschuiven. De verschoven cosinus krijgt dan de vorm $\cos(x - \frac{1}{2} \pi)$ en dit is dan gelijk aan $\sin(x)$:
 
+$$\boxed{\cos(x - \frac{1}{2} \pi) = \sin(x)}$$
 
-
-De cosinus functie is eigenlijk hetzelfde als de sinus functie, alleen is het $\frac{1}{2} \pi$ opgeschoven naar rechts. In formule form wordt dit dan:
+???+ video
+    <video controls>
+    <source src="../assets/videos/CosToSin.mp4" type="video/mp4">
+    </video>
 
 ???+ Belangrijk
     ### **Sinus en Cosinus omschrijven**
 
-    1. $$\large{\sin{(x)} = \cos{(x - \frac{1}{2} \pi)}}$$
+    $$\large{\cos(x) = \sin(x + \frac{1}{2} \pi)}$$
 
-    2. $$\large{\cos{(x)} = \sin{(x + \frac{1}{2} \pi)}}$$
+    $$\large{\sin(x) = \cos(x - \frac{1}{2} \pi)}$$
 
-    <br>
-    **<p style="text-align: left;font-size:18px;">Alternatieve manier</p>**
+    ??? note "Andere manier van omschrijven"
+        Als je niet wilt onthouden bij welke functie je $+ \frac{1}{2} \pi$ doet en bij welke $- \frac{1}{2} \pi$, dan kun je het ook als volgt omschrijven:
 
-    Als je niet wilt onthouden bij welke functie je $+ \frac{1}{2} \pi$ doet, en bij welke je $- \frac{1}{2} \pi$, kan je het ook op de volgende manier omschrijven:
+        $$\large{\cos(x) = \sin(\frac{1}{2} \pi - x)}$$
 
-    1. $$\large{\sin{(x)} = \cos{(\frac{1}{2} \pi - x)}}$$
+        $$\large{\sin(x) = \cos(\frac{1}{2} \pi - x)}$$
 
-    2. $$\large{\cos{(x)} = \sin{(\frac{1}{2} \pi - x)}}$$
+        En dit verband werkt ook altijd.
 
-    En dit verband werkt ook altijd.
+        ??? abstract "Bewijs"
+            Dit kunnen we zelf bewijzen met behulp van de [Symmetrieformules](#symmetrieformules). 
+            
+            Om van een cosinus naar een sinus te gaan, kunnen de volgende symmetrie gebruiken:
 
-    ??? abstract "Bewijs"
-        Dit kunnen we zelf bewijzen met behulp van de [Symmetrieformules](#symmetrieformules). 
-        
-        Laten we eerst kijken om van $\sin$ naar $\cos$ te gaan. Als we [regel 2](#symmetrieformules) gebruiken zien we het eigenlijk al meteen:
+            $$\large{\sin(x) = \sin(\pi - x)}$$
 
-        $$\large{\cos{(x - \frac{1}{2} \pi)} = \cos{(-(x - \frac{1}{2} \pi))} = \cos{(\frac{1}{2} \pi - x)}}$$
+            Als we dit toepassen op $\sin(x + \frac{1}{2} \pi)$, dan vinden we:
 
-        Nu kijken we om van $\cos$ naar $\sin$ te gaan. Hiervoor gebruiken we [regel 4](#symmetrieformules):
+            $$\large{\sin(x + \frac{1}{2} \pi) = \sin(\pi - (x + \frac{1}{2} \pi))}$$
 
-        $$\large{\sin{(x + \frac{1}{2} \pi)} = \sin{(\pi - (x + \frac{1}{2} \pi))} = }$$
+            Als we dit uitwerken, dan vinden we:
 
-        $$\large{\sin{(\pi - \frac{1}{2} \pi - x)} = \sin{(\frac{1}{2} \pi - x)}}$$
+            $$\large{\sin(x + \frac{1}{2} \pi) = \sin(\pi - x - \frac{1}{2} \pi)}$$
+
+            $$\large{\sin(x + \frac{1}{2} \pi) = \sin(\frac{1}{2} \pi - x)}$$
+
+            Het verband $\cos(x) = \sin(x + \frac{1}{2} \pi)$ wordt dan dus:
+
+            $$\large{\boxed{\cos(x) = \sin(\frac{1}{2} \pi - x)}}$$
+
+            Om van een sinus naar een cosinus te gaan, kunnen we de volgende symmetrie gebruiken:
+            
+            $$\large{\cos(x) = \cos(-x)}$$
+
+            Als we dit toepassen op $\cos(x - \frac{1}{2} \pi)$, dan vinden we:
+
+            $$\large{\cos(x - \frac{1}{2} \pi) = \cos(-(x - \frac{1}{2} \pi))}$$
+
+            Als we de haakjes uitwerken, vinden we:
+
+            $$\large{\cos(x - \frac{1}{2} \pi) = \cos(\frac{1}{2} \pi - x)}$$
+
+            Het verband $\sin(x) = \cos(x - \frac{1}{2} \pi)$ wordt dan dus:
+
+            $$\large{\boxed{\sin(x) = \cos(\frac{1}{2} \pi - x)}}$$
+
 
 ### **Voorbeelden**
-??? example "Voorbeeld 1: $\cos{(2x)} = 0$"
-    **<p style="text-align: center;font-size:20px;">Bereken x: $\cos{(2x)} = 0$</p>**
+??? example "Voorbeeld 1: $\cos(2x) = 0$"
+    **<p style="text-align: center;font-size:20px;">Los op: $\cos(2x) = 0$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We lossen dit op door eerst van de $0$ een $\cos$ te maken. In dit geval kunnen we in Figuur 3 of met de [Eenheidscirkel](#de-eenheidscirkel) zien dat dit geldt bij $\cos{(\frac{1}{2} \pi)}$.
+    Om dit op te lossen willen we eerst aan beide kanten een cosinus hebben. We moeten dus kijken van welk getal de cosinus $0$ geeft. Als we de $\arccos$ nemen van $0$, dan vinden we dat dit $\frac{1}{2} \pi$ is. Dus er geldt dat $0 = \cos(\frac{1}{2} \pi)$. Als we dit invullen, dan krijgen we:
 
-    We kunnen dus zeggen dat:
+    $$\large{\cos(2x) = \cos(\frac{1}{2} \pi)}$$
 
-    $$\large{\cos{(2x)} = \cos{(\frac{1}{2} \pi)}}$$
+    Nu kunnen we de [algemene oplossing](#algemene-oplossing) gebruiken voor een cosinus:
 
-    En dus kunnen we zeggen dat (zie [uitwerken sin/cos](#uitwerken-sincos-vergelijkingen)):
+    $$\large{2x = \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 2x = - \frac{1}{2} \pi + k \cdot 2 \pi}$$
 
-    $$\large{2x = \frac{1}{2} \pi + k * 2 \pi \ \vee \ 2x = - \frac{1}{2} \pi + k *2 \pi}$$
-
-    En nu delen we alles door $2$ om te vinden dat:
+    Nu kunnen we alles door $2$ delen om als eindantwoord te vinden:
 
     !!! quote ""
-        $$\large{x = \frac{1}{4} \pi + k * \pi \ \vee \ x = - \frac{1}{4} \pi + k * \pi}$$
+        $$\large{x = \frac{1}{4} \pi + k \cdot \pi \ \vee \ x = - \frac{1}{4} \pi + k \cdot \pi}$$
 
+    <br>
+    In dit geval kunnen we deze oplossingen ook combineren:
 
-??? example "Voorbeeld 2: $\sin{(3x)} = \cos{(-x)}$"
-    **<p style="text-align: center;font-size:20px;">Bereken x: $\sin{(3x)} = \cos{(-x)}$</p>**
+    - **Linker set:** $x = -\frac{3}{4} \pi, \frac{1}{4} \pi, 1 \frac{1}{4} \pi, 2 \frac{1}{4} \pi, ...$ *
+    - **Rechter set:** $x = - \frac{1}{4} \pi, \frac{3}{4} \pi, 1 \frac{3}{4} \pi, ...$ *
+    - **Gecombineerd:** $x = - \frac{3}{4} \pi, - \frac{1}{4} \pi, \frac{3}{4} \pi, 1 \frac{1}{4} \pi, 1 \frac{3}{4} \pi, ...$ *
+
+    Deze combinatie kunnen beschrijven op de volgende manier:
+
+    !!! quote ""
+        $$\large{x = \frac{1}{4} \pi + k \cdot \frac{1}{2} \pi}$$
+
+    **De oplossingen gaan ook door in het negatieve, maar die zijn hier weg gelaten om het overzichtelijk te houden.*
+
+??? example "Voorbeeld 2: $\sin(3x) = \cos(-x)$"
+    **<p style="text-align: center;font-size:20px;">Los op: $\sin(3x) = \cos(-x)$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Als eerst beginnen we met het realiseren dat we dit ook kunnen schrijven als:
+    Als eerst kunnen met de [symmetrieformule](#symmetrieformules) $\cos(x) = \cos(-x)$ dit ook schrijven als:
 
-    $$\large{\sin{(3x)} = \cos{(x)},}$$
+    $$\large{\sin(3x) = \cos(x),}$$
 
-    zie de [Symmetrieformules](#symmetrieformules). Nu moeten we de $\cos$ omschrijven naar een $\sin$ (of andersom). Dit doen we met [deze](#sinus-en-cosinus-omschrijven) regel:
+    Om dit op te lossen, moeten we óf van beide functies een sinus maken óf van beide functies een cosinus. We kiezen er hier voor om van beide functies een sinus te maken. We moeten dan dus de $\cos(x)$ [omschrijven](#sinus-en-cosinus-omschrijven) naar $\sin(x + \frac{1}{2} \pi)$:
 
-    $$\large{\sin{(3x)} = \sin{(x + \frac{1}{2} \pi)}.}$$
+    $$\large{\sin(3x) = \sin(x + \frac{1}{2} \pi).}$$
 
-    Nu kunnen we dit uitwerken (zie [uitwerken sin/cos](#uitwerken-sincos-vergelijkingen)):
+    Nu kunnen we dit oplossen volgens de [algemene oplossing](#algemene-oplossing):
 
-    $$\large{3x = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ 3x = \pi - (x + \frac{1}{2} \pi + k * 2 \pi)}$$
+    $$\large{3x = x + \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 3x = \pi - (x + \frac{1}{2} \pi) + k \cdot 2 \pi}$$
 
-    $$\large{3x = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ 3x = \frac{1}{2} \pi - x + k * 2 \pi}$$
+    $$\large{3x = x + \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 3x = \frac{1}{2} \pi - x + k \cdot 2 \pi}$$
 
     Nu doen we alle termen met $x$ naar de linkerkant:
 
-    $$\large{2x = \frac{1}{2} \pi + k * 2 \pi \ \vee \ 4x = \frac{1}{2} \pi + k * 2 \pi}$$
+    $$\large{2x = \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 4x = \frac{1}{2} \pi + k \cdot 2 \pi}$$
 
-    Nu delen we alles door $2$ en $4$ respectievelijk om te vinden:
+    Nu delen we bij de linker oplossing alles door $2$ en bij de rechter oplossing alles door $4$:
     
     !!! quote ""
-        $$\large{x = \frac{1}{4} \pi + k * \pi \ \vee \ x = \frac{1}{8} \pi + k * \frac{1}{2} \pi}$$
+        $$\large{x = \frac{1}{4} \pi + k \cdot \pi \ \vee \ x = \frac{1}{8} \pi + k \cdot \frac{1}{2} \pi}$$
 
 
-??? example "Voorbeeld 3: $\cos{(3x + \pi)} = \cos{(x + \frac{1}{2} \pi)}$ op het interval $[0, \ 2 \pi]$"
-    **<p style="text-align: center;font-size:20px;">Bereken x: $\cos{(3x + \pi)} = \cos{(x + \frac{1}{2} \pi)}$ op het interval $[0, \ 2 \pi]$</p>**
+??? example "Voorbeeld 3: $\cos(3x + \pi) = \cos(x + \frac{1}{2} \pi)$ op het domein $[-\pi, \pi]$"
+    **<p style="text-align: center;font-size:20px;">Los op: $\cos(3x + \pi) = \cos(x + \frac{1}{2} \pi)$ op het domein $[-\pi, \pi]$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We hebben hier aan beide kanten al iets met $\cos$ staan, dus we kunnen dit meteen gaan uitwerken:
+    We hebben hier aan beide kanten al een cosinus staan, dus we kunnen dit meteen gaan [uitwerken](#algemene-oplossing):
 
-    $$\large{3x + \pi = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ 3x + \pi = - (x + \frac{1}{2} \pi) + k * 2 \pi}$$
+    $$\large{3x + \pi = x + \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 3x + \pi = - (x + \frac{1}{2} \pi) + k \cdot 2 \pi}$$
 
-    $$\large{3x + \pi = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ 3x + \pi = - x - \frac{1}{2} \pi + k * 2 \pi}$$
+    $$\large{3x + \pi = x + \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 3x + \pi = - x - \frac{1}{2} \pi + k \cdot 2 \pi}$$
 
-    Nu alle termen met $x$ naar de linkerkant en alle getallen rechts:
+    Nu doen we eerst alle termen met $x$ naar de linkerkant:
+    
+    $$\large{2x + \pi = \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 4x + \pi = - \frac{1}{2} \pi + k \cdot 2 \pi}$$
+    
+    En nu doen we alle getallen rechts:
 
-    $$\large{2x = - \frac{1}{2} \pi + k * 2 \pi \ \vee \ 4x = - 1 \frac{1}{2} \pi + k * 2 \pi}$$
+    $$\large{2x = - \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 4x = - 1 \frac{1}{2} \pi + k \cdot 2 \pi}$$
 
-    En nu alles gedeelt door $2$ en $4$ respectievelijk:
+    Als laatst delen we nu bij de linker oplossing alles door $2$ en bij de rechter oplossing alles door $4$. Als we dit doen, dan vinden we alle oplossingen:
 
-    $$\large{x = - \frac{1}{4} \pi + k * \pi \ \vee \ x = - \frac{3}{8} \pi + k * \frac{1}{2} \pi}$$
+    $$\large{\boxed{x = - \frac{1}{4} \pi + k \cdot \pi \ \vee \ x = - \frac{3}{8} \pi + k \cdot \frac{1}{2} \pi}}$$
 
-    Maar let op! Nu wordt er gevraagd naar alle oplossingen op het interval $[0, \ 2 \pi]$. Dit betekent dat we alle verschillende waardes voor $k$ moeten invullen totdat we alle verschillende waardes tussen $0$ en $2 \pi$ gehad hebben.
+    Maar let op! We willen alleen de oplossingen hebben op het domein $[-\pi, \pi]$. Dus we moeten voor $k$ alle gehele getallen invullen die ons een oplossing geeft tussen $-\pi$ en $\pi$. Laten we eerst bij de linker oplossing wat waardes voor $k$ proberen:
 
-    |  | Linker vergelijking | Rechter vergelijking |    
-    | - | - | - |    
-    | $\large{k = 0}$ | $\large{x = - \frac{1}{4} \pi}$ | $\large{x = - \frac{3}{8} \pi}$ |    
-    | $\large{k = 1}$ | $\large{x = \frac{3}{4} \pi}$ | $\large{x = \frac{1}{8} \pi}$ |
-    | $\large{k = 2}$ | $\large{x = 1 \frac{3}{4} \pi}$ | $\large{x = \frac{5}{8} \pi}$ |
-    | $\large{k = 3}$ | $\large{x = 2 \frac{3}{4} \pi}$ | $\large{x = 1 \frac{1}{8} \pi}$ |
-    | $\large{k = 4}$ | $\large{x = 3 \frac{3}{4} \pi}$ | $\large{x = 1 \frac{5}{8} \pi}$  |
-    | $\large{k = 5}$ | $\large{x = 4 \frac{3}{4} \pi}$ | $\large{x = 2 \frac{1}{8} \pi}$ |
+    - $k = 0 \quad \Longrightarrow \quad x = - \frac{1}{4} \pi$
+    - $k = 1 \quad \Longrightarrow \quad x = \frac{3}{4} \pi$
 
-    Uit deze waardes noteren we alle waardes voor $x$ die op het interval liggen. Dat zijn de waardes bij $k = 1$ en $k = 2$ bij de linker vergelijking en de waardes bij $k = 1,2,3,4$ bij de rechter vergelijking. Ons eindantwoord wordt dan:
+    En dit zijn de enige waardes van $k$ die ons een $x$ tussen $-\pi$ en $\pi$ geeft. $k = -1$ geeft ons $x = -1 \frac{1}{2} \pi$ en $k = 2$ geeft ons $x = 1 \frac{3}{4} \pi$ en dit ligt allebei niet tussen $-\pi$ en $\pi$.
+
+    Nu kijken we naar de rechter oplossing:
+
+    - $k = -1 \quad \Longrightarrow \quad x = -\frac{7}{8} \pi$
+    - $k = 0 \quad \Longrightarrow \quad x = -\frac{3}{8} \pi$
+    - $k = 1 \quad \Longrightarrow \quad x = \frac{1}{8} \pi$
+    - $k = 2 \quad \Longrightarrow \quad x = \frac{5}{8} \pi$
+
+    Dit zijn alle oplossingen bij de rechter vergelijking op het domein $[-\pi, \pi]$. Want voor $k = -2$ krijgen we $x = -1 \frac{3}{8} \pi$ en voor $k = 3$ krijgen we $x = 1 \frac{1}{8} \pi$.
+    
+    Alle oplossingen op het domein $[-\pi, \pi]$ zijn dus:
 
     !!! quote ""
-        $\Large{x = \frac{1}{8} \pi \ \vee \ x = \frac{5}{8} \pi \ \vee \ x = \frac{3}{4} \pi \ \vee \ x = 1 \frac{1}{8} \pi \ \vee \ x = 1 \frac{5}{8} \pi \ \vee \ x = 1 \frac{3}{4} \pi}$
+        $\large{x = -\dfrac{7}{8} \pi \ \vee \ x = -\dfrac{3}{8} \pi \ \vee \ x = - \dfrac{1}{4} \pi \ \vee \ x = \dfrac{1}{8} \pi \ \vee \ x = \dfrac{3}{4} \pi \ \vee \ x = \dfrac{5}{8} \pi}$
 
 
 ## **De Eenheidscirkel**
-De eenheidscirkel is een manier om de verschillende waardes van $\sin$ en $\cos$ te bepalen bij verschillende hoeken. De eenheidscirkel is een cirkel met een straal van $1$, vandaar dat het de eenheidscirkel wordt genoemt. In het onderstaande filmpje wordt de eenheidscirkel geschetst en wordt er kort een trucje vertelt hoe je de waardes kan achterhalen van $\sin$ en $\cos$ bij verschillende hoeken door alleen maar $3$ hoeken en $3$ bijbehorende waardes te onthouden.
+De eenheidscirkel is eigenlijk gewoon een cirkel met een straal van lengte $1$. En we kunnen het gebruiken om verschillende waardes van sinus en cosinus te bepalen bij verschillende hoeken.
 
 ???+ video
     <video controls>
     <source src="../assets/videos/UnitCircle.mp4" type="video/mp4">
     </video>
 
-    *<p style="text-align: center;">Filmpje: Een schets van de eenheidscirkel met de verschillende cosinus en sinus waardes bij verschillende hoeken. De x-coördinaten zijn de cosinus waardes en de y-coördinaten zijn de sinus waardes.</p>*
-
-Laten we eerst kijken hoe we de eenheidscirkel kunnen gebruiken.
+    *<p style="text-align: center;">Filmpje: Een schets van de eenheidscirkel. Het $x$-coördinaat van een punt op de cirkel is de cosinus van de bijbehorende hoek. Het $y$-coördinaat van dat punt is de sinus van die bijbehorende hoek.</p>*
 
 <figure markdown>
   ![Eenheidscirkel](assets/images/goniometrie/Unit_Circle.svg){ width="1000"}
-    <figcaption>Figuur 4. De eenheidscirkel. De hoeken zijn in het blauw weergegeven. De sinus van de hoek is het $y$-coördinaat, en de cosinus van de hoek is het $x$-coördinaat (zie eventueel de opmerking hieronder voor toelichting).</figcaption>
+    <figcaption>Figuur 9. De eenheidscirkel met de hoeken in het blauw weergegeven.</figcaption>
 </figure>
 
-Stel dus dat we bijvoorbeeld er achter willen komen wat $\sin{(\frac{1}{3} \pi)}$ is. Als we de eenheidscirkel bij de hand hebben, kunnen we daar kijken en dan zien we dat bij een hoek van $\frac{1}{3} \pi$, het coördinaat $\left(\frac{1}{2}, \frac{1}{2} \sqrt{3} \right)$ hoort. We willen de sinus weten en dus moeten we het $y$-coördinaat gebruiken. Onze eindconclusie wordt dan:
+We kunnen dus met de eenheidscirkel kijken wat de cosinus en sinus van een bepaalde hoek zijn. We kijken dan naar het $x$- en $y$-coördinaat van het punt op de cirkel dat hoort bij die hoek. Het $x$-coördinaat bij die hoek is hetzelfde als de cosinus van die hoek. En het $y$-coördinaat bij de hoek is hetzelfde als de sinus van die hoek. Hieronder kunnen zien we waarom dit het geval is.
 
-$$\large{\sin{(\frac{1}{3} \pi)} = \frac{1}{2} \sqrt{3}}.$$
-
-??? note "Opmerking: $x$-coördinaat hoort bij cosinus, $y$-coördinaat hoort bij sinus."
-    Hiervoor wordt er gezegd dat het $x$-coördinaat bij de cosinus hoort en dat het $y$-coördinaat bij de sinus hoort. Maar hoezo is dit het geval? Dat wordt hieronder laten zien. 
+??? abstract "Bewijs"
+    We hebben hieronder de eenheidscirkel getekend met een willekeurige hoek $\theta$. Bij deze hoek hebben we een driehoek getekent met de straal als schuine zijde. Deze zijde heeft een lengte $1$, want de straal van een eenheidscirkel is altijd $1$.
 
     <figure markdown>
       ![Eenheidscirkel met driehoek](assets/images/goniometrie/Unit_Circle_triangle.svg){ width="300"}
-      <figcaption>Figuur 5. Eenheidscirkel met daarin een driehoek getekent met een bepaalde hoek θ.</figcaption>
     </figure>
+    *<p style="text-align: center; font-size: 14px;">Figuur 10. De eenheidscirkel met daarin een driehoek getekent met een bepaalde hoek $\theta$. $x$ en $y$ zijn het $x$- en $y$-coördinaat van het punt.</p>* <br>
 
-    In Figuur 6 is er een driehoek getekent bij de hoek $\theta$. Hier is zijde $b$ onze overstaande zijde en zijde $a$ onze aanliggende zijde. Merk op dat lengte $a$ het $x$-coördinaat is van ons punt dat op de eenheidscirkel ligt, en lengte $b$ het $y$-coördinaat. We weten ook dat volgens onze [Goniometrische Regels](#regels-goniometrische-functies) dat er geldt dat:
+    Zijde $b$ is hier de overstaande zijde en zijde $a$ is de aanliggende zijde (zie eventueel de opmerking bij [goniometrische functies](#goniometrische-functies)). Bij de [goniometrische functies](#goniometrische-functies) hebben de volgende verbanden gezien:
 
-    $$\large{\sin{(\theta)} = \frac{\mathrm{Overstaand}}{\mathrm{Schuin}},}$$
+    $$\large{\sin(\theta) = \frac{\mathrm{Overstaand}}{\mathrm{Schuin}}}$$
 
-    $$\large{\cos{(\theta)} = \frac{\mathrm{Aanliggend}}{\mathrm{Schuin}},}$$
+    $$\large{\cos(\theta) = \frac{\mathrm{Aanliggend}}{\mathrm{Schuin}}}$$
 
-    en dus in dit geval:
+    We hebben net gezien dat onze schuine zijde een lengte $1$ heeft. Als we dit invullen, dan delen we door $1$ en houden we dus alleen de teller over:
 
-    $$\large{\sin{(\theta)} = \frac{b}{c},}$$
+    $$\large{\sin(\theta) = \mathrm{Overstaand}}$$
 
-    $$\large{\cos{(\theta)} = \frac{a}{c}.}$$
+    $$\large{\cos(\theta) = \mathrm{Aanliggend}}$$
 
-    Maar doordat dit een eenheidscirkel is, betekent het dat de cirkel een straal van $1$ heeft, en dus dat $c = 1$. Onze $\sin$ en $\cos$ wordt dan:
+    We hebben net ook gezien dat zijde $b$ onze overstaande zijde is en zijde $a$ de aanliggende. Dit kunnen we dus gaan invullen:
 
-    $$\large{\sin{(\theta)} = b,}$$
+    $$\large{\sin{(\theta)} = b}$$
 
-    $$\large{\cos{(\theta)} = a.}$$
+    $$\large{\cos{(\theta)} = a}$$
 
-    En omdat we net zeiden dat lengte $a$ ons $x$-coördinaat is en lengte $b$ ons $y$-coördinaat, kunnen we zeggen dat:
+    Maar de lengte van $a$ is precies hetzelfde als het $x$-coördinaat van het punt. Want de zijde begint bij de oorsprong en eindigt bij $x$. En dus als we bij $0$ beginnen en een afstand $a$ afleggen om bij $x$ te komen, dan moet $x$ gelijk zijn aan de lengte $a$.
+    
+    We kunnen hetzelfde argument gebruiken voor $b$. We beginnen bij $y=0$ en gaan dan tot het $y$-coördinaat van het punt. Als we een afstand $b$ af moeten leggen om daar te komen, dan is het $y$ hetzelfde als de lengte $b$. 
+    
+    Als we dit invullen in de sinus en cosinus formules die we net gevonden hebben, dan krijgen we dus: 
 
     !!! quote ""
-        $$\large{\sin{(\theta)} = x\mathrm{-coordinaat}}$$
+        $$\large{\sin(\theta) = x\textrm{-coordinaat}}$$
 
-        $$\large{\cos{(\theta)} = y\mathrm{-coordinaat}}$$
+        $$\large{\cos(\theta) = y\textrm{-coordinaat}}$$
 
+<br>
+Stel dus dat we er bijvoorbeeld achter willen komen wat $\sin(\frac{1}{3} \pi)$ is. We kunnen dan op de eenheidscirkel zoeken naar de hoek $\frac{1}{3} \pi$. We willen de sinus weten van deze hoek, dus moeten we kijken naar het $y$-coordinaat van het punt bij deze hoek. In Figuur 9 kunnen we aflezen dat dit $\frac{\sqrt{3}}{2}$ is. Er geldt dus dat:
 
-Maar we hebben niet altijd de eenheidscirkel bij de hand en is het dus handig om de eenheidscirkel te onthouden. Om niet alles te hoeven onthouden, kan het volgende trucje handig zijn.
+$$\large{\sin(\frac{1}{3} \pi) = \frac{\sqrt{3}}{2}}$$
 
+Als we $\cos(\frac{1}{3} \pi)$ wilden weten, dan moeten we naar het $x$-coördinaat van dat punt kijken. We zien dat dit $\frac{1}{2}$ is, dus er geldt dat:
 
-### **Trucje om de Eenheidscirkel te Onthouden**
-We onthouden de volgende waardes en hoeken en de volgorde van klein naar groot:
+$$\large{\cos(\frac{1}{3} \pi) = \frac{1}{2}}$$
+
+Maar we hebben niet altijd de eenheidscirkel bij de hand, bijvoorbeeld bij toetsen niet. Dus is het handig om de eenheidscirkel te onthouden. Maar dit kan wel een beetje een gedoe zijn. Dus om niet alles te hoeven onthouden, kan het volgende trucje handig zijn.
+
+### **Trucje voor het Onthouden**
+Met deze methode hoef je alleen de vorm van de eenheidscirkel te onthouden een $3$ hoeken en $3$ waardes. Met de vorm van de cirkel bedoelen we dat bij $\theta = 0$ we rechts op de cirkel zitten. En met elke $\frac{1}{2} \pi$ (dus $90 ^{\circ}$) gaan we een kwart rondje tegen de klok in.
+
+Als je dit onthoudt, samen met de volgende hoeken en waardes kun je de hele eenheidscirkel zelf opstellen.
 
 ???+ Belangrijk
+    **<p style="font-size: 18px;">Om te onthouden<p>**
+
     Hoeken:
 
     $$\large{\frac{1}{6} \pi < \frac{1}{4} \pi <\frac{1}{3} \pi}$$
@@ -629,11 +816,15 @@ We onthouden de volgende waardes en hoeken en de volgorde van klein naar groot:
 
     $$\large{\frac{1}{2} < \frac{1}{2} \sqrt{2} < \frac{1}{2} \sqrt{3}}$$
 
-Nu kunnen we bepalen wat de waardes zijn door steeds bij elk kwart van de cirkel te kijken naar de voortgang van het begin punt van de kwart cirkel en het eindpunt. Dus hoe groter de hoek, hoe meer voortgang. Laten we weer kijken naar $\sin{(\frac{1}{3} \pi)}$.
+Hiermee kunnen we zelf verzinnen wanneer we welke waarde moeten gebruiken. Laten we weer kijken naar $\sin(\frac{1}{3} \pi)$.
+
+Als eerst kijken we naar de hoek die we hebben. Dit is $\frac{1}{3} \pi$, dus dit betekent dat we in het eerste kwart van de eenheidscirkel zitten. $\frac{1}{3} \pi$ is namelijk kleiner dan $\frac{1}{2} \pi$ waar we helemaal bovenaan de cirkel zitten. We weten ook dat $\frac{1}{3} \pi$ de grootste hoek is van de $3$ hoeken. Dit betekent dat het punt dat bij deze hoek hoort het dichtsbij het eindpunt van het kwart is. 
 
 We hebben de hoek $\theta = \frac{1}{3} \pi$ en dit is de grootste hoek uit de lijst van de $3$ hoeken. Dit betekent dus er de meeste voortgang is gemaakt van het begin punt naar het eindpunt. In dit geval is het begin punt van de kwart cirkel $(1, 0)$ en het eindpunt $(0, 1)$. Omdat er de meeste voortgang is gemaakt, moeten de waardes het dichtst bij het eindpunt zitten. Dit betekent dus dat het $x$-coördinaat de kleinste waarde is tussen $1$ en $0$, en het $y$-coördinaat de grootste waarde tussen $0$ en $1$ is. We nemen de sinus en we zijn dus alleen geïntereseerd in het $y$-coördinaat. De grootste waarde tussen $0$ en $1$ uit de lijst van de $3$ waardes is $\frac{1}{2} \sqrt{3}$ en dus kunnen we zeggen dat:
 
 $$\large{\sin{(\frac{1}{3} \pi)} = \frac{1}{2} \sqrt{3}}.$$
+
+We kijken dan eerst in welk kwartcirkel we zitten en wat het begin- en eindpunt daarvan is. Door te kijken naar de hoek, kunnen we bepalen of we dichtbij het beginpunt zitten en ver van het eindpunt, of juist andersom. Dus hoeveel voortgang er gemaakt is vanaf het beginpunt. Hiermee kunnen we zelf verzinnen of het een grote $x$-waarde en een kleine $y$-waarde moet zijn,
 
 ??? note "Opmerking"
     Als de hoek groter is dan $\theta = \frac{1}{2} \pi$, en dus niet in het eerste kwadrant zit, moet je eerst de hoek van het begin punt aftrekken van de hoek die je wilt berekenen. Stel we hebben bijvoorbeeld de hoek $\theta = \frac{5}{6} \pi$, dan doen we dat eerst min de hoek van het begin punt, en dat is in dit geval $\frac{1}{2} \pi$, omdat dit in het tweede kwadrant zit (het kwart links boven van de cirkel). We krijgen dan $\theta = \frac{1}{3} \pi$ en dan zien we dat het dus de meeste voortgang is tussen het begin punt en het eind punt.

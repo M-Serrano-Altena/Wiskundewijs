@@ -1,0 +1,11 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/Marc_/Documents/GitHub/Wiskundewijs/src/Goniometrie/media/videos/goniometrie/1080p60/partial_movie_files/CosToSin/3529212410_3436245579_223132457.mp4'
+file 'file:C:/Users/Marc_/Documents/GitHub/Wiskundewijs/src/Goniometrie/media/videos/goniometrie/1080p60/partial_movie_files/CosToSin/3040924799_4095427912_2795443750.mp4'
+file 'file:C:/Users/Marc_/Documents/GitHub/Wiskundewijs/src/Goniometrie/media/videos/goniometrie/1080p60/partial_movie_files/CosToSin/3040924799_1367902683_3293420948.mp4'
+file 'file:C:/Users/Marc_/Documents/GitHub/Wiskundewijs/src/Goniometrie/media/videos/goniometrie/1080p60/partial_movie_files/CosToSin/3040924799_44207059_1657611534.mp4'
+file 'file:C:/Users/Marc_/Documents/GitHub/Wiskundewijs/src/Goniometrie/media/videos/goniometrie/1080p60/partial_movie_files/CosToSin/3040924799_3026496453_825598850.mp4'
+file 'file:C:/Users/Marc_/Documents/GitHub/Wiskundewijs/src/Goniometrie/media/videos/goniometrie/1080p60/partial_movie_files/CosToSin/3040924799_3739267868_2812180643.mp4'
+file 'file:C:/Users/Marc_/Documents/GitHub/Wiskundewijs/src/Goniometrie/media/videos/goniometrie/1080p60/partial_movie_files/CosToSin/3040924799_1141282389_2081153459.mp4'
+file 'file:C:/Users/Marc_/Documents/GitHub/Wiskundewijs/src/Goniometrie/media/videos/goniometrie/1080p60/partial_movie_files/CosToSin/3040924799_2375448899_1062119240.mp4'
+file 'file:C:/Users/Marc_/Documents/GitHub/Wiskundewijs/src/Goniometrie/media/videos/goniometrie/1080p60/partial_movie_files/CosToSin/3040924799_2447641883_226773693.mp4'
+file 'file:C:/Users/Marc_/Documents/GitHub/Wiskundewijs/src/Goniometrie/media/videos/goniometrie/1080p60/partial_movie_files/CosToSin/3040924799_1141282389_3525023245.mp4'

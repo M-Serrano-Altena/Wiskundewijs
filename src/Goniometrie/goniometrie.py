@@ -54,7 +54,6 @@ class Sin(Scene):
         self.wait(3)
 
 
-
 class Cos(Scene):
     def construct(self):
         plane = NumberPlane(
@@ -118,6 +117,101 @@ class Cos(Scene):
         # self.play(Transform(cos_label, cos_minus_label))
         # self.wait(3)
 
+
+class SinToCos(Scene):
+    def construct(self):
+        plane = NumberPlane(
+            x_range=[-2*sp.pi, 2*sp.pi, sp.pi/2], x_length=13, y_range=[-1.25, 1.25, 0.5], y_length=6, background_line_style={"stroke_color": DARK_BLUE}
+        ).add_coordinates()
+
+        labels = plane.get_axis_labels(x_label="x", y_label="y")
+        plane.get_coordinate_labels().set_color(WHITE)
+
+        sin = plane.plot(lambda x: sp.sin(x), x_range=[-4*sp.pi - 0.4, 4*sp.pi + 0.4 ], color=GREEN).set_z_index(1)
+        cos = plane.plot(lambda x: sp.cos(x), x_range=[-4*sp.pi - 0.4, 4*sp.pi + 0.4 ], color=RED).set_z_index(0)
+        sin_label = (
+            MathTex("f(x) = \sin(x)")
+            .scale(0.6)
+            .to_corner(UR, buff=0.5)
+            .shift(0.60*LEFT)
+            .set_color(GREEN)
+        )
+        cos_label = (
+            MathTex("f(x) = \cos(x)")
+            .scale(0.6)
+            .to_corner(UR, buff=0.5)
+            .shift(0.60*LEFT + 0.5*DOWN)
+            .set_color(RED)
+        )
+
+        sin_shifted = plane.plot(lambda x: sp.sin(x + sp.pi/2), x_range=[-4.5*sp.pi - 0.4, 3.5*sp.pi + 0.4], color=BLUE)
+
+        sin_shifted_label = (
+            MathTex("f(x) = \sin(x + \\frac{1}{2} \pi)")
+            .scale(0.6)
+            .to_corner(UR, buff=0.5)
+            .shift(0.19*RIGHT + 0.2*UP)
+            .set_color(BLUE)
+        )
+
+        self.play(DrawBorderThenFill(plane), run_time=2)
+        self.play(Write(labels))
+        self.play(Create(sin), run_time=3)
+        self.play(Write(sin_label))
+        self.play(Create(cos), run_time=3)
+        self.play(Write(cos_label))
+        self.wait(2)
+        self.play(Transform(sin, sin_shifted), run_time = 3)
+        self.play(Transform(sin_label, sin_shifted_label))
+        self.wait(2)
+
+
+class CosToSin(Scene):
+    def construct(self):
+        plane = NumberPlane(
+            x_range=[-2*sp.pi, 2*sp.pi, sp.pi/2], x_length=13, y_range=[-1.25, 1.25, 0.5], y_length=6, background_line_style={"stroke_color": DARK_BLUE}
+        ).add_coordinates()
+
+        labels = plane.get_axis_labels(x_label="x", y_label="y")
+        plane.get_coordinate_labels().set_color(WHITE)
+
+        sin = plane.plot(lambda x: sp.sin(x), x_range=[-4*sp.pi - 0.4, 4*sp.pi + 0.4 ], color=GREEN).set_z_index(0)
+        cos = plane.plot(lambda x: sp.cos(x), x_range=[-4*sp.pi - 0.4, 4*sp.pi + 0.4 ], color=RED).set_z_index(1)
+        sin_label = (
+            MathTex("f(x) = \sin(x)")
+            .scale(0.6)
+            .to_corner(UR, buff=0.5)
+            .shift(0.60*LEFT + 0.5*DOWN)
+            .set_color(GREEN)
+        )
+        cos_label = (
+            MathTex("f(x) = \cos(x)")
+            .scale(0.6)
+            .to_corner(UR, buff=0.5)
+            .shift(0.60*LEFT)
+            .set_color(RED)
+        )
+
+        cos_shifted = plane.plot(lambda x: sp.cos(x - sp.pi/2), x_range=[-3.5*sp.pi - 0.4, 4.5*sp.pi + 0.4], color=BLUE)
+
+        cos_shifted_label = (
+            MathTex("f(x) = \cos(x - \\frac{1}{2} \pi)")
+            .scale(0.6)
+            .to_corner(UR, buff=0.5)
+            .shift(0.19*RIGHT + 0.2*UP)
+            .set_color(BLUE)
+        )
+
+        self.play(DrawBorderThenFill(plane), run_time=2)
+        self.play(Write(labels))
+        self.play(Create(cos), run_time=3)
+        self.play(Write(cos_label))
+        self.play(Create(sin), run_time=3)
+        self.play(Write(sin_label))
+        self.wait(2)
+        self.play(Transform(cos, cos_shifted), run_time = 3)
+        self.play(Transform(cos_label, cos_shifted_label))
+        self.wait(2)
 
 
 def draw_func(func, title, x_range=(-10,10), y_range=(-10,10), x_intersect=False, no_ax=False, intersect_line=True, svg=True, dx = None, dy = None, large=False):

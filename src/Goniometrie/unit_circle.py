@@ -9,16 +9,18 @@ class UnitCircle(Scene):
             circle_scale_factor = 1
 
             theta = ValueTracker(0.001)
-            radius = 3
+            radius = 3.3
 
             plane = NumberPlane(x_range=[-1, 1, 1], x_length=2*radius, y_range=[-1, 1, 1], y_length=2*radius).add_coordinates()
             x_label = plane.get_x_axis_label(label='x')
-            y_label = plane.get_y_axis_label(label='y').shift(radius/4 * 0.5*UP + radius/4 * 0.5*LEFT)
+            y_label = plane.get_y_axis_label(label='y').shift(radius/4 * 0.2*UP + radius/4 * 0.5*LEFT)
 
             labels = VGroup(x_label, y_label)
 
+            BLUE = '#00CED1'
+            GREEN ='#00FF7F'
 
-            circle = Circle(radius=radius, color=WHITE)
+            circle = Circle(radius=radius, color=BLUE)
 
 
             def set_points(radius, theta, circle_center):
@@ -34,7 +36,7 @@ class UnitCircle(Scene):
                 point_1, point_2, point_3 = set_points(radius=radius, theta=theta, circle_center=circle_center)
 
                 if theta < 2 * np.pi:
-                    triangle = Polygon(point_1, point_2, point_3).set_color(BLUE)
+                    triangle = Polygon(point_1, point_2, point_3).set_color(GREEN)
 
                 else:
                     triangle = Dot(fill_opacity=0)
@@ -70,15 +72,16 @@ class UnitCircle(Scene):
             theta_symbol = always_redraw(draw_theta_symbol)
 
             def draw_line(radius, theta):
-                line = Line(start=[0, 0, 0], end=[radius * np.cos(theta), radius * np.sin(theta), 0]).set_color(GREEN)
+                line = Line(start=[0, 0, 0], end=[radius * np.cos(theta), radius * np.sin(theta), 0]).set_color(BLUE)
+                dot = Dot(radius=0.06).move_to(line.get_end()).set_color(GREEN).set_z_index(10)
                 integer, remainder = divmod(sp.nsimplify(theta/np.pi), 1)
                 remainder = sp.nsimplify(remainder)
                 angle_split1, angle_split2 = str(sp.nsimplify(remainder)).split('/')
 
                 if integer == 0:
-                    angle_text = MathTex(f"\\theta = \\frac{{{angle_split1}}}{{{angle_split2}}} \\pi").move_to(line.get_end()).shift([circle_scale_factor * 0.75 * np.cos(theta), circle_scale_factor * 0.75 * np.sin(theta), 0]).set_color(GREEN).scale(0.75 * radius/4)
+                    angle_text = MathTex(f"\\theta = \\frac{{{angle_split1}}}{{{angle_split2}}} \\pi").move_to(line.get_end()).shift([circle_scale_factor * 0.75 * np.cos(theta), circle_scale_factor * 0.75 * np.sin(theta), 0]).set_color(BLUE).scale(0.75 * radius/4)
                 else:
-                    angle_text = MathTex(f"\\theta = {integer} \\frac{{{angle_split1}}}{{{angle_split2}}} \\pi").move_to(line.get_end()).shift([circle_scale_factor * 0.75 * np.cos(theta), circle_scale_factor * 0.75 * np.sin(theta), 0]).set_color(GREEN).scale(0.75 * radius/4)
+                    angle_text = MathTex(f"\\theta = {integer} \\frac{{{angle_split1}}}{{{angle_split2}}} \\pi").move_to(line.get_end()).shift([circle_scale_factor * 0.75 * np.cos(theta), circle_scale_factor * 0.75 * np.sin(theta), 0]).set_color(BLUE).scale(0.75 * radius/4)
                
                 x_pos_split1, x_pos_split2 = str(sp.nsimplify(np.cos(theta))).split('/')
                 y_pos_split1, y_pos_split2 = str(sp.nsimplify(np.sin(theta))).split('/')
@@ -111,7 +114,7 @@ class UnitCircle(Scene):
                 x_line = Line(start=[radius * np.cos(theta), -0.1, 0], end=[radius * np.cos(theta), 0.1, 0]).set_color(WHITE)
                 y_line = Line(start=[-0.1, radius * np.sin(theta), 0], end=[0.1, radius * np.sin(theta), 0]).set_color(WHITE)
 
-                whole_line = VGroup(line, angle_text, x_line, x_pos_text, y_line, y_pos_text)
+                whole_line = VGroup(line, dot, angle_text, x_line, x_pos_text, y_line, y_pos_text)
                 self.play(Create(whole_line), run_time=1)
 
                 return whole_line
@@ -167,9 +170,9 @@ class UnitCircle(Scene):
             line4_3 = draw_line(radius=radius, theta=theta.get_value())
 
             self.play(theta.animate.set_value(2 * np.pi + 0.001), run_time=1)
-            self.wait()
+            self.wait(3)
 
-
+            return 
             whole_unit_circle = VGroup(plane, labels, geometry, line1_1, line1_2, line1_3, line2_1, line2_2, line2_3, line3_1, line3_2, line3_3, line4_1, line4_2, line4_3)
             circle_scale_factor=0.6
             self.play(whole_unit_circle.animate.scale(circle_scale_factor).to_edge(DR))
@@ -220,6 +223,7 @@ def draw_unit_circle():
 
     for theta in angles:
         plt.plot([0, sp.cos(theta)], [0, sp.sin(theta)], 'darkturquoise')
+        plt.scatter(sp.cos(theta), sp.sin(theta), color='springgreen', zorder=10, s=10)
 
         integer, remainder = divmod(sp.nsimplify(theta/sp.pi), 1)
         remainder = sp.nsimplify(remainder)
