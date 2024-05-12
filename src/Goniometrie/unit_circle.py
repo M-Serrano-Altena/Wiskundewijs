@@ -2,6 +2,7 @@ from manim import *
 import numpy as np
 import sympy as sp
 import matplotlib.pyplot as plt
+from matplotlib.patches import Arc
 
 class UnitCircle(Scene):
     def construct(self):
@@ -281,5 +282,125 @@ def draw_unit_circle():
     plt.savefig("Unit_Circle.svg")
     plt.show()
     
-
 # draw_unit_circle()
+
+def draw_unit_circle_triangle(part_circle_angle, start_angle=0,  file_name="Unit_Circle_Triangle", save=True):
+    fig = plt.figure()
+
+    ax = fig.add_subplot(111)
+
+    ax.set_xlabel('X-as')
+    ax.set_ylabel('Y-as')
+
+    ax.spines['bottom'].set_color('#D3D3D3')
+    ax.spines['top'].set_color('#D3D3D3')
+    ax.spines['left'].set_color('#D3D3D3')
+    ax.spines['right'].set_color('#D3D3D3')
+    ax.xaxis.label.set_color('#D3D3D3')
+    ax.yaxis.label.set_color('#D3D3D3')
+    ax.tick_params(axis='both', colors='#D3D3D3')
+    ax.set_facecolor("#FF0000")
+    
+
+    # ax.set_title("De Eenheidscirkel", loc='center', color='#D3D3D3')
+
+    circ = plt.Circle((0, 0), radius=1, edgecolor='white', facecolor='None')
+    ax.add_patch(circ)
+    ax.set_aspect('equal')
+
+    plt.xlim(-1.2,1.2)
+    plt.ylim(-1.2,1.2) 
+
+    plt.vlines(x=0, ymin=-1.1, ymax=1.1, colors='#D3D3D3')
+    plt.hlines(y=0, xmin=-1.1, xmax=1.1, colors='#D3D3D3')
+
+    tot_angle = start_angle + part_circle_angle
+    buff = 0.05
+
+    if start_angle == 0 or start_angle == 1/2 * np.pi:
+        y_buff = buff
+
+        x_part_circle = np.linspace(1, np.cos(tot_angle), 100)
+        y_part_circle = np.sqrt(1 - np.power(x_part_circle, 2))
+        plt.plot(x_part_circle, y_part_circle, 'darkturquoise')
+        plt.scatter([1, np.cos(tot_angle)], [0, np.sin(tot_angle)], c='darkturquoise', zorder=9)
+
+    else:
+        y_buff = -buff
+
+        x_part_circle1 = np.linspace(1, -1, 100)
+        y_part_circle1 = np.sqrt(1 - np.power(x_part_circle1, 2))
+        plt.plot(x_part_circle1, y_part_circle1, 'darkturquoise')
+
+        x_part_circle2 = np.linspace(-1, np.cos(tot_angle), 100)
+        y_part_circle2 = -np.sqrt(1 - np.power(x_part_circle2, 2))
+        plt.plot(x_part_circle2, y_part_circle2, 'darkturquoise')
+
+        plt.scatter([1, np.cos(tot_angle)], [0, np.sin(tot_angle)], c='darkturquoise', zorder=9)
+
+    if start_angle == 0 or start_angle == 3/2 * np.pi:
+        x_buff = buff
+    else:
+        x_buff = -buff
+
+    angles = [1/6 * np.pi, 1/4 * np.pi, 1/3 * np.pi]
+    angles = [angle + start_angle for angle in angles]
+    plt.scatter(np.cos(angles), np.sin(angles), c='springgreen', zorder=10)
+    plt.hlines(y=np.sin(angles), xmin=-buff, xmax=buff, color="#D3D3D3")
+    plt.vlines(x=np.cos(angles), ymin=-buff, ymax=buff, color="#D3D3D3")
+
+    for theta in angles:
+        if start_angle == 0:
+            plt.text(np.cos(theta) - 0.03, -0.2, f"${sp.latex(sp.nsimplify(np.cos(theta)))}$", color="white", weight="bold")
+            plt.text(-0.18, np.sin(theta) - 0.01, f"${sp.latex(sp.nsimplify(np.sin(theta)))}$", color="white", weight="bold")
+
+        if start_angle == 1/2 * np.pi:
+            plt.text(np.cos(theta) - 0.1, -0.2, f"${sp.latex(sp.nsimplify(np.cos(theta)))}$", color="white", weight="bold")
+            plt.text(0.08, np.sin(theta) - 0.03, f"${sp.latex(sp.nsimplify(np.sin(theta)))}$", color="white", weight="bold")
+        
+        if start_angle == np.pi:
+            plt.text(np.cos(theta) - 0.08, 0.13, f"${sp.latex(sp.nsimplify(np.cos(theta)))}$", color="white", weight="bold")
+            plt.text(0.08, np.sin(theta) - 0.03, f"${sp.latex(sp.nsimplify(np.sin(theta)))}$", color="white", weight="bold")
+        
+        if start_angle == 3/2 * np.pi:
+            plt.text(np.cos(theta) - 0.03, 0.13, f"${sp.latex(sp.nsimplify(np.cos(theta)))}$", color="white", weight="bold")
+            plt.text(-0.25, np.sin(theta) - 0.03, f"${sp.latex(sp.nsimplify(np.sin(theta)))}$", color="white", weight="bold")
+
+
+
+    plt.plot([0, np.cos(tot_angle)], [0, np.sin(tot_angle)], 'darkturquoise')
+    plt.hlines(y=np.sin(tot_angle), xmin=x_buff, xmax=np.cos(tot_angle), colors='springgreen', linestyles='dashed')
+    plt.vlines(x=np.cos(tot_angle), ymin=y_buff, ymax=np.sin(tot_angle), colors='springgreen', linestyles='dashed')
+
+    if start_angle == 0:
+        theta_xloc= 0.05
+        theta_yloc= 0.05
+    elif start_angle == 1/2 * np.pi:
+        theta_xloc= -0.3
+        theta_yloc= 0.1
+    elif start_angle == np.pi:
+        theta_xloc= -0.3
+        theta_yloc= -0.18
+    elif start_angle == 3/2 * np.pi:
+        theta_xloc= -0.05
+        theta_yloc= -0.20
+
+    plt.text(np.cos(tot_angle) + theta_xloc, np.sin(tot_angle) + theta_yloc, f"$\\theta = {sp.latex(sp.nsimplify(tot_angle, [sp.pi])/sp.pi)} \pi$", color="darkturquoise", fontsize=13)
+
+    r_arc = 0.25
+    arc = Arc((0, 0), r_arc * 2, r_arc * 2, angle=0, theta1=0, theta2=np.degrees(tot_angle), color='darkturquoise', zorder=10)
+
+    ax.add_patch(arc)
+    plt.text(0.22, 0.15, f"$\\theta$", color="darkturquoise", fontsize=15)
+
+    if save:
+        plt.savefig(f"{file_name}.svg")
+
+    plt.show()
+    
+
+draw_unit_circle_triangle(part_circle_angle=1/3 * np.pi, start_angle=0, file_name="Unit_Circle_Triangle_1_3_Pi")
+draw_unit_circle_triangle(part_circle_angle=1/3 * np.pi, start_angle=1/2 * np.pi, file_name="Unit_Circle_Triangle_5_6_Pi")
+draw_unit_circle_triangle(part_circle_angle=1/4 * np.pi, start_angle=1/2 * np.pi, file_name="Unit_Circle_Triangle_3_4_Pi")
+draw_unit_circle_triangle(part_circle_angle=1/6 * np.pi, start_angle=np.pi, file_name="Unit_Circle_Triangle_1_1_6_Pi")
+draw_unit_circle_triangle(part_circle_angle=1/6 * np.pi, start_angle=3/2 * np.pi, file_name="Unit_Circle_Triangle_1_2_3_Pi")

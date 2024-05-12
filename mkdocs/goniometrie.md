@@ -801,197 +801,278 @@ $$\large{\cos(\frac{1}{3} \pi) = \frac{1}{2}}$$
 Maar we hebben niet altijd de eenheidscirkel bij de hand, bijvoorbeeld bij toetsen niet. Dus is het handig om de eenheidscirkel te onthouden. Maar dit kan wel een beetje een gedoe zijn. Dus om niet alles te hoeven onthouden, kan het volgende trucje handig zijn.
 
 ### **Trucje voor het Onthouden**
-Met deze methode hoef je alleen de vorm van de eenheidscirkel te onthouden een $3$ hoeken en $3$ waardes. Met de vorm van de cirkel bedoelen we dat bij $\theta = 0$ we rechts op de cirkel zitten. En met elke $\frac{1}{2} \pi$ (dus $90 ^{\circ}$) gaan we een kwart rondje tegen de klok in.
+Met deze methode hoef je alleen de vorm van de eenheidscirkel te onthouden en $3$ hoeken en $3$ waardes. Met de vorm van de cirkel bedoelen we dat bij $\theta = 0$ we rechts op de cirkel zitten. En met elke $\frac{1}{2} \pi$ (dus $90 ^{\circ}$) gaan we een kwart rondje tegen de klok in.
 
 Als je dit onthoudt, samen met de volgende hoeken en waardes kun je de hele eenheidscirkel zelf opstellen.
 
 ???+ Belangrijk
-    **<p style="font-size: 18px;">Om te onthouden<p>**
+    #### **<p style="font-size: 18px;">Om te onthouden<p>**
 
     Hoeken:
 
-    $$\large{\frac{1}{6} \pi < \frac{1}{4} \pi <\frac{1}{3} \pi}$$
+    $$\Large{\boxed{\frac{1}{6} \pi < \frac{1}{4} \pi <\frac{1}{3} \pi}}$$
 
     Waardes:
 
-    $$\large{\frac{1}{2} < \frac{1}{2} \sqrt{2} < \frac{1}{2} \sqrt{3}}$$
+    $$\Large{\boxed{\frac{1}{2} < \frac{1}{2} \sqrt{2} < \frac{1}{2} \sqrt{3}}}$$
 
-Hiermee kunnen we zelf verzinnen wanneer we welke waarde moeten gebruiken. Laten we weer kijken naar $\sin(\frac{1}{3} \pi)$.
+Om te kijken hoe we dit moeten toepassen, kijken we weer naar $\sin(\frac{1}{3} \pi)$.
 
-Als eerst kijken we naar de hoek die we hebben. Dit is $\frac{1}{3} \pi$, dus dit betekent dat we in het eerste kwart van de eenheidscirkel zitten. $\frac{1}{3} \pi$ is namelijk kleiner dan $\frac{1}{2} \pi$ waar we helemaal bovenaan de cirkel zitten. We weten ook dat $\frac{1}{3} \pi$ de grootste hoek is van de $3$ hoeken. Dit betekent dat het punt dat bij deze hoek hoort het dichtsbij het eindpunt van het kwart is. 
+We delen de eenheidscirkel op in $4$ kwartjes. We beginnen bij het kwart rechtsboven en dan tellen we tegen de klok in verder. Elk kwart cirkel heeft zijn eigen start- en eindhoek. Bij het eerste kwart is dit een starthoek van $0$ en een eindhoek van $\frac{1}{2} \pi$, bij het tweede kwart een starthoek van $\frac{1}{2} \pi$ en een eindhoek van $\pi$, enzovoort. 
 
-We hebben de hoek $\theta = \frac{1}{3} \pi$ en dit is de grootste hoek uit de lijst van de $3$ hoeken. Dit betekent dus er de meeste voortgang is gemaakt van het begin punt naar het eindpunt. In dit geval is het begin punt van de kwart cirkel $(1, 0)$ en het eindpunt $(0, 1)$. Omdat er de meeste voortgang is gemaakt, moeten de waardes het dichtst bij het eindpunt zitten. Dit betekent dus dat het $x$-coördinaat de kleinste waarde is tussen $1$ en $0$, en het $y$-coördinaat de grootste waarde tussen $0$ en $1$ is. We nemen de sinus en we zijn dus alleen geïntereseerd in het $y$-coördinaat. De grootste waarde tussen $0$ en $1$ uit de lijst van de $3$ waardes is $\frac{1}{2} \sqrt{3}$ en dus kunnen we zeggen dat:
+We hebben de hoek $\frac{1}{3} \pi$ en dit is tussen $0$ en $\frac{1}{2} \pi$. We zitten dus in het eerste kwart van de cirkel, dus het kwart rechtsboven. Als we dat weten, dan kijken we naar de voortgang om van het begin- naar het eindpunt te gaan. Hoe groter de hoek, hoe meer voortgang. Dus $\frac{1}{3} \pi$ is de grootste hoek van [de $3$ hoeken](#om-te-onthouden), dus we hebben de meeste voortgang gemaakt tussen het begin- en eindpunt. 
 
-$$\large{\sin{(\frac{1}{3} \pi)} = \frac{1}{2} \sqrt{3}}.$$
+Het beginpunt is bij $(1,0)$ en het eindpunt is bij $(0,1)$. We nemen de sinus, dus we zijn alleen geïnteresseerd in het $y$-coördinaat. En we moeten dus kijken welke van [de $3$ waardes](#om-te-onthouden) ons de meeste voortgang geeft om van $y=0$ naar $y=1$ te gaan. De meeste voortgang hier is dus de waarde $y = \frac{1}{2}\sqrt{3}$. Dit is namelijk de grootste waarde tussen $0$ en $1$ van [de $3$ waardes](#om-te-onthouden). Onze sinus wordt dan dus:
 
-We kijken dan eerst in welk kwartcirkel we zitten en wat het begin- en eindpunt daarvan is. Door te kijken naar de hoek, kunnen we bepalen of we dichtbij het beginpunt zitten en ver van het eindpunt, of juist andersom. Dus hoeveel voortgang er gemaakt is vanaf het beginpunt. Hiermee kunnen we zelf verzinnen of het een grote $x$-waarde en een kleine $y$-waarde moet zijn,
+$$\sin(\frac{1}{3} \pi) = \frac{1}{2}\sqrt{3}$$
 
-??? note "Opmerking"
-    Als de hoek groter is dan $\theta = \frac{1}{2} \pi$, en dus niet in het eerste kwadrant zit, moet je eerst de hoek van het begin punt aftrekken van de hoek die je wilt berekenen. Stel we hebben bijvoorbeeld de hoek $\theta = \frac{5}{6} \pi$, dan doen we dat eerst min de hoek van het begin punt, en dat is in dit geval $\frac{1}{2} \pi$, omdat dit in het tweede kwadrant zit (het kwart links boven van de cirkel). We krijgen dan $\theta = \frac{1}{3} \pi$ en dan zien we dat het dus de meeste voortgang is tussen het begin punt en het eind punt.
+En die $y$-waarde zien we ook als we de eenheidscirkel tekenen.
 
-Als dit nog niet helemaal duidelijk was, staan hieronder nog een paar andere voorbeelden.
+<figure markdown>
+![Eenheidscirkel met driehoek](assets/images/goniometrie/Unit_Circle_Triangle_1_3_Pi.svg){ width="650"}
+</figure>
 
-??? example "Voorbeeld 1: $\cos{(\frac{3}{4} \pi)}$"
-    **<p style="text-align: center;font-size:20px;">Bereken cos(3/4 π)</p>**
+Laten we nu kijken naar een voorbeeld waar we niet in het eerste kwart van de cirkel zitten. Dus stel we willen bepalen wat $\cos(\frac{5}{6} \pi)$ is. Hoe pakken we dit dan aan?
+
+We hebben dus de hoek $\theta = \frac{5}{6} \pi$ en deze hoek zit tussen de starthoek $\frac{1}{2} \pi$ en de eindhoek $\pi$. Deze hoek zit dus in het tweede kwart van de cirkel, dus linksboven. Om met [dezelfde $3$ hoeken](#om-te-onthouden) te kunnen werken moeten we onze hoek min de starthoek doen:
+
+$$\theta' = \frac{5}{6} \pi - \frac{1}{2} \pi$$
+
+$$\theta' = \frac{1}{3} \pi$$
+
+Hiermee kunnen we dezelfde stappen als net toepassen. Dit is de grootste hoek uit [de $3$ hoeken](#om-te-onthouden), dus er is de meeste voortgang gemaakt tussen ons begin- en eindpunt. Ons beginpunt is nu bij $(0, 1)$ en ons eindpunt is bij $(-1, 0)$. We nemen de consinus, dus we zijn alleen geïnteresseerd in het $x$-coördinaat. De meeste voortgang om van $x = 0$ naar $x = -1$ te gaan uit [de $3$ waardes](#om-te-onthouden) is bij $x = -\frac{1}{2} \sqrt{3}$. De cosinus wordt dan dus:
+
+$$\large{\cos(\frac{5}{6} \pi) = - \frac{1}{2}\sqrt{3}}$$
+
+En dit $x$-coördinaat kunnen we ook zien als we de eenheidscirkel tekenen.
+
+<figure markdown>
+![Eenheidscirkel met driehoek](assets/images/goniometrie/Unit_Circle_Triangle_5_6_Pi.svg){ width="650"}
+</figure>
+
+Als dit misschien nog niet helemaal duidelijk was, staan hieronder nog een paar andere voorbeelden om ermee te oefenen.
+
+#### **<p style="font-size: 20px;">Voorbeelden<p>**
+
+??? example "Voorbeeld 1: $\cos(\frac{3}{4} \pi)$"
+    **<p style="text-align: center;font-size:20px;">Bepaal: $\cos(\frac{3}{4} \pi)$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-
-    We hebben hier een hoek van $\theta = \frac{3}{4} \pi$. Dat zit tussen het beginpunt van $\theta = \frac{1}{2} \pi$ en $\theta = \pi$. Omdat we niet in het eerste kwadrant zitten, doen we eerst onze hoek min de start hoek, en dan vinden we $\theta = \frac{1}{4}$. Dit betekent dat de voortgang precies in het midden zit, en dus ook dat de waarde precies in het midden is van onze waardes.
+    We hebben hier een hoek van $\theta = \frac{3}{4} \pi$ en dat zit tussen de starthoek $\frac{1}{2} \pi$ en de eindhoek $\pi$. We nemen de cosinus, dus we zijn alleen geïnteresseerd in het $x$-coördinaat. Om dit te bepalen, moeten we eerst onze hoek min de starthoek doen:
     
-    Ons begin punt is $(0, 1)$ en ons eindpunt is $(-1, 0)$. We zeiden net al dat onze progressie precies in het midden zit van de twee waardes en dus is ons $x$-coördinaat $-\frac{1}{2} \sqrt{2}$ en ons $y$-coördinaat $\frac{1}{2} \sqrt{2}$. We namen de cosinus en dus moeten we de x-waarde hebben. Ons antwoord wordt dan:
+    $$\large{\theta' = \frac{3}{4} \pi - \frac{1}{2} \pi}$$
+
+    $$\large{\theta' = \frac{1}{4} \pi}$$
+
+    Dit is de middelste hoek uit [de $3$ hoeken](#om-te-onthouden). Dus onze voorgang om van het begin- naar het eindpunt te gaan zit in het midden. Ons startpunt is bij $(0, 1)$ en ons eindpunt is bij $(-1, 0)$. 
+    
+    We kijken dus alleen naar het $x$-coördinaat, dus we moeten kijken naar de voortgang om van $x=0$ naar $x=-1$ te gaan. De middelste waarde tussen $0$ en $-1$ uit [de $3$ waardes](#om-te-onthouden) is $x = -\frac{1}{2}\sqrt{2}$. De cosinus wordt dus: 
 
     !!! quote ""
-        $$\large{\cos{(\frac{3}{4} \pi)} = -\frac{1}{2} \sqrt{2}.}$$
+        $$\large{\cos(\frac{3}{4} \pi) = -\frac{1}{2} \sqrt{2}}$$
 
-??? example "Voorbeeld 2: $\sin{(1 \frac{1}{6} \pi)}$"
-    **<p style="text-align: center;font-size:20px;">Bereken sin(1 1/6 π)</p>**
+    En dit $x$-coördinaat zien we ook als we de eenheidscirkel tekenen.
+
+    <figure markdown>
+    ![Eenheidscirkel met driehoek](assets/images/goniometrie/Unit_Circle_Triangle_3_4_Pi.svg){ width="550"}
+    </figure>
+
+
+
+??? example "Voorbeeld 2: $\sin(1 \frac{1}{6} \pi)$"
+    **<p style="text-align: center;font-size:20px;">Bepaal: $\sin(1 \frac{1}{6} \pi)$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We hebben hier een hoek van $\theta = 1 \frac{1}{6}$ dat tussen de starthoek $\pi$ en de eindhoek $1 \frac{1}{2} \pi$ ligt. We halen dus eerst de starthoek van onze hoek af om te vinden $\theta = \frac{1}{6} \pi$. Er is dus de minste voortgang gemaakt tussen het start- en eindpunt uit de $3$ waardes die wij kunnen kiezen.
+    We hebben hier een hoek van $\theta = 1 \frac{1}{6}$ en dit zit tussen de starthoek $\pi$ en de eindhoek $1 \frac{1}{2} \pi$. We nemen de sinus, dus we zijn alleen geïnteresseerd in het $y$-coördinaat. Om dit te bepalen doen we onze hoek min de starthoek:
+
+    $$\large{\theta' = 1 \frac{1}{6} \pi - \pi}$$
+
+    $$\large{\theta' = \frac{1}{6} \pi}$$
     
-    Het startpunt is (-1, 0) en het eindpunt is (0, -1). We nemen de sinus, dus alleen het $y$-coördinaat is interessant. De minste voortgang hier betekent dus dat $y = - \frac{1}{2}$ en dus:
-
+    Deze hoek is de kleinste hoek uit [de $3$ hoeken](#om-te-onthouden), dus we hebben de minste voortgang gemaakt tussen ons begin- en eindpunt. Ons beginpunt is bij $(-1,0)$ en ons eindpunt is bij $(0, -1)$. Dus we moeten kijken welke [waarde](#om-te-onthouden) van de $3$ de minste voortgang geeft om van $y=0$ naar $y=-1$ te gaan. Dit is bij $y = -\frac{1}{2}$. De sinus wordt dan dus: 
+    
     !!! quote ""
-        $$\large{\sin{(1 \frac{1}{6} \pi)} = - \frac{1}{2}.}$$
+        $$\large{\sin(1 \frac{1}{6} \pi) = - \frac{1}{2}}$$
+    
+    Deze $y$-waarde zien we ook als de eenheidscirkel tekenen.
 
-??? example "Voorbeeld 3: $\cos{(1 \frac{2}{3} \pi)}$"
-    **<p style="text-align: center;font-size:20px;">Bereken cos(1 2/3 π)</p>**
+    <figure markdown>
+    ![Eenheidscirkel met driehoek](assets/images/goniometrie/Unit_Circle_Triangle_1_1_6_Pi.svg){ width="550"}
+    </figure>
+
+
+??? example "Voorbeeld 3: $\cos(1 \frac{2}{3} \pi)$"
+    **<p style="text-align: center;font-size:20px;">Bepaal: $\cos(1 \frac{2}{3} \pi)$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We hebben hier een hoek van $\theta = 1 \frac{2}{3}$ dat tussen de starthoek $\theta = 1 \frac{1}{2} \pi$ en de eindhoek $2 \pi$ zit. Als eerst doen we onze hoek min onze starthoek: $\theta = \frac{1}{6} \pi$. Er is dus de minste voortgang gemaakt tussen ons startpunt en ons eindpunt. 
+    We hebben hier een hoek van $\theta = 1 \frac{2}{3}$ dat tussen de starthoek $\theta = 1 \frac{1}{2} \pi$ en de eindhoek $2 \pi$ zit. Als eerst doen we onze hoek min de starthoek: 
     
-    Ons startpunt is $(0, -1)$ en ons eindpunt is $(1, 0)$. We nemen de cosinus en dus zijn we alleen geïntereseerd in het $x$-coördinaat. De minste voortgang geeft hier $x = \frac{1}{2}$ en dus:
+    $$\large{\theta' = 1 \frac{2}{3} \pi - 1 \frac{1}{2} \pi}$$
+
+    $$\large{\theta' = \frac{1}{6} \pi}$$
+    
+    Deze hoek is de kleinste uit [de $3$ hoeken](#om-te-onthouden) en dus is er de minste voortgang gemaakt tussen ons start- en eindpunt. 
+    
+    Ons startpunt is $(0, -1)$ en ons eindpunt is $(1, 0)$. We nemen de cosinus en we zijn dus alleen geïntereseerd in het $x$-coördinaat. De minste voortgang om van $x = 0$ naar $x = 1$ te gaan is bij $x = \frac{1}{2}$. De cosinus van $1 \frac{2}{3} \pi$ is dus:
 
     !!! quote ""
-        $$\large{\cos{(1 \frac{2}{3} \pi)} = \frac{1}{2} .}$$
+        $$\large{\cos(1 \frac{2}{3} \pi) = \frac{1}{2}}$$
+
+    En dit $x$-coördinaat kunnen we ook zien als we het tekenen.
+
+    <figure markdown>
+    ![Eenheidscirkel met driehoek](assets/images/goniometrie/Unit_Circle_Triangle_1_2_3_Pi.svg){ width="550"}
+    </figure>
 
 Maar je bent natuurlijk niet verplicht om dit trucje te gebruiken. Als je het handiger vindt om gewoon de eenheidscirkel helemaal uit je hoofd te leren, doe dat vooral!
 
+<br>
 ## **Goniometrische Vergelijkingen**
 
-Dit zijn goniometrische vergelijkingen die iets ingewikkelder zijn, maar vaak gebruikt worden.
+Deze goniometrische vergelijkingen worden vaak gebruikt om wat lastigere vergelijkingen op te lossen.
 
 ???+ Belangrijk
-    | Regels                                                                                      |
-    | ------------------------------------------------------------------------------------------- |
-    | $\Large{\tan{(\theta)} = \frac{\sin{(\theta)}}{\cos{(\theta)}}}$                            |
-    | $\Large{\sin{(\theta)}^2 + \cos{(\theta)}^2 = 1}$                                           |
-    | $\Large{\sin{(2 \theta)} = 2 \sin{(\theta)} \cos{(\theta)}}$                                |
-    | $\Large{\cos{(2 \theta)} = 2 \cos^2{(\theta)} - 1}$                                         |
-    | $\Large{\cos{(2 \theta)} = \cos^2{(\theta)} - \sin^2{(\theta)}}$                            |
-    | $\Large{\cos{(2 \theta)} = 1 - 2 \sin^2{(\theta)}}$                                         |
-    | $\Large{\sin{(\theta + \phi)} = \sin{(\theta)} \cos{(\phi)} + \cos{(\theta)} \sin{(\phi)}}$ |
-    | $\Large{\sin{(\theta - \phi)} = \sin{(\theta)} \cos{(\phi)} - \cos{(\theta)} \sin{(\phi)}}$ |
-    | $\Large{\cos{(\theta + \phi)} = \cos{(\theta)} \cos{(\phi)} - \sin{(\theta)} \sin{(\phi)}}$ |
-    | $\Large{\cos{(\theta - \phi)} = \cos{(\theta)} \cos{(\phi)} + \sin{(\theta)} \sin{(\phi)}}$ |
+    **<p style="font-size:19px;">Regels</p>**
 
-De eerste twee vergelijkingen kunnen we bewijzen met behulp van de [Goniometrische Regels](#regels-goniometrische-functies) die we eerder hebben gezien.
+    **<p style="font-size:16px;">Basis</p>**
+
+    1. $$\large{\tan(\theta) = \dfrac{\sin(\theta)}{\cos(\theta)}}$$
+    1. $$\large{\sin^2(\theta) + \cos^2(\theta) = 1}$$
+
+    **<p style="font-size:16px;">Verdubbelingsformules</p>**
+
+    1. $$\large{\sin(2 \theta) = 2 \sin(\theta) \cos(\theta)}$$
+    1. $$\large{\cos(2 \theta) = 2 \cos^2(\theta) - 1}$$
+    1. $$\large{\cos(2 \theta) = \cos^2(\theta) - \sin^2(\theta)}$$
+    1. $$\large{\cos(2 \theta) = 1 - 2 \sin^2(\theta)}$$
+
+    **<p style="font-size:16px;">Som- en Verschilformules</p>**
+
+    1. $$\large{\sin(\theta + \phi) = \sin(\theta) \cos(\phi) + \cos(\theta) \sin(\phi)}$$
+    1. $$\large{\sin(\theta - \phi) = \sin(\theta) \cos(\phi) - \cos(\theta) \sin(\phi)}$$
+    1. $$\large{\cos(\theta + \phi) = \cos(\theta) \cos(\phi) - \sin(\theta) \sin(\phi)}$$
+    1. $$\large{\cos(\theta - \phi) = \cos(\theta) \cos(\phi) + \sin(\theta) \sin(\phi)}$$
+
+De eerste twee basisvergelijkingen kunnen we zelf bewijzen met de [goniometrische functies](#goniometrische-functies) die we eerder hebben gezien.
 
 ??? abstract "Bewijs"
     **<p style="text-align: center;font-size:20px;">Bewijs eerste vergelijking</p>** 
 
-    Laten we als eerst kijken naar 
+    We kijken als eerst naar de eerste vergelijking: 
 
-    $$\large{\tan{(\theta)} = \frac{\sin{(\theta)}}{\cos{(\theta)}}}$$
+    $$\large{\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}}$$
 
-    Door de [Goniometrische Regels](#regels-goniometrische-functies) te gebruiken en de $\sin$ en $\cos$ in te vullen kunnen we dit herschrijven tot:
+    Laten we proberen om de sinus en cosinus te herschrijven zodat we er een tangens uit krijgen. We kunnen dit doen door gebruik te maken van de formules bij de [goniometrische functies](#goniometrische-functies):
 
-    $$\large{\tan{(\theta)} = \frac{\frac{\mathrm{Overstaand}}{\mathrm{Schuin}}}{\frac{\mathrm{Aanliggend}}{\mathrm{Schuin}}}}$$
+    $$\large{\frac{\sin(\theta)}{\cos(\theta)} = \frac{\frac{\mathrm{Overstaand}}{\mathrm{Schuin}}}{\frac{\mathrm{Aanliggend}}{\mathrm{Schuin}}}}$$
 
-    Dit kunnen we weer versimpelen door de $\mathrm{Schuin}$ in de teller en noemer tegen elkaar weg te delen. We houden dan over:
+    Dit kunnen we weer versimpelen door de "$\mathrm{Schuin}$" in de teller en noemer tegen elkaar weg te delen. We houden dan over:
 
-    $$\large{\tan{(\theta)} = \frac{\mathrm{Overstaand}}{\mathrm{Aanliggend}}}$$
+    $$\large{\frac{\sin(\theta)}{\cos(\theta)} = \frac{\mathrm{Overstaand}}{\mathrm{Aanliggend}}}$$
 
-    En dit is precies de formule die we in al de [Goniometrische Regels](#regels-goniometrische-functies) hebben staan, en dus klopt onze originele vergelijking voor $\tan$.
+    Maar we hadden bij [Goniometrische Functies](#goniometrische-functies) gezien dat dit de definitie van een tangens was. Er geldt dus dat:
 
+    !!! quote ""
+        $$\large{\frac{\sin(\theta)}{\cos(\theta)} = \tan(\theta)}$$
+
+    En dit is precies wat we moesten bewijzen.
+    
+    <br>
     **<p style="text-align: center;font-size:20px;">Bewijs tweede vergelijking</p>**
 
     Laten we nu naar de tweede vergelijking kijken:
 
-    $$\large{\sin{(\theta)}^2 + \cos{(\theta)}^2 = 1}$$
+    $$\large{\sin^2(\theta) + \cos^2(\theta) = 1}$$
 
-    Weer vullen we de definitie in van de $\sin$ en $\cos$ uit de [Goniometrische Regels](#regels-goniometrische-functies):
+    Laten we proberen om hier zelf op te komen door de sinus en cosinus te herschrijven. We doen dit weer door de formules bij de [goniometrische functies](#goniometrische-functies) te gebruiken:
 
-    $$\large{\frac{\mathrm{Overstaand}^2}{\mathrm{Schuin}^2} + \frac{\mathrm{Aanliggend}^2}{\mathrm{Schuin}^2} = 1}$$
+    $$\large{\sin^2(\theta) + \cos^2(\theta) = \frac{\mathrm{Overstaand}^2}{\mathrm{Schuin}^2} + \frac{\mathrm{Aanliggend}^2}{\mathrm{Schuin}^2}}$$
 
-    Omdat de noemers hetzelfde zijn kunnen we hier 1 breuk van maken:
+    Omdat de noemers hetzelfde zijn kunnen we hier 1 breuk van maken (zie eventueel [Regels bij Breuken](basisvaardigheden.md#regels-bij-breuken)):
 
-    $$\large{\frac{\mathrm{Overstaand}^2 + \mathrm{Aanliggend}^2}{\mathrm{Schuin}^2} = 1}.$$
+    $$\large{\sin^2(\theta) + \cos^2(\theta) = \frac{\mathrm{Overstaand}^2 + \mathrm{Aanliggend}^2}{\mathrm{Schuin}^2}}.$$
 
-    Kunnen we dit nog verder versimpelen? Ja! We kunnen namelijk de met behulp van de [Stelling van Pythagoras](pythagoras.md) de teller herschrijven op deze manier:
+    Kunnen we dit nog verder versimpelen? Ja! Met de [Stelling van Pythagoras](pythagoras.md) weten we dat de twee rechthoekszijdes in het kwadraat gelijk zijn aan de schuine zijde in het kwadraat. Dus we kunnen de teller herschrijven op deze manier:
 
-    $$\large{\frac{\mathrm{Schuin}^2}{\mathrm{Schuin}^2} = 1},$$
+    $$\large{\sin^2(\theta) + \cos^2(\theta) = \frac{\mathrm{Schuin}^2}{\mathrm{Schuin}^2}}$$
     
-    En omdat iets gedeelt door zichzelf altijd gelijk is aan 1, betekent dat dus dat deze vergelijking klopt en dus ook dat onze originele vergelijking klopt.
+    En omdat iets gedeelt door zichzelf altijd gelijk is aan 1, vinden we dus dat:
+    
+    !!! quote ""
+        $$\large{\sin^2(\theta) + \cos^2(\theta) = 1}$$
+    
+    en dit is precies wat we moesten bewijzen.
 
 
 ### **Voorbeelden**
 
-??? example "Voorbeeld 1: $\sin^2{(x)}  = - \cos^2{(x)} + \tan{(x)}$"
-    **<p style="text-align: center;font-size:20px;">Bereken x: $\sin^2{(x)}  = - \cos^2{(x)} + \tan{(x)}$</p>**
+??? example "Voorbeeld 1: $\sin^2(x)  = - \cos^2(x) + \tan(x)$"
+    **<p style="text-align: center;font-size:20px;">Bereken x: $\sin^2(x)  = - \cos^2(x) + \tan(x)$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We beginnen eerst met de $\cos^2$ naar de linkerkant te doen:
+    We beginnen eerst met aan beide kanten $+\cos^2(x)$ te doen, zodat deze term naar de linkerkant komt:
 
-    $$\large{\sin^2{(x)} + \cos^2{(x)} = \tan{(x)}}$$
+    $$\large{\sin^2(x) + \cos^2(x) = \tan(x)}$$
 
-    We kunnen nu regel 2 toepassen van de [Regels Goniometrische Vergelijkingen](#goniometrische-vergelijkingen):
+    We kunnen nu de [tweede basisvergelijking](#goniometrische-vergelijkingen) gebruiken:
 
-    $$\large{\tan{(x)} = 1}$$
+    $$\large{\tan(x) = 1}$$
 
-    We kunnen nu gebruik maken van regel 1 van de [Regels Goniometrische Vergelijkingen](#goniometrische-vergelijkingen) om dit te schrijven als:
+    Als we nu de [eerste basisvergelijking](#goniometrische-vergelijkingen) gebruiken, dan kunnen we dit schrijven als:
 
-    $$\large{\frac{\sin{(x)}}{\cos{(x)}} = 1}$$
+    $$\large{\frac{\sin(x)}{\cos(x)} = 1}$$
 
-    Nu kunnen we beide kanten vermenigvuldigen met $\cos$:
+    Nu kunnen we beide kanten vermenigvuldigen met $\cos(x)$:
 
-    $$\large{\sin{(x)} = \cos{(x)}}$$
+    $$\large{\sin(x) = \cos(x)}$$
 
-    Nu kunnen we de $\cos$ omschrijven naar een $\sin$ (zie [uitwerken sin/cos](#uitwerken-sincos-vergelijkingen)):
+    We willen nu óf aan beide kanten een cosinus hebben óf aan beide kanten een sinus. We kiezen er hier voor om de cosinus [om te schrijven](#sinus-en-cosinus-omschrijven) naar een sinus:
 
-    $$\large{\sin{(x)} = \sin{(x + \frac{1}{2} \pi)}}$$
+    $$\large{\sin(x) = \sin(x + \frac{1}{2} \pi)}$$
 
-    Dit kunnen we nu uitwerken:
+    Dit kunnen we nu oplossen met de [algemene oplossing](#algemene-oplossing):
 
-    $$\large{x = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ x = \pi - (x + \frac{1}{2} \pi) + k * 2 \pi}$$
+    $$\large{x = x + \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ x = \pi - (x + \frac{1}{2} \pi) + k \cdot 2 \pi}$$
 
-    $$\large{x = x + \frac{1}{2} \pi + k * 2 \pi \ \vee \ x = \frac{1}{2} \pi - x + k * 2 \pi}$$
+    $$\large{x = x + \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ x = \frac{1}{2} \pi - x + k \cdot 2 \pi}$$
 
-    Nu halen we alle termen met x aan de linkerkant:
+    Nu halen we alle termen met $x$ naar de linkerkant:
 
-    $$\large{0 = \frac{1}{2} \pi + k * 2 \pi \ \vee \ 2x = \frac{1}{2} \pi + k * 2 \pi}$$
+    $$\large{0 = \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 2x = \frac{1}{2} \pi + k \cdot 2 \pi}$$
 
-    Alle x termen zijn in de linker vergelijking weggevallen, dus daar hebben we niks meer aan. Met de rechter vergelijking kunnen we wel door. We delen aan beide kanten door $2$, om als eindantwoord te vinden:
+    Alle termen met $x$ zijn in de linker vergelijking weggevallen, dus daar hebben we niks meer aan. Met de rechter vergelijking kunnen we wel nog door. We delen dan aan beide kanten alles door $2$ om te vinden:
 
     !!! quote ""
-        $$\large{x = \frac{1}{4} \pi + k * \pi}$$
+        $$\large{x = \frac{1}{4} \pi + k \cdot \pi}$$
 
 
-??? example "Voorbeeld 2: $\frac{1}{2} \sin{(x)} \cos{(x)} = \frac{1}{4}$"
-    **<p style="text-align: center;font-size:20px;">Bereken x: $\frac{1}{2} \sin{(x)} \cos{(x)} = \frac{1}{4}$</p>**
+??? example "Voorbeeld 2: $\frac{1}{2} \sin(x) \cos(x) = \frac{1}{4}$"
+    **<p style="text-align: center;font-size:20px;">Bereken x: $\frac{1}{2} \sin(x) \cos(x) = \frac{1}{4}$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We zien hier een $\sin{(x)} \cos{(x)}$ term, dus is het handig om dit te herschrijven met behulp van regel 3 van de [Goniometrische Vergelijkingen](#goniometrische-vergelijkingen). Om dit te doen, doen we beide kanten keer $4$ om de $2 \sin{(x)} \cos{(x)}$ te krijgen die we nodig hebben:
+    We zien hier een $\sin(x) \cos(x)$ term, dus is het handig om dit te herschrijven met behulp van de [Verdubbelingsformules](#goniometrische-vergelijkingen). We doen dan aan beide kanten keer $4$ om links $2 \sin(x) \cos(x)$ te krijgen:
 
-    $$\large{2 \sin{(x)} \cos{(x)} = 1}$$
+    $$\large{2 \sin(x) \cos(x) = 1}$$
 
-    Nu passen we dus regel 3 van de [Goniometrische Vergelijkingen](#goniometrische-vergelijkingen) toe:
+    Nu kunnen we dus de [verdubbelingsformule](#goniometrische-vergelijkingen) gebruiken:
 
-    $$\large{\sin{(2x)} = 1}$$
+    $$\large{\sin(2x) = 1}$$
 
-    Nu willen we aan beide kanten een $\sin$ hebben. We maken dus van de $1$ een $\sin$. Met behulp van de eenheidscirkel kunnen we zien dat $\sin{(\frac{1}{2} \pi) = 1}$ en dus dat:
+    Nu willen we aan beide kanten een sinus hebben om dit te kunnen oplossen. We moeten dus kijken welke hoek $1$ geeft als we de sinus nemen. We kunnen de [eenheidscirkel](#de-eenheidscirkel) gebruiken of de $\arcsin$ nemen van $1$. We vinden dan dat $1 = \sin(\frac{1}{2} \pi)$ en dit kunnen we dus gaan invullen:
 
     $$\large{\sin{(2x)} = \sin{(\frac{1}{2} \pi)}}$$
 
-    Als we dit nu [uitwerken](#uitwerken-sincos-vergelijkingen) vinden we:
+    Als we dit nu [uitwerken](#algemene-oplossing), dan vinden we:
 
-    $$\large{2x = \frac{1}{2} \pi + k * 2 \pi \ \vee \ 2x = \pi - \frac{1}{2} \pi + k * 2 \pi}$$
+    $$\large{2x = \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 2x = \pi - \frac{1}{2} \pi + k \cdot 2 \pi}$$
 
-    In dit geval geldt er dat $\pi - \frac{1}{2} \pi = \frac{1}{2} \pi$ en dus zijn beide oplossingen dezelfde oplossing. We houden dus alleen over:
+    $$\large{2x = \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 2x = \frac{1}{2} \pi + k \cdot 2 \pi}$$
 
-    $$\large{2x = \frac{1}{2} \pi + k * 2 \pi}$$
+    In dit geval zijn dus beide oplossingen hetzelfde. We houden dus alleen over:
+
+    $$\large{2x = \frac{1}{2} \pi + k \cdot 2 \pi}$$
 
     Nu delen we beide kanten door $2$ om te vinden dat:
 
     !!! quote ""
-        $$\large{x = \frac{1}{4} \pi + k * \pi}$$
+        $$\large{x = \frac{1}{4} \pi + k \cdot \pi}$$
