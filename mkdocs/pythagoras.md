@@ -1,19 +1,25 @@
 # *De Stelling van Pythagoras*
 ## **Theorie**
 
-Met de stelling van Pythagoras kunnen we de zijdes van een rechte driehoek bepalen. De stelling gaat als volgt: Bij een rechte driehoek zijn de twee rechte zijdes in het kwadraat samen gelijk aan de schuine zijde in het kwadraat. De rechte zijdes zijn de zijdes die verbonden zijn met de rechte hoek van De schuine zijde is de zijde tegenover de rechte hoek van $90 ^{\circ}$.
+Met de stelling van Pythagoras kunnen we de zijdes van een rechthoekige driehoek bepalen. Dit is een driehoek waarvan een van de hoeken $90 ^{\circ}$ is. Deze hoek wordt dan een "rechte hoek" genoemd. 
+
+De stelling van Pythagoras gaat als volgt:
+
+Bij een rechthoekige driehoek zijn de twee rechthoekszijdes in het kwadraat samen gelijk aan de schuine zijde in het kwadraat. De rechthoekszijdes zijn de zijdes die verbonden zijn met de rechte hoek. De schuine zijde is de zijde tegenover deze rechte hoek.
 
 <figure markdown>
   ![Rechte driehoek](assets/images/pythagoras/Right_Triangle.svg){ width="300"}
-  <figcaption>Figuur 1. Een rechte driehoek, dus een driehoek waarbij 1 hoek 90° is. <strong>a</strong> en <strong>b</strong> zijn de rechthoekszijdes, <strong>c</strong> is de schuine zijde. </figcaption>
+    <figcaption>Figuur 1. Een rechte driehoek, dus een driehoek waarbij 1 hoek 90° is. $a$ en $b$ zijn de rechthoekszijdes, $c$ is de schuine zijde. </figcaption>
 </figure>
+
+In Figuur 1 zijn dus $a$ en $b$ de rechthoekszijdes, want die zijdes zijn verbonden met de rechte hoek. Zijde $c$ is dan de schuine zijde, want dit is de zijde tegenover de rechte hoek. 
 
 In formule form wordt de Stelling van Pythagoras:
 
 !!! belangrijk
     $$\LARGE{a^2 + b^2 = c^2.}$$
 
-Hier zijn $a$ en $b$ dus de rechthoekszijdes en $c$ is de schuine zijde. 
+met $a$ en $b$ dus de rechthoekszijdes en $c$ de schuine zijde. 
 
 Hieronder is er een filmpje om te laten zien waar de Stelling van Pythagoras vandaan komt.
 ???+ video

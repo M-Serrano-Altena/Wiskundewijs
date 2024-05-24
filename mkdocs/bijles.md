@@ -191,7 +191,7 @@ hide:
 
 </style>
 
-**<p style="text-align: left;font-size:20px;">Bijles wiskunde voor de middelbare school</p>**
+**<p style="text-align: left;font-size:25px;">Bijles wiskunde voor de middelbare school</p>**
 
 Ik ben **Marc Serrano Altena**, een tweedejaars student Natuur- en Sterrenkunde aan de UvA en VU.
 
@@ -199,7 +199,7 @@ Ik ben **Marc Serrano Altena**, een tweedejaars student Natuur- en Sterrenkunde 
 
 Wiskunde kan soms **te snel** gaan en dat **niet alle stappen duidelijk** zijn. Om wiskunde beter begrijpbaar te maken voor iedereen, ben ik gestart met deze website. Maar ik help graag nog verder!
 
-Heeft jouw kind moeite met de stof begrijpen of toepassen? Of juist meer met het bij blijven met de stof en het huiswerk te maken? Om deze problemen op te lossen bied ik **een-op-een bijles** aan. 
+Heb je moeite met de stof begrijpen of toepassen? Of juist meer met het bij blijven met de stof en het huiswerk te maken? Als je dit herkent, dan is mijn **een-op-een bijles** voor jouw! 
 
 Apart van alleen de bijles, krijg je als bonus ook een aantal **stappenplannen**. Jouw kind hoeft dan alleen het stappenplan te volgen om een opdracht goed te kunnen maken. Ook help ik buiten de bijlessen door vragen te beantwoorden over het huiswerk. 
 
@@ -213,7 +213,7 @@ Dit kan er voor zorgen dat je blijft zitten, maar ook dat je later minder kunt v
 
 Op je hele leven verdien je dan in totaal €800 000 minder. En dit zou echt zonde zijn, vooral wanneer er een oplossing voor is. 
 
-Met de Gratis 6-Weken Twee-Punten-Hoger Training kan jij twee cijferpunten hoger halen voor de volgende toets. En niet alleen dat, voor de eerste 5 mensen is dit volledig gratis. Er zijn nog twee plekken beschikbaar, dus heb je interesse? Stuur dan een bericht naar: 
+Met de In 6-Weken Twee-Punten-Hoger Training kan jij twee cijferpunten hoger halen voor de volgende toets. En niet alleen dat, voor de eerste 5 mensen is dit volledig gratis, maar er zijn nog twee plekken beschikbaar. , dus heb je interesse? Stuur dan een bericht naar: 
 
 0638391419
  -->

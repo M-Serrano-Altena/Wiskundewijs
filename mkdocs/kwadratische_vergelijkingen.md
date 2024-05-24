@@ -853,7 +853,7 @@ We kunnen nu aan beide kanten $+16$ doen om de $16$ naar de andere kant te halen
 
 $$(x+3)^2 = 16.$$
 
-Deze vorm lijkt misschien lastig op te lossen, maar het is eigenlijk hetzelfde als de vorm [$x^2 = c$](#oplossen-vorm-x2-c). Het enige verschil is dat we nu in plaats van een $x$ een $x+3$ term hebben. Maar de manier van [oplossen](#algemene-oplossing) gaat eigenlijk op dezelfde manier. We nemen aan beide kanten de wortel en onze oplossingen worden dan:
+Deze vorm lijkt misschien lastig op te lossen, maar het is eigenlijk hetzelfde als de vorm [$x^2 = c$](#oplossen-vorm-x2-c). Het enige verschil is dat we nu in plaats van een $x$ een $x+3$ term hebben. Maar de manier van [oplossen](#algemene-oplossing) gaat eigenlijk op dezelfde manier. We nemen aan beide kanten de wortel. Onze oplossingen worden dan:
 
 $$x+3 = \sqrt{16} \ \vee x + 3 = -\sqrt{16}$$
 

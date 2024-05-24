@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from solverapp import views as solver_views
+from src.Solver.src.solver.results import main
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("solver/", solver_views.test, name="solver"),
     path("", include("docs.urls")),
 ]

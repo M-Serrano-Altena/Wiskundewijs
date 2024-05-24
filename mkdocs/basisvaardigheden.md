@@ -10,7 +10,7 @@ $$A = \frac{B}{C},$$
 en we willen erachter komen wat $B$ op zichzelf is, zoals $B = \ ...$ . Hoe doen we dat? We moeten aan beide kanten van het '$=$'-teken hetzelfde doen. In dit geval vermenigvuldigen we beide kanten met $C$. Dat zorgt ervoor dat de $C$ aan de rechterkant verdwijnt en aan de linkerkant verschijnt:
 
 !!! quote ""
-    $$\large{A * C = B.}$$
+    $$\large{A \cdot C = B.}$$
 
 Als je dit nog een beetje abstract vindt, probeer het dan eens met getallen in plaats van letters. Bijvoorbeeld:
 
@@ -18,13 +18,13 @@ $$3 = \frac{6}{2}.$$
 
 Nu kun je makkelijker te zien hoe we dit moeten omschrijven. Als we de $6$ vrij willen maken, dan moeten we de $2$ naar de andere kant halen. We krijgen dan:
 
-$$3 * 2 = 6.$$
+$$3 \cdot 2 = 6.$$
 
 Dit is eigenlijk dezelfde stap als dat we ook hebben gedaan met de letters.
 
 Laten we nu proberen $C$ vrij te maken zodat we krijgen $C = \ ...$ . We gaan door met:
 
-$$A * C = B.$$
+$$A \cdot C = B.$$
 
 Nu kunnen we beide kanten delen door $A$, en dan krijgen we:
 
@@ -109,13 +109,13 @@ Voor breuken gelden er de volgende regels:
 
     2. $$\large{\frac{a}{b} - \frac{c}{b} = \frac{a - c}{b}}$$
 
-    3. $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a * d + b * c}{b * d}}$$
+    3. $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a \cdot d + b \cdot c}{b \cdot d}}$$
 
-    4. $$\large{\frac{a}{b} - \frac{c}{d} = \frac{a * d - b * c}{b * d}}$$
+    4. $$\large{\frac{a}{b} - \frac{c}{d} = \frac{a \cdot d - b \cdot c}{b \cdot d}}$$
 
-    5. $$\large{\frac{a}{b} * \frac{c}{d} = \frac{a * c}{b * d}}$$
+    5. $$\large{\frac{a}{b} \cdot \frac{c}{d} = \frac{a \cdot c}{b \cdot d}}$$
 
-    6. $$\large{\frac{\frac{a}{b}}{\frac{c}{d}} = \frac{a}{b} * \frac{d}{c} = \frac{a * d}{b * c}}$$
+    6. $$\large{\frac{\frac{a}{b}}{\frac{c}{d}} = \frac{a}{b} \cdot \frac{d}{c} = \frac{a \cdot d}{b \cdot c}}$$
 
 Vaak ziet dit er nog lastig uit, dus kijk naar het voorbeeld hieronder om de regels met getallen te zien.
 
@@ -125,13 +125,13 @@ Vaak ziet dit er nog lastig uit, dus kijk naar het voorbeeld hieronder om de reg
 
     2. $$\large{\frac{2}{6} - \frac{1}{6} = \frac{2 - 1}{6} = \frac{1}{6}}$$
 
-    3. $$\large{\frac{1}{2} + \frac{1}{3} = \frac{1*3 + 2*1}{2*3} = \frac{5}{6}}$$
+    3. $$\large{\frac{1}{2} + \frac{1}{3} = \frac{1 \cdot 3 + 2 \cdot 1}{2 \cdot 3} = \frac{5}{6}}$$
 
-    4. $$\large{\frac{1}{2} - \frac{1}{3} = \frac{1*3 - 2*1}{2*3} = \frac{1}{6}}$$
+    4. $$\large{\frac{1}{2} - \frac{1}{3} = \frac{1 \cdot 3 - 2 \cdot 1}{2 \cdot 3} = \frac{1}{6}}$$
 
-    5. $$\large{\frac{3}{4} * \frac{2}{6} = \frac{3 * 2}{4 * 6} = \frac{6}{24} = \frac{1}{4}}$$
+    5. $$\large{\frac{3}{4} \cdot \frac{2}{6} = \frac{3 \cdot 2}{4 \cdot 6} = \frac{6}{24} = \frac{1}{4}}$$
 
-    6. $$\large{\frac{\frac{1}{2}}{\frac{1}{4}} = \frac{1}{2} * \frac{4}{1} = \frac{4}{2} = 2}$$
+    6. $$\large{\frac{\frac{1}{2}}{\frac{1}{4}} = \frac{1}{2} \cdot \frac{4}{1} = \frac{4}{2} = 2}$$
 
 
 We zien dus dat bij optellen en aftrekken van breuken we eerst gelijke noemers moeten hebben. We kunnen dan gewoon de tellers bij elkaar op tellen of aftrekken (regel $1$ en $2$). Als we geen gelijke noemers hebben, moeten we regel $3$ en $4$ gebruiken om de noemers toch gelijk te maken. Maar waar komen regel $3$ en $4$ vandaan? Het bewijs hieronder laat dat zien.
@@ -139,24 +139,24 @@ We zien dus dat bij optellen en aftrekken van breuken we eerst gelijke noemers m
 ??? abstract "Waar komen regel 3 en 4 vandaan?"
     Voor [regel $3$](#regels-bij-breuken) hebben we een bewijs. We beginnen met beide termen keer 1 te doen:
 
-    $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a}{b} * 1 + \frac{c}{d} * 1.}$$
+    $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a}{b} \cdot 1 + \frac{c}{d} \cdot 1.}$$
 
     We weten dat een getal gedeeld door zichzelf altijd gelijk is aan 1, dus we kunnen 1 op deze manier schrijven:
 
-    $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a}{b} * \frac{d}{d} + \frac{c}{d} * \frac{b}{b}.}$$
+    $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a}{b} \cdot \frac{d}{d} + \frac{c}{d} \cdot \frac{b}{b}.}$$
 
     Met [regel $5$](#regels-bij-breuken) kunnen we dit herschrijven tot:
 
-    $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a * d}{b * d} + \frac{c * b}{d * b}.}$$
+    $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a \cdot d}{b \cdot d} + \frac{c \cdot b}{d \cdot b}.}$$
 
     Omdat de volgorde bij vermenigvuldigen niet uitmaakt, kunnen we dit ook schrijven als:
 
-    $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a * d}{b * d} + \frac{b * c}{b * d}}$$
+    $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a \cdot d}{b \cdot d} + \frac{b \cdot c}{b \cdot d}}$$
 
     Nu zien we dat de noemers gelijk zijn en we de twee tellers gewoon bij elkaar kunnen optellen volgens [regel $1$](#regels-bij-breuken):
 
     !!! quote ""
-        $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a * d + b * c}{b * d}}$$
+        $$\large{\frac{a}{b} + \frac{c}{d} = \frac{a \cdot d + b \cdot c}{b \cdot d}}$$
 
     Voor aftrekken geldt precies dezelfde stappen, maar dan moet je het plus-teken vervangen met een min-teken.
 
@@ -174,38 +174,36 @@ Alle onderstaande regels gaan beide kanten op, dus je kan iets in de linker vorm
 
     2. $$\large{nA - mA \iff (n - m)A}$$
 
-    3. $$\large{(A + B) (C + D) \iff AC + AD + BC + BD}$$
+    3. $$\large{n(A + B) \iff nA + nB}$$
 
-    4. $$\large{(A - B) (C - D) \iff AC - AD - BC + BD}$$
+    4. $$\large{n(A - B) \iff nA - nB}$$
 
-    5. $$\large{A(B*C) \iff A*B*C}$$
+    5. $$\large{A(B \cdot C) \iff A \cdot B \cdot C}$$
+
+    5. $$\large{A \div (B \cdot C) \iff \frac{A}{B \cdot C}}$$
 
 
 ??? example "Getallen Voorbeelden"
     Laten we eerst kijken naar optellen en aftrekken:
 
-    1. $$\large{3A + A = 4A}$$
+    1. $$\large{3A + 2A = (3+2)A = 4A}$$
 
-    2. $$\large{3A - A = 2A}$$
+    2. $$\large{3A - 2A = (3-2)A = A}$$
 
     3. $$\large{2A + (3A - B) = 5A - B}$$
-
-    Nu voorbeelden van dingen die je niet verder kan versimpelen:
-
-    - $$\large{2A + B}$$
-
-    - $$\large{2A - B}$$
 
     Dus met dezelfde variabelen mag je optellen en aftrekken, maar met verschillende variabelen mag dit niet. 
 
     Laten we nu kijken naar vermenigvuldigen en delen:
 
-    1. $$\large{2A * A = 2A^2}$$
+    1. $$\large{2A \cdot A = 2A^2}$$
 
-    2. $$\large{2A * 3B = 6AB}$$
+    2. $$\large{2A \cdot 3B = 6AB}$$
 
     3. $$\large{\frac{2A}{4A} = \frac{1}{2}}.$$
 
+    De $A$ boven en onder de deelstreep vallen hier dus tegen elkaar weg.
+    
     Maar dit kan dan weer niet verder worden versimpelt:
 
     - $$\large{\frac{2A}{3B}}$$
@@ -262,7 +260,7 @@ Alle onderstaande regels gaan beide kanten op, dus je kan iets in de linker vorm
 
     $$\large{a \left( a - b \right) - b \left( a - b \right) = a^2 - ab - (ba - b^2).}$$
 
-    We weten dat min * min is plus, en dus wordt de $b^2$ term positief:
+    We weten dat min keer min is plus, en dus wordt de $b^2$ term positief:
 
     $$\large{a^2 - ab - ba -- b^2 = a^2 - 2ab + b^2.}$$
 
@@ -301,7 +299,7 @@ $$25 \neq 13$$
 
 waarbij $\neq$ dus betekent: "is **niet** gelijk aan". Als we wel rekening houden met de kruistermen, dan zien we dat het wel klopt:
 
-$$(2 + 3)^2 = 2^2 + 2*2*3 + 3^2 = 4 + 12 + 9 = 25$$
+$$(2 + 3)^2 = 2^2 + 2 \cdot 2 \cdot 3 + 3^2 = 4 + 12 + 9 = 25$$
 
 De volgende regels gelden voor alle soorten machten:
 
@@ -309,15 +307,15 @@ De volgende regels gelden voor alle soorten machten:
 
     #### <span style="font-size: 16px;">Machten in het Algemeen</span>
 
-    4. $$\large{(a*b)^n = a^n*b^n}$$
+    4. $$\large{(a \cdot b)^n = a^n \cdot b^n}$$
 
     5. $$\large{\left(\frac{a}{b}\right)^n = \frac{a^n}{b^n}}$$
 
-    6. $$\large{ a^n * a^m = a^{n + m}}$$
+    6. $$\large{ a^n \cdot a^m = a^{n + m}}$$
 
     7. $$\large{ \frac{a^n}{a^m} = a^{n - m}}$$
 
-    6. $$\large{\left(a^n\right)^m = a^{n * m}}$$
+    6. $$\large{\left(a^n\right)^m = a^{n \cdot m}}$$
 
 
 Voor wortels gelden precies dezelfde regels als voor machten. Dit is ook logisch want je kan een wortel ook schrijven als tot de macht $\frac{1}{2}$:
@@ -331,7 +329,7 @@ $$\sqrt{x} \equiv x^{\frac{1}{2}}$$
 
     2. $$\large{\sqrt{a - b} \rightarrow} \ \small{\mathrm{kan \ niet \ verder \ worden \ versimpelt}}$$
 
-    3. $$\large{\sqrt{a * b} = \sqrt{a} * \sqrt{b}}$$
+    3. $$\large{\sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b}}$$
 
     4. $$\large{\sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}}$$
 
@@ -389,9 +387,9 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     1. $$\large{^a \! \log{(a^n)} = n = \Large{a^{^a \! \log{(n)}}}}$$
 
-    2. $$\large{^a \! \log{(b^n)} = n * \ ^a \! \log{(b)}}$$
+    2. $$\large{^a \! \log{(b^n)} = n \cdot \ ^a \! \log{(b)}}$$
 
-    3. $$\large{^a \! \log{(b*c)} =  ^a \! \log{(b)} + ^a \! \log{(c)}}$$
+    3. $$\large{^a \! \log{(b \cdot c)} =  ^a \! \log{(b)} + ^a \! \log{(c)}}$$
 
     4. $$\large{^a \! \log{(\frac{b}{c})} =  ^a \! \log{(b)} - ^a \! \log{(c)}}$$
 
@@ -501,7 +499,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     Nu kunnen we dit met behulp van regel 3 van de [Regels met Logaritmes](#regels-met-logaritmes) samenvoegen tot $1$ logaritme:
 
-    $$\Large{^2 \! \log{(4x * 3x)} = 6}$$
+    $$\Large{^2 \! \log{(4x \cdot 3x)} = 6}$$
 
     $$\Large{^2 \! \log{(12x^2)} = 6}$$
 
@@ -528,7 +526,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
         Maar let op wat er gebeurt als we de negatieve oplossing weer invullen in de vergelijking:
 
-        $$\large{^2 \! \log{(4 * -\frac{4}{\sqrt{3}})} = - ^2 \! \log{(3 * -\frac{4}{\sqrt{3}})} + 6}$$
+        $$\large{^2 \! \log{(4 \cdot -\frac{4}{\sqrt{3}})} = - ^2 \! \log{(3 \cdot -\frac{4}{\sqrt{3}})} + 6}$$
 
         $$\large{^2 \! \log{(-\frac{16}{\sqrt{3}})} = - ^2 \! \log{(-\frac{12}{\sqrt{3}})} + 6}$$
 
@@ -553,7 +551,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     En dit kunnen we weer schrijven als:
 
-    $$\Large{\frac{1}{2} * ^{5} \! \log{(4x^4)} - ^5 \! \log{(2x)} = 2}$$
+    $$\Large{\frac{1}{2} \cdot ^{5} \! \log{(4x^4)} - ^5 \! \log{(2x)} = 2}$$
 
     Met behulp van regel 2 van de [Regels met Logaritmes](#regels-met-logaritmes) kunnen we de $\frac{1}{2}$ in de logaritme halen:
 

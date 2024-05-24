@@ -5,7 +5,9 @@ hide:
   - feedback
 ---
 
-# **<span style="color: black;">:material-calculator-variant-outline:</span>** **<span style ="color: #D3D3D3;"> Wiskundewijs</span>**
+# **<span style="color: #00d1ae;">:material-calculator-variant-outline:</span>** **<span style="color: #D3D3D3;">Wiskundewijs</span>**
+
+
 
 **<p style="text-align: left;font-size:20px;">Welkom bij Wiskundewijs!</p>**
 
@@ -13,7 +15,7 @@ Hier worden verschillende onderwerpen voor de middelbare school **duidelijk** en
 
 Maak gebruik van de **zoekbalk** om direct het onderwerp te vinden waar jij naar op zoek bent!
 
-Heeft jou kind moeite met wiskunde en zou je willen dat hij of zij **twee punten hoger** scoort op de volgende toets? Klik dan hieronder op de **Bijles** knop voor meer informatie!
+Heb je moeite met wiskunde en zou je **twee punten hoger** willen scoren op de volgende toets? Klik dan hieronder op de **Bijles** knop voor meer informatie!
 
 [Bijles :material-school:](bijles.md){ .md-button .md-button--primary }
 
