@@ -20,5 +20,5 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-solve = "solver.results:main"
+solve = "solver.solve_application:solve_application"
 test = "solver.test:main"

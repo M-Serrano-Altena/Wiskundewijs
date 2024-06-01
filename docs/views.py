@@ -1,10 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.conf import settings
 from django.views.static import serve
 import os
 
 def serve_docs(request, path):
+    if path == "solverapp":
+        return redirect("solverapp")
+    
     docs_path = os.path.join(settings.DOCS_DIR, path)
 
     if os.path.isdir(docs_path):

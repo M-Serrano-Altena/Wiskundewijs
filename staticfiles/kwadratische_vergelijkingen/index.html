@@ -1,0 +1,2540 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Hier worden verschillende wiskundige onderwerpen duidelijk en helder behandelt. De hoofdstukken hebben een theorie sectie waar de stof wordt uitgelegt en daarna worden wat voorbeelden behandelt om te laten zien hoe de theorie toegepast wordt in de opdrachten.">
+      
+      
+        <meta name="author" content="Marc Serrano Altena">
+      
+      
+        <link rel="canonical" href="https://wiskundewijs.com/kwadratische_vergelijkingen/">
+      
+      
+        <link rel="prev" href="../pythagoras/">
+      
+      
+        <link rel="next" href="../ongelijkheden/">
+      
+      
+      <link rel="icon" href="../assets/images/general/calculator-variant.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
+    
+    
+      
+        <title>Kwadratische Vergelijkingen - Wiskundewijs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-4JQXCEL3Q5"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-4JQXCEL3Q5",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-4JQXCEL3Q5",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kwadratische-vergelijkingen" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Wiskundewijs" class="md-header__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+      
+  <img src="../assets/images/general/calculator-variant-outline.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wiskundewijs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kwadratische Vergelijkingen
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../basisvaardigheden/" class="md-tabs__link">
+          
+  
+  Stof
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../bijles/" class="md-tabs__link">
+        
+  
+    
+  
+  Bijles
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Wiskundewijs" class="md-nav__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+      
+  <img src="../assets/images/general/calculator-variant-outline.svg" alt="logo">
+
+    </a>
+    Wiskundewijs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Stof
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Stof
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basisvaardigheden/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basisvaardigheden
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../percentages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percentages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistiek/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistiek
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pythagoras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Stelling van Pythagoras
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Kwadratische Vergelijkingen
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Kwadratische Vergelijkingen
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#oplossen-vorm-x2-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oplossen vorm x² = c
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oplossen vorm x² = c">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algemene-oplossing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algemene oplossing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opmerkingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opmerkingen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uitleg-filmpje" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uitleg Filmpje
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oplossen-vorm-x2-bx-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oplossen vorm x² + bx = 0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oplossen vorm x² + bx = 0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algemene-oplossing_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algemene Oplossing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uitleg-filmpje_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uitleg Filmpje
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oplossen-vorm-x2-bx-c-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oplossen vorm x² + bx + c = 0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oplossen vorm x² + bx + c = 0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ontbinden-in-factoren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ontbinden in factoren
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ontbinden in factoren">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#product-som-methode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product-Som methode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uitleg-filmpje_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uitleg Filmpje
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#de-abc-formule" class="md-nav__link">
+    <span class="md-ellipsis">
+      De abc formule
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="De abc formule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discriminant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discriminant
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Discriminant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#twee-snijpunten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Twee snijpunten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#een-snijpunt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eén snijpunt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geen-snijpunten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geen snijpunten
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uitleg-filmpje_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uitleg Filmpje
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kwadraat-afsplitsen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kwadraat afsplitsen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kwadraat afsplitsen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algemene-oplossing_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algemene Oplossing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uitleg-filmpje_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uitleg Filmpje
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grafieken-met-parabolen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grafieken met Parabolen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grafieken met Parabolen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#snijpunten-met-de-x-as" class="md-nav__link">
+    <span class="md-ellipsis">
+      Snijpunten met de x-as
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Snijpunten met de x-as">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#twee-snijpunten_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Twee snijpunten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#een-snijpunt_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eén snijpunt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geen-snijpunten_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geen snijpunten
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snijpunten-met-andere-grafieken" class="md-nav__link">
+    <span class="md-ellipsis">
+      Snijpunten met andere grafieken
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ongelijkheden/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ongelijkheden
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stelsels_van_vergelijkingen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stelsels van Vergelijkingen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../afgeleide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Afgeleide Functie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../goniometrie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Goniometrie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bijles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bijles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#oplossen-vorm-x2-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oplossen vorm x² = c
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oplossen vorm x² = c">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algemene-oplossing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algemene oplossing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opmerkingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opmerkingen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uitleg-filmpje" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uitleg Filmpje
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oplossen-vorm-x2-bx-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oplossen vorm x² + bx = 0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oplossen vorm x² + bx = 0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algemene-oplossing_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algemene Oplossing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uitleg-filmpje_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uitleg Filmpje
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oplossen-vorm-x2-bx-c-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oplossen vorm x² + bx + c = 0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oplossen vorm x² + bx + c = 0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ontbinden-in-factoren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ontbinden in factoren
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ontbinden in factoren">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#product-som-methode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product-Som methode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uitleg-filmpje_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uitleg Filmpje
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#de-abc-formule" class="md-nav__link">
+    <span class="md-ellipsis">
+      De abc formule
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="De abc formule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discriminant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discriminant
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Discriminant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#twee-snijpunten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Twee snijpunten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#een-snijpunt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eén snijpunt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geen-snijpunten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geen snijpunten
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uitleg-filmpje_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uitleg Filmpje
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kwadraat-afsplitsen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kwadraat afsplitsen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kwadraat afsplitsen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algemene-oplossing_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algemene Oplossing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uitleg-filmpje_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uitleg Filmpje
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grafieken-met-parabolen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grafieken met Parabolen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grafieken met Parabolen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#snijpunten-met-de-x-as" class="md-nav__link">
+    <span class="md-ellipsis">
+      Snijpunten met de x-as
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Snijpunten met de x-as">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#twee-snijpunten_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Twee snijpunten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#een-snijpunt_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eén snijpunt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geen-snijpunten_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geen snijpunten
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snijpunten-met-andere-grafieken" class="md-nav__link">
+    <span class="md-ellipsis">
+      Snijpunten met andere grafieken
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="kwadratische-vergelijkingen"><em>Kwadratische Vergelijkingen</em></h1>
+<p>Een kwadratische vergelijking is een vergelijking met een kwadratische term als hoogste orde. Dus de hoogste macht die voor komt in de vergelijking is een 2. We zien hieronder een voorbeeld van een kwadratische vergelijking:</p>
+<div class="arithmatex">\[x^2 + 2x + 5 = 1\]</div>
+<p>De <span class="arithmatex">\(x^2\)</span> term maakt dit een kwadratische vergelijking. Maar de vraag is, hoe lossen we dit op? Hier hebben we een aantal methodes voor, afhankelijk van de vorm van de vergelijking.</p>
+<h2 id="oplossen-vorm-x2-c"><strong>Oplossen vorm x² = c</strong></h2>
+<p>We beginnen met het oplossen van een vergelijking in de vorm</p>
+<div class="arithmatex">\[x^2 = c,\]</div>
+<p>waarbij <span class="arithmatex">\(c\)</span> een willekeurig <em>positief</em> getal is. Bijvoorbeeld:</p>
+<div class="arithmatex">\[x^2 = 9.\]</div>
+<p>We lossen dit op door aan beide kanten de wortel te nemen. We krijgen dan het volgende:</p>
+<div class="arithmatex">\[\sqrt{x^2} = \sqrt{9}\]</div>
+<p>De wortel en het kwadraat heffen elkaar op zodat er alleen <span class="arithmatex">\(x\)</span> over blijft:</p>
+<div class="arithmatex">\[x = \sqrt{9}\]</div>
+<p>(zie eventueel regel 6 van de <a href="../basisvaardigheden/#regels-met-wortels">Regels met Wortels</a>). De wortel van <span class="arithmatex">\(9\)</span> kunnen we schrijven als:</p>
+<div class="arithmatex">\[x = 3.\]</div>
+<p><em><p style="text-align: left;font-size:19px;">Maar let op!</p></em>
+Als we <span class="arithmatex">\(−3\)</span> invullen in onze originele vergelijking, dan klopt de vergelijking ook:</p>
+<div class="arithmatex">\[(-3)^2 = 9\]</div>
+<p>Dit betekent dus dat <span class="arithmatex">\(-3\)</span> ook een oplossing is voor <span class="arithmatex">\(x\)</span>. Deze vergelijking heeft dus <span class="arithmatex">\(2\)</span> oplossingen! De oplossing <span class="arithmatex">\(x=3\)</span> en de oplossing <span class="arithmatex">\(x=-3\)</span>. Dit komt doordat het kwadraat het min-teken laat wegvallen. Hier willen we rekening mee houden.</p>
+<p>Als we een kwadraat willen weg werken, dan moeten we het volgende zeggen:</p>
+<p>Voor de vergelijking:</p>
+<div class="arithmatex">\[x^2 = 9\]</div>
+<p>geldt er dat:</p>
+<div class="arithmatex">\[x = \sqrt{9} \ \ \mathrm{of} \ \ x  = -\sqrt{9}.\]</div>
+<p>Wiskundig noteren we deze "of" op de volgende manier:</p>
+<div class="arithmatex">\[x = \sqrt{9} \ \vee \ x  = -\sqrt{9}.\]</div>
+<p>Als we die <span class="arithmatex">\(\sqrt{9}\)</span> weer uitwerken, dan vinden we dat:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 3 \ \vee \ x  = -3}\]</div>
+</div>
+<p>In het algemeen wordt dit:</p>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="algemene-oplossing"><strong>Algemene oplossing</strong></h3>
+<p>Voor de vergelijking</p>
+<div class="arithmatex">\[\Large{x^2 = c,}\]</div>
+<p>met <span class="arithmatex">\(c\)</span> een willekeurig <em>positief</em> getal, geldt er dat de oplossingen zijn:</p>
+<div class="arithmatex">\[\Large{x = \sqrt{c} \ \vee \ x = - \sqrt{c}}\]</div>
+</details>
+<h3 id="opmerkingen"><strong>Opmerkingen</strong></h3>
+<details class="note"><summary>Opmerking over de vorm</summary><p>De vergelijking moet soms misschien nog omgeschreven worden naar de juiste vorm. Laten we bijvoorbeeld naar deze vergelijking kijken:</p>
+<div class="arithmatex">\[\large{2x^2 - 16 = 2.}\]</div>
+<p>Deze vergelijking heeft alleen getallen en termen met <span class="arithmatex">\(x^2\)</span>. Dit betekent dus dat we deze vergelijking kunnen omschrijven naar de vorm <span class="arithmatex">\(x^2 = c\)</span>. Dit doen we door eerst aan beide kanten van het '<span class="arithmatex">\(=\)</span>'-teken <span class="arithmatex">\(16\)</span> op te tellen om de <span class="arithmatex">\(-16\)</span> weg te laten vallen:</p>
+<div class="arithmatex">\[\large{x^2 - 16 + 16 = 2 + 16}\]</div>
+<p>En dit wordt dus:</p>
+<div class="arithmatex">\[\large{2x^2 = 18.}\]</div>
+<p>We kunnen dit nu in de juiste vorm schrijven door aan beide kanten van '<span class="arithmatex">\(=\)</span>'-teken te delen door <span class="arithmatex">\(2\)</span>:</p>
+<div class="arithmatex">\[\large{x^2 = 9.}\]</div>
+<p>En dit kunnen we weer opgelossen met de methode die hierboven is uitgelegt.</p>
+</details>
+<details class="note"><summary>Opmerking notatie</summary><p>We kunnen de oplossing</p>
+<div class="arithmatex">\[\Large{x = \sqrt{c} \ \vee \ x = - \sqrt{c}}\]</div>
+<p>ook schrijven als</p>
+<div class="arithmatex">\[\Large{x = \pm \sqrt{c}}.\]</div>
+<p>En dit betekent verder precies hetzelfde. Er zijn twee oplossingen, een oplossing met een plus, en een oplossing met een min. Het is dus alleen een verschil in notatie.</p>
+</details>
+<details class="note"><summary>Opmerking negatief getal</summary><p>In de <a href="#algemene-oplossing">Algemene oplossing</a> staat dat <span class="arithmatex">\(c\)</span> een <em>positief</em> getal moet zijn, maar waarom? Wat gebeurt er als het een negatief getal is?</p>
+<p>Laten we kijken naar het volgende voorbeeld:</p>
+<div class="arithmatex">\[\large{x^2 = -1.}\]</div>
+<p>De vraag hier is, welk getal kunnen we keer zichzelf doen om <span class="arithmatex">\(-1\)</span> te krijgen? Als we een positief getal, zoals bijvoorbeeld <span class="arithmatex">\(1\)</span> proberen, dan vinden we:</p>
+<div class="arithmatex">\[\large{1^2 = 1 \neq -1.}\]</div>
+<p>Dit is een positief getal en dus niet gelijk aan <span class="arithmatex">\(-1\)</span>. Laten we een negatief getal proberen, zoals <span class="arithmatex">\(-1\)</span>:</p>
+<div class="arithmatex">\[\large{(-1)^2 = -1 * -1 = 1 \neq -1.}\]</div>
+<p>Dit is ook een positief getal, en dus ook niet gelijk aan <span class="arithmatex">\(-1\)</span>. We kunnen dus op geen enkele manier een negatief getal krijgen uit een kwadraat. Met andere woorden, deze vergelijking heeft geen oplossing. Dit is dus ook de reden dat een wortel van een negatief getal niet bestaat, er is namelijk geen oplossing.</p>
+<div class="admonition quote">
+<p><strong><p style="text-align: center;font-size:19px;">Geen Oplossing</p></strong></p>
+</div>
+</details>
+<h3 id="uitleg-filmpje"><strong>Uitleg Filmpje</strong></h3>
+<details class="youtube" open="open"><summary>Youtube</summary><p><iframe width="673" height="378" src="https://www.youtube.com/embed/nrvL2meMVwY?si=94T2_RytVVydRgnj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+</details>
+<h3 id="voorbeelden"><strong>Voorbeelden</strong></h3>
+<details class="example"><summary>Voorbeeld 1: <span class="arithmatex">\(x^2= 1\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(x^2= 1\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We kunnen dit oplossen met de <a href="#algemene-oplossing">Algemene oplossing</a>. We krijgen dan:</p>
+<div class="arithmatex">\[\large{x = \sqrt{1} \ \vee \ x = -\sqrt{1}}\]</div>
+<p>Als we de wortels uitwerken vinden we:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 1 \ \vee \ x = -1}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 2: <span class="arithmatex">\(5x^2 - 9 = 16\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(5x^2 - 9 = 16\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Om dit op te lossen, moeten we het eerst in de juiste vorm van <a href="#algemene-oplossing"><span class="arithmatex">\(x^2=c\)</span></a> schrijven.  Dit doen we door eerst alle losse getallen naar de rechterkant te halen. En dit kunnen we doen door aan beide kanten <span class="arithmatex">\(+9\)</span> te doen:</p>
+<div class="arithmatex">\[\large{5x^2 = 25}\]</div>
+<p>Nu delen we aan beide kanten door <span class="arithmatex">\(5\)</span> om links alleen <span class="arithmatex">\(x^2\)</span> over te houden:</p>
+<div class="arithmatex">\[\large{x^2 = 5}\]</div>
+<p>Nu staat het in de juiste vorm, en kunnen we de <a href="#algemene-oplossing">Algemene oplossing</a> gebruiken:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = \sqrt{5} \ \vee \ x = -\sqrt{5}}\]</div>
+</div>
+<p>In dit geval kunnen we deze wortels niet versimpelen en is dit dus ook gelijk ons eindantwoord.</p>
+</details>
+<details class="example"><summary>Voorbeeld 3: <span class="arithmatex">\(-4x^2 + 5 = 13\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(-4x^2 + 5 = 13\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We lossen dit weer op door het in de juiste vorm te schrijven. We doen dit door eerst aan beide kanten <span class="arithmatex">\(-5\)</span> te doen:</p>
+<div class="arithmatex">\[\large{-4x^2 = 8.}\]</div>
+<p>Nu kunnen we aan beide kanten delen door <span class="arithmatex">\(-4\)</span> om links alleen <span class="arithmatex">\(x^2\)</span> over te houden:</p>
+<div class="arithmatex">\[\large{x^2 = -2.}\]</div>
+<p>Maar let op! We hebben nu een negatief getal rechts staan. In de <a href="#opmerkingen">Opmerking over een Negatief Getal</a> hebben we gezien dat dit geen oplossingen heeft. Dit komt omdat een getal in het kwadraat kan nooit negatief kan zijn.  </p>
+<div class="admonition quote">
+<p><strong><p style="text-align: center;font-size:19px;">Geen Oplossing</p></strong></p>
+</div>
+</details>
+<h2 id="oplossen-vorm-x2-bx-0"><strong>Oplossen vorm x² + bx = 0</strong></h2>
+<p>Laten we nu kijken naar het oplossen van een vergelijking met de algemene vorm:</p>
+<div class="arithmatex">\[x^2 + bx = 0.\]</div>
+<p>Deze vorm heeft een <span class="arithmatex">\(x^2\)</span> term en een <span class="arithmatex">\(x\)</span> term, maar geen los getal. Bij deze vorm willen we de <span class="arithmatex">\(x\)</span> ontbinden op de volgende manier:</p>
+<div class="arithmatex">\[x(x + b) = 0.\]</div>
+<p>Zie eventueel regel 3 uit de <a href="../basisvaardigheden/#regels-bij-operaties-met-variabelen">Basisvaardigheden</a>. We kunnen dit nu oplossen met een belangrijk inzicht. </p>
+<p>Twee dingen keer elkaar kunnen alleen <span class="arithmatex">\(0\)</span> zijn als een van de twee termen gelijk is aan <span class="arithmatex">\(0\)</span>.</p>
+<p>Het maakt niet uit hoe groot of klein beide getallen zijn, als een van de twee termen niet <span class="arithmatex">\(0\)</span> is, dan kan het product nooit <span class="arithmatex">\(0\)</span> worden. We kunnen dus de volgende conclusie trekken:</p>
+<div class="arithmatex">\[x = 0 \ \vee \ x + b = 0\]</div>
+<p>De tweede vergelijking kunnen we nu oplossen door aan beide kanten van het '='-teken <span class="arithmatex">\(-b\)</span> te doen. We vinden dan de oplossing: </p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 0 \ \vee \ x = - b}\]</div>
+</div>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><h3 id="algemene-oplossing_1">Algemene Oplossing</h3>
+<p>Een vergelijking van de vorm:</p>
+<div class="arithmatex">\[\large{x^2 + bx = 0}\]</div>
+<p>kan worden ontbonden tot:</p>
+<div class="arithmatex">\[\large{x(x + b) = 0.}\]</div>
+<p>Als twee dingen keer elkaar <span class="arithmatex">\(0\)</span> zijn, dan moet een van de twee factoren <span class="arithmatex">\(0\)</span> zijn:</p>
+<div class="arithmatex">\[\large{x = 0 \ \vee \ x + b = 0}\]</div>
+<p>Onze eindoplossing wordt dan:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 0 \ \vee \ x = -b}\]</div>
+</div>
+</details>
+<h3 id="uitleg-filmpje_1"><strong>Uitleg Filmpje</strong></h3>
+<details class="youtube" open="open"><summary>Youtube</summary><p><iframe width="673" height="378" src="https://www.youtube.com/embed/gUjHYmIcKpQ?si=TjuljNTWJi5j6dZU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+</details>
+<h3 id="voorbeelden_1"><strong>Voorbeelden</strong></h3>
+<details class="example"><summary>Voorbeeld 1: <span class="arithmatex">\(x^2 - x = 0\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(x^2 - x = 0\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Om dit op te lossen passen we hetzelfde trucje toe als hierboven. We beginnen dus met het ontbinden van de <span class="arithmatex">\(x\)</span> die in beide termen aanwezig is:</p>
+<div class="arithmatex">\[\large{x(x-1) = 0}\]</div>
+<p>Doordat een van de twee termen gelijk moet zijn aan <span class="arithmatex">\(0\)</span> kunnen we zeggen dat:</p>
+<div class="arithmatex">\[\large{x = 0 \ \vee \ x - 1 = 0}\]</div>
+<p>En nu kunnen we rechts aan beide kanten van het '<span class="arithmatex">\(=\)</span>'-teken <span class="arithmatex">\(+1\)</span> doen:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 0 \ \vee \ x = 1}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 2: <span class="arithmatex">\(2x + x^2 = 7x^2 - 10x\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(2x + x^2 = 7x^2 - 10x\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Om dit op te lossen, moeten we het eerst naar de <a href="#oplossen-vorm-x2-bx-0">algemene vorm</a> brengen. We willen alle termen met <span class="arithmatex">\(x\)</span> en <span class="arithmatex">\(x^2\)</span> naar de linker kant halen. We doen dit door aan beide kanten <span class="arithmatex">\(-7x^2\)</span> en <span class="arithmatex">\(+10x\)</span> te doen. We krijgen dan:</p>
+<div class="arithmatex">\[\large{12x - 6x^2 = 0}\]</div>
+<p>We kunnen de volgorde ook omdraaien en het schrijven op de volgende manier:</p>
+<div class="arithmatex">\[\large{-6x^2 + 12x = 0.}\]</div>
+<p>Nu willen we beide kanten delen door <span class="arithmatex">\(-6\)</span> om het in de algemene vorm te zetten</p>
+<div class="arithmatex">\[\large{x^2 - 2x = 0.}\]</div>
+<p>Nu kunnen we weer de <span class="arithmatex">\(x\)</span> buiten haakjes halen:</p>
+<div class="arithmatex">\[\large{x(x-2) = 0.}\]</div>
+<p>Dit kan alleen gelden als een van de twee factoren <span class="arithmatex">\(0\)</span> is. Dus:</p>
+<div class="arithmatex">\[\large{x = 0 \ \vee \ x - 2 = 0}\]</div>
+<p>Nu kunnen we rechts aan beide kanten van het '<span class="arithmatex">\(=\)</span>'-teken <span class="arithmatex">\(+2\)</span> doen. We vinden dan als eindantwoord:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 0 \ \vee \ x = 2}\]</div>
+</div>
+</details>
+<h2 id="oplossen-vorm-x2-bx-c-0"><strong>Oplossen vorm x² + bx + c = 0</strong></h2>
+<p>Laten we nu kijken naar het oplossen van de algemene vorm</p>
+<div class="arithmatex">\[x^2 + bx+ c = 0.\]</div>
+<p>We hebben hiervoor drie methodes. Als eerst hebben we de snellere methode van <a href="#ontbinden-in-factoren">ontbinden in factoren</a>. Daarna hebben we de iets minder snelle methode, maar die altijd werkt: <a href="#de-abc-formule">De <em>abc</em> formule</a>. En als laatst hebben we <a href="#kwadraat-afsplitsen">kwadraat afsplitsen</a> dat ook altijd werkt, maar vaak meer stappen zijn.</p>
+<p>Laten we als eerst beginnen met ontbinden in factoren.</p>
+<h3 id="ontbinden-in-factoren"><strong>Ontbinden in factoren</strong></h3>
+<p>Zoals de naam eigenlijk al zegt, willen we de vergelijking ontbinden in twee factoren. Stel we hebben bijvoorbeeld de volgende vergelijking:</p>
+<div class="arithmatex">\[x^2 + 3x + 2 = 0.\]</div>
+<p>Deze vergelijking kunnen we ook op de volgende manier schrijven:</p>
+<div class="arithmatex">\[(x + 2)(x + 1) = 0.\]</div>
+<p>Dit is eigenlijk het omgekeerde van <a href="../basisvaardigheden/#kwadratisch-haakjes-wegwerken">Kwadratische haakjes wegwerken</a>. De factoren om te kunnen ontbinden zijn hier dus <span class="arithmatex">\(+2\)</span> en <span class="arithmatex">\(+1\)</span>. We zullen straks zien hoe we zelf de factoren moeten bepalen. </p>
+<p>Deze twee factoren keer elkaar kunnen alleen <span class="arithmatex">\(0\)</span> zijn als een van de twee factoren gelijk is aan <span class="arithmatex">\(0\)</span>. Dit is eigenlijk dezelfde denkstap als bij het <a href="#oplossen-vorm-x2-bx-0">oplossen</a> van <span class="arithmatex">\(x^2+bx=0\)</span>. We kunnen hieruit dus de volgende conclusie trekken:</p>
+<div class="arithmatex">\[x + 2 = 0 \ \vee \ x + 1 = 0.\]</div>
+<p>We kunnen de linker vergelijking versimpelen door aan beide kanten van het '<span class="arithmatex">\(=\)</span>'-teken <span class="arithmatex">\(−2\)</span> te doen. De rechter vergelijking kunnen we versimpelen door aan beide kanten van het '<span class="arithmatex">\(=\)</span>'-teken <span class="arithmatex">\(−1\)</span> te doen. We vinden dan als eindantwoord:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = -2 \ \vee \ x = -1.}\]</div>
+</div>
+<p>Maar hoe weten we wat de factoren zijn om te kunnen ontbinden? Dit kunnen we doen met de product-som methode. </p>
+<p><br></p>
+<h4 id="product-som-methode"><strong><span style="font-size: 18px;">Product-Som methode</span></strong></h4>
+<p>Als we een vergelijking ontbinden in factoren, dan heeft het de volgende vorm:</p>
+<div class="arithmatex">\[(x + p)(x + q).\]</div>
+<p>We kunnen dit weer uitwerken door de <a href="../basisvaardigheden/#kwadratisch-haakjes-wegwerken">Kwadratische haakjes</a> weg te werken. We krijgen dan</p>
+<div class="arithmatex">\[x^2 + (p + q)x + p*q.\]</div>
+<p>Dus als we een vergelijking in de vorm <span class="arithmatex">\(x^2 + bx + c\)</span> hebben, dan weten we dat de factoren moeten voldoen aan:</p>
+<div class="arithmatex">\[c = p*q.\]</div>
+<p>en</p>
+<div class="arithmatex">\[b = p + q\]</div>
+<p>Vandaar de naam "product-som" methode. </p>
+<p>We moeten dus twee getallen vinden die keer elkaar gelijk zijn aan <span class="arithmatex">\(c\)</span> en plus elkaar gelijk zijn aan <span class="arithmatex">\(b\)</span>. Als we twee getallen vinden die daaraan voldoen, dan kunnen we het ontbinden met die getallen.</p>
+<p>Dus in het voorbeeld hadden we de vergelijking:</p>
+<div class="arithmatex">\[x^2 + 3x + 2 = 0.\]</div>
+<p>En nu moeten we kijken welke twee getallen keer elkaar <span class="arithmatex">\(2\)</span> zijn, en plus elkaar <span class="arithmatex">\(3\)</span>. Dit zijn de getallen <span class="arithmatex">\(2\)</span> en <span class="arithmatex">\(1\)</span>, want <span class="arithmatex">\(2 \times 1 = 2\)</span> en <span class="arithmatex">\(2 + 1 = 3\)</span>. Dus we kunnen de vergelijking ontbinden naar de vorm:</p>
+<div class="arithmatex">\[(x + 2)(x + 1) = 0,\]</div>
+<p>en dat is ook wat we in het voorbeeld hadden.</p>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><p><span style="font-size: 14px;">Voor een vergelijking van de vorm</span></p>
+<div class="arithmatex">\[\large{x^2 + bx + c = 0}\]</div>
+<p><span style="font-size: 14px;">kunnen we het ontbinden naar de vorm</span></p>
+<div class="arithmatex">\[\large{(x + p)(x + q) = 0}\]</div>
+<p><span style="font-size: 14px;">als:</span></p>
+<ul>
+<li><span style="font-size: 16px;"><span class="arithmatex">\(p \times q = c\)</span>, en</span></li>
+<li><span style="font-size: 16px;"><span class="arithmatex">\(p + q = b\)</span>.</span></li>
+</ul>
+<p><br>
+<strong><span style="font-size: 16px;">Stappenplan</span></strong></p>
+<ul>
+<li><span style="font-size: 15px;">Verzin twee getallen die samen gelijk zijn aan <span class="arithmatex">\(c\)</span>.</span></li>
+<li><span style="font-size: 15px;">Check of deze twee getallen samen gelijk zijn aan <span class="arithmatex">\(b\)</span></span></li>
+<li><span style="font-size: 15px;">Klopt dit? Dan heb je de juiste <span class="arithmatex">\(2\)</span> factoren gevonden.</span></li>
+</ul>
+</details>
+<p>Nu een concreet voorbeeld om dit te verduidelijken.</p>
+<p>Stel we hebben de volgende vergelijking die we willen ontbinden:</p>
+<div class="arithmatex">\[x^2 + 11x + 24 = 0.\]</div>
+<p>We pakken dit aan door te kijken welke (gehele) getallen keer elkaar gelijk zijn aan 24. We maken hier de volgende tabel van</p>
+<table>
+<thead>
+<tr>
+<th>Factor 1</th>
+<th>Factor 2</th>
+<th>Product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>24</td>
+<td>24</td>
+</tr>
+<tr>
+<td>2</td>
+<td>12</td>
+<td>24</td>
+</tr>
+<tr>
+<td>3</td>
+<td>8</td>
+<td>24</td>
+</tr>
+<tr>
+<td>4</td>
+<td>6</td>
+<td>24</td>
+</tr>
+</tbody>
+</table>
+<p>We kijken nu welke twee factoren we samen kunnen optellen om <span class="arithmatex">\(11\)</span> te krijgen. </p>
+<table>
+<thead>
+<tr>
+<th>Factor 1</th>
+<th>Factor 2</th>
+<th>Som</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>24</td>
+<td>25</td>
+</tr>
+<tr>
+<td>2</td>
+<td>12</td>
+<td>14</td>
+</tr>
+<tr>
+<td>3</td>
+<td>8</td>
+<td>11 <span class="twemoji green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7l233.4-233.3c12.5-12.5 32.8-12.5 45.3 0z"/></svg></span></td>
+</tr>
+<tr>
+<td>4</td>
+<td>6</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>Dus in dit geval zijn de juiste factoren <span class="arithmatex">\(8\)</span> en <span class="arithmatex">\(3\)</span>. We kunnen de vergelijking dus schrijven als:</p>
+<div class="arithmatex">\[(x + 8)(x + 3) = 0.\]</div>
+<p>Als we dit oplossen vinden we:</p>
+<div class="arithmatex">\[x + 8 = 0 \ \vee \ x + 3 = 0.\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = -8 \ \vee \ x = -3.}\]</div>
+</div>
+<h4 id="uitleg-filmpje_2"><span style="font-size: 18ps;">Uitleg Filmpje</span></h4>
+<details class="youtube" open="open"><summary>Youtube</summary><p><iframe width="673" height="378" src="https://www.youtube.com/embed/9F5gCcSLNqQ?si=koGXxBO0ifRnhgdI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+</details>
+<h4 id="voorbeelden_2"><span style="font-size: 18px;">Voorbeelden</span></h4>
+<details class="example"><summary>Voorbeeld 1: <span class="arithmatex">\(x^2 -2x - 8 = 0\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(x^2 -2x - 8 = 0\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We willen dit weer op lossen door te ontbinden in factoren. Dit kunnen we doen met de product-som methode. We maken een tabel met alle combinaties 2 factoren die keer elkaar −8 zijn:</p>
+<table>
+<thead>
+<tr>
+<th>Factor 1</th>
+<th>Factor 2</th>
+<th>Product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-1</td>
+<td>8</td>
+<td>-8</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-8</td>
+<td>-8</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>4</td>
+<td>-8</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-4</td>
+<td>-8</td>
+</tr>
+</tbody>
+</table>
+<p>Nu tellen we de twee factoren bij elkaar op en kijken we welke samen <span class="arithmatex">\(-2\)</span> zijn:</p>
+<table>
+<thead>
+<tr>
+<th>Factor 1</th>
+<th>Factor 2</th>
+<th>Som</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-1</td>
+<td>8</td>
+<td>7</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-8</td>
+<td>-7</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-4</td>
+<td>-2 <span class="twemoji green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7l233.4-233.3c12.5-12.5 32.8-12.5 45.3 0z"/></svg></span></td>
+</tr>
+</tbody>
+</table>
+<p>We weten nu dus dat de juiste factoren <span class="arithmatex">\(2\)</span> en <span class="arithmatex">\(-4\)</span> zijn. We kunnen dit dus ontbinden naar:</p>
+<div class="arithmatex">\[\large{(x + 2)(x - 4) = 0}\]</div>
+<p>Als we dit uitwerken vinden we:</p>
+<div class="arithmatex">\[\large{x + 2 = 0 \ \vee \ x - 4 = 0.}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = -2 \ \vee \ x = 4.}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 2: <span class="arithmatex">\(-5x^2 = 25x + 20\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(-5x^2 = 25x + 20\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>In dit voorbeeld staat onze vergelijking nog niet in de <a href="#oplossen-vorm-x2-bx-c-0">algemene vorm</a> van <span class="arithmatex">\(x^2 + bx + c = 0\)</span>. Om het in de juiste vorm te schrijven, willen we alles aan de linker kant hebben. Dit doen we door aan beide kanten <span class="arithmatex">\(-25x\)</span> en <span class="arithmatex">\(-20\)</span> te doen:</p>
+<div class="arithmatex">\[\large{-5x^2 - 25x - 20 = 0}\]</div>
+<p>Nu delen we door <span class="arithmatex">\(-5\)</span> om het naar de algemene vorm te brengen:</p>
+<div class="arithmatex">\[\large{x^2 + 5x + 4 = 0}\]</div>
+<p>Nu willen we dit ontbinden in factoren. Dit kunnen we doen met de product-som methode (of als je het in een keer ziet mag dat natuurlijk ook). We maken weer een tabel met de factoren om 4 als product te krijgen.</p>
+<table>
+<thead>
+<tr>
+<th>Factor 1</th>
+<th>Factor 2</th>
+<th>Product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>-4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>-2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>We maken nu de som tabel om te kijken welke factoren samen <span class="arithmatex">\(5\)</span> zijn.</p>
+<table>
+<thead>
+<tr>
+<th>Factor 1</th>
+<th>Factor 2</th>
+<th>som</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>4</td>
+<td>5 <span class="twemoji green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7l233.4-233.3c12.5-12.5 32.8-12.5 45.3 0z"/></svg></span></td>
+</tr>
+<tr>
+<td>-1</td>
+<td>-4</td>
+<td>-5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>-2</td>
+<td>-4</td>
+</tr>
+</tbody>
+</table>
+<p>De juiste factoren zijn dus <span class="arithmatex">\(1\)</span> en <span class="arithmatex">\(4\)</span> en dus kunnen we de vergelijking ontbinden naar:</p>
+<div class="arithmatex">\[\large{(x + 1)(x + 4) = 0}\]</div>
+<p>Als we dit uitwerken vinden we:</p>
+<div class="arithmatex">\[\large{x + 1 = 0 \ \vee \ x + 4 = 0.}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = -1 \ \vee \ x = -4.}\]</div>
+</div>
+</details>
+<h3 id="de-abc-formule"><strong>De <em>abc</em> formule</strong></h3>
+<p>In sommige gevallen gaat ontbinden in factoren lastig. Dit is vaak als je alle combinaties van gehele getallen hebt geprobeerd, maar dat de som niet is wat je zoekt. Of als <span class="arithmatex">\(b\)</span> of <span class="arithmatex">\(c\)</span> in <span class="arithmatex">\(𝑥^2+𝑏𝑥+𝑐\)</span> geen gehele getallen zijn, dan gaat ontbinden in factoren vaak ook lastig. </p>
+<p>In dat soort gevallen gebruiken we de <em>abc</em> formule. Maar wat is de <em>abc</em> formule precies en hoe gebruiken we het?</p>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><p>De <em>abc</em> formule gaat als volgt:</p>
+<p>Voor een vergelijking van de vorm:</p>
+<div class="arithmatex">\[\large{ax^2 + bx + c = 0}\]</div>
+<p>zijn de oplossingen:</p>
+<div class="arithmatex">\[\Large{x = \frac{-b \pm \sqrt{D}}{2a},}\]</div>
+<p>waarbij <span class="arithmatex">\(D\)</span> de zogenaamde discriminant is:</p>
+<div class="arithmatex">\[\Large{D = b^2 - 4ac.}\]</div>
+<p><em><span style="font-size: 15px;"><span class="arithmatex">\(\pm\)</span> betekent dat er <span class="arithmatex">\(1\)</span> oplossing is waar we <span class="arithmatex">\(+\)</span> gebruiken en 1 oplossing is waar we <span class="arithmatex">\(-\)</span> gebruiken.</span></em></p>
+<details class="note"><summary>Discriminant</summary><h4 id="discriminant"><strong><span style="font-size: 18px;">Discriminant</span></strong></h4>
+<p>Waarom gebruiken we een discriminant? We zouden het toch ook meteen in de formule kunnen invullen en maar <span class="arithmatex">\(1\)</span> ding hoeven te onthouden?</p>
+<p>Nou, de waarde van de discriminant vertelt ons hoeveel oplossingen er zijn. En voor sommige vragen kan dit heel nuttig zijn om te gebruiken. </p>
+<div class="arithmatex">\[\Large{f(x) = 0 \left\{ \begin{array}{l l l } \textrm{Twee oplossingen} &amp; \quad \textrm{voor } D &gt; 0 \\ \textrm{Een oplossing} &amp; \quad \textrm{voor } D = 0 \\ \textrm{Geen oplossingen} &amp; \quad \textrm{voor } D &lt; 0 \end{array} \right.}\]</div>
+<p>Kijk bijvoorbeeld naar de volgende voorbeelden (ook gebruikt in <a href="#snijpunten-met-de-x-as">snijpunten met de <span class="arithmatex">\(x\)</span>-as</a>). </p>
+<h5 id="twee-snijpunten"><span style="font-size: 14px; color: #D3D3D3">Twee snijpunten</span></h5>
+<p>Stel we hebben de functie <span class="arithmatex">\(f(x) = x^2 - 1\)</span> en we willen erachter komen hoeveel snijpunten deze functie heeft met de <span class="arithmatex">\(x\)</span>-as. We stellen dan dat:</p>
+<div class="arithmatex">\[\large{f(x) = 0}\]</div>
+<p>(zie eventueel dus ook de sectie <a href="#snijpunten-met-de-x-as">snijpunten met de <span class="arithmatex">\(x\)</span>-as</a>). Als we <span class="arithmatex">\(f(x)\)</span> invullen, wordt dit:</p>
+<div class="arithmatex">\[\large{x^2 - 1 = 0.}\]</div>
+<p>Laten we nu de discriminant bepalen. We hebben in dit geval:</p>
+<div class="arithmatex">\[\large{a = 1, \ b = 0 \ \mathrm{en} \ c = -1}\]</div>
+<p>De discriminant wordt dan:</p>
+<div class="arithmatex">\[\large{D = 0^2 - 4 \times 1 \times -1 = 4}\]</div>
+<p>Er geldt hier dus dat:</p>
+<div class="arithmatex">\[\large{D &gt; 0}\]</div>
+<p><span class="arithmatex">\(f(x)\)</span> heeft dus <span class="arithmatex">\(2\)</span> snijpunten met de <span class="arithmatex">\(x\)</span>-as. Als we de grafiek van <span class="arithmatex">\(f(x)\)</span> plotten, zien we dat dit ook daadwerkelijk het geval is:</p>
+<p><figure markdown>
+    <img alt="Plot van f(x) met snijpunten x-as" src="../assets/images/kwadratische_vergelijkingen/f%28x%29%20%3D%20x%C2%B2%20-%201.svg" width="400" />
+    <figcaption>Figuur 1. De grafiek <span class="arithmatex">\(f(x) = x^2 - 1\)</span> geplot met de snijpunten met de x-as.</figcaption>
+</figure></p>
+<h5 id="een-snijpunt"><span style="font-size: 14px; color: #D3D3D3">Eén snijpunt</span></h5>
+<p>Stel we kijken nu naar de grafiek <span class="arithmatex">\(f(x) = x^2 - 4x + 4\)</span>. Hoeveel snijpunten heeft deze functie met de <span class="arithmatex">\(x\)</span>-as? Om dit te bepalen, moeten we eerst stellen dat:</p>
+<div class="arithmatex">\[\large{f(x) = 0}\]</div>
+<p>Dus als we <span class="arithmatex">\(f(x)\)</span> invullen:</p>
+<div class="arithmatex">\[\large{x^2 - 4x + 4 = 0}\]</div>
+<p>Nu bepalen we weer de discriminant. We hebben:</p>
+<div class="arithmatex">\[\large{a = 1, \ b = -4 \ \mathrm{en} \ c = 4}\]</div>
+<p>De discriminant wordt dan:</p>
+<div class="arithmatex">\[\large{D = (-4)^2 -4 \times 1 \times 4 = 0.}\]</div>
+<p>Er geldt dus dat:</p>
+<div class="arithmatex">\[\large{D = 0}\]</div>
+<p>We weten nu dus dat <span class="arithmatex">\(f(x)\)</span> maar <span class="arithmatex">\(1\)</span> snijpunt heeft met de <span class="arithmatex">\(x\)</span>-as (en dus de <span class="arithmatex">\(x\)</span>-as raakt). Als we <span class="arithmatex">\(f(x)\)</span> plotten zien we dat dit inderdaad het geval is.</p>
+<p><figure markdown>
+    <img alt="Plot van f(x) met snijpunt x-as" src="../assets/images/kwadratische_vergelijkingen/f%28x%29%20%3D%20x%C2%B2%20-%204x%20%2B%204.svg" width="500" />
+    <figcaption>Figuur 2. De grafiek f(x) = x² - 4x + 4 geplot met het snijpunt/raakpunt met de x-as.</figcaption>
+</figure></p>
+<h5 id="geen-snijpunten"><span style="font-size: 14px; color: #D3D3D3">Geen snijpunten</span></h5>
+<p>We kijken nu als laatst naar de functie <span class="arithmatex">\(f(x) = x^2 + 1\)</span> om te bepalen hoeveel snijpunten dit heeft met de <span class="arithmatex">\(x\)</span>-as. We stellen <span class="arithmatex">\(f(x)\)</span> weer gelijk aan <span class="arithmatex">\(0\)</span>:</p>
+<div class="arithmatex">\[\large{x^2 + 1 = 0.}\]</div>
+<p>Nu gaan we de discriminant bepalen. We hebben:</p>
+<div class="arithmatex">\[\large{a = 1, \ b = 0 \ \mathrm{en} \ c = 1}\]</div>
+<p>De discriminant wordt dan:</p>
+<div class="arithmatex">\[\large{D = 0^2 - 4 \times 1 \times 1 = -4}\]</div>
+<p>Er geldt dus hier dat:</p>
+<div class="arithmatex">\[\large{D &lt; 0.}\]</div>
+<p>Deze functie heeft dus geen snijpunten met de <span class="arithmatex">\(x\)</span>-as. We controleren dit weer met een plot van <span class="arithmatex">\(f(x)\)</span>.</p>
+<p><figure markdown>
+    <img alt="Plot van f(x) met 0 snijpunten x-as" src="../assets/images/kwadratische_vergelijkingen/f%28x%29%20%3D%20x%C2%B2%20%2B%201.svg" width="500" />
+    <figcaption>Figuur 3. De grafiek f(x) = x² +1 geplot.</figcaption>
+</figure></p>
+<p>We zien dat de grafiek van <span class="arithmatex">\(f(x)\)</span> overal boven de <span class="arithmatex">\(x\)</span>-as ligt, en dus zijn er inderdaad geen snijpunten. </p>
+</details>
+</details>
+<details class="abstract"><summary>Bewijs <em>abc</em> formule</summary><p>Hieronder is een filmpje om te zien waar de <em>abc</em> formule vandaan komt.</p>
+<details class="video" open="open"><summary>Video</summary><p><video controls>
+<source src="../assets/videos/Kwadratisch.mp4" type="video/mp4">
+</video></p>
+<p><em><p style="text-align: center;">Filmpje: Bewijs voor de abc formule. De stappen gaan redelijk snel, dus zie tekst hieronder voor meer uitleg over de stappen.</p></em></p>
+</details>
+<p>Wat gebeurt hier? Eerst wordt er een functie geplot:</p>
+<div class="arithmatex">\[\large{f(x) = ax^2 + bx + c.}\]</div>
+<p>We verschuiven nu deze functie naar links, zodat de top op de <span class="arithmatex">\(𝑦\)</span>-as komt te liggen. Het oude <span class="arithmatex">\(x\)</span>-coordinaat van de top is <span class="arithmatex">\(- \frac{b}{2a}\)</span>, dus moeten we de functie verschuiven met <span class="arithmatex">\(\frac{b}{2a}\)</span> om de top op de <span class="arithmatex">\(y\)</span>-as te zetten. Dus vervangen we alle <span class="arithmatex">\(x\)</span> termen met <span class="arithmatex">\(x' − \frac{b}{2a}\)</span>. We gebruiken hier <span class="arithmatex">\(x'\)</span> om aan te geven dat dit over onze nieuwe verschoven functie <span class="arithmatex">\(g(x')\)</span> gaat en niet over <span class="arithmatex">\(f(x)\)</span>.</p>
+<div class="arithmatex">\[\large{g(x') = a(x'-\frac{b}{2a})^2 + b(x'-\frac{b}{2a}) + c}\]</div>
+<p>We kunnen dit uitwerken door de <a href="../basisvaardigheden/#kwadratisch-haakjes-wegwerken">kwadratische haakjes</a> weg te werken.</p>
+<div class="arithmatex">\[\large{g(x') = a(x'^2 - \frac{b}{a}x' + \frac{b^2}{4a^2}) + bx' - \frac{b^2}{2a} + c}\]</div>
+<div class="arithmatex">\[\large{g(x') = ax'^2 - bx' + \frac{b^2}{4a} + bx' - \frac{b^2}{2a} + c}\]</div>
+<p>We zien nu dat de alle termen met alleen <span class="arithmatex">\(x'\)</span> weg vallen. Verder kunnen we <span class="arithmatex">\(\frac{b^2}{4a} - \frac{b^2}{2a}\)</span> versimpelen tot <span class="arithmatex">\(-\frac{b^2}{4a}\)</span>. We houden dan over:</p>
+<div class="arithmatex">\[\large{g(x') = ax'^2 - \frac{b^2}{4a} + c}\]</div>
+<p>Als we nu de snijpunten bepalen van onze nieuwe <span class="arithmatex">\(g(x)\)</span> functie met de <span class="arithmatex">\(x\)</span>-as, dan weten we ook meteen de snijpunten van <span class="arithmatex">\(f(x)\)</span> met de <span class="arithmatex">\(x\)</span>-as. Die zijn namelijk precies hetzelfde als van $g(x), alleen terug verschoven met <span class="arithmatex">\(\frac{b}{2a}\)</span>. We bepalen de snijpunten met de <span class="arithmatex">\(x\)</span>-as door te stellen dat:</p>
+<div class="arithmatex">\[\large{g(x') = 0}\]</div>
+<p>(zie eventueel <a href="#snijpunten-met-de-x-as">Snijpunten met de x-as</a>). Als we <span class="arithmatex">\(g(x')\)</span> invullen krijgen we:</p>
+<div class="arithmatex">\[\large{ax'^2 - \frac{b^2}{4a} + c = 0.}\]</div>
+<p>Merk op, we hebben hier alleen een term met <span class="arithmatex">\(x'^2\)</span> en een getal. Het is dus van de vorm <span class="arithmatex">\(x^2 = c\)</span> en we weten hoe we dit moeten <a href="#algemene-oplossing">oplossen</a>. We schrjven het eerst in de goeie vorm. Dit doen we door aan beide kanten <span class="arithmatex">\(+ \frac{b^2}{4a}\)</span> en <span class="arithmatex">\(-c\)</span> te doen:</p>
+<div class="arithmatex">\[\large{ax'^2 = \frac{b^2}{4a} - c}\]</div>
+<p>Nu delen we beide kanten door <span class="arithmatex">\(a\)</span>:</p>
+<div class="arithmatex">\[\large{x'^2 = \frac{b^2}{4a^2} - \frac{c}{a}}\]</div>
+<p>De <a href="#algemene-oplossing">oplossing</a> van deze vergelijking wordt dan (zie eventueel de <a href="#opmerkingen">opmerking over notatie</a>):</p>
+<div class="arithmatex">\[\large{x' = \pm \sqrt{\frac{b^2}{4a^2} - \frac{c}{a}}}\]</div>
+<p>We kunnen dit nog herschrijven door <span class="arithmatex">\(\frac{1}{4a^2}\)</span> te ontbinden. We krijgen dan twee losse wortels (zie eventueel de <a href="../basisvaardigheden/#regels-met-wortels">regels met wortels</a>)</p>
+<div class="arithmatex">\[\large{x' = \pm \sqrt{\frac{1}{4a^2}} * \sqrt{b^2 - 4ac}}\]</div>
+<p>We hebben bij de tweede term een extra <span class="arithmatex">\(4a\)</span> toegevoegd zodat als we dit weer delen door <span class="arithmatex">\(4a^2\)</span>, we weer terug komen op <span class="arithmatex">\(\frac{c}{a}\)</span>. Als we nu de nieuwe wortel oplossen, vinden we:</p>
+<div class="arithmatex">\[\large{x' = \pm \frac{1}{2a} * \sqrt{b^2 - 4ac}.}\]</div>
+<p>Als we hier <span class="arithmatex">\(1\)</span> breuk van maken, dan vinden we:</p>
+<div class="arithmatex">\[\large{x' = \pm \frac{\sqrt{b^2 - 4ac}}{2a}.}\]</div>
+<p>Dit zijn dus de oplossingen voor onze functie 𝑔(𝑥′). De oplossingen van 𝑓(𝑥) zijn dus precies hetzelfde, maar dan terug verschoven met <span class="arithmatex">\(\frac{b}{2a}\)</span>. We hadden eerst <span class="arithmatex">\(x\)</span> vervangen met <span class="arithmatex">\(x' - \frac{b}{2a}\)</span>, dus nu moeten we <span class="arithmatex">\(x'\)</span> vervangen met <span class="arithmatex">\(x + \frac{b}{2a}\)</span> om het terug te verschuiven:</p>
+<div class="arithmatex">\[\large{x + \frac{b}{2a} = \pm \frac{\sqrt{b^2 - 4ac}}{2a}}.\]</div>
+<p>We kunnen nu aan beide kanten <span class="arithmatex">\(- \frac{b}{2a}\)</span> doen:</p>
+<div class="arithmatex">\[\large{x = -\frac{b}{2a} \pm \frac{\sqrt{b^2 - 4ac}}{2a}}.\]</div>
+<p>We hebben nu twee dezelfde noemers en dus kunnen we hier <span class="arithmatex">\(1\)</span> breuk van maken (zie eventueel de <a href="../basisvaardigheden/#regels-bij-breuken">regels met breuken</a>). Als we dit doen, dan zien we dat we nu de <em>abc</em> formule zelf afgeleid!</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\Large{x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}}\]</div>
+</div>
+</details>
+<p>Laten we naar een voorbeeld kijken. Stel we hebben de vergelijking:</p>
+<div class="arithmatex">\[3x^2 + 4x - 5 = 0.\]</div>
+<p>In dit geval kunnen we eerst proberen om het op te lossen door te ontbinden in factoren. De eerste stap is om alles te delen door <span class="arithmatex">\(3\)</span>.</p>
+<div class="arithmatex">\[x^2 + 1 \frac{1}{3}x - 1 \frac{2}{3} = 0.\]</div>
+<p><span class="arithmatex">\(b\)</span> en <span class="arithmatex">\(c\)</span> zijn geen gehele getallen, dus ontbinden in factoren wordt lastig. In dat geval gebruiken we dus de <em>abc</em> formule. We beginnen altijd met eerst bepalen wat <span class="arithmatex">\(a\)</span>, <span class="arithmatex">\(b\)</span> en <span class="arithmatex">\(c\)</span> zijn. In dit geval geldt er dat</p>
+<div class="arithmatex">\[a = 1, \ b = 1 \frac{1}{3} \ \mathrm{en} \ c = -1 \frac{2}{3}\]</div>
+<p>We bepalen eerst de discriminant:</p>
+<div class="arithmatex">\[D = (1 \frac{1}{3})^2 - 4 * 1 * - 1 \frac{2}{3} = 8 \frac{4}{9}\]</div>
+<p>Met deze discriminant kunnen we nu de oplossingen bepalen:</p>
+<div class="arithmatex">\[x = \frac{-1 \frac{1}{3} + \sqrt{8 \frac{4}{9}}}{2*1} \ \vee \ x = \frac{-1 \frac{1}{3} - \sqrt{8 \frac{4}{9}}}{2*1}\]</div>
+<p>Als we dit uitwerken vinden we:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = - \frac{1}{3} \left(2 - \sqrt{19} \right) \ \vee \ x = -\frac{1}{3} \left(2 + \sqrt{19} \right)}\]</div>
+</div>
+<p>Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwoord:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 0.79 \ \vee \ x = -2.12}\]</div>
+</div>
+<details class="note"><summary>Opmerking</summary><p>We hadden hier net zo goed ook er voor kunnen kiezen om meteen te werken met de vorm:</p>
+<div class="arithmatex">\[\large{3x^2 + 4x - 5 = 0}\]</div>
+<p>Onze <span class="arithmatex">\(a\)</span>, <span class="arithmatex">\(b\)</span> en <span class="arithmatex">\(c\)</span> worden dan:</p>
+<div class="arithmatex">\[\large{a = 3, \ b = 4 \ \mathrm{en} \ c = -5}\]</div>
+<p>De discriminant wordt dan:</p>
+<div class="arithmatex">\[\large{D = (4)^2 - 4 * 3 * -5 = 76}\]</div>
+<p>Vullen we dit in, dan vinden we:</p>
+<div class="arithmatex">\[\large{x = \frac{-4 + \sqrt{76}}{2*3} \ \vee \ x = \frac{-4 - \sqrt{76}}{2*3}}\]</div>
+<p>En dit kunnen we weer versimpelen tot:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = - \frac{1}{3} \left(2 - \sqrt{19} \right) \ \vee \ x = -\frac{1}{3} \left(2 + \sqrt{19} \right)}\]</div>
+</div>
+<p>En dit is precies hetzelfde als wat we net ook hadden gevonden.</p>
+</details>
+<h4 id="uitleg-filmpje_3"><span style="font-size: 18ps;">Uitleg Filmpje</span></h4>
+<details class="youtube" open="open"><summary>Youtube</summary><p><iframe width="560" height="315" src="https://www.youtube.com/embed/kKqyplvyK4Q?si=pLA6MxVocTfMvGE6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+</details>
+<h4 id="voorbeelden_3"><span style="font-size: 18px;">Voorbeelden</span></h4>
+<details class="example"><summary>Voorbeeld 1: <span class="arithmatex">\(2x^2 + 48 \frac{1}{2}x + 12 = 0\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(2x^2 + 48 \frac{1}{2}x + 12 = 0\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We zien hier dat <span class="arithmatex">\(b\)</span> een breuk is, dus waarschijnlijk wordt <a href="#ontbinden-in-factoren">ontbinden in factoren</a> lastig. We kiezen er nu dus voor om meteen de <em>abc</em> formule te gebruiken. Hier geldt er dat:</p>
+<div class="arithmatex">\[\large{a = 2, \ b = 48 \frac{1}{2} \ \mathrm{en} \ c = 12.}\]</div>
+<p>We berekenen eerst de discriminant:</p>
+<div class="arithmatex">\[\large{D = (48 \frac{1}{2})^2 - 4 *2 *12 = 2256 \frac{1}{4}}\]</div>
+<p>Nu kunnen we <span class="arithmatex">\(x\)</span> bepalen:</p>
+<div class="arithmatex">\[\large{x = \frac{-48 \frac{1}{2} + \sqrt{2256 \frac{1}{4}}}{2*2} \ \vee \ x = \frac{-48 \frac{1}{2} - \sqrt{2256 \frac{1}{4}}}{2*2}}\]</div>
+<p>Als we dit uitwerken vinden we:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = -\frac{1}{4} \ \vee \ x = -24}\]</div>
+</div>
+<details class="note"><summary>Opmerking</summary><p>Ondanks dat <span class="arithmatex">\(b\)</span> een breuk was, hadden we dit nog steeds op kunnen lossen met <a href="#ontbinden-in-factoren">ontbinden in factoren</a>. </p>
+<p>We beginnen met in de originele vergelijking alle termen te delen door <span class="arithmatex">\(2\)</span>. We vinden dan:</p>
+<div class="arithmatex">\[\large{x^2 + 24 \frac{1}{4} + 6 = 0.}\]</div>
+<p>In dit geval is het een kwestie van zien dat de factoren <span class="arithmatex">\(24\)</span> en <span class="arithmatex">\(\frac{1}{4}\)</span> hieraan voldoen. Het product is namelijk <span class="arithmatex">\(6\)</span> en de som is <span class="arithmatex">\(24 \frac{1}{4}\)</span>. Maar als je dit niet ziet, dan is dat oké. In dat geval gebruik je gewoon de <em>abc</em> formule zoals hierboven is gedaan en kom je er ook.</p>
+<p>Met dit inzicht kunnen we de vergelijking schrijven als:</p>
+<div class="arithmatex">\[\large{(x + \frac{1}{4})(x + 24) = 0.}\]</div>
+<p>Hieruit kunnen we de conclusie trekken dat</p>
+<div class="arithmatex">\[\large{x + \frac{1}{4} = 0 \ \vee \ x + 24 = 0}\]</div>
+<p>Als we dit uitwerken dan vinden we:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = -\frac{1}{4} \ \vee \ x = -24}\]</div>
+</div>
+</details>
+</details>
+<details class="example"><summary>Voorbeeld 2: <span class="arithmatex">\(x^2 + 5 \frac{19}{25} = 4\frac{4}{5}x\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(x^2 + 5 \frac{19}{25} = 4\frac{4}{5}x\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We willen deze vergelijking eerst schrijven in de <a href="#oplossen-vorm-x2-bx-c-0">standaard vorm</a>. Om dit te doen, willen we alle termen naar de linker kant halen. Dit doen we door beide kanten <span class="arithmatex">\(-4 \frac{4}{5}\)</span> te doen. We krijgen dan:</p>
+<div class="arithmatex">\[\large{x^2 - 4\frac{4}{5}x + 5 \frac{19}{25} = 0.}\]</div>
+<p>Het is lastig om hier te zien in welke factoren we dit kunnen ontbinden. Daarom gaan we over op de <em>abc</em> formule. We hebben:</p>
+<div class="arithmatex">\[\large{a = 1, \ b = - 4\frac{4}{5} \ \mathrm{en} \ c = 5 \frac{19}{25}.}\]</div>
+<p>Onze discriminant wordt dan:</p>
+<div class="arithmatex">\[\large{D = (- 4\frac{4}{5})^2 - 4 * 1 * 5 \frac{19}{25} = 0}\]</div>
+<p>Onze discriminant is dus <span class="arithmatex">\(0\)</span>. Dit betekent dat we maar <span class="arithmatex">\(1\)</span> oplossing verwachten. Deze oplossing voor <span class="arithmatex">\(x\)</span> wordt:</p>
+<div class="arithmatex">\[\large{x = \frac{- -4\frac{4}{5} \pm \sqrt{0}}{2}}\]</div>
+<p>En dus omdat plus of min <span class="arithmatex">\(0\)</span> precies hetzelfde antwoord geeft, hebben we maar <span class="arithmatex">\(1\)</span> oplossing. Als we dit versimpelen, dan vinden we:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 2 \frac{2}{5}}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 3: <span class="arithmatex">\(-2x^2 + x + 9 =  3x + 11\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\(-2x^2 + x + 9 =  3x + 11\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We beginnen hier weer met de vergelijking schrijven in de algemene vorm. We halen alles naar de linker kant door aan beide kanten <span class="arithmatex">\(-3x\)</span> en <span class="arithmatex">\(-10\)</span> te doen:</p>
+<div class="arithmatex">\[\large{-2x^2 + -2x + -2 = 0}\]</div>
+<p>We delen nu alle termen door <span class="arithmatex">\(-2\)</span>:</p>
+<div class="arithmatex">\[\large{x^2 + x + 1 = 0.}\]</div>
+<p>Deze vergelijking lijkt makkelijk om te <a href="#ontbinden-in-factoren">ontbinden in factoren</a>, maar dit blijkt erg lastig (probeer zelf maar). We gebruiken daarom de <em>abc</em> formule. We hebben:</p>
+<div class="arithmatex">\[\large{a = 1, \ b = 1 \ \mathrm{en} \ c = 1}\]</div>
+<p>We berekenen eerst de discriminant:</p>
+<div class="arithmatex">\[\large{D = 1^2 - 4 * 1 * 1 = -3}\]</div>
+<p>De discriminant is in dit geval dus negatief, namelijk <span class="arithmatex">\(-3\)</span>. Als we dit proberen in te vullen, gebeurt er iets interessants:</p>
+<div class="arithmatex">\[\large{x = \frac{-1 \pm \sqrt{-3}}{2}.}\]</div>
+<p>Zoals we hier kunnen zien, krijgen we hier een wortel van een negatief getal. En we weten dat een wortel van een negatief getal niet bestaat (zie eventueel de opmerking over een negatief getal). Met andere woorden, deze vergelijking heeft geen oplossing. En dit is ook wat we verwachten voor een <a href="#discriminant">discriminant kleiner dan <span class="arithmatex">\(0\)</span></a>.</p>
+<div class="admonition quote">
+<p><strong><p style="text-align: center;font-size:19px;">Geen Oplossing</p></strong></p>
+</div>
+</details>
+<h3 id="kwadraat-afsplitsen"><strong>Kwadraat afsplitsen</strong></h3>
+<p>Dit is een andere methode om kwadratische vergelijkingen op te lossen. Net zoals de <em>abc</em> formule werkt het in alle gevallen. Het duurt vaak iets langer dan de <em>abc</em> formule, maar je hoeft er geen formule voor te onthouden. Laten we kijken hoe het werkt met behulp van een voorbeeld.</p>
+<p>Laten we kijken naar de volgende vergelijking:</p>
+<div class="arithmatex">\[x^2 + 6x - 7 = 0.\]</div>
+<p>Bij kwadraat afsplitsen willen we de <span class="arithmatex">\(x^2 + 6x\)</span> term vervangen door iets tussen haakjes en dan in het kwadraat. In dit geval willen we het vervangen met <span class="arithmatex">\(\left(x + 3\right)^2\)</span>. Kijk maar wat er gebeurt als we de haakjes uitwerken (zie eventueel <a href="../basisvaardigheden/#kwadratisch-haakjes-wegwerken">Kwadratische haakjes wegwerken</a>):</p>
+<div class="arithmatex">\[(x+3)^2 = \underline{x^2 + 6x} + 9.\]</div>
+<p>We krijgen dus onze <span class="arithmatex">\(x^2 + 6x\)</span> term terug door de haakjes <span class="arithmatex">\((x+3)^2\)</span> uit te werken. Maar we krijgen dan ook een extra <span class="arithmatex">\(9\)</span> die we niet willen hebben. Om deze weg te halen moeten we nog beide kanten <span class="arithmatex">\(-9\)</span> doen:</p>
+<div class="arithmatex">\[(x+3)^2 - 9 = \underline{x^2 + 6x}.\]</div>
+<p>Nu kunnen we dit in gaan vullen in de vergelijking in plaats van de <span class="arithmatex">\(x^2 + 6x\)</span>:</p>
+<div class="arithmatex">\[(x+3)^2 - 9 - 7 = 0.\]</div>
+<p>Het enige wat we dus hier hebben gedaan is de <span class="arithmatex">\(x^2 + 6x\)</span> in de vergelijking vervangen met <span class="arithmatex">\((x+3)^2 - 9\)</span>. Dit kunnen we verder versimpelen naar:</p>
+<div class="arithmatex">\[(x+3)^2 - 16 = 0.\]</div>
+<p>We kunnen nu aan beide kanten <span class="arithmatex">\(+16\)</span> doen om de <span class="arithmatex">\(16\)</span> naar de andere kant te halen:</p>
+<div class="arithmatex">\[(x+3)^2 = 16.\]</div>
+<p>Deze vorm lijkt misschien lastig op te lossen, maar het is eigenlijk hetzelfde als de vorm <a href="#oplossen-vorm-x2-c"><span class="arithmatex">\(x^2 = c\)</span></a>. Het enige verschil is dat we nu in plaats van een <span class="arithmatex">\(x\)</span> een <span class="arithmatex">\(x+3\)</span> term hebben. Maar de manier van <a href="#algemene-oplossing">oplossen</a> gaat eigenlijk op dezelfde manier. We nemen aan beide kanten de wortel. Onze oplossingen worden dan:</p>
+<div class="arithmatex">\[x+3 = \sqrt{16} \ \vee x + 3 = -\sqrt{16}\]</div>
+<p>Als we <span class="arithmatex">\(\sqrt{16}\)</span> versimpelen dan vinden we:</p>
+<div class="arithmatex">\[x+3 = 4 \ \vee x + 3 = -4\]</div>
+<p>Door nu aan beide kanten <span class="arithmatex">\(-3\)</span> te doen vinden we onze eindoplossing:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 1 \ \vee \ x = -7}\]</div>
+</div>
+<details class="belangrijk" open="open"><summary>Belangrijk</summary><h4 id="algemene-oplossing_2"><strong><span style="font-size: 18px;">Algemene Oplossing</span></strong></h4>
+<p>Een vergelijking in de vorm</p>
+<div class="arithmatex">\[\large{x^2 + bx + c = 0}\]</div>
+<p>kunnen we schrijven naar de vorm</p>
+<div class="arithmatex">\[\large{\left(x + p \right)^2 = q.}\]</div>
+<p>Dit doen we door eerst de <span class="arithmatex">\(x^2 + bx\)</span> term te vervangen met <span class="arithmatex">\(\left(x + \frac{b}{2} \right)^2\)</span>. Als we deze haakjes uitwerken krijgen we: </p>
+<div class="arithmatex">\[\large{x^2 + bx + \left(\frac{b}{2} \right)^2}\]</div>
+<p>Maar de extra <span class="arithmatex">\(\left(\frac{b}{2} \right)^2\)</span> term willen we niet hebben. Daarom moeten we de <span class="arithmatex">\(x^2 + bx\)</span> term vervangen met <span class="arithmatex">\(\left(x + \frac{b}{2} \right)^2 - \left(\frac{b}{2} \right)^2\)</span>. Want alleen dan kunnen we de <span class="arithmatex">\(x^2 + bx\)</span> term volledig vervangen:</p>
+<div class="arithmatex">\[\large{\left(x + \frac{b}{2} \right)^2 - \left(\frac{b}{2} \right)^2 + c = 0}\]</div>
+<p>De <span class="arithmatex">\(- \left(\frac{b}{2} \right)^2 + c\)</span> term is ook gewoon een getal, dus die noemen we even <span class="arithmatex">\(q\)</span>:</p>
+<div class="arithmatex">\[\large{\left(x + \frac{b}{2} \right)^2 - q = 0}\]</div>
+<p><span class="arithmatex">\(\frac{b}{2}\)</span> is ook gewoon een getal, dus die noemen we even <span class="arithmatex">\(p\)</span>:</p>
+<div class="arithmatex">\[\large{\left(x + p \right)^2 - q = 0.}\]</div>
+<p>Door aan beide kanten <span class="arithmatex">\(+q\)</span> te doen, kunnen we dit schrijven naar de vorm:</p>
+<div class="arithmatex">\[\large{\left(x + p \right)^2 = q.}\]</div>
+<p>Dit kunnen we oplossen net zoals we de vorm <a href="#oplossen-vorm-x2-c"><span class="arithmatex">\(x^2 = c\)</span></a> oplossen.</p>
+<p><br>
+<strong><span style="font-size: 16px;">Stappenplan</span></strong></p>
+<ul>
+<li><span style="font-size: 15px;">Vervang de <span class="arithmatex">\(x^2 + bx\)</span> term door <span class="arithmatex">\(\left(x + p \right)^2\)</span>, waarbij <span class="arithmatex">\(p\)</span> de helft is van <span class="arithmatex">\(b\)</span>.</span></li>
+<li><span style="font-size: 15px;">Doe het nog <span class="arithmatex">\(-p^2\)</span> om de extra factor die erbij komt weg te halen.</span></li>
+<li><span style="font-size: 15px;">Tel de getallen bij elkaar op.</span></li>
+<li><span style="font-size: 15px;">Haal het losse getal naar de andere kant. Je krijgt dus iets in de vorm <span class="arithmatex">\(\left(x + p \right)^2 = q\)</span>.</span></li>
+<li><span style="font-size: 15px;">Los dit nu op zoals de vorm <a href="#algemene-oplossing"><span class="arithmatex">\(x^2 = c\)</span></a>, maar nu met <span class="arithmatex">\(x + p\)</span> in plaats van <span class="arithmatex">\(x\)</span>.</span></li>
+<li><span style="font-size: 15px;">Doe uiteindelijk aan beide kanten <span class="arithmatex">\(-p\)</span> om de oplossingen te vinden: <span class="arithmatex">\(x = -p \pm \sqrt{q}\)</span></span></li>
+</ul>
+</details>
+<h4 id="uitleg-filmpje_4"><span style="font-size: 18ps;">Uitleg Filmpje</span></h4>
+<details class="youtube" open="open"><summary>Youtube</summary><p><iframe width="560" height="315" src="https://www.youtube.com/embed/w-aemzBWMlk?si=drjgvybYsgNjhAGV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+</details>
+<h4 id="voorbeelden_4"><span style="font-size: 18px;">Voorbeelden</span></h4>
+<details class="example"><summary>Voorbeeld 1: <span class="arithmatex">\(x^2 - 2x = 3\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op door middel van kwadraat afsplitsen: <span class="arithmatex">\(x^2 - 2x = 3\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We willen hier kwadraat afsplitsen, dus moeten we eerst de <span class="arithmatex">\(x^2 - 2x\)</span> term vervangen naar iets met haakjes. De factor in de haakjes wordt de helft van <span class="arithmatex">\(-2\)</span>, dus <span class="arithmatex">\(-1\)</span>. Als we deze haakjes zouden uitwerken, dan vinden we een factor <span class="arithmatex">\(+1\)</span> te veel:</p>
+<div class="arithmatex">\[\large{(x-1)^2 = x^2 - 2x + 1}\]</div>
+<p>Deze extra factor willen we niet hebben, dus trekken we die van de haakjes af. We moeten dus <span class="arithmatex">\(x^2 - 2x\)</span> vervangen met <span class="arithmatex">\((x-1)^2 - 1\)</span>:</p>
+<div class="arithmatex">\[\large{(x-1)^2 - 1 = 3}\]</div>
+<p>We doen nu aan beide kanten <span class="arithmatex">\(+1\)</span>:</p>
+<div class="arithmatex">\[\large{(x-1)^2 = 4}\]</div>
+<p>We kunnen dit nu oplossen net zoals bij de vorm <a href="#algemene-oplossing"><span class="arithmatex">\(x^2 = c\)</span></a>. Wij hebben nu <span class="arithmatex">\(x-1\)</span> in plaats van alleen <span class="arithmatex">\(x\)</span>, maar de methode is hetzelfde. We nemen aan beide kanten de wortel:</p>
+<div class="arithmatex">\[\large{x - 1 = \sqrt{4} \ \vee \ x - 1 = -\sqrt{4}}\]</div>
+<p>We kunnen <span class="arithmatex">\(\sqrt{4}\)</span> versimpelen tot:</p>
+<div class="arithmatex">\[\large{x - 1 = 2 \ \vee \ x - 1 = -2}\]</div>
+<p>Door aan beide kanten <span class="arithmatex">\(+1\)</span> te doen, vinden we onze eindoplossing:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 3 \ \vee \ x = -1}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 2: <span class="arithmatex">\(x^2 + 3x + 1 = 0\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op door middel van kwadraat afsplitsen: <span class="arithmatex">\(x^2 + 3x + 1 = 0\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We beginnen weer door de term <span class="arithmatex">\(x^2 + 3x\)</span> te vervangen door iets met haakjes. Het getal in de haakjes moet de helft van <span class="arithmatex">\(3\)</span> zijn en dus gebruiken we de volgende haakjes:</p>
+<div class="arithmatex">\[\large{\left(x + 1\frac{1}{2}\right)^2 = \underline{x^2 + 3x} + 2 \frac{1}{4}}\]</div>
+<p>We doen nu aan beide kanten <span class="arithmatex">\(-2 \frac{1}{4}\)</span> om de extra factor weg te halen:</p>
+<div class="arithmatex">\[\large{\left(x + 1\frac{1}{2}\right)^2 - 2 \frac{1}{4} = \underline{x^2 + 3x}}\]</div>
+<p>We kunnen nu dus <span class="arithmatex">\(x^2 + 3x\)</span> vervangen met <span class="arithmatex">\(\left(x + 1\frac{1}{2}\right)^2 - 2 \frac{1}{4}\)</span>:</p>
+<div class="arithmatex">\[\large{\left(x + 1\frac{1}{2}\right)^2 - 2 \frac{1}{4} + 1 = 0}\]</div>
+<p>We kunnen dit nog versimpelen door de getallen bij elkaar op te tellen:</p>
+<div class="arithmatex">\[\large{\left(x + 1\frac{1}{2}\right)^2 - 1 \frac{1}{4} = 0}\]</div>
+<p>We doen nu aan beide kanten <span class="arithmatex">\(+1 \frac{1}{4}\)</span>:</p>
+<div class="arithmatex">\[\large{\left(x + 1\frac{1}{2}\right)^2 = 1 \frac{1}{4}}\]</div>
+<p>We lossen dit nu op zoals bij de vorm <a href="#algemene-oplossing"><span class="arithmatex">\(x^2 = c\)</span></a>. Wij hebben nu alleen <span class="arithmatex">\(x + 1\frac{1}{2}\)</span> in plaats van alleen <span class="arithmatex">\(x\)</span>, maar de methode is hetzelfde:</p>
+<div class="arithmatex">\[\large{x + 1\frac{1}{2} = \sqrt{1 \frac{1}{4}} \ \vee \ x + 1\frac{1}{2} = -\sqrt{1 \frac{1}{4}}}\]</div>
+<p>We kunnen <span class="arithmatex">\(1 \frac{1}{4}\)</span> ook schrijven als <span class="arithmatex">\(\frac{5}{4}\)</span>. Als we dit doen kunnen we onze wortel op de volgende manier schrijven:</p>
+<div class="arithmatex">\[\large{x + 1\frac{1}{2} = \sqrt{\frac{5}{4}} \ \vee \ x + 1\frac{1}{2} = -\sqrt{\frac{5}{4}}}\]</div>
+<p>Met behulp van de <a href="../basisvaardigheden/#regels-met-wortels">Regels met Wortels</a> kunnen we dit schrijven als:</p>
+<div class="arithmatex">\[\large{x + 1\frac{1}{2} = \frac{\sqrt{5}}{\sqrt{4}} \ \vee \ x + 1\frac{1}{2} = -\frac{\sqrt{5}}{\sqrt{4}}}\]</div>
+<p>We kunnen <span class="arithmatex">\(\sqrt{4}\)</span> versimpelen naar <span class="arithmatex">\(2\)</span>. Daarna kunnen we <span class="arithmatex">\(\frac{\sqrt{5}}{2}\)</span> schrijven als <span class="arithmatex">\(\frac{1}{2}\sqrt{5}\)</span> (gedeelt door <span class="arithmatex">\(2\)</span> of keer <span class="arithmatex">\(\frac{1}{2}\)</span> is hetzelfde):</p>
+<div class="arithmatex">\[\large{x + 1\frac{1}{2} = \frac{1}{2} \sqrt{5} \ \vee \ x + 1\frac{1}{2} = -\frac{1}{2} \sqrt{5}}\]</div>
+<p>Nu kunnen we aan beide kanten <span class="arithmatex">\(- 1\frac{1}{2}\)</span> doen om ons eindantwoord te vinden:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x =  \frac{1}{2} \sqrt{5} - 1\frac{1}{2} \ \vee \ x = -\frac{1}{2} \sqrt{5} - 1\frac{1}{2}}\]</div>
+</div>
+<p>(we kunnen dit namelijk niet verder exact versimpelen)</p>
+</details>
+<details class="example"><summary>Voorbeeld 3: <span class="arithmatex">\((x + 7)^2 = 81\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Los op: <span class="arithmatex">\((x + 7)^2 = 81\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Het lijkt hier handig om als eerste stap de <a href="#kwadratisch-haakjes-wegwerken">haakjes weg te werken</a>, maar dit is een omweg! Je komt er dan uiteindelijk wel, maar het kan veel makkelijker, let maar op. Deze vergelijking staat al een vorm die we meteen kunnen <a href="#algemene-oplossing">oplossen</a>, namelijk de vorm <span class="arithmatex">\(x^2 = c\)</span>. We nemen aan beide kanten de wortel:</p>
+<div class="arithmatex">\[\large{x + 7 = \sqrt{81} \ \vee \ x + 7 = -\sqrt{81}.}\]</div>
+<p>De <span class="arithmatex">\(\sqrt{81}\)</span> kunnen we versimpelen naar <span class="arithmatex">\(9\)</span>:</p>
+<div class="arithmatex">\[\large{x + 7 = 9 \ \vee \ x + 7 = -9.}\]</div>
+<p>Nu kunnen we aan beide kanten <span class="arithmatex">\(-7\)</span> doen om ons eindantwoord te vinden:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 2 \ \vee \ x= -16.}\]</div>
+</div>
+<details class="note"><summary>De omweg</summary><p>Zoals net gezecht kunnen we dit ook oplossen via een omweg, door namelijk de haakjes weg te werken (zie eventueel <a href="#kwadratisch-haakjes-wegwerken">Kwadratische haakjes wegwerken</a>):</p>
+<div class="arithmatex">\[\large{(x + 7)^2 = 81}\]</div>
+<div class="arithmatex">\[\large{x^2 + 14x + 49 = 81}\]</div>
+<p>Door nu aan beide kanten <span class="arithmatex">\(-81\)</span> te doen, krijgen we:</p>
+<div class="arithmatex">\[\large{x^2 + 14x - 32 = 0}\]</div>
+<p>We kunnen kijken of we dit kunnen oplossen met <a href="#ontbinden-in-factoren">ontbinden in factoren</a>. We maken een tabel met alle factoren die keer elkaar <span class="arithmatex">\(-32\)</span> zijn:</p>
+<table>
+<thead>
+<tr>
+<th>Factor 1</th>
+<th>Factor 2</th>
+<th>Product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-1</td>
+<td>32</td>
+<td>-32</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-32</td>
+<td>-32</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>16</td>
+<td>-32</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-16</td>
+<td>-32</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>8</td>
+<td>-32</td>
+</tr>
+<tr>
+<td>4</td>
+<td>-8</td>
+<td>-32</td>
+</tr>
+</tbody>
+</table>
+<p>Nu maken we de bijbehorende som tabel om te kijken welke factoren samen <span class="arithmatex">\(+14\)</span> zijn</p>
+<table>
+<thead>
+<tr>
+<th>Factor 1</th>
+<th>Factor 2</th>
+<th>Som</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-1</td>
+<td>32</td>
+<td>31</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-32</td>
+<td>-31</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>16</td>
+<td>14 <span class="twemoji green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7l233.4-233.3c12.5-12.5 32.8-12.5 45.3 0z"/></svg></span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>-16</td>
+<td>-14</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>8</td>
+<td>4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>-8</td>
+<td>-4</td>
+</tr>
+</tbody>
+</table>
+<p>De juiste factoren zijn dus <span class="arithmatex">\(-2\)</span> en <span class="arithmatex">\(16\)</span>. We krijgen dus:</p>
+<div class="arithmatex">\[\large{(x-2)(x+16) = 0}\]</div>
+<p>Dit geeft ons de oplossingen:</p>
+<div class="arithmatex">\[\large{x - 2 = 0 \ \vee \ x + 16 = 0}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 2 \ \vee \ x= -16.}\]</div>
+</div>
+<p>We komen er op deze manier dus ook, het duurt alleen iets langer. Dus als we het kunnen vermijden dan liever wel. Maar als je de andere manier niet zag, dan kom je er zo natuurlijk ook.</p>
+</details>
+</details>
+<h2 id="grafieken-met-parabolen"><strong>Grafieken met Parabolen</strong></h2>
+<p>We hebben gezien hoe we een kwadratische vergelijking kunnen oplossen op verschillende manieren. Heel leuk en aardig, maar waar is dat eigenlijk nuttig voor?</p>
+<p>Het is vooral handig om snijpunten te berekenen. Bijvoorbeeld snijpunten met de <span class="arithmatex">\(x\)</span>-as of snijpunten van twee grafieken met elkaar. Laten we eerst kijken naar snijpunten met de <span class="arithmatex">\(x\)</span>-as. </p>
+<h3 id="snijpunten-met-de-x-as"><strong>Snijpunten met de x-as</strong></h3>
+<p>We gaan kijken naar drie verschillende gevallen. Als eerste kijken we naar een functie die <span class="arithmatex">\(2\)</span> snijpunten heeft met de <span class="arithmatex">\(x\)</span>-as. Daarna kijken we naar een functie met maar <span class="arithmatex">\(1\)</span> snijpunt met de <span class="arithmatex">\(x\)</span>-as (dus waar <span class="arithmatex">\(f(x)\)</span> de <span class="arithmatex">\(x\)</span>-as raakt). En als laatst kijken we naar een functie die de <span class="arithmatex">\(x\)</span>-as niet snijdt, en dus <span class="arithmatex">\(0\)</span> snijpunten heeft.</p>
+<h4 id="twee-snijpunten_1"><span style="font-size: 18px;">Twee snijpunten</span></h4>
+<p>Laten we beginnen met een functie die <span class="arithmatex">\(2\)</span> snijpunten heeft. We zien hieronder de functie <span class="arithmatex">\(f(x) = x^2 - 1\)</span> en de <span class="arithmatex">\(2\)</span> snijpunten met de <span class="arithmatex">\(x\)</span>-as. </p>
+<figure>
+<p><img alt="Plot van f(x) met snijpunten x-as" src="../assets/images/kwadratische_vergelijkingen/f%28x%29%20%3D%20x%C2%B2%20-%201.svg" width="500" />
+  </p>
+<figcaption>Figuur 1. De grafiek f(x) = x² - 1 geplot met de snijpunten met de x-as.</figcaption>
+</figure>
+<p>Als we geen grafiek gekregen hadden, hoe zouden we de snijpunten bepalen? Dit doen we door een vergelijking op te stellen.</p>
+<p>Als iets de <span class="arithmatex">\(x\)</span>-as snijdt, betekent dit altijd dat er moet gelden dat <span class="arithmatex">\(y=0\)</span>, want per definitie heeft de hele <span class="arithmatex">\(x\)</span>-as een <span class="arithmatex">\(y\)</span>-coördinaat van <span class="arithmatex">\(0\)</span>. En omdat we willen weten wat de <span class="arithmatex">\(x\)</span>-coördinaten zijn van de functie waar <span class="arithmatex">\(y=0\)</span> (dus waar het met de <span class="arithmatex">\(x\)</span>-as snijdt), moeten we stellen dat:</p>
+<div class="arithmatex">\[f(x) = 0.\]</div>
+<p>Als we <span class="arithmatex">\(f(x)\)</span> nu invullen, krijgen we de volgende vergelijking:</p>
+<div class="arithmatex">\[x^2 - 1 = 0.\]</div>
+<p>En dit kunnen we oplossen door te herkenen dat dit de vorm van <a href="#oplossen-vorm-x2-c"><span class="arithmatex">\(x^2 = c\)</span></a> is. Als we dit oplossen vinden we:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = -1 \ \vee \ x = 1,}\]</div>
+</div>
+<p>en dit is ook wat we kunnen aflezen in Figuur 1. </p>
+<p>De coördinaten van de snijpunten zijn dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\left(-1, 0 \right) \ \mathrm{en} \ \left( 1, 0 \right)}\]</div>
+</div>
+<h4 id="een-snijpunt_1"><span style="font-size: 18px;">Eén snijpunt</span></h4>
+<p>Laten we nu kijken naar een situatie waar we een functie hebben die maar <span class="arithmatex">\(1\)</span> snijpunt/raakpunt heeft met de <span class="arithmatex">\(x\)</span>-as. Bij een kwadratische functie is er bij <span class="arithmatex">\(1\)</span> snijpunt met de <span class="arithmatex">\(x\)</span>-as altijd sprake van raken. De grafiek van <span class="arithmatex">\(f(x)\)</span> raakt de grafiek, maar snijdt de <span class="arithmatex">\(x\)</span>-as eigenlijk niet. Toch noemen we het nog steeds vaak een snijpunt. </p>
+<p>Laten we kijken naar de grafiek van <span class="arithmatex">\(f(x) = x^2 - 4x + 4\)</span>.</p>
+<figure>
+<p><img alt="Plot van f(x) met snijpunt x-as" src="../assets/images/kwadratische_vergelijkingen/f%28x%29%20%3D%20x%C2%B2%20-%204x%20%2B%204.svg" width="500" />
+  </p>
+<figcaption>Figuur 2. De grafiek f(x) = x² - 4x + 4 geplot met het snijpunt/raakpunt met de x-as.</figcaption>
+</figure>
+<p>Laten we het snijpunt gaan berekenen. We stellen weer <span class="arithmatex">\(f(x)\)</span> gelijk aan <span class="arithmatex">\(0\)</span>:</p>
+<div class="arithmatex">\[x^2 - 4x + 4 = 0.\]</div>
+<p>We proberen dit eerst op te lossen met <a href="#ontbinden-in-factoren">ontbinden in factoren</a>.</p>
+<p>We maken een tabel met alle factoren die keer elkaar <span class="arithmatex">\(+4\)</span> zijn:</p>
+<table>
+<thead>
+<tr>
+<th>Factor 1</th>
+<th>Factor 2</th>
+<th>Product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>-4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>-2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>We maken nu de bijbehorende som tabel om te kijken welke factoren samen <span class="arithmatex">\(-4\)</span> zijn:</p>
+<table>
+<thead>
+<tr>
+<th>Factor 1</th>
+<th>Factor 2</th>
+<th>Som</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>-4</td>
+<td>-5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>-2</td>
+<td>-4 <span class="twemoji green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7l233.4-233.3c12.5-12.5 32.8-12.5 45.3 0z"/></svg></span></td>
+</tr>
+</tbody>
+</table>
+<p>De juiste factoren zijn dus twee keer <span class="arithmatex">\(-2\)</span>. We kunnen de vergelijking dus schrijven op de volgende manier:</p>
+<div class="arithmatex">\[(x-2)(x-2) = 0\]</div>
+<p>Dit geeft in dit geval dus ook maar <span class="arithmatex">\(1\)</span> oplossing, want er moet hier dus gelden dat:</p>
+<div class="arithmatex">\[x - 2 = 0\]</div>
+<p>We kunnen aan beide kanten <span class="arithmatex">\(+2\)</span> doen om te vinden:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 2}\]</div>
+</div>
+<p>En dit is ook precies wat we af kunnen lezen in Figuur 2.</p>
+<p>De coördinaat van het snijpunt is dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{(2,0)}\]</div>
+</div>
+<h4 id="geen-snijpunten_1"><span style="font-size: 18px;">Geen snijpunten</span></h4>
+<p>Als laatst kijken we naar de situatie waar er helemaal geen snijpunten zijn met de <span class="arithmatex">\(x\)</span>-as.</p>
+<p>Dit gebeurt bijvoorbeeld bij de functie <span class="arithmatex">\(f(x) = x^2 + 1\)</span>, zoals we kunnen zien in Figuur 3.</p>
+<figure>
+<p><img alt="Plot van f(x) met 0 snijpunten x-as" src="../assets/images/kwadratische_vergelijkingen/f%28x%29%20%3D%20x%C2%B2%20%2B%201.svg" width="500" />
+  </p>
+<figcaption>Figuur 3. De grafiek f(x) = x² +1 geplot.</figcaption>
+</figure>
+<p>Maar wat gebeurt er als we toch proberen te kijken waar <span class="arithmatex">\(f(x)\)</span> de <span class="arithmatex">\(x\)</span>-as snijdt? Laten we het proberen:</p>
+<div class="arithmatex">\[f(x) = 0\]</div>
+<div class="arithmatex">\[x^2 + 1 = 0\]</div>
+<p>We doen nu aan beide kanten <span class="arithmatex">\(-1\)</span>:</p>
+<div class="arithmatex">\[x^2 = -1.\]</div>
+<p>Maar zoals we eerder hebben gezien bij deze <a href="#opmerkingen">opmerking</a>, kan een getal in het kwadraat nooit negatief zijn. Deze vergelijking heeft dus geen oplossing. En dit is ook precies wat we verwachten als we naar Figuur 3 kijken.</p>
+<p>Er is gewoon geen enkel moment dat de grafiek van <span class="arithmatex">\(f(x)\)</span> de <span class="arithmatex">\(x\)</span>-as snijdt, omdat <span class="arithmatex">\(f(x)\)</span> altijd boven de <span class="arithmatex">\(x\)</span>-as is. En daarom heeft de vergelijking om de snijpunten met de <span class="arithmatex">\(x\)</span>-as te vinden dus ook geen oplossing.</p>
+<h3 id="snijpunten-met-andere-grafieken"><strong>Snijpunten met andere grafieken</strong></h3>
+<p>Laten we nu kijken naar de snijpunten van twee functies. Stel we hebben bijvoorbeeld de twee functies <span class="arithmatex">\(f(x) = x^2 -6x - 1\)</span> en <span class="arithmatex">\(g(x) = -x^2 + 2x + 3\)</span> en we willen de snijpunten bepalen tussen de twee functies.</p>
+<figure>
+<p><img alt="Plot van f(x) en g(x) met snijpunten" src="../assets/images/kwadratische_vergelijkingen/f%28x%29%20%3D%20x%C2%B2%20-%206x%20-%201%3B%20g%28x%29%20%3D%20-x%C2%B2%20%2B%202x%20%2B%203.svg" width="500" />
+  </p>
+<figcaption>Figuur 4. De grafieken f(x) = x² - 6x - 1 en g(x) = -x² + 2x + 3 geplot met de punten waar de twee functies elkaar snijden.</figcaption>
+</figure>
+<p>Nu wordt het lastig om een precieze waarde voor de snijpunten af te lezen uit de grafiek. We moeten dus een vergelijking gaan opstellen om de twee snijpunten te bepalen. Bij een snijpunt hebben de twee grafiek dezelfde <span class="arithmatex">\(x\)</span> en <span class="arithmatex">\(y\)</span>-coördinaten. Dus de vraag is: bij welke <span class="arithmatex">\(x\)</span>-coördinaten hebben de twee grafieken ook dezelfde waarde <span class="arithmatex">\(y\)</span>-coördinaten? Daar hoort de volgende vergelijking bij:</p>
+<div class="arithmatex">\[f(x) = g(x).\]</div>
+<p>Nu vullen we beide functies in:</p>
+<div class="arithmatex">\[x^2 -6x - 1 = -x^2 + 2x + 3\]</div>
+<p>Als we dit oplossen, dan weten we de <span class="arithmatex">\(x\)</span>-coördinaten van de snijpunten. We doen dit door eerst alle termen naar de linker kant te halen. Om dit te doen, doen we aan beide kanten <span class="arithmatex">\(+x^2\)</span>, <span class="arithmatex">\(-2x\)</span> en <span class="arithmatex">\(-3\)</span>:</p>
+<div class="arithmatex">\[2x^2 - 8x - 4 = 0.\]</div>
+<p>We kunnen nu alles delen door <span class="arithmatex">\(2\)</span> om te kijken of we het kunnen <a href="#ontbinden-in-factoren">ontbinden in factoren</a>:</p>
+<div class="arithmatex">\[x^2 - 4x - 2 = 0.\]</div>
+<p>We kunnen dit proberen te ontbinden, maar we zien al snel dat dit niet zo makkelijk gaat.</p>
+<table>
+<thead>
+<tr>
+<th>Factor 1</th>
+<th>Factor 2</th>
+<th>Product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-1</td>
+<td>4</td>
+<td>-4</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-4</td>
+<td>-4</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>2</td>
+<td>-4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-2</td>
+<td>-4</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Factor 1</th>
+<th>Factor 2</th>
+<th>Som</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-1</td>
+<td>4</td>
+<td>3 <img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /></td>
+</tr>
+<tr>
+<td>1</td>
+<td>-4</td>
+<td>-3 <img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /></td>
+</tr>
+<tr>
+<td>2</td>
+<td>-2</td>
+<td>0 <img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /></td>
+</tr>
+<tr>
+<td>-2</td>
+<td>2</td>
+<td>0 <img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/274c.svg" title=":x:" /></td>
+</tr>
+</tbody>
+</table>
+<p>In dat geval gebruiken we dus <a href="#de-abc-formule">de <em>abc</em> formule</a>. We hebben:</p>
+<div class="arithmatex">\[a = 1, \ b = -4, \ \mathrm{en} \ c = -2\]</div>
+<p>De discriminant wordt:</p>
+<div class="arithmatex">\[D = (-4)^2 - 4 *1 * -2 = 24\]</div>
+<p>Als we dit invullen vinden we:</p>
+<div class="arithmatex">\[x = \frac{4 + \sqrt{24}}{2} \ \vee \ x = \frac{4 - \sqrt{24}}{2}\]</div>
+<p>Dit uitwerken geeft:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{x = 2 + \sqrt{6} \ \vee \ x = 2 - \sqrt{6}}\]</div>
+</div>
+<p>Dit zijn dus de <span class="arithmatex">\(x\)</span>-coördinaten van onze twee snijpunten. Het linker snijpunt is dus <span class="arithmatex">\(x = 2 - \sqrt{6}\)</span> en het rechter snijpunt is dus <span class="arithmatex">\(x = 2 + \sqrt{6}\)</span>. </p>
+<p>Nu willen we de <span class="arithmatex">\(y\)</span>-coördinaten weten van onze snijpunten. En dit kunnen we bepalen door onze <span class="arithmatex">\(x\)</span>-coördinaten in een van de twee vergelijkingen te stoppen. Het maakt daarbij niet uit welke je kiest. In dit geval kiezen we er voor om het in te vullen bij <span class="arithmatex">\(f(x)\)</span>:</p>
+<p>Voor <span class="arithmatex">\(x = 2 - \sqrt{6}\)</span>:</p>
+<div class="arithmatex">\[f(2 - \sqrt{6}) = (2 - \sqrt{6})^2 - 6(2 - \sqrt{6}) - 1\]</div>
+<div class="arithmatex">\[f(2 - \sqrt{6}) = 2\sqrt{6} - 3 \phantom{mmmmmmmmm}\]</div>
+<p>Voor <span class="arithmatex">\(x = 2 + \sqrt{6}\)</span>:</p>
+<div class="arithmatex">\[f(2 + \sqrt{6}) = (2 + \sqrt{6})^2 - 6(2 + \sqrt{6}) - 1\]</div>
+<div class="arithmatex">\[f(2 + \sqrt{6}) = -2\sqrt{6} - 3 \phantom{mmmmmmmm}\]</div>
+<p>Onze snijpunten zijn dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\left(2 - \sqrt{6}, \ 2\sqrt{6} - 3\right) \textrm{ en } \left(2 + \sqrt{6}, \ -2\sqrt{6} - 3\right)}\]</div>
+</div>
+<p>Als we deze waardes afronden op twee decimalen, dan krijgen we:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\left(-0.45, 1.90 \right) \textrm{ en } \left(4.45, -7.90 \right)}\]</div>
+</div>
+<p>en als we kijken naar Figuur 4, dan kunnen we zien dat dit klopt.</p>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Begrijp je de stof nu beter?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="Ik begrijp de stof nu beter" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 9v12H1V9h4m4 12a2 2 0 0 1-2-2V9c0-.55.22-1.05.59-1.41L14.17 1l1.06 1.06c.27.27.44.64.44 1.05l-.03.32L14.69 8H21a2 2 0 0 1 2 2v2c0 .26-.05.5-.14.73l-3.02 7.05C19.54 20.5 18.83 21 18 21H9m0-2h9.03L21 12v-2h-8.79l1.13-5.32L9 9.03V19Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="De stof is nog een beetje onduidelijk" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 15V3h4v12h-4M15 3a2 2 0 0 1 2 2v10c0 .55-.22 1.05-.59 1.41L9.83 23l-1.06-1.06c-.27-.27-.44-.64-.44-1.06l.03-.31.95-4.57H3a2 2 0 0 1-2-2v-2c0-.26.05-.5.14-.73l3.02-7.05C4.46 3.5 5.17 3 6 3h9m0 2H5.97L3 12v2h8.78l-1.13 5.32L15 14.97V5Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Bedankt voor de feedback! Om ervoor te zorgen dat wiskundewijs nóg beter wordt, zou ik <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUuPlxDYomx3nLl63BQcFR0jCbQMaQIpFh37J53_UaVJELeA/viewform?usp=pp_url&entry.1328585866=Kwadratische%20Vergelijkingen" target="_blank" rel="noopener">jouw feedback</a> heel erg waarderen!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Bedankt voor de feedback! Ik zou het heel erg waarderen als je mij vertelt wat jij denkt dat verbeterd kan worden. <a href="https://docs.google.com/forms/d/e/1FAIpQLSebi8Nv-t1BBU7mzvMK8COd_1aHSTnjgzBQWQXhjt64OuVsFQ/viewform?usp=pp_url&entry.1328585866=Kwadratische%20Vergelijkingen" target="_blank" rel="noopener">Jouw feedback</a> kan mensen helpen die tegen hetzelfde aanlopen!
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../pythagoras/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: De Stelling van Pythagoras">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Vorige
+              </span>
+              <div class="md-ellipsis">
+                De Stelling van Pythagoras
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ongelijkheden/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Ongelijkheden">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Volgende
+              </span>
+              <div class="md-ellipsis">
+                Ongelijkheden
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024, Marc Serrano Altena
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/marc-serrano-altena-a96800285/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/M-Serrano-Altena" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<Marc.Serrano.Altena@gmail.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6m-2 0-8 5-8-5h16m0 12H4V8l8 5 8-5v10Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

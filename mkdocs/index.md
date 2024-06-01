@@ -7,8 +7,6 @@ hide:
 
 # **<span style="color: #00d1ae;">:material-calculator-variant-outline:</span>** **<span style="color: #D3D3D3;">Wiskundewijs</span>**
 
-
-
 **<p style="text-align: left;font-size:20px;">Welkom bij Wiskundewijs!</p>**
 
 Hier worden verschillende onderwerpen voor de middelbare school **duidelijk** en **helder** behandelt. Elk hoofdstuk heeft een theoriedeel en voorbeelden. In het theoriedeel wordt de stof uitgelegt en daarna worden de voorbeelden stap voor stap behandelt. Zo kun je precies zien hoe de theorie toegepast moet worden in de opdrachten.

@@ -1,0 +1,24 @@
+{% extends "solverapp/base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Equation Solution</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Equation Solution</h1>
+        <p>Equation: {{ equation_text }}</p>
+        <p>Interpretation: {{ equation_interpret }}</p>
+        <pre>{{ solutions }}</pre>
+        <div id="plot"></div>
+    </div>
+    <script>
+        var plotData = {{ plot_data|safe }}; 
+        Plotly.newPlot('plot', plotData);
+    </script>
+</body>
+</html>
+{% endblock %}

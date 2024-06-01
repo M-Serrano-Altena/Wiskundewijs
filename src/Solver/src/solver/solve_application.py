@@ -1,4 +1,4 @@
-from solver.solve import Solve
+from solver.solve_calculations import Solve
 
 import sys
 from PySide6 import QtWidgets, QtGui, QtCore
@@ -30,6 +30,7 @@ class UserInterface(QtWidgets.QMainWindow):
         self.plot_widget.setLabel("bottom", "x-as")
         self.plot_widget.setLabel("left", "y-as")
         self.plot_widget.setTitle("Vergelijkingen Plot")
+        self.plot_widget.showGrid(x=True, y=True, alpha=0.5)
         self.legend = self.plot_widget.addLegend(offset=(7, 5))
         self.plot_widget.hideButtons()
 
@@ -237,7 +238,7 @@ class UserInterface(QtWidgets.QMainWindow):
         
 
 
-def main():
+def solve_application():
     app = QtWidgets.QApplication(sys.argv)
     ui = UserInterface()
     ui.setWindowTitle("Vergelijking Oplosser") 
@@ -246,4 +247,4 @@ def main():
     sys.exit(app.exec())
 
 if __name__ == "__main__":
-    main()
+    solve_application()

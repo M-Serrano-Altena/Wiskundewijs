@@ -15,12 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from solverapp import views as solver_views
-from src.Solver.src.solver.results import main
+from src.Solver.src.solver.solve_application import solve_application
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("solver/", solver_views.test, name="solver"),
+    path("solverapp/", solver_views.solve_equation_view, name="solverapp"),
+    path('solverapp/search/search_index.json', solver_views.serve_search_index),
+    re_path(r'^solverapp/(?P<path>.*)/$', solver_views.redirect_view),
     path("", include("docs.urls")),
 ]
