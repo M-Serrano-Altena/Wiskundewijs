@@ -1,0 +1,69 @@
+:root {
+    --md-admonition-icon--video: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 22.25 21H1.75A1.75 1.75 0 0 1 0 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V4.75a.25.25 0 0 0-.25-.25Z"/><path d="M9 15.584V8.416a.5.5 0 0 1 .77-.42l5.576 3.583a.5.5 0 0 1 0 .842L9.77 16.005a.5.5 0 0 1-.77-.42Z"/></svg>')
+  }
+  .md-typeset .admonition.video,
+  .md-typeset details.video {
+    border-color: rgb(255, 80, 5);
+  }
+  .md-typeset .video > .admonition-title,
+  .md-typeset .video > summary {
+    background-color: rgba(179, 89, 25, 0.1);
+  }
+  .md-typeset .video > .admonition-title::before,
+  .md-typeset .video > summary::before {
+    background-color: rgb(255, 80, 5);
+    -webkit-mask-image: var(--md-admonition-icon--video);
+            mask-image: var(--md-admonition-icon--video);
+  }
+
+
+  :root {
+    --md-admonition-icon--belangrijk: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 3h4v11h-4V3m0 18v-4h4v4h-4Z"/></svg>')
+  }
+  .md-typeset .admonition.belangrijk,
+  .md-typeset details.belangrijk {
+    border-color: rgb(0, 170, 40);
+  }
+  .md-typeset .belangrijk > .admonition-title,
+  .md-typeset .belangrijk > summary {
+    background-color: rgba(43, 155, 70, 0.1);
+  }
+  .md-typeset .belangrijk > .admonition-title::before,
+  .md-typeset .belangrijk > summary::before {
+    background-color: rgb(0, 170, 40);
+    -webkit-mask-image: var(--md-admonition-icon--belangrijk);
+            mask-image: var(--md-admonition-icon--belangrijk);
+  }
+
+  .green {
+    color: rgb(0, 170, 40);
+  }
+
+  .youtube {
+    color: #EE0F0F;
+  }
+
+
+  :root {
+    --md-admonition-icon--youtube: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>')
+  }
+  .md-typeset .admonition.youtube,
+  .md-typeset details.youtube {
+    border-color: #EE0F0F;
+  }
+  .md-typeset .youtube > .admonition-title,
+  .md-typeset .youtube > summary {
+    background-color: rgba(185, 40, 40, 0.1);
+  }
+  .md-typeset .youtube > .admonition-title::before,
+  .md-typeset .youtube > summary::before {
+    background-color: #EE0F0F;
+    -webkit-mask-image: var(--md-admonition-icon--youtube);
+            mask-image: var(--md-admonition-icon--youtube);
+  }
+
+
+  .md-typeset .admonition,
+  .md-typeset details {
+    font-size: 14px;
+  }
