@@ -1,0 +1,23 @@
+{% extends "oplosser/base.html" %}
+{% block content %}
+    <div class="container">
+        <h1>Oplossing van de Vergelijking</h1>
+        <div style="display: flex;">
+            <div style="white-space: nowrap; max-width: 40%; margin-right: 100px;">
+                <p style="font-size: 24px;">Invoer: {{ equation_text }}</p>
+                <p style="font-size: 24px;">Interpretatie: {{ equation_interpret }}</p>
+                <div class="arithmatex" style="font-size: 20px;">{{ solutions|safe }}</div>
+            </div>
+            <div id="plot" style="flex-grow: 1; margin: 0; padding: 0;"></div>
+        </div>
+    </div>
+    <script>
+        var plotData = {{ plot_data|safe }};
+        var layout = {
+            autosize: true,
+            margin: {l: 25, r: 0, b: 25, t: 20, pad: 0},
+            legend: {x: 0.85, y: 1}
+        };
+        Plotly.newPlot('plot', plotData, layout);
+    </script>
+{% endblock content %}

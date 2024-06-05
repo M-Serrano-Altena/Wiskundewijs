@@ -199,7 +199,7 @@ Ik ben **Marc Serrano Altena**, een tweedejaars student Natuur- en Sterrenkunde 
 
 Wiskunde kan soms **te snel** gaan en dat **niet alle stappen duidelijk** zijn. Om wiskunde beter begrijpbaar te maken voor iedereen, ben ik gestart met deze website. Maar ik help graag nog verder!
 
-Heb je moeite met de stof begrijpen of toepassen? Of juist meer met het bij blijven met de stof en het huiswerk te maken? Als je dit herkent, dan is mijn **een-op-een bijles** voor jouw! 
+Heb je moeite met de stof begrijpen of toepassen? Of juist meer met het bij blijven met de stof en het huiswerk te maken? Als je dit herkent, dan is mijn **een-op-een bijles** voor jou! 
 
 Apart van alleen de bijles, krijg je als bonus ook een aantal **stappenplannen**. Jouw kind hoeft dan alleen het stappenplan te volgen om een opdracht goed te kunnen maken. Ook help ik buiten de bijlessen door vragen te beantwoorden over het huiswerk. 
 

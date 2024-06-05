@@ -5,8 +5,8 @@ from django.views.static import serve
 import os
 
 def serve_docs(request, path):
-    if path == "solverapp":
-        return redirect("solverapp")
+    if path == "oplosser":
+        return redirect("oplosser")
     
     docs_path = os.path.join(settings.DOCS_DIR, path)
 

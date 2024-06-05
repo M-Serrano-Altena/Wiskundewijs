@@ -88,8 +88,9 @@ domain = sp.calculus.util.continuous_domain(sp.sqrt(x), x, domain=sp.S.Reals)
 print(domain.args[0].args)
 sp.pprint(domain)
 
-print(int(sp.N(4.1)) == sp.N(4.1))
-
+func = sp.lambdify(x, sp.sin(x), modules=['sympy'])
+func = sp.sympify(func(x), evaluate=False)
+sp.pprint(sp.solveset(func, x))
 
 exit()
 

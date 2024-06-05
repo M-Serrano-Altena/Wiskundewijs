@@ -1,0 +1,32 @@
+{% load static %}
+<script id="__config" type="application/json">{"base": ".", "features": ["navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "{% static 'assets/javascripts/workers/search.f886a092.min.js' %}", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    
+    <script src="{% static 'assets/javascripts/bundle.6c14ae12.min.js' %}"></script>
+
+    <script src="{% static 'javascripts/mathjax.js' %}"></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<br><br><br>
+<div class="container">
+    <h1 style="font-size: 28px; font-weight: bold;">Oplossing van de Vergelijking</h1><br><br>
+    <div style="display: flex;">
+        <div style="white-space: nowrap; max-width: 40%; margin-right: 100px;">
+            <p style="font-size: 24px;">Invoer: {{ equation_text }}</p>
+            <p style="font-size: 24px;">Interpretatie: {{ equation_interpret }}</p>
+            <div class="arithmatex" style="font-size: 20px;">{{ solutions|safe }}</div>
+        </div>
+        <div id="plot" style="flex-grow: 1; margin: 0; padding: 0; height: 100%; width: 100%;"></div>
+    </div>
+</div>
+<script>
+    var plotData = {{ plot_data|safe }};
+    var layout = {
+        autosize: true,
+        margin: {l: 25, r: 0, b: 25, t: 20, pad: 0},
+        legend: {x: 0.85, y: 1}
+    };
+    Plotly.newPlot('plot', plotData, layout);
+</script>

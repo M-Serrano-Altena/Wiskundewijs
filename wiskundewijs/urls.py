@@ -16,13 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
-from solverapp import views as solver_views
-from src.Solver.src.solver.solve_application import solve_application
+from oplosser import views as solver_views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("solverapp/", solver_views.solve_equation_view, name="solverapp"),
-    path('solverapp/search/search_index.json', solver_views.serve_search_index),
-    re_path(r'^solverapp/(?P<path>.*)/$', solver_views.redirect_view),
+    path("oplosser/", solver_views.solve_equation_view, name="oplosser"),
+    path('oplosser/search/search_index.json', solver_views.serve_search_index),
+    re_path(r'^oplosser/(?P<path>.*)/$', solver_views.redirect_view),
     path("", include("docs.urls")),
 ]

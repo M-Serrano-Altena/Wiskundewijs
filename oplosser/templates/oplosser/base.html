@@ -1,7 +1,10 @@
 
 <!doctype html>
 <html lang="nl" class="no-js">
+  {% load static %}
   <head>
+      <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,26 +15,25 @@
         <meta name="author" content="Marc Serrano Altena">
       
       
-        <link rel="canonical" href="https://wiskundewijs.com/bijles/">
-      
-      
-        <link rel="prev" href="../goniometrie/">
+        <link rel="canonical" href="https://wiskundewijs.com/">
       
       
       
-      <link rel="icon" href="../assets/images/general/calculator-variant.ico">
+        <link rel="next" href="../basisvaardigheden/">
+
+      <link rel="icon" href="{% static 'assets/images/general/calculator-variant.ico' %}">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
     
     
       
-        <title>Bijles - Wiskundewijs</title>
+        <title>Wiskundewijs</title>
       
     
-    
-      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+
+      <link rel="stylesheet" href="{% static 'assets/stylesheets/main.fad675c6.min.css' %}">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="{% static 'assets/stylesheets/palette.356b1318.min.css' %}">
       
       
 
@@ -50,9 +52,10 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="{% static 'stylesheets/extra.css' %}">
+      <link rel="stylesheet" href="{% static 'stylesheets/bootstrap-forms.css' %}">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -87,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bijles" class="md-skip">
+        <a href="#wiskundewijs" class="md-skip">
           Ga naar inhoud
         </a>
       
@@ -101,9 +104,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Wiskundewijs" class="md-header__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+    <a href="../" title="Wiskundewijs" class="md-header__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
       
-  <img src="../assets/images/general/calculator-variant-outline.svg" alt="logo">
+  <img src="{% static 'assets/images/general/calculator-variant-outline.svg' %}" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -120,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bijles
+              {{title}}
             
           </span>
         </div>
@@ -188,9 +191,11 @@
         
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="../" class="md-tabs__link">
         
   
     
@@ -223,11 +228,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../bijles/" class="md-tabs__link">
         
   
     
@@ -263,9 +266,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Wiskundewijs" class="md-nav__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+    <a href="../" title="Wiskundewijs" class="md-nav__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
       
-  <img src="../assets/images/general/calculator-variant-outline.svg" alt="logo">
+  <img src="{% static 'assets/images/general/calculator-variant-outline.svg' %}" alt="logo">
 
     </a>
     Wiskundewijs
@@ -277,9 +280,29 @@
       
   
   
+    
   
-    <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="../" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -288,6 +311,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hoofdstukken" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hoofdstukken
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -522,18 +574,9 @@
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../bijles/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -542,7 +585,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -569,6 +611,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hoofdstukken" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hoofdstukken
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -580,224 +639,7 @@
               <article class="md-content__inner md-typeset">
                 
                   
-
-
-<h1 id="bijles"><em>Bijles</em></h1>
-<div class="form-container">
-  <h2 class="form-title">Kennismakingsgesprek</h2>
-  <form id="fs-frm" name="registratie-formulier" accept-charset="utf-8" action="https://formspree.io/f/mbjnoanw" method="post">
-    <fieldset id="fs-frm-inputs">
-      <label for="full-name">Naam</label>
-      <input type="text" name="name" id="full-name" placeholder="Voornaam en Achternaam" required="" fdprocessedid="3ln1lj">
-      <label for="email-address">E-mail</label>
-      <input type="email" name="_replyto" id="email-address" placeholder="email@domein.nl" required="" fdprocessedid="w2s8ja">
-      <label for="phone-number">Telefoonnummer</label>
-      <input type="tel" name="phone" id="phone-number" placeholder="06 12345678" required="" fdprocessedid="r39vu">
-      <input type="hidden" name="_subject" id="email-subject" value="Registratieformulier Inzending">
-    </fieldset>
-    <input type="submit" value="Verzend" fdprocessedid="626xzu">
-  </form>
-</div>
-<style>
-/* reset */
-#fs-frm input,
-#fs-frm select,
-#fs-frm textarea,
-#fs-frm fieldset,
-#fs-frm optgroup,
-#fs-frm #card-element:disabled {
-  font-family: inherit;
-  font-size: 100%;
-  color: inherit;
-  border: none;
-  border-radius: 0;
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-#fs-frm label,
-#fs-frm legend,
-#fs-frm ::placeholder {
-  font-size: .825rem;
-  margin-bottom: .5rem;
-  padding-top: .2rem;
-  display: flex;
-  align-items: baseline;
-}
-
-/* border, padding, margin, width */
-#fs-frm input,
-#fs-frm select,
-#fs-frm textarea,
-#fs-frm #card-element {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  background-color: rgba(230, 230, 230, 0.9);
-  padding: .75em 1rem;
-  margin-bottom: 1.5rem;
-}
-
-#fs-frm input:focus,
-#fs-frm select:focus,
-#fs-frm textarea:focus {
-  background-color: white;
-  outline-style: solid;
-  outline-width: thin;
-  outline-color: gray;
-  outline-offset: -1px;
-}
-
-#fs-frm [type="text"],
-#fs-frm [type="email"],
-#fs-frm [type="password"],
-#fs-frm textarea, /* Fix: Include textarea for notes */
-#fs-frm [type="number"] {
-  width: 100%;
-  color: black; /* Set text color to black for input fields */
-}
-
-#fs-frm [type="button"],
-#fs-frm [type="submit"],
-#fs-frm [type="reset"] {
-  width: auto;
-  cursor: pointer;
-  -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: button;
-  color: white; /* Set text color to white for button text */
-  background-color: rgb(6, 143, 115); /* Set background color to teal for the button */
-  border: none;
-  padding: .75em 1rem;
-}
-
-#fs-frm [type="button"]:focus,
-#fs-frm [type="submit"]:focus,
-#fs-frm [type="reset"]:focus {
-  outline: none;
-}
-
-#fs-frm [type="submit"],
-#fs-frm [type="reset"] {
-  margin-bottom: 0;
-}
-
-#fs-frm [type="submit"],
-#fs-frm [type="reset"] {
-  margin-bottom: 0;
-  transition: background-color 0.3s ease; /* Add transition for smooth color change */
-}
-
-#fs-frm [type="submit"]:hover,
-#fs-frm [type="reset"]:hover {
-  background-color: rgb(6, 170, 140); /* Set the highlight color when hovering */
-}
-
-#fs-frm input[type="tel"] {
-  width: 100%;
-  color: black; /* Set text color to black for phone number input */
-}
-
-#fs-frm select {
-  text-transform: none;
-}
-
-#fs-frm [type="checkbox"] {
-  -webkit-appearance: checkbox;
-  -moz-appearance: checkbox;
-  appearance: checkbox;
-  display: inline-block;
-  width: auto;
-  margin: 0 .5em 0 0 !important;
-}
-
-#fs-frm [type="radio"] {
-  -webkit-appearance: radio;
-  -moz-appearance: radio;
-  appearance: radio;
-}
-
-/* address, locale */
-#fs-frm fieldset.locale input[name="city"],
-#fs-frm fieldset.locale select[name="state"],
-#fs-frm fieldset.locale input[name="postal-code"] {
-  display: inline;
-}
-
-#fs-frm fieldset.locale input[name="city"] {
-  width: 52%;
-}
-
-#fs-frm fieldset.locale select[name="state"],
-#fs-frm fieldset.locale input[name="postal-code"] {
-  width: 20%;
-}
-
-#fs-frm fieldset.locale input[name="city"],
-#fs-frm fieldset.locale select[name="state"] {
-  margin-right: 3%;
-}
-
-/* Disable Chrome Autofill styling */
-#fs-frm input:-webkit-autofill,
-#fs-frm textarea:-webkit-autofill,
-#fs-frm select:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px white inset !important; /* Override default blue background */
-    -webkit-text-fill-color: black !important; /* Override default black text color */
-}
-
-.form-container {
-  float: right; /* Float the container to the right */
-  max-width: 400px;
-  margin: 0 0 20px 20px; /* Add margin for spacing */
-  padding: 20px;
-  border: 1px solid rgb(125, 125, 125);
-  border-radius: 8px;
-}
-
-.form-container h2 {
-  color: white; /* Set the text color of the title to red */
-  font-size: 1.2rem;
-  font-weight: bold; /* Add this line to make the title bold */
-  margin: 0 0 20px 0;
-}
-
-</style>
-
-<p><strong><p style="text-align: left;font-size:25px;">Bijles wiskunde voor de middelbare school</p></strong></p>
-<p>Ik ben <strong>Marc Serrano Altena</strong>, een tweedejaars student Natuur- en Sterrenkunde aan de UvA en VU.</p>
-<p><img align="right" alt="Foto Marc Serrano Altena" src="../assets/images/general/Marc_Serrano_Altena_photo.png" width="200" /></p>
-<p>Wiskunde kan soms <strong>te snel</strong> gaan en dat <strong>niet alle stappen duidelijk</strong> zijn. Om wiskunde beter begrijpbaar te maken voor iedereen, ben ik gestart met deze website. Maar ik help graag nog verder!</p>
-<p>Heb je moeite met de stof begrijpen of toepassen? Of juist meer met het bij blijven met de stof en het huiswerk te maken? Als je dit herkent, dan is mijn <strong>een-op-een bijles</strong> voor jou! </p>
-<p>Apart van alleen de bijles, krijg je als bonus ook een aantal <strong>stappenplannen</strong>. Jouw kind hoeft dan alleen het stappenplan te volgen om een opdracht goed te kunnen maken. Ook help ik buiten de bijlessen door vragen te beantwoorden over het huiswerk. </p>
-<!-- De **eerste 5 leerlingen help ik volledig gratis**. En ik garandeer dat jouw kind voor de volgende toets **2 cijferpunten hoger** haalt dan zijn of haar gemiddelde. En anders dan blijf ik volledig gratis doorgaan met de bijles totdat het wel lukt. De eerste **drie plekken zijn al gevult**, dus ik help nu **nog maar 2 leerlingen gratis** voordat de prijs omhoog gaat.  -->
-
-<!-- 
-Woon jij in Zaandam en heb jij moeite met wiskunde op de middelbare school? Misschien dat de stof te snel gaat of juist dat de uitleg vaag is? 
-
-Dit kan er voor zorgen dat je blijft zitten, maar ook dat je later minder kunt verdienen. Gemiddeld kan dit €20 000  per jaar minder zijn. 
-
-Op je hele leven verdien je dan in totaal €800 000 minder. En dit zou echt zonde zijn, vooral wanneer er een oplossing voor is. 
-
-Met de In 6-Weken Twee-Punten-Hoger Training kan jij twee cijferpunten hoger halen voor de volgende toets. En niet alleen dat, voor de eerste 5 mensen is dit volledig gratis, maar er zijn nog twee plekken beschikbaar. , dus heb je interesse? Stuur dan een bericht naar: 
-
-0638391419
- -->
-
-<p><strong><p style="text-align: left;font-size:19px;">Waarom mijn wiskunde bijles?</p></strong></p>
-<p><span class="twemoji green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7l233.4-233.3c12.5-12.5 32.8-12.5 45.3 0z"/></svg></span>  <strong>Gemiddelde van 8.5</strong> voor mijn studie Natuur- en Sterrenkunde.</p>
-<p><span class="twemoji green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7l233.4-233.3c12.5-12.5 32.8-12.5 45.3 0z"/></svg></span>  <strong>Jaren ervaring als bijlesdocent</strong>, ook tijdens mijn middelbare schooljaren.</p>
-<p>Heb je interesse? Vul jouw gegevens in om kennis te maken en om te kijken of de bijles bij jou en jouw kind past!</p>
-
-
-  
-
-
-  
-    
-  
+                {% block content %}{% endblock %}
 
 
 
@@ -822,24 +664,24 @@ Met de In 6-Weken Twee-Punten-Hoger Training kan jij twee cijferpunten hoger hal
       
         
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer" hidden>
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
         
           
-          <a href="../goniometrie/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: Goniometrie">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
+          <a href="../basisvaardigheden/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Basisvaardigheden">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                Vorige
+                Volgende
               </span>
               <div class="md-ellipsis">
-                Goniometrie
+                Basisvaardigheden
               </div>
             </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
           </a>
-        
         
       </nav>
     
@@ -899,12 +741,12 @@ Met de In 6-Weken Twee-Punten-Hoger Training kan jij twee cijferpunten hoger hal
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "{% static 'assets/javascripts/workers/search.f886a092.min.js' %}", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      <script src="{% static 'assets/javascripts/bundle.6c14ae12.min.js' %}"></script>
       
-        <script src="../javascripts/mathjax.js"></script>
+        <script src="{% static 'javascripts/mathjax.js' %}"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "solverapp.apps.SolverappConfig",
+    "oplosser.apps.OplosserConfig",
+    'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -120,7 +122,6 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'docs\static'),
     os.path.join(BASE_DIR, 'docs\static\mkdocs_build'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -134,3 +135,6 @@ MEDIA_URL = "/assets/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 DOCS_DIR = os.path.join(BASE_DIR, 'docs\static\mkdocs_build')
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK ="bootstrap4"

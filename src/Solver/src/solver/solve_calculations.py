@@ -201,6 +201,7 @@ class Solve:
 
                     else:
                         self.output.append(("Geen oplossing gevonden", {"latex": False}))
+                        self.plot = True
 
                 return self.equation_interpret, self.output, self.plot
             
