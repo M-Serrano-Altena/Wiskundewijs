@@ -279,7 +279,7 @@ class Solve:
         return self.x_range, self.y_range
 
 
-    def get_plot_data(self, x_range):
+    def get_plot_data(self, x_range, dx=0.01):
 
         def get_plottable_coords(x_coords):
             plottable_x1_coords = [x for x in x_coords if sp.N(self.eq1(x)).is_real]
@@ -319,7 +319,7 @@ class Solve:
             self.y_intersect = [float(self.eq1(sol)) for sol in self.x_intersect]
 
         if self.vert_asympt_eq is None:
-            self.x_coords = np.linspace(x_range[0] - 1, x_range[1] + 1, 100)
+            self.x_coords = np.linspace(x_range[0] - 1, x_range[1] + 1, int(1/dx))
 
         else:
             if isinstance(self.vert_asympt_eq, list):

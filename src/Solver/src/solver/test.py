@@ -79,18 +79,9 @@ def math_interpreter(eq_string):
 # text = "This is a sample text with superscripted numbers like 2² and 3³, x²."
 # result = re.sub(r'(\w+)([²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿ⁰]+)', r"\1" + superscript_mapping[str(r'\2')], text)
 
-l = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
-
-x = sp.symbols('x', real=True)
-
-domain = sp.calculus.util.continuous_domain(x/(x-1), x, domain=sp.S.Reals)
-domain = sp.calculus.util.continuous_domain(sp.sqrt(x), x, domain=sp.S.Reals)
-print(domain.args[0].args)
-sp.pprint(domain)
-
-func = sp.lambdify(x, sp.sin(x), modules=['sympy'])
-func = sp.sympify(func(x), evaluate=False)
-sp.pprint(sp.solveset(func, x))
+l = np.array([1,2])
+l = 5 * l
+print(l)
 
 exit()
 

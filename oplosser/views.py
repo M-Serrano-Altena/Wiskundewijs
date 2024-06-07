@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse, HttpResponseBadRequest
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.template.loader import render_to_string
 import sympy as sp
+import numpy as np
 from django.conf import settings
 import os
 import json
@@ -94,7 +95,8 @@ def solve_equation_view(request):
                     solution_text = add_solution_text(solution_text=solution_text, new_text=output)
 
             if plot:
-                plot_data = generate_plot_data(solver)
+                plot_data, view_x_range, view_y_range = generate_plot_data(solver)
+                print(view_y_range)
 
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                 html = render_to_string('oplosser/equation_result.html', {
@@ -102,6 +104,8 @@ def solve_equation_view(request):
                     'equation_interpret': equation_interpret,
                     'solutions': solution_text,
                     'plot_data': json.dumps(plot_data),
+                    'x_range': view_x_range,
+                    'y_range': view_y_range,
                     'title': 'Vergelijking Oplosser'
                 })
                 return JsonResponse({'result': html})
@@ -111,6 +115,8 @@ def solve_equation_view(request):
                 'equation_interpret': equation_interpret,
                 'solutions': solution_text,
                 'plot_data': json.dumps(plot_data),
+                'x_range': view_x_range,
+                'y_range': view_y_range,
                 'title': 'Vergelijking Oplosser'
             })
     else:
@@ -125,31 +131,35 @@ def no_frac(num):
     return num
 
 def generate_plot_data(solver):
-    x_range, y_range = solver.get_range()
-    plottable_x1_coords, y1_coords, plottable_x2_coords, y2_coords = solver.get_plot_data(x_range)
+    x_range, view_y_range = solver.get_range()
+    view_x_range = list(x_range)
+    view_y_range = list(view_y_range)
+    x_range = np.array(x_range) + 50*abs(x_range[1] - x_range[0])*np.array([-1, 1])
+    plottable_x1_coords, y1_coords, plottable_x2_coords, y2_coords = solver.get_plot_data(x_range, dx=0.0002)
     
     plot_data = []
     
     if solver.vert_asympt is None:
-        plot_data.append({'x': list(plottable_x1_coords), 'y': list(y1_coords), 'type': 'scatter', 'mode': 'lines', 'name': f'f(x) = {solver.eq1(solver.symbol)}'})
-        plot_data.append({'x': list(plottable_x2_coords), 'y': list(y2_coords), 'type': 'scatter', 'mode': 'lines', 'name': f'g(x) = {solver.eq2(solver.symbol)}'})
+        plot_data.append({'x': list(plottable_x1_coords), 'y': list(y1_coords), 'type': 'scatter', 'mode': 'lines', 'name': f'f(x) = {solver.eq1(solver.symbol)}', 'line': {'color': 'darkturquoise'}})
+        plot_data.append({'x': list(plottable_x2_coords), 'y': list(y2_coords), 'type': 'scatter', 'mode': 'lines', 'name': f'g(x) = {solver.eq2(solver.symbol)}', 'line': {'color': 'springgreen'}})
     else:
         for i in range(len(plottable_x1_coords)):
-            plot_data.append({'x': list(plottable_x1_coords[i]), 'y': list(y1_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'f(x) = {str(solver.eq1(solver.symbol)).replace('log', 'ln')}'})
-            plot_data.append({'x': list(plottable_x2_coords[i]), 'y': list(y2_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'g(x) = {solver.eq2(solver.symbol)}' if i == 0 else '', 'showlegend': i == 0})
+            plot_data.append({'x': list(plottable_x1_coords[i]), 'y': list(y1_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'f(x) = {str(solver.eq1(solver.symbol)).replace('log', 'ln')}', 'line': {'color': 'darkturquoise'}})
+            plot_data.append({'x': list(plottable_x2_coords[i]), 'y': list(y2_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'g(x) = {str(solver.eq2(solver.symbol)).replace('log', 'ln')}' if i == 0 else '', 'showlegend': i == 0, 'line': {'color': 'springgreen'}})
     
 
     if not solver.solutions.is_FiniteSet:
-        solver.x_intersect = [sol for sol in sp.solveset(solver.eq, domain=sp.Interval(0, 2*sp.pi))]
+        solver.x_intersect = [sol for sol in sp.solveset(solver.eq, domain=sp.Interval(*x_range))]
         solver.y_intersect = [solver.eq1(sol) for sol in solver.x_intersect]
         
     else:
         solver.x_intersect = [float(sol) for sol in solver.solutions]
         solver.y_intersect = [float(solver.eq1(sol)) for sol in solver.solutions]
 
-    counter = 0
-    for x, y in zip(solver.x_intersect, solver.y_intersect):
-        counter += 1 
-        plot_data.append({'x': [float(x)], 'y': [float(y)], 'type': 'scatter', 'mode': 'markers', 'name': f"Snijpunt {counter} = ({no_frac(sp.nsimplify(round(x,13), [sp.pi]))}, {no_frac(sp.nsimplify(round(y,13), [sp.pi]))})", 'marker': {'color': 'black', 'size': 10}})
+    if solver.solutions.is_iterable:
+        solver.x_intersect = sorted([float(sol) for sol in sp.solveset(solver.eq, domain=sp.Interval(*x_range)) if (sp.N(solver.eq1(float(sol))).is_real and sp.N(solver.eq2(float(sol))).is_real)])
+        solver.y_intersect = [float(solver.eq1(sol)) for sol in solver.x_intersect]
 
-    return plot_data
+    plot_data.append({'x': solver.x_intersect, 'y': solver.y_intersect, 'type': 'scatter', 'mode': 'markers', 'name': f"Snijpunt", 'showlegend':False, 'marker': {'color': 'black', 'size': 10}})
+
+    return plot_data, view_x_range, view_y_range

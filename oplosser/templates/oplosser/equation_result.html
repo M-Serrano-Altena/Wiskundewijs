@@ -23,10 +23,16 @@
 </div>
 <script>
     var plotData = {{ plot_data|safe }};
+    var x_range = {{ x_range|safe }};
+    var y_range = {{ y_range|safe }};
     var layout = {
         autosize: true,
+        xaxis: {range: x_range},  
+        yaxis: {range: y_range},
         margin: {l: 25, r: 0, b: 25, t: 20, pad: 0},
         legend: {x: 0.85, y: 1}
     };
-    Plotly.newPlot('plot', plotData, layout);
+    var config = {modeBarButtonsToRemove: ['autoScale2d'], displaylogo: false};
+    Plotly.newPlot('plot', plotData, layout, config);
 </script>
+

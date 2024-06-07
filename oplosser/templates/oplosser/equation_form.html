@@ -1,15 +1,60 @@
 {% extends "oplosser/base.html" %}
 {% block content %}
 
+<head>
+    <style>
+        .spinner {
+            border: 12px solid #f3f3f3; /* Light grey */
+            border-top: 12px solid #00d1ae; /* Blue */
+            border-radius: 50%;
+            width: 60px; /* Adjust the size here */
+            height: 60px; /* Adjust the size here */
+            animation: spin 1.75s linear infinite;
+            margin: 0 auto; /* Center the spinner */
+            display: block; /* Make the spinner a block element */
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    
+        .form-spinner-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        #equation-form {
+            flex-grow: 1;
+            margin-right: 20px;
+        }
+    
+        #loadingSpinner {
+            width: 60px; /* Adjust the size here */
+            flex-shrink: 0;
+            visibility: hidden;
+            margin-top: -37px; /* Adjust the alignment here */
+        }
+    </style>
+</head>
+
 <body>
     <div class="container">
         <h1>Vergelijking Oplosser</h1>
-        <form id="equation-form" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <br>
-            <button type="submit" class="md-button md-button--primary">Oplossen <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 6a6 6 0 0 1 6 6c0 2.22-1.21 4.16-3 5.2V19a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-1.8c-1.79-1.04-3-2.98-3-5.2a6 6 0 0 1 6-6m2 15v1a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1h4m6-10h3v2h-3v-2M1 11h3v2H1v-2M13 1v3h-2V1h2M4.92 3.5l2.13 2.14-1.42 1.41L3.5 4.93 4.92 3.5m12.03 2.13 2.12-2.13 1.43 1.43-2.13 2.12-1.42-1.42Z"/></svg></span></button>
-        </form>
+        <div class="form-spinner-container">
+            <form id="equation-form" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <br>
+                <button type="submit" class="md-button md-button--primary">Oplossen <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 6a6 6 0 0 1 6 6c0 2.22-1.21 4.16-3 5.2V19a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-1.8c-1.79-1.04-3-2.98-3-5.2a6 6 0 0 1 6-6m2 15v1a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1h4m6-10h3v2h-3v-2M1 11h3v2H1v-2M13 1v3h-2V1h2M4.92 3.5l2.13 2.14-1.42 1.41L3.5 4.93 4.92 3.5m12.03 2.13 2.12-2.13 1.43 1.43-2.13 2.12-1.42-1.42Z"/></svg></span></button>
+            </form>
+
+            <div id="loadingSpinner">
+                <div class="spinner"></div>
+            </div>
+        </div>
+
         <div id="result"></div>
     </div>
 </body>
@@ -19,12 +64,23 @@
 $(document).ready(function(){
     $("#equation-form").submit(function(e){
         e.preventDefault();
+
+        // Show the spinner
+        document.getElementById('loadingSpinner').style.visibility = 'visible';
+
         $.ajax({
             url: $(this).attr('action'),
             type: 'post',
             data: $(this).serialize(),
             success: function(response){
+                // Hide the spinner
+                document.getElementById('loadingSpinner').style.visibility = 'hidden';
+
                 $("#result").html(response.result);
+            },
+            error: function() {
+                // Hide the spinner in case of error
+                document.getElementById('loadingSpinner').style.visibility = 'hidden';
             }
         });
     });
