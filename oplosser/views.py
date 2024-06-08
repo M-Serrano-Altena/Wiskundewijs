@@ -47,25 +47,25 @@ def add_solution_text(solution_text, new_text, new_line=True, latex=True, option
 
     if latex:
         if new_line and type(new_line) is not int:
-            updated_text = f"{solution_text}<br>\[\\boxed{{{new_text}}}\]"
+            updated_text = f"<span class='arithmatex'>{solution_text}<br>\[\\boxed{{{new_text}}}\]</span>"
 
         elif not new_line:
-            updated_text = f"{solution_text}\[\\boxed{{{new_text}}}\]"
+            updated_text = f"<span class='arithmatex'>{solution_text}\[\\boxed{{{new_text}}}\]</span>"
 
         elif type(new_line) is int:
             amt_new_line = new_line * "<br>"
-            updated_text = f"{solution_text}{amt_new_line}\[\\boxed{{{new_text}}}\]"
+            updated_text = f"<span class='arithmatex'>{solution_text}{amt_new_line}\[\\boxed{{{new_text}}}\]</span>"
     
     else:
         if new_line and type(new_line) is not int:
-            updated_text = f"{solution_text}<br>{new_text}"
+            updated_text = f"{solution_text}<br>{new_text}<br>"
 
         elif not new_line:
-            updated_text = f"{solution_text}{new_text}"
+            updated_text = f"{solution_text}{new_text}<br>"
 
         elif type(new_line) is int:
             amt_new_line = new_line * "<br>"
-            updated_text = f"{solution_text}{amt_new_line}{new_text}"
+            updated_text = f"{solution_text}{amt_new_line}{new_text}<br>"
 
     solution_text = updated_text
     return solution_text
@@ -96,10 +96,20 @@ def solve_equation_view(request):
 
             if plot:
                 plot_data, view_x_range, view_y_range = generate_plot_data(solver)
-                print(view_y_range)
 
-            if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-                html = render_to_string('oplosser/equation_result.html', {
+                if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                    html = render_to_string('oplosser/equation_result.html', {
+                        'equation_text': equation_text,
+                        'equation_interpret': equation_interpret,
+                        'solutions': solution_text,
+                        'plot_data': json.dumps(plot_data),
+                        'x_range': view_x_range,
+                        'y_range': view_y_range,
+                        'title': 'Vergelijking Oplosser'
+                    })
+                    return JsonResponse({'result': html})
+
+                return render(request, 'oplosser/equation_detail.html', {
                     'equation_text': equation_text,
                     'equation_interpret': equation_interpret,
                     'solutions': solution_text,
@@ -108,17 +118,23 @@ def solve_equation_view(request):
                     'y_range': view_y_range,
                     'title': 'Vergelijking Oplosser'
                 })
+            
+            if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                html = render_to_string('oplosser/equation_result.html', {
+                    'equation_text': equation_text,
+                    'equation_interpret': equation_interpret,
+                    'solutions': solution_text,
+                    'title': 'Vergelijking Oplosser'
+                })
                 return JsonResponse({'result': html})
 
             return render(request, 'oplosser/equation_detail.html', {
                 'equation_text': equation_text,
                 'equation_interpret': equation_interpret,
                 'solutions': solution_text,
-                'plot_data': json.dumps(plot_data),
-                'x_range': view_x_range,
-                'y_range': view_y_range,
                 'title': 'Vergelijking Oplosser'
             })
+
     else:
         form = EquationForm()
 
@@ -134,19 +150,45 @@ def generate_plot_data(solver):
     x_range, view_y_range = solver.get_range()
     view_x_range = list(x_range)
     view_y_range = list(view_y_range)
-    x_range = np.array(x_range) + 50*abs(x_range[1] - x_range[0])*np.array([-1, 1])
-    plottable_x1_coords, y1_coords, plottable_x2_coords, y2_coords = solver.get_plot_data(x_range, dx=0.0002)
+    extended_range = 50*abs(x_range[1] - x_range[0])*np.array([-1, 1])
+    dx = 0.0001
+
+    if solver.vert_asympt_eq is not None and type(solver.vert_asympt_eq) is not list and not sp.solveset(solver.vert_asympt_eq).is_FiniteSet:
+        extended_range = 5*abs(x_range[1] - x_range[0])*np.array([-1, 1])
+        dx = 0.02
+
+    x_range = np.array(x_range) + extended_range
+
+    plottable_x1_coords, y1_coords, plottable_x2_coords, y2_coords = solver.get_plot_data(x_range, dx=dx)
     
     plot_data = []
     
     if solver.vert_asympt is None:
         plot_data.append({'x': list(plottable_x1_coords), 'y': list(y1_coords), 'type': 'scatter', 'mode': 'lines', 'name': f'f(x) = {solver.eq1(solver.symbol)}', 'line': {'color': 'darkturquoise'}})
         plot_data.append({'x': list(plottable_x2_coords), 'y': list(y2_coords), 'type': 'scatter', 'mode': 'lines', 'name': f'g(x) = {solver.eq2(solver.symbol)}', 'line': {'color': 'springgreen'}})
-    else:
-        for i in range(len(plottable_x1_coords)):
-            plot_data.append({'x': list(plottable_x1_coords[i]), 'y': list(y1_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'f(x) = {str(solver.eq1(solver.symbol)).replace('log', 'ln')}', 'line': {'color': 'darkturquoise'}})
-            plot_data.append({'x': list(plottable_x2_coords[i]), 'y': list(y2_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'g(x) = {str(solver.eq2(solver.symbol)).replace('log', 'ln')}' if i == 0 else '', 'showlegend': i == 0, 'line': {'color': 'springgreen'}})
     
+    else:
+        skip1 = 0
+        skip2 = 0
+        plot_data_f = []
+        plot_data_g = []
+
+        for i in range(len(plottable_x1_coords)):
+
+            if list(plottable_x1_coords[i]) and list(y1_coords[i]):
+                plot_data_f.append({'x': list(plottable_x1_coords[i]), 'y': list(y1_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'f(x) = {str(solver.eq1(solver.symbol)).replace('log', 'ln')}', 'showlegend': i == skip1, 'line': {'color': 'darkturquoise'}})
+            
+            else:
+                skip1 +=1
+
+            if list(plottable_x2_coords[i]) and list(y2_coords[i]):
+                plot_data_g.append({'x': list(plottable_x2_coords[i]), 'y': list(y2_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'g(x) = {str(solver.eq2(solver.symbol)).replace('log', 'ln')}', 'showlegend': i == skip2, 'line': {'color': 'springgreen'}})
+
+            else:
+                skip2 += 1
+
+        plot_data = plot_data_f + plot_data_g
+        plot_data_f, plot_data_g = [], []
 
     if not solver.solutions.is_FiniteSet:
         solver.x_intersect = [sol for sol in sp.solveset(solver.eq, domain=sp.Interval(*x_range))]

@@ -79,9 +79,9 @@ def math_interpreter(eq_string):
 # text = "This is a sample text with superscripted numbers like 2² and 3³, x²."
 # result = re.sub(r'(\w+)([²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿ⁰]+)', r"\1" + superscript_mapping[str(r'\2')], text)
 
-l = np.array([1,2])
-l = 5 * l
-print(l)
+l = 1
+
+l = np.full()
 
 exit()
 

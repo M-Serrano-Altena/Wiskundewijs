@@ -60,6 +60,7 @@ class Solve:
         self.output = []
         self.equation_interpret = None
         self.plot = False
+        self.intersect = False
 
     def solve_equation(self):
         """Solve the equation and display the results
@@ -85,10 +86,11 @@ class Solve:
                     self.eq = self.eq.subs(self.symbol, symbol_new)
                     eq1 = eq1.subs(self.symbol, symbol_new)
                     self.symbol = symbol_new
+
+                    self.eq1 = sp.lambdify(self.symbol, eq1, "sympy")
+                    self.eq2 = sp.lambdify(self.symbol, eq2, "sympy")
                     
                     if not sp.solveset(self.eq, domain=sp.S.Reals).is_empty:
-                        self.eq1 = sp.lambdify(self.symbol, eq1, "sympy")
-                        self.eq2 = sp.lambdify(self.symbol, eq2, "sympy")
                         self.equation_interpret = f"{self.eq_string} = 0"
                     
                     elif not sp.simplify(self.eq).is_number:
@@ -178,6 +180,7 @@ class Solve:
                     
                     else:
                         self.output.append(("Geen oplossing gevonden", {"latex": False}))
+                        self.plot = True
 
                 elif len(eq_split) == 2:
                     lhs = sp.nsimplify(sp.simplify(eq1), [sp.pi])
@@ -206,6 +209,7 @@ class Solve:
                 return self.equation_interpret, self.output, self.plot
             
             self.plot = True
+            self.intersect = True
 
             if len(eq_split) == 1:
                 self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
@@ -259,6 +263,11 @@ class Solve:
     
 
     def get_range(self):
+        if not self.intersect:
+            self.x_range = (-10, 10)
+            self.y_range = (-10, 10)
+            return self.x_range, self.y_range
+
         if not self.solutions.is_FiniteSet:
             self.x_intersect = [sol for sol in sp.solveset(self.eq, domain=sp.Interval(0, 2*sp.pi))]
             self.y_intersect = [self.eq1(sol) for sol in self.x_intersect]
@@ -281,16 +290,24 @@ class Solve:
 
     def get_plot_data(self, x_range, dx=0.01):
 
+        def scalar_to_array(scalar, shape):
+            if np.isscalar(scalar):
+                return np.full(shape, scalar).astype(float)
+            return scalar.astype(float)
+
+
         def get_plottable_coords(x_coords):
-            plottable_x1_coords = [x for x in x_coords if sp.N(self.eq1(x)).is_real]
-            plottable_x2_coords = [x for x in x_coords if sp.N(self.eq2(x)).is_real]      
+            self.eq1_np = sp.lambdify(self.symbol, self.eq1(self.symbol), "numpy")
+            self.eq2_np = sp.lambdify(self.symbol, self.eq2(self.symbol), "numpy")
+            x_coords_np = np.array(x_coords)
+            plottable_x1_coords = x_coords_np[np.isreal(scalar_to_array(self.eq1_np(x_coords_np), shape=x_coords_np.shape))]
+            plottable_x2_coords = x_coords_np[np.isreal(scalar_to_array(self.eq2_np(x_coords_np), shape=x_coords_np.shape))]
 
             def add_endpoint(plottable_x_coords, eq):
                 domain = sp.calculus.util.continuous_domain(eq, self.symbol, domain=sp.S.Reals)
-                
 
                 if (not domain.is_Interval) or (type(domain) is type(sp.Reals)):
-                    return plottable_x_coords
+                    return np.array(plottable_x_coords)
 
                 input_eq = sp.lambdify(self.symbol, eq, "sympy")
                 amt_intervals = len(domain.args) if domain.is_Union else 1
@@ -301,22 +318,21 @@ class Solve:
                                 plottable_x_coords.append(float(domain.args[j]))
                                 plottable_x_coords = sorted(plottable_x_coords)
 
-                plottable_x_coords = [x for x in plottable_x_coords if domain.args[0] <= x <= domain.args[1]]   
-
+                plottable_x_coords = np.array([x for x in plottable_x_coords if domain.args[0] <= x <= domain.args[1]])
                 return plottable_x_coords
 
             plottable_x1_coords = add_endpoint(plottable_x1_coords, sp.sympify(self.eq1(self.symbol)))
             plottable_x2_coords = add_endpoint(plottable_x2_coords, sp.sympify(self.eq2(self.symbol)))
 
-            y1_coords = [float(self.eq1(x)) for x in plottable_x1_coords]
-            y2_coords = [float(self.eq2(x)) for x in plottable_x2_coords]
+            y1_coords = scalar_to_array(self.eq1_np(plottable_x1_coords), shape=plottable_x1_coords.shape)
+            y2_coords = scalar_to_array(self.eq2_np(plottable_x2_coords), shape=plottable_x2_coords.shape)
 
-            return plottable_x1_coords, y1_coords, plottable_x2_coords, y2_coords
+            return list(plottable_x1_coords), list(y1_coords), list(plottable_x2_coords), list(y2_coords)
 
-
-        if self.solutions.is_iterable:
-            self.x_intersect = sorted([float(sol) for sol in sp.solveset(self.eq, domain=sp.Interval(*x_range)) if (sp.N(self.eq1(float(sol))).is_real and sp.N(self.eq2(float(sol))).is_real)])
-            self.y_intersect = [float(self.eq1(sol)) for sol in self.x_intersect]
+        if self.intersect:
+            if self.solutions.is_iterable:
+                self.x_intersect = sorted([float(sol) for sol in sp.solveset(self.eq, domain=sp.Interval(*x_range)) if (sp.N(self.eq1(float(sol))).is_real and sp.N(self.eq2(float(sol))).is_real)])
+                self.y_intersect = [float(self.eq1(sol)) for sol in self.x_intersect]
 
         if self.vert_asympt_eq is None:
             self.x_coords = np.linspace(x_range[0] - 1, x_range[1] + 1, int(1/dx))
@@ -328,8 +344,7 @@ class Solve:
                 self.vert_asympt = sp.solveset(self.vert_asympt_eq, domain=sp.Interval(*x_range))
 
             self.vert_asympt = [float(sol) for sol in self.vert_asympt if sp.N(sol).is_real]
-            num = int(round(50/len(self.vert_asympt))) if 0 < len(self.vert_asympt) < 5 else 10
-            self.x_coords = segmented_linspace(x_range[0] - 1, x_range[1] + 1, self.vert_asympt, num=num, dx=0.00001)
+            self.x_coords = segmented_linspace(x_range[0] - 1, x_range[1] + 1, self.vert_asympt, num=int(1/dx), dx=0.00001)
 
         plottable_x1_coords = []
         y1_coords = []
@@ -348,4 +363,5 @@ class Solve:
                 plottable_x2_coords.append(plottable_x2_coords_i)
                 y2_coords.append(y2_coords_i)
 
-        return plottable_x1_coords, y1_coords, plottable_x2_coords, y2_coords
+
+        return list(plottable_x1_coords), list(y1_coords), list(plottable_x2_coords), list(y2_coords)
