@@ -50,8 +50,7 @@ scipy==1.13.0
 screeninfo==0.8.1
 shiboken6==6.6.3
 six==1.16.0
-skia-pathops==0.8.0.post1
--e git+https://github.com/M-Serrano-Altena/Wiskundewijs.git@cf3c0949a7a1534794db9a62d56d71d189157eb0#egg=solver&subdirectory=src\solver       
+skia-pathops==0.8.0.post1 
 sqlparse==0.5.0
 srt==3.5.3
 svgelements==1.9.6
@@ -61,4 +60,3 @@ tqdm==4.66.4
 typing_extensions==4.11.0
 tzdata==2024.1
 watchdog==4.0.0
--e git+https://github.com/M-Serrano-Altena/Wiskundewijs.git@cf3c0949a7a1534794db9a62d56d71d189157eb0#egg=wiskundewijs
