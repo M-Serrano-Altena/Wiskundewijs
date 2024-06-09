@@ -30,9 +30,10 @@
         xaxis: {range: x_range},  
         yaxis: {range: y_range},
         margin: {l: 25, r: 0, b: 25, t: 20, pad: 0},
-        legend: {x: 0.85, y: 1}
+        legend: {x: 0.85, y: 1},
+        dragmode: 'pan',  
     };
-    var config = {modeBarButtonsToRemove: ['autoScale2d'], displaylogo: false};
+    var config = {modeBarButtonsToRemove: ['autoScale2d'], displaylogo: false, scrollZoom: true};
     Plotly.newPlot('plot', plotData, layout, config);
 
     window.setTimeout(function() {

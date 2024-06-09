@@ -4,6 +4,7 @@ from sympy.simplify.fu import TR2, TR1
 import re
 
 def math_interpreter(eq_string):
+    eq_string = eq_string.casefold()
     function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
     abs_pattern = re.compile(r"\|([^|]+)\|")
     eq_string = re.sub(abs_pattern, r"Abs(\1)", eq_string)
