@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import json
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,8 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-g*t@d@!%t8z^pmz!qy0m5-_5ib+x3%d8ul4=28d4+)3l1d-udn"
+
+# # SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'django-insecure-g*t@d@!%t8z^pmz!qy0m5-_5ib+x3%d8ul4=28d4+)3l1d-udn' 
+
+# with open('/etc/config.json') as config_file:
+#     config = json.load(config_file)
+# SECRET_KEY = config['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

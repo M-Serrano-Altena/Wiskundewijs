@@ -14,12 +14,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path, include, re_path
 from oplosser import views as solver_views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
     path("oplosser/", solver_views.solve_equation_view, name="oplosser"),
     path('oplosser/search/search_index.json', solver_views.serve_search_index),
     re_path(r'^oplosser/(?P<path>.*)/$', solver_views.redirect_view),
