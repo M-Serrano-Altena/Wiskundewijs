@@ -122,11 +122,11 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'docs\static\mkdocs_build'),
+    os.path.join(BASE_DIR, 'docs', 'static', 'mkdocs_build'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "static/mkdocs_build")
+MEDIA_ROOT = os.path.join(BASE_DIR, "static", "mkdocs_build")
 MEDIA_URL = "/assets/"
 
 # Default primary key field type
@@ -134,7 +134,7 @@ MEDIA_URL = "/assets/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-DOCS_DIR = os.path.join(BASE_DIR, 'docs\static\mkdocs_build')
+DOCS_DIR = os.path.join(BASE_DIR, 'docs', 'static', 'mkdocs_build')
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK ="bootstrap4"
