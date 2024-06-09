@@ -14,8 +14,9 @@ def serve_docs(request, path):
         path = os.path.join(path, 'index.html')
 
     path = os.path.join(settings.DOCS_DIR, path)
+    relative_path = os.path.relpath(path, settings.DOCS_DIR)
 
-    return serve(request, path, settings.DOCS_DIR)
+    return serve(request, relative_path, settings.DOCS_DIR)
 
 
 def serve_home(request):
