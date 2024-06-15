@@ -3,6 +3,8 @@ import sympy as sp
 from sympy.simplify.fu import TR2, TR1
 import re
 
+
+
 def math_interpreter(eq_string):
     eq_string = eq_string.casefold()
     function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
@@ -128,7 +130,7 @@ class Solve:
             self.eq = sp.simplify(self.eq)
             self.solutions = sp.solveset(self.eq, domain=sp.S.Reals)
             domain = sp.calculus.util.continuous_domain(self.eq, self.symbol, domain=sp.S.Reals)
-            domain_string = sp.pretty(domain)
+            domain_string = str(domain)
 
             if self.symbol and (sp.solve(self.eq)):
                 eq12 = sp.simplify(eq1 - eq2)
@@ -244,7 +246,7 @@ class Solve:
                 if isinstance(self.solutions, sp.ConditionSet):
                     self.solutions = self.solutions.base_set                
 
-                if domain_string != "ℝ":
+                if domain_string != "Reals":
                     self.output.append((f"Met de voorwaarde dat het domein van ${self.symbol}$ is:", {"latex":False, "new_line":2}))
                     self.output.append(sp.latex(domain))
 
