@@ -84,12 +84,12 @@ def numerical_roots(eq, a=-10000, b=10000, solve_method="newton", dy=0.1):
                 roots[i] = round(scipy.optimize.newton(eq_lambda, guess, fprime=diff_eq_lambda), 5)
 
             elif solve_method == "bisect":
-                a = np.min(xy[split_indices[i]])
-                b = np.max(xy[split_indices[i]])
+                a_bisect = np.min(xy[split_indices[i]])
+                b_bisect = np.max(xy[split_indices[i]])
 
                 try:
-                    if eq_lambda(a) * eq_lambda(b) < 0:
-                        roots[i] = round(scipy.optimize.bisect(eq_lambda, a, b), 5)
+                    if eq_lambda(a_bisect) * eq_lambda(b_bisect) < 0:
+                        roots[i] = round(scipy.optimize.bisect(eq_lambda, a_bisect, b_bisect), 5)
                     else:
                         roots[i] = None
                 except ValueError:
@@ -105,11 +105,11 @@ def numerical_roots(eq, a=-10000, b=10000, solve_method="newton", dy=0.1):
     roots = roots[roots != None]
     roots = roots[~np.isnan(roots)]
 
-    if -10000 in roots and eq_lambda(-10000) * eq_lambda(-10001) >= 0:
-        roots = np.delete(roots, np.where(roots == -10000))
+    if a in roots and eq_lambda(a -1) * eq_lambda(a + 1) >= 0:
+        roots = np.delete(roots, np.where(roots == a))
 
-    if 10000 in roots and eq_lambda(10000) * eq_lambda(10001) >= 0:
-        roots = np.delete(roots, np.where(roots == 10000))
+    if b in roots and eq_lambda(b - 1) * eq_lambda(b + 1) >= 0:
+        roots = np.delete(roots, np.where(roots == b))
 
     return roots
 
