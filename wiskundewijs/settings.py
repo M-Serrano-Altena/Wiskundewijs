@@ -34,7 +34,7 @@ SECRET_KEY = 'django-insecure-g*t@d@!%t8z^pmz!qy0m5-_5ib+x3%d8ul4=28d4+)3l1d-udn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True 
 
-ALLOWED_HOSTS = ['www.wiskundewijs.com', 'wiskundewijs.com', '172.233.48.60']
+ALLOWED_HOSTS = ['www.wiskundewijs.com', 'wiskundewijs.com', '172.233.48.60', '127.0.0.1']
 
 
 # Application definition

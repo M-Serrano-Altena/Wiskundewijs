@@ -1,3 +1,4 @@
+import scipy.optimize
 import sympy as sp
 from sympy.simplify.fu import TR2, TR1
 import numpy as np
@@ -78,15 +79,57 @@ def math_interpreter(eq_string):
 
 # text = "This is a sample text with superscripted numbers like 2² and 3³, x²."
 # result = re.sub(r'(\w+)([²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿ⁰]+)', r"\1" + superscript_mapping[str(r'\2')], text)
-import scipy
 
+# x = sp.symbols('x')
+# eq = sp.asin(x) - sp.sin(x)
+# eq_lambda = sp.lambdify(x, eq, "numpy")
+# diff_eq = sp.diff(eq, x)
+# diff_eq_lambda = sp.lambdify(x, diff_eq, "numpy")
+# sol = sp.solveset(eq, x, domain=sp.S.Reals)
+# if sol == sp.solveset(sol.args[1], x, domain=sp.S.Reals):
+#     print(round(scipy.optimize.newton(eq_lambda, 0.5, fprime=diff_eq_lambda), 5))
+
+
+def numerical_roots(eq, a=-10000, b=10000):
+    x = sp.symbols('x')
+    eq = eq(x)
+    eq_lambda = sp.lambdify(x, eq, "numpy")
+    diff_eq = sp.diff(eq, x)
+    diff_eq_lambda = sp.lambdify(x, diff_eq, "numpy")
+
+    x = np.linspace(a, b, (b-a) * 100)
+    xy = np.zeros((x.shape[0], 2))
+    xy[:, 0] = x
+    xy[:, 1] = eq_lambda(x)
+
+    condition = (xy[:, 1] > -0.1) & (xy[:, 1] < 0.1)
+    indices = np.where(condition)[0]
+
+    discontinuities = np.where(np.diff(indices) != 1)[0] + 1
+    split_indices = np.split(indices, discontinuities)
+
+    len_split = len(split_indices)
+    roots = np.zeros(len_split)
+
+    for i in range(len_split):
+        min_index = np.argmin(np.abs(xy[split_indices[i]]), axis=0)[1]
+        guess = xy[split_indices[i]][min_index, 0]
+        roots[i] = round(scipy.optimize.newton(eq_lambda, guess, fprime=diff_eq_lambda), 5)        
+
+    return roots
+
+
+eq = lambda x: 2*sp.cos(x) - x + 5
 
 x = sp.symbols('x')
-eq = sp.asin(x) - sp.sin(x)
-sol = sp.solveset(eq, x, domain=sp.S.Reals)
-sp.pprint(sol == sp.solveset(sol.args[1], x, domain=sp.S.Reals))
+# eq = sp.Eq(sp.sin(x), 0)
+# eq = sp.lambdify(x, eq, "sympy")
+# print(eq(x))
+# print(numerical_roots(eq, -10000, 10000))
+f = lambda x: np.exp(x) - x - 2
+eq_lambda = lambda x: - x**x + np.exp(x)
 
-scipy
+print(scipy.optimize.fsolve(eq_lambda, 0.001))
 
 exit()
 

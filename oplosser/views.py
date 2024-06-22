@@ -190,6 +190,9 @@ def generate_plot_data(solver):
         plot_data = plot_data_f + plot_data_g
         plot_data_f, plot_data_g = [], []
 
+    if not solver.intersect:
+        return plot_data, view_x_range, view_y_range
+
     if not solver.solutions.is_FiniteSet:
         solver.x_intersect = [sol for sol in sp.solveset(solver.eq, domain=sp.Interval(*x_range))]
         solver.y_intersect = [solver.eq1(sol) for sol in solver.x_intersect]
@@ -199,7 +202,10 @@ def generate_plot_data(solver):
         solver.y_intersect = [float(solver.eq1(sol)) for sol in solver.solutions]
 
     if solver.solutions.is_iterable:
-        solver.x_intersect = sorted([float(sol) for sol in sp.solveset(solver.eq, domain=sp.Interval(*x_range)) if (sp.N(solver.eq1(float(sol))).is_real and sp.N(solver.eq2(float(sol))).is_real)])
+        if solver.numerical:
+            solver.x_intersect = [float(sol) for sol in solver.solutions]
+        else:
+            solver.x_intersect = sorted([float(sol) for sol in sp.solveset(solver.eq, domain=sp.Interval(*x_range)) if (sp.N(solver.eq1(float(sol))).is_real and sp.N(solver.eq2(float(sol))).is_real)])
         solver.y_intersect = [float(solver.eq1(sol)) for sol in solver.x_intersect]
 
     plot_data.append({'x': solver.x_intersect, 'y': solver.y_intersect, 'type': 'scatter', 'mode': 'markers', 'name': f"Snijpunt", 'showlegend':False, 'marker': {'color': 'black', 'size': 10}})
