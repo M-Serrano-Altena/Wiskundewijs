@@ -229,10 +229,10 @@ class Solve:
 
                         roots = numerical_roots(self.eq12, -10000, 10000)
 
-                        if not roots:
+                        if roots.size != 0:
                             roots = numerical_roots(self.eq12, -10000, 10000, solve_method="fsolve")
 
-                        if not roots:    
+                        if roots.size != 0:    
                             roots = numerical_roots(self.eq12, -10000, 10000, solve_method="bisect")
                         
                         
