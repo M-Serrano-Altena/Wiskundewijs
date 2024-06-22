@@ -27,14 +27,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-g*t@d@!%t8z^pmz!qy0m5-_5ib+x3%d8ul4=28d4+)3l1d-udn' 
 
-# with open('/etc/config.json') as config_file:
-#     config = json.load(config_file)
-# SECRET_KEY = config['SECRET_KEY']
+#with open('/etc/config.json') as config_file:
+#    config = json.load(config_file)
+#SECRET_KEY = config['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True 
 
-ALLOWED_HOSTS = ['172.233.48.60', 'www.wiskundewijs.com', '127.0.0.1']
+ALLOWED_HOSTS = ['www.wiskundewijs.com', 'wiskundewijs.com', '172.233.48.60']
 
 
 # Application definition

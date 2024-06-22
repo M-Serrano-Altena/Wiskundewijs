@@ -78,9 +78,15 @@ def math_interpreter(eq_string):
 
 # text = "This is a sample text with superscripted numbers like 2² and 3³, x²."
 # result = re.sub(r'(\w+)([²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿ⁰]+)', r"\1" + superscript_mapping[str(r'\2')], text)
+import scipy
 
-print(str(sp.S.Reals))
 
+x = sp.symbols('x')
+eq = sp.asin(x) - sp.sin(x)
+sol = sp.solveset(eq, x, domain=sp.S.Reals)
+sp.pprint(sol == sp.solveset(sol.args[1], x, domain=sp.S.Reals))
+
+scipy
 
 exit()
 

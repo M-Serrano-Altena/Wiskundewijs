@@ -235,7 +235,7 @@ class Solve:
                         counter +=1
                         self.output.append(f"{counter}) \quad {sp.latex(self.symbol)} = {sp.latex(solution).replace('log', 'ln')}")
 
-                if domain_string != "ℝ":
+                if domain_string != "Reals":
                     self.output.append((f"Het domein van ${self.symbol}$ is:", {"latex":False, "new_line":2}))
                     self.output.append(sp.latex(domain))
             
