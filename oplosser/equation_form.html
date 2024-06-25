@@ -68,6 +68,14 @@ $(document).ready(function(){
         // Show the spinner
         document.getElementById('loadingSpinner').style.visibility = 'visible';
 
+        // Google Analytics event tracking
+        dataLayer.push({
+            'event': 'submit',
+            'event_category': 'Equation',
+            'event_label': 'Equation Submitted',
+            'value': 1
+        });
+
         $.ajax({
             url: $(this).attr('action'),
             type: 'post',

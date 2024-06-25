@@ -7,24 +7,20 @@ def update_search_index():
     with open('search_index.json', 'r') as f:
         data = json.load(f)
 
-    # Find the "solverapp" item
     for item in data['docs']:
         if item['title'] == 'Vergelijking Oplosser':
-            # Update its location
-            item['location'] = '../oplosser'  # Replace with the actual URL
-            item['text'] = 'Lost een vergelijking op en plot de twee functies aan beide kanten'  # Replace with the actual description
+            item['location'] = '../oplosser'
+            item['text'] = 'Lost een vergelijking op en plot de twee functies aan beide kanten' 
             print("Item updated successfully")
             break
     else:
-        # If the "solverapp" item was not found, add a new one
         data['docs'].append({
-            'location': '../oplosser',  # Replace with the actual URL
+            'location': '../oplosser', 
             'title': 'Vergelijking Oplosser',
-            'text': 'Lost een vergelijking op en plot de twee functies aan beide kanten'  # Replace with the actual description
+            'text': 'Lost een vergelijking op en plot de twee functies aan beide kanten'
         })
         print("New item added successfully")
 
-    # Save the updated data
     with open('search_index.json', 'w') as f:
         json.dump(data, f, indent=4)
         print("Data updated successfully")
