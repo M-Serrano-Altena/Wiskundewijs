@@ -77,7 +77,9 @@ def solve_equation_view(request):
         if form.is_valid():
             equation_text = form.cleaned_data['equation_text']
             solver = Solve(input_string=equation_text)
+            print("Solving")
             equation_interpret, outputs, plot = solver.solve_equation()
+            print("Solving done")
             plot_data = []
             
             solution_text = ""
@@ -95,7 +97,9 @@ def solve_equation_view(request):
                     solution_text = add_solution_text(solution_text=solution_text, new_text=output)
 
             if plot:
+                print("Plotting")
                 plot_data, view_x_range, view_y_range = generate_plot_data(solver)
+                print("Plotting done")
 
                 if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                     html = render_to_string('oplosser/equation_result.html', {
@@ -194,7 +198,7 @@ def generate_plot_data(solver):
         return plot_data, view_x_range, view_y_range
 
     if not solver.solutions.is_FiniteSet:
-        solver.x_intersect = [sol for sol in sp.solveset(solver.eq, domain=sp.Interval(*x_range))]
+        solver.x_intersect = [sol for sol in solver.new_interval_solutions]
         solver.y_intersect = [solver.eq1(sol) for sol in solver.x_intersect]
         
     else:
@@ -205,7 +209,8 @@ def generate_plot_data(solver):
         if solver.numerical:
             solver.x_intersect = [float(sol) for sol in solver.solutions]
         else:
-            solver.x_intersect = sorted([float(sol) for sol in sp.solveset(solver.eq, domain=sp.Interval(*x_range)) if (sp.N(solver.eq1(float(sol))).is_real and sp.N(solver.eq2(float(sol))).is_real)])
+            solver.x_intersect = sorted([float(sol) for sol in solver.new_interval_solutions if (sp.N(solver.eq1(float(sol))).is_real and sp.N(solver.eq2(float(sol))).is_real)])
+        
         solver.y_intersect = [float(solver.eq1(sol)) for sol in solver.x_intersect]
 
     plot_data.append({'x': solver.x_intersect, 'y': solver.y_intersect, 'type': 'scatter', 'mode': 'markers', 'name': f"Snijpunt", 'showlegend':False, 'marker': {'color': 'black', 'size': 10}})

@@ -97,7 +97,6 @@ def numerical_roots(eq, a=-10000, b=10000, solve_method="newton", dy=0.1):
 
             elif solve_method == "fsolve":
                 roots[i] = round(float(scipy.optimize.fsolve(eq_lambda, guess)), 5)
-                print(roots[i], scipy.optimize.fsolve(lambda x: np.exp(x) - x**x, guess), guess)
 
         except RuntimeError:
             roots[i] = None
@@ -164,6 +163,7 @@ class Solve:
             elif len(eq_split) == 2:
                 eq1 = sp.sympify(eq_split[0])
                 eq2 = sp.sympify(eq_split[1])
+                eq12 = eq1 - eq2
 
                 try:
                     self.eq = sp.nsimplify(sp.Eq(eq1, eq2), tolerance=10**-7)
@@ -173,8 +173,8 @@ class Solve:
                 self.equation_interpret = self.eq_string
                 self.eq_string = str(self.eq)
                 
-                if self.eq.free_symbols:
-                    self.symbol = self.eq.free_symbols.pop()
+                if eq12.free_symbols:
+                    self.symbol = eq12.free_symbols.pop()
                     symbol_new = sp.symbols(str(self.symbol), real=True)
                     self.eq = self.eq.subs(self.symbol, symbol_new)
                     eq1 = eq1.subs(self.symbol, symbol_new)
@@ -237,7 +237,6 @@ class Solve:
                         
                         
                         self.solutions = sp.FiniteSet(*roots)
-
 
             if not sp.solve(self.eq):
                 
@@ -358,6 +357,25 @@ class Solve:
                 self.output.append(("Oplossingen in het domein $[0, 2\pi]$: ", {"latex":False, "new_line":2}))
                 self.interval_solutions = sp.solveset(self.eq, domain=sp.Interval(0, 2*sp.pi))
                 counter = 0
+
+                if isinstance(self.interval_solutions, sp.Union) or isinstance(self.interval_solutions, sp.ImageSet):
+                    self.interval_solutions_intersect = sp.Intersection(self.interval_solutions, sp.Interval(0, 2*sp.pi))
+
+                    if isinstance(self.interval_solutions_intersect, sp.Intersection):
+                        counter = 0
+                        self.interval_solutions_intersect = []
+                        for solution in self.interval_solutions:
+                            if 0 <= float(solution) <= 2 * np.pi:
+                                self.interval_solutions_intersect.append(solution)
+                            else:
+                                counter += 1
+
+                            if counter > 10:
+                                counter = 0
+                                break
+
+                    self.interval_solutions = sp.FiniteSet(*self.interval_solutions_intersect)
+
                 for solution in self.interval_solutions:
                     counter += 1
                     self.output.append(f"{counter}) \quad {sp.latex(self.symbol)} = {sp.latex(solution)}")        
@@ -365,7 +383,7 @@ class Solve:
         except Exception as e:
             self.output.append((f"Error: {str(e)}", {"latex":False}))
             print(e)
-    
+
         return self.equation_interpret, self.output, self.plot
     
 
@@ -376,7 +394,7 @@ class Solve:
             return self.x_range, self.y_range
 
         if not self.solutions.is_FiniteSet:
-            self.x_intersect = [sol for sol in sp.solveset(self.eq, domain=sp.Interval(0, 2*sp.pi))]
+            self.x_intersect = [sol for sol in self.interval_solutions]
             self.y_intersect = [self.eq1(sol) for sol in self.x_intersect]
         
         else:
@@ -440,8 +458,29 @@ class Solve:
             if self.solutions.is_iterable:
                 if self.numerical:
                     self.x_intersect = sorted([float(sol) for sol in self.solutions])
+
                 else:
-                    self.x_intersect = sorted([float(sol) for sol in sp.solveset(self.eq, domain=sp.Interval(*x_range)) if (sp.N(self.eq1(float(sol))).is_real and sp.N(self.eq2(float(sol))).is_real)])
+                    self.new_interval_solutions = sp.solveset(self.eq, domain=sp.Interval(*x_range))
+
+                    if isinstance(self.new_interval_solutions, sp.Union) or isinstance(self.new_interval_solutions, sp.ImageSet):
+                        self.new_interval_solutions_intersect = sp.Intersection(self.new_interval_solutions, sp.Interval(*x_range))
+
+                        if isinstance(self.new_interval_solutions_intersect, sp.Intersection):
+                            counter = 0
+                            self.new_interval_solutions_intersect = []
+                            for solution in self.new_interval_solutions:
+                                if x_range[0] <= float(solution) <= x_range[1]:
+                                    self.new_interval_solutions_intersect.append(solution)
+                                else:
+                                    counter += 1
+
+                                if counter > 10:
+                                    counter = 0
+                                    break
+
+                        self.new_interval_solutions = sp.FiniteSet(*self.new_interval_solutions_intersect)   
+
+                    self.x_intersect = sorted([float(sol) for sol in self.new_interval_solutions if (sp.N(self.eq1(float(sol))).is_real and sp.N(self.eq2(float(sol))).is_real)])
                 
                 self.y_intersect = [float(self.eq1(sol)) for sol in self.x_intersect]
 
@@ -473,6 +512,5 @@ class Solve:
                 y1_coords.append(y1_coords_i)
                 plottable_x2_coords.append(plottable_x2_coords_i)
                 y2_coords.append(y2_coords_i)
-
 
         return list(plottable_x1_coords), list(y1_coords), list(plottable_x2_coords), list(y2_coords)
