@@ -344,7 +344,7 @@ class Solve:
             
             else:
                 self.output.append((f"De oplossingen zijn:", {"latex":False, "new_line":2}))
-                self.output.append(f"{sp.latex(self.symbol)} = {sp.latex(self.solutions)}")
+                self.output.append(f"{sp.latex(self.symbol)} = {sp.latex(self.solutions).replace('log', 'ln')}")
 
                 if isinstance(self.solutions, sp.ConditionSet):
                     self.solutions = self.solutions.base_set                
@@ -378,7 +378,7 @@ class Solve:
 
                 for solution in self.interval_solutions:
                     counter += 1
-                    self.output.append(f"{counter}) \quad {sp.latex(self.symbol)} = {sp.latex(solution)}")        
+                    self.output.append(f"{counter}) \quad {sp.latex(self.symbol)} = {sp.latex(solution).replace('log', 'ln')}")        
 
         except Exception as e:
             self.output.append((f"Error: {str(e)}", {"latex":False}))
