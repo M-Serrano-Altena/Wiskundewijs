@@ -77,9 +77,7 @@ def solve_equation_view(request):
         if form.is_valid():
             equation_text = form.cleaned_data['equation_text']
             solver = Solve(input_string=equation_text)
-            print("Solving")
             equation_interpret, outputs, plot = solver.solve_equation()
-            print("Solving done")
             plot_data = []
             
             solution_text = ""
@@ -97,9 +95,7 @@ def solve_equation_view(request):
                     solution_text = add_solution_text(solution_text=solution_text, new_text=output)
 
             if plot:
-                print("Plotting")
                 plot_data, view_x_range, view_y_range = generate_plot_data(solver)
-                print("Plotting done")
 
                 if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                     html = render_to_string('oplosser/equation_result.html', {

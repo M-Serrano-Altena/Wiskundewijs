@@ -119,18 +119,8 @@ def numerical_roots(eq, a=-10000, b=10000):
     return roots
 
 
-eq = lambda x: 2*sp.cos(x) - x + 5
-
-x = sp.symbols('x')
-# eq = sp.Eq(sp.sin(x), 0)
-# eq = sp.lambdify(x, eq, "sympy")
-# print(eq(x))
-# print(numerical_roots(eq, -10000, 10000))
-f = lambda x: np.exp(x) - x - 2
-eq_lambda = lambda x: - x**x + np.exp(x)
-
-print(scipy.optimize.fsolve(eq_lambda, 0.001))
-
+union = sp.Union(sp.Interval(-sp.oo, 0), sp.Interval(0, sp.oo))
+print(union.is_iterable)
 exit()
 
 if __name__ == "__main__":

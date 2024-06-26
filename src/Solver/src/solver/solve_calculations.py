@@ -273,9 +273,9 @@ class Solve:
                         self.output.append((f"Versimpelingen:", {"latex": False}))
 
                         if eq1 != lhs:
-                            self.output.append(f"\\bullet \quad {sp.latex(eq1)} = {sp.latex(lhs)}")
+                            self.output.append(f"\\bullet \\quad {sp.latex(eq1)} = {sp.latex(lhs)}")
                         if eq2 != rhs:
-                            self.output.append(f"\\bullet \quad {sp.latex(eq2)} = {sp.latex(rhs)}")
+                            self.output.append(f"\\bullet \\quad {sp.latex(eq2)} = {sp.latex(rhs)}")
                     
                     if lhs == rhs:
                         self.output.append((f"{sp.latex(lhs)} = {sp.latex(rhs)}", {"new_line":2}))
@@ -336,7 +336,7 @@ class Solve:
                         if counter > 5:
                             break
 
-                        self.output.append(f"{counter}) \quad {sp.latex(self.symbol)} = {sp.latex(solution).replace('log', 'ln')}")
+                        self.output.append(f"{counter}) \\quad {sp.latex(self.symbol)} = {sp.latex(solution).replace('log', 'ln')}")
 
                 if domain_string != "Reals":
                     self.output.append((f"Het domein van ${self.symbol}$ is:", {"latex":False, "new_line":2}))
@@ -354,14 +354,14 @@ class Solve:
                     self.output.append(sp.latex(domain))
 
 
-                self.output.append(("Oplossingen in het domein $[0, 2\pi]$: ", {"latex":False, "new_line":2}))
+                self.output.append(("Oplossingen in het domein $[0, 2\\pi]$: ", {"latex":False, "new_line":2}))
                 self.interval_solutions = sp.solveset(self.eq, domain=sp.Interval(0, 2*sp.pi))
                 counter = 0
 
                 if isinstance(self.interval_solutions, sp.Union) or isinstance(self.interval_solutions, sp.ImageSet):
                     self.interval_solutions_intersect = sp.Intersection(self.interval_solutions, sp.Interval(0, 2*sp.pi))
 
-                    if isinstance(self.interval_solutions_intersect, sp.Intersection):
+                    if isinstance(self.interval_solutions_intersect, sp.Intersection) or isinstance(self.interval_solutions_intersect, sp.Union):
                         counter = 0
                         self.interval_solutions_intersect = []
                         for solution in self.interval_solutions:
@@ -373,12 +373,12 @@ class Solve:
                             if counter > 10:
                                 counter = 0
                                 break
-
+                    
                     self.interval_solutions = sp.FiniteSet(*self.interval_solutions_intersect)
 
                 for solution in self.interval_solutions:
                     counter += 1
-                    self.output.append(f"{counter}) \quad {sp.latex(self.symbol)} = {sp.latex(solution).replace('log', 'ln')}")        
+                    self.output.append(f"{counter}) \\quad {sp.latex(self.symbol)} = {sp.latex(solution).replace('log', 'ln')}")        
 
         except Exception as e:
             self.output.append((f"Error: {str(e)}", {"latex":False}))
@@ -465,7 +465,7 @@ class Solve:
                     if isinstance(self.new_interval_solutions, sp.Union) or isinstance(self.new_interval_solutions, sp.ImageSet):
                         self.new_interval_solutions_intersect = sp.Intersection(self.new_interval_solutions, sp.Interval(*x_range))
 
-                        if isinstance(self.new_interval_solutions_intersect, sp.Intersection):
+                        if isinstance(self.new_interval_solutions_intersect, sp.Intersection)  or isinstance(self.new_interval_solutions_intersect, sp.Union):
                             counter = 0
                             self.new_interval_solutions_intersect = []
                             for solution in self.new_interval_solutions:
