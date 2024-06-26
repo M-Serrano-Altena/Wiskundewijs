@@ -126,6 +126,32 @@ class Solve:
         self.intersect = False
         self.numerical = False
 
+    def solve_numerically(self):
+        self.numerical = True
+
+        self.roots = numerical_roots(self.eq12, -10000, 10000)
+
+        if self.roots.size == 0:
+            self.roots = numerical_roots(self.eq12, -10000, 10000, solve_method="fsolve")
+
+        if self.roots.size == 0:
+            self.roots = numerical_roots(self.eq12, -10000, 10000, solve_method="bisect")
+        
+        self.solutions = sp.FiniteSet(*self.roots)
+        return self.solutions
+
+
+    def check_solve_numerically(self):
+        if isinstance(self.solutions, sp.ConditionSet):
+            self.eq = self.solutions.condition
+            self.solutions = sp.solveset(self.eq, domain=sp.S.Reals)
+
+            if isinstance(self.solutions, sp.ConditionSet):
+                if self.eq == self.solutions.condition:
+                    return self.solve_numerically()
+                    
+
+
     def solve_equation(self):
         """Solve the equation and display the results
         """
@@ -186,7 +212,7 @@ class Solve:
                 
 
             else:
-                self.output.append("Ongeldige Vergelijking")
+                self.output.append(("Ongeldige Vergelijking", {"latex": False}))
                 return self.equation_interpret, self.output, self.plot
             
             self.eq = sp.simplify(self.eq)
@@ -219,26 +245,9 @@ class Solve:
                             self.vert_asympt_eq = None
                             
 
-            if isinstance(self.solutions, sp.ConditionSet):
-                self.eq = self.solutions.condition
-                self.solutions = sp.solveset(self.eq, domain=sp.S.Reals)
+            self.check_solve_numerically()
 
-                if isinstance(self.solutions, sp.ConditionSet) and sp.solve(self.eq):
-                    if self.eq == self.solutions.condition:
-                        self.numerical = True
-
-                        roots = numerical_roots(self.eq12, -10000, 10000)
-
-                        if roots.size != 0:
-                            roots = numerical_roots(self.eq12, -10000, 10000, solve_method="fsolve")
-
-                        if roots.size != 0:    
-                            roots = numerical_roots(self.eq12, -10000, 10000, solve_method="bisect")
-                        
-                        
-                        self.solutions = sp.FiniteSet(*roots)
-
-            if not sp.solve(self.eq):
+            if not sp.solve(self.eq) and not self.numerical:
                 
                 if sp.sympify(self.eq_string) == sp.nsimplify(sp.simplify(eq1), [sp.pi]):
                     self.eq_string = sp.sympify(self.eq_string, evaluate=False)
@@ -260,10 +269,11 @@ class Solve:
                     elif sp.nsimplify(sp.simplify(eq1), [sp.pi]).is_number:
                         solution = sp.simplify(eq1)
                         self.output.append(f"{sp.latex(self.eq_string)} = {sp.latex(solution)}")
-                    
+
                     else:
                         self.output.append(("Geen oplossing gevonden", {"latex": False}))
                         self.plot = True
+
 
                 elif len(eq_split) == 2:
                     lhs = sp.nsimplify(sp.simplify(eq1), [sp.pi])
@@ -292,15 +302,16 @@ class Solve:
                 return self.equation_interpret, self.output, self.plot
             
         except NotImplementedError:
-            if isinstance(self.solutions, sp.ConditionSet):
-                self.eq = self.solutions.condition
-                self.solutions = sp.solveset(self.eq, domain=sp.S.Reals)
+            self.check_solve_numerically()
 
-                if isinstance(self.solutions, sp.ConditionSet):
-                    if self.eq == self.solutions.condition:
-                        self.numerical = True
-                        roots = numerical_roots(self.eq12, -10000, 10000)
-                        self.solutions = sp.FiniteSet(*roots)
+        except sp.SympifyError:
+            self.output.append((f"Error: De ingevoerde functie klopt niet", {"latex":False}))
+            return self.equation_interpret, self.output, self.plot
+
+        except Exception as e:
+            self.output.append((f"ERROR", {"latex":False}))
+            print(e)
+            return self.equation_interpret, self.output, self.plot
 
         try:
             self.plot = True
@@ -317,7 +328,7 @@ class Solve:
 
             if self.solutions.is_FiniteSet:
                 if self.numerical:
-                    if len(roots) == 1:
+                    if len(self.roots) == 1:
                         self.output.append(("(Oplossing is numeriek bepaald)", {"latex":False, "new_line":2}))
                     else:
                         self.output.append(("(Oplossingen zijn numeriek bepaald)", {"latex":False, "new_line":2}))
@@ -334,6 +345,12 @@ class Solve:
                         counter += 1
 
                         if counter > 5:
+                            self.interval_solutions = list(self.solutions)[:5]
+                            print(self.interval_solutions, self.numerical)
+
+                            self.output.remove((f"De oplossingen zijn:", {"latex":False}))
+                            self.output.insert(3, (f"De eerste 5 oplossingen zijn:", {"latex":False}))
+                            
                             break
 
                         self.output.append(f"{counter}) \\quad {sp.latex(self.symbol)} = {sp.latex(solution).replace('log', 'ln')}")
@@ -364,24 +381,45 @@ class Solve:
                     if isinstance(self.interval_solutions_intersect, sp.Intersection) or isinstance(self.interval_solutions_intersect, sp.Union):
                         counter = 0
                         self.interval_solutions_intersect = []
-                        for solution in self.interval_solutions:
-                            if 0 <= float(solution) <= 2 * np.pi:
-                                self.interval_solutions_intersect.append(solution)
-                            else:
-                                counter += 1
 
-                            if counter > 10:
-                                counter = 0
-                                break
+                        if self.interval_solutions.is_iterable:
+                            for solution in self.interval_solutions:
+                                if 0 <= float(solution) <= 2 * np.pi:
+                                    self.interval_solutions_intersect.append(solution)
+                                else:
+                                    counter += 1
+
+                                if counter > 10:
+                                    counter = 0
+                                    break
+                        else:
+                            self.solutions = self.solve_numerically()
+                            self.interval_solutions_intersect = list(self.solutions)
+
+                            if len(self.roots) > 5:
+                                self.interval_solutions_intersect = self.interval_solutions_intersect[:4]
+
+                            if len(self.roots) == 1:
+                                self.output.append(("(Oplossing is numeriek bepaald)", {"latex":False, "new_line":2}))
+                            else:
+                                self.output.append(("(Oplossingen zijn numeriek bepaald)", {"latex":False, "new_line":2}))
+
                     
                     self.interval_solutions = sp.FiniteSet(*self.interval_solutions_intersect)
+
+                    if self.interval_solutions.is_empty:
+                        self.intersect = False
+                        self.output = []
+                        self.output.append(("Geen oplossing gevonden", {"latex": False}))
+                        
+                        return self.equation_interpret, self.output, self.plot
 
                 for solution in self.interval_solutions:
                     counter += 1
                     self.output.append(f"{counter}) \\quad {sp.latex(self.symbol)} = {sp.latex(solution).replace('log', 'ln')}")        
 
         except Exception as e:
-            self.output.append((f"Error: {str(e)}", {"latex":False}))
+            self.output.append((f"ERROR", {"latex":False}))
             print(e)
 
         return self.equation_interpret, self.output, self.plot
@@ -395,12 +433,15 @@ class Solve:
 
         if not self.solutions.is_FiniteSet:
             self.x_intersect = [sol for sol in self.interval_solutions]
-            self.y_intersect = [self.eq1(sol) for sol in self.x_intersect]
         
         else:
-            self.x_intersect = [float(sol) for sol in self.solutions]
-            self.y_intersect = [float(self.eq1(sol)) for sol in self.solutions]
+            if self.numerical and len(self.roots) > 5:
+                self.x_intersect = [float(sol) for sol in self.interval_solutions]
+            else: 
+                self.x_intersect = [float(sol) for sol in self.solutions]
 
+
+        self.y_intersect = [float(self.eq1(sol)) for sol in self.x_intersect]
 
         intersect_xrange = float(max(self.x_intersect)) - float(min(self.x_intersect))
         intersect_yrange = float(max(self.y_intersect)) - float(min(self.y_intersect))
@@ -437,7 +478,6 @@ class Solve:
                 input_eq = sp.lambdify(self.symbol, eq, "sympy")
                 amt_intervals = len(domain.args) if domain.is_Union else 1
                 for i in range(amt_intervals):
-                    sub_domain = domain.args[i] if domain.is_Union else domain
                     for j in range(2):
                         if domain.args[j].is_finite and input_eq(float(domain.args[j])).is_finite and not (min(plottable_x_coords) <= domain.args[j] <= max(plottable_x_coords)):
                                 plottable_x_coords.append(float(domain.args[j]))
@@ -454,35 +494,39 @@ class Solve:
 
             return list(plottable_x1_coords), list(y1_coords), list(plottable_x2_coords), list(y2_coords)
 
-        if self.intersect:
-            if self.solutions.is_iterable:
-                if self.numerical:
-                    self.x_intersect = sorted([float(sol) for sol in self.solutions])
+        if self.intersect and self.solutions.is_iterable:
+            if self.numerical:
+                self.x_intersect = sorted([float(sol) for sol in self.solutions  if x_range[0] <= sol <= x_range[1]])
+                print(self.x_intersect)
 
-                else:
+            else:
+                if not self.solutions.is_FiniteSet:
                     self.new_interval_solutions = sp.solveset(self.eq, domain=sp.Interval(*x_range))
 
-                    if isinstance(self.new_interval_solutions, sp.Union) or isinstance(self.new_interval_solutions, sp.ImageSet):
-                        self.new_interval_solutions_intersect = sp.Intersection(self.new_interval_solutions, sp.Interval(*x_range))
+                else:
+                    self.new_interval_solutions = [sol for sol in self.solutions if x_range[0] <= sol <= x_range[1]]
 
-                        if isinstance(self.new_interval_solutions_intersect, sp.Intersection)  or isinstance(self.new_interval_solutions_intersect, sp.Union):
-                            counter = 0
-                            self.new_interval_solutions_intersect = []
-                            for solution in self.new_interval_solutions:
-                                if x_range[0] <= float(solution) <= x_range[1]:
-                                    self.new_interval_solutions_intersect.append(solution)
-                                else:
-                                    counter += 1
+                if isinstance(self.new_interval_solutions, sp.Union) or isinstance(self.new_interval_solutions, sp.ImageSet):
+                    self.new_interval_solutions_intersect = sp.Intersection(self.new_interval_solutions, sp.Interval(*x_range))
 
-                                if counter > 10:
-                                    counter = 0
-                                    break
+                    if isinstance(self.new_interval_solutions_intersect, sp.Intersection)  or isinstance(self.new_interval_solutions_intersect, sp.Union):
+                        counter = 0
+                        self.new_interval_solutions_intersect = []
+                        for solution in self.new_interval_solutions:
+                            if x_range[0] <= float(solution) <= x_range[1]:
+                                self.new_interval_solutions_intersect.append(solution)
+                            else:
+                                counter += 1
 
-                        self.new_interval_solutions = sp.FiniteSet(*self.new_interval_solutions_intersect)   
+                            if counter > 10:
+                                counter = 0
+                                break
 
-                    self.x_intersect = sorted([float(sol) for sol in self.new_interval_solutions if (sp.N(self.eq1(float(sol))).is_real and sp.N(self.eq2(float(sol))).is_real)])
-                
-                self.y_intersect = [float(self.eq1(sol)) for sol in self.x_intersect]
+                    self.new_interval_solutions = sp.FiniteSet(*self.new_interval_solutions_intersect)   
+
+                self.x_intersect = sorted([float(sol) for sol in self.new_interval_solutions if (sp.N(self.eq1(float(sol))).is_real and sp.N(self.eq2(float(sol))).is_real)])
+            
+            self.y_intersect = [float(self.eq1(sol)) for sol in self.x_intersect]
 
         if self.vert_asympt_eq is None:
             self.x_coords = np.linspace(x_range[0] - 1, x_range[1] + 1, int(1/dx))
