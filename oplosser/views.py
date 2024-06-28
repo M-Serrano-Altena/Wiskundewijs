@@ -164,8 +164,8 @@ def generate_plot_data(solver):
     plot_data = []
     
     if solver.vert_asympt is None:
-        plot_data.append({'x': list(plottable_x1_coords), 'y': list(y1_coords), 'type': 'scatter', 'mode': 'lines', 'name': f'f(x) = {solver.eq1(solver.symbol)}', 'line': {'color': 'darkturquoise'}})
-        plot_data.append({'x': list(plottable_x2_coords), 'y': list(y2_coords), 'type': 'scatter', 'mode': 'lines', 'name': f'g(x) = {solver.eq2(solver.symbol)}', 'line': {'color': 'springgreen'}})
+        plot_data.append({'x': list(plottable_x1_coords), 'y': list(y1_coords), 'type': 'scatter', 'mode': 'lines', 'name': f'f({solver.symbol}) = {solver.eq1(solver.symbol)}', 'line': {'color': 'darkturquoise'}})
+        plot_data.append({'x': list(plottable_x2_coords), 'y': list(y2_coords), 'type': 'scatter', 'mode': 'lines', 'name': f'g({solver.symbol}) = {solver.eq2(solver.symbol)}', 'line': {'color': 'springgreen'}})
     
     else:
         skip1 = 0
@@ -176,20 +176,20 @@ def generate_plot_data(solver):
         for i in range(len(plottable_x1_coords)):
 
             if list(plottable_x1_coords[i]) and list(y1_coords[i]):
-                plot_data_f.append({'x': list(plottable_x1_coords[i]), 'y': list(y1_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'f(x) = {str(solver.eq1(solver.symbol)).replace('log', 'ln')}', 'showlegend': i == skip1, 'line': {'color': 'darkturquoise'}})
+                plot_data_f.append({'x': list(plottable_x1_coords[i]), 'y': list(y1_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'f({solver.symbol}) = {str(solver.eq1(solver.symbol)).replace('log', 'ln')}', 'showlegend': i == skip1, 'line': {'color': 'darkturquoise'}})
             
             else:
                 skip1 +=1
 
             if list(plottable_x2_coords[i]) and list(y2_coords[i]):
-                plot_data_g.append({'x': list(plottable_x2_coords[i]), 'y': list(y2_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'g(x) = {str(solver.eq2(solver.symbol)).replace('log', 'ln')}', 'showlegend': i == skip2, 'line': {'color': 'springgreen'}})
+                plot_data_g.append({'x': list(plottable_x2_coords[i]), 'y': list(y2_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'g({solver.symbol}) = {str(solver.eq2(solver.symbol)).replace('log', 'ln')}', 'showlegend': i == skip2, 'line': {'color': 'springgreen'}})
 
             else:
                 skip2 += 1
 
         plot_data = plot_data_f + plot_data_g
         plot_data_f, plot_data_g = [], []
-
+        
     if not solver.intersect:
         return plot_data, view_x_range, view_y_range
 

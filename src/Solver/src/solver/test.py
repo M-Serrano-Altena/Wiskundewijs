@@ -118,11 +118,10 @@ def numerical_roots(eq, a=-10000, b=10000):
 
     return roots
 
+complex_number = sp.sympify('3.7 + 4.2*I')
+print(sp.Integer(complex_number.as_real_imag()[0]))
 
-union = sp.Union(sp.Interval(-sp.oo, 0), sp.Interval(0, sp.oo))
-print(union.is_iterable)
 exit()
-
 if __name__ == "__main__":
     x = sp.symbols('x')
     f = (x-1)**2/(x-1)
