@@ -28,6 +28,7 @@ def math_interpreter(eq_string):
 
         eq_string = re.sub(r'\b' + r'([a-zA-Z])\1', r'\1*\1', eq_string)
         eq_string = re.sub(r'\b' + r'([e])' + r'\b', r'E', eq_string)
+        eq_string = re.sub(r'\b' + r'([i])' + r'\b', r'I', eq_string)
         
 
         for function_name1 in relevant_functions:
