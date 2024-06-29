@@ -1,6 +1,7 @@
 import numpy as np
 import sympy as sp
 from sympy.simplify.fu import TR2, TR1
+from sympy.printing.latex import LatexPrinter
 import re
 import scipy.optimize
 import warnings
@@ -10,10 +11,12 @@ warnings.filterwarnings("ignore", category=RuntimeWarning)
 def math_interpreter(eq_string):
     eq_string = eq_string.casefold()
     function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
+    function_names.extend(("diff", "integrate"))
     abs_pattern = re.compile(r"\|([^|]+)\|")
     eq_string = re.sub(abs_pattern, r"Abs(\1)", eq_string)
     eq_string = re.sub(r'\b' + r'abs', r'Abs', eq_string)
-    eq_string = re.sub(r'\b' + r'i', r'I', eq_string)
+    eq_string = re.sub(r'\b' + r'i'  + r'\b', r'I', eq_string)
+    eq_string = re.sub(r'\b' + r'e'  + r'\b', r'E', eq_string)
     relevant_functions = [func for func in function_names if func in eq_string]
 
     for _ in range(10):
@@ -27,7 +30,7 @@ def math_interpreter(eq_string):
         eq_string = re.sub(r'\)\(', r')*(', eq_string)
 
         eq_string = re.sub(r'\b' + r'([a-zA-Z])\1', r'\1*\1', eq_string)
-        eq_string = re.sub(r'\b' + r'([e])' + r'\b', r'E', eq_string)
+        # eq_string = re.sub(r'\b' + r'([e])' + r'\b', r'E', eq_string)
         eq_string = re.sub(r'\b' + r'([i])' + r'\b', r'I', eq_string)
         
 
@@ -45,6 +48,39 @@ def math_interpreter(eq_string):
                 eq_string = re.sub(function_name1 + function_name2 + r'\((.*?)\)', rf"{function_name1}({function_name2}(\1))", eq_string)
                 eq_string = re.sub(function_name2 + function_name1 + r'\((.*?)\)', rf"{function_name2}({function_name1}(\1))", eq_string)
 
+
+    def replace_log(eq_string):
+        index_log = [m.start() for m in re.finditer('log', eq_string)]
+        string_split = [list(eq_string)[index_log[i-1]:index_log[i]] if i != len(index_log) else list(eq_string)[index_log[i - 1]:] for i in range(1, len(index_log) + 1) ]
+        index_list = []
+        nested = 0
+        index = -1
+        for string in string_split:
+            nested = 0
+            
+            for char in string:
+                
+                index += 1
+                if char == '(':
+                    nested += 1
+                elif char == ')':
+                    nested -= 1
+
+                elif char == ',' and nested == 1:
+                    break
+
+                if char == ')' and nested <= 0:
+                    index_list.append(index)
+
+        additional_index = 0
+        for index in index_list:
+            eq_string = eq_string[:index + additional_index] + ', 10' + eq_string[index + additional_index:]
+            additional_index += 4
+        
+        return eq_string
+
+    eq_string = replace_log(eq_string)
+    
     return eq_string
 
 def segmented_linspace(start, end, breakpoints, num=10, dx=0.01):
@@ -55,6 +91,30 @@ def segmented_linspace(start, end, breakpoints, num=10, dx=0.01):
 
 def trig_simp(x):
     return TR1(TR2(x))
+
+class CustomLatexPrinter(LatexPrinter):
+    def _print_Mul(self, expr):
+        numer, denom = expr.as_numer_denom()
+        if isinstance(numer, sp.log) and isinstance(denom, sp.log):
+            base = denom.args[0]
+            if isinstance(base, (sp.Symbol, sp.Number)):
+                arg = self._print(numer.args[0])
+                base = self._print(base)
+                return f' \\ ^{{{base}}} \\! \\log\\left({arg} \\right)'
+        return super()._print_Mul(expr)
+
+    def _print_log(self, expr):
+        if len(expr.args) == 1:
+            # Natural logarithm
+            arg = self._print(expr.args[0])
+            return f'\\ln \\left({arg} \\right)'
+        else:
+            # Specific base, but will be handled in _print_Mul
+            return super()._print_log(expr)
+
+def custom_latex(expr, **kwargs):
+    return CustomLatexPrinter(**kwargs).doprint(expr)
+
 
 class Solve:
     def __init__(self, input_string):
@@ -277,7 +337,58 @@ class Solve:
                         self.vert_asympt_eq = [asympt_values[i] for i in range(len(asympt_values)) if not asympt_check[i]]
                         if not self.vert_asympt_eq:
                             self.vert_asympt_eq = None
-                            
+            
+            take_diff = ["diff" in string for string in eq_split]
+            if True in take_diff:
+                if self.symbol is None:
+                    symbol = "x"
+                else:
+                    symbol = self.symbol
+
+                if len(eq_split) == 2 and take_diff[0] and take_diff[1]:
+                    self.output.append(("De afgeleide van de functies zijn:", {"latex": False}))
+
+                else:
+                    self.output.append(("De afgeleide van de functie is:", {"latex": False}))
+
+                if take_diff[0]:
+                    self.output.append(f"f'({symbol}) = {custom_latex(sp.simplify(eq1))}")
+
+                if len(eq_split) == 2 and take_diff[1]:
+                    self.output.append(f"g'({symbol}) = {custom_latex(sp.simplify(eq2))}")
+
+
+            take_integral = ["integrate" in string for string in eq_split]
+            if True in take_integral:
+                if self.symbol is None:
+                    symbol = "x"
+                else:
+                    symbol = self.symbol
+
+                if len(eq_split) == 2 and take_integral[0] and take_integral[1]:
+                    self.output.append(("De primitieve van de functies zijn:", {"latex": False}))
+
+                else:
+                    self.output.append(("De primitieve van de functie is:", {"latex": False}))
+
+                if take_integral[0]:
+                    if eq1.is_number:
+                        integral = sp.sympify(eq_split[0].replace("integrate", "Integral"))
+                        self.output.append(f"I = {custom_latex(sp.simplify(integral))} = {custom_latex(sp.simplify(eq1))}")
+                    
+                    else:
+                        self.output.append(f"F({symbol}) = {custom_latex(sp.simplify(eq1))} + C")
+
+                if len(eq_split) == 2 and take_integral[1]:
+                    if eq2.is_number:
+                        integral = sp.sympify(eq_split[1].replace("integrate", "Integral"))
+                        self.output.append(f"I = {custom_latex(sp.simplify(integral))} = {custom_latex(sp.simplify(eq2))}")
+                    
+                    else:
+                        self.output.append(f"G({symbol}) = {custom_latex(sp.simplify(eq2))} + C")
+
+            if True in take_diff or True in take_integral:
+                self.output.append(("", {"latex": False}))
 
             check_numerical = self.check_solve_numerically()
 
@@ -289,16 +400,17 @@ class Solve:
             elif check_numerical is not None:
                 self.solutions = check_numerical
 
-            if not sp.solve(self.eq) and not self.numerical:
+
+            if len(sp.solve(self.eq)) == 0 and not self.numerical:
                 
                 if sp.sympify(self.eq_string) == sp.nsimplify(sp.simplify(eq1), [sp.pi]):
                     self.eq_string = sp.sympify(self.eq_string, evaluate=False)
                 else:
                     self.eq_string = sp.sympify(self.eq_string)
 
-                
-                if len(eq_split) == 1:
+                print(custom_latex(self.eq_string))
 
+                if len(eq_split) == 1:
                     if not self.symbol:
                         solution = sp.nsimplify(eq1, [sp.pi])
                         if solution.is_number:
@@ -323,27 +435,31 @@ class Solve:
                                 if real_part == sp.nsimplify(eq1, [sp.pi]).as_real_imag()[0] and imag_part == sp.nsimplify(eq1, [sp.pi]).as_real_imag()[1]:
                                     equals_sign = '='
 
-                                    
-
-
-                        
                         if eq1 != self.eq_string and equals_sign != "=":
-                            self.output.append(f"{sp.latex(self.eq_string)} = {sp.latex(eq1)} {equals_sign} {sp.latex(solution)}")
+                            self.output.append(f"{custom_latex(self.eq_string)} = {custom_latex(eq1)} {equals_sign} {custom_latex(solution)}")
 
                         else:
-                            self.output.append(f"{sp.latex(self.eq_string)} {equals_sign} {sp.latex(solution)}")
+                            self.output.append(f"{custom_latex(self.eq_string)} {equals_sign} {custom_latex(solution)}")
+
 
                     elif sp.nsimplify(sp.simplify(eq1), [sp.pi]).is_number:
                         solution = sp.simplify(eq1)
                         if solution != sp.N(solution):
-                            self.output.append(f"{sp.latex(self.eq_string)} = {sp.latex(solution)} \\approx {round(sp.N(solution), 5)}")
+                            self.output.append(f"{custom_latex(self.eq_string)} = {custom_latex(solution)} \\approx {round(sp.N(solution), 5)}")
                         
                         else:
-                            self.output.append(f"{sp.latex(self.eq_string)} = {sp.latex(solution)}")
+                            self.output.append(f"{custom_latex(self.eq_string)} = {custom_latex(solution)}")
                         
 
                     else:
-                        self.output.append(("Geen oplossing gevonden", {"latex": False}))
+                        complex_symbol = sp.symbols("x")
+
+                        if sp.solve(sp.Eq(self.eq1(complex_symbol), self.eq2(complex_symbol))):
+                            self.output.append(("Geen reële oplossing gevonden", {"latex": False}))
+
+                        else:
+                            self.output.append(("Geen oplossing gevonden", {"latex": False}))
+
                         self.plot = True
 
 
@@ -355,22 +471,33 @@ class Solve:
                         self.output.append((f"Versimpelingen:", {"latex": False}))
 
                         if eq1 != lhs:
-                            self.output.append(f"\\bullet \\quad {sp.latex(eq1)} = {sp.latex(lhs)}")
+                            self.output.append(f"\\bullet \\quad {custom_latex(eq1)} = {custom_latex(lhs)}")
                         if eq2 != rhs:
-                            self.output.append(f"\\bullet \\quad {sp.latex(eq2)} = {sp.latex(rhs)}")
+                            self.output.append(f"\\bullet \\quad {custom_latex(eq2)} = {custom_latex(rhs)}")
                     
                     if lhs == rhs:
-                        self.output.append((f"{sp.latex(lhs)} = {sp.latex(rhs)}", {"new_line":2}))
+                        self.output.append((f"{custom_latex(lhs)} = {custom_latex(rhs)}", {"new_line":2}))
                         self.output.append(("Deze vergelijking klopt", {"latex": False}))
 
                     elif lhs.is_number and rhs.is_number:
-                        self.output.append((f"{sp.latex(lhs)} \\neq {sp.latex(rhs)}", {"new_line":2}))
+                        self.output.append((f"{custom_latex(lhs)} \\neq {custom_latex(rhs)}", {"new_line":2}))
                         self.output.append(("Deze vergelijking klopt niet", {"latex": False}))
 
                     else:
-                        self.output.append(("Geen oplossing gevonden", {"latex": False}))
+                        complex_symbol = sp.symbols("x")
+
+                        if sp.solve(sp.Eq(self.eq1(complex_symbol), self.eq2(complex_symbol))):
+                            self.output.append(("Geen reële oplossing gevonden", {"latex": False}))
+
+                        else:
+                            self.output.append(("Geen oplossing gevonden", {"latex": False}))
+
                         self.plot = True
 
+                return self.equation_interpret, self.output, self.plot
+            
+            if self.solutions.is_empty:
+                self.output.append(("Geen oplossing gevonden", {"latex": False}))
                 return self.equation_interpret, self.output, self.plot
             
         except NotImplementedError:
@@ -399,11 +526,11 @@ class Solve:
 
             if len(eq_split) == 1:
                 self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
-                self.output.append(f"{sp.latex(sp.simplify(eq1)).replace('log', 'ln')} = 0")
+                self.output.append(f"{custom_latex(sp.simplify(eq1))} = 0")
 
             elif len(eq_split) == 2:
                 self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
-                self.output.append(f"{sp.latex(sp.simplify(eq1)).replace('log', 'ln')} = {sp.latex(sp.simplify(eq2)).replace('log', 'ln')}")
+                self.output.append(f"{custom_latex(sp.simplify(eq1))} = {custom_latex(sp.simplify(eq2))}")
 
 
             if self.solutions.is_FiniteSet:
@@ -418,10 +545,10 @@ class Solve:
                     self.output.append((f"De oplossing is:", {"latex":False}))
 
                     if self.solutions.args[0] != sp.N(self.solutions.args[0]):
-                        self.output.append(f"{sp.latex(self.symbol)} = {sp.latex(self.solutions.args[0]).replace('log', 'ln')} \\approx {round(sp.N(self.solutions.args[0]), 5)}")
+                        self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solutions.args[0])} \\approx {round(sp.N(self.solutions.args[0]), 5)}")
 
                     else:
-                        self.output.append(f"{sp.latex(self.symbol)} = {sp.latex(self.solutions.args[0]).replace('log', 'ln')}")
+                        self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solutions.args[0])}")
                     
 
                 else:
@@ -442,25 +569,25 @@ class Solve:
                         counter += 1
                         
                         if solution != sp.N(solution):
-                            self.output.append(f"{counter}) \\quad {sp.latex(self.symbol)} = {sp.latex(solution).replace('log', 'ln')} \\approx {round(sp.N(solution), 5)}")
+                            self.output.append(f"{counter}) \\quad {custom_latex(self.symbol)} = {custom_latex(solution)} \\approx {round(sp.N(solution), 5)}")
 
                         else:
-                            self.output.append(f"{counter}) \\quad {sp.latex(self.symbol)} = {sp.latex(solution).replace('log', 'ln')}")
+                            self.output.append(f"{counter}) \\quad {custom_latex(self.symbol)} = {custom_latex(solution)}")
 
                 if domain_string != "Reals":
                     self.output.append((f"Het domein van ${self.symbol}$ is:", {"latex":False, "new_line":2}))
-                    self.output.append(sp.latex(domain))
+                    self.output.append(custom_latex(domain))
             
             else:
                 self.output.append((f"De oplossingen zijn:", {"latex":False, "new_line":2}))
-                self.output.append(f"{sp.latex(self.symbol)} = {sp.latex(self.solutions).replace('log', 'ln')}")
+                self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solutions)}")
 
                 if isinstance(self.solutions, sp.ConditionSet):
                     self.solutions = self.solutions.base_set                
 
                 if domain_string != "Reals":
                     self.output.append((f"Met de voorwaarde dat het domein van ${self.symbol}$ is:", {"latex":False, "new_line":2}))
-                    self.output.append(sp.latex(domain))
+                    self.output.append(custom_latex(domain))
 
 
                 self.output.append(("Oplossingen in het domein $[0, 2\\pi]$: ", {"latex":False, "new_line":2}))
@@ -510,10 +637,10 @@ class Solve:
                 for solution in self.interval_solutions:
                     counter += 1
                     if solution != sp.N(solution):
-                        self.output.append(f"{counter}) \\quad {sp.latex(self.symbol)} = {sp.latex(solution).replace('log', 'ln')} \\approx {round(sp.N(solution), 5)}")
+                        self.output.append(f"{counter}) \\quad {custom_latex(self.symbol)} = {custom_latex(solution)} \\approx {round(sp.N(solution), 5)}")
 
                     else:
-                        self.output.append(f"{counter}) \\quad {sp.latex(self.symbol)} = {sp.latex(solution).replace('log', 'ln')}")
+                        self.output.append(f"{counter}) \\quad {custom_latex(self.symbol)} = {custom_latex(solution)}")
 
         except Exception as e:
             self.output.append((f"ERROR", {"latex":False}))
@@ -529,16 +656,21 @@ class Solve:
             return self.x_range, self.y_range
 
         if not self.solutions.is_FiniteSet:
-            self.x_intersect = [sol for sol in self.interval_solutions]
+            self.x_intersect = [float(sp.N(sol)) for sol in self.interval_solutions if sp.N(self.eq1(sol)).is_real]
         
         else:
             if self.numerical and len(self.roots) > 5:
-                self.x_intersect = [float(sol) for sol in self.interval_solutions]
+                self.x_intersect = [float(sp.N(sol)) for sol in self.interval_solutions if sp.N(self.eq1(sol)).is_real]
             else: 
-                self.x_intersect = [float(sol) for sol in self.solutions]
+                self.x_intersect = [float(sp.N(sol)) for sol in self.solutions if sp.N(self.eq1(sol)).is_real]
 
+        self.y_intersect = [float(sp.N(self.eq1(sol))) for sol in self.x_intersect]
 
-        self.y_intersect = [float(self.eq1(sol)) for sol in self.x_intersect]
+        if len(self.x_intersect) == 0:
+            self.intersect = False
+            self.x_range = (-10, 10)
+            self.y_range = (-10, 10)
+            return self.x_range, self.y_range
 
 
         intersect_xrange = float(max(self.x_intersect)) - float(min(self.x_intersect))
@@ -594,7 +726,7 @@ class Solve:
 
         if self.intersect and self.solutions.is_iterable:
             if self.numerical:
-                self.x_intersect = sorted([float(sol) for sol in self.solutions  if x_range[0] <= sol <= x_range[1]])
+                self.x_intersect = sorted([float(sol) for sol in self.solutions if x_range[0] <= sol <= x_range[1]])
 
             else:
                 if not self.solutions.is_FiniteSet:
@@ -621,9 +753,9 @@ class Solve:
 
                     self.new_interval_solutions = sp.FiniteSet(*self.new_interval_solutions_intersect)   
 
-                self.x_intersect = sorted([float(sol) for sol in self.new_interval_solutions if (sp.N(self.eq1(float(sol))).is_real and sp.N(self.eq2(float(sol))).is_real)])
+                self.x_intersect = sorted([float(sp.N(sol)) for sol in self.new_interval_solutions if (sp.N(self.eq1(float(sol))).is_real and sp.N(self.eq2(float(sol))).is_real)])
             
-            self.y_intersect = [float(self.eq1(sol)) for sol in self.x_intersect]
+            self.y_intersect = [float(sp.N(self.eq1(sol))) for sol in self.x_intersect]
 
         if self.vert_asympt_eq is None:
             self.x_coords = np.linspace(x_range[0] - 1, x_range[1] + 1, int(1/dx))
@@ -638,7 +770,7 @@ class Solve:
 
 
             self.vert_asympt = [float(sol) for sol in self.vert_asympt if sp.N(sol).is_real]
-            self.x_coords = segmented_linspace(x_range[0] - 1, x_range[1] + 1, self.vert_asympt, num=int(30/dx), dx=0.00001)
+            self.x_coords = segmented_linspace(x_range[0] - 1, x_range[1] + 1, self.vert_asympt, num=int(1/dx), dx=0.00001)
             
 
         plottable_x1_coords = []

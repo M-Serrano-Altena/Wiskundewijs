@@ -4,6 +4,7 @@ from sympy.simplify.fu import TR2, TR1
 import numpy as np
 import re
 import matplotlib.pyplot as plt
+from sympy.printing.latex import LatexPrinter
 
 def main():
     eq_string = "2x^2 + 1 = 9"
@@ -40,17 +41,17 @@ def segmented_linspace(start, end, breakpoints, num=10):
     return lists_with_breaks
 
 def math_interpreter(eq_string):
+    eq_string = eq_string.casefold()
     function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
+    function_names.extend(("diff", "integrate"))
     abs_pattern = re.compile(r"\|([^|]+)\|")
     eq_string = re.sub(abs_pattern, r"Abs(\1)", eq_string)
-    relevant_functions = [func for func in function_names if func in eq_string and func not in ["And", "Or", "Not", "Xor", "Implies", "Equivalent"]]
-
-    # relevant_functions = [relevant_functions[i] for i in range(len(relevant_functions)) if relevant_functions[i] not in func for func in relevant_functions[:i] + relevant_functions[i+1:]]
-
-    print(relevant_functions[1] in relevant_functions[0], relevant_functions[0] in relevant_functions[1])
+    eq_string = re.sub(r'\b' + r'abs', r'Abs', eq_string)
+    eq_string = re.sub(r'\b' + r'i'  + r'\b', r'I', eq_string)
+    eq_string = re.sub(r'\b' + r'e'  + r'\b', r'E', eq_string)
+    relevant_functions = [func for func in function_names if func in eq_string]
 
     for _ in range(10):
-        
         eq_string = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', eq_string)
         eq_string = re.sub(r'([a-zA-Z])(\d)', r'\1^\2', eq_string)
         eq_string = re.sub(r'\)(\d)', r')*\1', eq_string)
@@ -60,34 +61,62 @@ def math_interpreter(eq_string):
         eq_string = re.sub(r'([a-zA-Z])\(', r'\1*(', eq_string)
         eq_string = re.sub(r'\)\(', r')*(', eq_string)
 
-        print(relevant_functions)
+        eq_string = re.sub(r'\b' + r'([a-zA-Z])\1', r'\1*\1', eq_string)
+        # eq_string = re.sub(r'\b' + r'([e])' + r'\b', r'E', eq_string)
+        eq_string = re.sub(r'\b' + r'([i])' + r'\b', r'I', eq_string)
+        
+
         for function_name1 in relevant_functions:
-            eq_string = re.sub(r'\b' + function_name1 + r'\*(\d|[a-zA-Z])', function_name1 + r'(x)*\1', eq_string)
-            eq_string = re.sub(r'\b' + function_name1 + r'(\d|[a-zA-Z])', function_name1 + r'(\1)', eq_string)
-            eq_string = re.sub(r'\b' + r'(\d|[a-zA-Z])' + function_name1, r'\1*' + function_name1, eq_string)
-            eq_string = re.sub(r'\b' + function_name1 + r'\*\(', function_name1 + '(', eq_string)
-            eq_string = re.sub(function_name1 + r'\*\(', function_name1 + '(', eq_string)
-
             for function_name2 in relevant_functions:
-                eq_string = re.sub(function_name1 + function_name2 + r'\((\d|[a-zA-Z])\)', rf"{function_name1}({function_name2}\1)", eq_string)
-                eq_string = re.sub(function_name1 + function_name2 + r'\((\d|[a-zA-Z])\)', rf"{function_name2}({function_name1}\1)", eq_string)
+                eq_string = re.sub(function_name1 + function_name2 + r'\((.*?)\)', rf"{function_name1}({function_name2}\1)", eq_string)
+                eq_string = re.sub(function_name2 + function_name1 + r'\((.*?)\)', rf"{function_name2}({function_name1}\1)", eq_string)
 
+            eq_string = re.sub(function_name1 + r'\*' + r'(?!(?:' + '|'.join(map(re.escape, relevant_functions)) + r'))(\d|[a-zA-Z])', function_name1 + r'(x)*\1', eq_string)
+            eq_string = re.sub(function_name1 + r'(?!(?:' + '|'.join(map(re.escape, relevant_functions)) + r'))(\d|[a-zA-Z])', function_name1 + r'(\1)', eq_string)
+            eq_string = re.sub(r'\b' + r'(?!(?:' + '|'.join(map(re.escape, relevant_functions)) + r'))(\d|[a-zA-Z])' + function_name1, r'\1*' + function_name1, eq_string)
+            eq_string = re.sub(function_name1 + r'\*\(', function_name1 + '(', eq_string)
+            
+            for function_name2 in relevant_functions:
+                eq_string = re.sub(function_name1 + function_name2 + r'\((.*?)\)', rf"{function_name1}({function_name2}(\1))", eq_string)
+                eq_string = re.sub(function_name2 + function_name1 + r'\((.*?)\)', rf"{function_name2}({function_name1}(\1))", eq_string)
+
+
+    def replace_log(eq_string):
+        index_log = [m.start() for m in re.finditer('log', eq_string)]
+        string_split = [list(eq_string)[index_log[i-1]:index_log[i]] if i != len(index_log) else list(eq_string)[index_log[i - 1]:] for i in range(1, len(index_log) + 1) ]
+        index_list = []
+        nested = 0
+        index = -1
+        for string in string_split:
+            nested = 0
+            
+            for char in string:
+                
+                index += 1
+                if char == '(':
+                    nested += 1
+                elif char == ')':
+                    nested -= 1
+
+                elif char == ',' and nested == 1:
+                    break
+
+                if char == ')' and nested <= 0:
+                    index_list.append(index)
+
+                print(char, nested, index, index_list)
+
+        additional_index = 0
+        for index in index_list:
+            eq_string = eq_string[:index + additional_index] + ', 10' + eq_string[index + additional_index:]
+            additional_index += 4
+        
+        return eq_string
+
+    eq_string = replace_log(eq_string)
+    
     return eq_string
 
-
-# superscript_mapping = {'²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁺': '+', '⁻': '-', '⁼': '=', '⁽': '(', '⁾': ')', 'ⁿ': 'n', '⁰': '0'}
-
-# text = "This is a sample text with superscripted numbers like 2² and 3³, x²."
-# result = re.sub(r'(\w+)([²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿ⁰]+)', r"\1" + superscript_mapping[str(r'\2')], text)
-
-# x = sp.symbols('x')
-# eq = sp.asin(x) - sp.sin(x)
-# eq_lambda = sp.lambdify(x, eq, "numpy")
-# diff_eq = sp.diff(eq, x)
-# diff_eq_lambda = sp.lambdify(x, diff_eq, "numpy")
-# sol = sp.solveset(eq, x, domain=sp.S.Reals)
-# if sol == sp.solveset(sol.args[1], x, domain=sp.S.Reals):
-#     print(round(scipy.optimize.newton(eq_lambda, 0.5, fprime=diff_eq_lambda), 5))
 
 
 def numerical_roots(eq, a=-10000, b=10000):
@@ -118,8 +147,34 @@ def numerical_roots(eq, a=-10000, b=10000):
 
     return roots
 
-complex_number = sp.sympify('3.7 + 4.2*I')
-print(sp.Integer(complex_number.as_real_imag()[0]))
+class CustomLatexPrinter(LatexPrinter):
+    def _print_Mul(self, expr):
+        numer, denom = expr.as_numer_denom()
+        if isinstance(numer, sp.log) and isinstance(denom, sp.log):
+            base = denom.args[0]
+            if isinstance(base, (sp.Symbol, sp.Number)):
+                arg = self._print(numer.args[0])
+                base = self._print(base)
+                return f'\\log_{base}\\left({arg} \\right)'
+        return super()._print_Mul(expr)
+
+    def _print_log(self, expr):
+        if len(expr.args) == 1:
+            # Natural logarithm
+            arg = self._print(expr.args[0])
+            return f'\\ln \\left({arg} \\right)'
+        else:
+            # Specific base, but will be handled in _print_Mul
+            return super()._print_log(expr)
+
+def custom_latex(expr, **kwargs):
+    return CustomLatexPrinter(**kwargs).doprint(expr)
+
+x = sp.symbols('x')
+string = "log(log(log(sin(x)))) + log(sin(x))"
+string = math_interpreter(string)
+print(string)
+
 
 exit()
 if __name__ == "__main__":
