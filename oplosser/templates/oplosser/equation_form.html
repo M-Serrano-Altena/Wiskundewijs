@@ -132,59 +132,56 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-$(document).ready(function(){
-    $("#equation-form").submit(function(e){
-        e.preventDefault();
-
-        // Show the spinner
-        document.getElementById('loadingSpinner').style.visibility = 'visible';
-
-
-        // Google Analytics event tracking
-        dataLayer.push({
-            'event': 'submit',
-            'event_category': 'Equation',
-            'event_label': 'Equation Submitted',
-            'value': 1
+    $(document).ready(function(){
+        $("#equation-form").submit(function(e){
+            e.preventDefault();
+    
+            // Show the spinner
+            document.getElementById('loadingSpinner').style.visibility = 'visible';
+    
+            // Google Analytics event tracking
+            dataLayer.push({
+                'event': 'submit',
+                'event_category': 'Equation',
+                'event_label': 'Equation Submitted',
+                'value': 1
+            });
+    
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'post',
+                data: $(this).serialize(),
+                success: function(response){
+                    // Hide the spinner
+                    document.getElementById('loadingSpinner').style.visibility = 'hidden';
+    
+                    // Hide the Function List and show the result
+                    document.getElementById('function-list').style.display = 'none';
+                    $("#result").html(response.result).show();
+                },
+                error: function() {
+                    // Hide the spinner in case of error
+                    document.getElementById('loadingSpinner').style.visibility = 'hidden';
+                }
+            });
         });
-
-        $.ajax({
-            url: $(this).attr('action'),
-            type: 'post',
-            data: $(this).serialize(),
-            success: function(response){
-                // Hide the spinner
-                document.getElementById('loadingSpinner').style.visibility = 'hidden';
-
-                // Hide the FUnction List
-                document.getElementById('function-list').style.display = 'none';
-
-                $("#result").html(response.result);
-            },
-            error: function() {
-                // Hide the spinner in case of error
-                document.getElementById('loadingSpinner').style.visibility = 'hidden';
+    
+        // Toggle button event listener
+        $('#toggle-button').click(function(e) {
+            e.preventDefault(); // Prevent the button from submitting the form
+    
+            var functionList = $('#function-list');
+            var result = $('#result');
+    
+            if (functionList.is(':visible')) {
+                functionList.hide();
+                result.show();
+            } else {
+                functionList.show();
+                result.hide();
             }
         });
     });
-
-    // Toggle button event listener
-    $('#toggle-button').click(function(e) {
-        e.preventDefault(); // Prevent the button from submitting the form
-
-        var functionList = $('#function-list');
-        var result = $('#result');
-
-        if (functionList.is(':visible')) {
-            functionList.hide();
-            result.show();
-        } else {
-            functionList.show();
-            result.hide();
-        }
-    });
-
-});
 </script>
 
 {% endblock content %}
