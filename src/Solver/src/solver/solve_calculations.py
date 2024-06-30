@@ -8,6 +8,51 @@ import warnings
 
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
+
+def replace_func(eq_string, func_name: str='log', replace_with: str='10', amt_commas=1):
+    index_func = [m.start() for m in re.finditer(func_name, eq_string)]
+    string_split = [list(eq_string)[index_func[i-1]:index_func[i]] if i != len(index_func) else list(eq_string)[index_func[i - 1]:] for i in range(1, len(index_func) + 1) ]
+    index_list = []
+    nested = 0
+    index = 0
+    amt_commas_start = amt_commas
+    for string in string_split:
+
+        replace = True
+        amt_commas = amt_commas_start
+        nested_before = nested
+        nested = 0
+        
+        for char in string:
+        
+            if char == '(':
+                nested += 1
+            elif char == ')':
+                nested -= 1
+
+            elif char == ',' and nested == 1:
+                if amt_commas == 1:
+                    replace = False
+                else:
+                    amt_commas -= 1
+
+            if char == ')' and nested == 0:
+                nested = nested_before
+                if replace:
+                    index_list.append(index)
+                
+                replace = True
+                amt_commas = amt_commas_start
+
+            index += 1
+
+    additional_index = index_func[0]
+    for index in index_list:
+        eq_string = eq_string[:index + additional_index] + f', {replace_with}' + eq_string[index + additional_index:]
+        additional_index += 2 + len(replace_with)
+    
+    return eq_string
+
 def math_interpreter(eq_string):
     eq_string = eq_string.casefold()
     function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
@@ -49,39 +94,10 @@ def math_interpreter(eq_string):
                 eq_string = re.sub(function_name2 + function_name1 + r'\((.*?)\)', rf"{function_name2}({function_name1}(\1))", eq_string)
 
 
-    def replace_log(eq_string):
-        index_log = [m.start() for m in re.finditer('log', eq_string)]
-        string_split = [list(eq_string)[index_log[i-1]:index_log[i]] if i != len(index_log) else list(eq_string)[index_log[i - 1]:] for i in range(1, len(index_log) + 1) ]
-        index_list = []
-        nested = 0
-        index = -1
-        for string in string_split:
-            nested = 0
-            
-            for char in string:
-                
-                index += 1
-                if char == '(':
-                    nested += 1
-                elif char == ')':
-                    nested -= 1
-
-                elif char == ',' and nested == 1:
-                    break
-
-                if char == ')' and nested <= 0:
-                    index_list.append(index)
-
-        additional_index = 0
-        for index in index_list:
-            eq_string = eq_string[:index + additional_index] + ', 10' + eq_string[index + additional_index:]
-            additional_index += 4
-        
-        return eq_string
-
-    eq_string = replace_log(eq_string)
+    eq_string = replace_func(eq_string, func_name='log', replace_with='10')
     
     return eq_string
+
 
 def segmented_linspace(start, end, breakpoints, num=10, dx=0.01):
     breakpoints = list(breakpoints)
@@ -92,24 +108,50 @@ def segmented_linspace(start, end, breakpoints, num=10, dx=0.01):
 def trig_simp(x):
     return TR1(TR2(x))
 
+
 class CustomLatexPrinter(LatexPrinter):
-    def _print_Mul(self, expr):
+    def _print_Mul(self, expr, **kwargs):
         numer, denom = expr.as_numer_denom()
+
         if isinstance(numer, sp.log) and isinstance(denom, sp.log):
             base = denom.args[0]
+
             if isinstance(base, (sp.Symbol, sp.Number)):
                 arg = self._print(numer.args[0])
                 base = self._print(base)
+                
                 return f' \\ ^{{{base}}} \\! \\log\\left({arg} \\right)'
-        return super()._print_Mul(expr)
+            
+        return super()._print_Mul(expr).replace("1 \\cdot", " ")
+    
 
-    def _print_log(self, expr):
+    def _print_Pow(self, expr, **kwargs):
+        print("expr", expr, sp.root(expr.base, 1/expr.exp, evaluate=False))
+        if expr.exp.as_numer_denom()[1] != 1 and expr != sp.root(expr.base, 1/expr.exp, evaluate=False):
+            base = self._print(expr.base)
+            exp = self._print(sp.simplify(expr.exp))
+            return f"{base}^{{{exp}}}"
+
+        elif expr.as_numer_denom()[1] != 1:
+            expr = sp.nsimplify(expr)
+            return sp.latex(expr)
+
+        return super()._print_Pow(expr)
+
+    def _print_log(self, expr, **kwargs):
         if len(expr.args) == 1:
             # Natural logarithm
             arg = self._print(expr.args[0])
             return f'\\ln \\left({arg} \\right)'
+        
+        elif len(expr.args) == 2:
+            # Logarithm with a specific base
+            base = self._print(expr.args[1])
+            arg = self._print(expr.args[0])
+            return f' \\ ^{{{base}}} \\! \\log\\left({arg} \\right)'
+            
         else:
-            # Specific base, but will be handled in _print_Mul
+            # Fallback for unexpected cases
             return super()._print_log(expr)
 
 def custom_latex(expr, **kwargs):
@@ -352,10 +394,12 @@ class Solve:
                     self.output.append(("De afgeleide van de functie is:", {"latex": False}))
 
                 if take_diff[0]:
-                    self.output.append(f"f'({symbol}) = {custom_latex(sp.simplify(eq1))}")
+                    derivative = sp.sympify(eq_split[0].replace("diff", "Derivative"))
+                    self.output.append(f"{custom_latex(derivative)} = {custom_latex(sp.simplify(eq1))}")
 
                 if len(eq_split) == 2 and take_diff[1]:
-                    self.output.append(f"g'({symbol}) = {custom_latex(sp.simplify(eq2))}")
+                    derivative = sp.sympify(eq_split[1].replace("diff", "Derivative"))
+                    self.output.append(f"{custom_latex(derivative)} = {custom_latex(sp.simplify(eq2))}")
 
 
             take_integral = ["integrate" in string for string in eq_split]
@@ -402,13 +446,11 @@ class Solve:
 
 
             if len(sp.solve(self.eq)) == 0 and not self.numerical:
-                
-                if sp.sympify(self.eq_string) == sp.nsimplify(sp.simplify(eq1), [sp.pi]):
-                    self.eq_string = sp.sympify(self.eq_string, evaluate=False)
-                else:
-                    self.eq_string = sp.sympify(self.eq_string)
+                print("eq_string before = ", self.eq_string)
 
-                print(custom_latex(self.eq_string))
+                self.eq_string = sp.sympify(replace_func(self.eq_string, func_name="root", replace_with="evaluate=False", amt_commas=2), evaluate=False)
+
+                print("eq_string = ", self.eq_string)
 
                 if len(eq_split) == 1:
                     if not self.symbol:
@@ -515,7 +557,7 @@ class Solve:
             self.output.append((f"Error: De ingevoerde functie klopt niet", {"latex":False}))
             return self.equation_interpret, self.output, self.plot
 
-        except Exception as e:
+        except ValueError as e:
             self.output.append((f"ERROR", {"latex":False}))
             print(e)
             return self.equation_interpret, self.output, self.plot
@@ -603,6 +645,10 @@ class Solve:
 
                         if self.interval_solutions.is_iterable:
                             for solution in self.interval_solutions:
+                                
+                                if not solution.is_real:
+                                    continue
+
                                 if 0 <= float(solution) <= 2 * np.pi:
                                     self.interval_solutions_intersect.append(solution)
                                 else:
@@ -642,7 +688,7 @@ class Solve:
                     else:
                         self.output.append(f"{counter}) \\quad {custom_latex(self.symbol)} = {custom_latex(solution)}")
 
-        except Exception as e:
+        except ValueError as e:
             self.output.append((f"ERROR", {"latex":False}))
             print(e)
 
@@ -700,20 +746,25 @@ class Solve:
             plottable_x2_coords = x_coords_np[np.isreal(scalar_to_array(self.eq2_np(x_coords_np), shape=x_coords_np.shape))]
 
             def add_endpoint(plottable_x_coords, eq):
-                domain = sp.calculus.util.continuous_domain(eq, self.symbol, domain=sp.S.Reals)
+                try:
+                    domain = sp.calculus.util.continuous_domain(eq, self.symbol, domain=sp.S.Reals)
 
-                if (not domain.is_Interval) or (type(domain) is type(sp.Reals)):
-                    return np.array(plottable_x_coords)
+                    if (not domain.is_Interval) or (type(domain) is type(sp.Reals)):
+                        return np.array(plottable_x_coords)
 
-                input_eq = sp.lambdify(self.symbol, eq, "sympy")
-                amt_intervals = len(domain.args) if domain.is_Union else 1
-                for i in range(amt_intervals):
-                    for j in range(2):
-                        if domain.args[j].is_finite and input_eq(float(domain.args[j])).is_finite and not (min(plottable_x_coords) <= domain.args[j] <= max(plottable_x_coords)):
-                                plottable_x_coords.append(float(domain.args[j]))
-                                plottable_x_coords = sorted(plottable_x_coords)
+                    input_eq = sp.lambdify(self.symbol, eq, "sympy")
+                    amt_intervals = len(domain.args) if domain.is_Union else 1
+                    for i in range(amt_intervals):
+                        for j in range(2):
+                            if domain.args[j].is_finite and input_eq(float(domain.args[j])).is_finite and not (min(plottable_x_coords) <= domain.args[j] <= max(plottable_x_coords)):
+                                    plottable_x_coords.append(float(domain.args[j]))
+                                    plottable_x_coords = sorted(plottable_x_coords)
 
-                plottable_x_coords = np.array([x for x in plottable_x_coords if domain.args[0] <= x <= domain.args[1]])
+                    plottable_x_coords = np.array([x for x in plottable_x_coords if domain.args[0] <= x <= domain.args[1]])
+
+                except NotImplementedError:
+                    pass
+
                 return plottable_x_coords
 
             plottable_x1_coords = add_endpoint(plottable_x1_coords, sp.sympify(self.eq1(self.symbol)))
@@ -742,6 +793,10 @@ class Solve:
                         counter = 0
                         self.new_interval_solutions_intersect = []
                         for solution in self.new_interval_solutions:
+
+                            if not solution.is_real:
+                                continue
+
                             if x_range[0] <= float(solution) <= x_range[1]:
                                 self.new_interval_solutions_intersect.append(solution)
                             else:

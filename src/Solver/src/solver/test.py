@@ -40,6 +40,51 @@ def segmented_linspace(start, end, breakpoints, num=10):
     lists_with_breaks = [np.linspace(all_points[i], all_points[i+1], num=10) for i in range(len(all_points)-1)]
     return lists_with_breaks
 
+
+def replace_func(eq_string, func_name: str='log', replace_with: str='10', amt_commas=1):
+    index_func = [m.start() for m in re.finditer(func_name, eq_string)]
+    string_split = [list(eq_string)[index_func[i-1]:index_func[i]] if i != len(index_func) else list(eq_string)[index_func[i - 1]:] for i in range(1, len(index_func) + 1) ]
+    index_list = []
+    nested = 0
+    index = 0
+    amt_commas_start = amt_commas
+    for string in string_split:
+
+        replace = True
+        amt_commas = amt_commas_start
+        nested_before = nested
+        nested = 0
+        
+        for char in string:
+        
+            if char == '(':
+                nested += 1
+            elif char == ')':
+                nested -= 1
+
+            elif char == ',' and nested == 1:
+                if amt_commas == 1:
+                    replace = False
+                else:
+                    amt_commas -= 1
+
+            if char == ')' and nested == 0:
+                nested = nested_before
+                if replace:
+                    index_list.append(index)
+                
+                replace = True
+                amt_commas = amt_commas_start
+
+            index += 1
+
+    additional_index = index_func[0]
+    for index in index_list:
+        eq_string = eq_string[:index + additional_index] + f', {replace_with}' + eq_string[index + additional_index:]
+        additional_index += 2 + len(replace_with)
+    
+    return eq_string
+
 def math_interpreter(eq_string):
     eq_string = eq_string.casefold()
     function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
@@ -81,39 +126,7 @@ def math_interpreter(eq_string):
                 eq_string = re.sub(function_name2 + function_name1 + r'\((.*?)\)', rf"{function_name2}({function_name1}(\1))", eq_string)
 
 
-    def replace_log(eq_string):
-        index_log = [m.start() for m in re.finditer('log', eq_string)]
-        string_split = [list(eq_string)[index_log[i-1]:index_log[i]] if i != len(index_log) else list(eq_string)[index_log[i - 1]:] for i in range(1, len(index_log) + 1) ]
-        index_list = []
-        nested = 0
-        index = -1
-        for string in string_split:
-            nested = 0
-            
-            for char in string:
-                
-                index += 1
-                if char == '(':
-                    nested += 1
-                elif char == ')':
-                    nested -= 1
-
-                elif char == ',' and nested == 1:
-                    break
-
-                if char == ')' and nested <= 0:
-                    index_list.append(index)
-
-                print(char, nested, index, index_list)
-
-        additional_index = 0
-        for index in index_list:
-            eq_string = eq_string[:index + additional_index] + ', 10' + eq_string[index + additional_index:]
-            additional_index += 4
-        
-        return eq_string
-
-    eq_string = replace_log(eq_string)
+    eq_string = replace_func(eq_string, func_name='log', replace_with='10')
     
     return eq_string
 
@@ -170,10 +183,15 @@ class CustomLatexPrinter(LatexPrinter):
 def custom_latex(expr, **kwargs):
     return CustomLatexPrinter(**kwargs).doprint(expr)
 
-x = sp.symbols('x')
-string = "log(log(log(sin(x)))) + log(sin(x))"
+x = sp.symbols("x")
+f = x**2 + 4*x+ 4
+print(sp.latex(sp.Derivative('f(x)', x, 2)))
+
+
+string = "log(root(x, 2))"
 string = math_interpreter(string)
 print(string)
+print(replace_func(string, func_name='root', replace_with='evaluate=False', amt_commas=2))
 
 
 exit()
