@@ -45,8 +45,12 @@ def replace_func(eq_string, func_name: str='log', replace_with: str='10', amt_co
                 amt_commas = amt_commas_start
 
             index += 1
+            
+    if len(index_func) != 0:
+        additional_index = index_func[0]
+    else:
+        additional_index = 0
 
-    additional_index = index_func[0]
     for index in index_list:
         eq_string = eq_string[:index + additional_index] + f', {replace_with}' + eq_string[index + additional_index:]
         additional_index += 2 + len(replace_with)
@@ -119,14 +123,13 @@ class CustomLatexPrinter(LatexPrinter):
             if isinstance(base, (sp.Symbol, sp.Number)):
                 arg = self._print(numer.args[0])
                 base = self._print(base)
-                
+
                 return f' \\ ^{{{base}}} \\! \\log\\left({arg} \\right)'
             
         return super()._print_Mul(expr).replace("1 \\cdot", " ")
     
 
     def _print_Pow(self, expr, **kwargs):
-        print("expr", expr, sp.root(expr.base, 1/expr.exp, evaluate=False))
         if expr.exp.as_numer_denom()[1] != 1 and expr != sp.root(expr.base, 1/expr.exp, evaluate=False):
             base = self._print(expr.base)
             exp = self._print(sp.simplify(expr.exp))
@@ -446,11 +449,7 @@ class Solve:
 
 
             if len(sp.solve(self.eq)) == 0 and not self.numerical:
-                print("eq_string before = ", self.eq_string)
-
                 self.eq_string = sp.sympify(replace_func(self.eq_string, func_name="root", replace_with="evaluate=False", amt_commas=2), evaluate=False)
-
-                print("eq_string = ", self.eq_string)
 
                 if len(eq_split) == 1:
                     if not self.symbol:
@@ -557,7 +556,7 @@ class Solve:
             self.output.append((f"Error: De ingevoerde functie klopt niet", {"latex":False}))
             return self.equation_interpret, self.output, self.plot
 
-        except ValueError as e:
+        except Exception as e:
             self.output.append((f"ERROR", {"latex":False}))
             print(e)
             return self.equation_interpret, self.output, self.plot
@@ -688,7 +687,7 @@ class Solve:
                     else:
                         self.output.append(f"{counter}) \\quad {custom_latex(self.symbol)} = {custom_latex(solution)}")
 
-        except ValueError as e:
+        except Exception as e:
             self.output.append((f"ERROR", {"latex":False}))
             print(e)
 
