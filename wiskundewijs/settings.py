@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-g*t@d@!%t8z^pmz!qy0m5-_5ib+x3%d8ul4=28d4+)3l1d-udn
 #SECRET_KEY = config['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True 
+DEBUG = True
 
 ALLOWED_HOSTS = ['www.wiskundewijs.com', 'wiskundewijs.com', '172.233.48.60', '127.0.0.1']
 
@@ -66,7 +66,7 @@ ROOT_URLCONF = "wiskundewijs.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, 'staticfiles')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

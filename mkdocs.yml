@@ -27,6 +27,11 @@ theme:
     - navigation.top
     - search.suggest
 
+  custom_dir: mkdocs\overrides
+
+  static_template: 404.html
+
+
 extra:
   social:
     - icon: fontawesome/brands/linkedin 

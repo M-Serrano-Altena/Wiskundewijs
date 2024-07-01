@@ -11,6 +11,9 @@ warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 def replace_func(eq_string, func_name: str='log', replace_with: str='10', amt_commas=1):
     index_func = [m.start() for m in re.finditer(func_name, eq_string)]
+    if len(index_func) == 0:
+        return eq_string
+    
     string_split = [list(eq_string)[index_func[i-1]:index_func[i]] if i != len(index_func) else list(eq_string)[index_func[i - 1]:] for i in range(1, len(index_func) + 1) ]
     index_list = []
     nested = 0
@@ -45,12 +48,8 @@ def replace_func(eq_string, func_name: str='log', replace_with: str='10', amt_co
                 amt_commas = amt_commas_start
 
             index += 1
-            
-    if len(index_func) != 0:
-        additional_index = index_func[0]
-    else:
-        additional_index = 0
-
+    
+    additional_index = index_func[0]
     for index in index_list:
         eq_string = eq_string[:index + additional_index] + f', {replace_with}' + eq_string[index + additional_index:]
         additional_index += 2 + len(replace_with)
@@ -58,15 +57,63 @@ def replace_func(eq_string, func_name: str='log', replace_with: str='10', amt_co
     return eq_string
 
 def math_interpreter(eq_string):
+
+    def insert_asterisks(match):
+        char = match.group(1)
+        count = len(match.group(0))
+        pos = match.start()
+
+        # Check if repeated letters are part of any relevant function name
+        for func in relevant_functions:
+            if eq_string[pos:pos+len(func)] == func:
+                return char * count
+
+        # Check if repeated letters are part of any constant name
+        for const in constant_names:
+            if eq_string[pos:pos+len(const)] == const:
+                return char * count
+
+        return '*'.join(char for _ in range(count))
+
+    def replace_constant_symbols(eq_string):
+        eq_string = re.sub(r'\b' + r'inf' + r'\b', r'oo', eq_string)
+        eq_string = re.sub(r'\b' + r'infty' + r'\b', r'oo', eq_string)
+        eq_string = re.sub(r'\b' + r'infinity' + r'\b', r'oo', eq_string)
+        eq_string = re.sub(r'∞', r'oo', eq_string)
+
+        eq_string = re.sub(r'π', r'pi', eq_string)
+
+        list_superscript = ['⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹']
+        num = 0
+        for superscript in list_superscript:
+            eq_string = re.sub(superscript, str(num), eq_string)
+            num += 1
+
+        return eq_string
+
     eq_string = eq_string.casefold()
     function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
-    function_names.extend(("diff", "integrate"))
+    function_names.extend(("diff", "integrate", "limit"))
+
+    constant_names_og = [name for name, obj in sp.__dict__.items() if isinstance(obj, (sp.Basic, sp.core.singleton.Singleton)) and not name.startswith('_') and sp.sympify(name).is_number]
+    constant_names_og.extend(("inf", "infty", "infinity"))
+    constant_names = [name.casefold() for name in constant_names_og]
+
+    eq_string = replace_constant_symbols(eq_string)
+
+
     abs_pattern = re.compile(r"\|([^|]+)\|")
     eq_string = re.sub(abs_pattern, r"Abs(\1)", eq_string)
     eq_string = re.sub(r'\b' + r'abs', r'Abs', eq_string)
     eq_string = re.sub(r'\b' + r'i'  + r'\b', r'I', eq_string)
     eq_string = re.sub(r'\b' + r'e'  + r'\b', r'E', eq_string)
+
+
     relevant_functions = [func for func in function_names if func in eq_string]
+
+    if "limit" in relevant_functions:
+        relevant_functions.remove("li")
+        relevant_functions.remove("im")
 
     for _ in range(10):
         eq_string = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', eq_string)
@@ -78,8 +125,8 @@ def math_interpreter(eq_string):
         eq_string = re.sub(r'([a-zA-Z])\(', r'\1*(', eq_string)
         eq_string = re.sub(r'\)\(', r')*(', eq_string)
 
-        eq_string = re.sub(r'\b' + r'([a-zA-Z])\1', r'\1*\1', eq_string)
-        # eq_string = re.sub(r'\b' + r'([e])' + r'\b', r'E', eq_string)
+        eq_string = re.sub(r'([a-zA-Z])\1+', insert_asterisks, eq_string)
+        eq_string = re.sub(r'\b' + r'([e])' + r'\b', r'E', eq_string)
         eq_string = re.sub(r'\b' + r'([i])' + r'\b', r'I', eq_string)
         
 
@@ -97,8 +144,18 @@ def math_interpreter(eq_string):
                 eq_string = re.sub(function_name1 + function_name2 + r'\((.*?)\)', rf"{function_name1}({function_name2}(\1))", eq_string)
                 eq_string = re.sub(function_name2 + function_name1 + r'\((.*?)\)', rf"{function_name2}({function_name1}(\1))", eq_string)
 
+    if "limit" in relevant_functions:
+        eq_string = re.sub("im" + r'\*\(', "im" + '(', eq_string)
+        eq_string = re.sub("li" + r'\*\(', "li" + '(', eq_string)    
 
     eq_string = replace_func(eq_string, func_name='log', replace_with='10')
+
+    for i in range(len(constant_names)):
+        constant = constant_names[i]
+
+        if re.search(r'\b' + str(constant) + r'\b', eq_string) is not None:
+            if constant in constant_names and constant not in constant_names_og:
+                eq_string = re.sub(r'\b' + str(constant) + r'\b', str(constant_names_og[i]), eq_string)
     
     return eq_string
 
@@ -156,6 +213,37 @@ class CustomLatexPrinter(LatexPrinter):
         else:
             # Fallback for unexpected cases
             return super()._print_log(expr)
+        
+
+    def _print_Limit(self, expr, **kwargs):
+        func = expr.args[0]
+        var = self._print(expr.args[1])
+        point = self._print(expr.args[2])
+        direction = expr.args[3]
+
+        limit_expr = str(expr)
+        limit_value = sp.simplify(expr)
+
+        if str(direction) == "+":
+            limit_expr_opposite = limit_expr.replace("dir='+'", "dir='-'")
+            limit_value_opposite = sp.simplify(limit_expr_opposite)
+
+        elif str(direction) == "-":
+            limit_expr_opposite = limit_expr.replace("dir='-'", "dir='+'")
+            limit_value_opposite = sp.simplify(limit_expr_opposite)
+
+
+        if limit_value == limit_value_opposite:
+            return f"\\lim_{{{var} \\to {point}}} {self._print(func)}"
+        
+        elif str(direction) == "+":
+            return f"\\lim_{{{var} \\ \\downarrow \\ {point}}} {self._print(func)}"
+        
+        elif str(direction) == "-":
+            return f"\\lim_{{{var} \\ \\uparrow \\ {point}}} {self._print(func)}"
+
+        return super()._print_Limit(expr)
+
 
 def custom_latex(expr, **kwargs):
     return CustomLatexPrinter(**kwargs).doprint(expr)
@@ -437,6 +525,7 @@ class Solve:
             if True in take_diff or True in take_integral:
                 self.output.append(("", {"latex": False}))
 
+
             check_numerical = self.check_solve_numerically()
 
             if check_numerical is not None and not self.intersect:
@@ -449,7 +538,12 @@ class Solve:
 
 
             if len(sp.solve(self.eq)) == 0 and not self.numerical:
-                self.eq_string = sp.sympify(replace_func(self.eq_string, func_name="root", replace_with="evaluate=False", amt_commas=2), evaluate=False)
+                self.eq_string = replace_func(self.eq_string, func_name="root", replace_with="evaluate=False", amt_commas=2)
+                print(self.eq_string)
+                self.eq_string = self.eq_string.replace("limit", "Limit")
+                print(self.eq_string)
+
+                self.eq_string = sp.sympify(self.eq_string, evaluate=False)
 
                 if len(eq_split) == 1:
                     if not self.symbol:
@@ -461,13 +555,14 @@ class Solve:
                             else:
                                 equals_sign = '\\approx'
 
+                            print("solution", solution)
                             solution = sp.N(solution)
+                            print("solution", solution)
                             try:
-                                if int(solution) == solution:
+                                if solution.is_finite and int(solution) == solution:
                                     solution = int(solution)
 
                             except TypeError:
-
                                 real_part, imag_part = solution.as_real_imag()
 
                                 if sp.Integer(real_part) == real_part and sp.Integer(imag_part) == imag_part:
@@ -556,7 +651,7 @@ class Solve:
             self.output.append((f"Error: De ingevoerde functie klopt niet", {"latex":False}))
             return self.equation_interpret, self.output, self.plot
 
-        except Exception as e:
+        except ValueError as e:
             self.output.append((f"ERROR", {"latex":False}))
             print(e)
             return self.equation_interpret, self.output, self.plot
