@@ -34,13 +34,13 @@ Heb je moeite met wiskunde en zou je **een punt hoger** willen scoren op de volg
 7. [Goniometrie](goniometrie.md)
 
 
-<!-- ## Mogelijke Opties
+## Mogelijke Opties
 - **Afgeleides nemen:** 
     + **Eerste Afgeleide:** $\phantom{.}$ <span style="font-size: 19px;">`diff(f(x))`</span> $= \dfrac{d}{d x} f{\left(x \right)} \quad \longrightarrow \quad$ <span style="font-size: 19px;">`diff(x^2 + 3x + 1)`</span> $= 2x + 3$ <br><br>
     + **n-de Afgeleide:** $\phantom{.}$ <span style="font-size: 19px;">`diff(f(x), x, n)`</span> $= \dfrac{d^{n}}{d x^{n}} f{\left(x \right)} \quad \longrightarrow \quad$ <span style="font-size: 19px;">`diff(x^2 + 3x + 1, x, 2)`</span> $= \dfrac{d^{2}}{d x^{2}}\left(x^2 + 3x + 1\right) = 2$ <br> $\phantom{mmmmmmmm.} \Longrightarrow$ De losse $x$ is hier de variabele waarover je de afgeleide neemt <br> $\phantom{mmmmmmmm.} \Longrightarrow$ $n$ is hoe vaak je de afgeleide neemt (dus $n=2$ is de dubbele afgeleide)<br><br>
 
 - **Integreren:** 
-    + **Primitieve:** $\phantom{.}$  <span style="font-size: 19px;">`integrate(f(x))`</span> $= \int f(x) \, dx \quad \longrightarrow \quad$ <span style="font-size: 19px;">`integrate(x^2)`</span> $= \int x^2 \, dx = \dfrac{1}{3} x^3 + C$ <br><br>
+    + **Primitieve:** $\phantom{.}$  <span style="font-size: 19px;">`integrate(f(x))`</span> $= \int f(x) \, dx \quad \longrightarrow \quad$ <span style="font-size: 19px;">`integrate(x^2)`</span> $= \int x^2 \, dx = \dfrac{x^3}{3} + C$ <br><br>
     + **Bepaalde Integraal:** $\phantom{.}$ <span style="font-size: 19px;">`integrate(f(x), (x, a, b))`</span> $= \int_{a}^{b} f(x) \, dx \quad \longrightarrow \quad$ <span style="font-size: 19px;">`integrate(x^2, (x, 0, 1))`</span> $= \int_{0}^{1} x^2 \, dx = \dfrac{1}{3}$ <br> $\phantom{mmmmmmmm.} \Longrightarrow$ De losse $x$ is hier de integratievariabele (dus de $x$ in $dx$) <br> $\phantom{mmmmmmmm.} \Longrightarrow$ $a$ en $b$ zijn hier de begin- en eindgrenzen van de integraal. <br><br>
 
 - **Limieten:** 
@@ -72,4 +72,4 @@ Heb je moeite met wiskunde en zou je **een punt hoger** willen scoren op de volg
 - **Logaritmes:** 
     + **Grondgetal e:** $\phantom{mm.}$ <span style="font-size: 19px;">`ln(x)`</span> $\phantom{m..} \quad \longrightarrow \quad$ <span style="font-size: 19px;">`ln(e^4)`</span> $= \ln(e^4) = 4$
     + **Grondgetal 10:** $\phantom{m..}$ <span style="font-size: 19px;">`log(x)`</span> $\phantom{m.} \quad \longrightarrow \quad$ <span style="font-size: 19px;">`log(100)`</span> $= \ ^{10} \! \log(100) = 2$
-    + **Ander Grondgetal:** $\phantom{.}$ <span style="font-size: 19px;">`log(x, n)`</span> $\quad \longrightarrow \quad$ <span style="font-size: 19px;">`log(8, 2)`</span> $= \ ^{2} \! \log(8) = 3$ -->
+    + **Ander Grondgetal:** $\phantom{.}$ <span style="font-size: 19px;">`log(x, n)`</span> $\quad \longrightarrow \quad$ <span style="font-size: 19px;">`log(8, 2)`</span> $= \ ^{2} \! \log(8) = 3$

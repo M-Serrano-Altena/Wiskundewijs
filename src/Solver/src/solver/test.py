@@ -90,20 +90,36 @@ def replace_func(eq_string, func_name: str='log', replace_with: str='10', amt_co
 
 def math_interpreter(eq_string):
 
+    def find_substring_indices(substring, string):
+        indices = []
+        for match in re.finditer(re.escape(substring), string):
+            indices.append((match.start(), match.end()))
+        return indices
+
     def insert_asterisks(match):
         char = match.group(1)
         count = len(match.group(0))
         pos = match.start()
 
+        print(char, count, pos, match.group(0))
+
         # Check if repeated letters are part of any relevant function name
         for func in relevant_functions:
             if eq_string[pos:pos+len(func)] == func:
-                return char * count
+                return match.group(0)
 
         # Check if repeated letters are part of any constant name
         for const in constant_names:
             if eq_string[pos:pos+len(const)] == const:
-                return char * count
+                return match.group(0)
+            
+        for func in relevant_functions:
+            index_range = len(func) - 1
+            index_start = pos - index_range if pos - index_range >= 0 else 0
+            index_end = match.end() + index_range if match.end() + index_range <= len(eq_string) else len(eq_string)
+            if func in eq_string[index_start:index_end]:
+                return match.group(0)
+
 
         return '*'.join(char for _ in range(count))
 
@@ -122,10 +138,59 @@ def math_interpreter(eq_string):
             num += 1
 
         return eq_string
+    
+    def add_parenthesis(match):
+        function_name = match.group(1)
+        symbol = match.group(2)
+
+        print("fname, symbol:", function_name, symbol)
+
+        # quick check
+        if function_name + symbol in relevant_functions:
+            print("quick check")
+            return match.group(0)
+        
+        # thourough check
+        for func in relevant_functions:
+            if func == function_name:
+                continue
+
+            length_func_name = len(func)
+            length_match_func = len(function_name)
+            index_range = length_func_name - length_match_func
+
+            if index_range <= 0:
+                continue
+
+            index_start_match = match.start(1)
+            index_end_match = match.end(1)
+            index_start = index_start_match - index_range if index_start_match - index_range >= 0 else 0
+            index_end = index_end_match + index_range if index_end_match + index_range <= len(eq_string) else len(eq_string)
+
+            if func in eq_string[index_start:index_end]:
+                if function_name in func and func != function_name:
+                    print(func, match.group(1), match.group(2))
+                    print(eq_string[index_start:index_end])
+                    print("thourough check")
+                    return match.group(0)
+                
+        
+        for func in relevant_functions:
+            if func in symbol:
+                indices = find_substring_indices(func, symbol)
+                for index in indices:
+                    if index[0] != 0:
+
+                        return f'{function_name}({symbol[:index[0]]})*{symbol[index[0]:]}'
+        
+        return f'{function_name}({symbol})'
+        
 
     eq_string = eq_string.casefold()
     function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
-    function_names.extend(("diff", "integrate", "limit"))
+    function_names.extend(("diff", "integrate", "limit", "Mod"))
+    relevant_functions = [func for func in function_names if func in eq_string]
+
 
     constant_names_og = [name for name, obj in sp.__dict__.items() if isinstance(obj, (sp.Basic, sp.core.singleton.Singleton)) and not name.startswith('_') and sp.sympify(name).is_number]
     constant_names_og.extend(("inf", "infty", "infinity"))
@@ -137,19 +202,20 @@ def math_interpreter(eq_string):
     abs_pattern = re.compile(r"\|([^|]+)\|")
     eq_string = re.sub(abs_pattern, r"Abs(\1)", eq_string)
     eq_string = re.sub(r'\b' + r'abs', r'Abs', eq_string)
+    eq_string = re.sub(r'\b' + r'mod', r'Mod', eq_string)
     eq_string = re.sub(r'\b' + r'i'  + r'\b', r'I', eq_string)
     eq_string = re.sub(r'\b' + r'e'  + r'\b', r'E', eq_string)
 
+    eq_string = re.sub(r"%(?!\d)", r'*0.01', eq_string)
 
-    relevant_functions = [func for func in function_names if func in eq_string]
-
-    if "limit" in relevant_functions:
-        relevant_functions.remove("li")
-        relevant_functions.remove("im")
+    eq_string = re.sub(r'(\d+/\d+)\s+(\d+/\d+)', r'\1*\2', eq_string)
+    eq_string = re.sub(r'(\d+)\s+(\d+/\d+)', r'(\1+\2)', eq_string)
+    eq_string = re.sub(rf'({'|'.join(map(re.escape, relevant_functions))})' + r'(?:\s)+([\w]+)', r'\1(\2)', eq_string)
+    eq_string = re.sub(r'(?<=[\w)])\s+(?=[\w(])', '*', eq_string)
 
     for _ in range(10):
         eq_string = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', eq_string)
-        eq_string = re.sub(r'([a-zA-Z])(\d)', r'\1^\2', eq_string)
+        eq_string = re.sub(r'\b' + r'([a-zA-Z])(\d)', r'\1^\2', eq_string)
         eq_string = re.sub(r'\)(\d)', r')*\1', eq_string)
         eq_string = re.sub(r'(\d)\(', r'\1*(', eq_string)
 
@@ -163,23 +229,25 @@ def math_interpreter(eq_string):
         
 
         for function_name1 in relevant_functions:
+            print("test1", eq_string)
             for function_name2 in relevant_functions:
                 eq_string = re.sub(function_name1 + function_name2 + r'\((.*?)\)', rf"{function_name1}({function_name2}\1)", eq_string)
                 eq_string = re.sub(function_name2 + function_name1 + r'\((.*?)\)', rf"{function_name2}({function_name1}\1)", eq_string)
 
-            eq_string = re.sub(function_name1 + r'\*' + r'(?!(?:' + '|'.join(map(re.escape, relevant_functions)) + r'))(\d|[a-zA-Z])', function_name1 + r'(x)*\1', eq_string)
-            eq_string = re.sub(function_name1 + r'(?!(?:' + '|'.join(map(re.escape, relevant_functions)) + r'))(\d|[a-zA-Z])', function_name1 + r'(\1)', eq_string)
-            eq_string = re.sub(r'\b' + r'(?!(?:' + '|'.join(map(re.escape, relevant_functions)) + r'))(\d|[a-zA-Z])' + function_name1, r'\1*' + function_name1, eq_string)
+            eq_string = re.sub(function_name1 + r'\*' + rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + r'(\d+|[a-zA-Z])', function_name1 + r'(x)*\1', eq_string)
+            print(function_name1, re.findall(rf'({function_name1})' + rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' +  r'(\d+|[a-zA-Z]+)', eq_string))
+            eq_string = re.sub(rf'({re.escape(function_name1)})' + rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' +  r'(\d+|[a-zA-Z]+)', add_parenthesis, eq_string)
+            eq_string = re.sub(r'\b' + rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + r'(\d+|[a-zA-Z])' + function_name1, r'\1*' + function_name1, eq_string)
             eq_string = re.sub(function_name1 + r'\*\(', function_name1 + '(', eq_string)
+
+            print("test2", eq_string)
+            
             
             for function_name2 in relevant_functions:
                 eq_string = re.sub(function_name1 + function_name2 + r'\((.*?)\)', rf"{function_name1}({function_name2}(\1))", eq_string)
                 eq_string = re.sub(function_name2 + function_name1 + r'\((.*?)\)', rf"{function_name2}({function_name1}(\1))", eq_string)
 
-    if "limit" in relevant_functions:
-        eq_string = re.sub("im" + r'\*\(', "im" + '(', eq_string)
-        eq_string = re.sub("li" + r'\*\(', "li" + '(', eq_string)    
-
+    eq_string = re.sub(r'\s' + rf'({'|'.join(map(re.escape, relevant_functions))})' r'\s', r'\1(x)', eq_string)
     eq_string = replace_func(eq_string, func_name='log', replace_with='10')
 
     for i in range(len(constant_names)):
@@ -302,12 +370,11 @@ def custom_latex(expr, **kwargs):
 
 x = sp.symbols("x")
 # print(custom_latex(sp.Limit('f(x)', x, 'a')))
-string = "2⁰x¹⁰"
+string = "sin"
 string = math_interpreter(string)
 print(string)
-print(custom_latex(sp.sympify(string)))
-# print(custom_latex(sp.Limit(1/x, x, 0, "+")))
-# print(sp.latex(sp.sympify("Abs(1/0)")))
+# print(custom_latex(sp.sympify(string)))
+
 
 exit()
 if __name__ == "__main__":
