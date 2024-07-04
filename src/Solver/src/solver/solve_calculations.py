@@ -215,6 +215,15 @@ def math_interpreter(eq_string):
     eq_string = re.sub(r'mod', r'Mod', eq_string)
     eq_string = re.sub(r'lambertw', r'LambertW', eq_string)
 
+    arc_gonio_functions = ["arcsin", "arccos", "arctan", "arccot", "arcsec", "arccsc"]
+    relevant_arc_functions = [arc_gonio_func for arc_gonio_func in arc_gonio_functions if arc_gonio_func in eq_string]
+
+    if len(relevant_arc_functions) != 0:
+        for arc_gonio_func in relevant_arc_functions:
+            a_gonio_func = arc_gonio_func[0] + arc_gonio_func[3:]
+            eq_string = re.sub(re.escape(arc_gonio_func), re.escape(a_gonio_func), eq_string)
+            relevant_functions.insert(0, a_gonio_func)
+
     relevant_functions.extend([func for func in ["Abs", "Mod", "LambertW"] if func in eq_string])
 
     eq_string = re.sub(r'\b' + r'i'  + r'\b', r'I', eq_string)
@@ -415,33 +424,29 @@ class Solve:
         self.numerical = False
 
     def numerical_roots(self, eq, a=-10000, b=10000, dx=0.01, solve_method="newton", dy=0.1, use_scale_factor:bool=False, default_func:bool=True):
-        x = sp.symbols('x')
-        eq = eq(x)
-        diff_eq = sp.diff(eq, x)
-        x = np.linspace(a, b, (b-a) * int(1/dx))
-        xy = np.zeros((x.shape[0], 2))
-        xy[:, 0] = x
+        eq_lambda_sp = eq
 
+        def use_module(module="numpy"):
+            nonlocal eq
+            x = sp.symbols('x')
+            eq = eq_lambda_sp(x)
+            eq_lambda = sp.lambdify(x, eq, module)
+            diff_eq = sp.diff(eq, x)
+            diff_eq_lambda = sp.lambdify(x, diff_eq, module)
+
+            x = np.linspace(a, b, (b-a) * int(1/dx))
+            xy = np.zeros((x.shape[0], 2))
+            xy[:, 0] = x
+            xy[:, 1] = eq_lambda(x)
+            xy = xy[~np.isnan(xy[:,1]) & ~np.isinf(xy[:,1])]
+
+            return eq_lambda, diff_eq_lambda, xy
 
         try:
-            eq_lambda = sp.lambdify(x, eq, "numpy")
-            diff_eq_lambda = sp.lambdify(x, diff_eq, "numpy")
-            xy[:, 1] = eq_lambda(x)
+            eq_lambda, diff_eq_lambda, xy = use_module(module="numpy")
 
         except NameError:
-            try:
-                eq_lambda = sp.lambdify(x, eq, "scipy")
-                diff_eq_lambda = sp.lambdify(x, diff_eq, "scipy")
-                xy[:, 1] = eq_lambda(x)
-
-
-            except NameError:
-                eq_lambda = sp.lambdify(x, eq, "sympy")
-                diff_eq_lambda = sp.lambdify(x, diff_eq, "sympy")
-                xy[:, 1] = eq_lambda(x)
-
-
-        xy = xy[~np.isnan(xy[:,1]) & ~np.isinf(xy[:,1])]
+            eq_lambda, diff_eq_lambda, xy = use_module(module="scipy")
 
         if use_scale_factor:
             test = np.abs(xy[:,1])
@@ -620,7 +625,7 @@ class Solve:
                 self.eq12 = sp.lambdify(self.symbol, eq12, "sympy")
 
 
-            if self.symbol and (sp.solve(self.eq)):
+            if self.symbol:
                 if not trig_simp(eq12).as_numer_denom()[1].is_number:
                     self.vert_asympt_eq = trig_simp(eq12).as_numer_denom()[1]
 
@@ -757,6 +762,7 @@ class Solve:
                             self.output.append(("Geen reële oplossing gevonden", {"latex": False}))
 
                         else:
+                            print("test")
                             self.output.append(("Geen oplossing gevonden", {"latex": False}))
 
                         self.plot = True
@@ -814,7 +820,7 @@ class Solve:
             self.output.append((f"Error: De ingevoerde functie klopt niet", {"latex":False}))
             return self.equation_interpret, self.output, self.plot
 
-        except Exception as e:
+        except ValueError as e:
             self.output.append((f"ERROR", {"latex":False}))
             print(e)
             return self.equation_interpret, self.output, self.plot
@@ -996,11 +1002,18 @@ class Solve:
 
 
         def get_plottable_coords(x_coords):
-            self.eq1_np = sp.lambdify(self.symbol, self.eq1(self.symbol), "numpy")
-            self.eq2_np = sp.lambdify(self.symbol, self.eq2(self.symbol), "numpy")
-            x_coords_np = np.array(x_coords)
-            plottable_x1_coords = x_coords_np[np.isreal(scalar_to_array(self.eq1_np(x_coords_np), shape=x_coords_np.shape))]
-            plottable_x2_coords = x_coords_np[np.isreal(scalar_to_array(self.eq2_np(x_coords_np), shape=x_coords_np.shape))]
+            try:
+                self.eq1_np = sp.lambdify(self.symbol, self.eq1(self.symbol), "numpy")
+                self.eq2_np = sp.lambdify(self.symbol, self.eq2(self.symbol), "numpy")
+                x_coords_np = np.array(x_coords)
+                plottable_x1_coords = x_coords_np[np.isreal(scalar_to_array(self.eq1_np(x_coords_np), shape=x_coords_np.shape))]
+                plottable_x2_coords = x_coords_np[np.isreal(scalar_to_array(self.eq2_np(x_coords_np), shape=x_coords_np.shape))]
+            except NameError:
+                self.eq1_np = sp.lambdify(self.symbol, self.eq1(self.symbol), "scipy")
+                self.eq2_np = sp.lambdify(self.symbol, self.eq2(self.symbol), "scipy")
+                x_coords_np = np.array(x_coords)
+                plottable_x1_coords = x_coords_np[np.isreal(scalar_to_array(self.eq1_np(x_coords_np), shape=x_coords_np.shape))]
+                plottable_x2_coords = x_coords_np[np.isreal(scalar_to_array(self.eq2_np(x_coords_np), shape=x_coords_np.shape))]
 
             def add_endpoint(plottable_x_coords, eq):
                 try:

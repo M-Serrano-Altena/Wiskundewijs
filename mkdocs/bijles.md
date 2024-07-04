@@ -2,7 +2,6 @@
 hide:
   - navigation
   - toc
-  - footer
   - feedback
 ---
 

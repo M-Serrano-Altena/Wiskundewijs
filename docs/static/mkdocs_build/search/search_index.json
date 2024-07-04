@@ -510,6 +510,11 @@
             "text": ""
         },
         {
+            "location": "oplosser/",
+            "title": "Oplosser",
+            "text": "<p>empty</p>"
+        },
+        {
             "location": "percentages/",
             "title": "Percentages",
             "text": "<p>We zijn allemaal wel een keer percentages tegengekomen. Bijvoorbeeld als je \\(80 \\%\\) van \u20ac\\(10\\) moet betalen, dan hoef je maar \u20ac\\(8\\) te betalen. Heb je \\(50 \\%\\) korting? Dan hoef je alleen maar de helft te betalen, dus \u20ac\\(5\\). Maar hoeveel moet je betalen als je \\(15.3 \\%\\) korting hebt? Deze vraag kunnen we met behulp van de theorie straks beantwoorden.</p>"

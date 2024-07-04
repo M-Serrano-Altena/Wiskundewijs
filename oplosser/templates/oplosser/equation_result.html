@@ -9,16 +9,65 @@
 
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+
+<style>
+    .responsive-container {
+        display: flex;
+    }
+
+    .solutions {
+        white-space: nowrap;
+        margin-right: 100px; /* Adjust this value as needed */
+        max-width: 40%;
+    }
+
+    .plot {
+        flex-grow: 1;
+        padding: 0;
+        height: 100%;
+        width: 40%;
+    }
+
+    .title {
+        margin-bottom: 10px; /* Adjust this value as needed */
+    }
+
+    .input-text {
+        margin-top: 0; /* Remove any default top margin */
+    }
+
+    @media (max-width: 900px) { /* Adjust the breakpoint as needed */
+
+        .responsive-container {
+            flex-direction: column; /* Stack items vertically */
+        }
+
+        .solutions {
+            margin-right: 10; /* Remove the right margin */
+            max-width: 100%; /* Allow solutions to take full width */
+        }
+
+        .plot {
+            margin-top: 20px; /* Add some spacing between solutions and plot */
+            width: 95%;
+            margin:auto;
+        }
+    }
+
+
+
+</style>
+
 <br><br><br>
 <div class="container">
-    <h1 style="font-size: 28px; font-weight: bold;">Oplossing van de Vergelijking</h1><br><br>
-    <div style="display: flex;">
-        <div style="white-space: nowrap; max-width: 40%; margin-right: 100px;">
-            <p style="font-size: 24px;">Invoer: {{ equation_text }}</p>
+    <h1 class="title" style="font-size: 28px; font-weight: bold;">Oplossing van de Vergelijking</h1><br><br>
+    <div class="responsive-container">
+        <div class="solutions">
+            <p class="input-text" style="font-size: 24px;">Invoer: {{ equation_text }}</p>
             <p style="font-size: 24px;">Interpretatie: {{ equation_interpret }}</p>
-            <div class="arithmatex" style="font-size: 20px;">{{ solutions|safe }}</div>
+            <div class="arithmatex" style="font-size: 20px; margin-left: auto;">{{ solutions|safe }}</div>
         </div>
-        <div id="plot" style="flex-grow: 1; margin: 0; padding: 0; height: 100%; width: 100%;"></div>
+        <div id="plot" class="plot"></div>
     </div>
 </div>
 <script>
@@ -44,5 +93,11 @@
     window.setTimeout(function() {
         Plotly.relayout('plot', 'autosize', true);
     }, 10);  // Delay in milliseconds
+
+    // Resize plot on window resize
+    window.addEventListener('resize', function() {
+        Plotly.Plots.resize(document.getElementById('plot'));
+    });
+
 </script>
 

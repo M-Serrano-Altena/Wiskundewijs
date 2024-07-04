@@ -251,6 +251,15 @@ def math_interpreter(eq_string):
     eq_string = re.sub(r'mod', r'Mod', eq_string)
     eq_string = re.sub(r'lambertw', r'LambertW', eq_string)
 
+    arc_gonio_functions = ["arcsin", "arccos", "arctan", "arccot", "arcsec", "arccsc"]
+    relevant_arc_functions = [arc_gonio_func for arc_gonio_func in arc_gonio_functions if arc_gonio_func in eq_string]
+
+    if len(relevant_arc_functions) != 0:
+        for arc_gonio_func in relevant_arc_functions:
+            a_gonio_func = arc_gonio_func[0] + arc_gonio_func[3:]
+            eq_string = re.sub(re.escape(arc_gonio_func), re.escape(a_gonio_func), eq_string)
+            relevant_functions.insert(0, a_gonio_func)
+
     relevant_functions.extend([func for func in ["Abs", "Mod", "LambertW"] if func in eq_string])
 
     eq_string = re.sub(r'\b' + r'i'  + r'\b', r'I', eq_string)
@@ -445,10 +454,10 @@ def custom_latex(expr, **kwargs):
 
 x = sp.symbols("x")
 # print(custom_latex(sp.Limit('f(x)', x, 'a')))
-string = "expsinx"
-# string = "exp"
+string = "|exp ix|"
 string = math_interpreter(string)
 print(string)
+print(custom_latex(sp.sympify(string)))
 
 exit()
 
