@@ -2,7 +2,7 @@ import numpy as np
 import sympy as sp
 from sympy.simplify.fu import TR2, TR1
 from sympy.printing.latex import LatexPrinter
-import re
+import regex as re
 import scipy.optimize
 import warnings
 
@@ -58,12 +58,6 @@ def replace_func(eq_string, func_name: str='log', replace_with: str='10', amt_co
 
 def math_interpreter(eq_string):
 
-    def find_substring_indices(substring, string):
-        indices = []
-        for match in re.finditer(re.escape(substring), string):
-            indices.append((match.start(), match.end()))
-        return indices
-
     def insert_asterisks(match):
         char = match.group(1)
         count = len(match.group(0))
@@ -105,7 +99,7 @@ def math_interpreter(eq_string):
 
         return eq_string
     
-    def add_parenthesis(match):
+    def add_parenthesis(match, extra_index=0):
         function_name = match.group(1)
         symbol = match.group(2)
 
@@ -125,33 +119,86 @@ def math_interpreter(eq_string):
             if index_range <= 0:
                 continue
 
-            index_start_match = match.start(1)
-            index_end_match = match.end(1)
+            index_start_match = match.start(1) + extra_index
+            index_end_match = match.end(1) + extra_index
             index_start = index_start_match - index_range if index_start_match - index_range >= 0 else 0
             index_end = index_end_match + index_range if index_end_match + index_range <= len(eq_string) else len(eq_string)
 
             if func in eq_string[index_start:index_end]:
                 if function_name in func and func != function_name:
-                    print(func, match.group(1), match.group(2))
-                    print(eq_string[index_start:index_end])
-                    print("thourough check")
                     return match.group(0)
-                
-        
-        for func in relevant_functions:
-            if func in symbol:
-                indices = find_substring_indices(func, symbol)
-                for index in indices:
-                    if index[0] != 0:
 
-                        return f'{function_name}({symbol[:index[0]]})*{symbol[index[0]:]}'
         
         return f'{function_name}({symbol})'
+    
+
+    def mult_constants(match):
+        function_name = match.group(1)
+        symbol = match.group(2)
+        extra_index = 0
+
+        # quick check
+        if function_name + symbol in relevant_functions:
+            return match.group(0)
+        
+        # thourough check
+        for func in relevant_functions:
+            if func == function_name:
+                continue
+
+            length_func_name = len(func)
+            length_match_func = len(function_name)
+            index_range = length_func_name - length_match_func
+
+            if index_range <= 0:
+                continue
+
+            index_start_match = match.start(1) + extra_index
+            index_end_match = match.end(1) + extra_index
+            index_start = index_start_match - index_range if index_start_match - index_range >= 0 else 0
+            index_end = index_end_match + index_range if index_end_match + index_range <= len(eq_string) else len(eq_string)
+
+            if func in eq_string[index_start:index_end]:
+                if function_name in func and func != function_name:
+                    return match.group(0)
+
+
+
+        matched = match.group(1)
+        constant_name = match.group(2)
+
+        # quick check
+        if matched + constant_name in relevant_functions:
+            return match.group(0)
+        
+        # thourough check
+        for const in constant_names:
+            if const == constant_name:
+                continue
+            
+            length_const_name = len(const)
+            length_match_const = len(constant_name)
+            index_range = length_const_name - length_match_const
+
+            if index_range <= 0:
+                continue
+
+            index_start_match = match.start(1)
+            index_end_match = match.end(1)
+            index_start = index_start_match - index_range if index_start_match - index_range >= 0 else 0
+            index_end = index_end_match + index_range if index_end_match + index_range <= len(eq_string) else len(eq_string)
+
+            if const in eq_string[index_start:index_end]:
+                if constant_name in const and const != constant_name:
+                    return match.group(0)
+
+        return f'{matched}*{constant_name}'
         
 
     eq_string = eq_string.casefold()
     function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
     function_names.extend(("diff", "integrate", "limit", "Mod"))
+    function_names.remove("ff")
     relevant_functions = [func for func in function_names if func in eq_string]
 
 
@@ -164,8 +211,12 @@ def math_interpreter(eq_string):
 
     abs_pattern = re.compile(r"\|([^|]+)\|")
     eq_string = re.sub(abs_pattern, r"Abs(\1)", eq_string)
-    eq_string = re.sub(r'\b' + r'abs', r'Abs', eq_string)
-    eq_string = re.sub(r'\b' + r'mod', r'Mod', eq_string)
+    eq_string = re.sub(r'abs', r'Abs', eq_string)
+    eq_string = re.sub(r'mod', r'Mod', eq_string)
+    eq_string = re.sub(r'lambertw', r'LambertW', eq_string)
+
+    relevant_functions.extend([func for func in ["Abs", "Mod", "LambertW"] if func in eq_string])
+
     eq_string = re.sub(r'\b' + r'i'  + r'\b', r'I', eq_string)
     eq_string = re.sub(r'\b' + r'e'  + r'\b', r'E', eq_string)
 
@@ -173,9 +224,15 @@ def math_interpreter(eq_string):
 
     eq_string = re.sub(r'(\d+/\d+)\s+(\d+/\d+)', r'\1*\2', eq_string)
     eq_string = re.sub(r'(\d+)\s+(\d+/\d+)', r'(\1+\2)', eq_string)
-    eq_string = re.sub(rf'({'|'.join(map(re.escape, relevant_functions))})' + r'(?:\s)+([\w]+)', r'\1(\2)', eq_string)
+
+    if len(relevant_functions) != 0:
+        eq_string = re.sub(rf'({'|'.join(map(re.escape, relevant_functions))})' + r'(?:\s)+([\w]+)', r'\1(\2)', eq_string)
+   
     eq_string = re.sub(r'(?<=[\w)])\s+(?=[\w(])', '*', eq_string)
 
+    if len(relevant_functions) != 0:
+        eq_string = re.sub(rf'({'|'.join(map(re.escape, relevant_functions))})' r'(?!\w+|\()', r'\1(x)', eq_string)
+    
     for _ in range(10):
         eq_string = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', eq_string)
         eq_string = re.sub(r'\b' + r'([a-zA-Z])(\d)', r'\1^\2', eq_string)
@@ -190,23 +247,40 @@ def math_interpreter(eq_string):
         eq_string = re.sub(r'\b' + r'([e])' + r'\b', r'E', eq_string)
         eq_string = re.sub(r'\b' + r'([i])' + r'\b', r'I', eq_string)
         
-
         for function_name1 in relevant_functions:
             for function_name2 in relevant_functions:
                 eq_string = re.sub(function_name1 + function_name2 + r'\((.*?)\)', rf"{function_name1}({function_name2}\1)", eq_string)
                 eq_string = re.sub(function_name2 + function_name1 + r'\((.*?)\)', rf"{function_name2}({function_name1}\1)", eq_string)
 
             eq_string = re.sub(function_name1 + r'\*' + rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + r'(\d+|[a-zA-Z])', function_name1 + r'(x)*\1', eq_string)
-            eq_string = re.sub(rf'({re.escape(function_name1)})' + rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' +  r'(\d+|[a-zA-Z]+)', add_parenthesis, eq_string)
-            eq_string = re.sub(r'\b' + rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + r'(\d+|[a-zA-Z])' + function_name1, r'\1*' + function_name1, eq_string)
+
+
+            matches = re.finditer(rf'({re.escape(function_name1)})' + rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' +  r'([\w(]+)', eq_string, overlapped=True)
+            old_eq_string = eq_string
+            for match in matches:
+                extra_index = len(eq_string) - len(old_eq_string)
+                eq_string = re.sub(re.escape(match.group()), add_parenthesis(match, extra_index), eq_string, count=1)
+            
+            if len(relevant_functions) != 0:
+                eq_string = re.sub(r'\b' + rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + r'([\w(]+)' + function_name1, r'\1*' + function_name1, eq_string)
+            
             eq_string = re.sub(function_name1 + r'\*\(', function_name1 + '(', eq_string)
 
-            
             for function_name2 in relevant_functions:
                 eq_string = re.sub(function_name1 + function_name2 + r'\((.*?)\)', rf"{function_name1}({function_name2}(\1))", eq_string)
                 eq_string = re.sub(function_name2 + function_name1 + r'\((.*?)\)', rf"{function_name2}({function_name1}(\1))", eq_string)
-
-    eq_string = re.sub(r'\s' + rf'({'|'.join(map(re.escape, relevant_functions))})' r'\s', r'\1(x)', eq_string)
+    
+    if len(relevant_functions) != 0:
+        eq_string = re.sub(rf'({'|'.join(map(re.escape, relevant_functions))})' r'(?!\w+|\()', r'\1(x)', eq_string)
+    
+    for constant in constant_names:
+        if len(relevant_functions) != 0:
+            eq_string = re.sub(rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + r'([\w]+)' + f"({constant})", mult_constants, eq_string)
+            eq_string = re.sub(rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + f"({constant})" + r'([\w]+)', mult_constants, eq_string)
+        else:
+            eq_string = re.sub(r'([\w]+)' + f"({constant})", mult_constants, eq_string)
+            eq_string = re.sub(f"({constant})" + r'([\w]+)', mult_constants, eq_string)
+    
     eq_string = replace_func(eq_string, func_name='log', replace_with='10')
 
     for i in range(len(constant_names)):
@@ -343,14 +417,30 @@ class Solve:
     def numerical_roots(self, eq, a=-10000, b=10000, dx=0.01, solve_method="newton", dy=0.1, use_scale_factor:bool=False, default_func:bool=True):
         x = sp.symbols('x')
         eq = eq(x)
-        eq_lambda = sp.lambdify(x, eq, "numpy")
         diff_eq = sp.diff(eq, x)
-        diff_eq_lambda = sp.lambdify(x, diff_eq, "numpy")
-
         x = np.linspace(a, b, (b-a) * int(1/dx))
         xy = np.zeros((x.shape[0], 2))
         xy[:, 0] = x
-        xy[:, 1] = eq_lambda(x)
+
+
+        try:
+            eq_lambda = sp.lambdify(x, eq, "numpy")
+            diff_eq_lambda = sp.lambdify(x, diff_eq, "numpy")
+            xy[:, 1] = eq_lambda(x)
+
+        except NameError:
+            try:
+                eq_lambda = sp.lambdify(x, eq, "scipy")
+                diff_eq_lambda = sp.lambdify(x, diff_eq, "scipy")
+                xy[:, 1] = eq_lambda(x)
+
+
+            except NameError:
+                eq_lambda = sp.lambdify(x, eq, "sympy")
+                diff_eq_lambda = sp.lambdify(x, diff_eq, "sympy")
+                xy[:, 1] = eq_lambda(x)
+
+
         xy = xy[~np.isnan(xy[:,1]) & ~np.isinf(xy[:,1])]
 
         if use_scale_factor:
