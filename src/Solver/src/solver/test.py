@@ -301,7 +301,7 @@ def math_interpreter(eq_string):
                 eq_string = re.sub(re.escape(match.group()), add_parenthesis(match, extra_index), eq_string, count=1)
             
             if len(relevant_functions) != 0:
-                eq_string = re.sub(r'\b' + rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + r'([\w(]+)' + function_name1, r'\1*' + function_name1, eq_string)
+                eq_string = re.sub(r'\b' + rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + r'([\w]+)' + function_name1, r'\1*' + function_name1, eq_string)
             
             eq_string = re.sub(function_name1 + r'\*\(', function_name1 + '(', eq_string)
 
@@ -445,7 +445,7 @@ def custom_latex(expr, **kwargs):
 
 x = sp.symbols("x")
 # print(custom_latex(sp.Limit('f(x)', x, 'a')))
-string = "sinipipi"
+string = "expsinx"
 # string = "exp"
 string = math_interpreter(string)
 print(string)
