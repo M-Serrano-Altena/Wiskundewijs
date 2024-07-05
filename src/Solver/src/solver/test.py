@@ -135,11 +135,8 @@ def math_interpreter(eq_string):
         function_name = match.group(1)
         symbol = match.group(2)
 
-        print("fname, symbol:", function_name, symbol)
-
         # quick check
         if function_name + symbol in relevant_functions:
-            print("quick check")
             return match.group(0)
         
         # thourough check
@@ -158,8 +155,6 @@ def math_interpreter(eq_string):
             index_end_match = match.end(1) + extra_index
             index_start = index_start_match - index_range if index_start_match - index_range >= 0 else 0
             index_end = index_end_match + index_range if index_end_match + index_range <= len(eq_string) else len(eq_string)
-
-            print(eq_string, match.group(0), match.start(1), match.end(1))
 
             if func in eq_string[index_start:index_end]:
                 if function_name in func and func != function_name:
@@ -169,42 +164,43 @@ def math_interpreter(eq_string):
         return f'{function_name}({symbol})'
 
     def mult_constants(match):
-        function_name = match.group(1)
-        symbol = match.group(2)
-        extra_index = 0
+        if match.group(1) != '':
+            function_name = match.group(1)
+            symbol = match.group(2)
+            extra_index = 0
+
+            # quick check
+            if function_name + symbol in relevant_functions:
+                return match.group(0)
+            
+            # thourough check
+            for func in relevant_functions:
+                if func == function_name:
+                    continue
+
+                length_func_name = len(func)
+                length_match_func = len(function_name)
+                index_range = length_func_name - length_match_func
+
+                if index_range <= 0:
+                    continue
+
+                index_start_match = match.start(1) + extra_index
+                index_end_match = match.end(1) + extra_index
+                index_start = index_start_match - index_range if index_start_match - index_range >= 0 else 0
+                index_end = index_end_match + index_range if index_end_match + index_range <= len(eq_string) else len(eq_string)
+
+                if func in eq_string[index_start:index_end]:
+                    if function_name in func and func != function_name:
+                        return match.group(0)
+
+
+
+        matched = match.group(2)
+        constant_name = match.group(3)
 
         # quick check
-        if function_name + symbol in relevant_functions:
-            return match.group(0)
-        
-        # thourough check
-        for func in relevant_functions:
-            if func == function_name:
-                continue
-
-            length_func_name = len(func)
-            length_match_func = len(function_name)
-            index_range = length_func_name - length_match_func
-
-            if index_range <= 0:
-                continue
-
-            index_start_match = match.start(1) + extra_index
-            index_end_match = match.end(1) + extra_index
-            index_start = index_start_match - index_range if index_start_match - index_range >= 0 else 0
-            index_end = index_end_match + index_range if index_end_match + index_range <= len(eq_string) else len(eq_string)
-
-            if func in eq_string[index_start:index_end]:
-                if function_name in func and func != function_name:
-                    return match.group(0)
-
-
-
-        matched = match.group(1)
-        constant_name = match.group(2)
-
-        # quick check
-        if matched + constant_name in relevant_functions:
+        if matched + constant_name in constant_names:
             return match.group(0)
         
         # thourough check
@@ -219,8 +215,8 @@ def math_interpreter(eq_string):
             if index_range <= 0:
                 continue
 
-            index_start_match = match.start(1)
-            index_end_match = match.end(1)
+            index_start_match = match.start(2)
+            index_end_match = match.end(3)
             index_start = index_start_match - index_range if index_start_match - index_range >= 0 else 0
             index_end = index_end_match + index_range if index_end_match + index_range <= len(eq_string) else len(eq_string)
 
@@ -278,7 +274,6 @@ def math_interpreter(eq_string):
     if len(relevant_functions) != 0:
         eq_string = re.sub(rf'({'|'.join(map(re.escape, relevant_functions))})' r'(?!\w+|\()', r'\1(x)', eq_string)
     
-    print("start", eq_string)
     for _ in range(10):
         eq_string = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', eq_string)
         eq_string = re.sub(r'\b' + r'([a-zA-Z])(\d)', r'\1^\2', eq_string)
@@ -293,8 +288,6 @@ def math_interpreter(eq_string):
         eq_string = re.sub(r'\b' + r'([e])' + r'\b', r'E', eq_string)
         eq_string = re.sub(r'\b' + r'([i])' + r'\b', r'I', eq_string)
         
-        print(eq_string)
-
         for function_name1 in relevant_functions:
             for function_name2 in relevant_functions:
                 eq_string = re.sub(function_name1 + function_name2 + r'\((.*?)\)', rf"{function_name1}({function_name2}\1)", eq_string)
@@ -314,8 +307,6 @@ def math_interpreter(eq_string):
             
             eq_string = re.sub(function_name1 + r'\*\(', function_name1 + '(', eq_string)
 
-            print("test2", eq_string)
-            
             
             for function_name2 in relevant_functions:
                 eq_string = re.sub(function_name1 + function_name2 + r'\((.*?)\)', rf"{function_name1}({function_name2}(\1))", eq_string)
@@ -329,8 +320,8 @@ def math_interpreter(eq_string):
             eq_string = re.sub(rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + r'([\w]+)' + f"({constant})", mult_constants, eq_string)
             eq_string = re.sub(rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + f"({constant})" + r'([\w]+)', mult_constants, eq_string)
         else:
-            eq_string = re.sub(r'([\w]+)' + f"({constant})", mult_constants, eq_string)
-            eq_string = re.sub(f"({constant})" + r'([\w]+)', mult_constants, eq_string)
+            eq_string = re.sub(r'()'+ r'([\w]+)' + f"({constant})", mult_constants, eq_string)
+            eq_string = re.sub(r'()'+ f"({constant})" + r'([\w]+)', mult_constants, eq_string)
     
     eq_string = replace_func(eq_string, func_name='log', replace_with='10')
 
@@ -454,10 +445,16 @@ def custom_latex(expr, **kwargs):
 
 x = sp.symbols("x")
 # print(custom_latex(sp.Limit('f(x)', x, 'a')))
-string = "|exp ix|"
+string = "zoo"
 string = math_interpreter(string)
 print(string)
 print(custom_latex(sp.sympify(string)))
+
+eq = "y - x**2"
+eq = sp.sympify(eq)
+sol = sp.solveset(eq, x)
+print(sol)
+sp.Inverse
 
 exit()
 

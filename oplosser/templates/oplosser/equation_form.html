@@ -259,8 +259,7 @@
 
     // Ensure all buttons lose focus after click
     $('button').click(function() {
-        document.querySelector('input[name="equation_text"]').focus();
-        document.querySelector('input[name="equation_text"]').blur();
+        $(this).blur();
     });
 
 </script>

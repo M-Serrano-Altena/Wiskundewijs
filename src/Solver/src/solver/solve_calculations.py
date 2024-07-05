@@ -130,7 +130,6 @@ def math_interpreter(eq_string):
 
         
         return f'{function_name}({symbol})'
-    
 
     def mult_constants(match):
         function_name = match.group(1)
@@ -168,7 +167,7 @@ def math_interpreter(eq_string):
         constant_name = match.group(2)
 
         # quick check
-        if matched + constant_name in relevant_functions:
+        if matched + constant_name in constant_names:
             return match.group(0)
         
         # thourough check
@@ -184,7 +183,7 @@ def math_interpreter(eq_string):
                 continue
 
             index_start_match = match.start(1)
-            index_end_match = match.end(1)
+            index_end_match = match.end(2)
             index_start = index_start_match - index_range if index_start_match - index_range >= 0 else 0
             index_end = index_end_match + index_range if index_end_match + index_range <= len(eq_string) else len(eq_string)
 
@@ -275,6 +274,7 @@ def math_interpreter(eq_string):
             
             eq_string = re.sub(function_name1 + r'\*\(', function_name1 + '(', eq_string)
 
+            
             for function_name2 in relevant_functions:
                 eq_string = re.sub(function_name1 + function_name2 + r'\((.*?)\)', rf"{function_name1}({function_name2}(\1))", eq_string)
                 eq_string = re.sub(function_name2 + function_name1 + r'\((.*?)\)', rf"{function_name2}({function_name1}(\1))", eq_string)
@@ -614,8 +614,12 @@ class Solve:
                 self.output.append(("Ongeldige Vergelijking", {"latex": False}))
                 return self.equation_interpret, self.output, self.plot
             
+
             self.eq = sp.simplify(self.eq)
-            self.solutions = sp.solveset(self.eq, domain=sp.S.Reals)
+            if not isinstance(self.eq, sp.AccumBounds):
+                self.solutions = sp.solveset(self.eq, domain=sp.S.Reals)
+            else:
+                self.solutions = sp.EmptySet
             
             if self.symbol:
                 domain = sp.calculus.util.continuous_domain(self.eq, self.symbol, domain=sp.S.Reals)
@@ -718,19 +722,21 @@ class Solve:
                 if len(eq_split) == 1:
                     if not self.symbol:
                         solution = sp.nsimplify(eq1, [sp.pi])
+                        equals_sign = '='
                         if solution.is_number:
-
-                            if solution == sp.N(solution):
+                            if solution == sp.N(solution) or eq1 == sp.N(solution):
                                 equals_sign = '='
                             else:
                                 equals_sign = '\\approx'
 
                             solution = sp.N(solution)
                             try:
+                                complex_num = False
                                 if solution.is_finite and int(solution) == solution:
                                     solution = int(solution)
 
                             except TypeError:
+                                complex_num = True
                                 real_part, imag_part = solution.as_real_imag()
 
                                 if sp.Integer(real_part) == real_part and sp.Integer(imag_part) == imag_part:
@@ -738,9 +744,18 @@ class Solve:
 
                                 if real_part == sp.nsimplify(eq1, [sp.pi]).as_real_imag()[0] and imag_part == sp.nsimplify(eq1, [sp.pi]).as_real_imag()[1]:
                                     equals_sign = '='
+                            
 
                         if eq1 != self.eq_string and equals_sign != "=":
+                            if not complex_num and round(float(solution), 9) == round(float(solution), 10):
+                                equals_sign = '='  
                             self.output.append(f"{custom_latex(self.eq_string)} = {custom_latex(eq1)} {equals_sign} {custom_latex(solution)}")
+
+                        elif self.eq_string == solution:
+                            if eq_split[0] != str(solution):
+                                self.output.append(f"{eq_split[0]} {equals_sign} {custom_latex(solution)}")
+                            else:
+                                self.output.append(f"\\textrm{{Yep dat is }} {custom_latex(solution)}")
 
                         else:
                             self.output.append(f"{custom_latex(self.eq_string)} {equals_sign} {custom_latex(solution)}")
@@ -820,7 +835,7 @@ class Solve:
             self.output.append((f"Error: De ingevoerde functie klopt niet", {"latex":False}))
             return self.equation_interpret, self.output, self.plot
 
-        except ValueError as e:
+        except Exception as e:
             self.output.append((f"ERROR", {"latex":False}))
             print(e)
             return self.equation_interpret, self.output, self.plot
