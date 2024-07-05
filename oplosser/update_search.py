@@ -8,7 +8,7 @@ def update_search_index():
         data = json.load(f)
 
     for item in data['docs']:
-        if item['title'] == 'Vergelijking Oplosser':
+        if item['title'] == 'Oplosser':
             item['location'] = '../oplosser'
             item['text'] = 'Lost een vergelijking op en plot de twee functies aan beide kanten' 
             print("Item updated successfully")
@@ -16,7 +16,7 @@ def update_search_index():
     else:
         data['docs'].append({
             'location': '../oplosser', 
-            'title': 'Vergelijking Oplosser',
+            'title': 'Oplosser',
             'text': 'Lost een vergelijking op en plot de twee functies aan beide kanten'
         })
         print("New item added successfully")
