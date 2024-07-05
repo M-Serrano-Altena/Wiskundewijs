@@ -220,6 +220,7 @@
 
             // Blur the input field to close the keyboard on mobile devices
             document.querySelector('input[name="equation_text"]').blur();
+            $('body').focus();
 
             $.ajax({
                 url: $(this).attr('action'),
@@ -256,12 +257,13 @@
             }
 
             // Blur the button after click
-            $(this).blur();
+            $('body').focus();
 
         });
 
         $('button').click(function() {
             $(this).blur();
+            $('body').focus();
         });
 
     });
