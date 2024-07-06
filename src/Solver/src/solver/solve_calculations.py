@@ -324,8 +324,10 @@ class CustomLatexPrinter(LatexPrinter):
                 base = self._print(base)
 
                 return f' \\ ^{{{base}}} \\! \\log\\left({arg} \\right)'
-            
-        return super()._print_Mul(expr).replace("1 \\cdot", " ")
+
+        result = super()._print_Mul(expr).replace("1 \\cdot", " ")
+        result = re.sub(r"\\left\(-(\d+)\\right\) ", r"- \1 \\cdot", result)
+        return result
     
 
     def _print_Pow(self, expr, **kwargs):
@@ -422,6 +424,7 @@ class Solve:
         self.plot = False
         self.intersect = False
         self.numerical = False
+        self.multivariate = False
 
     def numerical_roots(self, eq, a=-10000, b=10000, dx=0.01, solve_method="newton", dy=0.1, use_scale_factor:bool=False, default_func:bool=True):
         eq_lambda_sp = eq
@@ -446,7 +449,10 @@ class Solve:
             eq_lambda, diff_eq_lambda, xy = use_module(module="numpy")
 
         except NameError:
-            eq_lambda, diff_eq_lambda, xy = use_module(module="scipy")
+            try:
+                eq_lambda, diff_eq_lambda, xy = use_module(module="scipy")
+            except NameError:
+                eq_lambda, diff_eq_lambda, xy = use_module(module="sympy")
 
         if use_scale_factor:
             test = np.abs(xy[:,1])
@@ -568,15 +574,53 @@ class Solve:
                     self.eq = eq1
 
                 self.equation_interpret = self.eq_string
+                free_symbols = list(eq1.free_symbols)
 
-                if eq1.free_symbols:
-                    self.symbol = eq1.free_symbols.pop()
+                if free_symbols:
+                    if len(free_symbols) == 2:
+                        y_symbol = sp.symbols("y")
+                        
+                        if y_symbol in free_symbols:
+                            self.multivariate = True
+
+                            free_y_equation = reversed(sp.solve(eq1, y_symbol))
+                            abs_solutions = []
+                            new_solutions = []
+                            for sol in free_y_equation:
+                                if sp.Abs(sol) not in abs_solutions:
+                                    new_solutions.append(sol)
+                                    abs_solutions.append(sp.Abs(sol))
+                            
+                            eq1 = y_symbol
+                            eq2 = new_solutions[0]
+                            eq12 = eq1 - eq2
+
+                            try:
+                                self.eq = sp.nsimplify(sp.Eq(eq1, eq2), tolerance=10**-7)
+                            except AttributeError:
+                                self.eq = sp.Eq(eq1, eq2)
+
+
+                            self.eq = self.eq.subs(y_symbol, 0)
+                            eq12 = eq12.subs(y_symbol, 0)
+                            free_symbols.remove(y_symbol)
+                            eq_split = (str(y_symbol), str(eq2))
+
+                    if (len(free_symbols) == 2 and y_symbol not in free_symbols) or len(free_symbols) > 2:
+                        self.output.append(("Error: Meer dan 1 variabele", {"latex": False}))
+                        return self.equation_interpret, self.output, self.plot
+                    
+                    self.symbol = free_symbols[0]
                     symbol_new = sp.symbols(str(self.symbol), real=True)
                     self.eq = self.eq.subs(self.symbol, symbol_new)
                     eq1 = eq1.subs(self.symbol, symbol_new)
                     self.symbol = symbol_new
 
-                    self.eq1 = sp.lambdify(self.symbol, eq1, "sympy")
+                    if self.multivariate:
+                        self.eq1 = sp.lambdify(self.symbol, eq1.subs(y_symbol, 0), "sympy")
+                    else:
+                        self.eq1 = sp.lambdify(self.symbol, eq1, "sympy")
+
                     self.eq2 = sp.lambdify(self.symbol, eq2, "sympy")
                     
                     if not sp.solveset(self.eq, domain=sp.S.Reals).is_empty:
@@ -597,22 +641,61 @@ class Solve:
 
                 self.equation_interpret = self.eq_string
                 self.eq_string = str(self.eq)
+                free_symbols = list(eq12.free_symbols)
                 
-                if eq12.free_symbols:
-                    self.symbol = eq12.free_symbols.pop()
+                if free_symbols:
+                    if len(free_symbols) == 2:
+                        y_symbol = sp.symbols("y")
+                        
+                        if y_symbol in free_symbols:
+                            self.multivariate = True
+
+                            free_y_equation = reversed(sp.solve(eq12, y_symbol))
+                            abs_solutions = []
+                            new_solutions = []
+                            for sol in free_y_equation:
+                                if sp.Abs(sol) not in abs_solutions:
+                                    new_solutions.append(sol)
+                                    abs_solutions.append(sp.Abs(sol))
+                            
+                            eq1 = y_symbol
+                            eq2 = new_solutions[0]
+                            eq12 = eq1 - eq2
+
+                            try:
+                                self.eq = sp.nsimplify(sp.Eq(eq1, eq2), tolerance=10**-7)
+                            except AttributeError:
+                                self.eq = sp.Eq(eq1, eq2)
+
+
+                            self.eq = self.eq.subs(y_symbol, 0)
+                            eq12 = eq12.subs(y_symbol, 0)
+                            free_symbols.remove(y_symbol)
+
+                    if (len(free_symbols) == 2 and y_symbol not in free_symbols) or len(free_symbols) > 2:
+                        self.output.append(("Error: Meer dan 1 variabele", {"latex": False}))
+                        return self.equation_interpret, self.output, self.plot
+                    
+                    self.symbol = free_symbols[0]
                     symbol_new = sp.symbols(str(self.symbol), real=True)
                     self.eq = self.eq.subs(self.symbol, symbol_new)
                     eq1 = eq1.subs(self.symbol, symbol_new)
                     eq2 = eq2.subs(self.symbol, symbol_new)
                     self.symbol = symbol_new
 
-                    self.eq1 = sp.lambdify(self.symbol, eq1, "sympy")
-                    self.eq2 = sp.lambdify(self.symbol, eq2, "sympy")
+                    if self.multivariate:
+                        self.eq1 = sp.lambdify(self.symbol, eq1.subs(y_symbol, 0), "sympy")
+                        self.eq2 = sp.lambdify(self.symbol, eq2.subs(y_symbol, 0), "sympy")
+                    else:
+                        self.eq1 = sp.lambdify(self.symbol, eq1, "sympy")
+                        self.eq2 = sp.lambdify(self.symbol, eq2, "sympy")
                 
 
             else:
                 self.output.append(("Ongeldige Vergelijking", {"latex": False}))
                 return self.equation_interpret, self.output, self.plot
+            
+
             
 
             self.eq = sp.simplify(self.eq)
@@ -621,6 +704,9 @@ class Solve:
             else:
                 self.solutions = sp.EmptySet
             
+
+
+
             if self.symbol:
                 domain = sp.calculus.util.continuous_domain(self.eq, self.symbol, domain=sp.S.Reals)
                 domain_string = str(domain)
@@ -771,13 +857,15 @@ class Solve:
                         
 
                     else:
+                        self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
+                        self.output.append(f"{custom_latex(sp.simplify(eq1))} = 0")
+
                         complex_symbol = sp.symbols("x")
-
-                        if sp.solve(sp.Eq(self.eq1(complex_symbol), self.eq2(complex_symbol))):
+                        if self.multivariate:
+                            self.output.append((f"Geen snijpunt met de x-as gevonden", {"latex":False}))
+                        elif sp.solve(sp.Eq(self.eq1(complex_symbol), self.eq2(complex_symbol))):
                             self.output.append(("Geen reële oplossing gevonden", {"latex": False}))
-
                         else:
-                            print("test")
                             self.output.append(("Geen oplossing gevonden", {"latex": False}))
 
                         self.plot = True
@@ -803,12 +891,15 @@ class Solve:
                         self.output.append((f"{custom_latex(lhs)} \\neq {custom_latex(rhs)}", {"new_line":2}))
                         self.output.append(("Deze vergelijking klopt niet", {"latex": False}))
 
-                    else:
+                    else:                        
+                        self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
+                        self.output.append(f"{custom_latex(sp.simplify(eq1))} = {custom_latex(sp.simplify(eq2))}")
+
                         complex_symbol = sp.symbols("x")
-
-                        if sp.solve(sp.Eq(self.eq1(complex_symbol), self.eq2(complex_symbol))):
+                        if self.multivariate:
+                            self.output.append((f"Geen snijpunt met de x-as gevonden", {"latex":False}))
+                        elif sp.solve(sp.Eq(self.eq1(complex_symbol), self.eq2(complex_symbol))):
                             self.output.append(("Geen reële oplossing gevonden", {"latex": False}))
-
                         else:
                             self.output.append(("Geen oplossing gevonden", {"latex": False}))
 
@@ -817,15 +908,37 @@ class Solve:
                 return self.equation_interpret, self.output, self.plot
             
             if self.solutions.is_empty:
-                self.output.append(("Geen oplossing gevonden", {"latex": False}))
+                if len(eq_split) == 1:
+                    self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
+                    self.output.append(f"{custom_latex(sp.simplify(eq1))} = 0")
+
+                elif len(eq_split) == 2:
+                    self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
+                    self.output.append(f"{custom_latex(sp.simplify(eq1))} = {custom_latex(sp.simplify(eq2))}")
+
+                if self.multivariate:
+                    self.output.append((f"Geen snijpunt met de x-as gevonden", {"latex":False}))
+                else:
+                    self.output.append(("Geen oplossing gevonden", {"latex": False}))
                 return self.equation_interpret, self.output, self.plot
             
         except NotImplementedError:
             check_numerical = self.check_solve_numerically()
 
             if check_numerical is not None and not self.intersect:
+                if len(eq_split) == 1:
+                    self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
+                    self.output.append(f"{custom_latex(sp.simplify(eq1))} = 0")
+
+                elif len(eq_split) == 2:
+                    self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
+                    self.output.append(f"{custom_latex(sp.simplify(eq1))} = {custom_latex(sp.simplify(eq2))}")
+
                 self.plot = True
-                self.output.append(("Geen oplossing gevonden", {"latex": False}))
+                if self.multivariate:
+                    self.output.append((f"Geen snijpunt met de x-as gevonden", {"latex":False}))
+                else:
+                    self.output.append(("Geen oplossing gevonden", {"latex": False}))
                 return self.equation_interpret, self.output, self.plot
             
             elif check_numerical is not None:
@@ -835,7 +948,7 @@ class Solve:
             self.output.append((f"Error: De ingevoerde functie klopt niet", {"latex":False}))
             return self.equation_interpret, self.output, self.plot
 
-        except Exception as e:
+        except TypeError as e:
             self.output.append((f"ERROR", {"latex":False}))
             print(e)
             return self.equation_interpret, self.output, self.plot
@@ -862,7 +975,10 @@ class Solve:
 
 
                 if len(self.solutions) == 1:
-                    self.output.append((f"De oplossing is:", {"latex":False}))
+                    if self.multivariate:
+                        self.output.append((f"Het snijpunt met de \(x\)-as is:", {"latex":False}))
+                    else:
+                        self.output.append((f"De oplossing is:", {"latex":False}))
 
                     if self.solutions.args[0] != sp.N(self.solutions.args[0]):
                         self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solutions.args[0])} \\approx {round(sp.N(self.solutions.args[0]), 5)}")
@@ -872,7 +988,10 @@ class Solve:
                     
 
                 else:
-                    self.output.append((f"De oplossingen zijn:", {"latex":False}))
+                    if self.multivariate:
+                        self.output.append((f"De snijpunten met de \(x\)-as zijn:", {"latex":False}))
+                    else:
+                        self.output.append((f"De oplossingen zijn:", {"latex":False}))
 
                     if len(self.solutions) > 5:
                         abs_solutions= np.abs(list(self.solutions))
@@ -1017,18 +1136,23 @@ class Solve:
 
 
         def get_plottable_coords(x_coords):
+            def try_func_module(module="numpy"):
+                self.eq1_np = sp.lambdify(self.symbol, self.eq1(self.symbol), module)
+                self.eq2_np = sp.lambdify(self.symbol, self.eq2(self.symbol), module)
+                x_coords_np = np.array(x_coords)
+                plottable_x1_coords = x_coords_np[np.isreal(scalar_to_array(self.eq1_np(x_coords_np), shape=x_coords_np.shape))]
+                plottable_x2_coords = x_coords_np[np.isreal(scalar_to_array(self.eq2_np(x_coords_np), shape=x_coords_np.shape))]
+
+                return plottable_x1_coords, plottable_x2_coords
+
             try:
-                self.eq1_np = sp.lambdify(self.symbol, self.eq1(self.symbol), "numpy")
-                self.eq2_np = sp.lambdify(self.symbol, self.eq2(self.symbol), "numpy")
-                x_coords_np = np.array(x_coords)
-                plottable_x1_coords = x_coords_np[np.isreal(scalar_to_array(self.eq1_np(x_coords_np), shape=x_coords_np.shape))]
-                plottable_x2_coords = x_coords_np[np.isreal(scalar_to_array(self.eq2_np(x_coords_np), shape=x_coords_np.shape))]
+                plottable_x1_coords, plottable_x2_coords = try_func_module(module="numpy")
             except NameError:
-                self.eq1_np = sp.lambdify(self.symbol, self.eq1(self.symbol), "scipy")
-                self.eq2_np = sp.lambdify(self.symbol, self.eq2(self.symbol), "scipy")
-                x_coords_np = np.array(x_coords)
-                plottable_x1_coords = x_coords_np[np.isreal(scalar_to_array(self.eq1_np(x_coords_np), shape=x_coords_np.shape))]
-                plottable_x2_coords = x_coords_np[np.isreal(scalar_to_array(self.eq2_np(x_coords_np), shape=x_coords_np.shape))]
+                try:
+                    plottable_x1_coords, plottable_x2_coords = try_func_module(module="scipy")
+                except NameError:
+                    plottable_x1_coords, plottable_x2_coords = try_func_module(module="sympy")
+
 
             def add_endpoint(plottable_x_coords, eq):
                 try:

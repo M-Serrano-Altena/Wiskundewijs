@@ -164,40 +164,39 @@ def math_interpreter(eq_string):
         return f'{function_name}({symbol})'
 
     def mult_constants(match):
-        if match.group(1) != '':
-            function_name = match.group(1)
-            symbol = match.group(2)
-            extra_index = 0
+        function_name = match.group(1)
+        symbol = match.group(2)
+        extra_index = 0
 
-            # quick check
-            if function_name + symbol in relevant_functions:
-                return match.group(0)
-            
-            # thourough check
-            for func in relevant_functions:
-                if func == function_name:
-                    continue
+        # quick check
+        if function_name + symbol in relevant_functions:
+            return match.group(0)
+        
+        # thourough check
+        for func in relevant_functions:
+            if func == function_name:
+                continue
 
-                length_func_name = len(func)
-                length_match_func = len(function_name)
-                index_range = length_func_name - length_match_func
+            length_func_name = len(func)
+            length_match_func = len(function_name)
+            index_range = length_func_name - length_match_func
 
-                if index_range <= 0:
-                    continue
+            if index_range <= 0:
+                continue
 
-                index_start_match = match.start(1) + extra_index
-                index_end_match = match.end(1) + extra_index
-                index_start = index_start_match - index_range if index_start_match - index_range >= 0 else 0
-                index_end = index_end_match + index_range if index_end_match + index_range <= len(eq_string) else len(eq_string)
+            index_start_match = match.start(1) + extra_index
+            index_end_match = match.end(1) + extra_index
+            index_start = index_start_match - index_range if index_start_match - index_range >= 0 else 0
+            index_end = index_end_match + index_range if index_end_match + index_range <= len(eq_string) else len(eq_string)
 
-                if func in eq_string[index_start:index_end]:
-                    if function_name in func and func != function_name:
-                        return match.group(0)
-
+            if func in eq_string[index_start:index_end]:
+                if function_name in func and func != function_name:
+                    return match.group(0)
 
 
-        matched = match.group(2)
-        constant_name = match.group(3)
+
+        matched = match.group(1)
+        constant_name = match.group(2)
 
         # quick check
         if matched + constant_name in constant_names:
@@ -215,8 +214,8 @@ def math_interpreter(eq_string):
             if index_range <= 0:
                 continue
 
-            index_start_match = match.start(2)
-            index_end_match = match.end(3)
+            index_start_match = match.start(1)
+            index_end_match = match.end(2)
             index_start = index_start_match - index_range if index_start_match - index_range >= 0 else 0
             index_end = index_end_match + index_range if index_end_match + index_range <= len(eq_string) else len(eq_string)
 
@@ -320,8 +319,8 @@ def math_interpreter(eq_string):
             eq_string = re.sub(rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + r'([\w]+)' + f"({constant})", mult_constants, eq_string)
             eq_string = re.sub(rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + f"({constant})" + r'([\w]+)', mult_constants, eq_string)
         else:
-            eq_string = re.sub(r'()'+ r'([\w]+)' + f"({constant})", mult_constants, eq_string)
-            eq_string = re.sub(r'()'+ f"({constant})" + r'([\w]+)', mult_constants, eq_string)
+            eq_string = re.sub(r'([\w]+)' + f"({constant})", mult_constants, eq_string)
+            eq_string = re.sub(f"({constant})" + r'([\w]+)', mult_constants, eq_string)
     
     eq_string = replace_func(eq_string, func_name='log', replace_with='10')
 
@@ -375,8 +374,9 @@ class CustomLatexPrinter(LatexPrinter):
                 base = self._print(base)
 
                 return f' \\ ^{{{base}}} \\! \\log\\left({arg} \\right)'
-            
-        return super()._print_Mul(expr).replace("1 \\cdot", " ")
+
+        result = super()._print_Mul(expr).replace("1 \\cdot", " ")
+        return result.replace("\\left(-1\\right) ", "- ")
     
 
     def _print_Pow(self, expr, **kwargs):
@@ -430,12 +430,30 @@ class CustomLatexPrinter(LatexPrinter):
             return f"\\lim_{{{var} \\to {point}}} {self._print(func)}"
         
         elif str(direction) == "+":
-            return f"\\lim_{{{var} \\downarrow {point}}} {self._print(func)}"
+            return f"\\lim_{{{var} \\ \\downarrow \\ {point}}} {self._print(func)}"
         
         elif str(direction) == "-":
-            return f"\\lim_{{{var} \\uparrow {point}}} {self._print(func)}"
+            return f"\\lim_{{{var} \\ \\uparrow \\ {point}}} {self._print(func)}"
 
         return super()._print_Limit(expr)
+    
+    def _print_Function(self, expr, **kwargs):
+        func_name = expr.func.__name__
+        
+        if func_name == 'asin':
+            return rf'\arcsin{{\left({self._print(expr.args[0], **kwargs)}\right)}}'
+        elif func_name == 'acos':
+            return rf'\arccos{{\left({self._print(expr.args[0], **kwargs)}\right)}}'
+        elif func_name == 'atan':
+            return rf'\arctan{{\left({self._print(expr.args[0], **kwargs)}\right)}}'
+        elif func_name == 'asec':
+            return rf'\arcsec{{\left({self._print(expr.args[0], **kwargs)}\right)}}'
+        elif func_name == 'acsc':
+            return rf'\arccsc{{\left({self._print(expr.args[0], **kwargs)}\right)}}'
+        elif func_name == 'acot':
+            return rf'\arccot{{\left({self._print(expr.args[0], **kwargs)}\right)}}'
+        else:
+            return super()._print_Function(expr, **kwargs)
 
 
 def custom_latex(expr, **kwargs):
@@ -443,18 +461,22 @@ def custom_latex(expr, **kwargs):
 
 
 
-x = sp.symbols("x")
-# print(custom_latex(sp.Limit('f(x)', x, 'a')))
-string = "zoo"
+x, y = sp.symbols("x,y", real=True)
+string = "limit(1/x, x, inf).evalf(2)"
 string = math_interpreter(string)
 print(string)
-print(custom_latex(sp.sympify(string)))
+# print(custom_latex(sp.sympify(string, evaluate=False)))
 
-eq = "y - x**2"
-eq = sp.sympify(eq)
-sol = sp.solveset(eq, x)
-print(sol)
-sp.Inverse
+eq = x*y - x
+solutions = reversed(sp.solve(eq, y))
+abs_solutions = []
+new_solutions = []
+for sol in solutions:
+    if sp.Abs(sol) not in abs_solutions:
+        new_solutions.append(sol)
+        abs_solutions.append(sp.Abs(sol))
+
+print(new_solutions)
 
 exit()
 
