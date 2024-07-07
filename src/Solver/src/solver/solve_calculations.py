@@ -44,7 +44,7 @@ def replace_func(eq_string, func_name: str='log', replace_with: str='10', amt_co
                 if replace:
                     index_list.append(index)
                 
-                replace = True
+                replace = False
                 amt_commas = amt_commas_start
 
             index += 1
@@ -319,7 +319,7 @@ class CustomLatexPrinter(LatexPrinter):
         if isinstance(numer, sp.log) and isinstance(denom, sp.log):
             base = denom.args[0]
 
-            if isinstance(base, (sp.Symbol, sp.Number)):
+            if isinstance(base, (sp.Number)):
                 arg = self._print(numer.args[0])
                 base = self._print(base)
 
@@ -524,7 +524,11 @@ class Solve:
     def solve_numerically(self, sp_func=None):
         if sp_func is None:
             default_func = True
-            sp_func = self.eq12
+            if self.multivariate:
+                sp_func = self.eq2
+            else:
+                sp_func = self.eq12
+            
             self.numerical = True
 
         else:
@@ -583,7 +587,7 @@ class Solve:
                         if y_symbol in free_symbols:
                             self.multivariate = True
 
-                            free_y_equation = reversed(sp.solve(eq1, y_symbol))
+                            free_y_equation = reversed([sol for sol in sp.solve(eq1, y_symbol) if str(sp.I) not in str(sol)])
                             abs_solutions = []
                             new_solutions = []
                             for sol in free_y_equation:
@@ -649,8 +653,7 @@ class Solve:
                         
                         if y_symbol in free_symbols:
                             self.multivariate = True
-
-                            free_y_equation = reversed(sp.solve(eq12, y_symbol))
+                            free_y_equation = reversed([sol for sol in sp.solve(eq12, y_symbol) if str(sp.I) not in str(sol)])
                             abs_solutions = []
                             new_solutions = []
                             for sol in free_y_equation:
@@ -671,6 +674,7 @@ class Solve:
                             self.eq = self.eq.subs(y_symbol, 0)
                             eq12 = eq12.subs(y_symbol, 0)
                             free_symbols.remove(y_symbol)
+                            
 
                     if (len(free_symbols) == 2 and y_symbol not in free_symbols) or len(free_symbols) > 2:
                         self.output.append(("Error: Meer dan 1 variabele", {"latex": False}))
@@ -786,7 +790,6 @@ class Solve:
 
             if True in take_diff or True in take_integral:
                 self.output.append(("", {"latex": False}))
-
 
             check_numerical = self.check_solve_numerically()
 
@@ -948,7 +951,7 @@ class Solve:
             self.output.append((f"Error: De ingevoerde functie klopt niet", {"latex":False}))
             return self.equation_interpret, self.output, self.plot
 
-        except TypeError as e:
+        except Exception as e:
             self.output.append((f"ERROR", {"latex":False}))
             print(e)
             return self.equation_interpret, self.output, self.plot
@@ -976,7 +979,7 @@ class Solve:
 
                 if len(self.solutions) == 1:
                     if self.multivariate:
-                        self.output.append((f"Het snijpunt met de \(x\)-as is:", {"latex":False}))
+                        self.output.append((f"Het snijpunt met de $x$-as is:", {"latex":False}))
                     else:
                         self.output.append((f"De oplossing is:", {"latex":False}))
 
@@ -989,7 +992,7 @@ class Solve:
 
                 else:
                     if self.multivariate:
-                        self.output.append((f"De snijpunten met de \(x\)-as zijn:", {"latex":False}))
+                        self.output.append((f"De snijpunten met de $x$-as zijn:", {"latex":False}))
                     else:
                         self.output.append((f"De oplossingen zijn:", {"latex":False}))
 

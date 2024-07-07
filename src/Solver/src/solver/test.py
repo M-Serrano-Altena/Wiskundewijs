@@ -72,14 +72,16 @@ def replace_func(eq_string, func_name: str='log', replace_with: str='10', amt_co
                     amt_commas -= 1
 
             if char == ')' and nested == 0:
-                nested = nested_before
                 if replace:
                     index_list.append(index)
                 
-                replace = True
+                replace = False
                 amt_commas = amt_commas_start
+                nested = nested_before
 
             index += 1
+
+           
     
     additional_index = index_func[0]
     for index in index_list:
@@ -462,21 +464,24 @@ def custom_latex(expr, **kwargs):
 
 
 x, y = sp.symbols("x,y", real=True)
-string = "limit(1/x, x, inf).evalf(2)"
+string = "eval('1')"
+# print(sp.sympify(string, evaluate=False))
 string = math_interpreter(string)
 print(string)
-# print(custom_latex(sp.sympify(string, evaluate=False)))
+print(custom_latex(sp.sympify(string, evaluate=False)))
 
-eq = x*y - x
-solutions = reversed(sp.solve(eq, y))
-abs_solutions = []
-new_solutions = []
-for sol in solutions:
-    if sp.Abs(sol) not in abs_solutions:
-        new_solutions.append(sol)
-        abs_solutions.append(sp.Abs(sol))
+import os
+eq = y*sp.exp(y) - x
+print(sp.solve(eq, y))
 
-print(new_solutions)
+
+# y = sp.Function('y')(x)
+# print(sp.dsolve(sp.diff(y, x) - x))
+
+# print(sp.logcombine(sp.log(x) / sp.log(10)))
+
+# # Display the simplified expression
+# print(sp.log(x, 10))
 
 exit()
 
