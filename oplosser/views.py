@@ -180,13 +180,13 @@ def generate_plot_data(solver):
         for i in range(len(plottable_x1_coords)):
 
             if list(plottable_x1_coords[i]) and list(y1_coords[i]):
-                plot_data_f.append({'x': list(plottable_x1_coords[i]), 'y': list(y1_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'f({solver.symbol}) = {str(solver.eq1(solver.symbol)).replace('log', 'ln')}' if not solver.multivariate else f"y = {str(solver.eq2(solver.symbol)).replace('log', 'ln')}", 'showlegend': i == skip1, 'line': {'color': 'darkturquoise'}})
+                plot_data_f.append({'x': list(plottable_x1_coords[i]), 'y': list(y1_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'{f'f({solver.symbol})' if not solver.multivariate else 'y'} = {str(solver.eq1(solver.symbol)).replace('log', 'ln')}', 'showlegend': i == skip1, 'line': {'color': 'darkturquoise'}})
             
             else:
                 skip1 +=1
 
             if list(plottable_x2_coords[i]) and list(y2_coords[i]):
-                plot_data_g.append({'x': list(plottable_x2_coords[i]), 'y': list(y2_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'g({solver.symbol}) = {str(solver.eq2(solver.symbol)).replace('log', 'ln')}'  if not solver.multivariate else "y=0", 'showlegend': i == skip2, 'line': {'color': 'springgreen'}})
+                plot_data_g.append({'x': list(plottable_x2_coords[i]), 'y': list(y2_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'{f'g({solver.symbol})' if not solver.multivariate else 'y'} = {str(solver.eq2(solver.symbol)).replace('log', 'ln')}', 'showlegend': i == skip2, 'line': {'color': 'springgreen'}})
 
             else:
                 skip2 += 1
