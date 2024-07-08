@@ -7,7 +7,7 @@ hide:
 
 *empty*
 
-## Mogelijke Opties
+<!-- ## Mogelijke Opties
 - **Vergelijkingen Omschrijven:** Vergelijkingen met $y$ en $x$ worden omgeschreven om $y$ vrij te maken. Daarna worden de snijpunten met de $x$-as bepaald.<br><br>
 
 - **Afgeleides nemen:** 
@@ -47,4 +47,4 @@ hide:
 - **Logaritmes:** 
     + **Grondgetal e:** $\phantom{mm.}$ <span style="font-size: 19px;">`ln(x)`</span> $\phantom{m..} \quad \longrightarrow \quad$ <span style="font-size: 19px;">`ln(e^4)`</span> $= \ln(e^4) = 4$
     + **Grondgetal 10:** $\phantom{m..}$ <span style="font-size: 19px;">`log(x)`</span> $\phantom{m.} \quad \longrightarrow \quad$ <span style="font-size: 19px;">`log(100)`</span> $= \ ^{10} \! \log(100) = 2$
-    + **Ander Grondgetal:** $\phantom{.}$ <span style="font-size: 19px;">`log(x, n)`</span> $\quad \longrightarrow \quad$ <span style="font-size: 19px;">`log(8, 2)`</span> $= \ ^{2} \! \log(8) = 3$
+    + **Ander Grondgetal:** $\phantom{.}$ <span style="font-size: 19px;">`log(x, n)`</span> $\quad \longrightarrow \quad$ <span style="font-size: 19px;">`log(8, 2)`</span> $= \ ^{2} \! \log(8) = 3$ -->
