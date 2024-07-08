@@ -5,7 +5,7 @@ hide:
   - feedback
 ---
 
-# *Bijles*
+#
 
 <div class="form-container">
   <h2 class="form-title">Kennismakingsgesprek</h2>
@@ -192,15 +192,13 @@ hide:
 
 **<p style="text-align: left;font-size:25px;">Bijles wiskunde voor de middelbare school</p>**
 
-Ik ben **Marc Serrano Altena**, een tweedejaars student Natuur- en Sterrenkunde aan de UvA en VU.
-
 ![Foto Marc Serrano Altena](assets/images/general/Marc_Serrano_Altena_photo.png){ width="200" align=right}
 
-Wiskunde kan soms **te snel** gaan en dat **niet alle stappen duidelijk** zijn. Om wiskunde beter begrijpbaar te maken voor iedereen, ben ik gestart met deze website. Maar ik help graag nog verder!
+Wiskunde kan soms **te snel** gaan en dat **niet alle stappen duidelijk** zijn. Het voelt dan alsof je het maar niet kan begrijpen terwijl het voor anderen schijnbaar heel logisch is. En dit zorgt ervoor dat je slecht over jezelf voelt en zelfvertrouwen verliest. Je bent echt niet de enige. 
 
-Heb je moeite met de stof begrijpen of toepassen? Of juist meer met het bij blijven met de stof en het huiswerk te maken? Als je dit herkent, dan is mijn **een-op-een bijles** voor jou! 
+Dit is natuurlijk hartstikke vervelend, maar gelukkig hoeft dit niet zo te blijven. Met de online **een-op-een bijles** kunnen we samen jouw achterstanden inhalen en de stof uiteindelijk is een keer begrijpbaar maken. We nemen dan gewoon lekker de tijd zodat jij al je vragen kunt stellen.
 
-Apart van alleen de bijles, krijg je als bonus ook een aantal **stappenplannen**. Jouw kind hoeft dan alleen het stappenplan te volgen om een opdracht goed te kunnen maken. Ook help ik buiten de bijlessen door vragen te beantwoorden over het huiswerk. 
+Je krijgt bovenop de bijlessen ook als bonus een aantal **stappenplannen**. Je hoeft dan alleen het stappenplan te volgen om te weten hoe je een opdracht moet aanpakken. En buiten de bijlessen zelf kun je mij altijd vragen stellen over het huiswerk. 
 
 <!-- De **eerste 5 leerlingen help ik volledig gratis**. En ik garandeer dat jouw kind voor de volgende toets **2 cijferpunten hoger** haalt dan zijn of haar gemiddelde. En anders dan blijf ik volledig gratis doorgaan met de bijles totdat het wel lukt. De eerste **drie plekken zijn al gevult**, dus ik help nu **nog maar 2 leerlingen gratis** voordat de prijs omhoog gaat.  -->
 
@@ -223,4 +221,7 @@ Met de In 6-Weken Twee-Punten-Hoger Training kan jij twee cijferpunten hoger hal
 
 :fontawesome-solid-check:{ .green }  **Jaren ervaring als bijlesdocent**, ook tijdens mijn middelbare schooljaren.
 
-Heb je interesse? Vul jouw gegevens in om kennis te maken en om te kijken of de bijles bij jou en jouw kind past!
+Maar je hoeft mij niet op mijn woord te geloven, bekijk [hier](https://maps.app.goo.gl/7pjvxf7rLvqouF547) wat andere mensen van de bijles vonden.
+
+<br>
+Ben je geinteresseerd? Vul dan je gegevens in zodat we kennis kunnen maken en wiskunde uiteindelijk duidelijk wordt!

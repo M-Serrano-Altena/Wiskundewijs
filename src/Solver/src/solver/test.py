@@ -464,24 +464,17 @@ def custom_latex(expr, **kwargs):
 
 
 x, y = sp.symbols("x,y", real=True)
-string = "eval('1')"
+string = "sinpi"
 # print(sp.sympify(string, evaluate=False))
 string = math_interpreter(string)
 print(string)
 print(custom_latex(sp.sympify(string, evaluate=False)))
 
-import os
-eq = y*sp.exp(y) - x
-print(sp.solve(eq, y))
 
 
-# y = sp.Function('y')(x)
-# print(sp.dsolve(sp.diff(y, x) - x))
-
-# print(sp.logcombine(sp.log(x) / sp.log(10)))
-
-# # Display the simplified expression
-# print(sp.log(x, 10))
+y = sp.Function('y')(x)
+print(y.diff(x, x))
+print(sp.dsolve(sp.diff(y, x) - y, y))
 
 exit()
 
