@@ -532,8 +532,8 @@ In dat soort gevallen gebruiken we de *abc* formule. Maar wat is de *abc* formul
         $f(x)$ heeft dus $2$ snijpunten met de $x$-as. Als we de grafiek van $f(x)$ plotten, zien we dat dit ook daadwerkelijk het geval is:
 
         <figure markdown>
-            ![Plot van f(x) met snijpunten x-as](assets/images/kwadratische_vergelijkingen/f(x) = x² - 1.svg){ width="400"}
-            <figcaption>Figuur 1. De grafiek $f(x) = x^2 - 1$ geplot met de snijpunten met de x-as.</figcaption>
+        ![Plot van f(x) met snijpunten x-as](assets/images/kwadratische_vergelijkingen/f(x) = x^2 - 1.svg){ width="400"}
+            <figcaption>Figuur 1. De grafiek $f(x) = x^2 - 1$ geplot met de snijpunten met de $x$-as.</figcaption>
         </figure>
 
         ##### <span style="font-size: 14px; color: #D3D3D3">Eén snijpunt</span>
@@ -560,8 +560,8 @@ In dat soort gevallen gebruiken we de *abc* formule. Maar wat is de *abc* formul
         We weten nu dus dat $f(x)$ maar $1$ snijpunt heeft met de $x$-as (en dus de $x$-as raakt). Als we $f(x)$ plotten zien we dat dit inderdaad het geval is.
 
         <figure markdown>
-            ![Plot van f(x) met snijpunt x-as](assets/images/kwadratische_vergelijkingen/f(x) = x² - 4x + 4.svg){ width="500"}
-            <figcaption>Figuur 2. De grafiek f(x) = x² - 4x + 4 geplot met het snijpunt/raakpunt met de x-as.</figcaption>
+            ![Plot van f(x) met snijpunt x-as](assets/images/kwadratische_vergelijkingen/f(x) = x^2 - 4x + 4.svg){ width="500"}
+            <figcaption>Figuur 2. De grafiek $f(x) = x^2 - 4x + 4$ geplot met het snijpunt/raakpunt met de $x$-as.</figcaption>
         </figure>
 
         ##### <span style="font-size: 14px; color: #D3D3D3">Geen snijpunten</span>
@@ -584,8 +584,8 @@ In dat soort gevallen gebruiken we de *abc* formule. Maar wat is de *abc* formul
         Deze functie heeft dus geen snijpunten met de $x$-as. We controleren dit weer met een plot van $f(x)$.
 
         <figure markdown>
-            ![Plot van f(x) met 0 snijpunten x-as](assets/images/kwadratische_vergelijkingen/f(x) = x² + 1.svg){ width="500"}
-            <figcaption>Figuur 3. De grafiek f(x) = x² +1 geplot.</figcaption>
+            ![Plot van f(x) met 0 snijpunten x-as](assets/images/kwadratische_vergelijkingen/f(x) = x^2 + 1.svg){ width="500"}
+            <figcaption>Figuur 3. De grafiek $f(x) = x^2 + 1$ geplot.</figcaption>
         </figure>
 
         We zien dat de grafiek van $f(x)$ overal boven de $x$-as ligt, en dus zijn er inderdaad geen snijpunten. 
@@ -1071,8 +1071,8 @@ We gaan kijken naar drie verschillende gevallen. Als eerste kijken we naar een f
 Laten we beginnen met een functie die $2$ snijpunten heeft. We zien hieronder de functie $f(x) = x^2 - 1$ en de $2$ snijpunten met de $x$-as. 
 
 <figure markdown>
-  ![Plot van f(x) met snijpunten x-as](assets/images/kwadratische_vergelijkingen/f(x) = x² - 1.svg){ width="500"}
-  <figcaption>Figuur 1. De grafiek f(x) = x² - 1 geplot met de snijpunten met de x-as.</figcaption>
+![Plot van f(x) met snijpunten x-as](assets/images/kwadratische_vergelijkingen/f(x) = x^2 - 1.svg){ width="500"}
+    <figcaption>Figuur 1. De grafiek $f(x) = x^2 - 1$ geplot met de snijpunten met de $x$-as.</figcaption>
 </figure>
 
 Als we geen grafiek gekregen hadden, hoe zouden we de snijpunten bepalen? Dit doen we door een vergelijking op te stellen.
@@ -1104,8 +1104,8 @@ Laten we nu kijken naar een situatie waar we een functie hebben die maar $1$ sni
 Laten we kijken naar de grafiek van $f(x) = x^2 - 4x + 4$.
 
 <figure markdown>
-  ![Plot van f(x) met snijpunt x-as](assets/images/kwadratische_vergelijkingen/f(x) = x² - 4x + 4.svg){ width="500"}
-  <figcaption>Figuur 2. De grafiek f(x) = x² - 4x + 4 geplot met het snijpunt/raakpunt met de x-as.</figcaption>
+![Plot van f(x) met snijpunt x-as](assets/images/kwadratische_vergelijkingen/f(x) = x^2 - 4x + 4.svg){ width="500"}
+    <figcaption>Figuur 2. De grafiek $f(x) = x^2 - 4x + 4$ geplot met het snijpunt/raakpunt met de $x$-as.</figcaption>
 </figure>
 
 Laten we het snijpunt gaan berekenen. We stellen weer $f(x)$ gelijk aan $0$:
@@ -1158,8 +1158,8 @@ Als laatst kijken we naar de situatie waar er helemaal geen snijpunten zijn met 
 Dit gebeurt bijvoorbeeld bij de functie $f(x) = x^2 + 1$, zoals we kunnen zien in Figuur 3.
 
 <figure markdown>
-  ![Plot van f(x) met 0 snijpunten x-as](assets/images/kwadratische_vergelijkingen/f(x) = x² + 1.svg){ width="500"}
-  <figcaption>Figuur 3. De grafiek f(x) = x² +1 geplot.</figcaption>
+![Plot van f(x) met 0 snijpunten x-as](assets/images/kwadratische_vergelijkingen/f(x) = x^2 + 1.svg){ width="500"}
+    <figcaption>Figuur 3. De grafiek $f(x) = x^2 + 1$ geplot.</figcaption>
 </figure>
 
 Maar wat gebeurt er als we toch proberen te kijken waar $f(x)$ de $x$-as snijdt? Laten we het proberen:
@@ -1181,8 +1181,8 @@ Er is gewoon geen enkel moment dat de grafiek van $f(x)$ de $x$-as snijdt, omdat
 Laten we nu kijken naar de snijpunten van twee functies. Stel we hebben bijvoorbeeld de twee functies $f(x) = x^2 -6x - 1$ en $g(x) = -x^2 + 2x + 3$ en we willen de snijpunten bepalen tussen de twee functies.
 
 <figure markdown>
-  ![Plot van f(x) en g(x) met snijpunten](assets/images/kwadratische_vergelijkingen/f(x) = x² - 6x - 1; g(x) = -x² + 2x + 3.svg){ width="500"}
-  <figcaption>Figuur 4. De grafieken f(x) = x² - 6x - 1 en g(x) = -x² + 2x + 3 geplot met de punten waar de twee functies elkaar snijden.</figcaption>
+![Plot van f(x) en g(x) met snijpunten](assets/images/kwadratische_vergelijkingen/f(x) = x^2 - 6x - 1; g(x) = -x^2 + 2x + 3.svg){ width="500"}
+    <figcaption>Figuur 4. De grafieken $f(x) = x^2 - 6x - 1$ en $g(x) = -x^2 + 2x + 3$ geplot met de punten waar de twee functies elkaar snijden.</figcaption>
 </figure>
 
 Nu wordt het lastig om een precieze waarde voor de snijpunten af te lezen uit de grafiek. We moeten dus een vergelijking gaan opstellen om de twee snijpunten te bepalen. Bij een snijpunt hebben de twee grafiek dezelfde $x$ en $y$-coördinaten. Dus de vraag is: bij welke $x$-coördinaten hebben de twee grafieken ook dezelfde waarde $y$-coördinaten? Daar hoort de volgende vergelijking bij:

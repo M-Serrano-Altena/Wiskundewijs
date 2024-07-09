@@ -597,7 +597,7 @@ Het $y$-coördinaat van de top is dus bij $y=2$. De coördinaten van de top zijn
 Als we dit tekenen, dan kunnen we ook controleren dat dit klopt.
 
 <figure markdown>
-![Top van functie](assets/images/afgeleide/f(x) = -x² + 2.svg){ width="500"}
+![Top van functie](assets/images/afgeleide/f(x) = -x^2 + 2.svg){ width="500"}
     <figcaption>Figuur 1. De grafiek $f(x) = - x^2 + 2$ geplot met de extreme waarde.</figcaption>
 </figure>
 
@@ -639,7 +639,7 @@ Als we dit tekenen, dan kunnen we ook controleren dat dit klopt.
     En als we de functie tekenen, dan zien we dat dit klopt.
 
     <figure markdown>
-        ![Top van functie](assets/images/afgeleide/f(x) = 6x² - 12x + 9.svg){ width="500"}
+        ![Top van functie](assets/images/afgeleide/f(x) = 6x^2 - 12x + 9.svg){ width="500"}
         <figcaption>Figuur 2. De grafiek $f(x) = 6x^2 - 12x + 9$ geplot met de extreme waarde.</figcaption>
     </figure>
 
@@ -708,7 +708,7 @@ Als we dit tekenen, dan kunnen we ook controleren dat dit klopt.
     Als we de functie tekenen, dan zien we dat dit klopt.
 
     <figure markdown>
-        ![Top van functie](assets/images/afgeleide/f(x) = -x³ + 6x² - 9x + 3.svg){ width="500"}
+        ![Top van functie](assets/images/afgeleide/f(x) = -x^3 + 6x^2 - 9x + 3.svg){ width="500"}
         <figcaption>Figuur 3. De grafiek $f(x) = -x^3 + 6x^2 - 9x + 3$ geplot met de extreme waardes.</figcaption>
     </figure>
 
@@ -778,7 +778,7 @@ Als we dit tekenen, dan kunnen we ook controleren dat dit klopt.
     Als we de functie tekenen, dan kunnen we controleren dat dit klopt.
 
     <figure markdown>
-        ![Top van functie](assets/images/afgeleide/f(x) = (x - 2)⁷.svg){ width="500"}
+        ![Top van functie](assets/images/afgeleide/f(x) = (x - 2)^7.svg){ width="500"}
         <figcaption>Figuur 4. De grafiek $f(x) = (x-2)^{7}$ geplot met de extreme waarde.</figcaption>
     </figure>
 
@@ -863,7 +863,7 @@ Als we dit tekenen, dan kunnen we ook controleren dat dit klopt.
     En als we de functie tekenen, dan zien we dat dit klopt.
 
     <figure markdown>
-        ![Top van functie](assets/images/afgeleide/f(x) = 10eˣ(x² + 4x + 0.4).svg){ width="500"}
+        ![Top van functie](assets/images/afgeleide/f(x) = 10e^x(x^2 + 4x + 0.4).svg){ width="500"}
         <figcaption>Figuur 5. De grafiek $f(x) = 10e^x(x^2 + 4x + 0.4)$ geplot met de extreme waardes.</figcaption>
     </figure>
 
@@ -968,6 +968,6 @@ Als we dit tekenen, dan kunnen we ook controleren dat dit klopt.
     En als we de functie tekenen, dan zien we dat dit klopt.
 
     <figure markdown>
-        ![Top van functie](assets/images/afgeleide/f(x) = cos²(2x).svg){ width="500"}
+        ![Top van functie](assets/images/afgeleide/f(x) = cos(2x)^2.svg){ width="500"}
         <figcaption>Figuur 6. De grafiek $f(x) = \cos^2(2x)$ geplot met de extreme waardes in het domein $[-\frac{\pi}{2}, \frac{\pi}{2}]$.</figcaption>
     </figure>

@@ -155,7 +155,7 @@ $$f(x) > g(x).$$
 Laten we deze twee functies plotten om te kijken hoe dit eruit ziet.
 
 <figure markdown>
-  ![Twee lijnen plot](assets/images/ongelijkheden/f(x) = x - 1; g(x) = -x + 2.svg){ width="500"}
+![Twee lijnen plot](assets/images/ongelijkheden/f(x) = x - 1; g(x) = -x + 2.svg){ width="500"}
     <figcaption>Figuur 1. De lijnen $f(x) = x - 1$ en $g(x) = -x + 2$ geplot met hun snijpunt.</figcaption>
 </figure>
 
@@ -224,7 +224,7 @@ Hieronder worden dezelfde voorbeelden opgelost als [hierboven](#voorbeelden), ma
     Nu maken we een schets van de twee functies.
 
     <figure markdown>
-        ![Twee lijnen plot](assets/images/ongelijkheden/f(x) = 3x + 2; g(x) = 8.svg){ width="500"}
+    ![Twee lijnen plot](assets/images/ongelijkheden/f(x) = 3x + 2; g(x) = 8.svg){ width="500"}
         <figcaption>Figuur 1. De lijnen $f(x) = 3x + 2$ en $g(x) = 8$ geplot met hun snijpunt.</figcaption>
     </figure>
 
@@ -259,7 +259,7 @@ Hieronder worden dezelfde voorbeelden opgelost als [hierboven](#voorbeelden), ma
     We plotten weer deze twee functies en hun snijpunt.
 
     <figure markdown>
-        ![Twee lijnen plot](assets/images/ongelijkheden/f(x) = -8x - 7; g(x) = 33.svg){ width="500"}
+    ![Twee lijnen plot](assets/images/ongelijkheden/f(x) = -8x - 7; g(x) = 33.svg){ width="500"}
         <figcaption>Figuur 2. De lijnen $f(x) = -8x - 7$ en $g(x) = 33$ geplot met hun snijpunt.</figcaption>
     </figure>
 
@@ -294,8 +294,8 @@ Hieronder worden dezelfde voorbeelden opgelost als [hierboven](#voorbeelden), ma
     We plotten nu de twee lijnen en hun snijpunt.
 
     <figure markdown>
-        ![Twee lijnen plot](assets/images/ongelijkheden/f(x) = x - 4; g(x) = 2x + 9.svg){ width="500"}
-            <figcaption>Figuur 3. De lijnen $f(x) = x - 4$ en $g(x) = 2x + 9$ geplot met hun snijpunt.</figcaption>
+    ![Twee lijnen plot](assets/images/ongelijkheden/f(x) = x - 4; g(x) = 2x + 9.svg){ width="500"}
+        <figcaption>Figuur 3. De lijnen $f(x) = x - 4$ en $g(x) = 2x + 9$ geplot met hun snijpunt.</figcaption>
     </figure>
 
     We wilden weten waar $f(x) \geq g(x)$. In Figuur 3 zien we dat $f(x)$ boven $g(x)$ ligt links van het snijpunt: $x = -13$. Verder zijn de twee functies gelijk aan elkaar bij het snijpunt zelf, dus als $x = -13$. Er geldt dus dat $f(x) \geq g(x)$ als $x$ kleiner is dan $-13$ of als $x = -13$. Ons eindantwoord wordt dus:
@@ -385,8 +385,8 @@ $$x = -1 \ \vee \ x = 1.$$
 Laten we nu deze twee functies plotten.
 
 <figure markdown>
-![Twee grafieken plot](assets/images/ongelijkheden/f(x) = x²; g(x) = 1.svg){ width="500"}
-<figcaption>Figuur 2. De grafieken f(x) = x² en g(x) = 1 geplot met hun snijpunten.</figcaption>
+![Twee grafieken plot](assets/images/ongelijkheden/f(x) = x^2; g(x) = 1.svg){ width="500"}
+    <figcaption>Figuur 2. De grafieken $f(x) = x^2$ en $g(x) = 1$ geplot met hun snijpunten.</figcaption>
 </figure>
 
 De vraag was voor welke $x$ er geldt dat $f(x) < g(x)$. Dus voor welke waardes van $x$ ligt de grafiek van $f(x)$ onder die van $g(x)$? We kunnen in Figuur 2 zien dat dit het gebied is waar $x$ tussen $-1$ en $1$ ligt. Dit noteren we wiskundig op de volgende manier:
@@ -463,8 +463,8 @@ Hier staat dus eigenlijk dat $-1$ kleiner is dan $x$ (dus dat $x$ groter is dan 
     Nu schetsen we de twee grafieken.
 
     <figure markdown>
-        ![Twee grafieken plot](assets/images/ongelijkheden/f(x) = x² + 10x + 4; g(x) = 15.svg){ width="500"}
-        <figcaption>Figuur 1. De grafieken f(x) = x² + 10x + 4 en g(x) = 15 geplot met hun snijpunten.</figcaption>
+    ![Twee grafieken plot](assets/images/ongelijkheden/f(x) = x^2 + 10x + 4; g(x) = 15.svg){ width="500"}
+        <figcaption>Figuur 1. De grafieken $f(x) = x^2 + 10x + 4$ en $g(x) = 15$ geplot met hun snijpunten.</figcaption>
     </figure>
 
     We wilden weten voor welke $x$-waardes er geldt dat $f(x) < g(x)$. Dus waar ligt de grafiek van $f(x)$ onder die van $g(x)$? In Figuur 1 zien we dat dit de $x$-waardes tussen $-11$ en $1$ zijn. Dit noteren we wiskundig als volgt:
@@ -499,8 +499,8 @@ Hier staat dus eigenlijk dat $-1$ kleiner is dan $x$ (dus dat $x$ groter is dan 
     Iets in het kwadraat is nooit negatief, dus deze vergelijking heeft geen oplossingen (zie eventueel [Opmerking negatief getal](kwadratische_vergelijkingen.md#opmerkingen)). Met andere woorden, de twee functies snijden elkaar niet. Laten we de twee functies schetsen om dit te controleren.
 
     <figure markdown>
-        ![Twee grafieken plot](assets/images/ongelijkheden/f(x) = x² + 25; g(x) = 16.svg){ width="500"}
-        <figcaption>Figuur 1. De grafieken f(x) = x² + 25 en g(x) = 16 geplot.</figcaption>
+    ![Twee grafieken plot](assets/images/ongelijkheden/f(x) = x^2 + 25; g(x) = 16.svg){ width="500"}
+        <figcaption>Figuur 1. De grafieken $f(x) = x^2 + 25$ en $g(x) = 16$ geplot.</figcaption>
     </figure>
 
     We zien inderdaad dat deze twee functies elkaar nooit snijden. 
@@ -554,7 +554,7 @@ Hier staat dus eigenlijk dat $-1$ kleiner is dan $x$ (dus dat $x$ groter is dan 
     Laten we de twee grafieken schetsen.
 
     <figure markdown>
-        ![Twee grafieken plot](assets/images/ongelijkheden/f(x) = - x² + 9x - 12; g(x) = x² - 1.875.svg){ width="500"}
+    ![Twee grafieken plot](assets/images/ongelijkheden/f(x) = - x^2 + 9x - 12; g(x) = x^2 - 1.875.svg){ width="500"}
         <figcaption>Figuur 1. De grafieken $f(x) = - x^2 + 9x - 12$ en $g(x) = x^2 - 1 \frac{7}{8}$ geplot.</figcaption>
     </figure>
 
