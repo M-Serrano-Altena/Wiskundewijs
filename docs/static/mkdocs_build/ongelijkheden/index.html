@@ -65,7 +65,7 @@
 
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-4JQXCEL3Q5"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-4JQXCEL3Q5",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-4JQXCEL3Q5",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
   
 
     
@@ -1253,46 +1253,6 @@
 
 
 
-  <form class="md-feedback" name="feedback" hidden>
-    <fieldset>
-      <legend class="md-feedback__title">
-        Begrijp je de stof nu beter?
-      </legend>
-      <div class="md-feedback__inner">
-        <div class="md-feedback__list">
-          
-            <button class="md-feedback__icon md-icon" type="submit" title="Ik begrijp de stof nu beter" data-md-value="1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 9v12H1V9h4m4 12a2 2 0 0 1-2-2V9c0-.55.22-1.05.59-1.41L14.17 1l1.06 1.06c.27.27.44.64.44 1.05l-.03.32L14.69 8H21a2 2 0 0 1 2 2v2c0 .26-.05.5-.14.73l-3.02 7.05C19.54 20.5 18.83 21 18 21H9m0-2h9.03L21 12v-2h-8.79l1.13-5.32L9 9.03V19Z"/></svg>
-            </button>
-          
-            <button class="md-feedback__icon md-icon" type="submit" title="De stof is nog een beetje onduidelijk" data-md-value="0">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 15V3h4v12h-4M15 3a2 2 0 0 1 2 2v10c0 .55-.22 1.05-.59 1.41L9.83 23l-1.06-1.06c-.27-.27-.44-.64-.44-1.06l.03-.31.95-4.57H3a2 2 0 0 1-2-2v-2c0-.26.05-.5.14-.73l3.02-7.05C4.46 3.5 5.17 3 6 3h9m0 2H5.97L3 12v2h8.78l-1.13 5.32L15 14.97V5Z"/></svg>
-            </button>
-          
-        </div>
-        <div class="md-feedback__note">
-          
-            <div data-md-value="1" hidden>
-              
-              
-                
-              
-              Bedankt voor de feedback! Om ervoor te zorgen dat wiskundewijs nóg beter wordt, zou ik <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUuPlxDYomx3nLl63BQcFR0jCbQMaQIpFh37J53_UaVJELeA/viewform?usp=pp_url&entry.1328585866=Ongelijkheden" target="_blank" rel="noopener">jouw feedback</a> heel erg waarderen!
-            </div>
-          
-            <div data-md-value="0" hidden>
-              
-              
-                
-              
-              Bedankt voor de feedback! Ik zou het heel erg waarderen als je mij vertelt wat jij denkt dat verbeterd kan worden. <a href="https://docs.google.com/forms/d/e/1FAIpQLSebi8Nv-t1BBU7mzvMK8COd_1aHSTnjgzBQWQXhjt64OuVsFQ/viewform?usp=pp_url&entry.1328585866=Ongelijkheden" target="_blank" rel="noopener">Jouw feedback</a> kan mensen helpen die tegen hetzelfde aanlopen!
-            </div>
-          
-        </div>
-      </div>
-    </fieldset>
-  </form>
-
 
                 
               </article>
@@ -1356,7 +1316,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2024, Marc Serrano Altena
+      Copyright &copy; 2024, Marc Serrano Altena <br> <a href="#__consent" style="color:#B0B0B0"><i>Cookie instellingen</i></a>
     </div>
   
   
@@ -1405,6 +1365,63 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+
+
+  
+
+
+<h4>Cookies</h4>
+<p>Deze website maakt gebruik van cookies om te zien hoe je de website gebruikt. We kunnen dan jouw ervaring nog beter maken.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accepteren</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Instellingen</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
     

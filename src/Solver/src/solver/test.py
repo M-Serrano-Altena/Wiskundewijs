@@ -476,6 +476,9 @@ y = sp.Function('y')(x)
 print(y.diff(x, x))
 print(sp.dsolve(sp.diff(y, x) - y, y))
 
+l = [1,2,3,4]
+print(l[:-6])
+
 exit()
 
 if __name__ == "__main__":

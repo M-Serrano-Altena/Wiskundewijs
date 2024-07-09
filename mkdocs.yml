@@ -2,7 +2,8 @@ site_name: Wiskundewijs
 site_author: Marc Serrano Altena
 site_url: https://wiskundewijs.com/
 site_description: Hier worden verschillende wiskundige onderwerpen duidelijk en helder behandelt. De hoofdstukken hebben een theorie sectie waar de stof wordt uitgelegt en daarna worden wat voorbeelden behandelt om te laten zien hoe de theorie toegepast wordt in de opdrachten. 
-copyright: Copyright &copy; 2024, Marc Serrano Altena
+copyright: Copyright &copy; 2024, Marc Serrano Altena <br> <a href="#__consent" style="color:#B0B0B0"><i>Cookie instellingen</i></a>
+
 
 docs_dir: 'mkdocs'
 site_dir: 'docs\static\mkdocs_build'
@@ -48,6 +49,10 @@ extra:
   analytics:
     provider: google
     property: G-4JQXCEL3Q5
+
+  consent:
+    title: Cookies
+    description: Deze website maakt gebruik van cookies om te zien hoe je de website gebruikt. We kunnen dan jouw ervaring nog beter maken. 
 
     feedback:
       title: Begrijp je de stof nu beter?

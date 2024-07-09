@@ -1036,10 +1036,10 @@ class Solve:
                 self.interval_solutions = sp.solveset(self.eq, domain=sp.Interval(0, 2*sp.pi))
                 counter = 0
 
-                if isinstance(self.interval_solutions, sp.Union) or isinstance(self.interval_solutions, sp.ImageSet):
+                if isinstance(self.interval_solutions, sp.Set):
                     self.interval_solutions_intersect = sp.Intersection(self.interval_solutions, sp.Interval(0, 2*sp.pi))
 
-                    if isinstance(self.interval_solutions_intersect, sp.Intersection) or isinstance(self.interval_solutions_intersect, sp.Union):
+                    if isinstance(self.interval_solutions_intersect, sp.Set):
                         counter = 0
                         self.interval_solutions_intersect = []
 
@@ -1075,8 +1075,8 @@ class Solve:
 
                     if self.interval_solutions.is_empty:
                         self.intersect = False
-                        self.output = []
-                        self.output.append(("Geen oplossing gevonden", {"latex": False}))
+                        self.output = self.output[:-6]
+                        self.output.append(("Geen oplossing gevonden", {"latex":False, "new_line":2}))
                         
                         return self.equation_interpret, self.output, self.plot
 

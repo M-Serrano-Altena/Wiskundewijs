@@ -65,7 +65,7 @@
 
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-4JQXCEL3Q5"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-4JQXCEL3Q5",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-4JQXCEL3Q5",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
   
 
     
@@ -994,21 +994,33 @@
 <p>Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.</p>
 <details class="note"><summary>Opmerking Notatie</summary><h3 id="notatie"><strong>Notatie</strong></h3>
 <p>Een afgeleide kan op verschillende manieren worden weergegeven:</p>
-<div class="arithmatex">\[\Large{f'(x), \ y', \ \frac{\mathrm{d} f(x)}{\mathrm{d} x}, \ \frac{\mathrm{d} y}{\mathrm{d} x}, \frac{\mathrm{d}}{\mathrm{d} x} y, \frac{\mathrm{d}}{\mathrm{d} x} f(x)} \]</div>
+<ul>
+<li><span class="arithmatex">\(\Large{f'(x)}\)</span></li>
+<li><span class="arithmatex">\(\Large{\dfrac{d f{\left(x \right)}}{d x}}\)</span></li>
+<li>
+<p><span class="arithmatex">\(\Large{\dfrac{d}{d x} f{\left(x \right)}}\)</span>
+<br><br></p>
+</li>
+<li>
+<p><span class="arithmatex">\(\Large{y'}\)</span></p>
+</li>
+<li><span class="arithmatex">\(\Large{\dfrac{d y}{d x}}\)</span></li>
+<li><span class="arithmatex">\(\Large{\dfrac{d}{d x} y}\)</span></li>
+</ul>
 </details>
 <h3 id="voorbeelden"><strong>Voorbeelden</strong></h3>
 <details class="example"><summary>Voorbeeld 1: Bereken de afgeleide van <span class="arithmatex">\(f(x) = x^2\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = x^2\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>We kunnen dit oplossen met behulp van de derde rij van de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. We zien dat er voor een functie van de vorm:</p>
+<p>We kunnen dit oplossen met behulp van de derde rij van de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. We zien dat een functie van de vorm:</p>
 <div class="arithmatex">\[\large{f(x) = ax^n}\]</div>
-<p>de afgeleide gelijk is aan:</p>
+<p>deze afgeleide heeft:</p>
 <div class="arithmatex">\[\large{f'(x) = n \cdot ax^{n-1}}.\]</div>
-<p>In ons geval is <span class="arithmatex">\(a\)</span> gelijk aan <span class="arithmatex">\(1\)</span> en de macht <span class="arithmatex">\(n\)</span> is gelijk aan <span class="arithmatex">\(2\)</span>. Onze afgeleide wordt dan dus:</p>
+<p>In ons geval is <span class="arithmatex">\(a\)</span> gelijk aan <span class="arithmatex">\(1\)</span> (namelijk <span class="arithmatex">\(x^2 = 1x^2\)</span>) en de macht <span class="arithmatex">\(n\)</span> is gelijk aan <span class="arithmatex">\(2\)</span>. Onze afgeleide wordt dan dus:</p>
 <div class="arithmatex">\[\large{f'(x) = 2 \cdot x^{2-1}}\]</div>
 <div class="arithmatex">\[\large{f'(x) = 2x^{1}}\]</div>
-<p>Iets tot de macht <span class="arithmatex">\(1\)</span> is gewoon zichzelf, dus ons eindantwoord wordt dus:</p>
+<p>Iets tot de macht <span class="arithmatex">\(1\)</span> is gewoon zichzelf, dus ons eindantwoord wordt dan:</p>
 <div class="admonition quote">
-<div class="arithmatex">\[\large{f'(x) = 2x}.\]</div>
+<div class="arithmatex">\[\large{f'(x) = 2x}\]</div>
 </div>
 </details>
 <details class="example"><summary>Voorbeeld 2: Bereken de afgeleide van <span class="arithmatex">\(f(x) = 4x\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = 4x\)</span></p></strong>
@@ -1017,36 +1029,58 @@
 <div class="arithmatex">\[\large{f(x) = ax}\]</div>
 <p>is de afgeleide:</p>
 <div class="arithmatex">\[\large{f'(x) = a}.\]</div>
-<p>We hebben hier een <span class="arithmatex">\(4\)</span> voor de <span class="arithmatex">\(x\)</span> staan, dus dat is onze <span class="arithmatex">\(a\)</span>. Onze afgeleide wordt dan dus:</p>
+<p>We hebben hier een <span class="arithmatex">\(4\)</span> voor de <span class="arithmatex">\(x\)</span> staan, dus dat is onze <span class="arithmatex">\(a\)</span>. Onze afgeleide wordt dan dus gewoon:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{f'(x) = 4}\]</div>
 </div>
 </details>
-<details class="example"><summary>Voorbeeld 3: Bereken de afgeleide van <span class="arithmatex">\(f(x) = 3x^2 + 2x + 6\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = 3x^2 + 2x + 6\)</span></p></strong>
+<details class="example"><summary>Voorbeeld 3: Bereken de afgeleide van <span class="arithmatex">\(f(x) = \dfrac{1}{x}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = \dfrac{1}{x}\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>We hebben hier eigenlijk een som van verschillende kleine functies. We willen dus de afgeleide bepalen van de hele functie, maar hoe doen we dat? </p>
-<p>Met de <a href="#regels">somregel</a> kunnen we zien dat we dan de afgeleides van de losse termen kunnen nemen. Dus als:</p>
-<p>De afgeleide van de eerste term kunnen we bepalen met de derde rij uit de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. Dus als:</p>
-<div class="arithmatex">\[g(x) = 3x^2,\]</div>
-<p>dan is de afgeleide:</p>
-<div class="arithmatex">\[g'(x) = 2 \cdot 3x^{2-1}\]</div>
-<div class="arithmatex">\[g'(x) = 6x^1.\]</div>
-<p>Iets tot de macht <span class="arithmatex">\(1\)</span> is zichzelf, dus dit wordt:</p>
-<div class="arithmatex">\[g'(x) = 6x.\]</div>
-<p>Nu bepalen we de afgeleide van de tweede term, <span class="arithmatex">\(h(x) = 2x\)</span>. Met de tweede rij van de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> kunnen we zien dat onze <span class="arithmatex">\(a\)</span> <span class="arithmatex">\(2\)</span> moet zijn. Dus:</p>
-<div class="arithmatex">\[h'(x) = 2\]</div>
-<p>Als laatst bepalen we de afgeleide van de derde term, <span class="arithmatex">\(k(x) = 6\)</span>. In de eerste rij van de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> kunnen we zien dat de afgeleide van een constante <span class="arithmatex">\(0\)</span> is. Dus:</p>
-<div class="arithmatex">\[k'(x) = 0\]</div>
-<p>Nu combineren we al deze resultaten om te vinden:</p>
-<div class="arithmatex">\[f'(x) = 6x + 2 + 0\]</div>
-<p>Ons eindantwoord wordt dus:</p>
+<p>Om dit op te lossen moeten we eerst deze breuk anders schrijven. In de sectie <a href="../basisvaardigheden/#machten-in-het-algemeen">Machten in het Algemeen</a> zien we dat we dit kunnen schrijven als:</p>
+<div class="arithmatex">\[\large{f(x) = x^{-1}}\]</div>
+<p>En nu is dit in de standaardvorm <span class="arithmatex">\(ax^n\)</span>, waarbij we hier hebben dat <span class="arithmatex">\(a = 1\)</span> en <span class="arithmatex">\(n=-1\)</span>. De afgeleide krijgt de standaardvorm <span class="arithmatex">\(n \cdot ax^{n-1}\)</span>. Dus in ons geval krijgen we dan:</p>
+<div class="arithmatex">\[\large{f'(x) = -1 \cdot x^{-1-1}}\]</div>
+<div class="arithmatex">\[\large{f'(x) = - x^{-2}}\]</div>
+<p>Als we dit weer opschrijven als breuk, dan vinden we als eindantwoord:</p>
 <div class="admonition quote">
-<div class="arithmatex">\[f'(x) = 6x + 2\]</div>
+<div class="arithmatex">\[\large{f'(x) = -\frac{1}{x^2}}\]</div>
 </div>
 </details>
-<details class="example"><summary>Voorbeeld 4: Bereken de afgeleide van <span class="arithmatex">\(f(x) = 5x^3 + 3x^2 - 15x + 100\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = 5x^3 + 3x^2 - 15x + 100\)</span></p></strong>
+<details class="example"><summary>Voorbeeld 4: Bereken de afgeleide van <span class="arithmatex">\(f(x) = 6\sqrt{x}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = 6\sqrt{x}\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>Met behulp van de <a href="#regels">somregel</a> weten we dat we de afgeleide van de individuele termen kunnen nemen. De afgeleide wordt dan:</p>
+<p>Om dit op te lossen moeten we eerst de wortel als macht opschrijven. In de sectie <a href="../basisvaardigheden/#machten-in-het-algemeen">Machten in het Algemeen</a> zien we dat we een wortel ook kunnen schrijven als breuk:</p>
+<div class="arithmatex">\[\large{f(x) = 6x^{\frac{1}{2}}}\]</div>
+<p>Nu zien we dat dit een functie is van de vorm <span class="arithmatex">\(ax^n\)</span>, waarbij wij nu hebben <span class="arithmatex">\(a=6\)</span> en <span class="arithmatex">\(n=\frac{1}{2}\)</span>. De afgeleide van deze vorm wordt <span class="arithmatex">\(n \cdot ax^{n-1}\)</span>, dus in ons geval wordt dat:</p>
+<div class="arithmatex">\[\large{f'(x) = \frac{1}{2} \cdot 6x^{\frac{1}{2}-1}}\]</div>
+<div class="arithmatex">\[\large{f'(x) = 3x^{-\frac{1}{2}}}\]</div>
+<p>We kunnen de '<span class="arithmatex">\(-\)</span>' in de exponent vervangen door <span class="arithmatex">\(1\)</span> gedeelt door:</p>
+<div class="arithmatex">\[\large{f'(x) = 3 \cdot \frac{1}{x^{\frac{1}{2}}}}\]</div>
+<p>En nu kunnen we van de <span class="arithmatex">\(\frac{1}{2}\)</span> in de exponent weer een wortel maken:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{f'(x) = \frac{3}{\sqrt{x}}}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 5: Bereken de afgeleide van <span class="arithmatex">\(f(x) = 3x^2 + 2x + 6\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = 3x^2 + 2x + 6\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We hebben hier eigenlijk een som van verschillende kleine functies. We willen dus de afgeleide bepalen van de hele functie, maar hoe doen we dat? </p>
+<p>Met de <a href="#regels">somregel</a> kunnen we zien dat we dan de afgeleides van de losse termen moeten nemen.</p>
+<p>Laten we eerst kijken naar de eerste term, <span class="arithmatex">\(3x^2\)</span>. We zien dat dit de vorm heeft van <span class="arithmatex">\(ax^n\)</span> waarbij er hier geldt dat <span class="arithmatex">\(a = 3\)</span> en <span class="arithmatex">\(n = 2\)</span>. In de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> zien we dat de afgeleide de vorm heeft van <span class="arithmatex">\(n \cdot ax^{n-1}\)</span>. In ons geval is de afgeleide van deze term dus:</p>
+<div class="arithmatex">\[\large{2 \cdot 3x^{2-1}}\]</div>
+<div class="arithmatex">\[\large{6x^1,}\]</div>
+<p>en iets tot de macht <span class="arithmatex">\(1\)</span> is zichzelf, dus dit wordt:</p>
+<div class="arithmatex">\[\large{6x.}\]</div>
+<p>Nu kijken we naar de tweede term, <span class="arithmatex">\(2x\)</span>. We zien dat dit de vorm heeft van <span class="arithmatex">\(ax\)</span>, waarbij onze <span class="arithmatex">\(a\)</span> hier <span class="arithmatex">\(2\)</span> is. Bij de afgeleide van zo'n functie valt alleen de <span class="arithmatex">\(x\)</span> weg, dus de afgeleide is gewoon <span class="arithmatex">\(2\)</span> (tweede rij van de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>).</p>
+<p>En als laatst bepalen we de afgeleide van de derde term, <span class="arithmatex">\(6\)</span>. Dit is een constante (denk: gewoon een getal zonder <span class="arithmatex">\(x\)</span>) en de afgeleide van een constante is altijd <span class="arithmatex">\(0\)</span> (eerste rij <a href="#tabel-met-veel-voorkomende-functies">tabel</a>).</p>
+<p>Als we dit allemaal samenvoegen, dan vinden we:</p>
+<div class="arithmatex">\[\large{f'(x) = 6x + 2 + 0}\]</div>
+<p>Ons eindantwoord wordt dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{f'(x) = 6x + 2}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 6: Bereken de afgeleide van <span class="arithmatex">\(f(x) = 5x^3 + 3x^2 - 15x + 100\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = 5x^3 + 3x^2 - 15x + 100\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>De <a href="#regels">somregel</a> vertelt ons dat we hier de afgeleides van de losse termen gewoon bij elkaar op kunnen tellen. De afgeleide wordt dan:</p>
 <div class="arithmatex">\[\large{f'(x) = 3 \cdot 5x^{3-1} + 2 \cdot 3x^{2-1} - 15 + 0}\]</div>
 <p>We hebben hier de eerste drie regels uit de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> gebruikt: </p>
 <ul>
@@ -1054,6 +1088,7 @@
 <li>De <span class="arithmatex">\(-15x\)</span> term wordt gewoon <span class="arithmatex">\(-15\)</span> volgens regel <span class="arithmatex">\(2\)</span>.</li>
 <li>De <span class="arithmatex">\(+100\)</span> term wordt <span class="arithmatex">\(0\)</span> volgens regel <span class="arithmatex">\(1\)</span>. </li>
 </ul>
+<p>(zie eventueel het vorige voorbeeld voor meer details over de aanpak)</p>
 <p>We kunnen dit dan verder versimpelen naar:</p>
 <div class="arithmatex">\[\large{f'(x) = 15x^2 + 6x^1 - 15}\]</div>
 <p>Iets tot de macht <span class="arithmatex">\(1\)</span> is zichzelf, dus <span class="arithmatex">\(x^1\)</span> wordt gewoon <span class="arithmatex">\(x\)</span>:</p>
@@ -1061,91 +1096,109 @@
 <div class="arithmatex">\[\large{f'(x) = 15x^2 + 6x - 15}\]</div>
 </div>
 </details>
-<details class="example"><summary>Voorbeeld 5: Bereken de afgeleide van <span class="arithmatex">\(f(x) = 3(\cos{(x)} + 2)\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = 3(\cos{(x)} + 2)\)</span></p></strong>
+<details class="example"><summary>Voorbeeld 7: Bereken de afgeleide van <span class="arithmatex">\(f(x) = \frac{10}{x^4} + 3\sqrt[3]{x^2}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = \frac{1}{x^4} + \sqrt[3]{x^2}\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Dit zijn twee termen plus elkaar, dus met de <a href="#regels">somregel</a> weten we dat we de afgeleides van de losse termen kunnen op tellen. </p>
+<p>Om de afgeleides te bepalen, willen we dit eerst schrijven met machten in plaats van breuken en wortels. In <a href="../basisvaardigheden/#machten-in-het-algemeen">Machten in het Algemeen</a> zien we dat <span class="arithmatex">\(1\)</span> gedeelt door een <span class="arithmatex">\(-\)</span> in de exponent wordt:</p>
+<div class="arithmatex">\[\large{\frac{10}{x^4} = 10 \cdot \frac{1}{x^4} = 10x^{-4}}\]</div>
+<p>Ook zien we dat we de breuk kunnen vervangen door een breuk in de exponent:</p>
+<div class="arithmatex">\[\large{3\sqrt[3]{x^2} = 3x^{\frac{2}{3}}}\]</div>
+<p>Onze functie wordt dan dus:</p>
+<div class="arithmatex">\[\large{f(x) = 10x^{-4} + 3x^{\frac{2}{3}}}\]</div>
+<p>Deze functies zijn allebei nu in de vorm <span class="arithmatex">\(ax^n\)</span> met als afgeleide <span class="arithmatex">\(n \cdot ax^{n-1}\)</span>. We krijgen dan dus:</p>
+<div class="arithmatex">\[\large{f'(x) = 4 \cdot 10x^{-4-1} + \frac{2}{3} \cdot 3x^{\frac{2}{3}} - 1}\]</div>
+<p>Als we dit versimpelen, vinden we:</p>
+<div class="arithmatex">\[\large{f'(x) = 40x^{-5} + 2x^{-\frac{1}{3}}}\]</div>
+<p>Als we de '<span class="arithmatex">\(-\)</span>' weer vervangen door <span class="arithmatex">\(1\)</span> gedeelt door:</p>
+<div class="arithmatex">\[\large{f'(x) = 40 \cdot \frac{1}{x^5} + 2 \cdot \frac{x^{\frac{1}{3}}}}\]</div>
+<p>We kunnen nu de <span class="arithmatex">\(\frac{1}{3}\)</span> in de exponent vervangen door een derdemachtswortel:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{f'(x) = \frac{40}{x^5} + \frac{2}{\sqrt[3]{x}}}\]</div>
+</div>
+</details>
+<details class="example"><summary>Voorbeeld 8: Bereken de afgeleide van <span class="arithmatex">\(f(x) = 3(\cos(x) + 2)\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = 3(\cos(x) + 2)\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
 <p>Eerst werken we de haakjes uit. Als we dit doen, vinden we:</p>
-<div class="arithmatex">\[\large{f(x) = 3\cos{(x)} + 6.}\]</div>
-<p>Met de <a href="#regels">somregel</a> weten we dat we hier de afgeleide kunnen nemen van de individuele termen: </p>
+<div class="arithmatex">\[\large{f(x) = 3\cos(x) + 6.}\]</div>
+<p>De <a href="#regels">somregel</a> zegt dat we hier de afgeleide kunnen nemen van de aparte termen: </p>
 <ul>
 <li>De afgeleide van <span class="arithmatex">\(\cos(x)\)</span> kunnen we vinden in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. Dit is <span class="arithmatex">\(-\sin(x)\)</span>.</li>
-<li>De afgeleide van de <span class="arithmatex">\(+6\)</span> term is <span class="arithmatex">\(0\)</span> (regel <span class="arithmatex">\(1\)</span>).</li>
+<li>De afgeleide van de <span class="arithmatex">\(+6\)</span> term is <span class="arithmatex">\(0\)</span> (eerste rij <a href="#tabel-met-veel-voorkomende-functies">tabel</a>).</li>
 </ul>
-<p>Bij een afggeleide blijven de constantes keer de functie gewoon ervoor. Dus die kunnen we gewoon lekker laten staan en hoeven we dus niks mee te doen. De afgeleide wordt dus:</p>
-<div class="arithmatex">\[\large{g'(x) = 3 \cdot - \sin{(x)} + 0}\]</div>
+<p>Bij een afgeleide blijven de constantes keer de functie gewoon ervoor. Dus die kunnen we gewoon lekker laten staan en hoeven we dus niks mee te doen. De afgeleide wordt dus:</p>
+<div class="arithmatex">\[\large{g'(x) = 3 \cdot - \sin(x) + 0}\]</div>
 <p>Waarbij we dus de factor <span class="arithmatex">\(3\)</span> er gewoon voor mogen laten. </p>
 <p>Ons eindantwoord wordt dus:</p>
 <div class="admonition quote">
-<div class="arithmatex">\[\large{f'(x) = -3 \sin{(x)}}\]</div>
+<div class="arithmatex">\[\large{f'(x) = -3 \sin(x)}\]</div>
 </div>
 </details>
-<details class="example"><summary>Voorbeeld 6: Bereken de afgeleide van <span class="arithmatex">\(f(x) = xe^x\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = xe^x\)</span></p></strong>
+<details class="example"><summary>Voorbeeld 9: Bereken de afgeleide van <span class="arithmatex">\(f(x) = xe^x\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = xe^x\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>Hier zien we dat onze functie <span class="arithmatex">\(f(x)\)</span> bestaat uit twee functies keer elkaar. Namelijk de functies:</p>
+<p>Hier zien we dat onze functie <span class="arithmatex">\(f(x)\)</span> bestaat uit twee functies keer elkaar. We noemen ze even <span class="arithmatex">\(g(x)\)</span> en <span class="arithmatex">\(h(x):\)</span></p>
 <div class="arithmatex">\[\large{g(x) = x}\]</div>
-<p><p style="text-align: center;font-size:14px;">en</p></p>
+<p><p style="text-align: center;font-size:15px;">en</p></p>
 <div class="arithmatex">\[\large{h(x) = e^x}\]</div>
-<p>Dit kunnen we dus oplossen met behulp van de <a href="#regels">productregel</a>. Deze zegt dat:</p>
+<p>Het zijn twee functies keer elkaar, dus gebruiken we de <a href="#regels">productregel</a>. Deze zegt dat:</p>
 <div class="arithmatex">\[\large{f'(x) = g'(x) \cdot h(x) + g(x) \cdot h'(x)}\]</div>
 <p>Laten we eerst de afgeleides van <span class="arithmatex">\(g(x)\)</span> en <span class="arithmatex">\(h(x)\)</span> bepalen.</p>
-<p>We kunnen de afgeleide van <span class="arithmatex">\(x\)</span> bepalen met regel <span class="arithmatex">\(2\)</span> uit de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. In dit geval is onze <span class="arithmatex">\(a\)</span> in <span class="arithmatex">\(f(x) = ax\)</span> gelijk aan <span class="arithmatex">\(1\)</span>, dus is de afgeleide van <span class="arithmatex">\(x\)</span> is <span class="arithmatex">\(1\)</span>:</p>
+<p>We zien dat <span class="arithmatex">\(g(x) = x\)</span> de vorm heeft van <span class="arithmatex">\(ax\)</span>, waarbij onze <span class="arithmatex">\(a = 1\)</span> (namelijk <span class="arithmatex">\(x = 1x\)</span>). De afgeleide van deze vorm is gewoon het getal dat voor de <span class="arithmatex">\(x\)</span> staat, dus:</p>
 <div class="arithmatex">\[\large{g'(x) = 1.}\]</div>
-<p>De afgeleide van <span class="arithmatex">\(e^x\)</span> kunnen we bepalen met de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. We zien dat de afgeleide van <span class="arithmatex">\(e^x\)</span> zichzelf is, dus ook <span class="arithmatex">\(e^x\)</span>:</p>
+<p>De afgeleide van <span class="arithmatex">\(e^x\)</span> kunnen we bepalen met de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. We zien dat de afgeleide van <span class="arithmatex">\(e^x\)</span> zichzelf is, dus ook <span class="arithmatex">\(e^x:\)</span></p>
 <div class="arithmatex">\[\large{h'(x) = e^x = h(x).}\]</div>
-<p>Als we dit invullen in de <a href="#regels">productregel</a>, dan vinden we dus:</p>
+<p>Als we dit invullen in de <a href="#regels">productregel</a>, vinden we dus:</p>
 <div class="arithmatex">\[\large{f'(x) = 1 \cdot e^x + x \cdot e^x}\]</div>
-<div class="arithmatex">\[\large{f'(x) = xe^x + e^x}\]</div>
-<p>We kunnen hier nog de <span class="arithmatex">\(e^x\)</span> buiten haakjes halen:</p>
+<div class="arithmatex">\[\large{f'(x) = e^x + xe^x}\]</div>
+<p>We kunnen hier eventueel nog de <span class="arithmatex">\(e^x\)</span> buiten haakjes halen:</p>
 <div class="admonition quote">
-<div class="arithmatex">\[\large{f'(x) = e^x \left( 1+x \right)}\]</div>
+<div class="arithmatex">\[\large{f'(x) = e^x \left(1 + x\right)}\]</div>
 </div>
 </details>
-<details class="example"><summary>Voorbeeld 7: Bereken de afgeleide van <span class="arithmatex">\(f(x) = \tan{(x)}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = \tan{(x)}\)</span></p></strong>
+<details class="example"><summary>Voorbeeld 10: Bereken de afgeleide van <span class="arithmatex">\(f(x) = \tan(x)\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = \tan(x)\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>Om dit op te lossen moeten we onze <span class="arithmatex">\(\tan\)</span> functie anders opschrijven. In het hoofdstuk <a href="../goniometrie/#goniometrische-vergelijkingen">Goniometrie</a> zien we dat een <span class="arithmatex">\(\tan\)</span> functie ook geschreven kan worden als:</p>
-<div class="arithmatex">\[\large{\tan{(x)} = \frac{\sin{(x)}}{\cos{(x)}}}\]</div>
-<p>Nu kunnen we de <a href="#regels">quotiëntregel</a> toepassen. Deze zegt dat voor een functie van de vorm:</p>
+<p>Om dit op te lossen moeten we eerst de <span class="arithmatex">\(\tan\)</span> schrijven in termen van <span class="arithmatex">\(\sin\)</span> en <span class="arithmatex">\(\cos\)</span>. In het hoofdstuk <a href="../goniometrie/#goniometrische-vergelijkingen">Goniometrie</a> zien we een tangens ook kunnen schrijven als:</p>
+<div class="arithmatex">\[\large{\tan(x) = \frac{\sin(x)}{\cos(x)}}\]</div>
+<p>Dit zijn twee functies gedeelt door elkaar, dus kunnen we de <a href="#regels">quotiëntregel</a> toepassen. Deze zegt dat voor een functie van de vorm:</p>
 <div class="arithmatex">\[\large{f(x) = \frac{g(x)}{h(x)}}\]</div>
 <p>de afgeleide gelijk is aan: </p>
 <div class="arithmatex">\[\large{f'(x) = \frac{g'(x) \ \cdot \ h(x) \ - \ g(x) \ \cdot \ h'(x)}{h(x)^2}}.\]</div>
 <p>In ons geval geldt er dat:</p>
-<div class="arithmatex">\[\large{g(x) = \sin{(x)}}\]</div>
-<p><p style="text-align: center;font-size:14px;">en</p></p>
-<div class="arithmatex">\[\large{h(x) = \cos{(x)}}\]</div>
+<div class="arithmatex">\[\large{g(x) = \sin(x)}\]</div>
+<p><p style="text-align: center;font-size:15px;">en</p></p>
+<div class="arithmatex">\[\large{h(x) = \cos(x)}\]</div>
 <p>De afgeleides van deze twee functies kunnen we vinden in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>:</p>
-<div class="arithmatex">\[\large{g'(x) = \cos{(x)}}\]</div>
-<p><p style="text-align: center;font-size:14px;">en</p></p>
-<div class="arithmatex">\[\large{h'(x) = - \sin{(x)}}\]</div>
+<div class="arithmatex">\[\large{g'(x) = \cos(x)}\]</div>
+<p><p style="text-align: center;font-size:15px;">en</p></p>
+<div class="arithmatex">\[\large{h'(x) = - \sin(x)}\]</div>
 <p>Nu vullen we dat in bij de quotiëntregel:</p>
-<div class="arithmatex">\[\large{f'(x) = \frac{\cos{(x)} \ \cdot \ \cos{(x)} \ - \ \sin{(x)} \ \cdot \ - \sin{(x)}}{\cos^2{(x)}}}\]</div>
+<div class="arithmatex">\[\large{f'(x) = \frac{\cos(x) \ \cdot \ \cos(x) \ - \ \sin(x) \ \cdot \ - \sin(x)}{\cos^2(x)}}\]</div>
 <p>Dit kunnen we versimplen tot:</p>
-<div class="arithmatex">\[\large{f'(x) = \frac{\cos^2{(x)} + \sin^2{(x)}}{\cos^2{(x)}}}\]</div>
-<p>We kunnen de teller nog verder versimpelen met de tweede vergelijking van de <a href="../goniometrie/#goniometrische-vergelijkingen">Goniometrische Vergelijkingen</a>. Daar zien we dat <span class="arithmatex">\(\cos^2(x) + \sin^2(x) = 1\)</span>. Ons eindantwoord wordt dan dus:</p>
+<div class="arithmatex">\[\large{f'(x) = \frac{\cos^2(x) + \sin^2(x)}{\cos^2(x)}}\]</div>
+<p>We kunnen in dit geval de teller nog verder versimpelen. In het hoofdstuk <a href="../goniometrie/#goniometrische-vergelijkingen">Goniometrie</a> zien we dat <span class="arithmatex">\(\sin^2(x) + \cos^2(x) = 1\)</span>. Ons eindantwoord wordt dan dus:</p>
 <div class="admonition quote">
-<div class="arithmatex">\[\large{f'(x) = \frac{1}{\cos^2{(x)}}}\]</div>
+<div class="arithmatex">\[\large{f'(x) = \frac{1}{\cos^2(x)}}\]</div>
 </div>
 </details>
-<details class="example"><summary>Voorbeeld 8: Bereken de afgeleide van <span class="arithmatex">\(f(x) = e^{x^2}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = e^{x^2}\)</span></p></strong>
+<details class="example"><summary>Voorbeeld 11: Bereken de afgeleide van <span class="arithmatex">\(f(x) = e^{x^2}\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = e^{x^2}\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>Om dit op te lossen, gebruiken we de <a href="#regels">kettingregel</a>. Deze zegt dat voor een functie in een functie, dus:</p>
-<div class="arithmatex">\[\large{f(x) \equiv f(u(x))}\]</div>
-<p>de afgeleide gelijk is aan:</p>
-<div class="arithmatex">\[\large{f'(x) = \frac{\mathrm{d} f}{\mathrm{d} u} \cdot \frac{\mathrm{d} u}{\mathrm{d} x}}.\]</div>
-<p>Dus we moeten eerst de buitenste en de binnenste functie bepalen. Dus in dit geval hebben we als binnenste functie:</p>
+<p>We hebben hier een functie in een functie, dus we moeten de <a href="#regels">kettingregel</a> gebruiken. We noemen de binnenste functie even <span class="arithmatex">\(u(x)\)</span>:</p>
 <div class="arithmatex">\[\large{u(x) = x^2}\]</div>
-<p>en als buitenste functie:</p>
+<p>We kunnen <span class="arithmatex">\(f(x)\)</span> dan schrijven als functie van <span class="arithmatex">\(u\)</span>:</p>
 <div class="arithmatex">\[\large{f(u) = e^{u}}\]</div>
+<p>De kettingregel vertelt ons dat <span class="arithmatex">\(f'(x)\)</span> de afgeleide van <span class="arithmatex">\(f\)</span> naar <span class="arithmatex">\(u\)</span> keer de afgeleide van <span class="arithmatex">\(u\)</span> naar <span class="arithmatex">\(x\)</span> is:</p>
+<div class="arithmatex">\[\large{f'(x) = \frac{\mathrm{d} f}{\mathrm{d} u} \cdot \frac{\mathrm{d} u}{\mathrm{d} x}}\]</div>
 <p>Laten we eerst de afgeleide van <span class="arithmatex">\(f\)</span> naar <span class="arithmatex">\(u\)</span> bepalen:</p>
 <div class="arithmatex">\[\large{\frac{\mathrm{d} f}{\mathrm{d} u} = e^{u},}\]</div>
-<p>want de afgeleide van een e-macht is gewoon zichzelf (zie eventueel de <a href="#tabel-met-veel-voorkomende-functies">Tabel</a>). Nu bepalen we de afgeleide van <span class="arithmatex">\(u\)</span> naar <span class="arithmatex">\(x\)</span>:</p>
+<p>want de afgeleide van een e-macht is gewoon zichzelf (zie eventueel de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>). Nu bepalen we de afgeleide van <span class="arithmatex">\(u\)</span> naar <span class="arithmatex">\(x\)</span>:</p>
 <div class="arithmatex">\[\large{\frac{\mathrm{d} u}{\mathrm{d} x} = 2x,}\]</div>
 <p>(zie voorbeeld 1 voor eventuele toelichting). Nu kunnen we de <a href="#regels">kettingregel</a> toepassen:</p>
 <div class="arithmatex">\[\large{f'(x) = e^{u} \cdot 2x}\]</div>
-<p>Nu kunnen we <span class="arithmatex">\(u\)</span> weer terug <em>substitueren</em> (dit betekent gewoon invullen):</p>
+<p>Nu kunnen we <span class="arithmatex">\(u\)</span> weer terug <em>substitueren</em> (denk: <span class="arithmatex">\(u\)</span> schrijven in termen van <span class="arithmatex">\(x\)</span>):</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{f'(x) = 2x \cdot e^{x^2}}\]</div>
 </div>
 </details>
-<details class="example"><summary>Voorbeeld 9: Bereken de afgeleide van <span class="arithmatex">\(f(x) = \ln{\left((x+1)^2 \right)} \cdot \sqrt{x} + 5\)</span></summary><p><em><p style="text-align: left;font-size:15px;color: #FA3D3D; "> * Lastige opdracht</p></em>
+<details class="example"><summary>Voorbeeld 12: Bereken de afgeleide van <span class="arithmatex">\(f(x) = \ln{\left((x+1)^2 \right)} \cdot \sqrt{x} + 5\)</span></summary><p><em><p style="text-align: left;font-size:15px;color: #FA3D3D; "> * Lastige opdracht</p></em>
 <strong><p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie <span class="arithmatex">\(f(x) = \ln{\left((x+1)^2 \right)} \cdot \sqrt{x} + 5\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
 <p>Bij een lastige opdracht is het belangrijk om echt stap voor stap te werken. Deze functie is een combinatie van een aantal andere functies. We herkennen hier de volgende functies:</p>
@@ -1156,18 +1209,18 @@
 </ul>
 <p>De vergelijking wordt dan:</p>
 <div class="arithmatex">\[\large{f(x) = g(u) \cdot h(x) + 5}\]</div>
-<p>Als we dingen optellen, mogen we de afgeleides nemen van de losse termen. Dus laten we de afgeleide van de <span class="arithmatex">\(+5\)</span> term bepalen. Dit is gelijk aan <span class="arithmatex">\(0\)</span>, want <span class="arithmatex">\(5\)</span> is een constante (zie regel <span class="arithmatex">\(1\)</span> van de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>). Dus die term voegt niks toe aan onze afgeleide.</p>
-<p>We moeten nu dus de afgeleide bepalen van <span class="arithmatex">\(g(u) \cdot h(x)\)</span>. Dit zijn twee functies keer elkaar, dus moeten we de <a href="#regels">productregel</a> gebruiken:</p>
+<p>Als we dingen optellen, mogen we de afgeleides nemen van de losse termen ([somregel][#regels]). De afgeleide van de <span class="arithmatex">\(+5\)</span> term is gewoon <span class="arithmatex">\(0\)</span>, want <span class="arithmatex">\(5\)</span> is een constante. Die term voegt dus niks toe aan onze afgeleide.</p>
+<p>We moeten nu dus de afgeleide bepalen van <span class="arithmatex">\(g(u) \cdot h(x)\)</span>. Dit zijn twee functies keer elkaar, dus gebruiken we de <a href="#regels">productregel</a>:</p>
 <div class="arithmatex">\[\large{\boxed{f'(x) = \frac{\mathrm{d} g}{\mathrm{d} x} \cdot h(x) + g(u) \cdot \frac{\mathrm{d} h}{\mathrm{d} x}}}\]</div>
 <p>(Zie eventueel de <a href="#notatie">notatie</a> van afgeleides). Laten we beginnen met <span class="arithmatex">\(\large{\frac{\mathrm{d} h}{\mathrm{d} x}}\)</span> bepalen:</p>
-<p>We kunnen <span class="arithmatex">\(\sqrt{x}\)</span> ook schrijven als <span class="arithmatex">\(x^{\frac{1}{2}}\)</span>, dus:</p>
+<p>We kunnen <span class="arithmatex">\(\sqrt{x}\)</span> ook schrijven als <span class="arithmatex">\(x^{\frac{1}{2}}\)</span> (zie eventueel <a href="../basisvaardigheden/##regels-met-wortels">Regels met Wortels</a>). Dus:</p>
 <div class="arithmatex">\[\large{h(x) = x^{\frac{1}{2}}}\]</div>
-<p>Nu kunnen we de afgeleide bepalen met regel <span class="arithmatex">\(2\)</span> van de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. We krijgen dan:</p>
+<p>We zien dat dit een functie van de vorm <span class="arithmatex">\(ax^n\)</span> is, met <span class="arithmatex">\(a=1\)</span> en <span class="arithmatex">\(n=\frac{1}{2}\)</span>. De afgeleide wordt dan dus:</p>
 <div class="arithmatex">\[\large{\frac{\mathrm{d} h}{\mathrm{d} x} = \frac{1}{2}x^{\frac{1}{2} - 1}}\]</div>
 <div class="arithmatex">\[\large{\frac{\mathrm{d} h}{\mathrm{d} x} = \frac{1}{2}x^{-\frac{1}{2}}}\]</div>
 <p>En dit kunnen we ook schrijven als:</p>
 <div class="arithmatex">\[\large{\boxed{\frac{\mathrm{d} h}{\mathrm{d} x} = \frac{1}{2 \sqrt{x}}}}\]</div>
-<p>Oké, dat was de afgeleide van de eerste functie! Nu moeten we <span class="arithmatex">\(\large{\frac{\mathrm{d} g}{\mathrm{d} x}}\)</span> bepalen. <span class="arithmatex">\(g\)</span> bestaat uit de functie <span class="arithmatex">\(u\)</span> en die bestaat weer uit <span class="arithmatex">\(x\)</span>. We moeten dus de <a href="#regels">kettingregel</a> gebruiken:</p>
+<p>Oké, dat was de afgeleide van de eerste functie! Nu moeten we <span class="arithmatex">\(\large{\frac{\mathrm{d} g}{\mathrm{d} x}}\)</span> bepalen. <span class="arithmatex">\(g\)</span> bestaat uit de functie <span class="arithmatex">\(u\)</span> en die bestaat weer uit <span class="arithmatex">\(x\)</span>. Dit zijn meerdere functies in elkaar, dus moeten we de <a href="#regels">kettingregel</a> gebruiken:</p>
 <div class="arithmatex">\[\large{\frac{\mathrm{d} g}{\mathrm{d} x} = \frac{\mathrm{d} g}{\mathrm{d} u} \cdot \frac{\mathrm{d} u}{\mathrm{d} x}}\]</div>
 <p>Laten we beginnen met <span class="arithmatex">\(\large{\frac{\mathrm{d} g}{\mathrm{d} u}}\)</span> bepalen. We hebben:</p>
 <div class="arithmatex">\[\large{g(u) = \ln(u).}\]</div>
@@ -1181,8 +1234,8 @@
 <div class="arithmatex">\[\large{\frac{\mathrm{d} u}{\mathrm{d} x} = \frac{\mathrm{d} u}{\mathrm{d} k} \cdot \frac{\mathrm{d} k}{\mathrm{d} x}}\]</div>
 <p>De afgeleide van <span class="arithmatex">\(u\)</span> naar <span class="arithmatex">\(k\)</span> is hetzelfde als dat we bij voorbeeld <span class="arithmatex">\(1\)</span> hadden gedaan:</p>
 <div class="arithmatex">\[\large{\frac{\mathrm{d} u}{\mathrm{d} k} = 2k}\]</div>
-<p>De afgeleide van <span class="arithmatex">\(k = x + 1\)</span> naar <span class="arithmatex">\(x\)</span> kunnen we bepalen met regel <span class="arithmatex">\(1\)</span> en <span class="arithmatex">\(2\)</span> van de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. Daarmee vinden we dat de afgeleide van <span class="arithmatex">\(x\)</span> is <span class="arithmatex">\(1\)</span> en de afgeleide van <span class="arithmatex">\(1\)</span> is <span class="arithmatex">\(0\)</span>. Dus:</p>
-<div class="arithmatex">\[\large{\frac{\mathrm{d} k}{\mathrm{d} x} = 1}\]</div>
+<p>De afgeleide van <span class="arithmatex">\(k = x + 1\)</span> naar <span class="arithmatex">\(x\)</span> kunnen we bepalen door de afgeleide van de losse termen te nemen. De afgeleide van <span class="arithmatex">\(x\)</span> is <span class="arithmatex">\(1\)</span> en de afgeleide van <span class="arithmatex">\(1\)</span> is <span class="arithmatex">\(0\)</span>. Dus:</p>
+<div class="arithmatex">\[\large{\frac{\mathrm{d} k}{\mathrm{d} x} = 1 + 0 = 1}\]</div>
 <p>De afgeleide van <span class="arithmatex">\(u\)</span> naar <span class="arithmatex">\(x\)</span> is dus:</p>
 <div class="arithmatex">\[\large{\frac{\mathrm{d} u}{\mathrm{d} x} = 2k}\]</div>
 <p>Als we dit opschrijven in termen van <span class="arithmatex">\(x\)</span>:</p>
@@ -1214,22 +1267,21 @@
 </div>
 </details>
 <h2 id="extreme-waardes-bepalen"><strong>Extreme waardes bepalen</strong></h2>
-<p>Zoals we zagen bij het filmpje van een <a href="#parabool">parabool</a>, is de helling <span class="arithmatex">\(0\)</span> bij een top. Dit komt omdat op dit punt de functie van toenemend naar afnemend wisselt, of andersom. Dit betekent dus dat er op dat punt geen toename/afname is als <span class="arithmatex">\(x\)</span> toeneemt/afneemt. Dus als we de coördinaten van de top willen weten, moeten we kijken waar de helling (en dus de afgeleide) <span class="arithmatex">\(0\)</span> is. Hier hoort de volgende vergelijking bij:</p>
+<p>Zoals we zagen bij het filmpje van een <a href="#parabool">parabool</a>, is de helling <span class="arithmatex">\(0\)</span> bij een top. Dit kunnen we ook zien aan de raaklijn, want die is gewoon horizontaal. Op dat punt verandert de <span class="arithmatex">\(y\)</span> dus niet als <span class="arithmatex">\(x\)</span> een klein beetje verandert. </p>
+<p>Dit kunnen we gebruiken om de coördinaten van de <em>extreme waarde</em> te bepalen.* We moeten dan dus kijken waar de helling en dus de afgeleide gelijk is aan <span class="arithmatex">\(0\)</span>. Hier hoort de volgende vergelijking bij:</p>
 <div class="arithmatex">\[\large{f'(x) = 0}\]</div>
-<p>Laten we naar een voorbeeld kijken. Stel we hebben de volgende functie:</p>
-<div class="arithmatex">\[f(x) = -x^2 + 2.\]</div>
-<p>En we willen van deze functie de coördinaten van de top weten. Hoe pakken we dit aan?</p>
-<figure>
-<p><img alt="Top van functie" src="../assets/images/afgeleide/f%28x%29%20%3D%20-x%C2%B2%20%2B%202.svg" width="500" />
-    <figcaption>Figuur 1. De grafiek <span class="arithmatex">\(f(x) = - x^2 + 2\)</span> geplot met de extreme waarde (ander woord voor de top).</figcaption></p>
-</figure>
-<p>We beginnen dus met de afgeleide bepalen van <span class="arithmatex">\(f(x)\)</span>. Voor de <span class="arithmatex">\(-x^2\)</span> term kunnen we regel <span class="arithmatex">\(2\)</span> gebruiken van de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. De afgeleide van de <span class="arithmatex">\(+2\)</span> term wordt <span class="arithmatex">\(0\)</span>, want dit is een constante (regel <span class="arithmatex">\(1\)</span> uit de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>). De afgeleide wordt dus:</p>
+<p>Als we deze vergelijking oplossen, vinden we alle <span class="arithmatex">\(x\)</span>-coördinaten van de toppen. Als we deze <span class="arithmatex">\(x\)</span>-coördinaten invullen in <span class="arithmatex">\(f(x)\)</span>, vinden we ook de bijbehorende <span class="arithmatex">\(y\)</span>-coördinaten.</p>
+<p><em><div> * Extreme waarde is een andere naam voor de top van een grafiek.</div></em></p>
+<p><br><br>
+Laten we naar een voorbeeld kijken. Stel we hebben de volgende functie:</p>
+<div class="arithmatex">\[f(x) = -x^2 + 2,\]</div>
+<p>en we willen van deze functie de coördinaten van de top weten. Hoe pakken we dit aan?</p>
+<p>We beginnen dus met de afgeleide bepalen van <span class="arithmatex">\(f(x)\)</span>. De <span class="arithmatex">\(-x^2\)</span> term heeft de vorm <span class="arithmatex">\(ax^n\)</span>, dus de afgeleide wordt van de vorm <span class="arithmatex">\(n \cdot ax^{n-1}\)</span>. De <span class="arithmatex">\(+2\)</span> term is een constante (heeft geen <span class="arithmatex">\(x\)</span>) en dus is de afgeleide <span class="arithmatex">\(0\)</span>. Als we dit samenvoegen vinden we dus:</p>
 <div class="arithmatex">\[f'(x) = -2x^{2-1} + 0\]</div>
-<div class="arithmatex">\[f'(x) = -2x\]</div>
+<div class="arithmatex">\[\boxed{f'(x) = -2x}\]</div>
 <p>We willen de top bepalen, dus moeten we de afgeleide gelijk stellen aan <span class="arithmatex">\(0\)</span>:</p>
 <div class="arithmatex">\[f'(x) = 0\]</div>
-<p>Als we dit invullen, vinden we:</p>
-<div class="arithmatex">\[2x = 0\]</div>
+<div class="arithmatex">\[-2x = 0\]</div>
 <div class="arithmatex">\[\boxed{x = 0}\]</div>
 <p>Het <span class="arithmatex">\(x\)</span>-coördinaat van onze top is dus <span class="arithmatex">\(0\)</span>. Om het <span class="arithmatex">\(y\)</span>-coördinaat van de top te bepalen, moeten we dit invullen in de originele functie <span class="arithmatex">\(f(x)\)</span>. We krijgen dan:</p>
 <div class="arithmatex">\[f(0) = -0^2 + 2\]</div>
@@ -1238,19 +1290,24 @@
 <div class="admonition quote">
 <div class="arithmatex">\[\large{(0, 2)}\]</div>
 </div>
-<p>en dit kunnen we ook aflezen in Figuur 1.</p>
+<p>Als we dit tekenen, dan kunnen we ook controleren dat dit klopt.</p>
+<figure>
+<p><img alt="Top van functie" src="../assets/images/afgeleide/f%28x%29%20%3D%20-x%C2%B2%20%2B%202.svg" width="500" />
+    <figcaption>Figuur 1. De grafiek <span class="arithmatex">\(f(x) = - x^2 + 2\)</span> geplot met de extreme waarde.</figcaption></p>
+</figure>
 <h3 id="voorbeelden_1"><strong>Voorbeelden</strong></h3>
 <details class="example"><summary>Voorbeeld 1: Bepaal de extreme waarde van <span class="arithmatex">\(f(x) = 6x^2 - 12x + 9\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waarde van <span class="arithmatex">\(f(x) = 6x^2 - 12x + 9\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>We moeten de extreme waarde bepalen van <span class="arithmatex">\(f(x)\)</span>, dus de top. Dus we moeten de afgeleide van <span class="arithmatex">\(f(x)\)</span> gelijk stellen aan <span class="arithmatex">\(0\)</span>. Laten we eerst de afgeleide van <span class="arithmatex">\(f(x)\)</span> bepalen.</p>
-<p>We weten dat we de afgeleide kunnen nemen van de individuele termen (<a href="#regels">somregel</a>). De afgeleide wordt dus:</p>
+<p>We moeten de extreme waarde bepalen van <span class="arithmatex">\(f(x)\)</span>, dus de top van de grafiek. Om dit te doen, moeten we de afgeleide van <span class="arithmatex">\(f(x)\)</span> gelijk aan <span class="arithmatex">\(0\)</span> stellen. Laten we eerst de afgeleide van <span class="arithmatex">\(f(x)\)</span> bepalen.</p>
+<p>De afgeleide kunnen we bepalen door de afgeleides van de losse termen bij elkaar op te tellen (<a href="#regels">somregel</a>). De afgeleide wordt dan dus:</p>
 <div class="arithmatex">\[\large{f'(x) = 2 \cdot 6x^{2-1} - 12}\]</div>
 <div class="arithmatex">\[\large{f'(x) = 12x - 12}\]</div>
-<p>Om de extreme waarde te bepalen stellen we dit dus gelijk aan <span class="arithmatex">\(0\)</span>:</p>
+<p>Om de extreme waarde te bepalen, moeten we dit dus gelijk stellen aan <span class="arithmatex">\(0\)</span>:</p>
 <div class="arithmatex">\[\large{12x - 12 = 0}\]</div>
+<p>Nu kunnen we dit oplossen om het <span class="arithmatex">\(x\)</span>-coördinaat van de top te vinden:</p>
 <div class="arithmatex">\[\large{12x = 12}\]</div>
 <div class="arithmatex">\[\large{\boxed{x = 1}}\]</div>
-<p>Het <span class="arithmatex">\(x\)</span>-coördinaat van de top is dus bij <span class="arithmatex">\(x = 1\)</span>. Het <span class="arithmatex">\(y\)</span>-coördinaat bepalen we door <span class="arithmatex">\(x=1\)</span> in te vullen in <span class="arithmatex">\(f(x)\)</span>:</p>
+<p>Het <span class="arithmatex">\(x\)</span>-coördinaat van de top is dus <span class="arithmatex">\(x = 1\)</span>. Het <span class="arithmatex">\(y\)</span>-coördinaat bepalen we door <span class="arithmatex">\(x=1\)</span> in <span class="arithmatex">\(f(x)\)</span> in te vullen:</p>
 <div class="arithmatex">\[\large{f(1) = 6 \cdot 1^2 - 12 \cdot 1 + 9}\]</div>
 <div class="arithmatex">\[\large{\boxed{f(1) = 3}}\]</div>
 <p>De coördinaten van de top zijn dus:</p>
@@ -1265,15 +1322,15 @@
 </details>
 <details class="example"><summary>Voorbeeld 2: Bepaal de extreme waardes van <span class="arithmatex">\(f(x) = -x^3 + 6x^2 - 9x + 3\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waardes van <span class="arithmatex">\(f(x) = -x^3 + 6x^2 - 9x + 3\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>We moeten weer de extreme waardes bepalen. Dus dit betekent dat we de afgeleide gelijk aan <span class="arithmatex">\(0\)</span> moeten stellen. Laten we weer eerst de afgeleide bepalen.</p>
-<p>De afgeleide is de afgeleide van de individuele termen (<a href="#regels">somregel</a>):</p>
-<div class="arithmatex">\[\large{f'(x) = -3x^{3-1} + 6 \cdot 2x^{2-1} - 9}\]</div>
+<p>We moeten weer de extreme waardes bepalen. Dit betekent dus dat we de afgeleide gelijk aan <span class="arithmatex">\(0\)</span> moeten stellen. Laten we weer eerst de afgeleide bepalen.</p>
+<p>We kunnen weer de afgeleides van de losse termen bij elkaar op tellen (<a href="#regels">somregel</a>):</p>
+<div class="arithmatex">\[\large{f'(x) = 3 \cdot -x^{3-1} + 6 \cdot 2x^{2-1} - 9}\]</div>
 <div class="arithmatex">\[\large{f'(x) = -3x^2 + 12x - 9}\]</div>
 <p>Nu stellen we deze afgeleide gelijk aan <span class="arithmatex">\(0\)</span>:</p>
 <div class="arithmatex">\[\large{-3x^2 + 12x - 9 = 0}\]</div>
 <p>Dit is een <a href="../kwadratische_vergelijkingen/">kwadratische vergelijking</a> die we gewoon kunnen oplossen. We beginnen met alle termen te delen door <span class="arithmatex">\(-3\)</span>:</p>
 <div class="arithmatex">\[\large{x^2 - 4x + 3 = 0}\]</div>
-<p>Dit kunnen we oplossen met door te <a href="../kwadratische_vergelijkingen/#ontbinden-in-factoren">ontbinden in factoren</a>. We doen dit met behulp van de <a href="../kwadratische_vergelijkingen/#product-som-methode">product-som methode</a>.</p>
+<p>We proberen dit eerst op te lossen met <a href="../kwadratische_vergelijkingen/#ontbinden-in-factoren">ontbinden in factoren</a>. Het ontbinden doen we met de <a href="../kwadratische_vergelijkingen/#product-som-methode">product-som methode</a>.</p>
 <p>We maken eers een tabel met alle factoren die samen <span class="arithmatex">\(3\)</span> geven.</p>
 <table>
 <thead>
@@ -1346,24 +1403,25 @@
 <li><span class="arithmatex">\(\large{u(x) = x - 2}\)</span></li>
 <li><span class="arithmatex">\(\large{f(u) = u^7}\)</span></li>
 </ul>
-<p>Om de afgeleide te bepalen, moeten we de <a href="#regels">kettingregel</a> toepassen:</p>
+<p>Om de afgeleide te bepalen, moeten we dus de <a href="#regels">kettingregel</a> toepassen:</p>
 <div class="arithmatex">\[\large{f'(x) = \frac{\mathrm{d}f}{\mathrm{d} u} \ \cdot \ \frac{\mathrm{d} u}{\mathrm{d} x}}\]</div>
-<p>We berekenen eerst de afgeleide van <span class="arithmatex">\(f\)</span> naar <span class="arithmatex">\(u\)</span>. Dit doen we met regel <span class="arithmatex">\(3\)</span> van de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>:</p>
-<div class="arithmatex">\[\large{f(u) = u^7}\]</div>
+<p>We berekenen eerst de afgeleide van <span class="arithmatex">\(f\)</span> naar <span class="arithmatex">\(u\)</span>. De functie heeft de vorm <span class="arithmatex">\(ax^n\)</span>, waarbij we hier hebben dat <span class="arithmatex">\(a=1\)</span> en <span class="arithmatex">\(n=7\)</span>. De afgeleide heeft de standaardvorm <span class="arithmatex">\(n \cdot ax^{n-1}\)</span>, dus we krijgen hier:</p>
 <div class="arithmatex">\[\large{\frac{\mathrm{d}f}{\mathrm{d} u} = 7 \cdot u^{7-1}}\]</div>
 <div class="arithmatex">\[\large{\frac{\mathrm{d}f}{\mathrm{d} u} = 7u^6}\]</div>
-<p>Nu bepalen we de afgeleide van <span class="arithmatex">\(u\)</span> naar <span class="arithmatex">\(x\)</span>:</p>
+<p>En nu bepalen we de afgeleide van <span class="arithmatex">\(u\)</span> naar <span class="arithmatex">\(x\)</span>:</p>
 <div class="arithmatex">\[\large{u(x) = x - 2}\]</div>
+<p>De <span class="arithmatex">\(x\)</span> term heeft de vorm <span class="arithmatex">\(ax\)</span>, met <span class="arithmatex">\(a=1\)</span>. De afgeleide van deze standaardvorm is <span class="arithmatex">\(a\)</span>, dus in dit geval <span class="arithmatex">\(1\)</span>. De <span class="arithmatex">\(-2\)</span> term is een constante (term zonder <span class="arithmatex">\(x\)</span>), dus daarvan is de afgeleide <span class="arithmatex">\(0\)</span>:</p>
 <div class="arithmatex">\[\large{\frac{\mathrm{d} u}{\mathrm{d} x} = 1 + 0 = 1}\]</div>
-<p>Want de afgeleide van <span class="arithmatex">\(x\)</span> is <span class="arithmatex">\(1\)</span> (<a href="#tabel-met-veel-voorkomende-functies">regel <span class="arithmatex">\(2\)</span></a>) en de afgeleide van <span class="arithmatex">\(-2\)</span> is <span class="arithmatex">\(0\)</span> (<a href="#tabel-met-veel-voorkomende-functies">regel <span class="arithmatex">\(1\)</span></a>). Als we dit combineren, dan krijgen we:</p>
+<p>Nu kunnen we dit samenvoegen om te vinden:</p>
 <div class="arithmatex">\[\large{f'(x) = 7u^6 \cdot 1}\]</div>
-<p>Als we <span class="arithmatex">\(u\)</span> weer schrijven in termen van <span class="arithmatex">\(x\)</span> krijgen we als afgeleide:</p>
+<div class="arithmatex">\[\large{f'(x) = 7u^6}\]</div>
+<p>Als we <span class="arithmatex">\(u\)</span> weer terug substitueren (schrijven in termen van <span class="arithmatex">\(x\)</span>), krijgen we als afgeleide:</p>
 <div class="arithmatex">\[\large{f'(x) = 7(x - 2)^6}\]</div>
-<p>Om de extreme waarde te bepalen, moeten we de afgeleide dus gelijk aan <span class="arithmatex">\(0\)</span> stellen:</p>
+<p>Om de extreme waarde te bepalen, moeten we deze afgeleide dus gelijk aan <span class="arithmatex">\(0\)</span> stellen:</p>
 <div class="arithmatex">\[\large{f'(x) = 0}\]</div>
 <div class="arithmatex">\[\large{7(x - 2)^6 = 0}\]</div>
-<p>Dit kan alleen <span class="arithmatex">\(0\)</span> zijn als:</p>
-<div class="arithmatex">\[\large{x - 2 = 0,}\]</div>
+<p>Dit kan alleen <span class="arithmatex">\(0\)</span> zijn als er geldt dat:</p>
+<div class="arithmatex">\[\large{x - 2 = 0}\]</div>
 <p>Als we dit oplossen, vinden we:</p>
 <div class="arithmatex">\[\large{x = 2}\]</div>
 <p>Het <span class="arithmatex">\(x\)</span>-coördinaat van de top is dus <span class="arithmatex">\(2\)</span>. Als we dit in <span class="arithmatex">\(f(x)\)</span> invullen, vinden we als <span class="arithmatex">\(y\)</span>-coördinaat:</p>
@@ -1372,7 +1430,7 @@
 <div class="admonition quote">
 <div class="arithmatex">\[\large{(2, 0)}\]</div>
 </div>
-<p>Als we de functie tekenen, dan zien we dat dit klopt.</p>
+<p>Als we de functie tekenen, dan kunnen we controleren dat dit klopt.</p>
 <p><figure markdown>
     <img alt="Top van functie" src="../assets/images/afgeleide/f%28x%29%20%3D%20%28x%20-%202%29%E2%81%B7.svg" width="500" />
     <figcaption>Figuur 4. De grafiek <span class="arithmatex">\(f(x) = (x-2)^{7}\)</span> geplot met de extreme waarde.</figcaption>
@@ -1380,8 +1438,8 @@
 </details>
 <details class="example"><summary>Voorbeeld 4: Bepaal de extreme waardes van <span class="arithmatex">\(f(x) = 10e^x(x^2 + 4x + 0.4)\)</span></summary><p><strong><p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waardes van <span class="arithmatex">\(f(x) = e^x(x^2 + 4x + 0.4)\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>Om de extreme waardes te bepalen moeten we stellen dat de afgeleide gelijk is aan <span class="arithmatex">\(0\)</span>. Dus als eerst berekenen we de afgeleide van <span class="arithmatex">\(f(x)\)</span>.</p>
-<p>Dit zijn twee functies keer elkaar, dus moeten we de <a href="#regels">productregel</a> gebruiken. We hebben de volgende twee functies:</p>
+<p>Om de extreme waardes te bepalen, moeten we de afgeleide gelijk aan <span class="arithmatex">\(0\)</span> stellen. Dus als eerst bepalen we de afgeleide van <span class="arithmatex">\(f(x)\)</span>.</p>
+<p><span class="arithmatex">\(f(x)\)</span> bestaat uit twee functies keer elkaar, dus moeten we de <a href="#regels">productregel</a> gebruiken. We noemen deze functies even <span class="arithmatex">\(g(x)\)</span> en <span class="arithmatex">\(h(x)\)</span>:</p>
 <ul>
 <li><span class="arithmatex">\(\large{g(x) = 10e^x}\)</span></li>
 <li><span class="arithmatex">\(\large{h(x) = x^2 + 4x + 0.4}\)</span></li>
@@ -1393,11 +1451,11 @@
 <div class="arithmatex">\[\large{g'(x) = 10e^x}\]</div>
 <p>De afgeleide van <span class="arithmatex">\(h(x)\)</span> kunnen we bepalen met de eerste drie regels van de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>:</p>
 <div class="arithmatex">\[\large{h'(x) = 2x + 4}\]</div>
-<p>Nu vullen we passen we de productregel toe:</p>
+<p>Nu we passen we de productregel toe:</p>
 <div class="arithmatex">\[\large{f'(x) = 10e^x \cdot (x^2 + 4x + 0.4) + 10e^x \cdot (2x + 4)}\]</div>
-<p>Dit kunnen we versimpelen naar:</p>
+<p>Dit kunnen we versimpelen tot:</p>
 <div class="arithmatex">\[\large{f'(x) = 10e^x(x^2 + 6x + 4.4)}\]</div>
-<p>Om de extreme waardes te bepalen stellen we deze afgeleide gelijk aan <span class="arithmatex">\(0\)</span>:</p>
+<p>Om de extreme waardes te bepalen, stellen we deze afgeleide gelijk aan <span class="arithmatex">\(0\)</span>:</p>
 <div class="arithmatex">\[\large{10e^x(x^2 + 6x + 4.4) = 0}\]</div>
 <p>We zien hier dat deze twee factoren keer elkaar <span class="arithmatex">\(0\)</span> zijn. Dit kan alleen als een van de twee factoren <span class="arithmatex">\(0\)</span> is:</p>
 <div class="arithmatex">\[\large{10e^x = 0 \ \vee \ x^2 + 6x + 4.4 = 0}\]</div>
@@ -1414,7 +1472,8 @@
 <p>De bijbehorende <span class="arithmatex">\(y\)</span>-coördinaten kunnen we bepalen door dit in te vullen in <span class="arithmatex">\(f(x)\)</span>:</p>
 <div class="arithmatex">\[\large{f(-0.86) = 10e^{-0.86}\left((-0.86)^2 + 4 \cdot (-0.86) + 0.4 \right)}\]</div>
 <div class="arithmatex">\[\large{f(-0.86) \approx -9.7}\]</div>
-<div class="arithmatex">\[\large{f(-5.14) = 10e^{-5.14}\left((-5.14)^2 + 4 \cdot (-5.14) + 0.4 \right)}\]</div>
+<p><br><br>
+<span class="arithmatex">\(<span class="arithmatex">\(\large{f(-5.14) = 10e^{-5.14}\left((-5.14)^2 + 4 \cdot (-5.14) + 0.4 \right)}\)</span>\)</span></p>
 <div class="arithmatex">\[\large{f(-5.14) \approx 0.37}\]</div>
 <p>De coördinaten van de twee extreme waardes zijn dus:</p>
 <div class="admonition quote">
@@ -1435,7 +1494,7 @@
 </ul>
 <p>De <a href="#regels">kettingregel</a> vertelt ons:</p>
 <div class="arithmatex">\[\large{f'(x) = \frac{\mathrm{d}f}{\mathrm{d} u} \ \cdot \ \frac{\mathrm{d} u}{\mathrm{d} x}}\]</div>
-<p>We beginnen met <span class="arithmatex">\(\large{\frac{\mathrm{d}f}{\mathrm{d} u}}\)</span> bepalen:</p>
+<p>We beginnen met <span class="arithmatex">\(\large{\frac{\mathrm{d}f}{\mathrm{d} u}}\)</span> te bepalen:</p>
 <div class="arithmatex">\[\large{\frac{\mathrm{d}f}{\mathrm{d} u} = 2 \cdot u^{2-1}}\]</div>
 <div class="arithmatex">\[\large{\frac{\mathrm{d}f}{\mathrm{d} u} = 2u}\]</div>
 <p>Als we dit schrijven in termen van <span class="arithmatex">\(x\)</span>:</p>
@@ -1492,46 +1551,6 @@
   
 
 
-
-  <form class="md-feedback" name="feedback" hidden>
-    <fieldset>
-      <legend class="md-feedback__title">
-        Begrijp je de stof nu beter?
-      </legend>
-      <div class="md-feedback__inner">
-        <div class="md-feedback__list">
-          
-            <button class="md-feedback__icon md-icon" type="submit" title="Ik begrijp de stof nu beter" data-md-value="1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 9v12H1V9h4m4 12a2 2 0 0 1-2-2V9c0-.55.22-1.05.59-1.41L14.17 1l1.06 1.06c.27.27.44.64.44 1.05l-.03.32L14.69 8H21a2 2 0 0 1 2 2v2c0 .26-.05.5-.14.73l-3.02 7.05C19.54 20.5 18.83 21 18 21H9m0-2h9.03L21 12v-2h-8.79l1.13-5.32L9 9.03V19Z"/></svg>
-            </button>
-          
-            <button class="md-feedback__icon md-icon" type="submit" title="De stof is nog een beetje onduidelijk" data-md-value="0">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 15V3h4v12h-4M15 3a2 2 0 0 1 2 2v10c0 .55-.22 1.05-.59 1.41L9.83 23l-1.06-1.06c-.27-.27-.44-.64-.44-1.06l.03-.31.95-4.57H3a2 2 0 0 1-2-2v-2c0-.26.05-.5.14-.73l3.02-7.05C4.46 3.5 5.17 3 6 3h9m0 2H5.97L3 12v2h8.78l-1.13 5.32L15 14.97V5Z"/></svg>
-            </button>
-          
-        </div>
-        <div class="md-feedback__note">
-          
-            <div data-md-value="1" hidden>
-              
-              
-                
-              
-              Bedankt voor de feedback! Om ervoor te zorgen dat wiskundewijs nóg beter wordt, zou ik <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUuPlxDYomx3nLl63BQcFR0jCbQMaQIpFh37J53_UaVJELeA/viewform?usp=pp_url&entry.1328585866=De%20Afgeleide%20Functie" target="_blank" rel="noopener">jouw feedback</a> heel erg waarderen!
-            </div>
-          
-            <div data-md-value="0" hidden>
-              
-              
-                
-              
-              Bedankt voor de feedback! Ik zou het heel erg waarderen als je mij vertelt wat jij denkt dat verbeterd kan worden. <a href="https://docs.google.com/forms/d/e/1FAIpQLSebi8Nv-t1BBU7mzvMK8COd_1aHSTnjgzBQWQXhjt64OuVsFQ/viewform?usp=pp_url&entry.1328585866=De%20Afgeleide%20Functie" target="_blank" rel="noopener">Jouw feedback</a> kan mensen helpen die tegen hetzelfde aanlopen!
-            </div>
-          
-        </div>
-      </div>
-    </fieldset>
-  </form>
 
 
                 
@@ -1596,7 +1615,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2024, Marc Serrano Altena
+      Copyright &copy; 2024, Marc Serrano Altena <br> <a href="#__consent" style="color:#B0B0B0"><i>Cookie instellingen</i></a>
     </div>
   
   
@@ -1645,6 +1664,63 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+
+
+  
+
+
+<h4>Cookies</h4>
+<p>Deze website maakt gebruik van cookies om te zien hoe je de website gebruikt. We kunnen dan jouw ervaring nog beter maken.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accepteren</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Instellingen</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
     

@@ -307,20 +307,27 @@ De volgende regels gelden voor alle soorten machten:
 
     #### <span style="font-size: 16px;">Machten in het Algemeen</span>
 
-    4. $$\large{(a \cdot b)^n = a^n \cdot b^n}$$
+    1. $$\large{\frac{1}{a^n} = a^{-n}}$$
 
-    5. $$\large{\left(\frac{a}{b}\right)^n = \frac{a^n}{b^n}}$$
+    2. $$\large{\sqrt[n]{a} = a^{\frac{1}{n}}}$$
 
-    6. $$\large{ a^n \cdot a^m = a^{n + m}}$$
+    3. $$\large{(a \cdot b)^n = a^n \cdot b^n}$$
 
-    7. $$\large{ \frac{a^n}{a^m} = a^{n - m}}$$
+    4. $$\large{\left(\frac{a}{b}\right)^n = \frac{a^n}{b^n}}$$
 
-    6. $$\large{\left(a^n\right)^m = a^{n \cdot m}}$$
+    5. $$\large{ a^n \cdot a^m = a^{n + m}}$$
+
+    6. $$\large{ \frac{a^n}{a^m} = a^{n - m}}$$
+
+    7. $$\large{\left(a^n\right)^m = a^{n \cdot m}}$$
+
+    
+
 
 
 Voor wortels gelden precies dezelfde regels als voor machten. Dit is ook logisch want je kan een wortel ook schrijven als tot de macht $\frac{1}{2}$:
 
-$$\sqrt{x} \equiv x^{\frac{1}{2}}$$
+$$\sqrt{x} \equiv \sqrt[2]{x} = x^{\frac{1}{2}}$$
 
 
 ???+ Belangrijk
@@ -337,7 +344,7 @@ $$\sqrt{x} \equiv x^{\frac{1}{2}}$$
 
     6. $$\large{\sqrt{a^2} = a}$$
 
-    7. $$\large{\sqrt[m]{a^n} = a^{\frac{n}{m}}}$$
+    7. $$\large{\sqrt[n]{a^m} = a^{\frac{m}{n}}}$$
 
 ??? note "Opmerking Regel 6"
     Bij de regel 6 staat er dat
