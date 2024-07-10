@@ -38,7 +38,7 @@
         }
 
         #initialLoadingSpinner {
-            display: flex;
+            display: none;
             flex-wrap: wrap;
             gap: 10px; /* Add some space between buttons */
             margin-top: 10px;
@@ -206,6 +206,13 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+    // Show the initial loading spinner after 1 second if the page hasn't fully loaded yet
+    setTimeout(function() {
+        if (document.readyState !== 'complete') {
+            document.getElementById("initialLoadingSpinner").style.display = 'flex';
+        }
+    }, 1000);
+
     $(document).ready(function(){
         $('#initialLoadingSpinner').hide();
 
