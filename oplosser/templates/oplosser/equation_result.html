@@ -1,13 +1,12 @@
 {% load static %}
 <script id="__config" type="application/json">{"base": ".", "features": ["navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "{% static 'assets/javascripts/workers/search.f886a092.min.js' %}", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
-    
-    <script src="{% static 'assets/javascripts/bundle.6c14ae12.min.js' %}"></script>
 
-    <script src="{% static 'javascripts/mathjax.js' %}"></script>
+<script src="{% static 'assets/javascripts/bundle.6c14ae12.min.js' %}"></script>
 
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+<script src="{% static 'javascripts/mathjax.js' %}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
 <style>
@@ -71,34 +70,37 @@
         <div id="plot" class="plot"></div>
     </div>
 </div>
-<script>
-    var plotData = {{ plot_data|safe }};
-    var x_range = {{ x_range|safe }};
-    var y_range = {{ y_range|safe }};
-    var layout = {
-        autosize: true,
-        xaxis: {range: x_range},  
-        yaxis: {range: y_range},
-        margin: {l: 25, r: 0, b: 25, t: 20, pad: 0},
-        legend: {
-            x: 0.98,
-            y: 1,
-            xanchor: 'right',
-            yanchor: 'top',
-        },
-        dragmode: 'pan',  
-    };
-    var config = {modeBarButtonsToRemove: ['autoScale2d'], displaylogo: false, scrollZoom: true};
-    Plotly.newPlot('plot', plotData, layout, config);
 
-    window.setTimeout(function() {
-        Plotly.relayout('plot', 'autosize', true);
-    }, 10);  // Delay in milliseconds
 
-    // Resize plot on window resize
-    window.addEventListener('resize', function() {
-        Plotly.Plots.resize(document.getElementById('plot'));
-    });
+{% if plot %}
+    <script>
+        var plotData = {{ plot_data|safe }} 
+        var x_range = {{ x_range|safe }}
+        var y_range = {{ y_range|safe }}
+        var layout = {
+            autosize: true,
+            xaxis: {range: x_range},  
+            yaxis: {range: y_range},
+            margin: {l: 25, r: 0, b: 25, t: 20, pad: 0},
+            legend: {
+                x: 0.98,
+                y: 1,
+                xanchor: 'right',
+                yanchor: 'top',
+            },
+            dragmode: 'pan',  
+        };
+        var config = {modeBarButtonsToRemove: ['autoScale2d'], displaylogo: false, scrollZoom: true};
+        Plotly.newPlot('plot', plotData, layout, config);
 
-</script>
+        window.setTimeout(function() {
+            Plotly.relayout('plot', 'autosize', true);
+        }, 10);  // Delay in milliseconds
 
+        // Resize plot on window resize
+        window.addEventListener('resize', function() {
+            Plotly.Plots.resize(document.getElementById('plot'));
+        });
+
+    </script>
+{% endif %}

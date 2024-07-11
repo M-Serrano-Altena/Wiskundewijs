@@ -722,9 +722,6 @@ class Solve:
             else:
                 self.solutions = sp.EmptySet
             
-
-
-
             if self.symbol:
                 domain = sp.calculus.util.continuous_domain(self.eq, self.symbol, domain=sp.S.Reals)
                 domain_string = str(domain)
@@ -821,7 +818,6 @@ class Solve:
                 self.eq_string = self.eq_string.replace("limit", "Limit")
 
                 self.eq_string = sp.sympify(self.eq_string, evaluate=False)
-
                 if len(eq_split) == 1:
                     if not self.symbol:
                         solution = sp.nsimplify(eq1, [sp.pi])
@@ -870,7 +866,7 @@ class Solve:
                                 self.output.append(f"\\textrm{{Yep dat is }} {custom_latex(solution)}")
 
                         else:
-                            if equals_sign == '=' and round(float(solution), 9) != round(float(solution), 10):
+                            if equals_sign == '=' and round(solution, 9) != round(solution, 10):
                                 equals_sign = '\\approx'
 
                             self.output.append(f"{custom_latex(self.eq_string)} {equals_sign} {custom_latex(solution)}")
@@ -948,6 +944,9 @@ class Solve:
                     self.output.append((f"Geen snijpunt met de x-as gevonden", {"latex":False}))
                 else:
                     self.output.append(("Geen oplossing gevonden", {"latex": False}))
+
+                self.plot = True
+
                 return self.equation_interpret, self.output, self.plot
             
         except NotImplementedError:
@@ -976,7 +975,7 @@ class Solve:
             self.output.append((f"Error: De ingevoerde functie klopt niet", {"latex":False}))
             return self.equation_interpret, self.output, self.plot
 
-        except TypeError as e:
+        except Exception as e:
             self.output.append((f"ERROR", {"latex":False}))
             print(e)
             return self.equation_interpret, self.output, self.plot

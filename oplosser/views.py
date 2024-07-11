@@ -111,7 +111,7 @@ def solve_equation_view(request):
             process = multiprocessing.Process(target=get_view_attributes, args=(equation_text, queue))
             process.start()
 
-            process.join(timeout=30)
+            process.join(timeout=30) # process will be terminated after 30 seconds
 
             if process.is_alive():
                 process.terminate()
@@ -130,13 +130,18 @@ def solve_equation_view(request):
 
             else:
                 data = queue.get()
-                    
+            
+            print(data["plot_data"])
+            print()
+            print(data['plot'])
+
             if data["plot"]:
                 if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                     html = render_to_string('oplosser/equation_result.html', {
                         'equation_text': equation_text,
                         'equation_interpret': data['equation_interpret'],
                         'solutions': data['solution_text'],
+                        'plot': data['plot'],
                         'plot_data': json.dumps(data['plot_data']),
                         'x_range': data['x_range'],
                         'y_range': data['y_range'],
@@ -148,6 +153,7 @@ def solve_equation_view(request):
                     'equation_text': equation_text,
                     'equation_interpret': data['equation_interpret'],
                     'solutions': data['solution_text'],
+                    'plot': data['plot'],
                     'plot_data': json.dumps(data['plot_data']),
                     'x_range': data['x_range'],
                     'y_range': data['y_range'],
@@ -159,6 +165,7 @@ def solve_equation_view(request):
                     'equation_text': equation_text,
                     'equation_interpret': data['equation_interpret'],
                     'solutions': data['solution_text'],
+                    'plot': data['plot'],
                     'title': 'Vergelijking Oplosser'
                 })
                 return JsonResponse({'result': html})
@@ -167,6 +174,7 @@ def solve_equation_view(request):
                 'equation_text': equation_text,
                 'equation_interpret': data['equation_interpret'],
                 'solutions': data['solution_text'],
+                'plot': data['plot'],
                 'title': 'Vergelijking Oplosser'
             })
 
