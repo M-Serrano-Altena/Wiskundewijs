@@ -7,7 +7,8 @@ import numpy as np
 from django.conf import settings
 import os
 import json
-from src.Solver.src.solver.solve_calculations import Solve
+import multiprocessing
+from src.Solver.src.solver.solve_calculations import Solve, math_interpreter
 from .forms import EquationForm
 
 # Create your views here.
@@ -47,14 +48,14 @@ def add_solution_text(solution_text, new_text, new_line=True, latex=True, option
 
     if latex:
         if new_line and type(new_line) is not int:
-            updated_text = f"<span class='arithmatex'>{solution_text}<br>\[\\boxed{{{new_text}}}\]</span>"
+            updated_text = f"<span class='arithmatex'>{solution_text}<br>\\[\\boxed{{{new_text}}}\\]</span>"
 
         elif not new_line:
-            updated_text = f"<span class='arithmatex'>{solution_text}\[\\boxed{{{new_text}}}\]</span>"
+            updated_text = f"<span class='arithmatex'>{solution_text}\\[\\boxed{{{new_text}}}\\]</span>"
 
         elif type(new_line) is int:
             amt_new_line = new_line * "<br>"
-            updated_text = f"<span class='arithmatex'>{solution_text}{amt_new_line}\[\\boxed{{{new_text}}}\]</span>"
+            updated_text = f"<span class='arithmatex'>{solution_text}{amt_new_line}\\[\\boxed{{{new_text}}}\\]</span>"
     
     else:
         if new_line and type(new_line) is not int:
@@ -71,67 +72,101 @@ def add_solution_text(solution_text, new_text, new_line=True, latex=True, option
     return solution_text
 
 
+def get_view_attributes(equation_text, queue):
+    solver = Solve(input_string=equation_text)
+    equation_interpret, outputs, plot = solver.solve_equation()
+    solution_text = ""
+    plot_data = []
+    view_x_range = []
+    view_y_range = []
+    for output in outputs:
+        if type(output) is tuple:
+            if '$' in output[0]:
+                output = list(output)
+                output[0] = output[0].replace('$', '\\(', 1)
+                output[0] = output[0].replace('$', '\\)', 1)
+                output = tuple(output)
+
+            solution_text = add_solution_text(solution_text=solution_text, new_text=output[0], options=output[1])
+        
+        else:
+            solution_text = add_solution_text(solution_text=solution_text, new_text=output)
+
+    if plot:
+        plot_data, view_x_range, view_y_range = generate_plot_data(solver)
+
+    data = {'equation_text': equation_text, 'equation_interpret': equation_interpret, 'solution_text': solution_text, "plot": plot, 'plot_data': plot_data, 'x_range': view_x_range, 'y_range': view_y_range}
+    return queue.put(data)
+
+
 def solve_equation_view(request):
     if request.method == 'POST':
         form = EquationForm(request.POST)
         if form.is_valid():
             equation_text = form.cleaned_data['equation_text']
-            solver = Solve(input_string=equation_text)
-            equation_interpret, outputs, plot = solver.solve_equation()
-            plot_data = []
-            
-            solution_text = ""
-            for output in outputs:
-                if type(output) is tuple:
-                    if '$' in output[0]:
-                        output = list(output)
-                        output[0] = output[0].replace('$', '\\(', 1)
-                        output[0] = output[0].replace('$', '\\)', 1)
-                        output = tuple(output)
 
-                    solution_text = add_solution_text(solution_text=solution_text, new_text=output[0], options=output[1])
-                
-                else:
-                    solution_text = add_solution_text(solution_text=solution_text, new_text=output)
+            manager = multiprocessing.Manager()
+            queue = manager.Queue()
 
-            if plot:
-                plot_data, view_x_range, view_y_range = generate_plot_data(solver)
+            process = multiprocessing.Process(target=get_view_attributes, args=(equation_text, queue))
+            process.start()
 
+            process.join(timeout=30)
+
+            if process.is_alive():
+                process.terminate()
+                process.join()
+
+                equation_interpret = math_interpreter(equation_text)
+                solution_text = "<br>Error: Berekening duurt te lang"
+                data = {
+                    "equation_interpret": equation_interpret,
+                    "solution_text": solution_text,
+                    "plot_data": [],
+                    "x_range": None,
+                    "y_range": None,
+                    "plot": False
+                }
+
+            else:
+                data = queue.get()
+                    
+            if data["plot"]:
                 if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                     html = render_to_string('oplosser/equation_result.html', {
                         'equation_text': equation_text,
-                        'equation_interpret': equation_interpret,
-                        'solutions': solution_text,
-                        'plot_data': json.dumps(plot_data),
-                        'x_range': view_x_range,
-                        'y_range': view_y_range,
+                        'equation_interpret': data['equation_interpret'],
+                        'solutions': data['solution_text'],
+                        'plot_data': json.dumps(data['plot_data']),
+                        'x_range': data['x_range'],
+                        'y_range': data['y_range'],
                         'title': 'Vergelijking Oplosser'
                     })
                     return JsonResponse({'result': html})
 
                 return render(request, 'oplosser/equation_detail.html', {
                     'equation_text': equation_text,
-                    'equation_interpret': equation_interpret,
-                    'solutions': solution_text,
-                    'plot_data': json.dumps(plot_data),
-                    'x_range': view_x_range,
-                    'y_range': view_y_range,
+                    'equation_interpret': data['equation_interpret'],
+                    'solutions': data['solution_text'],
+                    'plot_data': json.dumps(data['plot_data']),
+                    'x_range': data['x_range'],
+                    'y_range': data['y_range'],
                     'title': 'Vergelijking Oplosser'
-                })
+                    })
             
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                 html = render_to_string('oplosser/equation_result.html', {
                     'equation_text': equation_text,
-                    'equation_interpret': equation_interpret,
-                    'solutions': solution_text,
+                    'equation_interpret': data['equation_interpret'],
+                    'solutions': data['solution_text'],
                     'title': 'Vergelijking Oplosser'
                 })
                 return JsonResponse({'result': html})
 
             return render(request, 'oplosser/equation_detail.html', {
                 'equation_text': equation_text,
-                'equation_interpret': equation_interpret,
-                'solutions': solution_text,
+                'equation_interpret': data['equation_interpret'],
+                'solutions': data['solution_text'],
                 'title': 'Vergelijking Oplosser'
             })
 

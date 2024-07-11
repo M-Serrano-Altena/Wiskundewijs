@@ -84,6 +84,16 @@ def math_interpreter(eq_string):
         return '*'.join(char for _ in range(count))
 
     def replace_constant_symbols(eq_string):
+        def replace_superscript(match):
+            matched_super = match.group(1)
+            matched_super_list = list(matched_super)
+            index_list = [list_superscript.index(matched_super_list[i]) for i in range(len(matched_super_list))]
+            letter_list = [list_corresp_letters[i] for i in index_list]
+            letters_string = ''.join(letter_list)
+
+            replace = "^" + f"({letters_string})"
+            return replace
+
         eq_string = re.sub(r'\b' + r'inf' + r'\b', r'oo', eq_string)
         eq_string = re.sub(r'\b' + r'infty' + r'\b', r'oo', eq_string)
         eq_string = re.sub(r'\b' + r'infinity' + r'\b', r'oo', eq_string)
@@ -91,14 +101,17 @@ def math_interpreter(eq_string):
 
         eq_string = re.sub(r'π', r'pi', eq_string)
 
-        list_superscript = ['⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹']
-        num = 0
-        for superscript in list_superscript:
-            eq_string = re.sub(superscript, str(num), eq_string)
-            num += 1
+        string_superscripts = "⁰¹²³⁴⁵⁶⁷⁸⁹ᵃᵇᶜᵈᵉᶠᵍʰᶦʲᵏˡᵐⁿᵒᵖᑫʳˢᵗᵘᵛʷˣʸᶻ"
+        string_corresp_letters = "0123456789abcdefghijklmnopqrstuvwxyz"
+        list_superscript = list(string_superscripts)
+        list_corresp_letters = list(string_corresp_letters)
+
+        
+        eq_string = re.sub(f'([{string_superscripts}]+)', replace_superscript, eq_string)
 
         return eq_string
     
+
     def add_parenthesis(match, extra_index=0):
         function_name = match.group(1)
         symbol = match.group(2)
@@ -131,6 +144,7 @@ def math_interpreter(eq_string):
         
         return f'{function_name}({symbol})'
 
+
     def mult_constants(match):
         function_name = match.group(1)
         symbol = match.group(2)
@@ -160,7 +174,6 @@ def math_interpreter(eq_string):
             if func in eq_string[index_start:index_end]:
                 if function_name in func and func != function_name:
                     return match.group(0)
-
 
 
         matched = match.group(1)
@@ -699,10 +712,11 @@ class Solve:
                 self.output.append(("Ongeldige Vergelijking", {"latex": False}))
                 return self.equation_interpret, self.output, self.plot
             
+            try:
+                self.eq = sp.simplify(self.eq)
+            except ValueError:
+                pass
 
-            
-
-            self.eq = sp.simplify(self.eq)
             if not isinstance(self.eq, sp.AccumBounds):
                 self.solutions = sp.solveset(self.eq, domain=sp.S.Reals)
             else:
@@ -791,6 +805,7 @@ class Solve:
             if True in take_diff or True in take_integral:
                 self.output.append(("", {"latex": False}))
 
+
             check_numerical = self.check_solve_numerically()
 
             if check_numerical is not None and not self.intersect:
@@ -800,7 +815,6 @@ class Solve:
 
             elif check_numerical is not None:
                 self.solutions = check_numerical
-
 
             if len(sp.solve(self.eq)) == 0 and not self.numerical:
                 self.eq_string = replace_func(self.eq_string, func_name="root", replace_with="evaluate=False", amt_commas=2)
@@ -821,7 +835,7 @@ class Solve:
                             solution = sp.N(solution)
                             try:
                                 complex_num = False
-                                if solution.is_finite and int(solution) == solution:
+                                if solution.is_finite and int(solution) == solution and len(str(round(solution))) < 10:
                                     solution = int(solution)
 
                             except TypeError:
@@ -833,11 +847,20 @@ class Solve:
 
                                 if real_part == sp.nsimplify(eq1, [sp.pi]).as_real_imag()[0] and imag_part == sp.nsimplify(eq1, [sp.pi]).as_real_imag()[1]:
                                     equals_sign = '='
-                            
+
+                            except ValueError:
+                                equals_sign = '='
+
+                        try:
+                            str(eq1)
+                        except ValueError:
+                            equals_sign = '='
 
                         if eq1 != self.eq_string and equals_sign != "=":
                             if not complex_num and round(float(solution), 9) == round(float(solution), 10):
                                 equals_sign = '='  
+
+                            # eq1 = round(eq1, 9)
                             self.output.append(f"{custom_latex(self.eq_string)} = {custom_latex(eq1)} {equals_sign} {custom_latex(solution)}")
 
                         elif self.eq_string == solution:
@@ -847,13 +870,15 @@ class Solve:
                                 self.output.append(f"\\textrm{{Yep dat is }} {custom_latex(solution)}")
 
                         else:
-                            self.output.append(f"{custom_latex(self.eq_string)} {equals_sign} {custom_latex(solution)}")
+                            if equals_sign == '=' and round(float(solution), 9) != round(float(solution), 10):
+                                equals_sign = '\\approx'
 
+                            self.output.append(f"{custom_latex(self.eq_string)} {equals_sign} {custom_latex(solution)}")
 
                     elif sp.nsimplify(sp.simplify(eq1), [sp.pi]).is_number:
                         solution = sp.simplify(eq1)
                         if solution != sp.N(solution):
-                            self.output.append(f"{custom_latex(self.eq_string)} = {custom_latex(solution)} \\approx {round(sp.N(solution), 5)}")
+                            self.output.append(f"{custom_latex(self.eq_string)} = {custom_latex(solution)} \\approx {custom_latex(round(sp.N(solution), 5))}")
                         
                         else:
                             self.output.append(f"{custom_latex(self.eq_string)} = {custom_latex(solution)}")
@@ -951,7 +976,7 @@ class Solve:
             self.output.append((f"Error: De ingevoerde functie klopt niet", {"latex":False}))
             return self.equation_interpret, self.output, self.plot
 
-        except Exception as e:
+        except TypeError as e:
             self.output.append((f"ERROR", {"latex":False}))
             print(e)
             return self.equation_interpret, self.output, self.plot

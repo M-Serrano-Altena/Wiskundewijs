@@ -118,6 +118,17 @@ def math_interpreter(eq_string):
         return '*'.join(char for _ in range(count))
 
     def replace_constant_symbols(eq_string):
+        def replace_superscript(match):
+            matched_super = match.group(1)
+            matched_super_list = list(matched_super)
+            index_list = [list_superscript.index(matched_super_list[i]) for i in range(len(matched_super_list))]
+            letter_list = [list_corresp_letters[i] for i in index_list]
+            letters_string = ''.join(letter_list)
+
+            replace = "^" + f"({letters_string})"
+            print(replace)
+            return replace
+
         eq_string = re.sub(r'\b' + r'inf' + r'\b', r'oo', eq_string)
         eq_string = re.sub(r'\b' + r'infty' + r'\b', r'oo', eq_string)
         eq_string = re.sub(r'\b' + r'infinity' + r'\b', r'oo', eq_string)
@@ -125,14 +136,17 @@ def math_interpreter(eq_string):
 
         eq_string = re.sub(r'π', r'pi', eq_string)
 
-        list_superscript = ['⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹']
-        num = 0
-        for superscript in list_superscript:
-            eq_string = re.sub(superscript, str(num), eq_string)
-            num += 1
+        string_superscripts = "⁰¹²³⁴⁵⁶⁷⁸⁹ᵃᵇᶜᵈᵉᶠᵍʰᶦʲᵏˡᵐⁿᵒᵖᑫʳˢᵗᵘᵛʷˣʸᶻ"
+        string_corresp_letters = "0123456789abcdefghijklmnopqrstuvwxyz"
+        list_superscript = list(string_superscripts)
+        list_corresp_letters = list(string_corresp_letters)
+
+        
+        eq_string = re.sub(f'([{string_superscripts}]+)', replace_superscript, eq_string)
 
         return eq_string
     
+
     def add_parenthesis(match, extra_index=0):
         function_name = match.group(1)
         symbol = match.group(2)
@@ -165,6 +179,7 @@ def math_interpreter(eq_string):
         
         return f'{function_name}({symbol})'
 
+
     def mult_constants(match):
         function_name = match.group(1)
         symbol = match.group(2)
@@ -194,7 +209,6 @@ def math_interpreter(eq_string):
             if func in eq_string[index_start:index_end]:
                 if function_name in func and func != function_name:
                     return match.group(0)
-
 
 
         matched = match.group(1)
@@ -462,22 +476,11 @@ def custom_latex(expr, **kwargs):
     return CustomLatexPrinter(**kwargs).doprint(expr)
 
 
-
 x, y = sp.symbols("x,y", real=True)
-string = "sinpi"
-# print(sp.sympify(string, evaluate=False))
+string = "x² x² cosx²"
 string = math_interpreter(string)
 print(string)
-print(custom_latex(sp.sympify(string, evaluate=False)))
-
-
-
-y = sp.Function('y')(x)
-print(y.diff(x, x))
-print(sp.dsolve(sp.diff(y, x) - y, y))
-
-l = [1,2,3,4]
-print(l[:-6])
+# print(custom_latex(sp.sympify(string, evaluate=False)))
 
 exit()
 
