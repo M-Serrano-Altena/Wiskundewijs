@@ -2,6 +2,7 @@ from manim import *
 import matplotlib.pyplot as plt
 import sympy as sp
 import numpy as np
+import re
 
 class Parabola(Scene):
     def construct(self):
@@ -98,6 +99,28 @@ class Exponential(Scene):
         self.wait()
 
 
+def replace_superscript(eq_string):
+    def replace_superscript_logic(match):
+        matched_super = match.group(1)
+        matched_super_list = list(matched_super)
+        index_list = [list_superscript.index(matched_super_list[i]) for i in range(len(matched_super_list))]
+        letter_list = [list_corresp_letters[i] for i in index_list]
+        letters_string = ''.join(letter_list)
+
+        replace = "^" + f"{letters_string}"
+        return replace
+
+
+    string_superscripts = "⁰¹²³⁴⁵⁶⁷⁸⁹ᵃᵇᶜᵈᵉᶠᵍʰᶦʲᵏˡᵐⁿᵒᵖᑫʳˢᵗᵘᵛʷˣʸᶻ"
+    string_corresp_letters = "0123456789abcdefghijklmnopqrstuvwxyz"
+    list_superscript = list(string_superscripts)
+    list_corresp_letters = list(string_corresp_letters)
+
+    
+    eq_string = re.sub(f'([{string_superscripts}]+)', replace_superscript_logic, eq_string)
+
+    return eq_string
+
 
 def draw_func(
     func, title, x_range, y_range, **kwargs
@@ -160,7 +183,8 @@ def draw_func(
         for x_intercept in x_intercepts:
             plt.scatter([x_intercept], [func(x_intercept)], c="aquamarine", zorder=3)
 
-    plt.savefig(f"{title}.svg")
+    save_name = replace_superscript(title)
+    plt.savefig(f"{save_name}.svg")
     plt.show()
 
 draw_func(lambda x: -x**2 + 2, "f(x) = -x² + 2", x_range=(-3, 3), y_range=(-4, 4), diff=True, intercept=False)
@@ -170,3 +194,6 @@ draw_func(lambda x: -x**3 + 6*x**2 - 9*x + 3, "f(x) = -x³ + 6x² - 9x + 3", x_r
 draw_func(lambda x: (x - 2)**7, "f(x) = (x - 2)⁷", x_range=(-0.5, 4), y_range=(-20, 20), diff=True)
 draw_func(lambda x: 10*np.e**x * (x**2 + 4*x + 0.4), "f(x) = 10eˣ(x² + 4x + 0.4)", x_range=(-8.5, 0.5), y_range=(-11, 10), diff=True)
 draw_func(lambda x: sp.cos(2*x)**2, "f(x) = cos²(2x)", x_range=(-np.pi/2 - 0.1 , np.pi/2 + 0.1), y_range=(-0.1, 1.1), diff=True)
+
+
+draw_func(lambda x: x**3, "f(x) = x³", x_range=(-2, 2), y_range=(-8, 8), diff=True)

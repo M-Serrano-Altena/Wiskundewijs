@@ -168,7 +168,7 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
     Als we dit weer opschrijven als breuk, dan vinden we als eindantwoord:
 
     !!! quote ""
-        $$\large{f'(x) = -\frac{1}{x^2}}$$
+        $$\large{f'(x) = -\dfrac{1}{x^2}}$$
 
     
 ??? example "Voorbeeld 4: Bereken de afgeleide van $f(x) = 6\sqrt{x}$"
@@ -252,15 +252,15 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
         $$\large{f'(x) = 15x^2 + 6x - 15}$$
 
     
-??? example "Voorbeeld 7: Bereken de afgeleide van $f(x) = \frac{10}{x^4} + 3\sqrt[3]{x^2}$"
-    **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = \frac{1}{x^4} + \sqrt[3]{x^2}$</p>**
+??? example "Voorbeeld 7: Bereken de afgeleide van $f(x) = \dfrac{10}{x^4} + 3\sqrt[3]{x^2}$"
+    **<p style="text-align: center;font-size:20px;">Bereken de afgeleide van de functie $f(x) = \dfrac{1}{x^4} + \sqrt[3]{x^2}$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
     Dit zijn twee termen plus elkaar, dus met de [somregel](#regels) weten we dat we de afgeleides van de losse termen kunnen op tellen. 
     
     Om de afgeleides te bepalen, willen we dit eerst schrijven met machten in plaats van breuken en wortels. In [Machten in het Algemeen](basisvaardigheden.md#machten-in-het-algemeen) zien we dat $1$ gedeelt door een $-$ in de exponent wordt:
 
-    $$\large{\frac{10}{x^4} = 10 \cdot \frac{1}{x^4} = 10x^{-4}}$$
+    $$\large{\dfrac{10}{x^4} = 10 \cdot \dfrac{1}{x^4} = 10x^{-4}}$$
 
     Ook zien we dat we de breuk kunnen vervangen door een breuk in de exponent:
 
@@ -280,12 +280,12 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     Als we de '$-$' weer vervangen door $1$ gedeelt door:
 
-    $$\large{f'(x) = 40 \cdot \frac{1}{x^5} + 2 \cdot \frac{x^{\frac{1}{3}}}}$$
+    $$\large{f'(x) = 40 \cdot \dfrac{1}{x^5} + 2 \cdot x^{\frac{1}{3}}}$$
 
     We kunnen nu de $\frac{1}{3}$ in de exponent vervangen door een derdemachtswortel:
 
     !!! quote ""
-        $$\large{f'(x) = \frac{40}{x^5} + \frac{2}{\sqrt[3]{x}}}$$
+        $$\large{f'(x) = \dfrac{40}{x^5} + \dfrac{2}{\sqrt[3]{x}}}$$
 
 
 ??? example "Voorbeeld 8: Bereken de afgeleide van $f(x) = 3(\cos(x) + 2)$"
@@ -562,20 +562,54 @@ Als we deze vergelijking oplossen, vinden we alle $x$-coördinaten van de toppen
 
 *<div> * Extreme waarde is een andere naam voor de top van een grafiek.</div>*
 
+<br>
+*<p style="text-align: left;font-size:19px;">Maar let op!</p>*
+
+Niet alle $x$-coördinaten die je vindt met $f'(x) = 0$ zijn ook echt extreme waardes. Kijk maar bijvoorbeeld naar de volgende functie:
+
+$$f(x) = x^3$$
+
+Als we hiervan de afgeleide bepalen, dan vinden we:
+
+$$f'(x) = 3x^2$$
+
+Stellen we dit gelijk aan $0$, dan vinden we:
+
+$$3x^2 = 0$$
+
+$$x = 0$$
+
+We kunnen het bijbehorende $y$ coordinaat vinden als we $x=0$ in $f(x)$ invullen:
+
+$$f(0) = 0^3 = 0$$
+
+We krijgen dus de coördinaten $(0,0)$ voor dit punt.
+
+Maar is dit punt ook werkelijk een extreme waarde (een minimum of maximum van de functie)? Laten we de grafiek tekenen om dit te onderzoeken.
+
+<figure markdown>
+![Top van functie](assets/images/afgeleide/f(x) = x^3.svg){ width="500"}
+    <figcaption>Figuur 1. Plot van de grafiek $f(x) = x^3$</figcaption>
+</figure>
+
+Zoals we in Figuur 1 kunnen zien, is dit punt **geen** extreme waarde van deze functie. Dit punt is namelijk geen minimum of maximum.
+
+Het is daarom altijd belangrijk om de functie te plotten op de GR. Zo kun je controleren of het gevonden punt ook echt een extreme waarde is. En als het een extreme waarde is, kun je gelijk zien of het een minimum of maximum is.
+
 <br><br>
 Laten we naar een voorbeeld kijken. Stel we hebben de volgende functie:
 
 $$f(x) = -x^2 + 2,$$
 
-en we willen van deze functie de coördinaten van de top weten. Hoe pakken we dit aan?
+en we willen van deze functie de coördinaten van de top bepalen. Hoe pakken we dit aan?
 
-We beginnen dus met de afgeleide bepalen van $f(x)$. De $-x^2$ term heeft de vorm $ax^n$, dus de afgeleide wordt van de vorm $n \cdot ax^{n-1}$. De $+2$ term is een constante (heeft geen $x$) en dus is de afgeleide $0$. Als we dit samenvoegen vinden we dus:
+We beginnen dus met de afgeleide bepalen van $f(x)$. De $-x^2$ term heeft de vorm $ax^n$, dus de afgeleide wordt van de vorm $n \cdot ax^{n-1}$. In dit geval hebben we $a = -1$ en $n = 2$. Verder is de $+2$ term een constante (heeft geen $x$) en dus is de afgeleide daarvan $0$. Als we dit samenvoegen vinden we dus:
 
 $$f'(x) = -2x^{2-1} + 0$$
 
 $$\boxed{f'(x) = -2x}$$
 
-We willen de top bepalen, dus moeten we de afgeleide gelijk stellen aan $0$:
+Nu willen we de top bepalen, dus moeten we de afgeleide gelijk stellen aan $0$:
 
 $$f'(x) = 0$$
 
@@ -594,12 +628,14 @@ Het $y$-coördinaat van de top is dus bij $y=2$. De coördinaten van de top zijn
 !!! quote ""
     $$\large{(0, 2)}$$
 
-Als we dit tekenen, dan kunnen we ook controleren dat dit klopt.
+Maar we moeten nog wel controleren of dit ook echt een top is. Daarom plotten we deze functie nog even op onze GR.
 
 <figure markdown>
 ![Top van functie](assets/images/afgeleide/f(x) = -x^2 + 2.svg){ width="500"}
-    <figcaption>Figuur 1. De grafiek $f(x) = - x^2 + 2$ geplot met de extreme waarde.</figcaption>
+    <figcaption>Figuur 2. De grafiek $f(x) = - x^2 + 2$ geplot met de extreme waarde.</figcaption>
 </figure>
+
+En inderdaad, dit is een extreme waarde (in dit geval een maximum). 
 
 ### **Voorbeelden**
 
@@ -607,7 +643,7 @@ Als we dit tekenen, dan kunnen we ook controleren dat dit klopt.
     **<p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waarde van $f(x) = 6x^2 - 12x + 9$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We moeten de extreme waarde bepalen van $f(x)$, dus de top van de grafiek. Om dit te doen, moeten we de afgeleide van $f(x)$ gelijk aan $0$ stellen. Laten we eerst de afgeleide van $f(x)$ bepalen.
+    We moeten de extreme waarde bepalen van $f(x)$, dus de top van deze grafiek. Om dit te doen, moeten we de afgeleide van $f(x)$ gelijk aan $0$ stellen. Laten we eerst de afgeleide van $f(x)$ bepalen.
 
     De afgeleide kunnen we bepalen door de afgeleides van de losse termen bij elkaar op te tellen ([somregel](#regels)). De afgeleide wordt dan dus:
 
@@ -636,13 +672,14 @@ Als we dit tekenen, dan kunnen we ook controleren dat dit klopt.
     !!! quote ""
         $$\large{(1, 3)}$$
 
-    En als we de functie tekenen, dan zien we dat dit klopt.
+    Nu moeten we nog even controleren of dit ook echt een extreme waarde is. Daarom plotten we de functie even op onze GR.
 
     <figure markdown>
         ![Top van functie](assets/images/afgeleide/f(x) = 6x^2 - 12x + 9.svg){ width="500"}
-        <figcaption>Figuur 2. De grafiek $f(x) = 6x^2 - 12x + 9$ geplot met de extreme waarde.</figcaption>
+        <figcaption>Figuur 3. De grafiek $f(x) = 6x^2 - 12x + 9$ geplot met de extreme waarde.</figcaption>
     </figure>
 
+    En inderdaad, dit punt is een extreme waarde (een minimum in dit geval). 
 
 ??? example "Voorbeeld 2: Bepaal de extreme waardes van $f(x) = -x^3 + 6x^2 - 9x + 3$"
     **<p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waardes van $f(x) = -x^3 + 6x^2 - 9x + 3$</p>**
@@ -690,7 +727,7 @@ Als we dit tekenen, dan kunnen we ook controleren dat dit klopt.
 
     $$\large{\boxed{x = 1 \ \vee \ x = 3}}$$
 
-    In dit geval zijn er dus twee extreme waardes. We berekenen bij beide extreme waardes de bijbehorende $y$-coördinaten. Dit doen we door elk $x$-coördinaat in $f(x)$ te stoppen:
+    In dit geval zijn er dus schijnbaar twee extreme waardes. We berekenen bij beide extreme waardes de bijbehorende $y$-coördinaten. Dit doen we door elk $x$-coördinaat in $f(x)$ te stoppen:
 
     $$\large{f(1) = -(1)^3 + 6 \cdot (1)^2 - 9 \cdot 1 + 3}$$
 
@@ -705,13 +742,14 @@ Als we dit tekenen, dan kunnen we ook controleren dat dit klopt.
     !!! quote ""
         $$\large{(1, -1) \textrm{ en } (3, 3)}$$
 
-    Als we de functie tekenen, dan zien we dat dit klopt.
+    Laten we dit nog even controleren door de functie op onze GR te plotten. 
 
     <figure markdown>
         ![Top van functie](assets/images/afgeleide/f(x) = -x^3 + 6x^2 - 9x + 3.svg){ width="500"}
-        <figcaption>Figuur 3. De grafiek $f(x) = -x^3 + 6x^2 - 9x + 3$ geplot met de extreme waardes.</figcaption>
+        <figcaption>Figuur 4. De grafiek $f(x) = -x^3 + 6x^2 - 9x + 3$ geplot met de extreme waardes.</figcaption>
     </figure>
 
+    We zien hier dat het inderdaad beide extreme waardes zijn (eerste een minimum, tweede een maximum)
 
 ??? example "Voorbeeld 3: Bepaal de extreme waarde van $f(x) = (x-2)^{7}$"
     **<p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waarde van $f(x) = (x-2)^{7}$</p>**
@@ -738,7 +776,7 @@ Als we dit tekenen, dan kunnen we ook controleren dat dit klopt.
 
     $$\large{u(x) = x - 2}$$
 
-    De $x$ term heeft de vorm $ax$, met $a=1$. De afgeleide van deze standaardvorm is $a$, dus in dit geval $1$. De $-2$ term is een constante (term zonder $x$), dus daarvan is de afgeleide $0$:
+    De $x$ term heeft de vorm $ax$, met $a=1$. De afgeleide van deze standaardvorm is $a$, dus in dit geval gewoon $1$. De $-2$ term is een constante (term zonder $x$), dus daarvan is de afgeleide $0$:
 
     $$\large{\frac{\mathrm{d} u}{\mathrm{d} x} = 1 + 0 = 1}$$
 
@@ -775,13 +813,14 @@ Als we dit tekenen, dan kunnen we ook controleren dat dit klopt.
     !!! quote ""
         $$\large{(2, 0)}$$
 
-    Als we de functie tekenen, dan kunnen we controleren dat dit klopt.
+    Maar we moeten dit wel nog even controleren door de functie te plotten op onze GR.
 
     <figure markdown>
         ![Top van functie](assets/images/afgeleide/f(x) = (x - 2)^7.svg){ width="500"}
-        <figcaption>Figuur 4. De grafiek $f(x) = (x-2)^{7}$ geplot met de extreme waarde.</figcaption>
+        <figcaption>Figuur 5. De grafiek $f(x) = (x-2)^{7}$ geplot met de extreme waarde.</figcaption>
     </figure>
 
+    We kunnen hier dus zien dat het helemaal geen extreme waarde is! Deze functie heeft dus gewoon geen extreme waardes. 
 
 ??? example "Voorbeeld 4: Bepaal de extreme waardes van $f(x) = 10e^x(x^2 + 4x + 0.4)$"
     **<p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waardes van $f(x) = e^x(x^2 + 4x + 0.4)$</p>**
@@ -860,13 +899,14 @@ Als we dit tekenen, dan kunnen we ook controleren dat dit klopt.
     !!! quote ""
         $$\large{(-0.86, -9.7) \textrm{ en } (-5.14, 0.37)}$$
 
-    En als we de functie tekenen, dan zien we dat dit klopt.
+    Dit moeten we wel nog even controleren door de functie te plotten op de GR.
 
     <figure markdown>
         ![Top van functie](assets/images/afgeleide/f(x) = 10e^x(x^2 + 4x + 0.4).svg){ width="500"}
-        <figcaption>Figuur 5. De grafiek $f(x) = 10e^x(x^2 + 4x + 0.4)$ geplot met de extreme waardes.</figcaption>
+        <figcaption>Figuur 6. De grafiek $f(x) = 10e^x(x^2 + 4x + 0.4)$ geplot met de extreme waardes.</figcaption>
     </figure>
 
+    En we zien inderdaad dat het beide extreme waardes zijn.
 
 ??? example "Voorbeeld 5: Bepaal de extreme waardes van $f(x) = \cos^2(2x)$ in het domein $[-\frac{\pi}{2}, \frac{\pi}{2}]$"
     **<p style="text-align: center;font-size:18px;">Bepaal de coördinaten van de extreme waardes van $f(x) = \cos^2(2x)$ in het domein $[-\frac{\pi}{2}, \frac{\pi}{2}]$</p>**
@@ -965,9 +1005,11 @@ Als we dit tekenen, dan kunnen we ook controleren dat dit klopt.
     !!! quote ""
         $$\large{(-\frac{1}{2} \pi, 1), \ (-\frac{1}{4} \pi, 0), \ (0, 1), \ (\frac{1}{4} \pi, 0) \textrm{ en } (\frac{1}{2} \pi, 1)}$$
 
-    En als we de functie tekenen, dan zien we dat dit klopt.
+    Dit moeten we nog even controleren door het te plotten op onze GR.
 
     <figure markdown>
-        ![Top van functie](assets/images/afgeleide/f(x) = cos(2x)^2.svg){ width="500"}
-        <figcaption>Figuur 6. De grafiek $f(x) = \cos^2(2x)$ geplot met de extreme waardes in het domein $[-\frac{\pi}{2}, \frac{\pi}{2}]$.</figcaption>
+        ![Top van functie](assets/images/afgeleide/f(x) = cos^2(2x).svg){ width="500"}
+        <figcaption>Figuur 7. De grafiek $f(x) = \cos^2(2x)$ geplot met de extreme waardes in het domein $[-\frac{\pi}{2}, \frac{\pi}{2}]$.</figcaption>
     </figure>
+
+    En inderdaad, dit zijn allemaal extreme waardes.
