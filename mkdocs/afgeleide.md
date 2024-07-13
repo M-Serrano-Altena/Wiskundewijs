@@ -30,7 +30,7 @@ In het filmpje kunnen we iets interessants zien. Bij de top van de functie kunne
 
 $$f'(x) = 0.$$
 
-Als we deze vergelijking dus oplossen, vinden we het $x$-coördinaat van de top. En als we deze $x$-waarde in $f(x)$ stoppen, krijgen we ook het $y$-coördinaat. Bij [Extreme waardes bepalen](#extreme-waardes-berekenen) kijken we hier meer uitgebreid naar.
+Als we deze vergelijking dus oplossen, vinden we het $x$-coördinaat van de top. En als we deze $x$-waarde in $f(x)$ stoppen, krijgen we ook het $y$-coördinaat. Bij [Extreme waardes bepalen](#extreme-waardes-bepalen) kijken we hier meer uitgebreid naar.
 
 ### **Exponentiële funtie**
 Een exponentiële functie heeft de vorm
@@ -457,7 +457,7 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     (Zie eventueel de [notatie](#notatie) van afgeleides). Laten we beginnen met $\large{\frac{\mathrm{d} h}{\mathrm{d} x}}$ bepalen:
 
-    We kunnen $\sqrt{x}$ ook schrijven als $x^{\frac{1}{2}}$ (zie eventueel [Regels met Wortels](basisvaardigheden.md##regels-met-wortels)). Dus:
+    We kunnen $\sqrt{x}$ ook schrijven als $x^{\frac{1}{2}}$ (zie eventueel [Machten in het Algemeen](basisvaardigheden.md#machten-in-het-algemeen)). Dus:
 
     $$\large{h(x) = x^{\frac{1}{2}}}$$
 
@@ -978,7 +978,7 @@ En inderdaad, dit is een extreme waarde (in dit geval een maximum).
 
     $$\large{\sin(4x) = \sin(0)}$$
 
-    Als we dit [oplossen](goniometrie.md#uitwerken-sincos-vergelijkingen) dan vinden we:
+    Als we dit [oplossen](goniometrie.md#algemene-oplossing) dan vinden we:
 
     $$\large{4x = k \cdot 2\pi \ \vee \ 4x = \pi + k \cdot 2\pi}$$
 

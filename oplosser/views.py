@@ -8,15 +8,8 @@ from django.conf import settings
 import os
 import json
 import multiprocessing
-from src.Solver.src.solver.solve_calculations import Solve, math_interpreter
+from src.Solver.src.solver.solve_calculations import Solve, math_interpreter, custom_latex
 from .forms import EquationForm
-
-# Create your views here.
-def solve_html(request):
-    x = sp.symbols('x', real=True)
-    solution = sp.solve(x**2 - 4, x)
-    # return HttpResponse(str(solution))
-    return render(request, "oplosser/solver.html")
 
 
 def serve_search_index(request):
@@ -93,7 +86,11 @@ def get_view_attributes(equation_text, queue):
             solution_text = add_solution_text(solution_text=solution_text, new_text=output)
 
     if plot:
-        plot_data, view_x_range, view_y_range = generate_plot_data(solver)
+        try:
+            plot_data, view_x_range, view_y_range = generate_plot_data(solver)
+        except Exception:
+            plot = False
+            solution_text += "<br>Error: Plot kon niet worden gegenereerd"
 
     data = {'equation_text': equation_text, 'equation_interpret': equation_interpret, 'solution_text': solution_text, "plot": plot, 'plot_data': plot_data, 'x_range': view_x_range, 'y_range': view_y_range}
     return queue.put(data)
@@ -130,10 +127,6 @@ def solve_equation_view(request):
 
             else:
                 data = queue.get()
-            
-            print(data["plot_data"])
-            print()
-            print(data['plot'])
 
             if data["plot"]:
                 if request.headers.get('x-requested-with') == 'XMLHttpRequest':
@@ -209,10 +202,38 @@ def generate_plot_data(solver):
         solver.eq1, solver.eq2 = solver.eq2, solver.eq1
     
     plot_data = []
+
+    output_legend1 = f"${f'f({solver.symbol})' if not solver.multivariate else 'y'} = {custom_latex(sp.nsimplify(solver.eq1(solver.symbol)))}$"
+    output_legend2 = f"${f'g({solver.symbol})' if not solver.multivariate else 'y'} = {custom_latex(sp.nsimplify(solver.eq2(solver.symbol)))}$"
+    
+    if len(output_legend1) > len(output_legend2):
+        output_legend1 = output_legend1[:-1] + "\\qquad .$"
+    else:
+        output_legend2 = output_legend2[:-1] + "\\qquad .$"
+
+    hoverinfo1 = f"{f'f({solver.symbol})' if not solver.multivariate else 'y'} = {str(sp.nsimplify(solver.eq1(solver.symbol))).replace('**', '^').replace('log', 'ln')}"
+    hoverinfo2 = f"{f'g({solver.symbol})' if not solver.multivariate else 'y'} = {str(sp.nsimplify(solver.eq2(solver.symbol))).replace('**', '^').replace('log', 'ln')}"
+    
     
     if solver.vert_asympt is None:
-        plot_data.append({'x': list(plottable_x1_coords), 'y': list(y1_coords), 'type': 'scatter', 'mode': 'lines', 'name': f'{f'f({solver.symbol})' if not solver.multivariate else 'y'} = {str(solver.eq1(solver.symbol)).replace('log', 'ln')}', 'line': {'color': 'darkturquoise'}})
-        plot_data.append({'x': list(plottable_x2_coords), 'y': list(y2_coords), 'type': 'scatter', 'mode': 'lines', 'name': f'{f'g({solver.symbol})' if not solver.multivariate else 'y'} = {str(solver.eq2(solver.symbol)).replace('log', 'ln')}', 'line': {'color': 'springgreen'}})
+        plot_data.append({
+            'x': list(plottable_x1_coords),
+            'y': list(y1_coords),
+            'type': 'scatter',
+            'mode': 'lines',
+            'name': output_legend1,
+            'line': {'color': 'darkturquoise'},
+            'hovertemplate': '(%{x:.4f}, %{y:.4f})'+ f'<extra>{hoverinfo1}</extra>',
+        })
+        plot_data.append({
+            'x': list(plottable_x2_coords),
+            'y': list(y2_coords),
+            'type': 'scatter',
+            'mode': 'lines',
+            'name': output_legend2,
+            'line': {'color': 'springgreen'},
+            'hovertemplate': '(%{x:.4f}, %{y:.4f})'+ f'<extra>{hoverinfo2}</extra>',
+        })
     
     else:
         skip1 = 0
@@ -223,13 +244,31 @@ def generate_plot_data(solver):
         for i in range(len(plottable_x1_coords)):
 
             if list(plottable_x1_coords[i]) and list(y1_coords[i]):
-                plot_data_f.append({'x': list(plottable_x1_coords[i]), 'y': list(y1_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'{f'f({solver.symbol})' if not solver.multivariate else 'y'} = {str(solver.eq1(solver.symbol)).replace('log', 'ln')}', 'showlegend': i == skip1, 'line': {'color': 'darkturquoise'}})
+                plot_data_f.append({
+                    'x': list(plottable_x1_coords[i]),
+                    'y': list(y1_coords[i]),
+                    'type': 'scatter',
+                    'mode': 'lines',
+                    'name': output_legend1,
+                    'showlegend': i == skip1,
+                    'line': {'color': 'darkturquoise'},
+                    'hovertemplate': '(%{x:.4f}, %{y:.4f})'+ f'<extra>{hoverinfo1}</extra>',
+                })
             
             else:
-                skip1 +=1
+                skip1 += 1
 
             if list(plottable_x2_coords[i]) and list(y2_coords[i]):
-                plot_data_g.append({'x': list(plottable_x2_coords[i]), 'y': list(y2_coords[i]), 'type': 'scatter', 'mode': 'lines', 'name': f'{f'g({solver.symbol})' if not solver.multivariate else 'y'} = {str(solver.eq2(solver.symbol)).replace('log', 'ln')}', 'showlegend': i == skip2, 'line': {'color': 'springgreen'}})
+                plot_data_g.append({
+                    'x': list(plottable_x2_coords[i]),
+                    'y': list(y2_coords[i]),
+                    'type': 'scatter',
+                    'mode': 'lines',
+                    'name': output_legend2,
+                    'showlegend': i == skip2,
+                    'line': {'color': 'springgreen'},
+                    'hovertemplate': '(%{x:.4f}, %{y:.4f})'+ f'<extra>{hoverinfo2}</extra>',
+                })
 
             else:
                 skip2 += 1
@@ -240,6 +279,17 @@ def generate_plot_data(solver):
     if not solver.intersect:
         return plot_data, view_x_range, view_y_range
 
-    plot_data.append({'x': solver.x_intersect, 'y': solver.y_intersect, 'type': 'scatter', 'mode': 'markers', 'name': f"Snijpunt", 'showlegend':False, 'marker': {'color': 'black', 'size': 10}})
+    solver.x_intersect = [round(x, 8) for x in solver.x_intersect]
+    solver.y_intersect = [round(y, 8) for y in solver.y_intersect]
+
+    plot_data.append({
+        'x': solver.x_intersect,
+        'y': solver.y_intersect,
+        'type': 'scatter',
+        'mode': 'markers',
+        'name': f"Snijpunt",
+        'showlegend': False,
+        'marker': {'color': 'black', 'size': 10},
+    })
 
     return plot_data, view_x_range, view_y_range

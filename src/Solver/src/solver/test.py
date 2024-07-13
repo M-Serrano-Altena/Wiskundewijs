@@ -1,6 +1,6 @@
 import scipy.optimize
 import sympy as sp
-from sympy.simplify.fu import TR2, TR1
+from sympy.simplify.fu import TR2, TR1, TR111
 import numpy as np
 import regex as re
 import matplotlib.pyplot as plt
@@ -479,9 +479,12 @@ def custom_latex(expr, **kwargs):
 x, y = sp.symbols("x,y", real=True)
 string = "x² x² cosx²"
 string = math_interpreter(string)
-print(string)
+
 # print(custom_latex(sp.sympify(string, evaluate=False)))
 
+print(TR111(sp.simplify(1/sp.sin(x))))
+
+sp.pprint(sp.solve(sp.simplify(sp.cot(x))))
 
 exit()
 

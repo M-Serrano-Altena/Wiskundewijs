@@ -999,7 +999,7 @@ Door nu aan beide kanten $-3$ te doen vinden we onze eindoplossing:
     **<p style="text-align: center;font-size:20px;">Los op: $(x + 7)^2 = 81$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Het lijkt hier handig om als eerste stap de [haakjes weg te werken](#kwadratisch-haakjes-wegwerken), maar dit is een omweg! Je komt er dan uiteindelijk wel, maar het kan veel makkelijker, let maar op. Deze vergelijking staat al een vorm die we meteen kunnen [oplossen](#algemene-oplossing), namelijk de vorm $x^2 = c$. We nemen aan beide kanten de wortel:
+    Het lijkt hier handig om als eerste stap de [haakjes weg te werken](basisvaardigheden.md#kwadratisch-haakjes-wegwerken), maar dit is een omweg! Je komt er dan uiteindelijk wel, maar het kan veel makkelijker, let maar op. Deze vergelijking staat al een vorm die we meteen kunnen [oplossen](#algemene-oplossing), namelijk de vorm $x^2 = c$. We nemen aan beide kanten de wortel:
 
     $$\large{x + 7 = \sqrt{81} \ \vee \ x + 7 = -\sqrt{81}.}$$
 
@@ -1013,7 +1013,7 @@ Door nu aan beide kanten $-3$ te doen vinden we onze eindoplossing:
         $$\large{x = 2 \ \vee \ x= -16.}$$
 
     ??? note "De omweg"
-        Zoals net gezecht kunnen we dit ook oplossen via een omweg, door namelijk de haakjes weg te werken (zie eventueel [Kwadratische haakjes wegwerken](#kwadratisch-haakjes-wegwerken)):
+        Zoals net gezecht kunnen we dit ook oplossen via een omweg, door namelijk de haakjes weg te werken (zie eventueel [Kwadratische haakjes wegwerken](basisvaardigheden.md#kwadratisch-haakjes-wegwerken)):
 
         $$\large{(x + 7)^2 = 81}$$
 

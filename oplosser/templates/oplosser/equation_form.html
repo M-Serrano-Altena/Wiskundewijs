@@ -211,10 +211,9 @@
         if (document.readyState !== 'complete') {
             document.getElementById("initialLoadingSpinner").style.display = 'flex';
         }
-    }, 1000);
+    }, 2000);
 
     $(document).ready(function(){
-        console.log("quiche is done")
         $('#initialLoadingSpinner').hide();
 
         // Enable the solve equation button once the page has fully loaded

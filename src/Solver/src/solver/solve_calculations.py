@@ -1,6 +1,6 @@
 import numpy as np
 import sympy as sp
-from sympy.simplify.fu import TR2, TR1
+from sympy.simplify.fu import TR2, TR1, TR111
 from sympy.printing.latex import LatexPrinter
 import regex as re
 import scipy.optimize
@@ -582,7 +582,7 @@ class Solve:
             eq_split = self.eq_string.split("=")
 
             if len(eq_split) == 1:
-                eq1 = sp.sympify(eq_split[0])
+                eq1 = TR111(sp.sympify(eq_split[0]))
                 eq2 = 0
 
                 try:
@@ -647,8 +647,8 @@ class Solve:
                         self.equation_interpret = f"{self.eq_string} = 0"
 
             elif len(eq_split) == 2:
-                eq1 = sp.sympify(eq_split[0])
-                eq2 = sp.sympify(eq_split[1])
+                eq1 = TR111(sp.sympify(eq_split[0]))
+                eq2 = TR111(sp.sympify(eq_split[1]))
                 eq12 = eq1 - eq2
 
                 try:
@@ -709,7 +709,7 @@ class Solve:
                 
 
             else:
-                self.output.append(("Ongeldige Vergelijking", {"latex": False}))
+                self.output.append(("Error: Meer dan 1 '='-teken ", {"latex": False}))
                 return self.equation_interpret, self.output, self.plot
             
             try:
@@ -811,9 +811,9 @@ class Solve:
                 return self.equation_interpret, self.output, self.plot
 
             elif check_numerical is not None:
-                self.solutions = check_numerical
+                self.solutions = check_numerical   
 
-            if len(sp.solve(self.eq)) == 0 and not self.numerical:
+            if len(sp.solve(TR2(self.eq))) == 0 and not self.numerical:
                 self.eq_string = replace_func(self.eq_string, func_name="root", replace_with="evaluate=False", amt_commas=2)
                 self.eq_string = self.eq_string.replace("limit", "Limit")
 
@@ -885,9 +885,15 @@ class Solve:
                         self.output.append(f"{custom_latex(sp.simplify(eq1))} = 0")
 
                         complex_symbol = sp.symbols("x")
+
+                        try:
+                            check_complex_solutions = sp.solve(sp.Eq(self.eq1(complex_symbol), self.eq2(complex_symbol)))
+                        except NotImplementedError:
+                            check_complex_solutions = False
+
                         if self.multivariate:
                             self.output.append((f"Geen snijpunt met de x-as gevonden", {"latex":False}))
-                        elif sp.solve(sp.Eq(self.eq1(complex_symbol), self.eq2(complex_symbol))):
+                        elif check_complex_solutions:
                             self.output.append(("Geen reële oplossing gevonden", {"latex": False}))
                         else:
                             self.output.append(("Geen oplossing gevonden", {"latex": False}))
@@ -1072,7 +1078,7 @@ class Solve:
                                 
                                 if not solution.is_real:
                                     continue
-
+                                
                                 if 0 <= float(solution) <= 2 * np.pi:
                                     self.interval_solutions_intersect.append(solution)
                                 else:

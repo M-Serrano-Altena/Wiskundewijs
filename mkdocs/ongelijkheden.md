@@ -96,7 +96,7 @@ Het ongelijkheidsteken [wisselt](#ongelijkheidsteken-wisselen) dus ook mee.
 
     $$\large{-8x \leq 40.}$$
 
-    Nu delen we aan beide kanten met $-8$. Dit is een negatief getal, dus moeten we het '$\leq$' teken veranderen naar een '$\geq$' teken (zie [Ongelijkheidsteken wisselen](##ongelijkheidsteken-wisselen)). We vinden dan als eindantwoord:
+    Nu delen we aan beide kanten met $-8$. Dit is een negatief getal, dus moeten we het '$\leq$' teken veranderen naar een '$\geq$' teken (zie [Ongelijkheidsteken wisselen](#ongelijkheidsteken-wisselen)). We vinden dan als eindantwoord:
 
     !!! quote ""
         $$\large{x \geq -5}$$
@@ -113,7 +113,7 @@ Het ongelijkheidsteken [wisselt](#ongelijkheidsteken-wisselen) dus ook mee.
 
     $$\large{-x \geq 13.}$$
 
-    We doen nu aan beide kanten keer $-1$. Dit is een negatief getal, dus we [wisselen](##ongelijkheidsteken-wisselen) het ongelijkheidsteken:
+    We doen nu aan beide kanten keer $-1$. Dit is een negatief getal, dus we [wisselen](#ongelijkheidsteken-wisselen) het ongelijkheidsteken:
 
     !!! quote ""
         $$\large{x \leq -13.}$$
@@ -159,7 +159,7 @@ Laten we deze twee functies plotten om te kijken hoe dit eruit ziet.
     <figcaption>Figuur 1. De lijnen $f(x) = x - 1$ en $g(x) = -x + 2$ geplot met hun snijpunt.</figcaption>
 </figure>
 
-Laten we eerst het [snijpunt bepalen](#snijpunten-met-andere-grafieken) van $f(x)$ en $g(x)$. We stellen dus de twee vergelijkingen gelijk aan elkaar.
+Laten we eerst het [snijpunt bepalen](kwadratische_vergelijkingen.md#snijpunten-met-andere-grafieken) van $f(x)$ en $g(x)$. We stellen dus de twee vergelijkingen gelijk aan elkaar.
 
 $$f(x) = g(x)$$
 

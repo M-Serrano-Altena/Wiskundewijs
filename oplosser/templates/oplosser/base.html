@@ -3,8 +3,7 @@
 <html lang="nl" class="no-js">
   {% load static %}
   <head>
-    
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      <!-- <script src="https://cdn.plot.ly/plotly-2.33.0.min.js" charset="utf-8"></script> -->
 
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -786,15 +785,12 @@
   </div>
   <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
 
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
-    
-    
-      <script src="{% static 'assets/javascripts/bundle.6c14ae12.min.js' %}"></script>
+  <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+
+  <script src="{% static 'assets/javascripts/bundle.6c14ae12.min.js' %}"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="https://cdn.plot.ly/plotly-2.33.0.min.js" charset="utf-8"></script>
       
-        <script src="{% static 'javascripts/mathjax.js' %}"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-    
   </body>
 </html>

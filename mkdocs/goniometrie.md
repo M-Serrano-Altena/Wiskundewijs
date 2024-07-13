@@ -369,7 +369,7 @@ $k$ kan weer elk geheel getal zijn. Dus de oplossingen op het domein $[0, 2 \pi]
 
 Dit is dus voor $k = 0$ of $k = 1$. Want als we andere waardes voor $k$ proberen, dan is $x$ niet meer tussen $0$ en $2 \pi$. Dus dit moeten de enige twee oplossingen zijn op het domein $[0, 2 \pi]$.
 
-We hebben dit opgelost door de functies te schetsen, maar kunnen we het ook oplossen zonder een schets? Het antwoord is ja! Om goed te begrijpen hoe dit moet, moeten we eerst kijken naar de symmetrie in de sinus en cosinus functies. We zullen dat nodig hebben om de [algemene oplossing](#oplossen-van-sincos-vergelijkingen) te kunnen begrijpen.
+We hebben dit opgelost door de functies te schetsen, maar kunnen we het ook oplossen zonder een schets? Het antwoord is ja! Om goed te begrijpen hoe dit moet, moeten we eerst kijken naar de symmetrie in de sinus en cosinus functies. We zullen dat nodig hebben om de [algemene oplossing](#algemene-oplossing) te kunnen begrijpen.
 
 <br>
 ### **Symmetrie**
