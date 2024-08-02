@@ -550,6 +550,21 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
     !!! quote ""
         $$\large{\frac{2\sqrt{x}}{\left(x + 1\right)} + \frac{\ln(x + 1)}{\sqrt{x}}}$$
 
+<br>
+
+!!! tip ""
+    ### **<p style="text-align: center;font-size: 26px;">Zelf Oefenen</p>**
+
+    <div style="text-align: center;">
+    <a href="https://drive.google.com/file/d/1ObN19Yl1Bdz02MKGB6J1Cyra3_Pz-zr3/view?usp=drive_link" class="md-button md-button--primary" style="margin-right: 10px;" target="_blank" rel="noopener noreferrer">
+        Opdrachten <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c-.34.34-.67.67-.68 1-.03.32.31.65.63.96.48.5.95.95.93 1.44-.02.49-.53 1-1.04 1.5l-4.13 4.14L15 14.66l4.25-4.24-.96-.96-1.42 1.41-3.75-3.75 3.84-3.83c.39-.39 1.04-.39 1.41 0l2.34 2.34c.39.37.39 1.02 0 1.41M3 17.25l9.56-9.57 3.75 3.75L6.75 21H3v-3.75Z"/></svg></span>
+    </a>
+    <a href="https://drive.google.com/file/d/1Jwj7HVUzu5LT0ltctX84-_9ZZ_A8HyKa/view?usp=drive_link" class="md-button md-button--primary" target="_blank" rel="noopener noreferrer">
+        Antwoorden <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.7 7c-.3.4-.7.7-.7 1 0 .3.3.6.6 1 .5.5 1 .9.9 1.4 0 .5-.5 1-1 1.5L16.4 16 15 14.7l4.2-4.2-1-1-1.4 1.4L13 7.1l4-3.8c.4-.4 1-.4 1.4 0l2.3 2.3c.4.4.4 1.1 0 1.4M3 17.2l9.6-9.6 3.7 3.8L6.8 21H3v-3.8M7 2v3h3v2H7v3H5V7H2V5h3V2h2Z"/></svg></span>
+    </a>
+    </div>
+
+    <br>
 
 ## **Extreme waardes bepalen**
 Zoals we zagen bij het filmpje van een [parabool](#parabool), is de helling $0$ bij een top. Dit kunnen we ook zien aan de raaklijn, want die is gewoon horizontaal. Op dat punt verandert de $y$ dus niet als $x$ een klein beetje verandert. 

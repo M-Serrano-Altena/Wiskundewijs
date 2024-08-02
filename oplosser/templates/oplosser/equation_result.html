@@ -8,7 +8,7 @@
 
     .solutions {
         white-space: nowrap;
-        margin-right: 100px; /* Adjust this value as needed */
+        margin-right: 100px; 
         max-width: 40%;
     }
 
@@ -20,26 +20,26 @@
     }
 
     .title {
-        margin-bottom: 10px; /* Adjust this value as needed */
+        margin-bottom: 10px; 
     }
 
     .input-text {
-        margin-top: 0; /* Remove any default top margin */
+        margin-top: 0; 
     }
 
-    @media (max-width: 900px) { /* Adjust the breakpoint as needed */
+    @media (max-width: 900px) { 
 
         .responsive-container {
-            flex-direction: column; /* Stack items vertically */
+            flex-direction: column; 
         }
 
         .solutions {
-            margin-right: 10; /* Remove the right margin */
-            max-width: 100%; /* Allow solutions to take full width */
+            margin-right: 10; 
+            max-width: 100%; 
         }
 
         .plot {
-            margin-top: 20px; /* Add some spacing between solutions and plot */
+            margin-top: 20px; 
             width: 95%;
             margin:auto;
             touch-action: manipulation;
@@ -87,7 +87,7 @@
 
         window.setTimeout(function() {
             Plotly.relayout('plot', 'autosize', true);
-        }, 10);  // Delay in milliseconds
+        }, 1000);  // Delay in milliseconds
 
         // Resize plot on window resize
         window.addEventListener('resize', function() {

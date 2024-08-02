@@ -85,10 +85,12 @@ def get_view_attributes(equation_text, queue):
         else:
             solution_text = add_solution_text(solution_text=solution_text, new_text=output)
 
+    solution_text = add_solution_text(solution_text, new_text="", latex=False)
+
     if plot:
         try:
             plot_data, view_x_range, view_y_range = generate_plot_data(solver)
-        except Exception:
+        except ValueError:
             plot = False
             solution_text += "<br>Error: Plot kon niet worden gegenereerd"
 
@@ -203,8 +205,8 @@ def generate_plot_data(solver):
     
     plot_data = []
 
-    output_legend1 = f"${f'f({solver.symbol})' if not solver.multivariate else 'y'} = {custom_latex(sp.nsimplify(solver.eq1(solver.symbol)))}$"
-    output_legend2 = f"${f'g({solver.symbol})' if not solver.multivariate else 'y'} = {custom_latex(sp.nsimplify(solver.eq2(solver.symbol)))}$"
+    output_legend1 = f"${f'f({solver.symbol})' if not solver.multivariate else 'y'} = {custom_latex(sp.nsimplify(sp.expand_log(sp.simplify(solver.eq1(solver.symbol)))))}$"
+    output_legend2 = f"${f'g({solver.symbol})' if not solver.multivariate else 'y'} = {custom_latex(sp.nsimplify(sp.expand_log(sp.simplify(solver.eq2(solver.symbol)))))}$"
     
     if len(output_legend1) > len(output_legend2):
         output_legend1 = output_legend1[:-1] + "\\qquad .$"

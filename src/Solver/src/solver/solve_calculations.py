@@ -353,7 +353,7 @@ class CustomLatexPrinter(LatexPrinter):
             expr = sp.nsimplify(expr)
             return sp.latex(expr)
 
-        return super()._print_Pow(expr)
+        return sp.latex(expr).replace("log", "ln")
 
     def _print_log(self, expr, **kwargs):
         if len(expr.args) == 1:
@@ -422,6 +422,9 @@ class CustomLatexPrinter(LatexPrinter):
 
 def custom_latex(expr, **kwargs):
     return CustomLatexPrinter(**kwargs).doprint(expr)
+
+def custom_simplify(expr, **kwargs):
+    return sp.expand_log(sp.simplify(expr))
 
 
 class Solve:
@@ -592,7 +595,6 @@ class Solve:
 
                 self.equation_interpret = self.eq_string
                 free_symbols = list(eq1.free_symbols)
-
                 if free_symbols:
                     if len(free_symbols) == 2:
                         y_symbol = sp.symbols("y")
@@ -627,6 +629,7 @@ class Solve:
                         self.output.append(("Error: Meer dan 1 variabele", {"latex": False}))
                         return self.equation_interpret, self.output, self.plot
                     
+
                     self.symbol = free_symbols[0]
                     symbol_new = sp.symbols(str(self.symbol), real=True)
                     self.eq = self.eq.subs(self.symbol, symbol_new)
@@ -640,10 +643,7 @@ class Solve:
 
                     self.eq2 = sp.lambdify(self.symbol, eq2, "sympy")
                     
-                    if not sp.solveset(self.eq, domain=sp.S.Reals).is_empty:
-                        self.equation_interpret = f"{self.eq_string} = 0"
-                    
-                    elif not sp.simplify(self.eq).is_number:
+                    if not sp.simplify(self.eq).is_number:
                         self.equation_interpret = f"{self.eq_string} = 0"
 
             elif len(eq_split) == 2:
@@ -713,20 +713,77 @@ class Solve:
                 return self.equation_interpret, self.output, self.plot
             
             try:
-                self.eq = sp.simplify(self.eq)
+                self.eq = custom_simplify(self.eq)
             except ValueError:
                 pass
+
+            take_diff = ["diff" in string for string in eq_split]
+            if True in take_diff:
+                if self.symbol is None:
+                    symbol = "x"
+                else:
+                    symbol = self.symbol
+
+                if len(eq_split) == 2 and take_diff[0] and take_diff[1]:
+                    self.output.append(("De afgeleide van de functies zijn:", {"latex": False}))
+
+                else:
+                    self.output.append(("De afgeleide van de functie is:", {"latex": False}))
+
+                if take_diff[0]:
+                    derivative = sp.sympify(eq_split[0].replace("diff", "Derivative"))
+                    self.output.append(f"{custom_latex(derivative)} = {custom_latex(custom_simplify(eq1))}")
+
+                if len(eq_split) == 2 and take_diff[1]:
+                    derivative = sp.sympify(eq_split[1].replace("diff", "Derivative"))
+                    self.output.append(f"{custom_latex(derivative)} = {custom_latex(custom_simplify(eq2))}")
+
+
+            take_integral = ["integrate" in string for string in eq_split]
+            if True in take_integral:
+                if self.symbol is None:
+                    symbol = "x"
+                else:
+                    symbol = self.symbol
+
+                if len(eq_split) == 2 and take_integral[0] and take_integral[1]:
+                    self.output.append(("De primitieve van de functies zijn:", {"latex": False}))
+
+                else:
+                    self.output.append(("De primitieve van de functie is:", {"latex": False}))
+
+                if take_integral[0]:
+                    if eq1.is_number:
+                        integral = sp.sympify(eq_split[0].replace("integrate", "Integral"))
+                        self.output.append(f"I = {custom_latex(custom_simplify(integral))} = {custom_latex(custom_simplify(eq1))}")
+                    
+                    else:
+                        self.output.append(f"F({symbol}) = {custom_latex(custom_simplify(eq1))} + C")
+
+                if len(eq_split) == 2 and take_integral[1]:
+                    if eq2.is_number:
+                        integral = sp.sympify(eq_split[1].replace("integrate", "Integral"))
+                        self.output.append(f"I = {custom_latex(custom_simplify(integral))} = {custom_latex(custom_simplify(eq2))}")
+                    
+                    else:
+                        self.output.append(f"G({symbol}) = {custom_latex(custom_simplify(eq2))} + C")
+
+            if True in take_diff or True in take_integral:
+                self.output.append(("", {"latex": False}))
+
+
 
             if not isinstance(self.eq, sp.AccumBounds):
                 self.solutions = sp.solveset(self.eq, domain=sp.S.Reals)
             else:
                 self.solutions = sp.EmptySet
+
             
             if self.symbol:
                 domain = sp.calculus.util.continuous_domain(self.eq, self.symbol, domain=sp.S.Reals)
                 domain_string = str(domain)
 
-                eq12 = sp.simplify(eq1 - eq2)
+                eq12 = custom_simplify(eq1 - eq2)
                 self.eq12 = sp.lambdify(self.symbol, eq12, "sympy")
 
 
@@ -747,61 +804,6 @@ class Solve:
                         self.vert_asympt_eq = [asympt_values[i] for i in range(len(asympt_values)) if not asympt_check[i]]
                         if not self.vert_asympt_eq:
                             self.vert_asympt_eq = None
-            
-            take_diff = ["diff" in string for string in eq_split]
-            if True in take_diff:
-                if self.symbol is None:
-                    symbol = "x"
-                else:
-                    symbol = self.symbol
-
-                if len(eq_split) == 2 and take_diff[0] and take_diff[1]:
-                    self.output.append(("De afgeleide van de functies zijn:", {"latex": False}))
-
-                else:
-                    self.output.append(("De afgeleide van de functie is:", {"latex": False}))
-
-                if take_diff[0]:
-                    derivative = sp.sympify(eq_split[0].replace("diff", "Derivative"))
-                    self.output.append(f"{custom_latex(derivative)} = {custom_latex(sp.simplify(eq1))}")
-
-                if len(eq_split) == 2 and take_diff[1]:
-                    derivative = sp.sympify(eq_split[1].replace("diff", "Derivative"))
-                    self.output.append(f"{custom_latex(derivative)} = {custom_latex(sp.simplify(eq2))}")
-
-
-            take_integral = ["integrate" in string for string in eq_split]
-            if True in take_integral:
-                if self.symbol is None:
-                    symbol = "x"
-                else:
-                    symbol = self.symbol
-
-                if len(eq_split) == 2 and take_integral[0] and take_integral[1]:
-                    self.output.append(("De primitieve van de functies zijn:", {"latex": False}))
-
-                else:
-                    self.output.append(("De primitieve van de functie is:", {"latex": False}))
-
-                if take_integral[0]:
-                    if eq1.is_number:
-                        integral = sp.sympify(eq_split[0].replace("integrate", "Integral"))
-                        self.output.append(f"I = {custom_latex(sp.simplify(integral))} = {custom_latex(sp.simplify(eq1))}")
-                    
-                    else:
-                        self.output.append(f"F({symbol}) = {custom_latex(sp.simplify(eq1))} + C")
-
-                if len(eq_split) == 2 and take_integral[1]:
-                    if eq2.is_number:
-                        integral = sp.sympify(eq_split[1].replace("integrate", "Integral"))
-                        self.output.append(f"I = {custom_latex(sp.simplify(integral))} = {custom_latex(sp.simplify(eq2))}")
-                    
-                    else:
-                        self.output.append(f"G({symbol}) = {custom_latex(sp.simplify(eq2))} + C")
-
-            if True in take_diff or True in take_integral:
-                self.output.append(("", {"latex": False}))
-
 
             check_numerical = self.check_solve_numerically()
 
@@ -811,7 +813,7 @@ class Solve:
                 return self.equation_interpret, self.output, self.plot
 
             elif check_numerical is not None:
-                self.solutions = check_numerical   
+                self.solutions = check_numerical 
 
             if len(sp.solve(TR2(self.eq))) == 0 and not self.numerical:
                 self.eq_string = replace_func(self.eq_string, func_name="root", replace_with="evaluate=False", amt_commas=2)
@@ -872,7 +874,7 @@ class Solve:
                             self.output.append(f"{custom_latex(self.eq_string)} {equals_sign} {custom_latex(solution)}")
 
                     elif sp.nsimplify(sp.simplify(eq1), [sp.pi]).is_number:
-                        solution = sp.simplify(eq1)
+                        solution = custom_simplify(eq1)
                         if solution != sp.N(solution):
                             self.output.append(f"{custom_latex(self.eq_string)} = {custom_latex(solution)} \\approx {custom_latex(round(sp.N(solution), 5))}")
                         
@@ -882,7 +884,7 @@ class Solve:
 
                     else:
                         self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
-                        self.output.append(f"{custom_latex(sp.simplify(eq1))} = 0")
+                        self.output.append(f"{custom_latex(custom_simplify(eq1))} = 0")
 
                         complex_symbol = sp.symbols("x")
 
@@ -902,8 +904,8 @@ class Solve:
 
 
                 elif len(eq_split) == 2:
-                    lhs = sp.nsimplify(sp.simplify(eq1), [sp.pi])
-                    rhs = sp.nsimplify(sp.simplify(eq2), [sp.pi])
+                    lhs = sp.nsimplify(custom_simplify(eq1), [sp.pi])
+                    rhs = sp.nsimplify(custom_simplify(eq2), [sp.pi])
 
                     if eq1 != lhs or eq2 != rhs:
                         self.output.append((f"Versimpelingen:", {"latex": False}))
@@ -923,7 +925,7 @@ class Solve:
 
                     else:                        
                         self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
-                        self.output.append(f"{custom_latex(sp.simplify(eq1))} = {custom_latex(sp.simplify(eq2))}")
+                        self.output.append(f"{custom_latex(custom_simplify(eq1))} = {custom_latex(custom_simplify(eq2))}")
 
                         complex_symbol = sp.symbols("x")
                         if self.multivariate:
@@ -940,11 +942,11 @@ class Solve:
             if self.solutions.is_empty:
                 if len(eq_split) == 1:
                     self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
-                    self.output.append(f"{custom_latex(sp.simplify(eq1))} = 0")
+                    self.output.append(f"{custom_latex(custom_simplify(eq1))} = 0")
 
                 elif len(eq_split) == 2:
                     self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
-                    self.output.append(f"{custom_latex(sp.simplify(eq1))} = {custom_latex(sp.simplify(eq2))}")
+                    self.output.append(f"{custom_latex(custom_simplify(eq1))} = {custom_latex(custom_simplify(eq2))}")
 
                 if self.multivariate:
                     self.output.append((f"Geen snijpunt met de x-as gevonden", {"latex":False}))
@@ -955,27 +957,34 @@ class Solve:
 
                 return self.equation_interpret, self.output, self.plot
             
-        except NotImplementedError:
-            check_numerical = self.check_solve_numerically()
+        except (NotImplementedError, TypeError):
+            try:
+                check_numerical = self.check_solve_numerically()
 
-            if check_numerical is not None and not self.intersect:
-                if len(eq_split) == 1:
-                    self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
-                    self.output.append(f"{custom_latex(sp.simplify(eq1))} = 0")
+                if check_numerical is not None and not self.intersect:
+                    if len(eq_split) == 1:
+                        self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
+                        self.output.append(f"{custom_latex(custom_simplify(eq1))} = 0")
 
-                elif len(eq_split) == 2:
-                    self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
-                    self.output.append(f"{custom_latex(sp.simplify(eq1))} = {custom_latex(sp.simplify(eq2))}")
+                    elif len(eq_split) == 2:
+                        self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
+                        self.output.append(f"{custom_latex(custom_simplify(eq1))} = {custom_latex(custom_simplify(eq2))}")
 
-                self.plot = True
-                if self.multivariate:
-                    self.output.append((f"Geen snijpunt met de x-as gevonden", {"latex":False}))
-                else:
-                    self.output.append(("Geen oplossing gevonden", {"latex": False}))
+                    self.plot = True
+                    if self.multivariate:
+                        self.output.append((f"Geen snijpunt met de x-as gevonden", {"latex":False}))
+                    else:
+                        self.output.append(("Geen oplossing gevonden", {"latex": False}))
+                    return self.equation_interpret, self.output, self.plot
+                
+                elif check_numerical is not None:
+                    self.solutions = check_numerical
+
+            except Exception as e:
+                self.output.append((f"ERROR", {"latex":False}))
+                print(e)
                 return self.equation_interpret, self.output, self.plot
-            
-            elif check_numerical is not None:
-                self.solutions = check_numerical
+
 
         except sp.SympifyError:
             self.output.append((f"Error: De ingevoerde functie klopt niet", {"latex":False}))
@@ -992,11 +1001,11 @@ class Solve:
 
             if len(eq_split) == 1:
                 self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
-                self.output.append(f"{custom_latex(sp.simplify(eq1))} = 0")
+                self.output.append(f"{custom_latex(custom_simplify(eq1))} = 0")
 
             elif len(eq_split) == 2:
                 self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
-                self.output.append(f"{custom_latex(sp.simplify(eq1))} = {custom_latex(sp.simplify(eq2))}")
+                self.output.append(f"{custom_latex(custom_simplify(eq1))} = {custom_latex(custom_simplify(eq2))}")
 
 
             if self.solutions.is_FiniteSet:
@@ -1012,6 +1021,7 @@ class Solve:
                         self.output.append((f"Het snijpunt met de $x$-as is:", {"latex":False}))
                     else:
                         self.output.append((f"De oplossing is:", {"latex":False}))
+
 
                     if self.solutions.args[0] != sp.N(self.solutions.args[0]):
                         self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solutions.args[0])} \\approx {round(sp.N(self.solutions.args[0]), 5)}")
@@ -1072,10 +1082,18 @@ class Solve:
                     if isinstance(self.interval_solutions_intersect, sp.Set):
                         counter = 0
                         self.interval_solutions_intersect = []
+                        iterable = self.interval_solutions.is_iterable
 
-                        if self.interval_solutions.is_iterable:
+                        if iterable:
+                            try:
+                                for solution in self.interval_solutions:
+                                    pass
+                            except TypeError:
+                                iterable = False
+
+                        if iterable:
                             for solution in self.interval_solutions:
-                                
+    
                                 if not solution.is_real:
                                     continue
                                 
@@ -1170,8 +1188,8 @@ class Solve:
 
         def get_plottable_coords(x_coords):
             def try_func_module(module="numpy"):
-                self.eq1_np = sp.lambdify(self.symbol, self.eq1(self.symbol), module)
-                self.eq2_np = sp.lambdify(self.symbol, self.eq2(self.symbol), module)
+                self.eq1_np = sp.lambdify(self.symbol, TR2(TR1(self.eq1(self.symbol))), module)
+                self.eq2_np = sp.lambdify(self.symbol, TR2(TR1(self.eq2(self.symbol))), module)
                 x_coords_np = np.array(x_coords)
                 plottable_x1_coords = x_coords_np[np.isreal(scalar_to_array(self.eq1_np(x_coords_np), shape=x_coords_np.shape))]
                 plottable_x2_coords = x_coords_np[np.isreal(scalar_to_array(self.eq2_np(x_coords_np), shape=x_coords_np.shape))]
@@ -1204,7 +1222,7 @@ class Solve:
 
                     plottable_x_coords = np.array([x for x in plottable_x_coords if domain.args[0] <= x <= domain.args[1]])
 
-                except NotImplementedError:
+                except (NotImplementedError, ZeroDivisionError):
                     pass
 
                 return plottable_x_coords

@@ -396,6 +396,7 @@ class CustomLatexPrinter(LatexPrinter):
     
 
     def _print_Pow(self, expr, **kwargs):
+        print(expr)
         if expr.exp.as_numer_denom()[1] != 1 and expr != sp.root(expr.base, 1/expr.exp, evaluate=False):
             base = self._print(expr.base)
             exp = self._print(sp.simplify(expr.exp))
@@ -405,7 +406,7 @@ class CustomLatexPrinter(LatexPrinter):
             expr = sp.nsimplify(expr)
             return sp.latex(expr)
 
-        return super()._print_Pow(expr)
+        return sp.latex(expr)
 
     def _print_log(self, expr, **kwargs):
         if len(expr.args) == 1:
@@ -480,11 +481,7 @@ x, y = sp.symbols("x,y", real=True)
 string = "x² x² cosx²"
 string = math_interpreter(string)
 
-# print(custom_latex(sp.sympify(string, evaluate=False)))
-
-print(TR111(sp.simplify(1/sp.sin(x))))
-
-sp.pprint(sp.solve(sp.simplify(sp.cot(x))))
+print(custom_latex(sp.diff(sp.cbrt(sp.ln(x)), x)))
 
 exit()
 
