@@ -218,7 +218,10 @@ def draw_func(func, title, x_range=(-10,10), y_range=(-10,10), x_intersect=False
     x_coords = np.arange(x_range[0], x_range[1], 0.01)
     y_coords = [float(func(num)) for num in x_coords]
 
-    fig = plt.figure()
+    if svg:
+        fig = plt.figure(facecolor="none")
+    else:
+        fig = plt.figure()
     
     ax = fig.add_subplot(111)
 
@@ -226,7 +229,7 @@ def draw_func(func, title, x_range=(-10,10), y_range=(-10,10), x_intersect=False
     ax.set_ylabel('Y-as')
 
     if svg:
-        ax.set_facecolor("#FF0000")
+        ax.set_facecolor("none")
         main_color = "#D3D3D3"
         dot_color = "aquamarine"
     else:

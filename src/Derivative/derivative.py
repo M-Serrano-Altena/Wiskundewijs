@@ -128,7 +128,7 @@ def draw_func(
     x = np.arange(x_range[0], x_range[1], 0.01)
     f = [func(num) for num in x]
 
-    fig = plt.figure()
+    fig = plt.figure(facecolor="none")
 
     ax = fig.add_subplot(111)
 
@@ -142,7 +142,7 @@ def draw_func(
     ax.xaxis.label.set_color("#D3D3D3")
     ax.yaxis.label.set_color("#D3D3D3")
     ax.tick_params(axis="both", colors="#D3D3D3")
-    ax.set_facecolor("#FF0000")
+    ax.set_facecolor("none")
 
     ax.set_title(title, loc="center", color="#D3D3D3")
 

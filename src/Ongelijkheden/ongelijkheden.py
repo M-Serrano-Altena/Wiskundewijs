@@ -10,7 +10,10 @@ def draw_funcs(
     f = [func(num) for num in x_coords]
     g = [func2(num) for num in x_coords]
 
-    fig = plt.figure()
+    if svg:
+        fig = plt.figure(facecolor="none")
+    else:
+        fig = plt.figure()
 
     ax = fig.add_subplot(111)
 
@@ -18,7 +21,7 @@ def draw_funcs(
     ax.set_ylabel("Y-as")
 
     if svg:
-        ax.set_facecolor("#FF0000")
+        ax.set_facecolor("none")
         main_color = "#D3D3D3"
         dot_color = "aquamarine"
     else:

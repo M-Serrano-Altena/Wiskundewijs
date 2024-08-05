@@ -72,9 +72,9 @@ Om een afgeleide te bepalen, kunnen we de onderstaande [tabel](#tabel-met-veel-v
     | $\large{f(x) = ax}$                 | $\large{f'(x) = a}$                          |
     | $\large{f(x) = ax^n}$              | $\large{f'(x) = n \cdot ax^{n-1}}$           |
     | $\large{f(x) = e^x}$               | $\large{f'(x) = e^x}$                        |
-    | $\large{f(x) = a^x}$               | $\large{f'(x) = a^x \cdot \ln(x)}$         |
-    | $\large{f(x) = \ln{(x)}}$          | $\large{f'(x) = \Large \frac{1}{x}}$                |
-    | $\large{f(x) = \ ^a \! \log{(x)}}$ | $\large{f'(x) = \Large \frac{1}{x \ \cdot \ \ln{(a)}}}$ |
+    | $\large{f(x) = a^x}$               | $\large{f'(x) = a^x \cdot \ln(a)}$         |
+    | $\large{f(x) = \ln(x)}$          | $\large{f'(x) = \Large \frac{1}{x}}$                |
+    | $\large{f(x) = \ ^a \! \log(x)}$ | $\large{f'(x) = \Large \frac{1}{x \ \cdot \ \ln(a)}}$ |
     | $\large{f(x) = \sin(x)}$         | $\large{f'(x) = \cos(x)}$                  |
     | $\large{f(x) = \cos(x)}$         | $\large{f'(x) = -\sin(x)}$                 |
 

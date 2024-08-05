@@ -166,7 +166,7 @@ def draw_func(func, title, x_range=(-10,10), y_range=(-10,10), x_intersect=False
     x = np.arange(x_range[0], x_range[1], 0.01)
     y = [func(num) for num in x]
 
-    fig = plt.figure()
+    fig = plt.figure(facecolor="none")
     
     ax = fig.add_subplot(111)
 
@@ -180,7 +180,7 @@ def draw_func(func, title, x_range=(-10,10), y_range=(-10,10), x_intersect=False
     ax.xaxis.label.set_color('#D3D3D3')
     ax.yaxis.label.set_color('#D3D3D3')
     ax.tick_params(axis='both', colors='#D3D3D3')
-    ax.set_facecolor("#FF0000")
+    ax.set_facecolor("none")
     
 
     ax.set_title(title, loc='center', color='#D3D3D3')

@@ -30,4 +30,6 @@ Maak gebruik van de **zoekbalk** om direct het onderwerp te vinden waar jij naar
 5. [Ongelijkheden](ongelijkheden.md)
 6. [Stelsels van Vergelijkingen](stelsels_van_vergelijkingen.md)
 6. [De Afgeleide Functie](afgeleide.md)
+6. [De Primitieve Functie](primitieve.md)
+6. [Meetkunde](meetkunde.md)
 7. [Goniometrie](goniometrie.md)

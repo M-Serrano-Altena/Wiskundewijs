@@ -48,9 +48,9 @@ Stel we willen zijde $BC$ bepalen en we weten dat $\theta = 60 ^{\circ}$ en $AB 
 
 Zoals we eerder zagen, kunnen we dit probleem niet oplossen met [Pythagoras](pythagoras.md). Hiervoor hebben we de goniometrische funties nodig. Maar welke moeten we gebruiken, de sinus, cosinus of de tangens? 
 
-We hebben de hoek $\theta$ en de zijde $AB$. Dit is de overstaande zijde, want het is de zijde tegenover hoek $\theta$. Verder willen we zijde $BC$ weten. Dit is de aanliggende zijde, want het maakt samen met de schuine zijde de hoek $\theta$.
+We hebben de hoek $\theta$ en de zijde $AB$. Dit is de aanliggende zijde, want het maakt samen met de schuine zijde de hoek $\theta$. Verder willen we zijde $BC$ weten. Dit is de overstaande zijde, want het is de zijde tegenover hoek $\theta$.
 
-We zoeken dus een functie die iets met een overstaande en aanliggende zijde heeft. We kunnen bij de [goniometrische functies](#goniometrische-functies) zien dat we dus de **tangens** moeten gebruiken. Deze functie heeft namelijk beide zijdes die we willen. Laten we als eerst de tangens opschrijven:
+We zoeken dus een functie die iets met een overstaande en aanliggende zijde heeft. We kunnen bij de [goniometrische functies](#goniometrische-functies) zien dat we dan de **tangens** moeten gebruiken. Deze functie heeft namelijk beide zijdes die we willen. Laten we als eerst de tangens opschrijven:
 
 $$\tan(\theta) = \frac{\mathrm{Overstaand}}{\mathrm{Aanliggend}}$$
 
@@ -157,11 +157,11 @@ En als we kijken in Figuur 3, dan kunnen we controleren dat dit een logisch antw
 
     $$\large{BC = AC \cdot \sin(\theta)}$$
 
-    Als we nu $AC = 4$ en $\theta = 30 ^{\circ}$ invullen:
+    Als we nu $AC = 4$ en $\theta = 30 ^{\circ}$ invullen, krijgen we:
 
     $$\large{BC = 4 \cdot \sin(30 ^{\circ})}$$
 
-    Als we dit in een rekenmachine stoppen, dan vinden we:
+    En als we dit in een rekenmachine stoppen, dan vinden we:
 
     !!! quote ""
         $$\large{BC = 2}$$
@@ -206,7 +206,7 @@ En als we kijken in Figuur 3, dan kunnen we controleren dat dit een logisch antw
     !!! quote ""
         $$\large{\theta \approx 41.4 ^{\circ}}$$
 
-    Voor VMBO is dit op gehele getallen:
+    En bij VMBO ronden we af op gehele getallen:
     
     !!! quote ""
         $$\large{\theta \approx 41 ^{\circ}}$$
@@ -246,19 +246,21 @@ En als we kijken in Figuur 3, dan kunnen we controleren dat dit een logisch antw
 
     Als we dit invullen in onze rekenmachine (dus $\tan^{-1}(\frac{3}{4})$), dan vinden we:
 
-    $$large{\theta = 36.869...}$$
+    $$\large{\theta = 36.869...}$$
 
     Graden ronden we af op $1$ decimaal, dus ons eindantwoord wordt:
 
     !!! quote ""
         $$\large{\theta = 36.9 ^{\circ}}$$
 
-    Voor VMBO is dit op gehele getallen:
+    En bij VMBO ronden we af op gehele getallen:
 
     !!! quote ""
         $$\large{\theta = 37 ^{\circ}}$$
 
-    Nu willen we zijde $AB$ bepalen. We kunnen dit op meerdere manieren doen. We kunnen dit berekenen met de **sinus**, **cosinus** of met [Pythagoras](pythagoras.md). Wij kiezen er hier voor om het met de **sinus** te berekenen. Maar voel je vrij om de andere methodes te proberen om te kijken of je het beheerst!
+    <br>
+
+    Nu willen we zijde $AB$ bepalen. We kunnen dit op meerdere manieren doen. We kunnen dit berekenen met de **sinus**, met de **cosinus** of met [Pythagoras](pythagoras.md). Wij kiezen er hier voor om het met de **sinus** te berekenen. Maar voel je vrij om de andere methodes te proberen om te kijken of je het beheerst!
 
     Voor de sinus hebben we iets met de overstaande en de schuine zijde:
 
@@ -274,7 +276,7 @@ En als we kijken in Figuur 3, dan kunnen we controleren dat dit een logisch antw
 
     $$\large{AB = \frac{BC}{\sin(\theta)}}$$
 
-    Nu vullen we $\theta = 36.869...$ en $BC = 6$:
+    Nu vullen we $\theta = 36.869...$ en $BC = 6$ in:
 
     $$\large{AB = \frac{6}{\sin(36.869... ^{\circ})}}$$
 
@@ -293,8 +295,6 @@ Laten we nu iets dieper ingaan op de **sinus** en **cosinus** functies. Wat deze
     Radialen is een eenheid voor hoeken, net zoals graden. Radialen gaan niet van $0$ tot $360 ^{\circ}$, maar van $0$ tot $2 \pi$. We kiezen voor $2 \pi$ als eindpunt omdat dit de omtrek is van een cirkel met straal $1$. Dus als we $1$ rondje doen, hebben we $2 \pi$ afgelegd, $2$ rondjes hebben we $4 \pi$ afgelegd, $3$ rondjes $6 \pi$ enzovoort. Een half rondje is dan $\pi$ of $180 ^{\circ}$.
 
     We kunnen van radialen naar graden omrekenen en andersom:
-
-    Om van graden naar radialen te gaan doen we:
 
     - Graden naar Radialen: $\large{\quad \theta_{grad} \cdot \Large \frac{2 \pi}{360 ^{\circ}} \large = \theta_{rad}}$
     - Radialen naar Graden: $\large{\quad \theta_{rad} \cdot \Large \frac{360 ^{\circ}}{2 \pi} \large = \theta_{grad}}$
@@ -437,7 +437,7 @@ $$\sin(x) = 0.$$
 
 Om dit op te lossen willen we eerst aan beide kanten een $\sin$ functie hebben. We moeten dus de $0$ schrijven als $\sin(a)$. We willen er dus achter komen van welk getal we de sinus moeten nemen om $0$ te krijgen. Om dit te doen kunnen we de $\arcsin$ van $0$ nemen (later zullen we de [eenheidscirkel](#de-eenheidscirkel) gebruiken). 
 
-We krijgen dan dus $a = \arcsin(0)$. Als we dit invullen, dan vinden we $a = 0$. Dit betekent dus dat $\sin(0) = 0$. Onze vergelijking wordt dan dus:
+We krijgen dan dus $a = \arcsin(0)$. Als we dit invullen, dan vinden we $a = 0$. Dit betekent dus dat we de $0$ ook kunnen schrijven als $\sin(0)$. Onze vergelijking wordt dan dus:
 
 $$\sin(x) = \sin(0)$$
 
@@ -465,7 +465,7 @@ $$x = k \cdot 2 \pi \ \vee \ x = \pi - 0 + k \cdot 2 \pi$$
 
 $$x = k \cdot 2 \pi \ \vee \ x = \pi + k \cdot 2 \pi$$
 
-In dit geval kunnen we deze twee verschillende sets combineren. Want we krijgen met de linker oplossing $x = 0, 2\pi, 4\pi, ...$ en met de rechter oplossing $x = \pi, 3 \pi, 5 \pi, ...$. Dus samen zijn onze oplossingen $x = 0, \pi, 2 \pi, 3\pi, 4\pi, 5\pi, ...$. Dit is hetzelfde als:
+In dit geval kunnen we deze twee verschillende sets combineren. Want we krijgen bij de linker de oplossingen $x = 0, 2\pi, 4\pi, ...$ en bij de rechter de oplossingen $x = \pi, 3 \pi, 5 \pi, ...$. Dus samen zijn onze oplossingen $x = 0, \pi, 2 \pi, 3\pi, 4\pi, 5\pi, ...$. Dit kunnen we opschrijven als:
 
 !!! quote ""
     $$\large{x = k \cdot \pi}$$
@@ -485,9 +485,9 @@ We kijken nu [weer](#sinus-en-cosinus-vergelijkingen) naar de volgende cosinus v
 
 $$\cos(x) = 1$$
 
-We willen hier ook weer aan beide kanten dezelfde functie hebben, dus aan beide kanten een cosinus. Dus van welk getal is de cosinus gelijk aan $1$. Dus wat is $a$ voor $\cos(a) = 1$? Als we de $\arccos$ nemen, dan vinden we $a = \arccos(1) = 0$.
+We willen hier ook weer aan beide kanten dezelfde functie hebben, dus aan beide kanten een cosinus. We moeten dus de $1$ gaan schrijven als een cosinus. Dus welke getal moet $a$ zijn zodat $\cos(a) = 1$? Als we de $\arccos$ nemen, dan vinden we $a = \arccos(1) = 0$.
 
-We weten nu dus dat $\cos(0) = 1$. De vergelijking wordt dan dus:
+We weten nu dus dat $1 = \cos(0)$. De vergelijking kunnen we dan dus schrijven als:
 
 $$\cos(x) = \cos(0)$$
 
@@ -507,9 +507,9 @@ $$\cos(x) = \cos(-x)$$
 
 Dus om hier rekening mee te houden moeten we nog een set oplossingen toevoegen:
 
-$$x = k \cdot 2 \pi \ \vee -0 + k \cdot 2 \pi$$
+$$x = k \cdot 2 \pi \ \vee \ x = -0 + k \cdot 2 \pi$$
 
-$$x = k \cdot 2 \pi \ \vee k \cdot 2 \pi$$
+$$x = k \cdot 2 \pi \ \vee \ x =  k \cdot 2 \pi$$
 
 Maar in dit geval geldt er dat $0 = -0$, dus dit kunnen we gewoon weer versimpelen naar wat we eerst hadden:
 
@@ -518,11 +518,11 @@ Maar in dit geval geldt er dat $0 = -0$, dus dit kunnen we gewoon weer versimpel
 
 En dat is ook wat we [eerder](#sinus-en-cosinus-vergelijkingen) gevonden hadden. In het algemeen hebben we dus voor een vergelijking van de vorm:
 
-$$\cos(x) = \cos(a)$$
+$$\large{\cos(x) = \cos(a)}$$
 
 de volgende oplossingen:
 
-$$x = a + k \cdot 2 \pi \ \vee \ x = -a + k \cdot 2 \pi$$
+$$\large{x = a + k \cdot 2 \pi \ \vee \ x = -a + k \cdot 2 \pi}$$
 
 We hebben nu dus de algemene oplossingen gevonden voor sinus en cosinus vergelijkingen!
 
@@ -534,11 +534,11 @@ We hebben nu dus de algemene oplossingen gevonden voor sinus en cosinus vergelij
 
     Een vergelijking van de vorm:
 
-    $$\large{\sin(x) = \sin(a)}$$
+    $$\Large{\sin(x) = \sin(a)}$$
 
     heeft de volgende oplossingen:
 
-    $$\large{x = a + k \cdot 2 \pi \ \vee \ x = \pi - a + k \cdot 2 \pi}$$
+    $$\Large{x = a + k \cdot 2 \pi \ \vee \ x = \pi - a + k \cdot 2 \pi}$$
 
     $k$ kan hier elk geheel getal zijn, dus $k = 0, \pm 1, \pm 2, \pm 3, ...$
 
@@ -547,13 +547,13 @@ We hebben nu dus de algemene oplossingen gevonden voor sinus en cosinus vergelij
 
     Een vergelijking van de vorm:
 
-    $$\large{\cos(x) = \cos(a)}$$
+    $$\Large{\cos(x) = \cos(a)}$$
 
     heeft de volgende oplossingen:
 
-    $$\large{x = a + k \cdot 2 \pi \ \vee \  x = - a + k \cdot 2 \pi}$$
+    $$\Large{x = a + k \cdot 2 \pi \ \vee \  x = - a + k \cdot 2 \pi}$$
 
-    $k$ kan hier elk geheel getal zijn, dus $k = 0, \pm 1, \pm 2, \pm 3, ...$
+    $k$ kan hier weer elk geheel getal zijn, dus $k = 0, \pm 1, \pm 2, \pm 3, ...$
 
 **<p style="font-size: 20px;">Sinus en Cosinus naar elkaar omschrijven</p>**
 
@@ -614,6 +614,8 @@ $$\boxed{\cos(x - \frac{1}{2} \pi) = \sin(x)}$$
 
             $$\large{\boxed{\cos(x) = \sin(\frac{1}{2} \pi - x)}}$$
 
+            <br>
+
             Om van een sinus naar een cosinus te gaan, kunnen we de volgende symmetrie gebruiken:
             
             $$\large{\cos(x) = \cos(-x)}$$
@@ -636,7 +638,7 @@ $$\boxed{\cos(x - \frac{1}{2} \pi) = \sin(x)}$$
     **<p style="text-align: center;font-size:20px;">Los op: $\cos(2x) = 0$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Om dit op te lossen willen we eerst aan beide kanten een cosinus hebben. We moeten dus kijken van welk getal de cosinus $0$ geeft. Als we de $\arccos$ nemen van $0$, dan vinden we dat dit $\frac{1}{2} \pi$ is. Dus er geldt dat $0 = \cos(\frac{1}{2} \pi)$. Als we dit invullen, dan krijgen we:
+    Om dit op te lossen willen we eerst aan beide kanten een cosinus hebben. We moeten dus kijken hoe we de $0$ als cosinus schrijven. Als we de $\arccos$ van $0$ nemen, dan vinden we $\frac{1}{2} \pi$. Met andere woorden, als we de cosinus van $\frac{1}{2} \pi$ nemen, krijgen we weer de $0$ terug. En omdat dus $\cos(\frac{1}{2} \pi) = 0$, kunnen we dit invullen in de vergelijking:
 
     $$\large{\cos(2x) = \cos(\frac{1}{2} \pi)}$$
 
@@ -650,13 +652,13 @@ $$\boxed{\cos(x - \frac{1}{2} \pi) = \sin(x)}$$
         $$\large{x = \frac{1}{4} \pi + k \cdot \pi \ \vee \ x = - \frac{1}{4} \pi + k \cdot \pi}$$
 
     <br>
-    In dit geval kunnen we deze oplossingen ook combineren:
+    In dit geval kunnen we eventueel deze oplossingen ook combineren:
 
     - **Linker set:** $x = -\frac{3}{4} \pi, \frac{1}{4} \pi, 1 \frac{1}{4} \pi, 2 \frac{1}{4} \pi, ...$ *
     - **Rechter set:** $x = - \frac{1}{4} \pi, \frac{3}{4} \pi, 1 \frac{3}{4} \pi, ...$ *
     - **Gecombineerd:** $x = - \frac{3}{4} \pi, - \frac{1}{4} \pi, \frac{3}{4} \pi, 1 \frac{1}{4} \pi, 1 \frac{3}{4} \pi, ...$ *
 
-    Deze combinatie kunnen beschrijven op de volgende manier:
+    Deze combinatie kunnen we beschrijven op de volgende manier:
 
     !!! quote ""
         $$\large{x = \frac{1}{4} \pi + k \cdot \frac{1}{2} \pi}$$
@@ -736,7 +738,7 @@ $$\boxed{\cos(x - \frac{1}{2} \pi) = \sin(x)}$$
 
 
 ## **De Eenheidscirkel**
-De eenheidscirkel is eigenlijk gewoon een cirkel met een straal van lengte $1$. En we kunnen het gebruiken om verschillende waardes van sinus en cosinus te bepalen bij verschillende hoeken.
+De eenheidscirkel is eigenlijk gewoon een cirkel met een straal van lengte $1$. We kunnen het gebruiken om verschillende waardes van sinus en cosinus te bepalen bij verschillende hoeken.
 
 ???+ video
     <video controls>
@@ -750,7 +752,7 @@ De eenheidscirkel is eigenlijk gewoon een cirkel met een straal van lengte $1$. 
     <figcaption>Figuur 9. De eenheidscirkel met de hoeken in het blauw weergegeven.</figcaption>
 </figure>
 
-We kunnen dus met de eenheidscirkel kijken wat de cosinus en sinus van een bepaalde hoek zijn. We kijken dan naar het $x$- en $y$-coördinaat van het punt op de cirkel dat hoort bij die hoek. Het $x$-coördinaat bij die hoek is hetzelfde als de cosinus van die hoek. En het $y$-coördinaat bij de hoek is hetzelfde als de sinus van die hoek. Hieronder kunnen zien we waarom dit het geval is.
+We kunnen met de eenheidscirkel kijken wat de cosinus en sinus van een bepaalde hoek zijn. We kijken dan naar het $x$- en $y$-coördinaat van het punt op de cirkel dat hoort bij die hoek. Het $x$-coördinaat bij die hoek is hetzelfde als de cosinus van die hoek. En het $y$-coördinaat bij de hoek is hetzelfde als de sinus van die hoek. Hieronder kunnen zien we waarom dit het geval is.
 
 ??? abstract "Bewijs"
     We hebben hieronder de eenheidscirkel getekend met een willekeurige hoek $\theta$. Bij deze hoek hebben we een driehoek getekent met de straal als schuine zijde. Deze zijde heeft een lengte $1$, want de straal van een eenheidscirkel is altijd $1$.
@@ -780,7 +782,7 @@ We kunnen dus met de eenheidscirkel kijken wat de cosinus en sinus van een bepaa
 
     Maar de lengte van $a$ is precies hetzelfde als het $x$-coördinaat van het punt. Want de zijde begint bij de oorsprong en eindigt bij $x$. En dus als we bij $0$ beginnen en een afstand $a$ afleggen om bij $x$ te komen, dan moet $x$ gelijk zijn aan de lengte $a$.
     
-    We kunnen hetzelfde argument gebruiken voor $b$. We beginnen bij $y=0$ en gaan dan tot het $y$-coördinaat van het punt. Als we een afstand $b$ af moeten leggen om daar te komen, dan is het $y$ hetzelfde als de lengte $b$. 
+    We kunnen hetzelfde argument gebruiken voor $b$. We beginnen bij $y=0$ en gaan dan tot het $y$-coördinaat van het punt. Als we een afstand $b$ af moeten leggen om daar te komen, dan is het $y$-coördinaat hetzelfde als de lengte $b$. 
     
     Als we dit invullen in de sinus en cosinus formules die we net gevonden hebben, dan krijgen we dus: 
 
@@ -953,7 +955,9 @@ Deze goniometrische vergelijkingen worden vaak gebruikt om wat lastigere vergeli
     1. $$\large{\cos(\theta + \phi) = \cos(\theta) \cos(\phi) - \sin(\theta) \sin(\phi)}$$
     1. $$\large{\cos(\theta - \phi) = \cos(\theta) \cos(\phi) + \sin(\theta) \sin(\phi)}$$
 
-De eerste twee basisvergelijkingen kunnen we zelf bewijzen met de [goniometrische functies](#goniometrische-functies) die we eerder hebben gezien.
+De eerste twee basisvergelijkingen moet je onthouden, maar de andere krijg je vaak gegeven bij toetsen (ook bij het eindexamen). 
+
+We kunnen deze basisvergelijkingen ook zelf bewijzen met de [goniometrische functies](#goniometrische-functies) die we eerder hebben gezien.
 
 ??? abstract "Bewijs"
     **<p style="text-align: center;font-size:20px;">Bewijs eerste vergelijking</p>** 
