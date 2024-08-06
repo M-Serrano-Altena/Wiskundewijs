@@ -282,7 +282,8 @@ def draw_func(
 
     plt.legend(loc="upper right")
 
-    save_name = replace_superscript(title)
+    save_name = replace_superscript(title).replace('÷', '!divide!')
+    print(save_name)
     plt.savefig(f"{save_name}.svg")
     plt.show()
 
@@ -299,8 +300,8 @@ def draw_func(
 
 # draw_func(lambda x: sp.cos(x), "f(x) = cos(x)", x_range=(0, sp.pi), y_range=(-2, 2), root=False, integral_range=(sp.pi/6, 2/3 * sp.pi), func_label=True, no_ax=False, V_loc_label=(0.77, 0.23))
 
-# draw_func(lambda x: 2/x, "f(x) = 2 ÷ x", x_range=(-10, 10), y_range=(-5, 5), root=False, integral_range=(-1000, -1), func_label=True, no_ax=False, V_loc_label=(-2.1, -0.8))
+draw_func(lambda x: 2/x, "f(x) = 2 ÷ x", x_range=(-10, 10), y_range=(-5, 5), root=False, integral_range=(-1000, -1), func_label=True, no_ax=False, V_loc_label=(-2.1, -0.8))
 
 # draw_func(lambda x: sp.sqrt(x), "f(x) = sqrt(x)", x_range=(-1, 5), y_range=(-1, 3), root=False, double_integral=True, integral_range=np.array(([0, sp.cbrt(4)], [2, 2*sp.cbrt(4)])), func_label=True, no_ax=False, V_loc_label=np.array(([0.8, 0.35], [2.45, 0.6])))
 
-draw_func(lambda x: (4*x-7)**3 -10*x + 18, "f(x) = (4x-7)³ -10x + 18", x_range=(1, 2.5), y_range=(-2, 3), root=True, root_values=(1.33175, 1.80084, 2.1174), integral_range=(1.33175, 2.1174), func_label=True, no_ax=True, V_loc_label=(1.5, 0.75))
+# draw_func(lambda x: (4*x-7)**3 -10*x + 18, "f(x) = (4x-7)³ -10x + 18", x_range=(1, 2.5), y_range=(-2, 3), root=True, root_values=(1.33175, 1.80084, 2.1174), integral_range=(1.33175, 2.1174), func_label=True, no_ax=True, V_loc_label=(1.5, 0.75))

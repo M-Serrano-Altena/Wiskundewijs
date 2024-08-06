@@ -770,7 +770,7 @@ Zoals we hier kunnen zien, vallen de $c$ tegen elkaar weg. Dit is altijd het gev
     We beginnen met het maken van een schets om de situatie beter te begrijpen.
 
     <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = 2 ÷ x.svg){ width="500" }
+    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = 2 !divide! x.svg){ width="500" }
         <figcaption>Figuur 4. De grafiek $f(x) = \frac{1}{x}$ geplot met vlakdeel $V$. Het vlakdeel $V$ gaat van $x = -1000$ (te groot om weer te geven in de schets) tot $x = -1$.</figcaption>
     </figure>
 
