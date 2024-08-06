@@ -983,7 +983,7 @@ Door nu aan beide kanten $-3$ te doen vinden we onze eindoplossing:
 
     $$\large{x + 1\frac{1}{2} = \frac{\sqrt{5}}{\sqrt{4}} \ \vee \ x + 1\frac{1}{2} = -\frac{\sqrt{5}}{\sqrt{4}}}$$
 
-    We kunnen $\sqrt{4}$ versimpelen naar $2$. Daarna kunnen we $\frac{\sqrt{5}}{2}$ schrijven als $\frac{1}{2}\sqrt{5}$ (gedeelt door $2$ of keer $\frac{1}{2}$ is hetzelfde):
+    We kunnen $\sqrt{4}$ versimpelen naar $2$. Daarna kunnen we $\frac{\sqrt{5}}{2}$ schrijven als $\frac{1}{2}\sqrt{5}$ (gedeeld door $2$ of keer $\frac{1}{2}$ is hetzelfde):
 
     $$\large{x + 1\frac{1}{2} = \frac{1}{2} \sqrt{5} \ \vee \ x + 1\frac{1}{2} = -\frac{1}{2} \sqrt{5}}$$
 

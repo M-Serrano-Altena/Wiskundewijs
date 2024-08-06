@@ -89,7 +89,7 @@ Om een afgeleide te bepalen, kunnen we de onderstaande [tabel](#tabel-met-veel-v
     | Quotiëntregel | $\large{f(x) = \Large \frac{g(x)}{h(x)}}$ | $\large f'(x) = \Large \frac{g'(x) \ \cdot \ h(x) \ - \ g(x) \ \cdot \ h'(x)}{h(x)^2}$                              |
     | Kettingregel  | $\large{f(x) = f(u(x))}$           | $\large f'(x) = \Large \frac{\mathrm{d} \textit{f} }{\mathrm{d} u} \cdot \frac{\mathrm{d} u}{\mathrm{d} x}$ |
 
-De quotiëntregel kan je onthouden met het ezelsbruggetje: "nat - tan gedeelt door n kwadraat".
+De quotiëntregel kan je onthouden met het ezelsbruggetje: "nat - tan gedeeld door n kwadraat".
 
 Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
@@ -185,7 +185,7 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     $$\large{f'(x) = 3x^{-\frac{1}{2}}}$$
 
-    We kunnen de '$-$' in de exponent vervangen door $1$ gedeelt door:
+    We kunnen de '$-$' in de exponent vervangen door $1$ gedeeld door:
 
     $$\large{f'(x) = 3 \cdot \frac{1}{x^{\frac{1}{2}}}}$$
 
@@ -258,7 +258,7 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     Dit zijn twee termen plus elkaar, dus met de [somregel](#regels) weten we dat we de afgeleides van de losse termen kunnen op tellen. 
     
-    Om de afgeleides te bepalen, willen we dit eerst schrijven met machten in plaats van breuken en wortels. In [Machten in het Algemeen](basisvaardigheden.md#machten-in-het-algemeen) zien we dat $1$ gedeelt door een $-$ in de exponent wordt:
+    Om de afgeleides te bepalen, willen we dit eerst schrijven met machten in plaats van breuken en wortels. In [Machten in het Algemeen](basisvaardigheden.md#machten-in-het-algemeen) zien we dat $1$ gedeeld door een $-$ in de exponent wordt:
 
     $$\large{\dfrac{10}{x^4} = 10 \cdot \dfrac{1}{x^4} = 10x^{-4}}$$
 
@@ -278,7 +278,7 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     $$\large{f'(x) = 40x^{-5} + 2x^{-\frac{1}{3}}}$$
 
-    Als we de '$-$' weer vervangen door $1$ gedeelt door:
+    Als we de '$-$' weer vervangen door $1$ gedeeld door:
 
     $$\large{f'(x) = 40 \cdot \dfrac{1}{x^5} + 2 \cdot x^{\frac{1}{3}}}$$
 
@@ -360,7 +360,7 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
 
     $$\large{\tan(x) = \frac{\sin(x)}{\cos(x)}}$$
 
-    Dit zijn twee functies gedeelt door elkaar, dus kunnen we de [quotiëntregel](#regels) toepassen. Deze zegt dat voor een functie van de vorm:
+    Dit zijn twee functies gedeeld door elkaar, dus kunnen we de [quotiëntregel](#regels) toepassen. Deze zegt dat voor een functie van de vorm:
 
     $$\large{f(x) = \frac{g(x)}{h(x)}}$$
 

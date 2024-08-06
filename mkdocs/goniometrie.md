@@ -15,9 +15,9 @@ Er zijn drie soorten goniometrische functies die we vaak gebruiken. De **sinus**
 
 Dit kan je onthouden met het ezelsbruggetje: "SOS CAS TOA". Dit kun je als volgt begrijpen:
 
-- SOS: <u>S</u>inus is <u>O</u>verstaand gedeelt door <u>S</u>chuin.
-- CAS: <u>C</u>osinus is <u>A</u>anliggend gedeelt door <u>S</u>chuin.
-- TOA: <u>T</u>angens is <u>O</u>verstaand gedeelt door <u>A</u>anliggend.
+- SOS: <u>S</u>inus is <u>O</u>verstaand gedeeld door <u>S</u>chuin.
+- CAS: <u>C</u>osinus is <u>A</u>anliggend gedeeld door <u>S</u>chuin.
+- TOA: <u>T</u>angens is <u>O</u>verstaand gedeeld door <u>A</u>anliggend.
 
 ??? note "Overstaand, Aanliggend en Schuin"
     <span style="font-size: 14px;">*Overstaand*, *Aanliggend* en *Schuin* gaan over de verschillende zijdes van een rechthoekige driehoek. Dit is altijd bepaald ten opzichte van de hoek waar je naar kijkt. Dus in Figuur 1 kijken we ten opzichte van de hoek $\theta$. </span>
@@ -97,7 +97,7 @@ We gebruiken dan de inverse van de goniometrische functie. Dit noteren we dan me
     
     $$\Large{\sin^{-1}(x) \neq \frac{1}{\sin(x)}}$$
     
-    De inverse betekent hier dus <u>**niet**</u> dat we $1$ gedeelt door de functie moeten doen. Maar bij $x^{-1}$ is dit juist wel het geval. Dit kan verwarrend zijn, dus om dit te vermijden schrijven wij de inverse van $\sin(x)$ als $\arcsin(x)$ op.
+    De inverse betekent hier dus <u>**niet**</u> dat we $1$ gedeeld door de functie moeten doen. Maar bij $x^{-1}$ is dit juist wel het geval. Dit kan verwarrend zijn, dus om dit te vermijden schrijven wij de inverse van $\sin(x)$ als $\arcsin(x)$ op.
 
 Laten we naar een voorbeeld kijken om te zien hoe dit werkt. In Figuur 3 hebben we een rechthoekige driehoek met zijdes $BC = 2$ en $AB = 2$. 
 
@@ -1000,7 +1000,7 @@ We kunnen deze basisvergelijkingen ook zelf bewijzen met de [goniometrische func
 
     $$\large{\sin^2(\theta) + \cos^2(\theta) = \frac{\mathrm{Schuin}^2}{\mathrm{Schuin}^2}}$$
     
-    En omdat iets gedeelt door zichzelf altijd gelijk is aan 1, vinden we dus dat:
+    En omdat iets gedeeld door zichzelf altijd gelijk is aan 1, vinden we dus dat:
     
     !!! quote ""
         $$\large{\sin^2(\theta) + \cos^2(\theta) = 1}$$
