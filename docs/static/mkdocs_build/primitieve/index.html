@@ -667,6 +667,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Oppervlakte tussen twee grafieken">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#twee-integralen-combineren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Twee integralen combineren
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -904,6 +919,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Oppervlakte tussen twee grafieken">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#twee-integralen-combineren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Twee integralen combineren
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -936,7 +966,8 @@
 <div class="arithmatex">\[f'(x) = 3x^2\]</div>
 <p>En we willen bepalen wat de originele functie <span class="arithmatex">\(f(x)\)</span> is. Misschien zou je kunnen bedenken dat de functie dat hier bij hoort de volgende vorm heeft:</p>
 <div class="arithmatex">\[f(x) = x^3,\]</div>
-<p>want als we <span class="arithmatex">\(f(x)\)</span> nu afleiden, dan krijgen we inderdaad <span class="arithmatex">\(3x^2\)</span>. Maar we weten ook dat de afgeleide van een constante (los getal zonder <span class="arithmatex">\(x\)</span>) <span class="arithmatex">\(0\)</span> is. Dus we kunnen elke willekeurige constante toevoegen aan <span class="arithmatex">\(f(x)\)</span> en dan klopt het nog steeds. Bijvoorbeeld:</p>
+<p>want als we <span class="arithmatex">\(f(x)\)</span> nu afleiden, dan krijgen we inderdaad <span class="arithmatex">\(3x^2\)</span>. Maar we weten ook dat de afgeleide van een <em>constante</em> (dus een los getal zonder <span class="arithmatex">\(x\)</span>) gelijk is aan <span class="arithmatex">\(0\)</span>. We kunnen dus elke willekeurige constante bij <span class="arithmatex">\(f(x)\)</span> optellen en dan blijft de afgeleide <span class="arithmatex">\(3x^2\)</span>. </p>
+<p>Dus bijvoorbeeld:</p>
 <div class="arithmatex">\[f_6(x) = x^3 + 6 \longrightarrow f_6'(x) = 3x^2\]</div>
 <div class="arithmatex">\[f_{13}(x) = x^3 + 13 \longrightarrow f_{13}'(x) = 3x^2\]</div>
 <p>Omdat we elk willekeurig getal kunnen toevoegen, schrijven we het algemener op:</p>
@@ -1001,10 +1032,10 @@
 </tbody>
 </table>
 <p>waarbij <span class="arithmatex">\(n\)</span> en <span class="arithmatex">\(a\)</span> constantes zijn (losse getallen zonder <span class="arithmatex">\(x\)</span>). </p>
-<p><span class="arithmatex">\(c\)</span> is de zogenaamde <em>integratieconstante</em>. Deze constante komt er bij elke functie die je primitiveert erbij.</p>
+<p><span class="arithmatex">\(c\)</span> is de zogenaamde <em>integratieconstante</em>. Deze constante komt er bij elke functie die je primitiveert erbij. Als we de primitieve zouden afleiden, dan zou deze constante namelijk weer verdwijnen.</p>
 <p><br></p>
 <h3 id="regels"><strong>Regels</strong></h3>
-<p>Bij primitiveren hebben we geen <a href="../afgeleide/#regels">productregel</a> of <a href="../afgeleide/#regels">quotiëntregel</a>, maar wel de <a href="../afgeleide/#regels">somregel</a> en (deels) de <a href="../afgeleide/#regels">kettingregel</a>.</p>
+<p>Bij primitiveren hebben we geen <a href="../afgeleide/#regels">productregel</a> of <a href="../afgeleide/#regels">quotiëntregel</a>, maar wel de <a href="../afgeleide/#regels">somregel</a> en (deels) de omgekeerde <a href="../afgeleide/#regels">kettingregel</a>.</p>
 <table>
 <thead>
 <tr>
@@ -1027,14 +1058,14 @@
 </tbody>
 </table>
 <p><strong><em><p style="text-align: left;font-size:17px;">Let op!</p></em></strong></p>
-<p>De kettingregel voor primitieven geldt alleen voor lineare functies als binnenste functie. Er mag namelijk geen extra <span class="arithmatex">\(x\)</span> term bij komen door de kettingregel. Want door die extra <span class="arithmatex">\(x\)</span> term zou de afgeleide van deze primitieve niet meer de originele functie zijn.</p>
+<p>De kettingregel voor primitieven geldt alleen voor lineaire functies als binnenste functie. Er mag namelijk geen extra <span class="arithmatex">\(x\)</span> term bij komen door de kettingregel. Want door die extra <span class="arithmatex">\(x\)</span> term zou de afgeleide van deze primitieve niet meer de originele functie zijn.</p>
 </details>
 <h3 id="voorbeelden"><strong>Voorbeelden</strong></h3>
 <details class="example">
 <summary>Voorbeeld 1: Bepaal de primitieve van <span class="arithmatex">\(f(x) = 2x^2\)</span></summary>
 <p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = 2x^2\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>Deze functie is van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>, met hier <span class="arithmatex">\(a=2\)</span> en <span class="arithmatex">\(n=2\)</span>. Om de primitieve te bepalen bij zo'n vorm, moeten we eerst de macht met <span class="arithmatex">\(1\)</span> verhogen. Dus de <span class="arithmatex">\(2\)</span> in de macht wordt een <span class="arithmatex">\(3\)</span>. En daarna doen we 1 gedeeld door deze macht ervoor (vergeet de <span class="arithmatex">\(+c\)</span> niet):</p>
+<p>Deze functie is van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>, met hier <span class="arithmatex">\(a=2\)</span> en <span class="arithmatex">\(n=2\)</span>. Om de primitieve te bepalen bij zo'n vorm, moeten we eerst de macht <span class="arithmatex">\(+1\)</span> doen. Dus de <span class="arithmatex">\(2\)</span> in de macht wordt nu een <span class="arithmatex">\(3\)</span>. En daarna doen we <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor (en vergeet de <span class="arithmatex">\(+c\)</span> niet):</p>
 <div class="arithmatex">\[\large{F(x) = \dfrac{1}{3} \cdot 2 x^3 + c}\]</div>
 <p>Als we dit versimpelen, dan vinden we:</p>
 <div class="admonition quote">
@@ -1045,13 +1076,13 @@
 <summary>Voorbeeld 2: Bepaal de primitieve van <span class="arithmatex">\(f(x) = x^3 + 6x - 4\)</span></summary>
 <p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = x^3 + 6x - 4\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>Bij <a href="#regels">Regels</a> zien we dat we bij primitiveren ook de somregel kunnen gebruiken, net zoals bij afgeleides. We kunnen dus van elke term apart de primitieve bepalen. Bij de eerste twee doen we de macht <span class="arithmatex">\(+1\)</span> en halen deze macht 1 gedeeld door ervoor: <br><br></p>
+<p>Bij <a href="#regels">Regels</a> zien we dat we bij primitiveren ook de somregel kunnen gebruiken, net zoals bij afgeleides. We kunnen dus van elke term apart de primitieve bepalen. Bij de eerste twee doen we de macht <span class="arithmatex">\(+1\)</span> en zetten we een factor <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor: <br><br></p>
 <ul>
 <li>Functie: <span class="arithmatex">\(\quad x^{3}\)</span> <span class="arithmatex">\(\qquad \Longrightarrow \qquad\)</span> Primitieve: <span class="arithmatex">\(\quad \dfrac{1}{4}x^4\)</span></li>
 <li>Functie: <span class="arithmatex">\(\quad 6x\)</span> <span class="arithmatex">\(\qquad \Longrightarrow \qquad\)</span> Primitieve: <span class="arithmatex">\(\quad \dfrac{1}{2} \cdot 6x^2 = 3x^2\)</span></li>
 </ul>
 <p><br><br>
-De laatste term is gewoon een constante, dus van de vorm <span class="arithmatex">\(f(x) = a\)</span>. De primitieve van deze vorm is <span class="arithmatex">\(F(x) = ax\)</span>, dus in ons geval wordt dat: <br><br></p>
+De laatste term is gewoon een constante, dus van de vorm <span class="arithmatex">\(f(x) = a\)</span>. De primitieve van deze vorm is <span class="arithmatex">\(F(x) = ax\)</span>, dus plakken gewoon een <span class="arithmatex">\(x\)</span> aan het getal vast: <br><br></p>
 <ul>
 <li>Functie: <span class="arithmatex">\(\quad -4\)</span> <span class="arithmatex">\(\qquad \Longrightarrow \qquad\)</span> Primitieve: <span class="arithmatex">\(\quad -4x\)</span></li>
 </ul>
@@ -1065,9 +1096,9 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <summary>Voorbeeld 3: Bepaal de primitieve van <span class="arithmatex">\(f(x) = (3x - 7)^2\)</span></summary>
 <p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = (3x - 7)^2\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>Om dit op te lossen werken we eerst de haakjes uit:</p>
+<p>Om dit op te lossen werken we eerst de <a href="../basisvaardigheden/#kwadratisch-haakjes-wegwerken">haakjes</a> uit:</p>
 <div class="arithmatex">\[\large{f(x) = 9x^2 - 42x + 49}\]</div>
-<p>Nu kunnen we de primitieve nemen van de losse termen. We doen bij de eerste twee de macht <span class="arithmatex">\(+1\)</span> en dan <span class="arithmatex">\(1\)</span> gedeeld door de nieuwe macht ervoor. Bij het losse getal voegen we alleen een <span class="arithmatex">\(x\)</span> toe:</p>
+<p>Nu kunnen we de primitieve nemen van de losse termen. Bij de eerste twee termen doen we de macht <span class="arithmatex">\(+1\)</span> en dan een factor <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor. Bij het losse getal voegen we alleen een <span class="arithmatex">\(x\)</span> toe:</p>
 <div class="arithmatex">\[\large{F(x) = \dfrac{1}{3} \cdot 9x^3 - \dfrac{1}{2} \cdot 42x^2 + 49x + c}\]</div>
 <p>Als we dit versimpelen, dan vinden we:</p>
 <div class="admonition quote">
@@ -1078,14 +1109,15 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <summary>Voorbeeld 4: Bepaal de primitieve van <span class="arithmatex">\(f(x) = 6\sqrt{x}\)</span></summary>
 <p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = 6\sqrt{x}\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>Om dit op te lossen moeten we de wortel eerst schrijven als een macht <span class="arithmatex">\(\frac{1}{2}\)</span>:</p>
+<p>Om dit op te lossen moeten we het eerst schrijven in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. We doen dit door de wortel eerst als macht <span class="arithmatex">\(\frac{1}{2}\)</span> te schrijven:</p>
 <div class="arithmatex">\[\large{f(x) = 6x^{\frac{1}{2}}}\]</div>
-<p>Deze functie is van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Om dit te primitiveren doen we de macht <span class="arithmatex">\(+1\)</span> en zetten 1 gedeeld door de nieuwe macht ervoor:</p>
+<p>Nu staat de functie wel in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Om deze vorm te primitiveren, doen we de macht <span class="arithmatex">\(+1\)</span>. Dus van een macht <span class="arithmatex">\(\frac{1}{2}\)</span> gaan we naar een macht <span class="arithmatex">\(1 \frac{1}{2}\)</span>. Daarna zetten we een factor van <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor:</p>
 <div class="arithmatex">\[\large{F(x) = \dfrac{1}{1 \frac{1}{2}} \cdot 6x^{1 \frac{1}{2}} + c}\]</div>
 <p>Als we dit versimpelen:</p>
 <div class="arithmatex">\[\large{F(x) = \dfrac{2}{3} \cdot 6x^{1 \frac{1}{2}} + c}\]</div>
 <div class="arithmatex">\[\large{F(x) = 4x^{1 \frac{1}{2}} + c}\]</div>
-<p>We hadden in de vraag geen breuk in de macht, dus dat moeten we weer schrijven met wortels. We hebben een macht <span class="arithmatex">\(1 \frac{1}{2}\)</span>, dus dat kunnen we schrijven als <span class="arithmatex">\(x\)</span> (de <span class="arithmatex">\(1\)</span> in de macht) keer <span class="arithmatex">\(\sqrt{x}\)</span> (de <span class="arithmatex">\(\frac{1}{2}\)</span> in de macht):</p>
+<p>We hadden in de vraag geen breuk in de macht, dus dat moeten we weer schrijven met wortels. We hebben een macht <span class="arithmatex">\(1 \frac{1}{2}\)</span>, dus dat kunnen we schrijven als <span class="arithmatex">\(x \sqrt{x}\)</span>. De <span class="arithmatex">\(x\)</span> komt van de <span class="arithmatex">\(1\)</span> in de macht, de <span class="arithmatex">\(\sqrt{x}\)</span> komt van de <span class="arithmatex">\(\frac{1}{2}\)</span>.</p>
+<p>We krijgen dus:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{F(x) = 4x\sqrt{x} + c}\]</div>
 </div>
@@ -1094,24 +1126,25 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <summary>Voorbeeld 5: Bepaal de primitieve van <span class="arithmatex">\(f(x) = \dfrac{3x\sqrt{x}}{2x^3}\)</span></summary>
 <p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = \dfrac{3x\sqrt{x}}{2x^3}\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>Om dit te primitieveren, moeten we deze functie eerst schrijven in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Om dit te doen schrijven we de wortel als eerst als een macht <span class="arithmatex">\(\frac{1}{2}\)</span>:</p>
+<p>Om dit te primitieveren, moeten we deze functie eerst schrijven in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Om dit te doen schrijven we de wortel eerst als een macht <span class="arithmatex">\(\frac{1}{2}\)</span>:</p>
 <div class="arithmatex">\[\large{f(x) = \dfrac{3x \cdot x^{\frac{1}{2}}}{2x^3}}\]</div>
-<p>We kunnen nu de <span class="arithmatex">\(x\)</span> termen in de teller combineren. We hebben twee <span class="arithmatex">\(x\)</span> termen keer elkaar, dus moeten we de machten bij elkaar op tellen:</p>
+<p>We kunnen nu de <span class="arithmatex">\(x\)</span> termen in de teller combineren. We hebben twee <span class="arithmatex">\(x\)</span> termen keer elkaar, dus moeten we de machten bij elkaar op tellen. We weten dat <span class="arithmatex">\(x = x^1\)</span>, dus krijgen we:</p>
+<div class="arithmatex">\[\large{f(x) = \dfrac{3x^{1 + \frac{1}{2}}}{2x^3}}\]</div>
 <div class="arithmatex">\[\large{f(x) = \dfrac{3x^{1 \frac{1}{2}}}{2x^3}}\]</div>
 <p>Nu kunnen we de twee overige <span class="arithmatex">\(x\)</span> termen door elkaar delen. Als we twee <span class="arithmatex">\(x\)</span> termen met elkaar delen, doen we de machten juist min elkaar:</p>
 <div class="arithmatex">\[\large{f(x) = \dfrac{3}{2} \cdot x^{1 \frac{1}{2} - 3}}\]</div>
-<p>Nu kunnen we de macht versimpelen:</p>
-<div class="arithmatex">\[\large{f(x) = \dfrac{3}{2} \cdot x^{-1 \frac{1}{2}}}\]</div>
-<p>Nu staat de functie in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span> en kunnen we het primitiveren. We doen dan de macht <span class="arithmatex">\(+1\)</span> en halen <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor:</p>
-<div class="arithmatex">\[\large{F(x) = \dfrac{1}{-\frac{1}{2}} \cdot \dfrac{3}{2} \cdot x^{-\frac{1}{2}} + c}\]</div>
+<p>En nu kunnen we de macht versimpelen:</p>
+<div class="arithmatex">\[\large{f(x) = \dfrac{3}{2} x^{-1 \frac{1}{2}}}\]</div>
+<p>Nu staat de functie in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span> en kunnen we het primitiveren. We doen dan de macht <span class="arithmatex">\(+1\)</span> en halen een factor <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor. We krijgen dus als nieuwe macht <span class="arithmatex">\(-1\frac{1}{2} + 1 = - \frac{1}{2}\)</span>:</p>
+<div class="arithmatex">\[\large{F(x) = \dfrac{1}{-\frac{1}{2}} \cdot \dfrac{3}{2} x^{-\frac{1}{2}} + c}\]</div>
 <p>En als we dit versimpelen:</p>
-<div class="arithmatex">\[\large{F(x) = -2 \cdot \dfrac{3}{2} \cdot x^{-\frac{1}{2}} + c}\]</div>
+<div class="arithmatex">\[\large{F(x) = -2 \cdot \dfrac{3}{2} x^{-\frac{1}{2}} + c}\]</div>
 <div class="arithmatex">\[\large{F(x) = -3x^{-\frac{1}{2}} + c}\]</div>
-<p>We hadden in de vraag geen negatieve of breuk in de macht, dus dat moeten we weer schrijven als breuk en met wortels. We veranderen eerst de '<span class="arithmatex">\(-\)</span>' in de macht met <span class="arithmatex">\(1\)</span> gedeeld door:</p>
+<p>We hadden in de vraag geen negatieve of breuk in de macht, dus dat moeten we weer schrijven als breuk en met wortels. We veranderen eerst de '<span class="arithmatex">\(-\)</span>' in de macht met een breuk:</p>
 <div class="arithmatex">\[\large{F(x) = -3 \cdot \dfrac{1}{x^{\frac{1}{2}}} + c}\]</div>
 <p>En de macht <span class="arithmatex">\(\frac{1}{2}\)</span> kunnen we ook schrijven als wortel:</p>
 <div class="arithmatex">\[\large{F(x) = -3 \cdot \dfrac{1}{\sqrt{x}} + c}\]</div>
-<p>We kunnen ook nog eventueel de <span class="arithmatex">\(3\)</span> in de breuk zetten:</p>
+<p>Als laatst kunnen we nog eventueel de <span class="arithmatex">\(3\)</span> in de breuk zetten:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{F(x) = - \dfrac{3}{\sqrt{x}} + c}\]</div>
 </div>
@@ -1120,7 +1153,7 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <summary>Voorbeeld 6: Bepaal de primitieve van <span class="arithmatex">\(f(x) = 5\cos(x)\)</span></summary>
 <p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = 5\cos(x)\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>De primitieve van een cosinus kunnen we vinden in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. Dit is namelijk <span class="arithmatex">\(\sin(x)\)</span>. De primitieve van deze functie wordt dus:</p>
+<p>De primitieve van een cosinus kunnen we vinden in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. We zien daar dat dit <span class="arithmatex">\(\sin(x)\)</span> is. In ons geval hebben we nog een factor <span class="arithmatex">\(5\)</span>, maar die kunnen we er gewoon lekker voor laten staan: </p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{F(x) = 5\sin(x) + c}\]</div>
 </div>
@@ -1129,33 +1162,37 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <summary>Voorbeeld 7: Bepaal de primitieve van <span class="arithmatex">\(f(x) = \sin(2x)\)</span></summary>
 <p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = \sin(2x)\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>De primitieve van een sinus kunnen we opzoeken in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. Dit is namelijk <span class="arithmatex">\(-\cos(x)\)</span>. Als we dit zouden willen primitiveren, dan zou onze eerste gok misschien zijn:</p>
+<p>De primitieve van een sinus kunnen we opzoeken in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. We zien daar dat dit <span class="arithmatex">\(-\cos(x)\)</span> is. Om onze functie <span class="arithmatex">\(\sin(2x)\)</span> te primitiveren, zou onze eerste gok misschien zijn:</p>
 <div class="arithmatex">\[\large{\widetilde{F}(x) = -\cos(2x) + c}\]</div>
-<p>Maar als we dit weer gaan afleiden, dan krijgen we door de <a href="../afgeleide/#regels">kettingregel</a> een extra factor <span class="arithmatex">\(2\)</span>:</p>
-<div class="arithmatex">\[\large{\widetilde{F}'(x) = 2\sin(2x)}\]</div>
+<p>Maar als we dit weer gaan afleiden, dan krijgen we door de <a href="../afgeleide/#regels">kettingregel</a> een extra factor <span class="arithmatex">\(2\)</span> ervoor:</p>
+<div class="arithmatex">\[\large{\widetilde{F}'(x) = 2\sin(2x) \neq f(x)}\]</div>
 <p>Omdat we deze factor niet willen, moeten we die bij de primitieve weg compenseren door <span class="arithmatex">\(\frac{1}{2}\)</span> ervoor toe te voegen:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{F(x) = -\dfrac{1}{2}\cos(2x) + c}\]</div>
 </div>
+<p><br></p>
+<p>(Nu geldt er namelijk wel weer <span class="arithmatex">\(F'(x) = f(x)\)</span> )</p>
 </details>
 <details class="example">
 <summary>Voorbeeld 8: Bepaal de primitieve van <span class="arithmatex">\(f(x) = e^{4x + 7}\)</span></summary>
 <p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = e^{4x + 7}\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>We hebben hier te maken met een <span class="arithmatex">\(e\)</span> macht en we weten dat de afgeleide van een <span class="arithmatex">\(e\)</span> macht zichzelf is. Dit betekent dus ook dat de primitieve van een <span class="arithmatex">\(e\)</span> macht zichzelf moet zijn. Dus als eerstte gok proberen we:</p>
+<p>We hebben hier te maken met een <span class="arithmatex">\(e\)</span> macht en we weten dat de afgeleide van een <span class="arithmatex">\(e\)</span> macht zichzelf is. Dit betekent dus ook dat de primitieve van een <span class="arithmatex">\(e\)</span> macht zichzelf moet zijn. Dus als eerste gok proberen we:</p>
 <div class="arithmatex">\[\large{\widetilde{F}(x) = e^{4x + 7}}\]</div>
-<p>Maar als we deze functie weer afleiden, krijgen we door de <a href="../afgeleide/#regels">kettingregel</a> een extra factor <span class="arithmatex">\(4\)</span>:</p>
-<div class="arithmatex">\[\large{\widetilde{F}'(x) = 4 \cdot e^{4x + 7}}\]</div>
+<p>Maar als we deze functie weer afleiden, krijgen we door de <a href="../afgeleide/#regels">kettingregel</a> een extra factor <span class="arithmatex">\(4\)</span> ervoor:</p>
+<div class="arithmatex">\[\large{\widetilde{F}'(x) = 4 \cdot e^{4x + 7} \neq f(x)}\]</div>
 <p>Omdat we deze factor niet willen, compenseren we hem weg door in de primitieve <span class="arithmatex">\(\frac{1}{4}\)</span> toe te voegen:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{F(x) = \dfrac{1}{4}e^{4x + 7} + c}\]</div>
 </div>
+<p>(Nu geldt er namelijk wel weer <span class="arithmatex">\(F'(x) = f(x)\)</span> )</p>
 </details>
 <details class="example">
 <summary>Voorbeeld 9: Bepaal de primitieve van <span class="arithmatex">\(f(x) = \dfrac{14}{x}\)</span></summary>
 <p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = \dfrac{14}{x}\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>We hebben hier een functie van de vorm <span class="arithmatex">\(f(x) = \frac{1}{x}\)</span>, niet van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Deze primitieve van deze vorm is <span class="arithmatex">\(f(x) = \ln|x|\)</span>:</p>
+<p><em>Let op!</em> We hebben hier een functie van de vorm <span class="arithmatex">\(f(x) = \dfrac{1}{x}\)</span>, en niet van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>.</p>
+<p>De primitieve van deze vorm kunnen we opzoeken in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. We vinden daar dat het <span class="arithmatex">\(F(x) = \ln|x|\)</span> is. In ons geval hebben we nog een extra factor <span class="arithmatex">\(14\)</span>, maar die kunnen we er gewoon lekker voor laten staan:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{F(x) = 14\ln|x|}\]</div>
 </div>
@@ -1164,7 +1201,7 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <summary>Voorbeeld 10: Bepaal de primitieve van <span class="arithmatex">\(f(x) = \ ^2 \! \log(x)\)</span></summary>
 <p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = \ ^2 \! \log(x)\)</span></p></strong>
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>Deze functie is van de vorm <span class="arithmatex">\(^a \! \log(x)\)</span>, met hier <span class="arithmatex">\(a=2\)</span>. De primitieve van deze vorm kunnen we opzoeken in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. Daar vinden we dat het van de vorm <span class="arithmatex">\(F(x) = \frac{1}{\ln(a)} \cdot \left( x \ln(x) - x \right) + c\)</span> is. In ons geval wordt dat dus:</p>
+<p>Deze functie is van de vorm <span class="arithmatex">\(f(x) = \ ^a \! \log(x)\)</span>, met hier <span class="arithmatex">\(a=2\)</span>. De primitieve van deze vorm kunnen we opzoeken in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. Daar vinden we dat het van de vorm <span class="arithmatex">\(F(x) = \dfrac{1}{\ln(a)} \cdot \left( x \ln(x) - x \right) + c\)</span> is. In ons geval wordt dat dus:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{F(x) = \frac{1}{\ln(2)} \cdot \left( x \ln(x) - x \right) + c}\]</div>
 </div>
@@ -1175,17 +1212,17 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
 <p>Deze functie is van de vorm <span class="arithmatex">\(f(x) = \ln(x)\)</span>. In de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> kunnen we zien dat de primitieve van deze vorm <span class="arithmatex">\(F(x) = x \ln(x) - x + c\)</span> is. In ons geval hebben we geen <span class="arithmatex">\(x\)</span> maar <span class="arithmatex">\(9x - 2\)</span>. We moeten dus alle <span class="arithmatex">\(x\)</span> in deze vorm vervangen voor <span class="arithmatex">\(9x - 2\)</span>:</p>
 <div class="arithmatex">\[\large{\widetilde{F}(x) = (9x - 2) \ln(9x-2) - (9x - 2) + c}\]</div>
-<p>Maar als we dit afleiden, dan zouden we door de <a href="../afgeleide/#regels">kettingregel</a> een extra factor <span class="arithmatex">\(9\)</span> krijgen. Om die weg te compenseren voegen wij een factor <span class="arithmatex">\(\frac{1}{9}\)</span> toe:</p>
-<div class="arithmatex">\[\large{F(x) = \dfrac{1}{9} \left( (9x - 2) \ln(9x - 2) - (9x - 2) \right) + c}\]</div>
+<p>Maar als we dit afleiden, dan zouden we door de <a href="../afgeleide/#regels">kettingregel</a> een extra factor <span class="arithmatex">\(9\)</span> krijgen. Om die weg te compenseren, voegen wij een factor <span class="arithmatex">\(\dfrac{1}{9}\)</span> toe aan onze primitieve:</p>
+<div class="arithmatex">\[\large{F(x) = \dfrac{1}{9} \cdot \left( (9x - 2) \ln(9x - 2) - (9x - 2) \right) + c}\]</div>
 <p>Dit kunnen we eventueel nog iets verder versimpelen:</p>
 <div class="arithmatex">\[\large{F(x) = (x - \dfrac{2}{9}) \ln(9x - 2) - (x - \dfrac{2}{9}) + c}\]</div>
-<p>En omdat we al de integratieconstante <span class="arithmatex">\(c\)</span> hebben toegevoegd, kunnen we de <span class="arithmatex">\(- \frac{2}{9}\)</span> op het einde weg laten. <span class="arithmatex">\(c\)</span> kan namelijk alle getallen zijn, dus een extra factor <span class="arithmatex">\(- \frac{2}{9}\)</span> maakt niet uit. <span class="arithmatex">\(c - \frac{2}{9}\)</span> kan namelijk nog steeds alle getallen zijn, hetzelfde als alleen <span class="arithmatex">\(c\)</span>:</p>
+<p>Omdat we al de integratieconstante <span class="arithmatex">\(c\)</span> hebben toegevoegd, kunnen we de <span class="arithmatex">\(\frac{2}{9}\)</span> op het einde weg laten. De integratieconstante <span class="arithmatex">\(c\)</span> staat namelijk al voor elk mogelijk getal, dus de extra <span class="arithmatex">\(\frac{2}{9}\)</span> voegt niks toe:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{F(x) = (x - \dfrac{2}{9}) \ln(9x - 2) - x + c}\]</div>
 </div>
 </details>
 <h2 id="introductie-integralen"><strong>Introductie Integralen</strong></h2>
-<p>We kunnen integralen gebruiken om een oppervlakte onder een grafiek te bepalen. Maar hoe werkt het en hoe lossen we het op?</p>
+<p>We kunnen <em>integralen</em> gebruiken om een oppervlakte onder een grafiek te bepalen. Maar hoe werkt het en hoe lossen we zo'n integraal op?</p>
 <h3 id="oppervlakte-onder-een-grafiek"><strong>Oppervlakte onder een grafiek</strong></h3>
 <p>Stel we willen de oppervlakte <span class="arithmatex">\(V\)</span> bepalen onder deze grafiek, hoe doen we dat?</p>
 <figure>
@@ -1221,7 +1258,7 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <div class="arithmatex">\[V = \lim_{\Delta x \ \to \ 0} \ \sum_{i=1}^{n} f(x_i) \cdot \Delta x\]</div>
 <p>En dit kunnen we ook noteren als:</p>
 <div class="arithmatex">\[V = \int_a^b f(x) \, dx\]</div>
-<p>We schrijven <span class="arithmatex">\(dx\)</span> in plaats van <span class="arithmatex">\(\Delta x\)</span> om aan te geven dat het om een oneindig kleine afstand gaat. <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> zijn hier de grenzen van het oppervlak. Dus bij oppervlakte <span class="arithmatex">\(V\)</span> zou gelden: <span class="arithmatex">\(a=9\)</span> en <span class="arithmatex">\(b=13\)</span>.</p>
+<p>We schrijven <span class="arithmatex">\(dx\)</span> in plaats van <span class="arithmatex">\(\Delta x\)</span> om aan te geven dat het om een oneindig kleine afstand gaat. <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> zijn hier de grenzen van het oppervlak. Dus <span class="arithmatex">\(a\)</span> is het <span class="arithmatex">\(x\)</span>-coördinaat van het begin van de oppervlakte, <span class="arithmatex">\(b\)</span> het <span class="arithmatex">\(x\)</span>-coördinaat van het einde van de oppervlakte. Voor oppervlakte <span class="arithmatex">\(V\)</span> van Figuur 1 zou dus gelden: <span class="arithmatex">\(a=9\)</span> en <span class="arithmatex">\(b=13\)</span>.</p>
 <p>Deze notatie noemen we een <em>integraal</em>. En het mooie van zo'n integraal is dat we nu niet meer de oppervlakte van elke rechthoek apart bij elkaar op hoeven te tellen. Met oneindig veel rechthoeken zou je namelijk een tijdje bezig zijn... <br><br></p>
 <h3 id="integralen-uitwerken"><strong>Integralen Uitwerken</strong></h3>
 <p>We kunnen een <em>integraal</em> uitwerken door de primitieve te gebruiken. Laten we hiernaar kijken met behulp van een voorbeeld. Stel we hebben bijvoorbeeld de volgende functie:</p>
@@ -1238,48 +1275,59 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p>Nu vullen we <span class="arithmatex">\(f(x)\)</span> ook in:</p>
 <div class="arithmatex">\[V = \int_0^1 6x^2 \, dx\]</div>
 <p>Nu moeten we de functie <em>integreren</em>. Dit is eigenlijk hetzelfde als primitiveren, alleen dan moeten we daarna nog de grenzen invullen:</p>
-<div class="arithmatex">\[V = \int_a^b f(x) \, dx = F(b) - F(a)\]</div>
+<div class="arithmatex">\[V = \int_a^b f(x) \, dx = \left[ \, F(x) \, \right]_a^b = F(b) - F(a)\]</div>
 <p>Laten we dus eerst de functie primitiveren. </p>
-<p>We hebben <span class="arithmatex">\(6x^2\)</span> als functie en dit is van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Om deze vorm te primitiveren, moeten we de macht <span class="arithmatex">\(+1\)</span> doen en dan <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor zetten:</p>
+<p>We hebben <span class="arithmatex">\(6x^2\)</span> als functie en dit is van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Om deze vorm te primitiveren, moeten we de macht <span class="arithmatex">\(+1\)</span> doen en dan <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor zetten. </p>
+<p>We hadden een macht van <span class="arithmatex">\(2\)</span>, dus dat wordt nu een <span class="arithmatex">\(3\)</span>. En we zetten dan een factor <span class="arithmatex">\(\frac{1}{3}\)</span> ervoor:</p>
 <div class="arithmatex">\[F(x) = \dfrac{1}{3} \cdot 6 x^{3} + c\]</div>
 <p>Als we dit versimpelen, krijgen we:</p>
 <div class="arithmatex">\[F(x) = 2 x^{3} + c\]</div>
+<p>Onze integraal wordt dus:</p>
+<div class="arithmatex">\[V = \left[ \, 2x^3 + c \, \right]_0^1\]</div>
 <p>Nu moeten we de grenzen gaan invullen en min elkaar doen. We krijgen dan dus:</p>
-<div class="arithmatex">\[V = F(1) - F(0)\]</div>
 <div class="arithmatex">\[V = 2 \cdot 1^3  + c - \left( 2 \cdot 0^3 + c \right)\]</div>
 <div class="arithmatex">\[V = 2 + c - c\]</div>
+<p>We hebben <span class="arithmatex">\(c - c\)</span>, dus dat wordt gewoon <span class="arithmatex">\(0\)</span>:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{V = 2}\]</div>
 </div>
+<p><br></p>
 <p>De oppervlakte van <span class="arithmatex">\(V\)</span> is dus <span class="arithmatex">\(2\)</span>.</p>
-<p>Zoals we hier kunnen zien, vallen de <span class="arithmatex">\(c\)</span> tegen elkaar weg. Dit is altijd het geval bij integralen met grenzen, dus hoeven we hier de <span class="arithmatex">\(c\)</span> niet op te schrijven. </p>
+<p>Zoals we hier kunnen zien, doen we de <span class="arithmatex">\(c\)</span>'s min elkaar en vallen ze tegen elkaar weg. Dit is altijd het geval bij dit soort integralen met grenzen, dus hoeven we hier de <span class="arithmatex">\(+c\)</span> term niet op te schrijven. </p>
+<p>Dus:</p>
+<div class="arithmatex">\[V = \int_0^1 6x^2 \, dx\]</div>
+<p>wordt:</p>
+<div class="arithmatex">\[V = \left[ \, 2x^3 \, \right]_0^1 = 2 \cdot 1^3 - 2 \cdot 0^3 = 2\]</div>
 <details class="belangrijk" open="open">
 <summary>Belangrijk</summary>
 <h4 id="algemene-vorm"><strong><span style="font-size: 18px;">Algemene Vorm</span></strong></h4>
 <p>Een integraal los je op door de primitieve te bepalen en daarna de grenzen in te vullen: </p>
-<div class="arithmatex">\[\large{V = \int_a^b f(x) \, dx = F(b) - F(a)}\]</div>
+<div class="arithmatex">\[\large{V = \int_a^b f(x) \, dx = \left[ \, F(x) \, \right]_a^b = F(b) - F(a)}\]</div>
 <p>Hier zijn <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> de grenzen van de integraal. Dus bij een oppervlakte is <span class="arithmatex">\(a\)</span> de linkergrens van de oppervlakte, en <span class="arithmatex">\(b\)</span> de rechtergrens.</p>
 </details>
 <details class="note">
 <summary>Bepaalde en Onbepaalde Integralen</summary>
 <p>We hebben net gekeken naar <em>bepaalde</em> integralen. Dit zijn integralen met grenzen, dus van de vorm:</p>
-<div class="arithmatex">\[\large{V = \int_a^b f(x) \, dx = F(b) - F(a)}\]</div>
+<div class="arithmatex">\[\large{V = \int_a^b f(x) \, dx = \left[\, F(x) \, \right]_a^b = F(b) - F(a)}\]</div>
+<p><br></p>
 <p>We hebben ook <em>onbepaalde</em> integralen. Dit zijn integralen zonder grenzen. Dit lijkt misschien ingewikkeld, maar eigenlijk is het gewoon een andere manier om een primitieve op te schijven:</p>
 <div class="arithmatex">\[\large{\int f(x) \, dx = F(x)}\]</div>
 </details>
 <details class="note">
 <summary>Negatieve Integralen</summary>
-<p>Als een oppervlakte onder de <span class="arithmatex">\(x\)</span>-as ligt, geeft dit een negatieve bijdrage aan een integraal. In het voorbeeld hierboven hebben we gezien dat de oppervlakte <span class="arithmatex">\(V\)</span> van Figuur 4 <span class="arithmatex">\(2\)</span> is:</p>
+<p>Als een oppervlakte onder de <span class="arithmatex">\(x\)</span>-as ligt, geeft dit een negatieve bijdrage aan een integraal. In het voorbeeld hierboven hebben we gezien dat de oppervlakte <span class="arithmatex">\(V\)</span> van Figuur 4 gelijk aan <span class="arithmatex">\(2\)</span> is:</p>
 <div class="arithmatex">\[\large{V = \int_0^1 6x^2 \, dx = 2}\]</div>
 <p>Maar als we niet <span class="arithmatex">\(6x\)</span> gebruiken, maar <span class="arithmatex">\(-6x\)</span>, dan wordt onze integraal ook negatief:</p>
 <div class="arithmatex">\[\large{V_2 = \int_0^1 -6x^2 \, dx}\]</div>
-<div class="arithmatex">\[\large{V_2 = \left[ -2x^3 \right]_0^1}\]</div>
+<div class="arithmatex">\[\large{V_2 = \left[ \, -2x^3 \, \right]_0^1}\]</div>
+<div class="arithmatex">\[\large{V_2 = -2 \cdot 1^3 - -2 \cdot 0^3}\]</div>
 <div class="arithmatex">\[\large{V_2 = -2}\]</div>
-<p>En als we deze nieuwe functie tekenen, dan zien we dat we precies dezelfde oppervlakte hadden als net, maar dan onder de <span class="arithmatex">\(x\)</span>-as.</p>
+<p>En als we deze nieuwe functie tekenen, dan zien we dat we precies dezelfde oppervlakte krijgen als net, maar dan nu onder de <span class="arithmatex">\(x\)</span>-as.</p>
 <p><figure markdown>
 <img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20-6x%5E2.svg" width="500" />
     <figcaption>Figuur 5. De grafiek <span class="arithmatex">\(f(x) = -6x^2\)</span> geplot met oppervlakte <span class="arithmatex">\(V\)</span>. Deze oppervlakte onder de functie <span class="arithmatex">\(f(x)\)</span> gaat van <span class="arithmatex">\(x=0\)</span> tot <span class="arithmatex">\(x=1\)</span>.</figcaption>
 </figure></p>
+<p><br></p>
 <p>Dit betekent dus ook dat als we een even grote oppervlakte boven de <span class="arithmatex">\(x\)</span>-as hebben als onder de <span class="arithmatex">\(x\)</span>-as, dat de integraal <span class="arithmatex">\(0\)</span> wordt.</p>
 <p><figure markdown>
 <img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20sin%28x%29.svg" width="500" />
@@ -1290,7 +1338,7 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p>We kunnen dit zelf ook gewoon berekenen met de kennis die we nu hebben. De oppervlakte onder <span class="arithmatex">\(f(x) = \sin(x)\)</span> gaat van <span class="arithmatex">\(-\pi\)</span> tot <span class="arithmatex">\(\pi\)</span>. Onze integraal wordt dus:</p>
 <div class="arithmatex">\[\large{V = \int_{-\pi}^{\pi} \sin(x) \, dx}\]</div>
 <p>We kunnen in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> zien dat de primitieve van <span class="arithmatex">\(\sin(x)\)</span> is <span class="arithmatex">\(-\cos(x)\)</span>:</p>
-<div class="arithmatex">\[\large{V = \left[  -\cos(x) \right]_{-\pi}^{\pi}}\]</div>
+<div class="arithmatex">\[\large{V = \left[ \, -\cos(x) \, \right]_{-\pi}^{\pi}}\]</div>
 <p>Nu vullen we de grenzen in:</p>
 <div class="arithmatex">\[\large{V = -\cos(\pi) - -\cos(-\pi)}\]</div>
 <div class="arithmatex">\[\large{V = -\cos(\pi) + \cos(-\pi)}\]</div>
@@ -1306,13 +1354,15 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <details class="example">
 <summary>Voorbeeld 1: Los op <span class="arithmatex">\(I = \int_1^4 3x \, dx\)</span></summary>
 <p><strong><p style="text-align: center;font-size:20px;">Los op <span class="arithmatex">\(I = \int_1^4 3x \, dx\)</span></p></strong></p>
-<p>Om dit op te lossen moeten we eerst de functie <span class="arithmatex">\(3x\)</span> primitiveren. Deze functie is van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Om de primitieve van deze vorm te bepalen, doen we de macht <span class="arithmatex">\(+1\)</span> en zetten <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor:</p>
-<div class="arithmatex">\[\large{I = \left[ \dfrac{1}{2} \cdot 3x^2 \right]_1^4}\]</div>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Om dit op te lossen moeten we eerst de functie <span class="arithmatex">\(3x\)</span> primitiveren. Deze functie is van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Om de primitieve van deze vorm te bepalen, doen we de macht <span class="arithmatex">\(+1\)</span> en zetten <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor. We gaan dus van een macht <span class="arithmatex">\(1\)</span> naar een <span class="arithmatex">\(2\)</span> en zetten een factor <span class="arithmatex">\(\frac{1}{2}\)</span> ervoor:</p>
+<div class="arithmatex">\[\large{I = \left[ \, \dfrac{1}{2} \cdot 3x^2 \, \right]_1^4}\]</div>
 <p>De integratieconstante <span class="arithmatex">\(c\)</span> mogen we weglaten omdat het toch wegvalt als we de grenzen invullen. Als we dit verder versimpelen, krijgen we:</p>
-<div class="arithmatex">\[\large{I = \left[ 1 \dfrac{1}{2} x^2 \right]_1^4}\]</div>
+<div class="arithmatex">\[\large{I = \left[ \, 1 \dfrac{1}{2} x^2 \, \right]_1^4}\]</div>
 <p>Nu kunnen we de grenzen gaan invullen:</p>
 <div class="arithmatex">\[\large{I = 1 \dfrac{1}{2} \cdot 4^2 - 1 \dfrac{1}{2} \cdot 1^2}\]</div>
 <p>En als we dit uitwerken, dan vinden we:</p>
+<div class="arithmatex">\[\large{I = 1 \dfrac{1}{2} \cdot 16 - 1 \dfrac{1}{2}}\]</div>
 <div class="arithmatex">\[\large{I = 24 - 1 \dfrac{1}{2}}\]</div>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{I = 22 \dfrac{1}{2}}\]</div>
@@ -1321,15 +1371,24 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <details class="example">
 <summary>Voorbeeld 2: Los op <span class="arithmatex">\(I = \int_{-2}^{2} 2x^3 - 6x^2 + x - 3 \, dx\)</span></summary>
 <p><strong><p style="text-align: center;font-size:20px;">Los op <span class="arithmatex">\(I = \int_{-2}^{2} 2x^3 - 6x^2 + x - 3 \, dx\)</span></p></strong></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
 <p>Om dit op te lossen moeten we eerst de functie primitiveren. </p>
-<p>De eerste <span class="arithmatex">\(3\)</span> termen hebben de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Dus daar doen we de macht <span class="arithmatex">\(+1\)</span> en zetten <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor. De laatste term is een los getal zonder <span class="arithmatex">\(x\)</span>, dus daar voegen we gewoon een <span class="arithmatex">\(x\)</span> toe:</p>
-<div class="arithmatex">\[\large{I = \left[ \dfrac{1}{4} \cdot 2x^4 + \dfrac{1}{3} \cdot -6x^3 + \dfrac{1}{2} x^2 - 3x \right]_{-2}^{2}}\]</div>
+<ul>
+<li>
+<p>De eerste <span class="arithmatex">\(3\)</span> termen hebben de vorm <span class="arithmatex">\(f(x) = ax^n\)</span> (we weten namelijk dat <span class="arithmatex">\(x = x^1\)</span>). Dus daar doen we de macht <span class="arithmatex">\(+1\)</span> en zetten <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor. </p>
+</li>
+<li>
+<p>De laatste term is een los getal zonder <span class="arithmatex">\(x\)</span>, dus daar voegen we gewoon een <span class="arithmatex">\(x\)</span> toe.</p>
+</li>
+</ul>
+<p>We krijgen dus:</p>
+<div class="arithmatex">\[\large{I = \left[ \, \dfrac{1}{4} \cdot 2x^4 + \dfrac{1}{3} \cdot -6x^3 + \dfrac{1}{2} x^2 - 3x \, \right]_{-2}^{2}}\]</div>
 <p>Als we dit versimpelen, krijgen we:</p>
-<div class="arithmatex">\[\large{I = \left[ \dfrac{1}{2} x^4 + -2x^3 + \dfrac{1}{2} x^2 - 3x \right]_{-2}^{2}}\]</div>
+<div class="arithmatex">\[\large{I = \left[ \, \dfrac{1}{2} x^4 - 2x^3 + \dfrac{1}{2} x^2 - 3x \, \right]_{-2}^{2}}\]</div>
 <p>Nu vullen we de grenzen in:</p>
-<div class="arithmatex">\[\large{I = \dfrac{1}{2} \cdot 2^4 + -2 \cdot 2^3 + \dfrac{1}{2} \cdot 2^2 - 3 \cdot 2 - \left( \dfrac{1}{2} \cdot (-2)^4 + -2 \cdot (-2)^3 + \dfrac{1}{2} \cdot (-2)^2 - 3 \cdot -2 \right)}\]</div>
+<div class="arithmatex">\[\large{I = \dfrac{1}{2} \cdot 2^4  - 2 \cdot 2^3 + \dfrac{1}{2} \cdot 2^2 - 3 \cdot 2 - \left( \dfrac{1}{2} \cdot (-2)^4 - 2 \cdot (-2)^3 + \dfrac{1}{2} \cdot (-2)^2 - 3 \cdot -2 \right)}\]</div>
 <p>En als we dit uitwerken, krijgen we:</p>
-<div class="arithmatex">\[\large{I = \dfrac{1}{2} \cdot 16 + -2 \cdot 8 + \dfrac{1}{2} \cdot 4 - 6 - \left( \dfrac{1}{2} \cdot 16 + -2 \cdot -8 + \dfrac{1}{2} \cdot 4 + 6 \right)}\]</div>
+<div class="arithmatex">\[\large{I = \dfrac{1}{2} \cdot 16 - 2 \cdot 8 + \dfrac{1}{2} \cdot 4 - 6 - \left( \dfrac{1}{2} \cdot 16 - 2 \cdot -8 + \dfrac{1}{2} \cdot 4 + 6 \right)}\]</div>
 <div class="arithmatex">\[\large{I = 8 - 16 + 2 - 6 - \left( 8 + 16 + 2 + 6 \right)}\]</div>
 <div class="arithmatex">\[\large{I = -12 - \left( 32 \right)}\]</div>
 <div class="admonition quote">
@@ -1345,88 +1404,101 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
 <p><br></p>
 <p><strong><span style="font-size: 17px;">a)</span></strong></p>
-<p>Om dit op te lossen, is het handig om een schets te maken van de situatie.</p>
+<p>Laten we eerst een schets maken zodat we een beetje de situatie kunnen begrijpen:</p>
 <p><figure markdown>
 <img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20-x%5E2%20%2B%202x%20%2B%203.svg" width="500" />
     <figcaption>Figuur 1. De grafiek <span class="arithmatex">\(f(x) = -x^2 + 2x + 3\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door <span class="arithmatex">\(f(x)\)</span>, de <span class="arithmatex">\(x\)</span>-as en de <span class="arithmatex">\(y\)</span>-as.</figcaption>
 </figure></p>
 <p>Om de oppervlakte <span class="arithmatex">\(V\)</span> te bepalen, schrijven we eerst de <a href="#algemene-vorm">algemene vorm</a> van een integraal op:</p>
 <div class="arithmatex">\[\large{V = \int_a^b f(x) \, dx}\]</div>
-<p>Om dit op te lossen moeten we eerst de grenzen bepalen. We weten dat <span class="arithmatex">\(V\)</span> begint bij de <span class="arithmatex">\(y\)</span>-as, dus bij <span class="arithmatex">\(x=0\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> eindigt bij het rechter snijpunt met de <span class="arithmatex">\(x\)</span>-as, dus die moeten we eerst bepalen.</p>
+<p>Om dit op te lossen moeten we eerst de grenzen bepalen. We weten dat <span class="arithmatex">\(V\)</span> begint bij de <span class="arithmatex">\(y\)</span>-as, dus bij <span class="arithmatex">\(x=0.\)</span> Vlakdeel <span class="arithmatex">\(V\)</span> eindigt bij het rechter snijpunt met de <span class="arithmatex">\(x\)</span>-as, dus die moeten we eerst bepalen.</p>
 <p>De <a href="../kwadratische_vergelijkingen/#snijpunten-met-de-x-as">snijpunten met de <span class="arithmatex">\(x\)</span>-as</a> bepalen we door de volgende vergelijking op te lossen:</p>
 <div class="arithmatex">\[\large{f(x) = 0}\]</div>
+<p>Dus als we <span class="arithmatex">\(f(x)\)</span> invullen:</p>
 <div class="arithmatex">\[\large{-x^2 + 2x + 3 = 0}\]</div>
 <p>Om dit op te lossen, doen we eerst alles keer <span class="arithmatex">\(-1\)</span>:</p>
 <div class="arithmatex">\[\large{x^2 - 2x - 3 = 0}\]</div>
-<p>We kunnen dit nu oplossen door het te <a href="#kwadratische_vergelijkingen.md#ontbinden-in-factoren">ontbinden in factoren</a>. We moeten twee getallen verzinnen die keer elkaar <span class="arithmatex">\(-3\)</span> zijn en plus elkaar <span class="arithmatex">\(-2\)</span>. Dit zijn de factoren <span class="arithmatex">\(-3\)</span> en <span class="arithmatex">\(1\)</span>. We krijgen dus:</p>
+<p>We kunnen dit nu oplossen door het te <a href="../kwadratische_vergelijkingen/#ontbinden-in-factoren">ontbinden in factoren</a>. We moeten dus twee getallen verzinnen die keer elkaar <span class="arithmatex">\(-3\)</span> zijn en plus elkaar <span class="arithmatex">\(-2\)</span>. </p>
+<p>Na een paar combinaties te proberen, vinden we de factoren <span class="arithmatex">\(-3\)</span> en <span class="arithmatex">\(1\)</span>. We krijgen dus:</p>
 <div class="arithmatex">\[\large{(x - 3)(x + 1) = 0}\]</div>
 <p>Hieruit volgt:</p>
 <div class="arithmatex">\[\large{x - 3 = 0 \ \vee \ x + 1 = 0}\]</div>
 <div class="arithmatex">\[\large{x = 3 \ \vee \ x = -1}\]</div>
-<p>Wij wilden het rechter snijpunt weten, en dat is in dit geval <span class="arithmatex">\(x=3\)</span>. De grenzen zijn dus <span class="arithmatex">\(a=0\)</span> en <span class="arithmatex">\(b=3\)</span>:</p>
+<p>We wilden het rechter snijpunt weten, dus we gebruiken het snijpunt <span class="arithmatex">\(x=3\)</span>. De grenzen van de integraal zijn dus <span class="arithmatex">\(a=0\)</span> en <span class="arithmatex">\(b=3\)</span>:</p>
 <div class="arithmatex">\[\large{V = \int_0^3 f(x) \, dx}\]</div>
 <p>Nu kunnen we <span class="arithmatex">\(f(x)\)</span> invullen:</p>
 <div class="arithmatex">\[\large{V = \int_0^3 -x^2 + 2x + 3 \, dx}\]</div>
 <p>Dit zijn allemaal termen plus elkaar, dus we kunnen gewoon alle losse termen apart integreren. </p>
-<p>De eerste twee termen zijn van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>, dus daar doen we de macht <span class="arithmatex">\(+1\)</span> en dan <span class="arithmatex">\(1\)</span> gedeeld door de nieuwe macht ervoor. De laatste term is alleen een getal, dus daar voegen we gewoon een <span class="arithmatex">\(x\)</span> toe:</p>
-<div class="arithmatex">\[\large{V = \left[ -\dfrac{1}{3}x^3 + \dfrac{1}{2} \cdot 2x^2 + 3x \right]_0^3}\]</div>
-<div class="arithmatex">\[\large{V = \left[ -\dfrac{1}{3}x^3 + x^2 + 3x \right]_0^3}\]</div>
+<ul>
+<li>
+<p>De eerste twee termen zijn van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>, want we kunnen <span class="arithmatex">\(2x\)</span> schrijven als <span class="arithmatex">\(2x^1\)</span>. Om deze vorm te primitiveren, doen we doen we de macht <span class="arithmatex">\(+1\)</span> en dan <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor. </p>
+</li>
+<li>
+<p>De laatste term is alleen een getal, dus daar plakken we gewoon een <span class="arithmatex">\(x\)</span> aan vast.</p>
+</li>
+</ul>
+<p>We krijgen dus:</p>
+<div class="arithmatex">\[\large{V = \left[ \, -\dfrac{1}{3}x^3 + \dfrac{1}{2} \cdot 2x^2 + 3x \, \right]_0^3}\]</div>
+<p>En als we dit versimpelen:</p>
+<div class="arithmatex">\[\large{V = \left[ \, -\dfrac{1}{3}x^3 + x^2 + 3x \, \right]_0^3}\]</div>
 <p>Nu kunnen we de grenzen invullen en min elkaar doen:</p>
 <div class="arithmatex">\[\large{V = -\dfrac{1}{3} \cdot 3^3 + 3^2 + 3 \cdot 3 - \left( -\dfrac{1}{3} \cdot 0^3 + 0^2 + 3 \cdot 0 \right)}\]</div>
 <p>Als we dit versimpelen, vinden we:</p>
-<div class="arithmatex">\[\large{V = -\dfrac{1}{3} \cdot 27 + 9 + 9 - 0}\]</div>
+<div class="arithmatex">\[\large{V = -\dfrac{1}{3} \cdot 27 + 9 + 9 - (0)}\]</div>
 <div class="arithmatex">\[\large{V = -9 + 18}\]</div>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{V = 9}\]</div>
 </div>
 <p><br><br></p>
 <p><strong><span style="font-size: 17px;">b)</span></strong></p>
-<p>We weten dat de lijn <span class="arithmatex">\(x=p\)</span> vlakdeel <span class="arithmatex">\(V\)</span> verdeelt in twee gelijke oppervlaktes. Laten we dit weer tekenen zodat we een beetje kunnen begrijpen wat de situatie is:</p>
+<p>We weten dat de lijn <span class="arithmatex">\(x=p\)</span> het vlakdeel <span class="arithmatex">\(V\)</span> verdeelt in twee gelijke oppervlaktes. Laten we dit weer schetsen zodat we de situatie beter kunnen begrijpen:</p>
 <p><figure markdown>
 <img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20-x%5E2%20%2B%202x%20%2B%203%20%28gesplitst%29.svg" width="500" />
     <figcaption>Figuur 2. De grafiek <span class="arithmatex">\(f(x) = -x^2 + 2x + 3\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span> verdeelt in <span class="arithmatex">\(2\)</span> gelijke delen. De twee delen worden gesplitst door de lijn <span class="arithmatex">\(x=p\)</span>.</figcaption>
 </figure></p>
 <p>We weten uit vraag a) dat de totale oppervlakte <span class="arithmatex">\(V=9\)</span> is, dus de oppervlakte van <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span> zijn beide <span class="arithmatex">\(4 \frac{1}{2}\)</span>:</p>
-<div class="arithmatex">\[\large{I = 4\dfrac{1}{2}}\]</div>
-<p>Om <span class="arithmatex">\(p\)</span> te bepalen gebruiken we oppervlakte <span class="arithmatex">\(I\)</span>, maar oppervlakte <span class="arithmatex">\(II\)</span> gebruiken kan ook. </p>
+<div class="arithmatex">\[\large{I = 4\dfrac{1}{2} = II}\]</div>
 <p>We kunnen oppervlakte <span class="arithmatex">\(I\)</span> ook schrijven als integraal:</p>
 <div class="arithmatex">\[\large{I = \int_0^p -x^2 + 2x + 3 \, dx}\]</div>
-<p>Oppervlakte <span class="arithmatex">\(I\)</span> gaat van <span class="arithmatex">\(0\)</span> tot <span class="arithmatex">\(p\)</span>, dus vandaar dat dat ook de grenzen in de integraal zijn. We kunnen nu de functie integreren (zie eventueel weer vraag a) ):</p>
-<div class="arithmatex">\[\large{I = \left[ -\dfrac{1}{3} x^3 + x^2 + 3x \right]_0^p}\]</div>
+<p>Oppervlakte <span class="arithmatex">\(I\)</span> gaat van <span class="arithmatex">\(0\)</span> tot <span class="arithmatex">\(p\)</span>, dus vandaar dat dat ook de grenzen in de integraal zijn. We gebruiken hier oppervlakte <span class="arithmatex">\(I\)</span> om <span class="arithmatex">\(p\)</span> te bepalen, maar we hadden ook oppervlakte <span class="arithmatex">\(II\)</span> kunnen gebruiken. Het enige verschil is dat de grenzen dan niet van <span class="arithmatex">\(0\)</span> tot <span class="arithmatex">\(p\)</span> zouden gaan, maar van <span class="arithmatex">\(p\)</span> tot <span class="arithmatex">\(3\)</span>. </p>
+<p>Omdat we net gezegd hebben dat <span class="arithmatex">\(I = 4 \dfrac{1}{2}\)</span>, krijgen we de volgende vergelijking:</p>
+<div class="arithmatex">\[\large{\int_0^p -x^2 + 2x + 3 \, dx = 4 \dfrac{1}{2}}\]</div>
+<p>We kunnen nu de functie integreren (zie eventueel weer vraag a) ):</p>
+<div class="arithmatex">\[\large{\left[ \, -\dfrac{1}{3} x^3 + x^2 + 3x \, \right]_0^p = 4 \dfrac{1}{2}}\]</div>
 <p>Nu vullen we de grenzen in:</p>
-<div class="arithmatex">\[\large{I = -\dfrac{1}{3} p^3 + p^2 + 3p - \left( -\dfrac{1}{3} 0^3 + 0^2 + 30 \right)}\]</div>
-<div class="arithmatex">\[\large{I = -\dfrac{1}{3} p^3 + p^2 + 3p}\]</div>
-<p>We weten dus ook dat <span class="arithmatex">\(I = 4 \frac{1}{2}\)</span>, dus kunnen we de volgende vergelijking opstellen:</p>
+<div class="arithmatex">\[\large{-\dfrac{1}{3} p^3 + p^2 + 3p - \left( -\dfrac{1}{3} 0^3 + 0^2 + 30 \right) = 4 \dfrac{1}{2}}\]</div>
 <div class="arithmatex">\[\large{-\dfrac{1}{3} p^3 + p^2 + 3p = 4 \dfrac{1}{2}}\]</div>
-<p>Dit is een vergelijking met een <span class="arithmatex">\(x^3\)</span>, dus dit is lastig om zelf op te lossen. Maar gelukkig stond er in de vraag geen algebraïsch of exact, dus mogen we het met onze grafische rekenmachine oplossen.</p>
+<p>Dit is een vergelijking met een derdemacht, dus dit is lastig om met de hand op te lossen. Maar gelukkig stond er in de vraag geen algebraïsch of exact, dus mogen we het met onze grafische rekenmachine oplossen.</p>
 <p>We voeren in:</p>
 <div class="arithmatex">\[\large{\left\{ \begin{array}{ l l } y_1 = -\dfrac{1}{3} x^3 + x^2 + 3x  \\ y_2 = 4 \dfrac{1}{2} \end{array} \right.}\]</div>
 <p>De optie intersect geeft:</p>
-<div class="arithmatex">\[\large{\left\{ \begin{array}{ l l l } x_1 \approx -2.5640  \\ x_2 \approx 1.2091 \\ x_3 \approx 4.3548 \end{array} \right.}\]</div>
-<p>We hebben hier <span class="arithmatex">\(3\)</span> oplossingen, dus welke oplossing komt overeen met <span class="arithmatex">\(p\)</span>? </p>
-<p>We weten dat <span class="arithmatex">\(p\)</span> in het vlakdeel <span class="arithmatex">\(V\)</span> ligt, dus het moet een waarde tussen <span class="arithmatex">\(0\)</span> en <span class="arithmatex">\(3\)</span> zijn. Dit betekent dat het alleen maar <span class="arithmatex">\(x_2 \approx 1.2091\)</span> kan zijn. We moesten afronden op <span class="arithmatex">\(3\)</span> decimalen, dus wordt ons eindantwoord:</p>
+<div class="arithmatex">\[\large{\left\{ \begin{array}{ l l l } x_1 = -2.563913...  \\ x_2 = 1.209095... \\ x_3 = 4.354817... \end{array} \right.}\]</div>
+<p>We hebben hier <span class="arithmatex">\(3\)</span> oplossingen, maar welke van deze <span class="arithmatex">\(3\)</span> oplossingen is <span class="arithmatex">\(p\)</span>? </p>
+<p>We weten dat <span class="arithmatex">\(p\)</span> in het vlakdeel <span class="arithmatex">\(V\)</span> ligt, dus het moet een waarde tussen <span class="arithmatex">\(0\)</span> en <span class="arithmatex">\(3\)</span> zijn. Als we kijken naar de <span class="arithmatex">\(3\)</span> oplossingen, dan zien we dat alleen <span class="arithmatex">\(x_2\)</span> tussen <span class="arithmatex">\(0\)</span> en <span class="arithmatex">\(3\)</span> ligt. Oftewel:</p>
+<div class="arithmatex">\[\large{p = 1.209095...}\]</div>
+<p>We moesten afronden op <span class="arithmatex">\(3\)</span> decimalen, dus we krijgen als eindantwoord:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{p \approx 1.209}\]</div>
 </div>
 </details>
 <details class="example">
 <summary>Voorbeeld 4: Bereken exact de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> onder de functie <span class="arithmatex">\(f(x) = \cos(x)\)</span></summary>
-<p><em><p style="text-align: center;font-size:20px;">Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de functie <span class="arithmatex">\(f(x) = \cos(x)\)</span> op het domein <span class="arithmatex">\([0, \pi]\)</span>, de lijn <span class="arithmatex">\(x = \frac{1}{6} \pi\)</span> en de lijn <span class="arithmatex">\(x = p\)</span>, met <span class="arithmatex">\(p &gt; \frac{1}{6} \pi\)</span>.</p></em></p>
+<p><em><p style="text-align: center;font-size:20px;">Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de functie <span class="arithmatex">\(f(x) = \cos(x)\)</span>, de lijn <span class="arithmatex">\(x = \frac{1}{6} \pi\)</span> en de lijn <span class="arithmatex">\(x = p\)</span>, met <span class="arithmatex">\(\frac{1}{6} \pi &lt; p &lt; \pi\)</span>.</p></em></p>
 <p><br></p>
 <p><strong><span style="font-size: 17px;">a) Bereken de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> voor <span class="arithmatex">\(p = \frac{2}{3} \pi\)</span>.</span></strong></p>
 <p><strong><span style="font-size: 17px;">b) Bepaal <span class="arithmatex">\(p\)</span> als <span class="arithmatex">\(V\)</span> precies <span class="arithmatex">\(\dfrac{1}{2}\)</span> is.</span></strong></p>
 <p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
 <p><br></p>
 <p><strong><span style="font-size: 17px;">a)</span></strong></p>
-<p>Als eerst maken we een schets om de situatie beter te kunnen begrijpen.</p>
+<p>Als eerst maken we een schets om de situatie beter te kunnen begrijpen:</p>
 <p><figure markdown>
 <img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20cos%28x%29.svg" width="500" />
     <figcaption>Figuur 3. De grafiek <span class="arithmatex">\(f(x) = \cos(x)\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span>. Het vlakdeel <span class="arithmatex">\(V\)</span> gaat van <span class="arithmatex">\(x = \frac{1}{6} \pi\)</span> tot <span class="arithmatex">\(x = \frac{2}{3} \pi\)</span>.</figcaption>
 </figure></p>
 <p>Om de oppervlakte van <span class="arithmatex">\(V\)</span> te berekenen moeten we de volgende integraal opstellen:</p>
 <div class="arithmatex">\[\large{V = \int_{\frac{1}{6} \pi}^{\frac{2}{3} \pi} \cos(x) \, dx}\]</div>
-<p>In de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> kunnen we zien dat de primitieve van <span class="arithmatex">\(\cos(x)\)</span> is <span class="arithmatex">\(\sin(x)\)</span>.:</p>
-<div class="arithmatex">\[\large{V = \left[ \sin(x) \right]_{\frac{1}{6} \pi}^{\frac{2}{3} \pi}}\]</div>
+<p>In de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> kunnen we zien dat de primitieve van <span class="arithmatex">\(\cos(x)\)</span> is <span class="arithmatex">\(\sin(x)\)</span>:</p>
+<div class="arithmatex">\[\large{V = \left[ \, \sin(x) \, \right]_{\frac{1}{6} \pi}^{\frac{2}{3} \pi}}\]</div>
 <p>Nu vullen we de grenzen in:</p>
 <div class="arithmatex">\[\large{V = \sin(\frac{2}{3} \pi) - \sin(\frac{1}{6} \pi)}\]</div>
 <p>En als we dit uitwerken, vinden we:</p>
@@ -1435,51 +1507,53 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 </div>
 <p><br><br></p>
 <p><strong><span style="font-size: 17px;">b)</span></strong></p>
-<p>Nu hebben willen we <span class="arithmatex">\(p\)</span> weten wanneer er geldt dat <span class="arithmatex">\(V=\frac{1}{2}\)</span>. We hebben de integraal al berekend bij a), we moeten alleen de grenzen nog aanpassen. De nieuwe grenzen die we nu hebben zijn <span class="arithmatex">\(x = \frac{1}{6} \pi\)</span> en <span class="arithmatex">\(x = p\)</span>:</p>
-<div class="arithmatex">\[\large{V = \left[ \sin(x) \right]_{\frac{1}{6} \pi}^{p}}\]</div>
+<p>Nu hebben willen we <span class="arithmatex">\(p\)</span> weten wanneer er geldt dat <span class="arithmatex">\(V=\frac{1}{2}\)</span>. We hebben de integraal bij a) al berekend, we moeten alleen de grenzen nog aanpassen. De nieuwe grenzen die we nu hebben zijn <span class="arithmatex">\(x = \frac{1}{6} \pi\)</span> en <span class="arithmatex">\(x = p\)</span>:</p>
+<div class="arithmatex">\[\large{V = \int_{\frac{1}{6} \pi}^{p} \cos(x) \, dx}\]</div>
+<div class="arithmatex">\[\large{V = \left[ \, \sin(x) \, \right]_{\frac{1}{6} \pi}^{p}}\]</div>
 <p>Nu vullen we deze grenzen in:</p>
 <div class="arithmatex">\[\large{V = \sin(p) - \sin(\frac{1}{6} \pi)}\]</div>
 <p>En als we dit versimpelen:</p>
 <div class="arithmatex">\[\large{V = \sin(p) - \frac{1}{2}}\]</div>
 <p>We wilden <span class="arithmatex">\(p\)</span> weten wanneer <span class="arithmatex">\(V = \frac{1}{2}\)</span>, dus moeten we de volgende vergelijking oplossen:</p>
 <div class="arithmatex">\[\large{\sin(p) - \frac{1}{2} = \frac{1}{2}}\]</div>
-<p>We halen eerst alle getallen naar rechts:</p>
+<p>We halen eerst alle getallen naar rechts door aan beide kanten <span class="arithmatex">\(+\frac{1}{2}\)</span> te doen:</p>
 <div class="arithmatex">\[\large{\sin(p) = 1}\]</div>
-<p>Om dit op te lossen moeten we eerst aan beide kanten een sinus hebben. We kunnen op de <a href="../goniometrie/#de-eenheidscirkel"> eenheidscirkel</a> aflezen dat dit bij <span class="arithmatex">\(\frac{1}{2} \pi\)</span> is, dus:</p>
+<p>Om dit op te lossen moeten we eerst aan beide kanten een sinus hebben. We kunnen op de <a href="../goniometrie/#de-eenheidscirkel">eenheidscirkel</a> aflezen dat bij <span class="arithmatex">\(\frac{1}{2} \pi\)</span> de sinus <span class="arithmatex">\(1\)</span> is, dus:</p>
 <div class="arithmatex">\[\large{\sin(p) = \sin(\frac{1}{2} \pi)}\]</div>
 <p>Nu kunnen we de <a href="../goniometrie/">algemene oplossing</a> gebruiken voor een sinus:</p>
 <div class="arithmatex">\[\large{p = \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ p = \pi - \frac{1}{2} \pi + k \cdot 2 \pi}\]</div>
 <div class="arithmatex">\[\large{p = \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ p = \frac{1}{2} \pi + k \cdot 2 \pi}\]</div>
 <p>In dit geval hebben we twee keer dezelfde set oplossingen, dus dit wordt gewoon:</p>
 <div class="arithmatex">\[\large{p = \frac{1}{2} \pi + k \cdot 2 \pi}\]</div>
-<p>We hadden in de vraag gegeven gekregen dat de functie op het domein <span class="arithmatex">\([0, \pi]\)</span> ligt. Dit betekent dat we alleen de oplossingen willen die tussen <span class="arithmatex">\(0\)</span> en <span class="arithmatex">\(\pi\)</span> liggen. In dit geval is dat er alleen maar <span class="arithmatex">\(1\)</span>:</p>
+<p>We hadden in de vraag gegeven gekregen dat <span class="arithmatex">\(p\)</span> tussen <span class="arithmatex">\(\frac{1}{6} \pi\)</span> en <span class="arithmatex">\(\pi\)</span> ligt. Dit betekent dus dat we moeten kijken welke gehele getallen <span class="arithmatex">\(k\)</span> kan zijn zodat de oplossing tussen <span class="arithmatex">\(\frac{1}{6} \pi\)</span> en <span class="arithmatex">\(\pi\)</span> ligt. </p>
+<p>In dit geval hebben we alleen maar <span class="arithmatex">\(1\)</span> oplossing bij <span class="arithmatex">\(k=0\)</span>:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{p = \frac{1}{2} \pi}\]</div>
 </div>
 </details>
 <details class="example">
-<summary>Voorbeeld 5: Bereken de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> onder de functie <span class="arithmatex">\(f(x) = \frac{2}{x}\)</span></summary>
-<p><em><p style="text-align: center;font-size:20px;">Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de functie <span class="arithmatex">\(f(x) = \frac{2}{x}\)</span>, de <span class="arithmatex">\(x\)</span>-as, de lijn <span class="arithmatex">\(x=-1\)</span> en de lijn <span class="arithmatex">\(x=p\)</span>, met <span class="arithmatex">\(p &lt; -1\)</span>.</p></em></p>
+<summary>Voorbeeld 5: Bereken de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> onder de functie <span class="arithmatex">\(f(x) = \dfrac{2}{x}\)</span></summary>
+<p><em><p style="text-align: center;font-size:20px;">Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de functie <span class="arithmatex">\(f(x) = \dfrac{2}{x}\)</span>, de <span class="arithmatex">\(x\)</span>-as, de lijn <span class="arithmatex">\(x=-1\)</span> en de lijn <span class="arithmatex">\(x=p\)</span>, met <span class="arithmatex">\(p &lt; -1\)</span>.</p></em></p>
 <p><br></p>
 <p><strong><span style="font-size: 17px;">a) Bereken de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> met <span class="arithmatex">\(p = 1000\)</span>.</span></strong></p>
-<p><strong><span style="font-size: 17px;">b) Bepaal de factor waarmee <span class="arithmatex">\(p\)</span> moet toenemen om de oppervlakte van <span class="arithmatex">\(V\)</span> te verdubbelen</span></strong></p>
+<p><strong><span style="font-size: 17px;">b) Bepaal de factor waarmee <span class="arithmatex">\(p\)</span> moet toenemen om de oppervlakte van <span class="arithmatex">\(V\)</span> te verdubbelen.</span></strong></p>
 <p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
 <p><br></p>
 <p><strong><span style="font-size: 17px;">a)</span></strong></p>
-<p>We beginnen met het maken van een schets om de situatie beter te begrijpen.</p>
+<p>Laten we als eerst een schets maken om de situatie beter te kunnen begrijpen:</p>
 <p><figure markdown>
 <img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%202%20%21divide%21%20x.svg" width="500" />
-    <figcaption>Figuur 4. De grafiek <span class="arithmatex">\(f(x) = \frac{1}{x}\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span>. Het vlakdeel <span class="arithmatex">\(V\)</span> gaat van <span class="arithmatex">\(x = -1000\)</span> (te groot om weer te geven in de schets) tot <span class="arithmatex">\(x = -1\)</span>.</figcaption>
+    <figcaption>Figuur 4. De grafiek <span class="arithmatex">\(f(x) = \dfrac{1}{x}\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span>. Het vlakdeel <span class="arithmatex">\(V\)</span> gaat van <span class="arithmatex">\(x = -1000\)</span> (te groot om weer te geven in de schets) tot <span class="arithmatex">\(x = -1\)</span>.</figcaption>
 </figure></p>
-<p>Om dit op te lossen moeten we eerst de integraal opstellen. We hebben de grenzen gekregen geven, dus onze integraal wordt:</p>
+<p>Om dit op te lossen moeten we eerst de integraal opstellen. We hebben de grenzen al gekregen, dus onze integraal wordt:</p>
 <div class="arithmatex">\[\large{V = \int_{-1000}^{-1} \dfrac{2}{x} \, dx}\]</div>
-<p>In de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> kunnen we zien dat de primitieve van <span class="arithmatex">\(\frac{1}{x}\)</span> is <span class="arithmatex">\(\ln|x|\)</span>. Nu hebben we nog een extra <span class="arithmatex">\(2\)</span>, dus in ons geval krijgen we:</p>
-<div class="arithmatex">\[\large{V = \left[ 2\ln|x| \right]_{-1000}^{-1}}\]</div>
+<p>In de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> kunnen we zien dat de primitieve van <span class="arithmatex">\(\dfrac{1}{x}\)</span> is <span class="arithmatex">\(\ln|x|\)</span>. Nu hebben we nog een extra factor <span class="arithmatex">\(2\)</span>, maar die kunnen we er gewoon voor laten staan:</p>
+<div class="arithmatex">\[\large{V = \left[ \, 2\ln|x| \, \right]_{-1000}^{-1}}\]</div>
 <p>Als we de grenzen invullen, krijgen we:</p>
 <div class="arithmatex">\[\large{V = 2\ln|-1| \ - \ 2\ln|-1000|}\]</div>
-<p>En nu zien we waarom de absolute waarde nemen hier zo belangrijk is. Want een logaritme van een negatief getal bestaat niet. Maar gelukkig maakt de absolute waarde het weer positieve getallen:</p>
+<p>En nu zien we waarom de absolute waarde nemen hier zo belangrijk is. Want een logaritme van een negatief getal bestaat niet. Maar gelukkig maakt de absolute waarde het weer positief:</p>
 <div class="arithmatex">\[\large{V = 2\ln(1) - 2\ln(1000)}\]</div>
-<p>Het logaritme van <span class="arithmatex">\(1\)</span> is altijd <span class="arithmatex">\(0\)</span> (<span class="arithmatex">\(e^0\)</span> is namelijk <span class="arithmatex">\(1\)</span>), dus we kunnen dit versimpelen naar:</p>
+<p>Het logaritme van <span class="arithmatex">\(1\)</span> is altijd <span class="arithmatex">\(0\)</span> (want <span class="arithmatex">\(e^0\)</span> is <span class="arithmatex">\(1\)</span>), dus we kunnen dit versimpelen naar:</p>
 <div class="arithmatex">\[\large{V = -2\ln(1000)}\]</div>
 <p>We kunnen eventueel de <span class="arithmatex">\(1000\)</span> nog schrijven als <span class="arithmatex">\(10^3\)</span> en dan de derde macht uit de <span class="arithmatex">\(\ln\)</span> halen:</p>
 <div class="arithmatex">\[\large{V = 3\cdot -2\ln(10)}\]</div>
@@ -1491,26 +1565,28 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p>We willen dat de oppervlakte van <span class="arithmatex">\(V\)</span> verdubbelt, dus onze nieuwe oppervlakte wordt:</p>
 <div class="arithmatex">\[\large{V = 2 \cdot -6\ln(10)}\]</div>
 <div class="arithmatex">\[\large{V = -12\ln(10)}\]</div>
-<p>We willen de grens <span class="arithmatex">\(x=p\)</span> bepalen, dus die laten we staan bij de grenzen. We hebben de primitieve bij a) al berekend:</p>
-<div class="arithmatex">\[\large{V = \left[ 2\ln|x| \right]_{p}^{-1}}\]</div>
+<p>We willen dus bepalen bij welke <span class="arithmatex">\(p\)</span> een grens van <span class="arithmatex">\(x=p\)</span> een oppervlakte geeft van <span class="arithmatex">\(V = -12\ln(10)\)</span>.</p>
+<p>We hebben de integraal bij a) al berekend, alleen laten we de <span class="arithmatex">\(p\)</span> nu staan in plaats van <span class="arithmatex">\(-1000\)</span> in te vullen:</p>
+<div class="arithmatex">\[\large{V = \int_{p}^{-1} \dfrac{2}{x} \, dx}\]</div>
+<div class="arithmatex">\[\large{V = \left[ \, 2\ln|x| \, \right]_{p}^{-1}}\]</div>
 <p>Nu vullen we deze grenzen in:</p>
 <div class="arithmatex">\[\large{V = 2\ln|-1| \ - \ 2\ln|p|}\]</div>
 <p>We weten dat <span class="arithmatex">\(\ln(1)\)</span> is <span class="arithmatex">\(0\)</span>, dus dit kunnen we versimpelen naar:</p>
 <div class="arithmatex">\[\large{V = -2\ln|p|}\]</div>
-<p>Nu kunnen we dit gelijk stellen aan <span class="arithmatex">\(2\)</span> keer de oppervlakte die van a) die we net hebben berekend:</p>
+<p>En nu kunnen we zeggen dit gelijk moet zijn aan de <span class="arithmatex">\(-12\ln(10)\)</span> die we net hebben berekend:</p>
 <div class="arithmatex">\[\large{-2\ln|p| = -12\ln(10)}\]</div>
-<p>Nu kunnen wij aan beide kanten delen door <span class="arithmatex">\(-2\)</span>:</p>
+<p>En deze vergelijking kunnen we gaan oplossen om <span class="arithmatex">\(p\)</span> te bepalen. We beginnen met aan beide kanten te delen door <span class="arithmatex">\(-2\)</span>:</p>
 <div class="arithmatex">\[\large{\ln|p| = 6\ln(10)}\]</div>
-<p>Om de logaritmes weg te werken, stoppen we de <span class="arithmatex">\(6\)</span> in de logaritme als macht:</p>
+<p>Om de logaritmes weg te werken, stoppen we de <span class="arithmatex">\(6\)</span> eerst in de logaritme als macht:</p>
 <div class="arithmatex">\[\large{\ln|p| = \ln(10^6)}\]</div>
 <p>Nu kunnen we de logaritme aan beide kanten weghalen:</p>
 <div class="arithmatex">\[\large{|p| = 10^6}\]</div>
 <p>We hebben nu dat <span class="arithmatex">\(|p|\)</span> gelijk is aan <span class="arithmatex">\(10^6\)</span>, dus dit betekent dat er twee opties zijn:</p>
 <div class="arithmatex">\[\large{p = 10^6 \ \vee \ p = -10^6}\]</div>
 <p>We hebben in de vraag gekregen dat <span class="arithmatex">\(p &lt; 1\)</span>, dus de juiste oplossing is:</p>
-<div class="arithmatex">\[\large{p = 10^6}\]</div>
-<div class="arithmatex">\[\large{p = 1 \, 000 \, 000}\]</div>
-<p>We moesten in de vraag bepalen met welke factor <span class="arithmatex">\(p\)</span> groter werd. <span class="arithmatex">\(p\)</span> is van <span class="arithmatex">\(1000\)</span> naar <span class="arithmatex">\(1 \, 000 \, 000\)</span> gegaan, en dit is een toename van een factor <span class="arithmatex">\(1000\)</span>:</p>
+<div class="arithmatex">\[\large{p = -10^6}\]</div>
+<div class="arithmatex">\[\large{p = -1 \, 000 \, 000}\]</div>
+<p>We moesten in de vraag bepalen met welke factor <span class="arithmatex">\(p\)</span> groter werd. <span class="arithmatex">\(p\)</span> is van <span class="arithmatex">\(-1000\)</span> naar <span class="arithmatex">\(-1 \, 000 \, 000\)</span> gegaan, en dit is een toename van een factor <span class="arithmatex">\(1000\)</span>. Dus we krijgen als eindantwoord:</p>
 <div class="admonition quote">
 <div class="arithmatex">\[\large{\textrm{Toename met een factor } 1000}\]</div>
 </div>
@@ -1519,46 +1595,49 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <summary>Voorbeeld 6: Bereken exact de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> onder de functie <span class="arithmatex">\(f(x) = \sqrt{x}\)</span></summary>
 <p><em><p style="text-align: center;font-size:20px;">Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de functie <span class="arithmatex">\(f(x) = \sqrt{x}\)</span>, de <span class="arithmatex">\(x\)</span>-as en de lijn <span class="arithmatex">\(x = p\)</span>, met <span class="arithmatex">\(p &gt; 1\)</span>. Vlakdeel <span class="arithmatex">\(W\)</span> wordt ingesloten door de grafiek van <span class="arithmatex">\(f(x)\)</span>, de <span class="arithmatex">\(x\)</span>-as, de lijn <span class="arithmatex">\(x=2\)</span> en de lijn <span class="arithmatex">\(x = 2p\)</span></p></em></p>
 <p><br></p>
-<p><strong><span style="font-size: 17px;"> Bereken exact de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> als vlakdeel <span class="arithmatex">\(W\)</span> <span class="arithmatex">\(\sqrt{2}\)</span> keer zo groot is als <span class="arithmatex">\(V\)</span>.</span></strong></p>
+<p><strong><span style="font-size: 17px;"> Bereken exact de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> als vlakdeel <span class="arithmatex">\(W\)</span> een factor <span class="arithmatex">\(\sqrt{2}\)</span> groter is dan <span class="arithmatex">\(V\)</span>.</span></strong></p>
 <p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
 <p><br></p>
-<p>Als eerst is het handig om een schets te maken van de situatie om te begrijpen wat we moeten doen.</p>
+<p>Als eerst is het handig om een schets te maken, zodat we beter kunnen begrijpen wat we moeten doen:</p>
 <p><figure markdown>
 <img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20sqrt%28x%29.svg" width="500" />
     <figcaption>Figuur 5. De grafiek <span class="arithmatex">\(f(x) = \sqrt{x}\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span> en <span class="arithmatex">\(W\)</span>. Vlakdeel <span class="arithmatex">\(W\)</span> is <span class="arithmatex">\(\sqrt{2}\)</span> keer groter dan vlakdeel <span class="arithmatex">\(V\)</span>.</figcaption>
 </figure></p>
 <p>Laten we eerst de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> uitdrukken in <span class="arithmatex">\(p\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen <span class="arithmatex">\(x=0\)</span> en <span class="arithmatex">\(x=p\)</span>:</p>
 <div class="arithmatex">\[\large{V = \int_0^p \sqrt{x} \, dx}\]</div>
-<p>Laten we dit integreren. Om dit te doen, willen we <span class="arithmatex">\(\sqrt{x}\)</span> schrijven in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. We doen dit door de wortel te schrijven als macht <span class="arithmatex">\(\frac{1}{2}\)</span>:</p>
+<p>Om dit op te lossen, willen we <span class="arithmatex">\(\sqrt{x}\)</span> eerst schrijven in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. We doen dit door de wortel te schrijven als een macht <span class="arithmatex">\(\frac{1}{2}\)</span>:</p>
 <div class="arithmatex">\[\large{V = \int_0^p x^{\frac{1}{2}} \, dx}\]</div>
-<p>Om deze vorm te integreren, doen we de macht <span class="arithmatex">\(+1\)</span> en dan halen we <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor:</p>
-<div class="arithmatex">\[\large{V = \left[\dfrac{1}{1 \frac{1}{2}} x^{1\frac{1}{2}} \right]_0^p}\]</div>
+<p>Nu staat het in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span> en kunnen we het gaan integreren. We doen dan de macht <span class="arithmatex">\(+1\)</span> en zetten <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor:</p>
+<div class="arithmatex">\[\large{V = \left[ \, \dfrac{1}{1 \frac{1}{2}} \cdot x^{1\frac{1}{2}} \, \right]_0^p}\]</div>
 <p>En dit kunnen we versimpelen naar:</p>
-<div class="arithmatex">\[\large{V = \left[\dfrac{2}{3} x^{1\frac{1}{2}} \right]_0^p}\]</div>
+<div class="arithmatex">\[\large{V = \left[ \, \dfrac{2}{3} x^{1\frac{1}{2}} \, \right]_0^p}\]</div>
 <p>Nu vullen we de grenzen in:</p>
 <div class="arithmatex">\[\large{V = \dfrac{2}{3} p^{1\frac{1}{2}} - \dfrac{2}{3} \cdot 0^{1\frac{1}{2}}}\]</div>
-<div class="arithmatex">\[\large{V = \dfrac{2}{3} p^{1\frac{1}{2}}}\]</div>
+<div class="arithmatex">\[\large{\boxed{V = \dfrac{2}{3} p^{1\frac{1}{2}}}}\]</div>
 <p>Nu doen we hetzelfde met de oppervlakte van <span class="arithmatex">\(W\)</span>. Het is dezelfde functie, maar dan met andere grenzen. De grenzen gaan nu van <span class="arithmatex">\(x=2\)</span> tot <span class="arithmatex">\(x=2p\)</span>:</p>
-<div class="arithmatex">\[\large{W = \left[\dfrac{2}{3} x^{1\frac{1}{2}} \right]_2^{2p}}\]</div>
-<p>Nu vullen we de grenzen in:</p>
+<div class="arithmatex">\[\large{W = \int_2^{2p} x^{\frac{1}{2}} \, dx}\]</div>
+<div class="arithmatex">\[\large{W = \left[ \, \dfrac{2}{3} x^{1\frac{1}{2}} \, \right]_2^{2p}}\]</div>
+<p>En nu vullen we weer de grenzen in:</p>
 <div class="arithmatex">\[\large{W = \dfrac{2}{3} (2p)^{1\frac{1}{2}} - \dfrac{2}{3} \cdot 2^{1\frac{1}{2}}}\]</div>
 <p>Als we dit versimpelen, krijgen we:</p>
-<div class="arithmatex">\[\large{W = \dfrac{4\sqrt{2}}{3} p^{1\frac{1}{2}} - \dfrac{4\sqrt{2}}{3}}\]</div>
+<div class="arithmatex">\[\large{\boxed{W = \dfrac{4\sqrt{2}}{3} p^{1\frac{1}{2}} - \dfrac{4\sqrt{2}}{3}}}\]</div>
 <p>Nu dat we <span class="arithmatex">\(V\)</span> en <span class="arithmatex">\(W\)</span> hebben uitgedrukt in <span class="arithmatex">\(p\)</span>, kunnen we een vergelijking opstellen. We weten namelijk dat:</p>
 <div class="arithmatex">\[\large{W = \sqrt{2} \cdot V}\]</div>
-<p>Nu kunnen we allebei de oppervlaktes invullen en oplossen om <span class="arithmatex">\(p\)</span> te vinden:</p>
+<p>Nu kunnen we allebei de oppervlaktes invullen en de vergelijking oplossen om <span class="arithmatex">\(p\)</span> te vinden:</p>
 <div class="arithmatex">\[\large{\dfrac{4\sqrt{2}}{3} p^{1\frac{1}{2}} - \dfrac{4\sqrt{2}}{3} = \sqrt{2} \cdot \dfrac{2}{3} p^{1\frac{1}{2}}}\]</div>
 <div class="arithmatex">\[\large{\dfrac{4\sqrt{2}}{3} p^{1\frac{1}{2}} - \dfrac{4\sqrt{2}}{3} = \dfrac{2\sqrt{2}}{3} p^{1\frac{1}{2}}}\]</div>
-<p>Nu kunnen we de termen met <span class="arithmatex">\(p\)</span> aan de linker kant zetten en het getal rechts:</p>
+<p>Nu kunnen we de termen met <span class="arithmatex">\(p\)</span> aan de linkerkant zetten en het getal rechts:</p>
 <div class="arithmatex">\[\large{\dfrac{4\sqrt{2}}{3} p^{1\frac{1}{2}} - \dfrac{2\sqrt{2}}{3} p^{1\frac{1}{2}} = \dfrac{4\sqrt{2}}{3}}\]</div>
-<p>De ene term met <span class="arithmatex">\(p^{1 \frac{1}{2}}\)</span> heeft een factor <span class="arithmatex">\(\frac{4\sqrt{2}}{3}\)</span> en de andere heeft een factor <span class="arithmatex">\(\frac{2\sqrt{2}}{3}\)</span>. Dus het enige verschil is dat de ene een <span class="arithmatex">\(4\)</span> heefft en de andere een <span class="arithmatex">\(2\)</span>, dus we kunnen ze gewoon samenvoegen door <span class="arithmatex">\(4 - 2\)</span> doen:</p>
+<p>De ene term met <span class="arithmatex">\(p^{1 \frac{1}{2}}\)</span> heeft een factor <span class="arithmatex">\(\frac{4\sqrt{2}}{3}\)</span> en de andere heeft een factor <span class="arithmatex">\(\frac{2\sqrt{2}}{3}\)</span>. Het enige verschil is dus dat de ene een <span class="arithmatex">\(4\)</span> heeft en de andere een <span class="arithmatex">\(2\)</span>, dus we kunnen ze gewoon samenvoegen door <span class="arithmatex">\(4 - 2\)</span> te doen:</p>
 <div class="arithmatex">\[\large{\dfrac{2\sqrt{2}}{3} p^{1\frac{1}{2}} = \dfrac{4\sqrt{2}}{3}}\]</div>
 <p>Nu delen we beide kanten door <span class="arithmatex">\(\frac{2\sqrt{2}}{3}\)</span>:</p>
 <div class="arithmatex">\[\large{p^{1\frac{1}{2}} = 2}\]</div>
-<p>En nu maken we doen we beide kanten tot de macht <span class="arithmatex">\(\frac{2}{3}\)</span> om <span class="arithmatex">\(p\)</span> vrij te maken:</p>
+<p>We kunnen nu <span class="arithmatex">\(p\)</span> vrijmaken door beide kanten tot de macht <span class="arithmatex">\(\dfrac{1}{1 \frac{1}{2}}\)</span> te doen:</p>
+<div class="arithmatex">\[\large{p = 2^{\frac{1}{1 \frac{1}{2}}}}\]</div>
+<p>Dit kunnen we nog versimpelen naar:</p>
 <div class="arithmatex">\[\large{p = 2^{\frac{2}{3}}}\]</div>
 <p>Nu dat we <span class="arithmatex">\(p\)</span> hebben gevonden, kunnen we het in de formule voor <span class="arithmatex">\(V\)</span> stoppen om de oppervlakte van <span class="arithmatex">\(V\)</span> te bepalen:</p>
-<div class="arithmatex">\[\large{V = \dfrac{2}{3} \left( 2^{\frac{2}{3}} \right)^{1\frac{1}{2}}}\]</div>
+<div class="arithmatex">\[\large{V = \dfrac{2}{3} \cdot \left( 2^{\frac{2}{3}} \right)^{1\frac{1}{2}}}\]</div>
 <p>En als we dit uitwerken, vinden we:</p>
 <div class="arithmatex">\[\large{V = \dfrac{2}{3} \cdot 2}\]</div>
 <div class="admonition quote">
@@ -1571,15 +1650,16 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p><br></p>
 <p><strong><span style="font-size: 17px;">Bereken de oppervlakte van <span class="arithmatex">\(V\)</span> op <span class="arithmatex">\(2\)</span> decimalen nauwkeurig.</span></strong></p>
 <p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p>Laten we eerst beginnen met het maken van een schets, zodat we de situatie een beetje kunnen begrijpen.</p>
+<p>Laten we eerst beginnen met het maken van een schets, zodat we de situatie een beetje kunnen begrijpen:</p>
 <p><figure markdown>
 <img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20%284x-7%29%5E3%20-10x%20%2B%2018.svg" width="500" />
     <figcaption>Figuur 6. De grafiek <span class="arithmatex">\(f(x) = \left( 4x - 7 \right)^3 - 10x + 18\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen de buitenste twee snijpunten met de <span class="arithmatex">\(x\)</span>-as.<figcaption>
 </figure></p>
-<p>Om de oppervlakte <span class="arithmatex">\(V\)</span> te kunnen bepalen, moeten we eerst de grenzen bepalen. En dit doen we door de <a href="../kwadratische_vergelijkingen/#snijpunten-met-de-x-as">snijpunten met de <span class="arithmatex">\(x\)</span>-as</a> te bepalen. We moeten dan de volgende vergelijkingen opstellen:</p>
+<p>Om de oppervlakte <span class="arithmatex">\(V\)</span> te kunnen bepalen, moeten we eerst de grenzen weten. En we komeh hier achter door de <a href="../kwadratische_vergelijkingen/#snijpunten-met-de-x-as">snijpunten met de <span class="arithmatex">\(x\)</span>-as</a> te bepalen. We moeten dan de volgende vergelijkingen oplossen:</p>
 <div class="arithmatex">\[\large{f(x) = 0}\]</div>
+<p>En als we <span class="arithmatex">\(f(x)\)</span> invullen:</p>
 <div class="arithmatex">\[\large{\left( 4x - 7 \right)^3 - 10x + 18 = 0}\]</div>
-<p>In de vraag staat geen algebraïsch of exact, dus we mogen onze grafische rekenmachine gebruiken.</p>
+<p>In de vraag staat geen algebraïsch of exact, dus we mogen onze grafische rekenmachine gebruiken om dit op te lossen.</p>
 <p>We voeren in:</p>
 <div class="arithmatex">\[\large{\left\{ \begin{array}{ l l } y_1 = \left( 4x - 7 \right)^3 - 10x + 18  \\ y_2 = 0 \end{array} \right.}\]</div>
 <p>De optie intersect geeft:</p>
@@ -1587,12 +1667,21 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p>De buitenste twee snijpunten zijn dus <span class="arithmatex">\(x_1 \approx 1.33175\)</span> en <span class="arithmatex">\(x_3 \approx 2.1174\)</span>. Dit zijn dus ook onze grenzen. </p>
 <p>Hiermee kunnen we nu de integraal opstellen:</p>
 <div class="arithmatex">\[\large{V = \int_{1.33175}^{2.1174} \left( 4x - 7 \right)^3 - 10x + 18} \, dx\]</div>
-<p>Nu moeten we deze functie primitiveren. De eerste twee termen zijn van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Om de primitieve te bepalen van deze vorm, moeten we de macht <span class="arithmatex">\(+1\)</span> doen en <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor doen. De laatste term is gewoon een constante (getal zonder <span class="arithmatex">\(x\)</span>), dus daar plakken we gewoon een <span class="arithmatex">\(x\)</span> aan vast:</p>
-<div class="arithmatex">\[\large{\widetilde{V} = \left[ \dfrac{1}{4} \left( 4x - 7 \right)^4 - \dfrac{1}{2} \cdot 10x^2 + 18x \right]_{1.33175}^{2.1174}}\]</div>
-<p>Maar als we de eerste term zouden afleiden, zouden we door de productregel een extra factor <span class="arithmatex">\(4\)</span> ervoor krijgen. Omdat we die factor niet willen hebben, moeten we bij de primitieve deze weg compenseren door een extra factor <span class="arithmatex">\(\frac{1}{4}\)</span> toe te voegen:</p>
-<div class="arithmatex">\[\large{V = \left[ \dfrac{1}{4} \cdot \dfrac{1}{4} \left( 4x - 7 \right)^4 - \dfrac{1}{2} \cdot 10x^2 + 18x \right]_{1.33175}^{2.1174}}\]</div>
+<p>Nu moeten we deze functie primitiveren. </p>
+<ul>
+<li>
+<p>De eerste twee termen zijn van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Om de primitieve te bepalen van deze vorm, moeten we de macht <span class="arithmatex">\(+1\)</span> doen en <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor zetten. </p>
+</li>
+<li>
+<p>De laatste term is gewoon een constante (getal zonder <span class="arithmatex">\(x\)</span>), dus daar plakken we gewoon een <span class="arithmatex">\(x\)</span> aan vast.</p>
+</li>
+</ul>
+<p>We krijgen dus:</p>
+<div class="arithmatex">\[\large{\widetilde{V} = \left[ \, \dfrac{1}{4} \left( 4x - 7 \right)^4 - \dfrac{1}{2} \cdot 10x^2 + 18x \, \right]_{1.33175}^{2.1174}}\]</div>
+<p>Maar als we de eerste term zouden afleiden, dan krijgen we door de productregel een extra factor <span class="arithmatex">\(4\)</span>. Omdat we die factor niet willen hebben, moeten we bij de primitieve deze weg compenseren door een extra factor <span class="arithmatex">\(\frac{1}{4}\)</span> toe te voegen:</p>
+<div class="arithmatex">\[\large{V = \left[ \, \dfrac{1}{4} \cdot \dfrac{1}{4} \left( 4x - 7 \right)^4 - \dfrac{1}{2} \cdot 10x^2 + 18x \, \right]_{1.33175}^{2.1174}}\]</div>
 <p>Dit kunnen we nog iets versimpelen:</p>
-<div class="arithmatex">\[\large{V = \left[ \dfrac{1}{16} \left( 4x + 7 \right)^4 - 5x^2 + 18x \right]_{1.33175}^{2.1174}}\]</div>
+<div class="arithmatex">\[\large{V = \left[ \, \dfrac{1}{16} \left( 4x + 7 \right)^4 - 5x^2 + 18x \, \right]_{1.33175}^{2.1174}}\]</div>
 <p>Nu moeten we de grenzen invullen en min elkaar doen:</p>
 <div class="arithmatex">\[\large{V = \dfrac{1}{16} \left( 4 \cdot 2.1174 - 7 \right)^4 - 5 \cdot 2.1174^2 + 18 \cdot 2.1174 - \left( \dfrac{1}{16} \left( 4 \cdot 1.33175 - 7 \right)^4 - 5 \cdot 1.33175^2 + 18 \cdot 1.33175 \right)}\]</div>
 <p>En als we dit uitrekenen met een rekenmachine, dan vinden we:</p>
@@ -1603,6 +1692,116 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 </div>
 </details>
 <h2 id="oppervlakte-tussen-twee-grafieken"><strong>Oppervlakte tussen twee grafieken</strong></h2>
+<p>We hebben net gekeken naar oppervlaktes onder allemaal verschillende grafieken. Maar kunnen we ook een oppervlakte bepalen dat tussen twee grafieken ligt? </p>
+<p>Laten we kijken naar de volgende functies:</p>
+<div class="arithmatex">\[\large{\left\{ \begin{array}{ l l } f(x) =  6 - x^2  \\ g(x) = x + 4 \end{array} \right.}\]</div>
+<p>Stel dat we de oppervlakte tussen deze twee functies willen bepalen, hoe pakken we dat aan?</p>
+<p>In Figuur 1 hieronder zijn de twee functies geplot met het vlakdeel <span class="arithmatex">\(V\)</span> dat tussen de twee functies in ligt:</p>
+<figure>
+<p><img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%206%20-%20x%5E2%3B%20g%28x%29%20%3D%20x%20%2B%204.svg" width="500" />
+    <figcaption>Figuur 1. Grafiek geplot met de functies <span class="arithmatex">\(f(x) =  6 - x^2\)</span> en <span class="arithmatex">\(g(x) = x + 4\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen de twee functies in.<figcaption></p>
+</figure>
+<p>We kunnen de oppervlakte van <span class="arithmatex">\(V\)</span> berekenen door de oppervlakte onder <span class="arithmatex">\(f(x)\)</span> min de oppervlakte onder <span class="arithmatex">\(g(x)\)</span> te doen. Kijk maar naar deze twee oppervlaktes:</p>
+<figure>
+<p><img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%206%20-%20x%5E2%3B%20g%28x%29%20%3D%20x%20%2B%204%20%28Opp%20I%29.svg" width="500" />
+<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%206%20-%20x%5E2%3B%20g%28x%29%20%3D%20x%20%2B%204%20%28Opp%20II%29.svg" width="500" />
+    <figcaption>Figuur 2. Grafiek geplot met de functies <span class="arithmatex">\(f(x) =  6 - x^2\)</span> en <span class="arithmatex">\(g(x) = x + 4\)</span>. Vlakdeel <span class="arithmatex">\(I\)</span> is de oppervlakte onder <span class="arithmatex">\(f(x)\)</span>, vlakdeel <span class="arithmatex">\(II\)</span> is de oppervlakte onder <span class="arithmatex">\(g(x)\)</span>.<figcaption></p>
+</figure>
+<p>Als we deze twee oppervlaktes min elkaar doen, houden we alleen maar het gedeelte van <span class="arithmatex">\(I\)</span> over dat boven <span class="arithmatex">\(g(x)\)</span> ligt. En dat is precies vlakdeel <span class="arithmatex">\(V\)</span> van Figuur 1. We kunnen dus schrijven:</p>
+<div class="arithmatex">\[V = I - II\]</div>
+<p>En de oppervlaktes van <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span> kunnen we gewoon bepalen met integralen. We zien in Figuur 2 dat beide oppervlaktes dezelfde grenzen hebben, namelijk de snijpunten tussen de twee functies. We kunnen aflezen dat dit de punten <span class="arithmatex">\(x=-1\)</span> en <span class="arithmatex">\(x=2\)</span> zijn. Onze integralen worden dan:</p>
+<div class="arithmatex">\[I = \int_{-1}^2 f(x) \, dx\]</div>
+<div class="arithmatex">\[II = \int_{-1}^2 g(x) \, dx\]</div>
+<p>Met deze informatie kunnen we een vergelijking voor <span class="arithmatex">\(V\)</span> opstellen:</p>
+<div class="arithmatex">\[V = \int_{-1}^2 f(x) \, dx - \int_{-1}^2 g(x) \, dx\]</div>
+<p>En omdat deze twee integralen dezelfde grenzen hebben, kunnen we het <a href="#twee-integralen-combineren">schrijven als <span class="arithmatex">\(1\)</span> integraal</a>:</p>
+<div class="arithmatex">\[\boxed{V = \int_{-1}^2 \left( f(x) - g(x) \right) \, dx}\]</div>
+<p>Dit is dus de integraal om een oppervlakte tussen twee functies te bepalen. </p>
+<p>Laten we nu <span class="arithmatex">\(f(x)\)</span> en <span class="arithmatex">\(g(x)\)</span> invullen:</p>
+<div class="arithmatex">\[V = \int_{-1}^2 \left( 6 - x^2 - \left( x+4 \right) \right) \, dx\]</div>
+<p>En als we dit versimpelen:</p>
+<div class="arithmatex">\[V = \int_{-1}^2 \left( 6 - x^2 - x - 4 \right) \, dx\]</div>
+<div class="arithmatex">\[V = \int_{-1}^2 \left(- x^2 - x + 2 \right) \, dx\]</div>
+<p>Nu kunnen we deze functie gaan integreren:</p>
+<ul>
+<li>
+<p>De eerste twee termen zijn van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span> (want we kunnen de <span class="arithmatex">\(x\)</span> term schrijven als <span class="arithmatex">\(x^1\)</span>). Om deze vorm te primitiveren, moeten we de macht <span class="arithmatex">\(+1\)</span> doen. Daarna zetten we een factor van <span class="arithmatex">\(1\)</span> gedeeld door deze niuwe macht vóór de term.</p>
+</li>
+<li>
+<p>De laaste term is een constante (een los getal zonder <span class="arithmatex">\(x\)</span>). Om een constante te primitiveren, moeten we er gewoon een <span class="arithmatex">\(x\)</span> aanvast plakken.</p>
+</li>
+</ul>
+<p>Als we dit gebruiken, dan krijgen we:</p>
+<div class="arithmatex">\[V = \left[- \dfrac{1}{3}x^3 - \dfrac{1}{2} x^2 + 2x \right]_{-1}^2\]</div>
+<p>Nu vullen we de grenzen in:</p>
+<div class="arithmatex">\[V = - \dfrac{1}{3} \cdot 2^3 - \dfrac{1}{2} \cdot 2^2 + 2 \cdot 2 - \left(- \dfrac{1}{3} \cdot (-1)^3 - \dfrac{1}{2} \cdot (-1)^2 + 2 \cdot -1 \right)\]</div>
+<p>En als we dit uitwerken, dan krijgen we:</p>
+<div class="arithmatex">\[V = - \dfrac{1}{3} \cdot 8 - \dfrac{1}{2} \cdot 4 + 4 - \left(- \dfrac{1}{3} \cdot -1 - \dfrac{1}{2} \cdot 1 - 2 \right)\]</div>
+<div class="arithmatex">\[V = - 2\dfrac{2}{3} - 2 + 4 - \left(\dfrac{1}{3} - \dfrac{1}{2} - 2 \right)\]</div>
+<div class="arithmatex">\[V = -\dfrac{2}{3} - \left(- 2 \dfrac{1}{6} \right)\]</div>
+<div class="arithmatex">\[V = -\dfrac{2}{3} + 2 \dfrac{1}{6}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{V = 1 \dfrac{1}{2}}\]</div>
+</div>
+<details class="abstract">
+<summary>Oppervlaktes <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span> los berekenen en dan min elkaar</summary>
+<p>We kunnen om te controleren in het voorbeeld hierboven oppervlaktes <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span> apart berekenen en daarna min elkaar doen. Dan kunnen we controleren of we weer uitkomen op <span class="arithmatex">\(V = 1 \frac{1}{2}\)</span>.</p>
+<p>We beginnen met het bepalen van de oppervlakte van <span class="arithmatex">\(I\)</span>. We hadden deze integraal gevonden:</p>
+<div class="arithmatex">\[\large{I = \int_{-1}^2 f(x) \, dx}\]</div>
+<p>Nu vullen we <span class="arithmatex">\(f(x)\)</span> in:</p>
+<div class="arithmatex">\[\large{I = \int_{-1}^2 6 - x^2 \, dx}\]</div>
+<p>Nu kunnen we deze functie integreren:</p>
+<ul>
+<li>
+<p>De eerste term is een constante, dus om de primitieve te bepalen moeten we gewoon een <span class="arithmatex">\(x\)</span> toevoegen.</p>
+</li>
+<li>
+<p>De tweede term is van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Om de primitieve van deze vorm te bepalen, moeten we eerst de macht <span class="arithmatex">\(+1\)</span> doen, dus van een macht <span class="arithmatex">\(2\)</span> naar <span class="arithmatex">\(3\)</span>. Daarna zetten we <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor, dus een factor <span class="arithmatex">\(\frac{1}{3}\)</span> in dit geval.</p>
+</li>
+</ul>
+<p>Als we dit toepassen, dan krijgen we:</p>
+<div class="arithmatex">\[\large{I = \left[ \, 6x - \dfrac{1}{3} x^3 \, \right]_{-1}^2}\]</div>
+<p>Nu vullen we de grenzen in:</p>
+<div class="arithmatex">\[\large{I = 6 \cdot 2 - \dfrac{1}{3} \cdot 2^3 - \left( 6 \cdot -1 - \dfrac{1}{3} \cdot (-1)^3 \right)}\]</div>
+<p>En als we dit uitwerken, vinden we:</p>
+<div class="arithmatex">\[\large{I = 12 - \dfrac{1}{3} \cdot 8 - \left( -6 - \dfrac{1}{3} \cdot -1 \right)}\]</div>
+<div class="arithmatex">\[\large{I = 12 - 2 \dfrac{2}{3} - \left( -6 + \dfrac{1}{3} \right)}\]</div>
+<div class="arithmatex">\[\large{I = 9 \dfrac{1}{3} - \left( -5 \dfrac{2}{3} \right)}\]</div>
+<div class="arithmatex">\[\large{\boxed{I = 15}}\]</div>
+<p><br></p>
+<p>En nu kunnen we hetzelfde doen voor oppervlakte <span class="arithmatex">\(II\)</span>. We stellen eerst weer de integraal op:</p>
+<div class="arithmatex">\[\large{II = \int_{-1}^2 g(x) \, dx}\]</div>
+<div class="arithmatex">\[\large{II = \int_{-1}^2 x + 4 \, dx}\]</div>
+<p>We hebben weer een term van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span> een een constante. De primitieve wordt dus:</p>
+<div class="arithmatex">\[\large{II = \left[ \,  \dfrac{1}{2} x^2 + 4x \, \right]_{-1}^2}\]</div>
+<p>Nu vullen we weer de grenzen in:</p>
+<div class="arithmatex">\[\large{II = \dfrac{1}{2} \cdot 2^2 + 4 \cdot 2 - \left( \dfrac{1}{2} \cdot (-1)^2 + 4 \cdot -1 \right)}\]</div>
+<p>En als we dit uitwerken, vinden we:</p>
+<div class="arithmatex">\[\large{II = \dfrac{1}{2} \cdot 4 + 8 - \left( \dfrac{1}{2} - 4 \right)}\]</div>
+<div class="arithmatex">\[\large{II = 2 + 8 - \left( \dfrac{1}{2} - 4 \right)}\]</div>
+<div class="arithmatex">\[\large{II = 10 - \left( -3 \dfrac{1}{2} \right)}\]</div>
+<div class="arithmatex">\[\large{\boxed{II = 13 \dfrac{1}{2}}}\]</div>
+<p>En nu kunnen we uiteindelijk <span class="arithmatex">\(V\)</span> bepalen door deze twee oppervlaktes min elkaar te doen:</p>
+<div class="arithmatex">\[\large{V = I - II}\]</div>
+<div class="arithmatex">\[\large{V = 15 - 13 \dfrac{1}{2}}\]</div>
+<p>En als we dit uitwerken vinden we inderdaad wat we eerst ook gevonden hadden:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{V = 1\dfrac{1}{2}}\]</div>
+</div>
+</details>
+<details class="abstract">
+<summary>Bewijs: Twee integralen combineren</summary>
+<h3 id="twee-integralen-combineren"><strong>Twee integralen combineren</strong></h3>
+<p>We kunnen twee integralen met dezelfde grenzen samenvoegen tot <span class="arithmatex">\(1\)</span> integraal:</p>
+<div class="arithmatex">\[\large{I = \int_{a}^{b} f(x) \, dx - \int_{a}^{b} g(x) \, dx}\]</div>
+<div class="arithmatex">\[\large{I = \left[ \, F(x) \, \right]_{a}^{b} - \left[ \, G(x) \, \right]_{a}^{b}}\]</div>
+<div class="arithmatex">\[\large{I = F(b) - F(a) - \left( G(b) - G(a) \right)}\]</div>
+<div class="arithmatex">\[\large{I = F(b) - F(a) - G(b) + G(a)}\]</div>
+<div class="arithmatex">\[\large{I = F(b) - G(b) - F(a) + G(a)}\]</div>
+<div class="arithmatex">\[\large{I = F(b) - G(b) - \left( F(a) - G(a) \right)}\]</div>
+<div class="arithmatex">\[\large{I = \left[ \, F(x) - G(x) \, \right]_{a}^{b}}\]</div>
+<div class="arithmatex">\[\large{I = \int_{a}^{b} \left( f(x) - g(x) \right) \, dx }\]</div>
+</details>
 <h2 id="inhoud-bepalen"><strong>Inhoud Bepalen</strong></h2>
 
 

@@ -123,12 +123,17 @@ def replace_superscript(eq_string):
 
 
 def draw_func(
-    func, title, x_range, y_range, **kwargs
+    func, title, x_range, y_range, func2=None, **kwargs
 ):
     x = np.arange(x_range[0], x_range[1], 0.01)
     x = [num for num in x if sp.sympify(func(num)).is_real]
 
     f = [float(func(num)) for num in x if sp.sympify(func(num)).is_real]
+
+    surface_type = kwargs.get("surface_type", "func1")
+
+    if func2 is not None:
+        f2 = [float(func2(num)) for num in x if sp.sympify(func2(num)).is_real]
 
     fig = plt.figure(facecolor="none")
 
@@ -144,7 +149,7 @@ def draw_func(
     ax.xaxis.label.set_color("#D3D3D3")
     ax.yaxis.label.set_color("#D3D3D3")
     ax.tick_params(axis="both", colors="#D3D3D3")
-    ax.set_facecolor("#FF0000")
+    ax.set_facecolor("#708090")
 
     ax.set_title(title, loc="center", color="#D3D3D3")
 
@@ -170,19 +175,50 @@ def draw_func(
 
     # graph(s)
     plt.plot(x, f, "darkturquoise", zorder=2, label=rf"$f(x) = {sp.latex(func(x_symbol))}$" if func_label else r"$f(x)$")
+    if func2 is not None:
+        plt.plot(x, f2, "crimson", zorder=2, label=rf"$g(x) = {sp.latex(func2(x_symbol))}$" if func_label else r"$g(x)$")
+
 
     # calculate and plot integral
     def plot_integral(main_color="springgreen", letter="V"):
         if kwargs.get('integral_range', False) is not False:
-            integral_range = kwargs['integral_range']
-            integral_area = sp.integrate(func(x_symbol), (x_symbol, integral_range[0], integral_range[1]))
+
+            if kwargs['integral_range'] == 'roots' or kwargs['integral_range'] == 'roots1':
+                integral_range = sp.solve(func(x_symbol), real=True)
+                integral_range = [float(x_root) for x_root in integral_range if x_root.is_real]
+                integral_range = [integral_range[0], integral_range[-1]]
+
+            elif kwargs['integral_range'] == 'roots2' and func2 is not None:
+                integral_range = sp.solve(func2(x_symbol), real=True)
+                integral_range = [float(x_root) for x_root in integral_range if x_root.is_real]
+                integral_range = [integral_range[0], integral_range[-1]]
+
+            elif kwargs['integral_range'] == 'intersect' and func2 is not None:
+                integral_range = sp.solve(func(x_symbol) - func2(x_symbol), real=True)
+                integral_range = [float(x_root) for x_root in integral_range if x_root.is_real]
+                integral_range = [integral_range[0], integral_range[-1]]
+
+            else:
+                integral_range = kwargs['integral_range']
+
+            
+            if surface_type == 'func2':
+                integral_func = func2(x_symbol)
+
+            elif surface_type == 'between':
+                integral_func = func(x_symbol) - func2(x_symbol)
+
+            else:
+                integral_func = func(x_symbol)
+
+            integral_area = sp.integrate(integral_func, (x_symbol, integral_range[0], integral_range[1]))
             print(f"Area of {letter} = {integral_area}")
 
             if kwargs.get("split_factor", False) is not False or kwargs.get("x_split", False) is not False:
                 if kwargs.get("x_split", False) is not False:
                     x_split = kwargs["x_split"]
                 else:
-                    integral = sp.integrate(func(x_symbol))
+                    integral = sp.integrate(integral_func)
                     x_split = sp.nsolve(integral - integral_area/kwargs["split_factor"], np.mean(integral_range))
 
                 print(f"split at x = {x_split}")
@@ -191,7 +227,7 @@ def draw_func(
                 plt.fill_between(x, f, where=[(x > x_split) and (x <= integral_range[1]) for x in x], color="mediumspringgreen", zorder=3, alpha=0.7)
 
                 if kwargs.get("split_line", True):
-                    plt.vlines(x=x_split, ymin=y_range[0], ymax=y_range[1], color="k", zorder=4, linestyle="--", label=r"$x=p$")
+                    plt.vlines(x=x_split, ymin=y_range[0], ymax=y_range[1], color="firebrick", zorder=4, linestyle="--", label=r"$x=p$")
 
                 if kwargs.get("split_numbered", False):
                     if kwargs.get("split_loc", False) is not False:
@@ -240,11 +276,18 @@ def draw_func(
                     plt.text(s=r"$f(x_1)$", x=integral_range[0] - 0.7, y=f_riemann[0]/2.2, color="white", zorder=4)
 
             else:
-                plt.fill_between(x, f, where=[(x >= integral_range[0]) and (x <= integral_range[1]) for x in x], color=main_color, zorder=3, alpha=0.7)
+                if surface_type == "func2":
+                    plt.fill_between(x, f2, where=[(x >= integral_range[0]) and (x <= integral_range[1]) for x in x], color="lightcoral", zorder=3, alpha=0.7)
+                    
+                elif surface_type == "between":
+                    plt.fill_between(x, f, f2, where=[(x >= integral_range[0]) and (x <= integral_range[1]) for x in x], color="darkviolet", zorder=3, alpha=0.7)
+
+                else:
+                    plt.fill_between(x, f, where=[(x >= integral_range[0]) and (x <= integral_range[1]) for x in x], color=main_color, zorder=3, alpha=0.7)
 
                 if kwargs.get('V_loc_label', False) is not False:
                     V_loc_label = kwargs['V_loc_label']
-                    plt.text(s=rf"${letter}$", x=V_loc_label[0], y=V_loc_label[1], color="white", fontsize='xx-large', zorder=4)
+                    plt.text(s=rf"${letter}$", x=V_loc_label[0], y=V_loc_label[1], color="white", fontsize='xx-large', zorder=3)
 
     if kwargs.get("double_integral", False):
         if kwargs.get("integral_range", False) is not False:
@@ -262,7 +305,7 @@ def draw_func(
                 plot_integral(main_color=colors[i], letter=letters[i])
     
     else:
-        plot_integral()
+        plot_integral(letter=kwargs.get("letter", "V"))
 
 
     # calculate and plot the roots
@@ -280,12 +323,34 @@ def draw_func(
             plt.scatter([x_root], [func(x_root)], c="aquamarine", zorder=4)
 
 
+    # calculate and plot extrema
+    if kwargs.get('diff') is not None and kwargs['diff']:
+        diff = sp.diff(func(x))
+        x_extrm = [float(num) for num in sp.solveset(diff, domain=sp.Interval(x_range[0], x_range[1]))]
+        y_extrm = [func(x) for x in x_extrm]
+
+        for x_coord, y_coord in zip(x_extrm, y_extrm):
+            plt.scatter([x_coord], [y_coord], c="springgreen", zorder=4)
+
+
+    # calculate and plot intercepts
+    if kwargs.get("intersect", False):
+        x_intersects = sp.solve(func(x_symbol) - func2(x_symbol), real=True)
+        x_intersects = [float(x_root) for x_root in x_intersects if x_root.is_real]
+        print(x_intersects)
+
+        for x_intercept in x_intersects:
+            plt.scatter([x_intercept], [func(x_intercept)], c="aquamarine", zorder=5)
+
+
     plt.legend(loc="upper right")
 
     save_name = replace_superscript(title).replace('÷', '!divide!')
-    print(save_name)
     plt.savefig(f"{save_name}.svg")
     plt.show()
+
+
+
 
 # draw_func(lambda x: 6*x**2, "f(x) = 6x²", x_range=(-2, 2), y_range=(-2, 8), root=False, integral_range=(0, 1), V_loc_label=(0.72, 1.75), func_label=True)
 # draw_func(lambda x: -6*x**2, "f(x) = -6x²", x_range=(-2, 2), y_range=(-8, 2), root=False, integral_range=(0, 1), V_loc_label=(0.72, -1.75), func_label=True)
@@ -300,8 +365,12 @@ def draw_func(
 
 # draw_func(lambda x: sp.cos(x), "f(x) = cos(x)", x_range=(0, sp.pi), y_range=(-2, 2), root=False, integral_range=(sp.pi/6, 2/3 * sp.pi), func_label=True, no_ax=False, V_loc_label=(0.77, 0.23))
 
-draw_func(lambda x: 2/x, "f(x) = 2 ÷ x", x_range=(-10, 10), y_range=(-5, 5), root=False, integral_range=(-1000, -1), func_label=True, no_ax=False, V_loc_label=(-2.1, -0.8))
+# draw_func(lambda x: 2/x, "f(x) = 2 ÷ x", x_range=(-10, 10), y_range=(-5, 5), root=False, integral_range=(-1000, -1), func_label=True, no_ax=False, V_loc_label=(-2.1, -0.8))
 
 # draw_func(lambda x: sp.sqrt(x), "f(x) = sqrt(x)", x_range=(-1, 5), y_range=(-1, 3), root=False, double_integral=True, integral_range=np.array(([0, sp.cbrt(4)], [2, 2*sp.cbrt(4)])), func_label=True, no_ax=False, V_loc_label=np.array(([0.8, 0.35], [2.45, 0.6])))
 
 # draw_func(lambda x: (4*x-7)**3 -10*x + 18, "f(x) = (4x-7)³ -10x + 18", x_range=(1, 2.5), y_range=(-2, 3), root=True, root_values=(1.33175, 1.80084, 2.1174), integral_range=(1.33175, 2.1174), func_label=True, no_ax=True, V_loc_label=(1.5, 0.75))
+
+# draw_func(func=lambda x: 6 - x**2, func2=lambda x: x + 4, title="f(x) = 6 - x²; g(x) = x + 4", x_range=(-4, 4), y_range=(-2, 8), root=False, intersect=True, integral_range='intersect', V_loc_label=(-0.65, 4.25), func_label=True, surface_type='between', letter='V')
+draw_func(func=lambda x: 6 - x**2, func2=lambda x: x + 4, title="f(x) = 6 - x²; g(x) = x + 4 (Opp I)", x_range=(-4, 4), y_range=(-2, 8), root=False, intersect=True, integral_range='intersect', V_loc_label=(-0.5, 3), func_label=True, surface_type='func1', letter='I')
+# draw_func(func=lambda x: 6 - x**2, func2=lambda x: x + 4, title="f(x) = 6 - x²; g(x) = x + 4 (Opp II)", x_range=(-4, 4), y_range=(-2, 8), root=False, intersect=True, integral_range='intersect', V_loc_label=(-0.6, 1.65), func_label=True, surface_type='func2', letter='II')
