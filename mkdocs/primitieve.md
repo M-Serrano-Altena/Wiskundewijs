@@ -459,64 +459,152 @@ $$V = \left[ \, 2x^3 \, \right]_0^1 = 2 \cdot 1^3 - 2 \cdot 0^3 = 2$$
     $$\large{\int f(x) \, dx = F(x)}$$
 
 
-??? note "Negatieve Integralen"
-    Als een oppervlakte onder de $x$-as ligt, geeft dit een negatieve bijdrage aan een integraal. In het voorbeeld hierboven hebben we gezien dat de oppervlakte $V$ van Figuur 4 gelijk aan $2$ is:
+### **Oppervlaktes onder de x-as**
 
-    $$\large{V = \int_0^1 6x^2 \, dx = 2}$$
+Als een oppervlakte onder de $x$-as ligt, geeft dit een negatieve bijdrage aan een integraal. In het voorbeeld hierboven hebben we gezien dat de oppervlakte $V$ van Figuur 4 gelijk is aan $2$:
 
-    Maar als we niet $6x$ gebruiken, maar $-6x$, dan wordt onze integraal ook negatief:
+$$V = \int_0^1 6x^2 \, dx = 2$$
 
-    $$\large{V_2 = \int_0^1 -6x^2 \, dx}$$
+Maar stel dat we nu $-6x$ gebruiken in plaats van $6x$. Wat komt er dan uit de integraal?
 
-    $$\large{V_2 = \left[ \, -2x^3 \, \right]_0^1}$$
+$$V_2 = \int_0^1 -6x^2 \, dx$$
 
-    $$\large{V_2 = -2 \cdot 1^3 - -2 \cdot 0^3}$$
+$$V_2 = \left[ \, -2x^3 \, \right]_0^1$$
 
-    $$\large{V_2 = -2}$$
+$$V_2 = -2 \cdot 1^3 - -2 \cdot 0^3$$
 
-    En als we deze nieuwe functie tekenen, dan zien we dat we precies dezelfde oppervlakte krijgen als net, maar dan nu onder de $x$-as.
+$$V_2 = -2$$
+
+Dus zoals we hier kunnen zien krijgen we precies dezelfde oppervlakte als bij $6x$, alleen dan nu negatief. En als we deze functie tekenen, dan zien we ook dat het dezelfde oppervlakte is als bij Figuur 4. Alleen dan nu is de oppervlakte onder de $x$-as:
+
+<figure markdown>
+![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = -6x^2.svg){ width="500" }
+    <figcaption>Figuur 5. De grafiek $f(x) = -6x^2$ geplot met oppervlakte $V$. Deze oppervlakte onder de functie $f(x)$ gaat van $x=0$ tot $x=1$.</figcaption>
+</figure>
+
+Maar omdat een oppervlakte niet negatief kan zijn, voegen we een '$-$' toe bij de integraal:
+
+$$V_2 = - \int_0^1 -6x^2 \, dx$$
+
+Dit zorgt ervoor dat de minnen tegen elkaar wegvallen zodat de oppervlakte weer positief wordt.
+
+???+ Belangrijk
+    **<span style="font-size: 18px;">Algemene vorm onder de x-as</span>**
+
+    Als we een oppervlakte onder de $x$-as hebben, moeten we een '$-$' toevoegen aan de integraal:
+
+    $$\large{V = - \int_a^b f(x) \, dx}$$
+
+    Anders krijgen we namelijk een negatieve oppervlakte.
+
+
+<br>
+
+### **Deel boven en deel onder de x-as**
+
+Als zowel een deel van een oppervlakte boven de $x$-as is als onder de $x$-as, moeten we goed opletten. Want alleen het gedeelte onder de $x$-as krijgt een extra '$-$'. Dit betekent dat we de hele oppervlakte moeten splitsen in het deel boven de $x$-as en het deel onder de $x$-as.
+
+Laten we kijken naar de volgende functie:
+
+$$f(x) = \sin(x)$$
+
+Stel dat we de totale oppervlakte willen bepalen van vlakdeel $V$ dat tussen $x=-\pi$ en $x=\pi$ ligt. Dit heeft een deel onder de $x$-as ( $I$ ) en een deel boven de $x$-as ( $II$ ):
+
+<figure markdown>
+![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = sin(x).svg){ width="500" }
+    <figcaption>Figuur 6. De grafiek $f(x) = \sin(x)$ geplot met oppervlakte $I$ en $II$. Samen gaan deze oppervlaktes van $x=-\pi$ tot $x=\pi$. Oppervlakte $I$ ligt onder de $x$-as en oppervlakte $II$ ligt boven de $x$-as.</figcaption>
+</figure>
+
+Als we de totale oppervlakte willen berekenen, dan moeten we oppervlakte $I$ en oppervlakte $II$ apart berekenen. Want als we het als geheel proberen te integreren, dan krijgen we uit de integraal dat de totale oppervlakte $0$ is. En dit klopt natuurlijk niet. 
+
+??? abstract "Bewijs dat $\int_{-\pi}^{\pi} \sin(x) \, dx$ uitkomt op $0$"
+    We kunnen dit zelf ook gewoon berekenen met de kennis die we nu hebben. De oppervlakte onder $f(x) = \sin(x)$ gaat van $-\pi$ tot $\pi$. Onze integraal wordt dus:
+
+    $$\large{V = \int_{-\pi}^{\pi} \sin(x) \, dx}$$
+
+    We kunnen in de [tabel](#tabel-met-veel-voorkomende-functies) zien dat de primitieve van $\sin(x)$ is $-\cos(x)$:
+
+    $$\large{V = \left[ \, -\cos(x) \, \right]_{-\pi}^{\pi}}$$
+
+    Nu vullen we de grenzen in en doen ze min elkaar:
+
+    $$\large{V = -\cos(\pi) - -\cos(-\pi)}$$
+
+    $$\large{V = -\cos(\pi) + \cos(-\pi)}$$
+
+    We weten dat zowel $\cos(\pi)$ als $\cos(-\pi)$ is $-1$, dus:
+
+    $$\large{V = - -1 + -1}$$
+
+    $$\large{V = 1 - 1}$$
+
+    !!! quote ""
+        $$\large{V = 0}$$
+
+We beginnen eerst met de oppervlakte van $I$ te bepalen. Deze oppervlakte gaat van $x=-\pi$ tot $x=0$ en is onder de $x$-as. Onze integraal wordt dan dus:
+
+$$I = - \int_{-\pi}^{0} \sin(x) \, dx$$
+
+Nu kunnen we de primitieve nemen. In de [tabel](#tabel-met-veel-voorkomende-functies) zien we dat de primitieve van $\sin(x)$ gelijk is aan $-\cos(x)$:
+
+$$I = -\left[ \, -\cos(x) \, \right]_{-\pi}^{0}$$
+
+Nu vullen we de grenzen in en doen ze min elkaar:
+
+$$I = -\left( -\cos(0) - -\cos(-\pi) \right)$$
+
+$$I = -\left( -\cos(0) + \cos(-\pi) \right)$$
+
+$$I = \cos(0) - \cos(-\pi)$$
+
+Als we dit uitwerken, vinden we:
+
+$$I = 1 - -1$$
+
+$$\boxed{I = 2}$$
+
+En nu kunnen we hetzelfde doen voor oppervlakte $II$. Deze oppervlakte gaat van $x=0$ tot $x=\pi$ en is boven de $x$-as. We krijgen dan:
+
+$$II = \int_{0}^{\pi} \sin(x) \, dx$$
+
+$$II = \left[ \, -\cos(x) \, \right]_{0}^{\pi}$$
+
+$$II = -\cos(\pi) - -\cos(0)$$
+
+$$II = -\cos(\pi) + \cos(0)$$
+
+En als we dit uitwerken, krijgen we:
+
+$$II = --1 + 1$$
+
+$$\boxed{II = 2}$$
+
+En nu kunnen we uiteindelijk de totale oppervlakte $V$ bepalen door $I$ en $II$ bij elkaar op te tellen:
+
+$$V = I + II$$
+
+$$V = 2 + 2$$
+
+!!! quote ""
+    $$\large{V = 4}$$
+
+
+???+ Belangrijk
+    **<span style="font-size: 18px;">Algemeen deel boven deel onder x-as</span>**
+
+    Als een gedeelte van de oppervlakte boven de $x$-as is en een gedeelte onder de $x$-as, moeten we de integraal opsplitsen. We berekenen beide oppervlaktes apart en tellen ze daarna pas bij elkaar op:
+
+    $$\large{V = \int_a^b f(x) \, dx \qquad \Longrightarrow \qquad V = \int_a^c f(x) \, dx \, + \int_c^b -f(x) \, dx}$$
+
+    waarbij $c$ dus het snijpunt met de $x$-as tussen $a$ en $b$ is. We krijgen bij de tweede integraal een '$-$' omdat het [onder de $x$-as](#oppervlaktes-onder-de-x-as) ligt.
 
     <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = -6x^2.svg){ width="500" }
-        <figcaption>Figuur 5. De grafiek $f(x) = -6x^2$ geplot met oppervlakte $V$. Deze oppervlakte onder de functie $f(x)$ gaat van $x=0$ tot $x=1$.</figcaption>
+    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/Functie met deel boven en deel onder de x-as.svg){ width="450" }
+        <figcaption>Figuur 7. Voorbeeld van een functie met een deel boven de $x$-as en een deel onder de $x$-as.</figcaption>
     </figure>
 
-    <br>
 
-    Dit betekent dus ook dat als we een even grote oppervlakte boven de $x$-as hebben als onder de $x$-as, dat de integraal $0$ wordt.
-
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = sin(x).svg){ width="500" }
-        <figcaption>Figuur 6. De grafiek $f(x) = \sin(x)$ geplot met oppervlakte $I$ en $II$. Samen gaan deze oppervlaktes van $x=-\pi$ tot $x=\pi$. Omdat $I$ boven de $x$-as even groot is als $II$ onder de $x$-as, is de totale oppervlakte $0$.</figcaption>
-    </figure>
-
-    ??? abstract "Bewijs dat de totale oppervlakte van Figuur 6 uitkomt op $0$"
-        We kunnen dit zelf ook gewoon berekenen met de kennis die we nu hebben. De oppervlakte onder $f(x) = \sin(x)$ gaat van $-\pi$ tot $\pi$. Onze integraal wordt dus:
-
-        $$\large{V = \int_{-\pi}^{\pi} \sin(x) \, dx}$$
-
-        We kunnen in de [tabel](#tabel-met-veel-voorkomende-functies) zien dat de primitieve van $\sin(x)$ is $-\cos(x)$:
-
-        $$\large{V = \left[ \, -\cos(x) \, \right]_{-\pi}^{\pi}}$$
-
-        Nu vullen we de grenzen in:
-
-        $$\large{V = -\cos(\pi) - -\cos(-\pi)}$$
-
-        $$\large{V = -\cos(\pi) + \cos(-\pi)}$$
-
-        We weten dat zowel $\cos(\pi)$ als $\cos(-\pi)$ is $-1$, dus:
-
-        $$\large{V = - -1 + -1}$$
-
-        $$\large{V = 1 - 1}$$
-
-        !!! quote ""
-            $$\large{V = 0}$$
-
-
-
-#### **<span style="font-size: 21px;">Voorbeelden</span>**
+### **Voorbeelden**
 
 ??? example "Voorbeeld 1: Los op $I = \int_1^4 3x \, dx$"
     **<p style="text-align: center;font-size:20px;">Los op $I = \int_1^4 3x \, dx$</p>**
@@ -531,7 +619,7 @@ $$V = \left[ \, 2x^3 \, \right]_0^1 = 2 \cdot 1^3 - 2 \cdot 0^3 = 2$$
 
     $$\large{I = \left[ \, 1 \dfrac{1}{2} x^2 \, \right]_1^4}$$
 
-    Nu kunnen we de grenzen gaan invullen:
+    Nu kunnen we de grenzen gaan invullen en min elkaar doen:
 
     $$\large{I = 1 \dfrac{1}{2} \cdot 4^2 - 1 \dfrac{1}{2} \cdot 1^2}$$
 
@@ -564,17 +652,17 @@ $$V = \left[ \, 2x^3 \, \right]_0^1 = 2 \cdot 1^3 - 2 \cdot 0^3 = 2$$
 
     $$\large{I = \left[ \, \dfrac{1}{2} x^4 - 2x^3 + \dfrac{1}{2} x^2 - 3x \, \right]_{-2}^{2}}$$
 
-    Nu vullen we de grenzen in:
+    Nu vullen we de grenzen in en doen ze min elkaar:
 
-    $$\large{I = \dfrac{1}{2} \cdot 2^4  - 2 \cdot 2^3 + \dfrac{1}{2} \cdot 2^2 - 3 \cdot 2 - \left( \dfrac{1}{2} \cdot (-2)^4 - 2 \cdot (-2)^3 + \dfrac{1}{2} \cdot (-2)^2 - 3 \cdot -2 \right)}$$
+    $$\large{I = \left( \dfrac{1}{2} \cdot 2^4  - 2 \cdot 2^3 + \dfrac{1}{2} \cdot 2^2 - 3 \cdot 2 \right) - \left( \dfrac{1}{2} \cdot (-2)^4 - 2 \cdot (-2)^3 + \dfrac{1}{2} \cdot (-2)^2 - 3 \cdot -2 \right)}$$
 
     En als we dit uitwerken, krijgen we:
 
-    $$\large{I = \dfrac{1}{2} \cdot 16 - 2 \cdot 8 + \dfrac{1}{2} \cdot 4 - 6 - \left( \dfrac{1}{2} \cdot 16 - 2 \cdot -8 + \dfrac{1}{2} \cdot 4 + 6 \right)}$$
+    $$\large{I = \left( \dfrac{1}{2} \cdot 16 - 2 \cdot 8 + \dfrac{1}{2} \cdot 4 - 6 \right) - \left( \dfrac{1}{2} \cdot 16 - 2 \cdot -8 + \dfrac{1}{2} \cdot 4 + 6 \right)}$$
 
-    $$\large{I = 8 - 16 + 2 - 6 - \left( 8 + 16 + 2 + 6 \right)}$$
+    $$\large{I = \left( 8 - 16 + 2 - 6 \right)- \left( 8 + 16 + 2 + 6 \right)}$$
 
-    $$\large{I = -12 - \left( 32 \right)}$$
+    $$\large{I = \left( -12 \right) - \left( 32 \right)}$$
 
     !!! quote ""
         $$\large{I = -44}$$
@@ -657,11 +745,11 @@ $$V = \left[ \, 2x^3 \, \right]_0^1 = 2 \cdot 1^3 - 2 \cdot 0^3 = 2$$
 
     Nu kunnen we de grenzen invullen en min elkaar doen:
 
-    $$\large{V = -\dfrac{1}{3} \cdot 3^3 + 3^2 + 3 \cdot 3 - \left( -\dfrac{1}{3} \cdot 0^3 + 0^2 + 3 \cdot 0 \right)}$$
+    $$\large{V = \left( -\dfrac{1}{3} \cdot 3^3 + 3^2 + 3 \cdot 3 \right) - \left( -\dfrac{1}{3} \cdot 0^3 + 0^2 + 3 \cdot 0 \right)}$$
 
     Als we dit versimpelen, vinden we:
 
-    $$\large{V = -\dfrac{1}{3} \cdot 27 + 9 + 9 - (0)}$$
+    $$\large{V = \left( -\dfrac{1}{3} \cdot 27 + 9 + 9 \right) - (0)}$$
 
     $$\large{V = -9 + 18}$$
 
@@ -697,9 +785,9 @@ $$V = \left[ \, 2x^3 \, \right]_0^1 = 2 \cdot 1^3 - 2 \cdot 0^3 = 2$$
 
     $$\large{\left[ \, -\dfrac{1}{3} x^3 + x^2 + 3x \, \right]_0^p = 4 \dfrac{1}{2}}$$
 
-    Nu vullen we de grenzen in:
+    Nu vullen we de grenzen in en doen ze min elkaar:
 
-    $$\large{-\dfrac{1}{3} p^3 + p^2 + 3p - \left( -\dfrac{1}{3} 0^3 + 0^2 + 30 \right) = 4 \dfrac{1}{2}}$$
+    $$\large{\left( -\dfrac{1}{3} p^3 + p^2 + 3p \right) - \left( -\dfrac{1}{3} 0^3 + 0^2 + 30 \right) = 4 \dfrac{1}{2}}$$
 
     $$\large{-\dfrac{1}{3} p^3 + p^2 + 3p = 4 \dfrac{1}{2}}$$
 
@@ -725,203 +813,7 @@ $$V = \left[ \, 2x^3 \, \right]_0^1 = 2 \cdot 1^3 - 2 \cdot 0^3 = 2$$
         $$\large{p \approx 1.209}$$
 
 
-    
-??? example "Voorbeeld 4: Bereken exact de oppervlakte van vlakdeel $V$ onder de functie $f(x) = \cos(x)$"
-    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = \cos(x)$, de lijn $x = \frac{1}{6} \pi$ en de lijn $x = p$, met $\frac{1}{6} \pi < p < \pi$.</p>*
-
-    <br>
-
-    **<span style="font-size: 17px;">a) Bereken de oppervlakte van vlakdeel $V$ voor $p = \frac{2}{3} \pi$.</span>**
-
-    **<span style="font-size: 17px;">b) Bepaal $p$ als $V$ precies $\dfrac{1}{2}$ is.</span>**
-
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
-
-    <br>
-
-    **<span style="font-size: 17px;">a)</span>**
-
-    Als eerst maken we een schets om de situatie beter te kunnen begrijpen:
-
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = cos(x).svg){ width="500" }
-        <figcaption>Figuur 3. De grafiek $f(x) = \cos(x)$ geplot met vlakdeel $V$. Het vlakdeel $V$ gaat van $x = \frac{1}{6} \pi$ tot $x = \frac{2}{3} \pi$.</figcaption>
-    </figure>
-
-    Om de oppervlakte van $V$ te berekenen moeten we de volgende integraal opstellen:
-
-    $$\large{V = \int_{\frac{1}{6} \pi}^{\frac{2}{3} \pi} \cos(x) \, dx}$$
-
-    In de [tabel](#tabel-met-veel-voorkomende-functies) kunnen we zien dat de primitieve van $\cos(x)$ is $\sin(x)$:
-
-    $$\large{V = \left[ \, \sin(x) \, \right]_{\frac{1}{6} \pi}^{\frac{2}{3} \pi}}$$ 
-
-    Nu vullen we de grenzen in:
-
-    $$\large{V = \sin(\frac{2}{3} \pi) - \sin(\frac{1}{6} \pi)}$$ 
-
-    En als we dit uitwerken, vinden we:
-
-    !!! quote ""
-        $$\large{V = \dfrac{1}{2} \sqrt{3} - \dfrac{1}{2}}$$
-
-    <br><br>
-
-    **<span style="font-size: 17px;">b)</span>**
-
-    Nu hebben willen we $p$ weten wanneer er geldt dat $V=\frac{1}{2}$. We hebben de integraal bij a) al berekend, we moeten alleen de grenzen nog aanpassen. De nieuwe grenzen die we nu hebben zijn $x = \frac{1}{6} \pi$ en $x = p$:
-
-    $$\large{V = \int_{\frac{1}{6} \pi}^{p} \cos(x) \, dx}$$
-
-    $$\large{V = \left[ \, \sin(x) \, \right]_{\frac{1}{6} \pi}^{p}}$$ 
-
-    Nu vullen we deze grenzen in:
-
-    $$\large{V = \sin(p) - \sin(\frac{1}{6} \pi)}$$ 
-
-    En als we dit versimpelen:
-
-    $$\large{V = \sin(p) - \frac{1}{2}}$$
-
-    We wilden $p$ weten wanneer $V = \frac{1}{2}$, dus moeten we de volgende vergelijking oplossen:
-
-    $$\large{\sin(p) - \frac{1}{2} = \frac{1}{2}}$$
-
-    We halen eerst alle getallen naar rechts door aan beide kanten $+\frac{1}{2}$ te doen:
-
-    $$\large{\sin(p) = 1}$$
-
-    Om dit op te lossen moeten we eerst aan beide kanten een sinus hebben. We kunnen op de [eenheidscirkel](goniometrie.md#de-eenheidscirkel) aflezen dat bij $\frac{1}{2} \pi$ de sinus $1$ is, dus:
-
-    $$\large{\sin(p) = \sin(\frac{1}{2} \pi)}$$
-
-    Nu kunnen we de [algemene oplossing](goniometrie.md) gebruiken voor een sinus:
-
-    $$\large{p = \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ p = \pi - \frac{1}{2} \pi + k \cdot 2 \pi}$$
-
-    $$\large{p = \frac{1}{2} \pi + k \cdot 2 \pi \ \vee \ p = \frac{1}{2} \pi + k \cdot 2 \pi}$$
-
-    In dit geval hebben we twee keer dezelfde set oplossingen, dus dit wordt gewoon:
-
-    $$\large{p = \frac{1}{2} \pi + k \cdot 2 \pi}$$
-
-    We hadden in de vraag gegeven gekregen dat $p$ tussen $\frac{1}{6} \pi$ en $\pi$ ligt. Dit betekent dus dat we moeten kijken welke gehele getallen $k$ kan zijn zodat de oplossing tussen $\frac{1}{6} \pi$ en $\pi$ ligt. 
-    
-    In dit geval hebben we alleen maar $1$ oplossing bij $k=0$:
-
-    !!! quote ""
-        $$\large{p = \frac{1}{2} \pi}$$ 
-
-
-
-??? example "Voorbeeld 5: Bereken de oppervlakte van vlakdeel $V$ onder de functie $f(x) = \dfrac{2}{x}$"
-    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = \dfrac{2}{x}$, de $x$-as, de lijn $x=-1$ en de lijn $x=p$, met $p < -1$.</p>*
-
-    <br>
-
-    **<span style="font-size: 17px;">a) Bereken de oppervlakte van vlakdeel $V$ met $p = 1000$.</span>**
-
-    **<span style="font-size: 17px;">b) Bepaal de factor waarmee $p$ moet toenemen om de oppervlakte van $V$ te verdubbelen.</span>**
-
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
-
-    <br>
-
-    **<span style="font-size: 17px;">a)</span>**
-
-    Laten we als eerst een schets maken om de situatie beter te kunnen begrijpen:
-
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = 2 !divide! x.svg){ width="500" }
-        <figcaption>Figuur 4. De grafiek $f(x) = \dfrac{1}{x}$ geplot met vlakdeel $V$. Het vlakdeel $V$ gaat van $x = -1000$ (te groot om weer te geven in de schets) tot $x = -1$.</figcaption>
-    </figure>
-
-    Om dit op te lossen moeten we eerst de integraal opstellen. We hebben de grenzen al gekregen, dus onze integraal wordt:
-
-    $$\large{V = \int_{-1000}^{-1} \dfrac{2}{x} \, dx}$$
-    
-    In de [tabel](#tabel-met-veel-voorkomende-functies) kunnen we zien dat de primitieve van $\dfrac{1}{x}$ is $\ln|x|$. Nu hebben we nog een extra factor $2$, maar die kunnen we er gewoon voor laten staan:
-
-    $$\large{V = \left[ \, 2\ln|x| \, \right]_{-1000}^{-1}}$$
-
-    Als we de grenzen invullen, krijgen we:
-
-    $$\large{V = 2\ln|-1| \ - \ 2\ln|-1000|}$$
-
-    En nu zien we waarom de absolute waarde nemen hier zo belangrijk is. Want een logaritme van een negatief getal bestaat niet. Maar gelukkig maakt de absolute waarde het weer positief:
-
-    $$\large{V = 2\ln(1) - 2\ln(1000)}$$
-
-    Het logaritme van $1$ is altijd $0$ (want $e^0$ is $1$), dus we kunnen dit versimpelen naar:
-
-    $$\large{V = -2\ln(1000)}$$
-
-    We kunnen eventueel de $1000$ nog schrijven als $10^3$ en dan de derde macht uit de $\ln$ halen:
-
-    $$\large{V = 3\cdot -2\ln(10)}$$
-
-    !!! quote ""
-        $$\large{V = -6\ln(10)}$$
-
-    <br><br>
-
-    **<span style="font-size: 17px;">b)</span>**
-
-    We willen dat de oppervlakte van $V$ verdubbelt, dus onze nieuwe oppervlakte wordt:
-
-    $$\large{V = 2 \cdot -6\ln(10)}$$
-
-    $$\large{V = -12\ln(10)}$$
-
-    We willen dus bepalen bij welke $p$ een grens van $x=p$ een oppervlakte geeft van $V = -12\ln(10)$.
-    
-    We hebben de integraal bij a) al berekend, alleen laten we de $p$ nu staan in plaats van $-1000$ in te vullen:
-
-    $$\large{V = \int_{p}^{-1} \dfrac{2}{x} \, dx}$$
-
-    $$\large{V = \left[ \, 2\ln|x| \, \right]_{p}^{-1}}$$
-
-    Nu vullen we deze grenzen in:
-
-    $$\large{V = 2\ln|-1| \ - \ 2\ln|p|}$$
-
-    We weten dat $\ln(1)$ is $0$, dus dit kunnen we versimpelen naar:
-
-    $$\large{V = -2\ln|p|}$$
-
-    En nu kunnen we zeggen dit gelijk moet zijn aan de $-12\ln(10)$ die we net hebben berekend:
-
-    $$\large{-2\ln|p| = -12\ln(10)}$$
-
-    En deze vergelijking kunnen we gaan oplossen om $p$ te bepalen. We beginnen met aan beide kanten te delen door $-2$:
-
-    $$\large{\ln|p| = 6\ln(10)}$$
-
-    Om de logaritmes weg te werken, stoppen we de $6$ eerst in de logaritme als macht:
-
-    $$\large{\ln|p| = \ln(10^6)}$$
-
-    Nu kunnen we de logaritme aan beide kanten weghalen:
-    
-    $$\large{|p| = 10^6}$$
-
-    We hebben nu dat $|p|$ gelijk is aan $10^6$, dus dit betekent dat er twee opties zijn:
-
-    $$\large{p = 10^6 \ \vee \ p = -10^6}$$
-
-    We hebben in de vraag gekregen dat $p < 1$, dus de juiste oplossing is:
-
-    $$\large{p = -10^6}$$
-
-    $$\large{p = -1 \, 000 \, 000}$$
-
-    We moesten in de vraag bepalen met welke factor $p$ groter werd. $p$ is van $-1000$ naar $-1 \, 000 \, 000$ gegaan, en dit is een toename van een factor $1000$. Dus we krijgen als eindantwoord:
-
-    !!! quote ""
-        $$\large{\textrm{Toename met een factor } 1000}$$ 
-
-
-??? example "Voorbeeld 6: Bereken exact de oppervlakte van vlakdeel $V$ onder de functie $f(x) = \sqrt{x}$"
+??? example "Voorbeeld 4: Bereken exact de oppervlakte van vlakdeel $V$ onder de functie $f(x) = \sqrt{x}$"
     *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = \sqrt{x}$, de $x$-as en de lijn $x = p$, met $p > 1$. Vlakdeel $W$ wordt ingesloten door de grafiek van $f(x)$, de $x$-as, de lijn $x=2$ en de lijn $x = 2p$</p>*
 
     <br>
@@ -936,7 +828,7 @@ $$V = \left[ \, 2x^3 \, \right]_0^1 = 2 \cdot 1^3 - 2 \cdot 0^3 = 2$$
 
     <figure markdown>
     ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = sqrt(x).svg){ width="500" }
-        <figcaption>Figuur 5. De grafiek $f(x) = \sqrt{x}$ geplot met vlakdeel $V$ en $W$. Vlakdeel $W$ is $\sqrt{2}$ keer groter dan vlakdeel $V$.</figcaption>
+        <figcaption>Figuur 3. De grafiek $f(x) = \sqrt{x}$ geplot met vlakdeel $V$ en $W$. Vlakdeel $W$ is $\sqrt{2}$ keer groter dan vlakdeel $V$.</figcaption>
     </figure>
 
     Laten we eerst de oppervlakte van vlakdeel $V$ uitdrukken in $p$. Vlakdeel $V$ ligt tussen $x=0$ en $x=p$:
@@ -1017,8 +909,116 @@ $$V = \left[ \, 2x^3 \, \right]_0^1 = 2 \cdot 1^3 - 2 \cdot 0^3 = 2$$
         $$\large{V = 1 \dfrac{1}{3}}$$
 
 
+??? example "Voorbeeld 5: Bereken de oppervlakte van vlakdeel $V$ onder de functie $f(x) = \dfrac{2}{x}$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = \dfrac{2}{x}$, de $x$-as, de lijn $x=-1$ en de lijn $x=p$, met $p < -1$.</p>*
 
-??? example "Voorbeeld 7: Bereken de oppervlakte van vlakdeel $V$ onder de functie $f(x) = \left( 4x - 7 \right)^3 - 10x + 18$"
+    <br>
+
+    **<span style="font-size: 17px;">a) Bereken de oppervlakte van vlakdeel $V$ met $p = 1000$.</span>**
+
+    **<span style="font-size: 17px;">b) Bepaal de factor waarmee $p$ moet toenemen om de oppervlakte van $V$ te verdubbelen.</span>**
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    <br>
+
+    **<span style="font-size: 17px;">a)</span>**
+
+    Laten we als eerst een schets maken om de situatie beter te kunnen begrijpen:
+
+    <figure markdown>
+    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = 2 !divide! x.svg){ width="500" }
+        <figcaption>Figuur 4. De grafiek $f(x) = \dfrac{1}{x}$ geplot met vlakdeel $V$. Het vlakdeel $V$ gaat van $x = -1000$ (te groot om weer te geven in de schets) tot $x = -1$.</figcaption>
+    </figure>
+
+    We zien in Figuur 4 dat deze oppervlakte [onder de $x$-as](#oppervlaktes-onder-de-x-as) ligt. Dit betekent dat we een '$-$' moeten toevoegen aan onze integraal. We hebben de grenzen al gekregen, dus onze integraal wordt:
+
+    $$\large{V = - \int_{-1000}^{-1} \dfrac{2}{x} \, dx}$$
+    
+    In de [tabel](#tabel-met-veel-voorkomende-functies) kunnen we zien dat de primitieve van $\dfrac{1}{x}$ gelijk is aan $\ln|x|$. Nu hebben we nog een extra factor $2$, maar die kunnen we er gewoon voor laten staan:
+
+    $$\large{V = - \left[ \, 2\ln|x| \, \right]_{-1000}^{-1}}$$
+
+    Als we de grenzen invullen en min elkaar doen, krijgen we:
+
+    $$\large{V = -\left( \,  2\ln|\! - \! 1| \ - \ 2\ln|\! - \! 1000| \, \right)}$$
+
+    $$\large{V = -2\ln|\! - \! 1| \ + \ 2\ln|\! - \! 1000|}$$
+
+    En nu zien we waarom de absolute waarde nemen hier zo belangrijk is. Want een logaritme van een negatief getal bestaat niet. Maar gelukkig maakt de absolute waarde het weer positief:
+
+    $$\large{V = -2\ln(1) + 2\ln(1000)}$$
+
+    Het logaritme van $1$ is altijd $0$ (want $e^0$ is $1$), dus we kunnen dit versimpelen naar:
+
+    $$\large{V = 2\ln(1000)}$$
+
+    We kunnen eventueel de $1000$ nog schrijven als $10^3$ en dan de derde macht uit de $\ln$ halen:
+
+    $$\large{V = 3\cdot 2\ln(10)}$$
+
+    !!! quote ""
+        $$\large{V = 6\ln(10)}$$
+
+    <br><br>
+
+    **<span style="font-size: 17px;">b)</span>**
+
+    We willen dat de oppervlakte van $V$ verdubbelt, dus onze nieuwe oppervlakte wordt dan:
+
+    $$\large{V = 2 \cdot 6\ln(10)}$$
+
+    $$\large{V = 12\ln(10)}$$
+
+    We willen dus bepalen bij welke $p$ een grens van $x=p$ een oppervlakte geeft van $V = 12\ln(10)$.
+    
+    We hebben de integraal bij a) al berekend, alleen laten we de $p$ nu staan in plaats van $-1000$ in te vullen bij de grenzen:
+
+    $$\large{V = -\int_{p}^{-1} \dfrac{2}{x} \, dx}$$
+
+    $$\large{V = -\left[ \, 2\ln|x| \, \right]_{p}^{-1}}$$
+
+    Nu vullen we deze grenzen in en doen het min elkaar:
+
+    $$\large{V = -\left( \, 2\ln|\! - \! 1| \ - \ 2\ln|p| \, \right)}$$
+
+    $$\large{V = -2\ln|\! - \! 1| \ + \ 2\ln|p|}$$
+
+    We weten dat $\ln(1)$ is $0$, dus dit kunnen we versimpelen naar:
+
+    $$\large{V = 2\ln|p|}$$
+
+    En nu kunnen we zeggen dit gelijk moet zijn aan de $12\ln(10)$ die we net hebben berekend:
+
+    $$\large{2\ln|p| = 12\ln(10)}$$
+
+    En deze vergelijking kunnen we gaan oplossen om $p$ te bepalen. We beginnen met aan beide kanten te delen door $2$:
+
+    $$\large{\ln|p| = 6\ln(10)}$$
+
+    Om de logaritmes weg te werken, stoppen we de $6$ eerst in de logaritme als macht:
+
+    $$\large{\ln|p| = \ln(10^6)}$$
+
+    Nu kunnen we de logaritme aan beide kanten weghalen:
+    
+    $$\large{|p| = 10^6}$$
+
+    We hebben nu dat $|p|$ gelijk is aan $10^6$, dus dit betekent dat er twee opties zijn:
+
+    $$\large{p = 10^6 \ \vee \ p = -10^6}$$
+
+    We hebben in de vraag gekregen dat $p < -1$, dus de juiste oplossing is:
+
+    $$\large{p = -10^6 = -1 \, 000 \, 000}$$
+
+    We moesten in de vraag bepalen met welke factor $p$ groter werd. $p$ is van $-1000$ naar $-1 \, 000 \, 000$ gegaan, dus het is toegenomen met een $1000$:
+
+    !!! quote ""
+        $$\large{\textrm{Toename met een factor } 1000}$$ 
+
+
+??? example "Voorbeeld 6: Bereken de oppervlakte van vlakdeel $V$ onder de functie $f(x) = \left( 4x - 7 \right)^3 - 10x + 18$"
     *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = \left( 4x - 7 \right)^3 - 10x + 18$, de $x$-as en de buitenste twee snijpunten met de $x$-as.</p>*
 
     <br>
@@ -1031,14 +1031,19 @@ $$V = \left[ \, 2x^3 \, \right]_0^1 = 2 \cdot 1^3 - 2 \cdot 0^3 = 2$$
 
     <figure markdown>
     ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = (4x-7)^3 -10x + 18.svg){ width="500" }
-        <figcaption>Figuur 6. De grafiek $f(x) = \left( 4x - 7 \right)^3 - 10x + 18$ geplot met vlakdeel $V$. Vlakdeel $V$ ligt tussen de buitenste twee snijpunten met de $x$-as.<figcaption>
+        <figcaption>Figuur 5. De grafiek $f(x) = \left( 4x - 7 \right)^3 - 10x + 18$ geplot met vlakdeel $V$. Vlakdeel $V$ ligt tussen de buitenste twee snijpunten met de $x$-as.<figcaption>
     </figure>
 
-    Om de oppervlakte $V$ te kunnen bepalen, moeten we eerst de grenzen weten. En we komeh hier achter door de [snijpunten met de $x$-as](kwadratische_vergelijkingen.md#snijpunten-met-de-x-as) te bepalen. We moeten dan de volgende vergelijkingen oplossen:
+    We zien hier dat de oppervlakte $V$ bestaat uit [een deel boven en een deel onder de $x$-as](#deel-boven-en-deel-onder-de-x-as). We willen $V$ dus opsplitsen in het deel boven en het deel onder de $x$-as:
+
+    <figure markdown>
+    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = (4x-7)^3 -10x + 18 (gesplitst).svg){ width="500" }
+        <figcaption>Figuur 6. De grafiek $f(x) = \left( 4x - 7 \right)^3 - 10x + 18$ geplot met vlakdeel $I$ en vlakdeel $II$. Vlakdeel $I$ ligt tussen het linker en middelste snijpunt met de $x$-as. Vlakdeel $II$ ligt tussen het middelste en rechter snijpunt met de $x$-as.<figcaption>
+    </figure>
+
+    Om de oppervlakte van $V$ te kunnen bepalen, moeten we eerst de grenzen weten. We moeten dus de [snijpunten met de $x$-as](kwadratische_vergelijkingen.md#snijpunten-met-de-x-as) bepalen. Om dit te doen, moeten we $f(x)$ gelijk aan $0$ stellen:
 
     $$\large{f(x) = 0}$$
-    
-    En als we $f(x)$ invullen:
 
     $$\large{\left( 4x - 7 \right)^3 - 10x + 18 = 0}$$
 
@@ -1050,13 +1055,11 @@ $$V = \left[ \, 2x^3 \, \right]_0^1 = 2 \cdot 1^3 - 2 \cdot 0^3 = 2$$
 
     De optie intersect geeft:
 
-    $$\large{\left\{ \begin{array}{ l l l } x_1 \approx 1.33175  \\ x_2 \approx 1.80084 \\ x_3 \approx 2.1174 \end{array} \right.}$$
+    $$\large{\left\{ \begin{array}{ l l l } x_1 \approx 1.33175  \\ x_2 \approx 1.80084 \\ x_3 \approx 2.11740 \end{array} \right.}$$
 
-    De buitenste twee snijpunten zijn dus $x_1 \approx 1.33175$ en $x_3 \approx 2.1174$. Dit zijn dus ook onze grenzen. 
-    
-    Hiermee kunnen we nu de integraal opstellen:
+    Laten we eerst de integraal opstellen voor $I$. We zeiden net dat die het linker en middelste snijpunt als grenzen heeft:
 
-    $$\large{V = \int_{1.33175}^{2.1174} \left( 4x - 7 \right)^3 - 10x + 18} \, dx$$ 
+    $$\large{I = \int_{1.33175}^{1.80084} \left( 4x - 7 \right)^3 - 10x + 18 \, dx}$$ 
 
     Nu moeten we deze functie primitiveren. 
     
@@ -1066,49 +1069,198 @@ $$V = \left[ \, 2x^3 \, \right]_0^1 = 2 \cdot 1^3 - 2 \cdot 0^3 = 2$$
 
     We krijgen dus:
 
-    $$\large{\widetilde{V} = \left[ \, \dfrac{1}{4} \left( 4x - 7 \right)^4 - \dfrac{1}{2} \cdot 10x^2 + 18x \, \right]_{1.33175}^{2.1174}}$$ 
+    $$\large{\widetilde{I} = \left[ \, \dfrac{1}{4} \left( 4x - 7 \right)^4 - \dfrac{1}{2} \cdot 10x^2 + 18x \, \right]_{1.33175}^{1.80084}}$$ 
 
-    Maar als we de eerste term zouden afleiden, dan krijgen we door de productregel een extra factor $4$. Omdat we die factor niet willen hebben, moeten we bij de primitieve deze weg compenseren door een extra factor $\frac{1}{4}$ toe te voegen:
+    Maar als we de eerste term zouden afleiden, dan krijgen we door de [kettingregel](afgeleide.md#regels) een extra factor $4$. Omdat we die factor niet willen hebben, moeten we bij de primitieve deze weg compenseren door een extra factor $\frac{1}{4}$ toe te voegen:
 
-    $$\large{V = \left[ \, \dfrac{1}{4} \cdot \dfrac{1}{4} \left( 4x - 7 \right)^4 - \dfrac{1}{2} \cdot 10x^2 + 18x \, \right]_{1.33175}^{2.1174}}$$ 
+    $$\large{\widetilde{I} = \left[ \, \dfrac{1}{4} \cdot \dfrac{1}{4} \left( 4x - 7 \right)^4 - \dfrac{1}{2} \cdot 10x^2 + 18x \, \right]_{1.33175}^{1.80084}}$$
 
     Dit kunnen we nog iets versimpelen:
 
-    $$\large{V = \left[ \, \dfrac{1}{16} \left( 4x + 7 \right)^4 - 5x^2 + 18x \, \right]_{1.33175}^{2.1174}}$$
+    $$\large{I = \left[ \, \dfrac{1}{16} \left( 4x + 7 \right)^4 - 5x^2 + 18x \, \right]_{1.33175}^{1.80084}}$$
 
     Nu moeten we de grenzen invullen en min elkaar doen:
 
-    $$\large{V = \dfrac{1}{16} \left( 4 \cdot 2.1174 - 7 \right)^4 - 5 \cdot 2.1174^2 + 18 \cdot 2.1174 - \left( \dfrac{1}{16} \left( 4 \cdot 1.33175 - 7 \right)^4 - 5 \cdot 1.33175^2 + 18 \cdot 1.33175 \right)}$$
+    $$\large{I = \dfrac{1}{16} \left( 4 \cdot 1.80084 - 7 \right)^4 - 5 \cdot 1.80084^2 + 18 \cdot 1.80084 - \left( \dfrac{1}{16} \left( 4 \cdot 1.33175 - 7 \right)^4 - 5 \cdot 1.33175^2 + 18 \cdot 1.33175 \right)}$$
 
     En als we dit uitrekenen met een rekenmachine, dan vinden we:
 
-    $$\large{V = 0.3944768187654191...}$$
+    $$\large{\boxed{I = 0.606768454058562...}}$$
+
+    Nu kunnen we hetzelfde doen voor $II$. We zagen eerder dat deze oppervlakte tussen het middelste snijpunt ($x \approx 1.80084$) en het rechter snijpunt ($x \approx 2.11740$) zit. Verder is deze oppervlakte [onder de $x$-as](#oppervlaktes-onder-de-x-as), dus we moeten nog een '$-$' toevoegen bij de integraal:
+
+    $$\large{II = - \int_{1.80084}^{2.11740} \left( 4x - 7 \right)^3 - 10x + 18 \, dx}$$ 
+
+    We hebben net al de primitieve bepaald:
+
+    $$\large{II = - \left[ \, \dfrac{1}{16} \left( 4x + 7 \right)^4 - 5x^2 + 18x \, \right]_{1.80084}^{2.11740}}$$
+
+    En nu vullen we de grenzen in:
+
+    $$\large{II = - \left( \, \dfrac{1}{16} \left( 4 \cdot 2.11740 - 7 \right)^4 - 5 \cdot 2.11740^2 + 18 \cdot 2.11740 - \left( \dfrac{1}{16} \left( 4 \cdot 1.80084 - 7 \right)^4 - 5 \cdot 1.80084^2 + 18 \cdot 1.80084 \right) \, \right)}$$
+
+    En als we dit uitrekenen met een rekenmachine, dan vinden we:
+
+    $$\large{\boxed{II = 0.212291635293138...}}$$
+
+    En nu kunnen we $V$ bepalen door $I$ en $II$ bij elkaar op te tellen:
+
+    $$\large{V = 0.606768454058562... \ + \ 0.212291635293138...}$$
+
+    $$\large{V = 0.8190600893517...}$$
 
     We moesten dit op twee decimalen nauwkeurig schrijven, dus ons eindantwoord wordt:
 
     !!! quote ""
-        $$\large{V \approx 0.39}$$
+        $$\large{V \approx 0.82}$$
 
+
+??? example "Voorbeeld 7: Bereken exact de oppervlakte van vlakdeel $V$ onder de functie $f(x) = \cos(x)$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = \cos(x)$, de lijn $x = \frac{1}{6} \pi$ en de lijn $x = p$, met $\frac{1}{6} \pi < p < \pi$.</p>*
+
+    <br>
+
+    **<span style="font-size: 17px;">a) Bereken de oppervlakte van vlakdeel $V$ voor $p = \frac{2}{3} \pi$.</span>**
+
+    **<span style="font-size: 17px;">b) Bepaal $p$ als $V$ precies $1$ is.</span>**
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    <br>
+
+    **<span style="font-size: 17px;">a)</span>**
+
+    Als eerst maken we een schets om de situatie beter te kunnen begrijpen:
+
+    <figure markdown>
+    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = cos(x).svg){ width="500" }
+        <figcaption>Figuur 7. De grafiek $f(x) = \cos(x)$ geplot met vlakdeel $V$. Het vlakdeel $V$ gaat van $x = \frac{1}{6} \pi$ tot $x = \frac{2}{3} \pi$.</figcaption>
+    </figure>
+
+    We zien hier dat we een [deel boven en een deel onder de $x$-as](#deel-boven-en-deel-onder-de-x-as) hebben. Om de oppervlakte van $V$ te berekenen, moeten we dit dus opsplitsen in twee oppervlaktes. 
+
+    <figure markdown>
+    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = cos(x) (gesplitst).svg){ width="500" }
+        <figcaption>Figuur 8. De grafiek $f(x) = \cos(x)$ geplot met vlakdeel $I$ en vlakdeel $II$. Vlakdeel $I$ is het gedeelte van $V$ boven de $x$-as, vlakdeel $II$ het gedeelte onder de $x$-as.</figcaption>
+    </figure>
+
+    Nu dat we $V$ gesplitst hebben in een deel boven de $x$-as en een deel onder de $x$-as, moeten we berekenen waar ze worden gesplitst. Dan weten we namelijk de grenzen van beide oppervlaktes. 
+    
+    We weten dat $I$ overgaat in $II$ bij de $x$-as. We moeten dus het snijpunt bepalen met de $x$-as dat binnen de grenzen van $V$ ligt ($x=\frac{1}{6} \pi$ en $x=\frac{2}{3}$). Dit doen we door $f(x)$ gelijk aan $0$ te stellen:
+
+    $$\large{\cos(x) = 0}$$
+
+    Om dit op te lossen moeten we eerst de $0$ schrijven als een cosinus. Op de [eenheidscirkel](goniometrie.md#de-eenheidscirkel) kunnen we aflezen dat $\cos(\frac{1}{2} \pi) = 0$. We kunnen dit dus ook schrijven als:
+
+    $$\large{\cos(x) = \cos(\frac{1}{2} \pi)}$$
+
+    En nu kunnen we deze [cosinus vergelijking uitwerken](goniometrie.md#algemene-oplossing):
+
+    $$\large{x = \frac{1}{2} \pi + k \cdot 2\pi \ \vee \ x = -\frac{1}{2} + k \cdot 2\pi}$$
+
+    We wilden het snijpunt bepalen dat tussen $x=\frac{1}{6} \pi$ en $x=\frac{2}{3} \pi$ ligt. We vinden dan alleen maar $1$ oplossing:
+
+    $$\large{\boxed{x = \frac{1}{2} \pi}}$$
+
+    Nu weten we dus de grenzen van zowel $I$ als $II$, want de grenzen van $V$ wisten we al. Dus $I$ begint bij $x=\frac{1}{6} \pi$ en eindigt bij $x=\frac{1}{2} \pi$ en $II$ begint juist bij $x=\frac{1}{2} \pi$ en eindigt bij $x=\frac{2}{3} \pi$. $V$ is deze twee vlakdelen plus elkaar, dus we krijgen: 
+
+    $$\large{V = \int_{\frac{1}{6} \pi}^{\frac{1}{2} \pi} \cos(x) \, dx \, + \int_{\frac{1}{2} \pi}^{\frac{2}{3} \pi} -\cos(x) \, dx}$$
+
+    De tweede integraal krijgt dus een '$-$' omdat vlakdeel $II$ [onder de $x$-as](#oppervlaktes-onder-de-x-as) ligt.
+
+    In de [tabel](#tabel-met-veel-voorkomende-functies) kunnen we zien dat de primitieve van $\cos(x)$ gelijk is aan $\sin(x)$:
+
+    $$\large{V = \left[ \, \sin(x) \, \right]_{\frac{1}{6} \pi}^{\frac{1}{2} \pi} + \left[ \, -\sin(x) \, \right]_{\frac{1}{2} \pi}^{\frac{2}{3} \pi}}$$ 
+
+    Nu vullen we de grenzen in:
+
+    $$\large{V = \left( \sin(\frac{1}{2} \pi) - \sin(\frac{1}{6} \pi) \right) + \left( -\sin(\frac{2}{3} \pi) - -\sin(\frac{1}{2} \pi) \right)}$$ 
+
+    $$\large{V = \left( \sin(\frac{1}{2} \pi) - \sin(\frac{1}{6} \pi) \right) + \left( -\sin(\frac{2}{3} \pi) + \sin(\frac{1}{2} \pi) \right)}$$ 
+
+    En als we dit uitwerken, vinden we:
+
+    $$\large{V = \left( 1 - \frac{1}{2} \right) + \left( -\dfrac{1}{2} \sqrt{3} + 1\right)}$$ 
+
+    !!! quote ""
+        $$\large{V = 1\dfrac{1}{2} - \dfrac{1}{2} \sqrt{3}}$$
+
+
+    <br><br>
+
+    **<span style="font-size: 17px;">b)</span>**
+
+    Nu willen we $p$ weten wanneer er geldt dat $V=1$. De oppervlakte die we bij a) hebben berekend is kleiner dan $1$ (want $V = 1\frac{1}{2} - \frac{1}{2} \sqrt{3} \approx 0.63$). Dit betekent dus dat we verwachten dat $p$ groter is dan de $\frac{2}{3} \pi$ van net. Laten we een nieuwe schets maken:
+
+    <figure markdown>
+    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = cos(x) (p onbekend).svg){ width="500" }
+        <figcaption>Figuur 9. De grafiek $f(x) = \cos(x)$ geplot met vlakdeel $I$ en vlakdeel $II$. Vlakdeel $I$ is het gedeelte van $V$ boven de $x$-as, vlakdeel $II$ het gedeelte onder de $x$-as.</figcaption>
+    </figure>
+    
+    Laten we net zoals bij a) de vergelijking voor $V$ opstellen. Alleen nu laten we de grens $x=p$ staan in plaats van $\frac{2}{3} \pi$ in te vullen:
+
+    $$\large{V = \int_{\frac{1}{6} \pi}^{\frac{1}{2} \pi} \cos(x) \, dx \, + \int_{\frac{1}{2} \pi}^{p} -\cos(x) \, dx}$$
+
+    $$\large{V = \left[ \, \sin(x) \, \right]_{\frac{1}{6} \pi}^{\frac{1}{2} \pi} + \left[ \, -\sin(x) \, \right]_{\frac{1}{2} \pi}^{p}}$$ 
+
+    Nu vullen we de grenzen in:
+
+    $$\large{V = \left( \sin(\frac{1}{2} \pi) - \sin(\frac{1}{6} \pi) \right) + \left( -\sin(p) - -\sin(\frac{1}{2} \pi) \right)}$$ 
+
+    $$\large{V = \left( \sin(\frac{1}{2} \pi) - \sin(\frac{1}{6} \pi) \right) + \left( -\sin(p) + \sin(\frac{1}{2} \pi) \right)}$$ 
+
+    En als we dit uitwerken, vinden we:
+
+    $$\large{V = \left( 1 - \frac{1}{2} \right) + \left( -\sin(p) + 1\right)}$$ 
+
+    $$\large{V = -\sin(p) + 1\dfrac{1}{2}}$$ 
+
+    We wilden $p$ weten voor $V = 1$:
+
+    $$\large{-\sin(p) + 1\frac{1}{2} = 1}$$
+
+    Nu kunnen we deze vergelijking oplossen om $p$ te vinden. We halen eerst alle getallen naar rechts door aan beide kanten $-1\frac{1}{2}$ te doen:
+
+    $$\large{-\sin(p) = -\dfrac{1}{2}}$$
+
+    En nu doen we nog beide kanten keer $-1$:
+
+    $$\large{\sin(p) = \dfrac{1}{2}}$$
+
+    Om dit op te lossen moeten we eerst aan beide kanten een sinus hebben. We kunnen op de [eenheidscirkel](goniometrie.md#de-eenheidscirkel) aflezen dat $\sin(\frac{1}{6} \pi) = \frac{1}{2}$, dus we kunnen dit ook schrijven als:
+
+    $$\large{\sin(p) = \sin(\frac{1}{6} \pi)}$$
+
+    Nu kunnen we de [algemene oplossing](goniometrie.md) gebruiken voor een sinus:
+
+    $$\large{p = \frac{1}{6} \pi + k \cdot 2 \pi \ \vee \ p = \pi - \frac{1}{6} \pi + k \cdot 2 \pi}$$
+
+    $$\large{p = \frac{1}{6} \pi + k \cdot 2 \pi \ \vee \ p = \frac{5}{6} \pi + k \cdot 2 \pi}$$
+
+    We hadden in de vraag gegeven gekregen dat $p$ tussen $\frac{1}{6} \pi$ en $\pi$ ligt. Maar het kan niet $p=\frac{1}{6} \pi$ zijn, want daar begint de oppervlakte. Er blijft dan maar $1$ mogelijke oplossing over:
+
+    !!! quote ""
+        $$\large{p = \frac{5}{6} \pi}$$ 
 
 
 ## **Oppervlakte tussen twee grafieken**
 
-We hebben net gekeken naar oppervlaktes onder allemaal verschillende grafieken. Maar kunnen we ook een oppervlakte bepalen dat tussen twee grafieken ligt? 
+We hebben net gezien hoe we de oppervlakte onder een grafiek kunnen berekenen door te integreren. Maar kunnen we ook de oppervlakte berekenen van een vlakdeel tussen twee grafieken? 
 
 Laten we kijken naar de volgende functies:
 
 $$\large{\left\{ \begin{array}{ l l } f(x) =  6 - x^2  \\ g(x) = x + 4 \end{array} \right.}$$
 
-Stel dat we de oppervlakte tussen deze twee functies willen bepalen, hoe pakken we dat aan?
+Stel dat we de oppervlakte tussen deze twee functies willen bepalen. Hoe pakken we dat aan?
 
-In Figuur 1 hieronder zijn de twee functies geplot met het vlakdeel $V$ dat tussen de twee functies in ligt:
+In Figuur 1 hebben we de twee functies geplot met het vlakdeel $V$ dat tussen de twee functies in ligt:
 
 <figure markdown>
 ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = 6 - x^2; g(x) = x + 4.svg){ width="500" }
     <figcaption>Figuur 1. Grafiek geplot met de functies $f(x) =  6 - x^2$ en $g(x) = x + 4$. Vlakdeel $V$ ligt tussen de twee functies in.<figcaption>
 </figure>
 
-We kunnen de oppervlakte van $V$ berekenen door de oppervlakte onder $f(x)$ min de oppervlakte onder $g(x)$ te doen. Kijk maar naar deze twee oppervlaktes:
+De oppervlakte van $V$ kunnen we bepalen door de oppervlakte onder $f(x)$ en de oppervlakte onder $g(x)$ te gebruiken. Laten we deze twee oppervlaktes tekenen:
 
 <figure markdown>
 ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = 6 - x^2; g(x) = x + 4 (Opp I).svg){ width="500" }
@@ -1116,96 +1268,100 @@ We kunnen de oppervlakte van $V$ berekenen door de oppervlakte onder $f(x)$ min 
     <figcaption>Figuur 2. Grafiek geplot met de functies $f(x) =  6 - x^2$ en $g(x) = x + 4$. Vlakdeel $I$ is de oppervlakte onder $f(x)$, vlakdeel $II$ is de oppervlakte onder $g(x)$.<figcaption>
 </figure>
 
-Als we deze twee oppervlaktes min elkaar doen, houden we alleen maar het gedeelte van $I$ over dat boven $g(x)$ ligt. En dat is precies vlakdeel $V$ van Figuur 1. We kunnen dus schrijven:
+In Figuur 2 kunnen we zien dat vlakdeel $I$ heel erg lijkt op vlakdeel $II$. Het enige verschil is dat vlakdeel $I$ het stuk tussen $f(x)$ en $g(x)$ extra heeft. Het gedeelte dat vlakdeel $I$ dus groter maakt dan vlakdeel $II$ is de oppervlakte tussen $f(x)$ en $g(x)$. En dat is precies het vlakdeel $V$ dat we willen berekenen.
+
+Dus als we $V$ willen bepalen, moeten we kijken naar het verschil tussen $I$ en $II$. We moeten dus de oppervlaktes min elkaar doen:
 
 $$V = I - II$$
 
-En de oppervlaktes van $I$ en $II$ kunnen we gewoon bepalen met integralen. We zien in Figuur 2 dat beide oppervlaktes dezelfde grenzen hebben, namelijk de snijpunten tussen de twee functies. We kunnen aflezen dat dit de punten $x=-1$ en $x=2$ zijn. Onze integralen worden dan:
+En deze oppervlaktes kunnen we gewoon bepalen door te integreren. We zien in Figuur 2 dat beide oppervlaktes dezelfde grenzen hebben, namelijk de snijpunten tussen de twee functies. We kunnen aflezen dat dit de punten $x=-2$ en $x=1$ zijn. De integralen worden dan:
 
-$$I = \int_{-1}^2 f(x) \, dx$$
+$$I = \int_{-2}^1 f(x) \, dx$$
 
-$$II = \int_{-1}^2 g(x) \, dx$$
+$$II = \int_{-2}^1 g(x) \, dx$$
 
-Met deze informatie kunnen we een vergelijking voor $V$ opstellen:
+Nu kunnen we een vergelijking voor $V$ opstellen door $I$ en $II$ in te vullen:
 
-$$V = \int_{-1}^2 f(x) \, dx - \int_{-1}^2 g(x) \, dx$$
+$$V = \int_{-2}^1 f(x) \, dx - \int_{-2}^1 g(x) \, dx$$
 
-En omdat deze twee integralen dezelfde grenzen hebben, kunnen we het [schrijven als $1$ integraal](#twee-integralen-combineren):
+En omdat deze twee integralen dezelfde grenzen hebben, kunnen we het [schrijven als $1$ integraal](#integralen-samenvoegen):
 
-$$\boxed{V = \int_{-1}^2 \left( f(x) - g(x) \right) \, dx}$$
+$$\boxed{V = \int_{-2}^1 \left( f(x) - g(x) \right) \, dx}$$
 
 Dit is dus de integraal om een oppervlakte tussen twee functies te bepalen. 
 
 Laten we nu $f(x)$ en $g(x)$ invullen:
 
-$$V = \int_{-1}^2 \left( 6 - x^2 - \left( x+4 \right) \right) \, dx$$
+$$V = \int_{-2}^1 \left( 6 - x^2 - \left( x+4 \right) \right) \, dx$$
 
 En als we dit versimpelen:
 
-$$V = \int_{-1}^2 \left( 6 - x^2 - x - 4 \right) \, dx$$
+$$V = \int_{-2}^1 \left( 6 - x^2 - x - 4 \right) \, dx$$
 
-$$V = \int_{-1}^2 \left(- x^2 - x + 2 \right) \, dx$$
+$$V = \int_{-2}^1 \left(- x^2 - x + 2 \right) \, dx$$
 
 Nu kunnen we deze functie gaan integreren:
 
-- De eerste twee termen zijn van de vorm $f(x) = ax^n$ (want we kunnen de $x$ term schrijven als $x^1$). Om deze vorm te primitiveren, moeten we de macht $+1$ doen. Daarna zetten we een factor van $1$ gedeeld door deze niuwe macht vóór de term.
+- De eerste twee termen zijn van de vorm $f(x) = ax^n$ (want we kunnen de $x$ term schrijven als $x^1$). Om deze vorm te primitiveren, moeten we de macht $+1$ doen. Daarna zetten we een factor van $1$ gedeeld door deze nieuwe macht vóór de term.
 
 - De laaste term is een constante (een los getal zonder $x$). Om een constante te primitiveren, moeten we er gewoon een $x$ aanvast plakken.
 
-Als we dit gebruiken, dan krijgen we:
+We krijgen dus:
 
-$$V = \left[- \dfrac{1}{3}x^3 - \dfrac{1}{2} x^2 + 2x \right]_{-1}^2$$
+$$V = \left[- \dfrac{1}{3}x^3 - \dfrac{1}{2} x^2 + 2x \right]_{-2}^1$$
 
-Nu vullen we de grenzen in:
+Nu vullen we de grenzen in en doen het min elkaar:
 
-$$V = - \dfrac{1}{3} \cdot 2^3 - \dfrac{1}{2} \cdot 2^2 + 2 \cdot 2 - \left(- \dfrac{1}{3} \cdot (-1)^3 - \dfrac{1}{2} \cdot (-1)^2 + 2 \cdot -1 \right)$$
+$$V = \left( - \dfrac{1}{3} \cdot 1^3 - \dfrac{1}{2} \cdot 1^2 + 2 \cdot 1 \right) - \left(- \dfrac{1}{3} \cdot (-2)^3 - \dfrac{1}{2} \cdot (-2)^2 + 2 \cdot -2 \right)$$
 
 En als we dit uitwerken, dan krijgen we:
 
-$$V = - \dfrac{1}{3} \cdot 8 - \dfrac{1}{2} \cdot 4 + 4 - \left(- \dfrac{1}{3} \cdot -1 - \dfrac{1}{2} \cdot 1 - 2 \right)$$
+$$V = \left(- \dfrac{1}{3} \cdot 1 - \dfrac{1}{2} \cdot 1 + 2 \right) - \left(- \dfrac{1}{3} \cdot -8 - \dfrac{1}{2} \cdot 4 - 4 \right)$$
 
-$$V = - 2\dfrac{2}{3} - 2 + 4 - \left(\dfrac{1}{3} - \dfrac{1}{2} - 2 \right)$$
+$$V = \left( - \dfrac{1}{3} - \dfrac{1}{2} + 2\right) - \left(2 \dfrac{2}{3} - 2 - 4 \right)$$
 
-$$V = -\dfrac{2}{3} - \left(- 2 \dfrac{1}{6} \right)$$
+$$V = \left(1 \dfrac{1}{6} \right) - \left(- 3 \dfrac{1}{3} \right)$$
 
-$$V = -\dfrac{2}{3} + 2 \dfrac{1}{6}$$
+$$V = 1 \dfrac{1}{6} + 3 \dfrac{1}{3}$$
 
 !!! quote ""
-    $$\large{V = 1 \dfrac{1}{2}}$$
+    $$\large{V = 4 \dfrac{1}{2}}$$
 
 
 ??? abstract "Oppervlaktes $I$ en $II$ los berekenen en dan min elkaar"
-    We kunnen om te controleren in het voorbeeld hierboven oppervlaktes $I$ en $II$ apart berekenen en daarna min elkaar doen. Dan kunnen we controleren of we weer uitkomen op $V = 1 \frac{1}{2}$.
+    We kunnen om het voorbeeld hierboven te controleren, de oppervlaktes $I$ en $II$ apart berekenen en daarna pas min elkaar doen. We verwachten dan dat we weer uitkomen op de $V = 4 \frac{1}{2}$ die we net hebben berekend.
 
     We beginnen met het bepalen van de oppervlakte van $I$. We hadden deze integraal gevonden:
 
-    $$\large{I = \int_{-1}^2 f(x) \, dx}$$
+    $$\large{I = \int_{-2}^1 f(x) \, dx}$$
 
     Nu vullen we $f(x)$ in:
 
-    $$\large{I = \int_{-1}^2 6 - x^2 \, dx}$$
+    $$\large{I = \int_{-2}^1 6 - x^2 \, dx}$$
 
     Nu kunnen we deze functie integreren:
 
     - De eerste term is een constante, dus om de primitieve te bepalen moeten we gewoon een $x$ toevoegen.
 
-    - De tweede term is van de vorm $f(x) = ax^n$. Om de primitieve van deze vorm te bepalen, moeten we eerst de macht $+1$ doen, dus van een macht $2$ naar $3$. Daarna zetten we $1$ gedeeld door deze nieuwe macht ervoor, dus een factor $\frac{1}{3}$ in dit geval.
+    - De tweede term is van de vorm $f(x) = ax^n$. Om de primitieve van deze vorm te bepalen, moeten we eerst de macht $+1$ doen, dus van een macht $2$ naar $3$. Daarna zetten we $1$ gedeeld door deze nieuwe macht ervoor, dus in dit geval zetten we er een factor $\frac{1}{3}$ voor.
 
     Als we dit toepassen, dan krijgen we:
 
-    $$\large{I = \left[ \, 6x - \dfrac{1}{3} x^3 \, \right]_{-1}^2}$$
+    $$\large{I = \left[ \, 6x - \dfrac{1}{3} x^3 \, \right]_{-2}^1}$$
 
-    Nu vullen we de grenzen in:
+    Nu vullen we de grenzen in en doen ze min elkaar:
 
-    $$\large{I = 6 \cdot 2 - \dfrac{1}{3} \cdot 2^3 - \left( 6 \cdot -1 - \dfrac{1}{3} \cdot (-1)^3 \right)}$$
+    $$\large{I = \left( 6 \cdot 1 - \dfrac{1}{3} \cdot 1^3 \right) - \left( 6 \cdot -2 - \dfrac{1}{3} \cdot (-2)^3 \right)}$$
 
     En als we dit uitwerken, vinden we:
 
-    $$\large{I = 12 - \dfrac{1}{3} \cdot 8 - \left( -6 - \dfrac{1}{3} \cdot -1 \right)}$$
+    $$\large{I = \left( 6 - \dfrac{1}{3} \cdot 1 \right) - \left( -12 - \dfrac{1}{3} \cdot -8 \right)}$$
 
-    $$\large{I = 12 - 2 \dfrac{2}{3} - \left( -6 + \dfrac{1}{3} \right)}$$
+    $$\large{I = \left( 6 - \dfrac{1}{3} \right) - \left( -12 + 2 \dfrac{2}{3} \right)}$$
     
-    $$\large{I = 9 \dfrac{1}{3} - \left( -5 \dfrac{2}{3} \right)}$$
+    $$\large{I = \left( 5 \dfrac{2}{3} \right) - \left( -9 \dfrac{1}{3} \right)}$$
+
+    $$\large{I = 5 \dfrac{2}{3} + 9 \dfrac{1}{3}}$$
 
     $$\large{\boxed{I = 15}}$$
 
@@ -1213,63 +1369,358 @@ $$V = -\dfrac{2}{3} + 2 \dfrac{1}{6}$$
 
     En nu kunnen we hetzelfde doen voor oppervlakte $II$. We stellen eerst weer de integraal op:
 
-    $$\large{II = \int_{-1}^2 g(x) \, dx}$$
+    $$\large{II = \int_{-2}^1 g(x) \, dx}$$
 
-    $$\large{II = \int_{-1}^2 x + 4 \, dx}$$
+    $$\large{II = \int_{-2}^1 x + 4 \, dx}$$
 
     We hebben weer een term van de vorm $f(x) = ax^n$ een een constante. De primitieve wordt dus:
 
-    $$\large{II = \left[ \,  \dfrac{1}{2} x^2 + 4x \, \right]_{-1}^2}$$
+    $$\large{II = \left[ \,  \dfrac{1}{2} x^2 + 4x \, \right]_{-2}^1}$$
 
     Nu vullen we weer de grenzen in:
 
-    $$\large{II = \dfrac{1}{2} \cdot 2^2 + 4 \cdot 2 - \left( \dfrac{1}{2} \cdot (-1)^2 + 4 \cdot -1 \right)}$$
+    $$\large{II = \left( \dfrac{1}{2} \cdot 1^2 + 4 \cdot 1 \right) - \left( \dfrac{1}{2} \cdot (-2)^2 + 4 \cdot -2 \right)}$$
 
     En als we dit uitwerken, vinden we:
 
-    $$\large{II = \dfrac{1}{2} \cdot 4 + 8 - \left( \dfrac{1}{2} - 4 \right)}$$
+    $$\large{II = \left( \dfrac{1}{2} + 4 \right) - \left( \dfrac{1}{2} \cdot 4 - 8 \right)}$$
 
-    $$\large{II = 2 + 8 - \left( \dfrac{1}{2} - 4 \right)}$$
+    $$\large{II = \left( 4 \dfrac{1}{2} \right) - \left( 2 - 8 \right)}$$
 
-    $$\large{II = 10 - \left( -3 \dfrac{1}{2} \right)}$$
+    $$\large{II = 4 \dfrac{1}{2} - \left( -6 \right)}$$
 
-    $$\large{\boxed{II = 13 \dfrac{1}{2}}}$$
+    $$\large{\boxed{II = 10 \dfrac{1}{2}}}$$
 
     En nu kunnen we uiteindelijk $V$ bepalen door deze twee oppervlaktes min elkaar te doen:
 
     $$\large{V = I - II}$$
 
-    $$\large{V = 15 - 13 \dfrac{1}{2}}$$
+    $$\large{V = 15 - 10 \dfrac{1}{2}}$$
     
-    En als we dit uitwerken vinden we inderdaad wat we eerst ook gevonden hadden:
+    En als we dit uitwerken, vinden we inderdaad wat we eerst ook gevonden hadden:
 
     !!! quote ""
-        $$\large{V = 1\dfrac{1}{2}}$$
+        $$\large{V = 4 \dfrac{1}{2}}$$
 
 
+???+ Belangrijk
+    ### **Integralen samenvoegen**
+
+    We kunnen de som van twee integralen met dezelfde grenzen samenvoegen tot $1$ integraal:
+    
+    $$\large{\int_{a}^{b} f(x) \, dx \ + \int_{a}^{b} g(x) \, dx \ \iff \ \int_{a}^{b} \left( \, f(x) + g(x) \, \right) \, dx}$$
+
+    <br>
+
+    En we kunnen hetzelfde doen voor twee integralen die min elkaar zijn:
+
+    $$\large{\int_{a}^{b} f(x) \, dx \ - \int_{a}^{b} g(x) \, dx \ \iff \ \int_{a}^{b} \left( \, f(x) - g(x) \, \right) \, dx}$$
 
 
+??? abstract "Bewijs: Integralen samenvoegen" 
+    
+    **<span style="font-size: 18px;">Twee integralen plus elkaar</span>**
 
-??? abstract "Bewijs: Twee integralen combineren"
-    ### **Twee integralen combineren**
+    Om te bewijzen dat we twee integralen kunnen samenvoegen, moeten we eerst de integralen uitwerken. We beginnen met twee integralen plus elkaar:
 
-    We kunnen twee integralen met dezelfde grenzen samenvoegen tot $1$ integraal:
+    $$\large{I = \int_{a}^{b} f(x) \, dx \, + \int_{a}^{b} g(x) \, dx}$$
 
-    $$\large{I = \int_{a}^{b} f(x) \, dx - \int_{a}^{b} g(x) \, dx}$$
+    $$\large{I = \left[ \, F(x) \, \right]_{a}^{b} + \left[ \, G(x) \, \right]_{a}^{b}}$$
+
+    En nu vullen we de grenzen in:
+
+    $$\large{I = \left( \, F(b) - F(a) \, \right) + \left( \, G(b) - G(a) \, \right)}$$
+
+    $$\large{I = F(b) - F(a) + G(b) - G(a)}$$
+
+    We kunnen nu de volgorde veranderen van de functies:
+
+    $$\large{I = F(b) + G(b) - F(a) - G(a)}$$
+
+    Als we het opschrijven met haakjes, krijgen we:
+
+    $$\large{I = \left( \, F(b) + G(b) \, \right) - \left( \,  F(a) + G(a) \, \right)}$$
+
+    En deze vorm kunnen we nu terug schrijven als $1$ integraal:
+
+    $$\large{I = \left[ \, F(x) + G(x) \, \right]_{a}^{b}}$$
+
+    !!! quote ""
+        $$\large{I = \int_{a}^{b} \left( \, f(x) + g(x) \, \right) \, dx }$$
+    
+    <br>
+
+    **<span style="font-size: 18px;">Twee integralen min elkaar</span>**
+
+    We kunnen ook precies hetzelfde bewijzen voor twee integralen min elkaar.
+
+    $$\large{I = \int_{a}^{b} f(x) \, dx \, - \int_{a}^{b} g(x) \, dx}$$
 
     $$\large{I = \left[ \, F(x) \, \right]_{a}^{b} - \left[ \, G(x) \, \right]_{a}^{b}}$$
 
-    $$\large{I = F(b) - F(a) - \left( G(b) - G(a) \right)}$$
+    Als we de grenzen invullen:
+
+    $$\large{I = \left( \, F(b) - F(a) \, \right) - \left( \, G(b) - G(a) \, \right)}$$
 
     $$\large{I = F(b) - F(a) - G(b) + G(a)}$$
 
+    Nu kunnen we weer de volgorde veranderen van de functies en er haakjes omheen doen:
+
     $$\large{I = F(b) - G(b) - F(a) + G(a)}$$
 
-    $$\large{I = F(b) - G(b) - \left( F(a) - G(a) \right)}$$
+    $$\large{I = \left( \, F(b) - G(b) \, \right) - \left( \,  F(a) - G(a) \, \right)}$$
+
+    En deze vorm kunnen we nu terug schrijven als $1$ integraal:
 
     $$\large{I = \left[ \, F(x) - G(x) \, \right]_{a}^{b}}$$
 
-    $$\large{I = \int_{a}^{b} \left( f(x) - g(x) \right) \, dx }$$
+    !!! quote ""
+        $$\large{I = \int_{a}^{b} \left( \, f(x) - g(x) \, \right) \, dx }$$
+
+En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervlakte tussen twee functies te bepalen.
+
+???+ Belangrijk
+    ### **Algemene Integraal**
+
+    We kunnen de oppervlakte tussen twee functies bepalen door de oppervlakte onder de bovenste functie min de oppervlakte onder de onderste functie te doen:
+
+    $$\large{V = \int_a^b f(x) \, dx - \int_a^b g(x) \, dx}$$
+
+    Dit kunnen we [samenvoegen](#integralen-samenvoegen) en schrijven als $1$ integraal:
+
+    $$\large{\boxed{V = \int_a^b \left( \, f(x) - g(x) \, \right) \, dx}}$$
+
+    Hierbij is $f(x)$ de bovenste functie en $g(x)$ de onderste functie.
+
+    (Dit geldt binnen het gebied van de oppervlakte, daarbuiten is $g(x)$ boven $f(x)$ ).
+
+
+??? note "Terugblik: Oppervlaktes onder de $x$-as"
+    We hebben [eerder](#oppervlaktes-onder-de-x-as) gezien dat we bij een oppervlakte onder de $x$-as een '$-$' moeten toevoegen aan de integraal. 
+    
+    Dit is eigenlijk een specifieke vorm van een oppervlakte tussen twee grafieken. Het is namelijk een oppervlakte tussen $f(x)$ en de lijn $y=0$. 
+    
+    En omdat de functie onder de $x$-as ligt, is de lijn $y=0$ de bovenste functie en $f(x)$ de onderste. En we doen altijd de bovenste functie min de onderste functie, dus we krijgen:
+
+    $$\large{V = \int_a^b 0 - f(x) \, dx}$$
+
+    En hier kunnen we gewoon de $0$ weglaten:
+
+    $$\large{V = \int_a^b - f(x) \, dx}$$
+
+    En als we de '$-$' uit de integraal halen, dan krijgen we weer wat we eerder ook hadden:
+
+    $$\large{\boxed{V = - \int_a^b f(x) \, dx}}$$
+
+
+??? note "Oppervlaktes *tussen twee grafieken* onder de $x$-as"
+    Als we een oppervlakte hebben **tussen twee grafieken** dat (deels) onder de $x$-as ligt, dan verandert dat niks aan de integraal. Kijk maar naar het volgende vlakdeel $V$ dat deels onder de $x$-as ligt:
+
+    <figure markdown>
+    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/Oppervlakte tussen twee functies onder de x-as.svg){ width="500" }
+        <figcaption>Figuur 3. Twee functies geplot met vlakdeel $V$ tussen de twee functies. Vlakdeel $V$ ligt deels onder de $x$-as.<figcaption>
+    </figure>
+
+    We kunnen deze oppervlakte omhoog verschuiven door beide functies omhoog te verschuiven met een bepaalde constante $c$:
+
+    <figure markdown>
+    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/Oppervlakte tussen twee functies onder de x-as (verschoven).svg){ width="500" }
+        <figcaption>Figuur 4. De twee functies omhoog verschoven met een bepaalde constante $c$. Vlakdeel $V$ tussen de twee functies ligt nu volledig boven de $x$-as.<figcaption>
+    </figure>
+
+    We kunnen zien dat de oppervlakte $V$ is verschoven, maar het is nog steeds even groot gebleven. Het maakt dus niet uit waar de oppervlakte zich bevindt ten opzichte van de $x$-as. De integraal voor een oppervlakte $V$ tussen twee functies [blijft](#algemene-integraal):
+
+    $$\large{\boxed{V = \int_a^b \left( \, f(x) - g(x) \, \right) \, dx}}$$
+
+    waarbij $f(x)$ de bovenste functie is en $g(x)$ de onderste functie.
+    
+    <br>
+    
+    We kunnen het ook bewijzen met formules in plaats van het met een tekening:
+
+    ??? abstract "Bewijs oppervlakte hetzelfde blijft na een verschuiving"
+        In Figuur 3 hebben we de twee functies $f(x)$ en $g(x)$. De algemene vorm voor een oppervlakte tussen twee functies is:
+        
+        $$\large{V = \int_a^b \left( \, f(x) - g(x) \, \right) \, dx}$$
+
+        In Figuur 4 verschuiven we de twee functies omhoog met een constante $c$. Stel we gaan er nu niet vanuit dat de verschoven functies dezelfde oppervlakte omsluiten. Laten we deze nieuwe oppervlakte $W$ noemen en dan kijken of dit hetzelfde is als de oppervlakte $V$ die we eerst hadden.
+        
+        Onze nieuwe functies worden dus $f(x) + c$ en $g(x) + c:$
+
+        $$\large{W = \int_a^b \left( \, (f(x) + c) - (g(x) + c) \, \right) \, dx}$$
+
+        Als we de haakjes uitwerken, dan zien we eigenlijk gelijk al dat we op dezelfde integraal uitkomen als die we bij $V$ hadden:
+
+        $$\large{W = \int_a^b \left( \, f(x) + c - g(x) - c \, \right) \, dx}$$
+
+        !!! quote ""
+            $$\large{W = \int_a^b \left( \, f(x) - g(x) \, \right) \, dx = V}$$
+
+        En dus heeft het verschuiven van beide functies geen invloed op de oppervlakte tussen de functies.
+
+
+
+### **Voorbeelden**
+
+??? example "Voorbeeld 1: Bereken de oppervlakte tussen de functies $f(x) = x^2 - 4x + 6$ en $g(x) = 4x - x^2$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = x^2 - 4x + 6$ en de functie $g(x) = 4x - x^2$.</p>*
+
+    <br>
+
+    **<span style="font-size: 17px;">a) Bereken de oppervlakte van vlakdeel $V$.</span>**
+
+    **<span style="font-size: 17px;">b) De lijn $x=p$ verdeelt $V$ in de oppervlaktes $I$ en $II$. Bepaal de waarde voor $p$ waar $I$ twee keer zo groot is als $II$. Geef je antwoord op $3$ decimalen nauwkeurig.</span>**
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    <br>
+
+    **<span style="font-size: 17px;">a)</span>**
+
+    Om de situatie een beetje te kunnen begrijpen, maken we eerst een schets:
+
+    <figure markdown>
+    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = x^2 - 4x + 6; g(x) = 4x - x^2.svg){ width="500" }
+        <figcaption>Figuur 1. Grafiek geplot met de functies $f(x) =  6 - x^2$ en $g(x) = x + 4$. Vlakdeel $V$ ligt tussen de twee functies in.<figcaption>
+    </figure>
+
+    Om de oppervlakte $V$ te bepalen, hebben we eerst de grenzen nodig. Dit zijn de [snijpunten tussen de twee functies](kwadratische_vergelijkingen.md#snijpunten-met-andere-grafieken), dus die moeten we eerst bepalen. We stellen dan $f(x)$ gelijk aan $g(x)$ en lossen die vergelijking op:
+
+    $$\large{f(x) = g(x)}$$ 
+
+    $$\large{x^2 - 4x + 6 = 4x - x^2}$$
+
+    Om dit op te lossen halen we eerst alles naar de linkerkant:
+
+    $$\large{2x^2 - 8x + 6 = 0}$$
+
+    Nu kunnen we alles nog delen door $2$:
+
+    $$\large{x^2 - 4x + 3 = 0}$$
+
+    Nu kunnen we het [ontbinden in factoren](#ontbinden-in-factoren):
+
+    $$\large{(x - 3)(x - 1) = 0}$$
+
+    Hieruit volgt:
+
+    $$\large{\boxed{x = 3 \ \vee \ x = 1}}$$
+
+    De grenzen zijn dus $x=1$ en $x=3$. Nu kunnen we de oppervlakte van $V$ gaan bepalen.
+
+    De oppervlakte van $V$ is ingesloten door de functies $f(x)$ en $g(x)$, dus $V$ ligt [tussen de twee grafieken](#oppervlakte-tussen-twee-grafieken). We moeten dus een integraal nemen van de bovenste functie min de onderste functie. 
+    
+    In dit geval is $g(x)$ de bovenste functie en $f(x)$ de onderste functie:
+
+    $$\large{V = \int_1^3 \left( \, g(x) - f(x) \, \right) \, dx}$$
+
+    $$\large{V = \int_1^3 \left( \, \left( 4x - x^2 \right) - \left( x^2 - 4x + 6 \right) \, \right) \, dx}$$
+
+    $$\large{V = \int_1^3 \left( \, -2x^2 + 8x - 6 \, \right) \, dx}$$
+
+    Nu moeten we de primitieve nemen:
+
+    - De eerste twee termen zijn van de vorm $f(x) = ax^n$ (want we kunnen $8x$ schrijven als $8x^1$). Om de primitieve van deze vorm te nemen, moeten we eerst de macht $+1$ doen. Daarna zetten we een factor van $1$ gedeeld door deze nieuwe macht ervoor.
+
+    - De laatste term is een constante (een los getal zonder $x$), dus bij de primiteve plakken we er dan gewoon een $x$ aanvast.
+
+    We krijgen dus:
+
+    $$\large{V = \left[ \dfrac{1}{3} \cdot -2x^3 + \dfrac{1}{2} \cdot 8x^2 - 6x \right]_1^3}$$
+
+    En als we dit nog versimpelen:
+
+    $$\large{V = \left[ -\dfrac{2}{3} x^3 + 4x^2 - 6x \right]_1^3}$$
+
+    Nu kunnen we de grenzen invullen:
+
+    $$\large{V = \left( -\dfrac{2}{3} \cdot 3^3 + 4 \cdot 3^2 - 6 \cdot 3 \right) - \left( -\dfrac{2}{3} \cdot 1^3 + 4 \cdot 1^2 - 6 \cdot 1 \right)}$$
+
+    En als we dit uitwerken, krijgen we:
+
+    $$\large{V = \left( -\dfrac{2}{3} \cdot 27 + 4 \cdot 9 - 18 \right) - \left( -\dfrac{2}{3} + 4  - 6 \right)}$$
+
+    $$\large{V = \left( -18 + 36 - 18 \right) - \left( -2\dfrac{2}{3} \right)}$$
+
+    $$\large{V = \left( \, 0 \, \right) + 2\dfrac{2}{3} }$$
+
+    !!! quote ""
+        $$\large{V = 2\dfrac{2}{3}}$$
+
+
+    <br><br>
+
+    **<span style="font-size: 17px;">b)</span>**
+
+    We weten dat de lijn $x=p$ het vlakdeel $V$ zo verdeelt dat vlakdeel $I$ twee keer zo groot is als vlakdeel $II$. Laten we weer een schets maken zodat we de situatie beter kunnen begrijpen:
+
+    <figure markdown>
+    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = x^2 - 4x + 6; g(x) = 4x - x^2 (gesplitst).svg){ width="500" }
+        <figcaption>Figuur 2. Grafiek geplot met de functies $f(x) =  6 - x^2$ en $g(x) = x + 4$. Vlakdeel $V$ wordt verdeeld in de vlakdelen $I$ en $II$ zodat $I$ twee keer zo groot is als $II$.<figcaption>
+    </figure>
+
+    Om dit op te lossen moeten we dus oppervlakte $I$ en $II$ apart berekenen. We beginnen met oppervlakte $I$.
+
+    Het is eigenlijk precies dezelfde integraal als bij a), alleen dan is de rechter grens nu $x=p$ in plaats van het rechter snijpunt:
+
+    $$\large{I = \int_1^p \left( \, g(x) - f(x) \, \right) \, dx}$$
+
+    $$\large{I = \int_1^p \left( \, -2x^2 + 8x - 6 \, \right) \, dx}$$
+
+    We hebben de primitieve bij a) ookal bepaald:
+
+    $$\large{I = \left[ -\dfrac{2}{3} x^3 + 4x^2 - 6x \right]_1^p}$$
+
+    En nu vullen we de grenzen in:
+
+    $$\large{I = \left( -\dfrac{2}{3} p^3 + 4p^2 - 6p \right) - \left( -\dfrac{2}{3} \cdot 1^3 + 4 \cdot 1^2 - 6 \cdot 1 \right)}$$
+
+    $$\large{\boxed{I = -\dfrac{2}{3} p^3 + 4p^2 - 6p  + 2\dfrac{2}{3}}}$$
+
+    En nu doen we hetzelfde maar dan voor $II$. Het vlakdeel $II$ begint juist bij $x=p$ en eindigt bij $x=3$. Behalve de grenzen blijft de rest precies hetzelfde, dus we kunnen meteen al de geprimiteveerde versie opschrijven:
+
+    $$\large{II = \left[ -\dfrac{2}{3} x^3 + 4x^2 - 6x \right]_p^3}$$
+
+    En nu vullen we de grenzen in:
+
+    $$\large{V = \left( -\dfrac{2}{3} \cdot 3^3 + 4 \cdot 3^2 - 6 \cdot 3 \right) - \left( -\dfrac{2}{3} p^3 + 4p^2 - 6p \right)}$$
+
+    $$\large{II = \left( 0 \right) \dfrac{2}{3} p^3 - 4p^2 + 6p}$$
+
+    $$\large{\boxed{II = \dfrac{2}{3} p^3 - 4p^2 + 6p}}$$
+
+    We weten dat $I$ twee keer zo groot is als $II$, dus we kunnen de volgende vergelijking opstellen:
+
+    $$\large{I = 2 \cdot II}$$
+
+    $$\large{-\dfrac{2}{3} p^3 + 4p^2 - 6p  + 2\dfrac{2}{3} = 2 \cdot \left( \dfrac{2}{3} p^3 - 4p^2 + 6p \right)}$$
+
+    $$\large{-\dfrac{2}{3} p^3 + 4p^2 - 6p  + 2\dfrac{2}{3} = \dfrac{4}{3} p^3 - 8p^2 + 12p}$$
+
+    En nu kunnen we alle termen naar de linkerkant halen:
+
+    $$\large{-2p^3 + 12p^2 - 18p  + 2\dfrac{2}{3} = 0}$$
+
+    Er stond in de vraag geen algebraïsch of exact, dus we mogen dit oplossen met onze grafische rekenmachine.
+
+    We voeren in:
+
+    $$\large{\left\{ \begin{array}{ l l } y_1 = -2x^3 + 12x^2 - 18x  + 2\dfrac{2}{3}  \\ y_2 = 0 \end{array} \right.}$$
+
+    De optie intersect geeft:
+
+    $$\large{\left\{ \begin{array}{ l l l } x_1 = 0.16601...  \\ x_2 = 2.22607... \\ x_3 = 3.60791... \end{array} \right.}$$
+
+    We hebben hier $3$ oplossingen gevonden, dus hoe moeten we nu weten welke $p$ is? 
+
+    De grenzen van vlakdeel $V$ zijn $x=1$ en $x=3$, en de lijn $x=p$ ligt binnen dit vlakdeel. Oftewel, $p$ moet dus ook tussen $1$ en $3$ liggen. De enige mogelijkheid is dan dus $x_2$, dus op $3$ decimalen nauwkeurig krijgen we:
+
+    !!! quote ""
+        $$\large{p \approx 2.226}$$ 
+
+
+    
+
 
 
 

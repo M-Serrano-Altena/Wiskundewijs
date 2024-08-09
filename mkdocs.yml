@@ -79,7 +79,6 @@ nav:
     - Stelsels van Vergelijkingen: stelsels_van_vergelijkingen.md
     - De Afgeleide Functie: afgeleide.md
     - De Primitieve Functie: primitieve.md
-    - meetkunde.md
     - goniometrie.md
 
   - Oplosser: oplosser.md
@@ -87,8 +86,8 @@ nav:
   - bijles.md
   
 
-# not_in_nav:
-#   contact.md
+not_in_nav:
+  meetkunde.md
   
 plugins:
   - search
