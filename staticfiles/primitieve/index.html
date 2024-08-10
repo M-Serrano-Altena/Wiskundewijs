@@ -721,9 +721,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inhoud-bepalen" class="md-nav__link">
+  <a href="#oppervlakte-wentelen-om-de-x-as" class="md-nav__link">
     <span class="md-ellipsis">
-      Inhoud Bepalen
+      Oppervlakte Wentelen om de x-as
     </span>
   </a>
   
@@ -989,9 +989,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inhoud-bepalen" class="md-nav__link">
+  <a href="#oppervlakte-wentelen-om-de-x-as" class="md-nav__link">
     <span class="md-ellipsis">
-      Inhoud Bepalen
+      Oppervlakte Wentelen om de x-as
     </span>
   </a>
   
@@ -2035,8 +2035,8 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p><br></p>
 <p><strong><span style="font-size: 17px;">a) Bereken de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span>.</span></strong></p>
 <p><strong><span style="font-size: 17px;">b) De lijn <span class="arithmatex">\(x=p\)</span> verdeelt <span class="arithmatex">\(V\)</span> in de oppervlaktes <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span>. Bepaal de waarde voor <span class="arithmatex">\(p\)</span> waar <span class="arithmatex">\(I\)</span> twee keer zo groot is als <span class="arithmatex">\(II\)</span>. Geef je antwoord op <span class="arithmatex">\(3\)</span> decimalen nauwkeurig.</span></strong></p>
+<p><br><br><br><br><br></p>
 <p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
-<p><br></p>
 <p><strong><span style="font-size: 17px;">a)</span></strong></p>
 <p>Om de situatie een beetje te kunnen begrijpen, maken we eerst een schets:</p>
 <p><figure markdown>
@@ -2050,7 +2050,7 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <div class="arithmatex">\[\large{2x^2 - 8x + 6 = 0}\]</div>
 <p>Nu kunnen we alles nog delen door <span class="arithmatex">\(2\)</span>:</p>
 <div class="arithmatex">\[\large{x^2 - 4x + 3 = 0}\]</div>
-<p>Nu kunnen we het <a href="#ontbinden-in-factoren">ontbinden in factoren</a>:</p>
+<p>Nu kunnen we het <a href="../kwadratische_vergelijkingen/#ontbinden-in-factoren">ontbinden in factoren</a>:</p>
 <div class="arithmatex">\[\large{(x - 3)(x - 1) = 0}\]</div>
 <p>Hieruit volgt:</p>
 <div class="arithmatex">\[\large{\boxed{x = 3 \ \vee \ x = 1}}\]</div>
@@ -2121,7 +2121,259 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <div class="arithmatex">\[\large{p \approx 2.226}\]</div>
 </div>
 </details>
-<h2 id="inhoud-bepalen"><strong>Inhoud Bepalen</strong></h2>
+<details class="example">
+<summary>Voorbeeld 2: Bereken de oppervlakte tussen de functies <span class="arithmatex">\(f(x) = x^2\)</span> en <span class="arithmatex">\(g(x) = \sqrt{x}\)</span></summary>
+<p><em><p style="text-align: center;font-size:20px;">Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de functie <span class="arithmatex">\(f(x) = x^2\)</span> en de functie <span class="arithmatex">\(g(x) = \sqrt{x}\)</span>.</p></em></p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;">a) Bereken exact de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span>.</span></strong></p>
+<p><strong><span style="font-size: 17px;">b) De lijn <span class="arithmatex">\(k\)</span> gaat door de oorsprong en verdeelt <span class="arithmatex">\(V\)</span> in de twee even grote oppervlaktes <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span>. Vlakdeel <span class="arithmatex">\(W\)</span> is de oppevlakte onder deze lijn tussen de twee snijpunten. Bepaal exact hoeveel keer groter de oppervlakte van <span class="arithmatex">\(W\)</span> is ten opzichte van oppervlakte <span class="arithmatex">\(V\)</span>.</span></strong></p>
+<p><br><br><br><br><br></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p><strong><span style="font-size: 17px;">a)</span></strong></p>
+<p>Laten we een schets maken zodat we een beetje de situatie kunnen begrijpen:</p>
+<p><figure markdown>
+<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20sqrt%28x%29%3B%20g%28x%29%20%3D%20x%5E2.svg" width="500" />
+    <figcaption>Figuur 2. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = x^2\)</span> en <span class="arithmatex">\(g(x) = \sqrt{x}\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen de twee functies in.<figcaption>
+</figure></p>
+<p>Om de oppervlakte <span class="arithmatex">\(V\)</span> te kunnen bepalen, hebben we eerst de grenzen nodig. Dit zijn de <a href="../kwadratische_vergelijkingen/#snijpunten-met-andere-grafieken">snijpunten tussen de twee functies</a>, dus laten we die bepalen. We stellen de twee functies gelijk aan elkaar:</p>
+<div class="arithmatex">\[\large{f(x) = g(x)}\]</div>
+<div class="arithmatex">\[\large{\sqrt{x} = x^2}\]</div>
+<p>Om de wortel weg te werken, kunnen we beide kanten kwadrateren:</p>
+<div class="arithmatex">\[\large{x = x^4}\]</div>
+<p>Nu kunnen we de <span class="arithmatex">\(x^4\)</span> ook naar de linkerkant halen:</p>
+<div class="arithmatex">\[\large{x - x^4 = 0}\]</div>
+<p>En als we alles nog keer <span class="arithmatex">\(-1\)</span> doen:</p>
+<div class="arithmatex">\[\large{x^4 - x = 0}\]</div>
+<p>Beide termen hebben een <span class="arithmatex">\(x\)</span>, dus dit kunnen we op dezelfde manier <a href="../kwadratische_vergelijkingen/#oplossen-vorm-x--bx--0">oplossen</a> als een vergelijking van de vorm <span class="arithmatex">\(x^2 + bx = 0:\)</span></p>
+<div class="arithmatex">\[\large{x \left( x^3 - 1 \right) = 0}\]</div>
+<p>Hieruit volgt:</p>
+<div class="arithmatex">\[\large{x = 0 \ \vee \ x^3 - 1 = 0}\]</div>
+<div class="arithmatex">\[\large{x = 0 \ \vee \ x^3 = 1}\]</div>
+<p>En nu nemen we aan beide kanten de derdemachtswortel:</p>
+<div class="arithmatex">\[\large{x = 0 \ \vee \ x = \sqrt[3]{1}}\]</div>
+<div class="arithmatex">\[\large{\boxed{x = 0 \ \vee \ x = 1}}\]</div>
+<p>De snijpunten (en dus de grenzen) liggen bij <span class="arithmatex">\(x = 0\)</span> en <span class="arithmatex">\(x = 1\)</span>.</p>
+<p>Nu kunnen we de oppervlakte van <span class="arithmatex">\(V\)</span> gaan bepalen. Dit is een oppervlakte tussen twee grafieken, dus we moeten de bovenste grafiek min de onderste grafiek doen. In dit geval ligt <span class="arithmatex">\(f(x)\)</span> boven <span class="arithmatex">\(g(x)\)</span> bij de oppervlakte, dus onze integraal wordt:</p>
+<div class="arithmatex">\[\large{V = \int_0^1 \left( f(x) - g(x) \right) \, dx}\]</div>
+<div class="arithmatex">\[\large{V = \int_0^1 \left( \sqrt{x} - x^2 \right) \, dx}\]</div>
+<p>Om de primitieve te bepalen, schrijven we de wortel als een macht <span class="arithmatex">\(\frac{1}{2}\)</span>: </p>
+<div class="arithmatex">\[\large{V = \int_0^1 \left( x^{\frac{1}{@}} - x^2 \right) \, dx}\]</div>
+<p>Laten we nu de primitieve gaan bepalen.</p>
+<p>Beide termen zijn van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Bij deze vorm doen we de macht <span class="arithmatex">\(+1\)</span> en doen de term keer een factor van <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht. We krijgen dus:</p>
+<div class="arithmatex">\[\large{V = \left[ \, \dfrac{1}{1\frac{1}{2}} \cdot x^{1\frac{1}{2}} - \dfrac{1}{3} x^3 \, \right]_0^1}\]</div>
+<p>En als we dit nog iets versimpelen:</p>
+<div class="arithmatex">\[\large{V = \left[ \, \dfrac{2}{3} x^{1\frac{1}{2}} - \dfrac{1}{3} x^3 \, \right]_0^1}\]</div>
+<p>En nu vullen we de grenzen in:</p>
+<div class="arithmatex">\[\large{V = \left( \, \dfrac{2}{3} \cdot 1^{1\frac{1}{2}} - \dfrac{1}{3} \cdot 1^3 \, \right) - \left( \, \dfrac{2}{3} \cdot 0^{1\frac{1}{2}} - \dfrac{1}{3} \cdot 0^3 \, \right)}\]</div>
+<p>En als we dit uitwerken:</p>
+<div class="arithmatex">\[\large{V = \left( \, \dfrac{2}{3} - \dfrac{1}{3} \, \right) - \left( \, 0 \, \right)}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{V = \dfrac{1}{3}}\]</div>
+</div>
+<p><br><br></p>
+<p><strong><span style="font-size: 17px;">b)</span></strong></p>
+<p>Laten we als eerst de lijn <span class="arithmatex">\(k\)</span> opstellen. De algemene vorm van een lijn is:</p>
+<div class="arithmatex">\[\large{k: y = ax + b}\]</div>
+<p>We weten dat lijn <span class="arithmatex">\(k\)</span> door de oorsprong gaat, dus door het punt <span class="arithmatex">\((0, 0)\)</span>. Laten we dit punt invullen:</p>
+<div class="arithmatex">\[\large{0 = a \cdot 0 + b}\]</div>
+<p>Hieruit volgt dus:</p>
+<div class="arithmatex">\[\large{b = 0}\]</div>
+<p>De lijn kunnen we dan versimpelen naar:</p>
+<div class="arithmatex">\[\large{k: y = ax}\]</div>
+<p>We weten dat lijn <span class="arithmatex">\(k\)</span> de oppervlakte <span class="arithmatex">\(V\)</span> in twee gelijke delen verdeelt. In Figuur 2 kunnen we zien dat de lijn dan door het andere snijpunt moet gaan. </p>
+<p>We kunnen het andere snijpunt bepalen door <span class="arithmatex">\(x = 1\)</span> in een van de formules te stoppen. We vinden dan het bijbehorende <span class="arithmatex">\(y\)</span>-coördinaat <span class="arithmatex">\(y = 1\)</span>. Als we dit punt invullen in de lijn <span class="arithmatex">\(k\)</span>, vinden we:</p>
+<div class="arithmatex">\[\large{1 = a \cdot 1}\]</div>
+<p>En hieruit volgt dus:</p>
+<div class="arithmatex">\[\large{a = 1}\]</div>
+<p>De lijn <span class="arithmatex">\(k\)</span> is dus gewoon:</p>
+<div class="arithmatex">\[\large{\boxed{k: y = x}}\]</div>
+<p>We wisten ook dat vlakdeel <span class="arithmatex">\(W\)</span> de oppervlakte onder lijn <span class="arithmatex">\(k\)</span> is tussen de twee snijpunten. Laten we de situatie weer schetsen:</p>
+<p><figure markdown>
+<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20sqrt%28x%29%3B%20g%28x%29%20%3D%20x%5E2%20%28met%20lijn%20k%29.svg" width="500" />
+    <figcaption>Figuur 2. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = x^2\)</span>, <span class="arithmatex">\(g(x) = \sqrt{x}\)</span> en de lijn <span class="arithmatex">\(k\)</span>. Vlakdeel <span class="arithmatex">\(W\)</span> is de oppervlakte onder lijn <span class="arithmatex">\(k\)</span>.<figcaption>
+</figure></p>
+<p>Laten we oppervlakte <span class="arithmatex">\(W\)</span> bepalen. We stellen eerst de integraal op:</p>
+<div class="arithmatex">\[\large{W = \int_0^1 x \, dx}\]</div>
+<p>Als we dit primitiveren, dan vinden we:</p>
+<div class="arithmatex">\[\large{W = \left[ \, \dfrac{1}{2} x^2 \, \right]_0^1}\]</div>
+<p>En nu vullen we de grenzen in:</p>
+<div class="arithmatex">\[\large{W = \dfrac{1}{2} \cdot 1^2 - \dfrac{1}{2} \cdot 0^2}\]</div>
+<div class="arithmatex">\[\large{\boxed{W = \dfrac{1}{2}}}\]</div>
+<p>We moesten bepalen hoeveel keer groter deze oppervlakte was ten opzichte van <span class="arithmatex">\(V\)</span>. Bij a) hadden we berekent dat <span class="arithmatex">\(V = \dfrac{1}{3}\)</span>, dus:</p>
+<div class="arithmatex">\[\large{\dfrac{W}{V} =  \dfrac{\frac{1}{2}}{\frac{1}{3}}}\]</div>
+<div class="arithmatex">\[\large{\dfrac{W}{V} =  1 \dfrac{1}{2}}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{W \textrm{ is } 1 \dfrac{1}{2} \textrm{ keer groter dan } V}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 3: Bereken algebraïsch de oppervlakte tussen de functies <span class="arithmatex">\(f(x) = \sin(3x) + 2\)</span> en <span class="arithmatex">\(g(x) = \cos(3x) + 2\)</span></summary>
+<p><em><p style="text-align: center;font-size:20px;">Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de functie <span class="arithmatex">\(f(x) = \sin(3x) + 2\)</span> en de functie <span class="arithmatex">\(g(x) = \cos(3x) + 2\)</span> binnen een bepaald domein (zie Figuur 2).</p></em></p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;">Bereken algebraïsch de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> als <span class="arithmatex">\(p = \frac{2}{3} \pi\)</span>. Rond af op <span class="arithmatex">\(3\)</span> decimalen</span></strong></p>
+<p><figure markdown>
+<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20sin%283x%29%20%2B%202%3B%20g%28x%29%20%3D%20cos%283x%29%20%2B%202.svg" width="500" />
+    <figcaption>Figuur 4. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = \sin(3x) + 2\)</span> en <span class="arithmatex">\(g(x) = \cos(3x) + 2\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen de twee functies binnen een bepaald domein.<figcaption>
+</figure></p>
+<p><br><br><br><br><br></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Om dit op te lossen moeten we eerst de grenzen bepalen. Om dit te doen, hebben we de eerste twee snijpunten nodig vanaf <span class="arithmatex">\(x=0\)</span>. De meest rechter grens hebben we namelijk al gegeven gekregen, dat is namelijk bij <span class="arithmatex">\(x=\frac{2}{3} \pi\)</span>.</p>
+<p>Om de <a href="../kwadratische_vergelijkingen/#snijpunten-met-andere-grafieken">snijpunten te bepalen</a> tussen <span class="arithmatex">\(f(x)\)</span> en <span class="arithmatex">\(g(x)\)</span> moeten we de twee functies aan elkaar gelijk stellen:</p>
+<div class="arithmatex">\[\large{f(x) = g(x)}\]</div>
+<div class="arithmatex">\[\large{\sin(3x) + 2 = \cos(3x) + 2}\]</div>
+<p>Om dit op te lossen beginnen we met aan beide kanten <span class="arithmatex">\(-2\)</span> te doen:</p>
+<div class="arithmatex">\[\large{\sin(3x) = \cos(3x)}\]</div>
+<p>Nu hebben we óf aan beide kanten een sinus nodig óf aan beide kanten een cosinus. Wij schrijven de <a href="../goniometrie/#sinus-en-cosinus-omschrijven">cosinus om naar een sinus</a> (maar het mag ook andersom):</p>
+<div class="arithmatex">\[\large{\sin(3x) = \sin(3x + \dfrac{1}{2} \pi)}\]</div>
+<p>Nu kunnen we de <a href="../goniometrie/#algemene-oplossing">algemene oplossing</a> voor een sinus vergelijking gebruiken:</p>
+<div class="arithmatex">\[\large{3x = 3x + \dfrac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 3x = \pi - \left( 3x + \dfrac{1}{2} \pi \right) + k \cdot 2 \pi}\]</div>
+<div class="arithmatex">\[\large{3x = 3x + \dfrac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 3x = -3x + \dfrac{1}{2} \pi + k \cdot 2 \pi}\]</div>
+<p>Nu halen we alle <span class="arithmatex">\(x\)</span> termen naar de linkerkant:</p>
+<div class="arithmatex">\[\large{0 = + \dfrac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 6x = \dfrac{1}{2} \pi + k \cdot 2 \pi}\]</div>
+<p>De <span class="arithmatex">\(x\)</span> term is bij de linker vergelijking weggevallen, dus daar hebben we niks meer aan. We gaan verder met de rechter vergelijking:</p>
+<div class="arithmatex">\[\large{6x = \dfrac{1}{2} \pi + k \cdot 2 \pi}\]</div>
+<p>Nu delen we beide kanten door <span class="arithmatex">\(6\)</span> om te vinden:</p>
+<div class="arithmatex">\[\large{x = \dfrac{1}{12} \pi + k \cdot \dfrac{1}{3} \pi}\]</div>
+<p>We moesten de eerste twee snijpunten bepalen vanaf <span class="arithmatex">\(x=0\)</span>, dus we vinden dan de snijpunten:</p>
+<div class="arithmatex">\[\large{x = \dfrac{1}{12} \pi \ \vee \ x = \dfrac{5}{12} \pi}\]</div>
+<p>Het linker snijpunt op de schets is dus bij <span class="arithmatex">\(x=\frac{1}{12} \pi\)</span> en het middelste snijpunt bij <span class="arithmatex">\(x = \frac{5}{12} \pi\)</span>.</p>
+<p>Nu hebben we de grenzen van vlakdeel <span class="arithmatex">\(V\)</span> en kunnen we de oppervlakte bepalen. De oppervlakte zit <a href="#oppervlakte-tussen-twee-grafieken">tussen twee functies in</a>, dus we moeten de bovenste functie min de onderste functie doen.</p>
+<p>Maar let op! Bij het eerste gedeelte van de oppervlakte is <span class="arithmatex">\(f(x)\)</span> boven <span class="arithmatex">\(g(x)\)</span>, maar bij het tweede gedeelte is <span class="arithmatex">\(g(x)\)</span> juist boven <span class="arithmatex">\(f(x)\)</span>. We moeten dan net zoals bij <a href="#deel-boven-en-deel-onder-de-x-as">een deel boven en een deel onder de <span class="arithmatex">\(x\)</span>-as</a> de oppervlakte in tweeën delen.</p>
+<p>We weten wanneer <span class="arithmatex">\(g(x)\)</span> boven <span class="arithmatex">\(f(x)\)</span> begint te gaan, want dat snijpunt hadden we net bepaald (<span class="arithmatex">\(x = \frac{5}{12} \pi\)</span>). De grenzen van het eerste oppervlakte zijn dus <span class="arithmatex">\(x=\frac{1}{12} \pi\)</span> en <span class="arithmatex">\(x = \frac{5}{12} \pi\)</span> en van het tweede oppervlakte <span class="arithmatex">\(x = \frac{5}{12} \pi\)</span> en <span class="arithmatex">\(x = \frac{2}{3} \pi\)</span>:</p>
+<div class="arithmatex">\[\large{V = \int_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \left( \, f(x) - g(x)  \, \right) \, dx \, + \int_{\frac{5}{12} \pi}^{\frac{2}{3} \pi} \left( \, g(x) - f(x)  \, \right) \, dx}\]</div>
+<p>En nu vullen we <span class="arithmatex">\(f(x)\)</span> en <span class="arithmatex">\(g(x)\)</span> in:</p>
+<div class="arithmatex">\[\large{V = \int_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \left( \, (\sin(3x) + 2) - (\cos(3x) + 2)  \, \right) \, dx \, + \int_{\frac{5}{12} \pi}^{\frac{2}{3} \pi} \left( \, (\cos(3x) + 2) - (\sin(3x) + 2)  \, \right) \, dx}\]</div>
+<p>En als we dit versimpelen:</p>
+<div class="arithmatex">\[\large{V = \int_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \left( \, \sin(3x) - \cos(3x)  \, \right) \, dx \, + \int_{\frac{5}{12} \pi}^{\frac{2}{3} \pi} \left( \, \cos(3x) - \sin(3x) \, \right) \, dx}\]</div>
+<p>We kunnen ook nog een '<span class="arithmatex">\(-\)</span>' buiten de tweede integraal halen:</p>
+<div class="arithmatex">\[\large{V = \int_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \left( \, \sin(3x) - \cos(3x)  \, \right) \, dx \, - \int_{\frac{5}{12} \pi}^{\frac{2}{3} \pi} \left( \, -\cos(3x) + \sin(3x) \, \right) \, dx}\]</div>
+<div class="arithmatex">\[\large{V = \int_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \left( \, \sin(3x) - \cos(3x)  \, \right) \, dx \, - \int_{\frac{5}{12} \pi}^{\frac{2}{3} \pi} \left( \, \sin(3x) - \cos(3x) \, \right) \, dx}\]</div>
+<p>Nu kunnen we namelijk twee keer hetzelfde integreren en gewoon andere grenzen invullen. Laten we dit integreren:</p>
+<ul>
+<li>
+<p>De eerste term is <span class="arithmatex">\(\sin(3x)\)</span>. In de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> kunnen we zien dat de primitieve van <span class="arithmatex">\(\sin(x)\)</span> gelijk is aan <span class="arithmatex">\(-\cos(x)\)</span>. Alleen wij hebben nog een <span class="arithmatex">\(3\)</span> binnen de sinus, dus om rekening te houden met de <a href="../afgeleide/#regels">kettingregel</a> moeten wij een factor <span class="arithmatex">\(\frac{1}{3}\)</span> toevoegen. We krijgen dus als primitieve <span class="arithmatex">\(-\dfrac{1}{3} \cos(3x)\)</span></p>
+</li>
+<li>
+<p>De tweede term is een <span class="arithmatex">\(\cos(3x)\)</span>, dus heel vergelijkbaar aan de eerste term. In de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> zien we dat de primitieve van <span class="arithmatex">\(\cos(x)\)</span> gelijk is aan <span class="arithmatex">\(\sin(x)\)</span>. We moeten weer rekening houden met de <a href="../afgeleide/#regels">kettingregel</a>, dus we krijgen als primitieve <span class="arithmatex">\(\dfrac{1}{3} \sin(3x)\)</span>. </p>
+</li>
+</ul>
+<p>We krijgen dus:</p>
+<div class="arithmatex">\[\large{V = \left[ \, -\dfrac{1}{3} \cos(3x) - \dfrac{1}{3} \sin(3x) \, \right]_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \ - \ \left[ \, -\dfrac{1}{3} \cos(3x) - \dfrac{1}{3} \sin(3x) \, \right]_{\frac{5}{12} \pi}^{\frac{2}{3} \pi}}\]</div>
+<p>We kunnen nu nog de factor <span class="arithmatex">\(-\frac{1}{3}\)</span> buiten de integralen zetten:</p>
+<div class="arithmatex">\[\large{V = -\dfrac{1}{3} \left[ \, \cos(3x) + \sin(3x) \, \right]_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \ + \ \dfrac{1}{3} \left[ \, \cos(3x) + \sin(3x) \, \right]_{\frac{5}{12} \pi}^{\frac{2}{3} \pi}}\]</div>
+<p>En nu kunnen we de grenzen invullen:</p>
+<div class="arithmatex">\[\large{V = -\dfrac{1}{3} \left( \cos(3 \cdot \frac{5}{12} \pi) + \sin(3 \cdot \frac{5}{12} \pi) \right) - - \dfrac{1}{3} \left( \cos(3 \cdot \frac{1}{12} \pi) + \sin(3 \cdot \frac{1}{12} \pi) \right) \ + \ \dfrac{1}{3} \left( \cos(3 \cdot \frac{2}{3} \pi) + \sin(3 \cdot \frac{2}{3} \pi) \right) - \dfrac{1}{3} \left( \cos(3 \cdot \frac{5}{12} \pi) + \sin(3 \cdot \frac{5}{12} \pi) \right)}\]</div>
+<p>Deze hele vergelijking kunnen we nu gewoon in een rekenmachine stoppen. We vinden dan:</p>
+<div class="arithmatex">\[\large{V = 1.7475468957064...}\]</div>
+<p>We moesten het afronden op <span class="arithmatex">\(3\)</span> decimalen, dus ons eindantwoord wordt:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{V = 1.748}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 4: Bereken de oppervlakte tussen de functies <span class="arithmatex">\(f(x) =  e^{x - 4} - 2\)</span> en <span class="arithmatex">\(g(x) = \ln(x)\)</span></summary>
+<p><em><p style="text-align: center;font-size:20px;">Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de functie <span class="arithmatex">\(f(x) =  e^{x - 4} - 2\)</span> en de functie <span class="arithmatex">\(g(x) = \ln(x)\)</span>.</p></em></p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;">a) Bereken de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> in <span class="arithmatex">\(3\)</span> decimalen nauwkeurig.</span></strong></p>
+<p><strong><span style="font-size: 17px;">b) De lijn <span class="arithmatex">\(k\)</span> gaat door de twee snijpunten van de functies. Bepaal de oppervlakte van het vlakdeel <span class="arithmatex">\(W\)</span> dat tussen <span class="arithmatex">\(g(x)\)</span> en lijn <span class="arithmatex">\(k\)</span> ligt. Rond af op <span class="arithmatex">\(2\)</span> decimalen</span></strong></p>
+<p><br><br><br><br><br></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p><strong><span style="font-size: 17px;">a)</span></strong></p>
+<p>Om de situatie een beetje te kunnen begrijpen, maken we eerst een schets:</p>
+<p><figure markdown>
+<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20e%5E%28x%20-%204%29%20-%202%3B%20g%28x%29%20%3D%20ln%28x%29.svg" width="500" />
+    <figcaption>Figuur 5. Grafiek geplot met de functies <span class="arithmatex">\(f(x) =  e^{x - 4} - 2\)</span> en <span class="arithmatex">\(g(x) = \ln(x)\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen de twee functies in.<figcaption>
+</figure></p>
+<p>We moeten de oppervlakte van <span class="arithmatex">\(V\)</span> bepalen, dus is het handig om eerst de grenzen te bepalen. Deze zijn bij de <a href="../kwadratische_vergelijkingen/#snijpunten-met-andere-grafieken">snijpunten tussen de twee functies</a>. Om de snijpunten te bepalen, stellen we de twee functies gelijk aan elkaar:</p>
+<div class="arithmatex">\[\large{f(x) = g(x)}\]</div>
+<div class="arithmatex">\[\large{e^{x - 4} - 2 = \ln(x)}\]</div>
+<p>Er staat geen algebraïsch of exact in de vraag, dus we mogen onze grafische rekenmachine gebruiken. </p>
+<p>We voeren in:</p>
+<div class="arithmatex">\[\large{\left\{ \begin{array}{ l l } y_1 = e^{x - 4} - 2 \\ y_2 = \ln(x) \end{array} \right.}\]</div>
+<p>De optie intersect geeft:</p>
+<div class="arithmatex">\[\large{\left\{ \begin{array}{ l l } x_1 = 0.13821...  \\ x_2 = 5.29954... \end{array} \right.}\]</div>
+<p>De grenzen van <span class="arithmatex">\(V\)</span> zijn dus <span class="arithmatex">\(x \approx 0.13821\)</span> en <span class="arithmatex">\(x \approx 5.29954\)</span>. </p>
+<p>Nu kunnen we de integraal opstellen. <span class="arithmatex">\(V\)</span> ligt <a href="#oppervlakte-tussen-twee-grafieken">tussen twee grafieken</a> in, dus we moeten de bovenste functie min de onderste functie doen. In dit geval ligt <span class="arithmatex">\(g(x)\)</span> bij de oppervlakte boven <span class="arithmatex">\(f(x)\)</span>, dus we krijgen:</p>
+<div class="arithmatex">\[\large{V = \int_{0.13821}^{5.29954} \left( \, g(x) - f(x) \, \right) \, dx}\]</div>
+<p>Nu vullen we <span class="arithmatex">\(f(x)\)</span> en <span class="arithmatex">\(g(x)\)</span> in:</p>
+<div class="arithmatex">\[\large{V = \int_{0.13821}^{5.29954} \left( \ln(x) - \left( e^{x-4} - 2 \right) \right) \, dx}\]</div>
+<div class="arithmatex">\[\large{V = \int_{0.13821}^{5.29954} \left( \ln(x) - e^{x-4} + 2 \right) \, dx}\]</div>
+<p>Nu kunnen we de primiteve gaan bepalen.</p>
+<ul>
+<li>
+<p>De eerste term is <span class="arithmatex">\(\ln(x)\)</span>. In de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> kunnen we zien dat de primiteve hiervan gelijk is aan: <span class="arithmatex">\(\underline{x\ln(x) - x}\)</span> </p>
+</li>
+<li>
+<p>De tweede term is een <span class="arithmatex">\(e\)</span>-macht. We weten dat, net zoals bij een afgeleide, de primitieve van een <span class="arithmatex">\(d\)</span> macht zichzelf is. De primitieve van deze term is dus ook: <span class="arithmatex">\(\underline{-e^{x - 4}}\)</span></p>
+</li>
+<li>
+<p>De laatste term is een constante (een los getal zonder <span class="arithmatex">\(x\)</span>). Om de primitieve van een constante te bepalen, moeten we er gewoon een <span class="arithmatex">\(x\)</span> aanvast plakken, dus: <span class="arithmatex">\(\underline{2x}\)</span> </p>
+</li>
+</ul>
+<p>We krijgen dus:</p>
+<div class="arithmatex">\[\large{V = \left[ x\ln(x) - x - e^{x-4} + 2x \right]_{0.13821}^{5.29954}}\]</div>
+<p>We kunnen nu nog de <span class="arithmatex">\(-x\)</span> en de <span class="arithmatex">\(2x\)</span> samenvoegen:</p>
+<div class="arithmatex">\[\large{V = \left[ x\ln(x) - e^{x-4} + x \right]_{0.13821}^{5.29954}}\]</div>
+<p>Nu kunnen we de grenzen invullen:</p>
+<div class="arithmatex">\[\large{V = \left( 5.29954 \cdot \ln(5.29954) - e^{5.29954-4} + 5.29954 \right) - \left( 0.13821 \cdot \ln(0.13821) - e^{0.13821-4} + 0.13821 \right)}\]</div>
+<p>Als we dit invullen op onze rekenmachine, dan vinden we:</p>
+<div class="arithmatex">\[\large{V = 10.6258851315957...}\]</div>
+<p>We moesten afronden op <span class="arithmatex">\(3\)</span> decimalen, dus als eindantwoord krijgen we:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{V = 10.626}\]</div>
+</div>
+<p><br><br></p>
+<p><strong><span style="font-size: 17px;">b)</span></strong></p>
+<p>We weten dat lijn <span class="arithmatex">\(k\)</span> door de twee snijpunten gaat, dus laten we hier een schets van maken:</p>
+<p><figure markdown>
+<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20e%5E%28x%20-%204%29%20-%202%3B%20g%28x%29%20%3D%20ln%28x%29%20%28met%20lijn%20k%29.svg" width="500" />
+    <figcaption>Figuur 6. Grafiek geplot met de functies <span class="arithmatex">\(f(x) =  e^{x - 4} - 2\)</span>, <span class="arithmatex">\(g(x) = \ln(x)\)</span> en de lijn <span class="arithmatex">\(k\)</span>. Vlakdeel <span class="arithmatex">\(W\)</span> ligt tussen <span class="arithmatex">\(g(x)\)</span> en lijn <span class="arithmatex">\(k\)</span>.<figcaption>
+</figure></p>
+<p>Om oppervlakte <span class="arithmatex">\(W\)</span> te bepalen, moeten we eerst lijn <span class="arithmatex">\(k\)</span> opstellen:</p>
+<div class="arithmatex">\[\large{k: y = ax + b}\]</div>
+<p>We hebben twee punten gegeven gekregen waar de lijn doorheen gaat. We hebben de <span class="arithmatex">\(x\)</span>-coördinaten bij a) al berekend, namelijk <span class="arithmatex">\(x_1 \approx 0.13821\)</span> en <span class="arithmatex">\(x_2 \approx 5.29954\)</span>. Laten we ook de bijbehorende <span class="arithmatex">\(y\)</span>-coördinaten berekenen. We kunnen het in beide functies invullen, maar we kiezen hier voor <span class="arithmatex">\(g(x)\)</span>:</p>
+<div class="arithmatex">\[\large{\left\{ \begin{array}{ l l } y_1 = \ln( 0.13821...) \approx -1.97897 \\ y_2 = \ln(5.29954...) \approx 1.66761 \end{array} \right.}\]</div>
+<p>We hebben dus de snijpunten <span class="arithmatex">\((0.13821, -1.97897)\)</span> en <span class="arithmatex">\((5.29954, 1.66761)\)</span>. Hiermee kunnen we de richtingscoëfficient ( <span class="arithmatex">\(a\)</span> ) van lijn <span class="arithmatex">\(k\)</span> bepalen:</p>
+<div class="arithmatex">\[\large{a = \dfrac{\Delta y}{\Delta x} = \dfrac{1.66761 - - \! 1.97897}{5.29954 - 0.13821}}\]</div>
+<p>En als we dit uitrekenen, dan vinden we:</p>
+<div class="arithmatex">\[\large{a \approx 0.70652}\]</div>
+<p>De lijn <span class="arithmatex">\(k\)</span> wordt dus:</p>
+<div class="arithmatex">\[\large{k: y = 0.70652x + b}\]</div>
+<p>Om <span class="arithmatex">\(b\)</span> te bepalen moeten we <span class="arithmatex">\(1\)</span> van de twee snijpunten invullen. Wij kiezen hier voor het punt <span class="arithmatex">\((5.29954, 1.66761)\)</span> (maar het ander snijpunt mag dus ook):</p>
+<div class="arithmatex">\[\large{1.66761 = 0.70652 \cdot 5.29954 + b}\]</div>
+<div class="arithmatex">\[\large{1.66761 = 3.74423 + b}\]</div>
+<p>Als we beide kanten <span class="arithmatex">\(-3.74423\)</span> doen, dan vinden we:</p>
+<div class="arithmatex">\[\large{b = −2.07662}\]</div>
+<p>De lijn <span class="arithmatex">\(k\)</span> is dus:</p>
+<div class="arithmatex">\[\large{\boxed{k: y = 0.70652x − 2.07662}}\]</div>
+<p>Nu kunnen we oppervlakte <span class="arithmatex">\(W\)</span> bepalen. We weten dat deze oppervlakte tussen lijn <span class="arithmatex">\(k\)</span> en <span class="arithmatex">\(g(x)\)</span> ligt en we zien in Figuur 6 <span class="arithmatex">\(g(x)\)</span> boven lijn <span class="arithmatex">\(k\)</span> ligt. We krijgen dus <span class="arithmatex">\(g(x)\)</span> min lijn <span class="arithmatex">\(k\)</span> in de integraal:</p>
+<div class="arithmatex">\[\large{W = \int_{0.13821}^{5.29954} \left( \, \ln(x) - \left( 0.70652x − 2.07662 \right) \, \right) \, dx}\]</div>
+<div class="arithmatex">\[\large{W = \int_{0.13821}^{5.29954} \left( \, \ln(x) -  0.70652x + 2.07662 \, \right) \, dx}\]</div>
+<p>Nu kunnen we de primitieve bepalen:</p>
+<ul>
+<li>
+<p>We hebben bij a) al gezien dat de primiteve van <span class="arithmatex">\(\ln(x)\)</span> gelijk is aan: <span class="arithmatex">\(\underline{x \ln(x) - x}\)</span></p>
+</li>
+<li>
+<p>De tweede term is van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. We moeten dus de macht <span class="arithmatex">\(+1\)</span> doen en dan een factor van <span class="arithmatex">\(1\)</span> gedeeld door deze macht keer de term doen. We krijgen dus: <span class="arithmatex">\(\frac{1}{2} \cdot -0.70652 x^2 = \underline{-0.35326 x^2}\)</span></p>
+</li>
+<li>
+<p>De laatste term is een constante, dus daar plakken we gewoon een <span class="arithmatex">\(x\)</span> aanvast. We krijgen dus: <span class="arithmatex">\(2.07662 x\)</span></p>
+</li>
+</ul>
+<p>De primitieve wordt dus:</p>
+<div class="arithmatex">\[\large{W = \left[ \, x \ln(x) - x - 0.35326 x^2 + 2.07662 x \, \right]_{0.13821}^{5.29954}}\]</div>
+<div class="arithmatex">\[\large{W = \left[ \, x \ln(x) - 0.35326 x^2 + 1.07662 x \, \right]_{0.13821}^{5.29954}}\]</div>
+<p>Nu kunnen we de grenzen invullen:</p>
+<div class="arithmatex">\[\large{W = \left( \, 5.29954 \cdot \ln(5.29954) - 0.35326 \cdot 5.29954^2 + 1.07662 \cdot 5.29954 \, \right) - \left( \, 0.13821 \cdot \ln(0.13821) - 0.35326 \cdot 0.13821^2 + 1.07662 \cdot 0.13821 \, \right)}\]</div>
+<p>Als we dit invullen in een rekenmachine, dan vinden we:</p>
+<div class="arithmatex">\[\large{W = 4.75332208894266...}\]</div>
+<p>We moesten afronden op <span class="arithmatex">\(2\)</span> decimalen, dus als eindantwoord krijgen we:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{W = 4.75}\]</div>
+</div>
+</details>
+<h2 id="oppervlakte-wentelen-om-de-x-as"><strong>Oppervlakte Wentelen om de x-as</strong></h2>
 
 
   
