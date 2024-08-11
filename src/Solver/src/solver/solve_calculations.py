@@ -255,6 +255,8 @@ def math_interpreter(eq_string):
         eq_string = re.sub(rf'({'|'.join(map(re.escape, relevant_functions))})' r'(?!\w+|\()', r'\1(x)', eq_string)
     
     for _ in range(10):
+        eq_string = re.sub(r'(?<!\.)' + r'\b' + r'0(\d)', r'\1', eq_string) # remove leading 0
+
         eq_string = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', eq_string)
         eq_string = re.sub(r'\b' + r'([a-zA-Z])(\d)', r'\1^\2', eq_string)
         eq_string = re.sub(r'\)(\d)', r')*\1', eq_string)
@@ -424,7 +426,14 @@ def custom_latex(expr, **kwargs):
     return CustomLatexPrinter(**kwargs).doprint(expr)
 
 def custom_simplify(expr, **kwargs):
-    return sp.expand_log(sp.simplify(expr))
+    try:
+        return sp.expand_log(sp.simplify(expr))
+    except Exception:
+        try:
+            return sp.simplify(expr)
+        except Exception:
+            return expr
+
 
 
 class Solve:
@@ -585,7 +594,12 @@ class Solve:
             eq_split = self.eq_string.split("=")
 
             if len(eq_split) == 1:
-                eq1 = TR111(sp.sympify(eq_split[0]))
+                try:
+                    eq1 = TR111(sp.sympify(eq_split[0]))
+                except ValueError:
+                    eq_split[0] = replace_func(eq_split[0], func_name="integrate", replace_with="x")
+                
+                eq1 = TR111(sp.sympify(eq_split[0])) # Throws error again
                 eq2 = 0
 
                 try:
@@ -643,10 +657,20 @@ class Solve:
 
                     self.eq2 = sp.lambdify(self.symbol, eq2, "sympy")
                     
-                    if not sp.simplify(self.eq).is_number:
+                    if not custom_simplify(self.eq).is_number:
                         self.equation_interpret = f"{self.eq_string} = 0"
 
             elif len(eq_split) == 2:
+                try:
+                    eq1 = TR111(sp.sympify(eq_split[0]))
+                except ValueError:
+                    eq_split[0] = replace_func(eq_split[0], func_name="integrate", replace_with="x")
+
+                try:
+                    eq2 = TR111(sp.sympify(eq_split[1]))
+                except ValueError:
+                    eq_split[1] = replace_func(eq_split[0], func_name="integrate", replace_with="x")
+
                 eq1 = TR111(sp.sympify(eq_split[0]))
                 eq2 = TR111(sp.sympify(eq_split[1]))
                 eq12 = eq1 - eq2
@@ -747,7 +771,7 @@ class Solve:
                     symbol = self.symbol
 
                 if len(eq_split) == 2 and take_integral[0] and take_integral[1]:
-                    self.output.append(("De primitieve van de functies zijn:", {"latex": False}))
+                    self.output.append(("De primitieven van de functies zijn:", {"latex": False}))
 
                 else:
                     self.output.append(("De primitieve van de functie is:", {"latex": False}))
@@ -755,7 +779,7 @@ class Solve:
                 if take_integral[0]:
                     if eq1.is_number:
                         integral = sp.sympify(eq_split[0].replace("integrate", "Integral"))
-                        self.output.append(f"I = {custom_latex(custom_simplify(integral))} = {custom_latex(custom_simplify(eq1))}")
+                        self.output.append(f"I = {custom_latex(integral)} = {custom_latex(custom_simplify(eq1))}")
                     
                     else:
                         self.output.append(f"F({symbol}) = {custom_latex(custom_simplify(eq1))} + C")
@@ -763,7 +787,7 @@ class Solve:
                 if len(eq_split) == 2 and take_integral[1]:
                     if eq2.is_number:
                         integral = sp.sympify(eq_split[1].replace("integrate", "Integral"))
-                        self.output.append(f"I = {custom_latex(custom_simplify(integral))} = {custom_latex(custom_simplify(eq2))}")
+                        self.output.append(f"II = {custom_latex(integral)} = {custom_latex(custom_simplify(eq2))}")
                     
                     else:
                         self.output.append(f"G({symbol}) = {custom_latex(custom_simplify(eq2))} + C")
@@ -854,16 +878,20 @@ class Solve:
                         except ValueError:
                             equals_sign = '='
 
+
                         if eq1 != self.eq_string and equals_sign != "=":
                             if not complex_num and round(float(solution), 9) == round(float(solution), 10):
                                 equals_sign = '='  
 
-                            # eq1 = round(eq1, 9)
                             self.output.append(f"{custom_latex(self.eq_string)} = {custom_latex(eq1)} {equals_sign} {custom_latex(solution)}")
 
                         elif self.eq_string == solution:
                             if eq_split[0] != str(solution):
-                                self.output.append(f"{eq_split[0]} {equals_sign} {custom_latex(solution)}")
+                                if True in take_diff or True in take_integral:
+                                    self.output.pop()
+                                else:
+                                    self.output.append(f"{eq_split[0]} {equals_sign} {custom_latex(solution)}")
+                            
                             else:
                                 self.output.append(f"\\textrm{{Yep dat is }} {custom_latex(solution)}")
 
@@ -990,7 +1018,7 @@ class Solve:
             self.output.append((f"Error: De ingevoerde functie klopt niet", {"latex":False}))
             return self.equation_interpret, self.output, self.plot
 
-        except Exception as e:
+        except TypeError as e:
             self.output.append((f"ERROR", {"latex":False}))
             print(e)
             return self.equation_interpret, self.output, self.plot
@@ -1158,7 +1186,7 @@ class Solve:
             else: 
                 self.x_intersect = [float(sp.N(sol)) for sol in self.solutions if sp.N(self.eq1(sol)).is_real]
 
-        self.y_intersect = [float(sp.N(self.eq1(sol))) for sol in self.x_intersect]
+        self.y_intersect = [float(sp.N(self.eq1(sol))) if sp.Abs(sp.N(self.eq1(sol))) > 10**-6 else 0 for sol in self.x_intersect]
 
         if len(self.x_intersect) == 0:
             self.intersect = False

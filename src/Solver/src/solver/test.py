@@ -126,7 +126,6 @@ def math_interpreter(eq_string):
             letters_string = ''.join(letter_list)
 
             replace = "^" + f"({letters_string})"
-            print(replace)
             return replace
 
         eq_string = re.sub(r'\b' + r'inf' + r'\b', r'oo', eq_string)
@@ -290,6 +289,8 @@ def math_interpreter(eq_string):
         eq_string = re.sub(rf'({'|'.join(map(re.escape, relevant_functions))})' r'(?!\w+|\()', r'\1(x)', eq_string)
     
     for _ in range(10):
+        eq_string = re.sub(r'(?<!\.)' + r'\b' + r'0(\d)', r'\1', eq_string) # remove leading 0
+
         eq_string = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', eq_string)
         eq_string = re.sub(r'\b' + r'([a-zA-Z])(\d)', r'\1^\2', eq_string)
         eq_string = re.sub(r'\)(\d)', r')*\1', eq_string)
@@ -478,10 +479,12 @@ def custom_latex(expr, **kwargs):
 
 
 x, y = sp.symbols("x,y", real=True)
-string = "x² x² cosx²"
+string = "(.01)"
 string = math_interpreter(string)
+print(sp.sympify(string))
 
-print(custom_latex(sp.diff(sp.cbrt(sp.ln(x)), x)))
+# print(custom_latex(sp.diff(sp.cbrt(sp.ln(x)), x)))
+
 
 exit()
 

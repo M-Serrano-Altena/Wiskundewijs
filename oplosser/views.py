@@ -8,7 +8,7 @@ from django.conf import settings
 import os
 import json
 import multiprocessing
-from src.Solver.src.solver.solve_calculations import Solve, math_interpreter, custom_latex
+from src.Solver.src.solver.solve_calculations import Solve, math_interpreter, custom_latex, custom_simplify
 from .forms import EquationForm
 
 
@@ -68,6 +68,9 @@ def add_solution_text(solution_text, new_text, new_line=True, latex=True, option
 def get_view_attributes(equation_text, queue):
     solver = Solve(input_string=equation_text)
     equation_interpret, outputs, plot = solver.solve_equation()
+    data_chatgpt = {'equation_text': equation_text, 'equation_interpret': equation_interpret, 'outputs': outputs}
+    print(data_chatgpt)
+
     solution_text = ""
     plot_data = []
     view_x_range = []
@@ -118,17 +121,20 @@ def solve_equation_view(request):
 
                 equation_interpret = math_interpreter(equation_text)
                 solution_text = "<br>Error: Berekening duurt te lang"
+                explanation = "Hello World 2"
                 data = {
                     "equation_interpret": equation_interpret,
                     "solution_text": solution_text,
                     "plot_data": [],
                     "x_range": None,
                     "y_range": None,
-                    "plot": False
+                    "plot": False,
+                    "explanation": explanation
                 }
 
             else:
                 data = queue.get()
+                explanation = data.get('explanation', "Geen uitleg beschikbaar")
 
             if data["plot"]:
                 if request.headers.get('x-requested-with') == 'XMLHttpRequest':
@@ -140,20 +146,11 @@ def solve_equation_view(request):
                         'plot_data': json.dumps(data['plot_data']),
                         'x_range': data['x_range'],
                         'y_range': data['y_range'],
-                        'title': 'Vergelijking Oplosser'
+                        'title': 'Vergelijking Oplosser',
+                        'explanation': explanation
                     })
                     return JsonResponse({'result': html})
-
-                return render(request, 'oplosser/equation_detail.html', {
-                    'equation_text': equation_text,
-                    'equation_interpret': data['equation_interpret'],
-                    'solutions': data['solution_text'],
-                    'plot': data['plot'],
-                    'plot_data': json.dumps(data['plot_data']),
-                    'x_range': data['x_range'],
-                    'y_range': data['y_range'],
-                    'title': 'Vergelijking Oplosser'
-                    })
+                
             
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                 html = render_to_string('oplosser/equation_result.html', {
@@ -161,17 +158,10 @@ def solve_equation_view(request):
                     'equation_interpret': data['equation_interpret'],
                     'solutions': data['solution_text'],
                     'plot': data['plot'],
-                    'title': 'Vergelijking Oplosser'
+                    'title': 'Vergelijking Oplosser',
+                    'explanation': explanation
                 })
                 return JsonResponse({'result': html})
-
-            return render(request, 'oplosser/equation_detail.html', {
-                'equation_text': equation_text,
-                'equation_interpret': data['equation_interpret'],
-                'solutions': data['solution_text'],
-                'plot': data['plot'],
-                'title': 'Vergelijking Oplosser'
-            })
 
     else:
         form = EquationForm()
@@ -205,18 +195,18 @@ def generate_plot_data(solver):
     
     plot_data = []
 
-    output_legend1 = f"${f'f({solver.symbol})' if not solver.multivariate else 'y'} = {custom_latex(sp.nsimplify(sp.expand_log(sp.simplify(solver.eq1(solver.symbol)))))}$"
-    output_legend2 = f"${f'g({solver.symbol})' if not solver.multivariate else 'y'} = {custom_latex(sp.nsimplify(sp.expand_log(sp.simplify(solver.eq2(solver.symbol)))))}$"
-    
-    if len(output_legend1) > len(output_legend2):
-        output_legend1 = output_legend1[:-1] + "\\qquad .$"
-    else:
-        output_legend2 = output_legend2[:-1] + "\\qquad .$"
+    output_legend1 = f"${f'f({solver.symbol})' if not solver.multivariate else 'y'} = {custom_latex(sp.nsimplify(custom_simplify(solver.eq1(solver.symbol))))}$"
+    output_legend2 = f"${f'g({solver.symbol})' if not solver.multivariate else 'y'} = {custom_latex(sp.nsimplify(custom_simplify(solver.eq2(solver.symbol))))}$"
 
     hoverinfo1 = f"{f'f({solver.symbol})' if not solver.multivariate else 'y'} = {str(sp.nsimplify(solver.eq1(solver.symbol))).replace('**', '^').replace('log', 'ln')}"
     hoverinfo2 = f"{f'g({solver.symbol})' if not solver.multivariate else 'y'} = {str(sp.nsimplify(solver.eq2(solver.symbol))).replace('**', '^').replace('log', 'ln')}"
     
-    
+    if len(hoverinfo1) > len(hoverinfo2):
+        output_legend1 = output_legend1[:-1] + "\\qquad .$"
+    else:
+        output_legend2 = output_legend2[:-1] + "\\qquad .$"
+
+
     if solver.vert_asympt is None:
         plot_data.append({
             'x': list(plottable_x1_coords),

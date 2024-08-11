@@ -1562,8 +1562,8 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
 ### **Voorbeelden**
 
-??? example "Voorbeeld 1: Bereken de oppervlakte tussen de functies $f(x) = x^2 - 4x + 6$ en $g(x) = 4x - x^2$"
-    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = x^2 - 4x + 6$ en de functie $g(x) = 4x - x^2$.</p>*
+??? example "Voorbeeld 1: Bereken de oppervlakte tussen de functies $f(x) = x^2 - 4x + 6$ en $g(x) = -x^2 + 4x$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = x^2 - 4x + 6$ en de functie $g(x) = -x^2 + 4x$.</p>*
 
     <br>
 
@@ -1580,15 +1580,15 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
     Om de situatie een beetje te kunnen begrijpen, maken we eerst een schets:
 
     <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = x^2 - 4x + 6; g(x) = 4x - x^2.svg){ width="500" }
-        <figcaption>Figuur 1. Grafiek geplot met de functies $f(x) =  6 - x^2$ en $g(x) = x + 4$. Vlakdeel $V$ ligt tussen de twee functies in.<figcaption>
+    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = x^2 - 4x + 6; g(x) = -x^2 + 4x.svg){ width="500" }
+        <figcaption>Figuur 1. Grafiek geplot met de functies $f(x) = x^2 - 4x + 6$ en $g(x) = -x^2 + 4x$. Vlakdeel $V$ ligt tussen de twee functies in.<figcaption>
     </figure>
 
-    Om de oppervlakte $V$ te bepalen, hebben we eerst de grenzen nodig. Dit zijn de [snijpunten tussen de twee functies](kwadratische_vergelijkingen.md#snijpunten-met-andere-grafieken), dus die moeten we eerst bepalen. We stellen dan $f(x)$ gelijk aan $g(x)$ en lossen die vergelijking op:
+    Om de oppervlakte $V$ te bepalen, hebben we eerst de grenzen nodig. In dit geval zijn dat de [snijpunten tussen de twee functies](kwadratische_vergelijkingen.md#snijpunten-met-andere-grafieken). Om deze te bepalen moeten we $f(x)$ gelijk stellen aan $g(x)$ en de vergelijking oplossen:
 
     $$\large{f(x) = g(x)}$$ 
 
-    $$\large{x^2 - 4x + 6 = 4x - x^2}$$
+    $$\large{x^2 - 4x + 6 = -x^2 + 4x}$$
 
     Om dit op te lossen halen we eerst alles naar de linkerkant:
 
@@ -1598,11 +1598,15 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     $$\large{x^2 - 4x + 3 = 0}$$
 
-    Nu kunnen we het [ontbinden in factoren](kwadratische_vergelijkingen.md#ontbinden-in-factoren):
+    Nu kunnen we het [ontbinden in factoren](kwadratische_vergelijkingen.md#ontbinden-in-factoren). We zoeken twee factoren die keer elkaar $3$ zijn en plus elkaar $-4$.
+    
+    De factoren die hieraan voldoen zijn $-3$ en $-1$:
 
     $$\large{(x - 3)(x - 1) = 0}$$
 
     Hieruit volgt:
+
+    $$\large{x - 3 = 0 \ \vee \ x - 1 = 0}$$
 
     $$\large{\boxed{x = 3 \ \vee \ x = 1}}$$
 
@@ -1610,11 +1614,11 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     De oppervlakte van $V$ is ingesloten door de functies $f(x)$ en $g(x)$, dus $V$ ligt [tussen de twee grafieken](#oppervlakte-tussen-twee-grafieken). We moeten dus een integraal nemen van de bovenste functie min de onderste functie. 
     
-    In dit geval is $g(x)$ de bovenste functie en $f(x)$ de onderste functie:
+    In Figuur 1 zien we dat $g(x)$ de bovenste functie is en $f(x)$ de onderste functie:
 
     $$\large{V = \int_1^3 \left( \, g(x) - f(x) \, \right) \, dx}$$
 
-    $$\large{V = \int_1^3 \left( \, \left( 4x - x^2 \right) - \left( x^2 - 4x + 6 \right) \, \right) \, dx}$$
+    $$\large{V = \int_1^3 \left( \, \left( -x^2 + 4x \right) - \left( x^2 - 4x + 6 \right) \, \right) \, dx}$$
 
     $$\large{V = \int_1^3 \left( \, -2x^2 + 8x - 6 \, \right) \, dx}$$
 
@@ -1622,7 +1626,7 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     - De eerste twee termen zijn van de vorm $f(x) = ax^n$ (want we kunnen $8x$ schrijven als $8x^1$). Om de primitieve van deze vorm te nemen, moeten we eerst de macht $+1$ doen. Daarna zetten we een factor van $1$ gedeeld door deze nieuwe macht ervoor.
 
-    - De laatste term is een constante (een los getal zonder $x$), dus bij de primiteve plakken we er dan gewoon een $x$ aanvast.
+    - De laatste term is een constante (een los getal zonder $x$), dus dan plakken we bij de primiteve er gewoon een $x$ aanvast.
 
     We krijgen dus:
 
@@ -1632,7 +1636,7 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     $$\large{V = \left[ -\dfrac{2}{3} x^3 + 4x^2 - 6x \right]_1^3}$$
 
-    Nu kunnen we de grenzen invullen:
+    Nu kunnen we de grenzen invullen en die min elkaar doen:
 
     $$\large{V = \left( -\dfrac{2}{3} \cdot 3^3 + 4 \cdot 3^2 - 6 \cdot 3 \right) - \left( -\dfrac{2}{3} \cdot 1^3 + 4 \cdot 1^2 - 6 \cdot 1 \right)}$$
 
@@ -1655,11 +1659,11 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
     We weten dat de lijn $x=p$ het vlakdeel $V$ zo verdeelt dat vlakdeel $I$ twee keer zo groot is als vlakdeel $II$. Laten we weer een schets maken zodat we de situatie beter kunnen begrijpen:
 
     <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = x^2 - 4x + 6; g(x) = 4x - x^2 (gesplitst).svg){ width="500" }
-        <figcaption>Figuur 2. Grafiek geplot met de functies $f(x) =  6 - x^2$ en $g(x) = x + 4$. Vlakdeel $V$ wordt verdeeld in de vlakdelen $I$ en $II$ zodat $I$ twee keer zo groot is als $II$.<figcaption>
+    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = x^2 - 4x + 6; g(x) = -x^2 + 4x (gesplitst).svg){ width="500" }
+        <figcaption>Figuur 2. Grafiek geplot met de functies $f(x) = x^2 - 4x + 6$ en $g(x) = -x^2 + 4x$. Vlakdeel $V$ wordt verdeeld in de vlakdelen $I$ en $II$ zodat $I$ twee keer zo groot is als $II$.<figcaption>
     </figure>
 
-    Om dit op te lossen moeten we dus oppervlakte $I$ en $II$ apart berekenen. We beginnen met oppervlakte $I$.
+    Om dit op te lossen, moeten we oppervlakte $I$ en $II$ apart berekenen. We beginnen met oppervlakte $I$.
 
     Het is eigenlijk precies dezelfde integraal als bij a), alleen dan is de rechter grens nu $x=p$ in plaats van het rechter snijpunt:
 
@@ -1667,31 +1671,41 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     $$\large{I = \int_1^p \left( \, -2x^2 + 8x - 6 \, \right) \, dx}$$
 
-    We hebben de primitieve bij a) ookal bepaald:
+    We hebben de primitieve ook al bij a) bepaald:
 
     $$\large{I = \left[ -\dfrac{2}{3} x^3 + 4x^2 - 6x \right]_1^p}$$
 
-    En nu vullen we de grenzen in:
+    En nu vullen we deze nieuwe grenzen in:
 
     $$\large{I = \left( -\dfrac{2}{3} p^3 + 4p^2 - 6p \right) - \left( -\dfrac{2}{3} \cdot 1^3 + 4 \cdot 1^2 - 6 \cdot 1 \right)}$$
 
+    $$\large{I = -\dfrac{2}{3} p^3 + 4p^2 - 6p - \left( -\dfrac{2}{3} + 4 - 6 \right)}$$
+
+    $$\large{I = -\dfrac{2}{3} p^3 + 4p^2 - 6p - \left( -2\dfrac{2}{3} \right)}$$
+
     $$\large{\boxed{I = -\dfrac{2}{3} p^3 + 4p^2 - 6p  + 2\dfrac{2}{3}}}$$
 
-    En nu doen we hetzelfde maar dan voor $II$. Het vlakdeel $II$ begint juist bij $x=p$ en eindigt bij $x=3$. Behalve de grenzen blijft de rest precies hetzelfde, dus we kunnen meteen al de geprimiteveerde versie opschrijven:
+    En nu doen we hetzelfde maar dan voor $II$. Het vlakdeel $II$ begint juist bij $x=p$ en eindigt bij $x=3$. Behalve de grenzen blijft de rest weer precies hetzelfde, dus we kunnen meteen al de geprimiteveerde versie opschrijven:
 
     $$\large{II = \left[ -\dfrac{2}{3} x^3 + 4x^2 - 6x \right]_p^3}$$
 
-    En nu vullen we de grenzen in:
+    En nu vullen we deze grenzen in:
 
-    $$\large{V = \left( -\dfrac{2}{3} \cdot 3^3 + 4 \cdot 3^2 - 6 \cdot 3 \right) - \left( -\dfrac{2}{3} p^3 + 4p^2 - 6p \right)}$$
+    $$\large{II = \left( -\dfrac{2}{3} \cdot 3^3 + 4 \cdot 3^2 - 6 \cdot 3 \right) - \left( -\dfrac{2}{3} p^3 + 4p^2 - 6p \right)}$$
 
-    $$\large{II = \left( 0 \right) \dfrac{2}{3} p^3 - 4p^2 + 6p}$$
+    $$\large{II = \left( -\dfrac{2}{3} \cdot 27 + 4 \cdot 9 - 18 \right) + \dfrac{2}{3} p^3 - 4p^2 + 6p}$$
+
+    $$\large{II = \left( -18 + 36 - 18 \right) + \dfrac{2}{3} p^3 - 4p^2 + 6p}$$
+
+    $$\large{II = \left( \, 0 \, \right) + \dfrac{2}{3} p^3 - 4p^2 + 6p}$$
 
     $$\large{\boxed{II = \dfrac{2}{3} p^3 - 4p^2 + 6p}}$$
 
     We weten dat $I$ twee keer zo groot is als $II$, dus we kunnen de volgende vergelijking opstellen:
 
     $$\large{I = 2 \cdot II}$$
+
+    En nu vullen we de vergelijkingen voor $I$ en $II$ die we net hebben gevonden:
 
     $$\large{-\dfrac{2}{3} p^3 + 4p^2 - 6p  + 2\dfrac{2}{3} = 2 \cdot \left( \dfrac{2}{3} p^3 - 4p^2 + 6p \right)}$$
 
@@ -1701,7 +1715,7 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     $$\large{-2p^3 + 12p^2 - 18p  + 2\dfrac{2}{3} = 0}$$
 
-    Er stond in de vraag geen algebraïsch of exact, dus we mogen dit oplossen met onze grafische rekenmachine.
+    We hebben hier een term met een derdemacht, dus dit wordt een lastige vergelijking om met de hand op te lossen. Maar er stond gelukkig geen algebraïsch of exact in de vraag, dus we mogen onze grafische rekenmachine gebruiken.
 
     We voeren in:
 
@@ -1713,20 +1727,20 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     We hebben hier $3$ oplossingen gevonden, dus hoe moeten we nu weten welke $p$ is? 
 
-    De grenzen van vlakdeel $V$ zijn $x=1$ en $x=3$, en de lijn $x=p$ ligt binnen dit vlakdeel. Oftewel, $p$ moet dus ook tussen $1$ en $3$ liggen. De enige mogelijkheid is dan dus $x_2$, dus op $3$ decimalen nauwkeurig krijgen we:
+    De grenzen van vlakdeel $V$ zijn $x=1$ en $x=3$, en de lijn $x=p$ ligt binnen dit vlakdeel. Oftewel, $p$ moet dus ook tussen $1$ en $3$ liggen. De enige mogelijkheid is dan dus $x_2$. Als we dit op $3$ decimalen nauwkeurig schrijven, dan krijgen we als eindantwoord:
 
     !!! quote ""
         $$\large{p \approx 2.226}$$ 
 
 
-??? example "Voorbeeld 2: Bereken de oppervlakte tussen de functies $f(x) = x^2$ en $g(x) = \sqrt{x}$"
-    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = x^2$ en de functie $g(x) = \sqrt{x}$.</p>*
+??? example "Voorbeeld 2: Bereken de oppervlakte tussen de functies $f(x) = \sqrt{x}$ en $g(x) = x^2$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = \sqrt{x}$ en de functie $g(x) = x^2$.</p>*
 
     <br>
 
     **<span style="font-size: 17px;">a) Bereken exact de oppervlakte van vlakdeel $V$.</span>**
 
-    **<span style="font-size: 17px;">b) De lijn $k$ gaat door de oorsprong en verdeelt $V$ in de twee even grote oppervlaktes $I$ en $II$. Vlakdeel $W$ is de oppevlakte onder deze lijn tussen de twee snijpunten. Bepaal exact hoeveel keer groter de oppervlakte van $W$ is ten opzichte van oppervlakte $V$.</span>**
+    **<span style="font-size: 17px;">b) De lijn $k$ gaat door de oorsprong en verdeelt $V$ in twee even grote oppervlaktes. Vlakdeel $W$ is de oppevlakte onder deze lijn met de twee snijpunten als grenzen. Bepaal exact hoeveel keer groter de oppervlakte van $W$ is ten opzichte van de oppervlakte van $V$.</span>**
 
     <br><br><br><br><br>
 
@@ -1734,11 +1748,11 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     **<span style="font-size: 17px;">a)</span>**
 
-    Laten we een schets maken zodat we een beetje de situatie kunnen begrijpen:
+    Laten we een schets maken zodat we de situatie een beetje kunnen begrijpen:
 
     <figure markdown>
     ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = sqrt(x); g(x) = x^2.svg){ width="500" }
-        <figcaption>Figuur 2. Grafiek geplot met de functies $f(x) = x^2$ en $g(x) = \sqrt{x}$. Vlakdeel $V$ ligt tussen de twee functies in.<figcaption>
+        <figcaption>Figuur 3. Grafiek geplot met de functies $f(x) = \sqrt{x}$ en $g(x) = x^2$. Vlakdeel $V$ ligt tussen de twee functies in.<figcaption>
     </figure>
 
     Om de oppervlakte $V$ te kunnen bepalen, hebben we eerst de grenzen nodig. Dit zijn de [snijpunten tussen de twee functies](kwadratische_vergelijkingen.md#snijpunten-met-andere-grafieken), dus laten we die bepalen. We stellen de twee functies gelijk aan elkaar:
@@ -1759,7 +1773,7 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     $$\large{x^4 - x = 0}$$
 
-    Beide termen hebben een $x$, dus dit kunnen we op dezelfde manier [oplossen](kwadratische_vergelijkingen.md#oplossen-vorm-x--bx--0) als een vergelijking van de vorm $x^2 + bx = 0:$
+    Beide termen hebben een $x$, dus dit kunnen we op dezelfde manier [oplossen](kwadratische_vergelijkingen.md#oplossen-vorm-x2-bx-0) als een vergelijking van de vorm $x^2 + bx = 0:$
 
     $$\large{x \left( x^3 - 1 \right) = 0}$$
     
@@ -1777,7 +1791,7 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     De snijpunten (en dus de grenzen) liggen bij $x = 0$ en $x = 1$.
 
-    Nu kunnen we de oppervlakte van $V$ gaan bepalen. Dit is een oppervlakte tussen twee grafieken, dus we moeten de bovenste grafiek min de onderste grafiek doen. In dit geval ligt $f(x)$ boven $g(x)$ bij de oppervlakte, dus onze integraal wordt:
+    Nu kunnen we de oppervlakte van $V$ gaan bepalen. Dit is een [oppervlakte tussen twee grafieken](#oppervlakte-tussen-twee-grafieken), dus we moeten de bovenste min de onderste functie doen. In Figuur 3 kunnen we zien dat $f(x)$ boven $g(x)$ ligt bij de oppervlakte. Onze integraal wordt dus:
 
     $$\large{V = \int_0^1 \left( f(x) - g(x) \right) \, dx}$$
 
@@ -1785,11 +1799,11 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     Om de primitieve te bepalen, schrijven we de wortel als een macht $\frac{1}{2}$: 
     
-    $$\large{V = \int_0^1 \left( x^{\frac{1}{@}} - x^2 \right) \, dx}$$
+    $$\large{V = \int_0^1 \left( x^{\frac{1}{2}} - x^2 \right) \, dx}$$
 
     Laten we nu de primitieve gaan bepalen.
 
-    Beide termen zijn van de vorm $f(x) = ax^n$. Bij deze vorm doen we de macht $+1$ en doen de term keer een factor van $1$ gedeeld door deze nieuwe macht. We krijgen dus:
+    Beide termen zijn van de vorm $f(x) = ax^n$. Bij deze vorm doen we de macht $+1$ en daarna doen we het keer een factor van $1$ gedeeld door deze nieuwe macht. We krijgen dus:
 
     $$\large{V = \left[ \, \dfrac{1}{1\frac{1}{2}} \cdot x^{1\frac{1}{2}} - \dfrac{1}{3} x^3 \, \right]_0^1}$$
 
@@ -1797,7 +1811,7 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     $$\large{V = \left[ \, \dfrac{2}{3} x^{1\frac{1}{2}} - \dfrac{1}{3} x^3 \, \right]_0^1}$$
 
-    En nu vullen we de grenzen in:
+    En nu vullen we de grenzen in en doen het min elkaar:
 
     $$\large{V = \left( \, \dfrac{2}{3} \cdot 1^{1\frac{1}{2}} - \dfrac{1}{3} \cdot 1^3 \, \right) - \left( \, \dfrac{2}{3} \cdot 0^{1\frac{1}{2}} - \dfrac{1}{3} \cdot 0^3 \, \right)}$$
 
@@ -1813,48 +1827,73 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     **<span style="font-size: 17px;">b)</span>**
 
-    Laten we als eerst de lijn $k$ opstellen. De algemene vorm van een lijn is:
+    Om dit op te lossen, moeten we als eerst de lijn $k$ opstellen. De algemene vorm van een lijn is:
 
-    $$\large{k: y = ax + b}$$
+    $$\large{k \! : y = ax + b}$$
 
     We weten dat lijn $k$ door de oorsprong gaat, dus door het punt $(0, 0)$. Laten we dit punt invullen:
 
     $$\large{0 = a \cdot 0 + b}$$
 
-    Hieruit volgt dus:
+    Hieruit volgt dus dat:
 
     $$\large{b = 0}$$
 
-    De lijn kunnen we dan versimpelen naar:
+    De lijn $k$ kunnen we dus versimpelen naar:
 
-    $$\large{k: y = ax}$$
+    $$\large{k \! : y = ax}$$
 
-    We weten dat lijn $k$ de oppervlakte $V$ in twee gelijke delen verdeelt. In Figuur 2 kunnen we zien dat de lijn dan door het andere snijpunt moet gaan. 
+    We weten dat lijn $k$ de oppervlakte $V$ in twee gelijke delen verdeelt. In Figuur 4 hieronder zien we het onderste deel, die we vlakdeel $I$ noemen:
+    
+    <figure markdown>
+    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = sqrt(x); g(x) = x^2 (met lijn k; opp I).svg){ width="500" }
+        <figcaption>Figuur 4. Grafiek geplot met de functies $f(x) = x^2$, $g(x) = \sqrt{x}$ en de lijn $k$. Vlakdeel $I$ is de oppervlakte tussen lijn $k$ en $g(x)$.<figcaption>
+    </figure>
+    
+    De oppervlakte van vlakdeel $I$ is dus de helft van $V$, dus $I = \dfrac{1}{6}$. We kunnen hiermee lijn $k$ bepalen, door de oppervlakte van $I$ ook uit te rekenen met een integraal. 
+    
+    Lijn $k$ is de bovenste functie en $g(x)$ de onderste, dus we krijgen:
 
-    We kunnen het andere snijpunt bepalen door $x = 1$ in een van de formules te stoppen. We vinden dan het bijbehorende $y$-coördinaat $y = 1$. Als we dit punt invullen in de lijn $k$, vinden we:
+    $$\large{I = \int_0^1 \left( \, ax - x^2 \, \right) \, dx}$$
 
-    $$\large{1 = a \cdot 1}$$
+    Beide termen zijn van de vorm $f(x) = ax^n$ (want $ax$ kunnen we schrijven als $ax^1$). Om dit te primitiveren doen we eerst de macht $+1$. Daarna moeten we een $1$ gedeeld door de nieuwe macht ervoor zetten.
 
-    En hieruit volgt dus:
+    We krijgen dus:
+
+    $$\large{I = \left[ \, \frac{1}{2} ax^2 - \dfrac{1}{3} x^2 \, \right]_0^1}$$
+
+    En als we de grenzen invullen, vinden we:
+
+    $$\large{I = \left( \frac{1}{2} a \cdot 1^2 - \dfrac{1}{3} \cdot 1^2 \right) - \left( \frac{1}{2} a \cdot 0^2 - \dfrac{1}{3} \cdot 0^2 \right)}$$
+
+    $$\large{I = \frac{1}{2} a - \dfrac{1}{3}}$$
+
+    En dit is dus gelijk aan $\dfrac{1}{6}$:
+
+    $$\large{\frac{1}{2} a - \dfrac{1}{3} = \dfrac{1}{6}}$$
+
+    $$\large{\frac{1}{2} a = \dfrac{1}{2}}$$
+
+    We vinden dus:
 
     $$\large{a = 1}$$
 
-    De lijn $k$ is dus gewoon:
+    En lijn $k$ wordt dus:
 
-    $$\large{\boxed{k: y = x}}$$
+    $$\large{\boxed{k \! : y = x}}$$
 
-    We wisten ook dat vlakdeel $W$ de oppervlakte onder lijn $k$ is tussen de twee snijpunten. Laten we de situatie weer schetsen:
+    We weten dat vlakdeel $W$ de oppervlakte onder lijn $k$ is met de twee snijpunten als grenzen. Laten we nog een schets maken:
 
     <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = sqrt(x); g(x) = x^2 (met lijn k).svg){ width="500" }
-        <figcaption>Figuur 2. Grafiek geplot met de functies $f(x) = x^2$, $g(x) = \sqrt{x}$ en de lijn $k$. Vlakdeel $W$ is de oppervlakte onder lijn $k$.<figcaption>
+    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = sqrt(x); g(x) = x^2 (met lijn k; opp W).svg){ width="500" }
+        <figcaption>Figuur 5. Grafiek geplot met de functies $f(x) = x^2$, $g(x) = \sqrt{x}$ en de lijn $k$. Vlakdeel $W$ is de oppervlakte onder lijn $k$.<figcaption>
     </figure>
 
-    Laten we oppervlakte $W$ bepalen. We stellen eerst de integraal op:
+    Nu kunnen we oppervlakte $W$ bepalen. We stellen eerst de integraal op:
 
     $$\large{W = \int_0^1 x \, dx}$$
 
-    Als we dit primitiveren, dan vinden we:
+    Als we dit integreren, dan vinden we:
 
     $$\large{W = \left[ \, \dfrac{1}{2} x^2 \, \right]_0^1}$$
 
@@ -1864,123 +1903,19 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     $$\large{\boxed{W = \dfrac{1}{2}}}$$
 
-    We moesten bepalen hoeveel keer groter deze oppervlakte was ten opzichte van $V$. Bij a) hadden we berekent dat $V = \dfrac{1}{3}$, dus:
+    We moesten bepalen hoeveel keer groter deze oppervlakte was ten opzichte van $V$. Bij a) hadden we berekend dat $V = \dfrac{1}{3}$, dus de verhouding tussen de twee oppervlaktes wordt:
 
     $$\large{\dfrac{W}{V} =  \dfrac{\frac{1}{2}}{\frac{1}{3}}}$$
 
     $$\large{\dfrac{W}{V} =  1 \dfrac{1}{2}}$$
 
-    !!! quote ""
-        $$\large{W \textrm{ is } 1 \dfrac{1}{2} \textrm{ keer groter dan } V}$$
-
-
-??? example "Voorbeeld 3: Bereken algebraïsch de oppervlakte tussen de functies $f(x) = \sin(3x) + 2$ en $g(x) = \cos(3x) + 2$"
-    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = \sin(3x) + 2$ en de functie $g(x) = \cos(3x) + 2$ binnen een bepaald domein (zie Figuur 2).</p>*
-
-    <br>
-
-    **<span style="font-size: 17px;">Bereken algebraïsch de oppervlakte van vlakdeel $V$ als $p = \frac{2}{3} \pi$. Rond af op $3$ decimalen</span>**
-
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = sin(3x) + 2; g(x) = cos(3x) + 2.svg){ width="500" }
-        <figcaption>Figuur 4. Grafiek geplot met de functies $f(x) = \sin(3x) + 2$ en $g(x) = \cos(3x) + 2$. Vlakdeel $V$ ligt tussen de twee functies binnen een bepaald domein.<figcaption>
-    </figure>
-
-    <br><br><br><br><br>
-
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
-
-    Om dit op te lossen moeten we eerst de grenzen bepalen. Om dit te doen, hebben we de eerste twee snijpunten nodig vanaf $x=0$. De meest rechter grens hebben we namelijk al gegeven gekregen, dat is namelijk bij $x=\frac{2}{3} \pi$.
-
-    Om de [snijpunten te bepalen](kwadratische_vergelijkingen.md#snijpunten-met-andere-grafieken) tussen $f(x)$ en $g(x)$ moeten we de twee functies aan elkaar gelijk stellen:
-
-    $$\large{f(x) = g(x)}$$
-
-    $$\large{\sin(3x) + 2 = \cos(3x) + 2}$$
-
-    Om dit op te lossen beginnen we met aan beide kanten $-2$ te doen:
-
-    $$\large{\sin(3x) = \cos(3x)}$$
-
-    Nu hebben we óf aan beide kanten een sinus nodig óf aan beide kanten een cosinus. Wij schrijven de [cosinus om naar een sinus](goniometrie.md#sinus-en-cosinus-omschrijven) (maar het mag ook andersom):
-
-    $$\large{\sin(3x) = \sin(3x + \dfrac{1}{2} \pi)}$$
-
-    Nu kunnen we de [algemene oplossing](goniometrie.md#algemene-oplossing) voor een sinus vergelijking gebruiken:
-
-    $$\large{3x = 3x + \dfrac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 3x = \pi - \left( 3x + \dfrac{1}{2} \pi \right) + k \cdot 2 \pi}$$
-
-    $$\large{3x = 3x + \dfrac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 3x = -3x + \dfrac{1}{2} \pi + k \cdot 2 \pi}$$
-
-    Nu halen we alle $x$ termen naar de linkerkant:
-
-    $$\large{0 = + \dfrac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 6x = \dfrac{1}{2} \pi + k \cdot 2 \pi}$$
-
-    De $x$ term is bij de linker vergelijking weggevallen, dus daar hebben we niks meer aan. We gaan verder met de rechter vergelijking:
-
-    $$\large{6x = \dfrac{1}{2} \pi + k \cdot 2 \pi}$$
-
-    Nu delen we beide kanten door $6$ om te vinden:
-
-    $$\large{x = \dfrac{1}{12} \pi + k \cdot \dfrac{1}{3} \pi}$$
-
-    We moesten de eerste twee snijpunten bepalen vanaf $x=0$, dus we vinden dan de snijpunten:
-
-    $$\large{x = \dfrac{1}{12} \pi \ \vee \ x = \dfrac{5}{12} \pi}$$
-
-    Het linker snijpunt op de schets is dus bij $x=\frac{1}{12} \pi$ en het middelste snijpunt bij $x = \frac{5}{12} \pi$.
-
-    Nu hebben we de grenzen van vlakdeel $V$ en kunnen we de oppervlakte bepalen. De oppervlakte zit [tussen twee functies in](#oppervlakte-tussen-twee-grafieken), dus we moeten de bovenste functie min de onderste functie doen.
-
-    Maar let op! Bij het eerste gedeelte van de oppervlakte is $f(x)$ boven $g(x)$, maar bij het tweede gedeelte is $g(x)$ juist boven $f(x)$. We moeten dan net zoals bij [een deel boven en een deel onder de $x$-as](#deel-boven-en-deel-onder-de-x-as) de oppervlakte in tweeën delen.
-
-    We weten wanneer $g(x)$ boven $f(x)$ begint te gaan, want dat snijpunt hadden we net bepaald ($x = \frac{5}{12} \pi$). De grenzen van het eerste oppervlakte zijn dus $x=\frac{1}{12} \pi$ en $x = \frac{5}{12} \pi$ en van het tweede oppervlakte $x = \frac{5}{12} \pi$ en $x = \frac{2}{3} \pi$:
-
-    $$\large{V = \int_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \left( \, f(x) - g(x)  \, \right) \, dx \, + \int_{\frac{5}{12} \pi}^{\frac{2}{3} \pi} \left( \, g(x) - f(x)  \, \right) \, dx}$$
-
-    En nu vullen we $f(x)$ en $g(x)$ in:
-
-    $$\large{V = \int_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \left( \, (\sin(3x) + 2) - (\cos(3x) + 2)  \, \right) \, dx \, + \int_{\frac{5}{12} \pi}^{\frac{2}{3} \pi} \left( \, (\cos(3x) + 2) - (\sin(3x) + 2)  \, \right) \, dx}$$
-
-    En als we dit versimpelen:
-
-    $$\large{V = \int_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \left( \, \sin(3x) - \cos(3x)  \, \right) \, dx \, + \int_{\frac{5}{12} \pi}^{\frac{2}{3} \pi} \left( \, \cos(3x) - \sin(3x) \, \right) \, dx}$$
-
-    We kunnen ook nog een '$-$' buiten de tweede integraal halen:
-
-    $$\large{V = \int_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \left( \, \sin(3x) - \cos(3x)  \, \right) \, dx \, - \int_{\frac{5}{12} \pi}^{\frac{2}{3} \pi} \left( \, -\cos(3x) + \sin(3x) \, \right) \, dx}$$
-
-    $$\large{V = \int_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \left( \, \sin(3x) - \cos(3x)  \, \right) \, dx \, - \int_{\frac{5}{12} \pi}^{\frac{2}{3} \pi} \left( \, \sin(3x) - \cos(3x) \, \right) \, dx}$$
-
-    Nu kunnen we namelijk twee keer hetzelfde integreren en gewoon andere grenzen invullen. Laten we dit integreren:
-
-    - De eerste term is $\sin(3x)$. In de [tabel](#tabel-met-veel-voorkomende-functies) kunnen we zien dat de primitieve van $\sin(x)$ gelijk is aan $-\cos(x)$. Alleen wij hebben nog een $3$ binnen de sinus, dus om rekening te houden met de [kettingregel](afgeleide.md#regels) moeten wij een factor $\frac{1}{3}$ toevoegen. We krijgen dus als primitieve $-\dfrac{1}{3} \cos(3x)$
-
-    - De tweede term is een $\cos(3x)$, dus heel vergelijkbaar aan de eerste term. In de [tabel](#tabel-met-veel-voorkomende-functies) zien we dat de primitieve van $\cos(x)$ gelijk is aan $\sin(x)$. We moeten weer rekening houden met de [kettingregel](afgeleide.md#regels), dus we krijgen als primitieve $\dfrac{1}{3} \sin(3x)$. 
-
-    We krijgen dus:
-    
-    $$\large{V = \left[ \, -\dfrac{1}{3} \cos(3x) - \dfrac{1}{3} \sin(3x) \, \right]_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \ - \ \left[ \, -\dfrac{1}{3} \cos(3x) - \dfrac{1}{3} \sin(3x) \, \right]_{\frac{5}{12} \pi}^{\frac{2}{3} \pi}}$$
-
-    We kunnen nu nog de factor $-\frac{1}{3}$ buiten de integralen zetten:
-
-    $$\large{V = -\dfrac{1}{3} \left[ \, \cos(3x) + \sin(3x) \, \right]_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \ + \ \dfrac{1}{3} \left[ \, \cos(3x) + \sin(3x) \, \right]_{\frac{5}{12} \pi}^{\frac{2}{3} \pi}}$$
-
-    En nu kunnen we de grenzen invullen:
-
-    $$\large{V = -\dfrac{1}{3} \left( \cos(3 \cdot \frac{5}{12} \pi) + \sin(3 \cdot \frac{5}{12} \pi) \right) - - \dfrac{1}{3} \left( \cos(3 \cdot \frac{1}{12} \pi) + \sin(3 \cdot \frac{1}{12} \pi) \right) \ + \ \dfrac{1}{3} \left( \cos(3 \cdot \frac{2}{3} \pi) + \sin(3 \cdot \frac{2}{3} \pi) \right) - \dfrac{1}{3} \left( \cos(3 \cdot \frac{5}{12} \pi) + \sin(3 \cdot \frac{5}{12} \pi) \right)}$$
-
-    Deze hele vergelijking kunnen we nu gewoon in een rekenmachine stoppen. We vinden dan:
-
-    $$\large{V = 1.7475468957064...}$$
-
-    We moesten het afronden op $3$ decimalen, dus ons eindantwoord wordt:
+    En hieruit volgt dus dat:
 
     !!! quote ""
-        $$\large{V = 1.748}$$
+        $$\large{W = 1\dfrac{1}{2} V}$$
 
 
-??? example "Voorbeeld 4: Bereken de oppervlakte tussen de functies $f(x) =  e^{x - 4} - 2$ en $g(x) = \ln(x)$"
+??? example "Voorbeeld 3: Bereken de oppervlakte tussen de functies $f(x) =  e^{x - 4} - 2$ en $g(x) = \ln(x)$"
     *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) =  e^{x - 4} - 2$ en de functie $g(x) = \ln(x)$.</p>*
 
     <br>
@@ -1999,16 +1934,16 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     <figure markdown>
     ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = e^(x - 4) - 2; g(x) = ln(x).svg){ width="500" }
-        <figcaption>Figuur 5. Grafiek geplot met de functies $f(x) =  e^{x - 4} - 2$ en $g(x) = \ln(x)$. Vlakdeel $V$ ligt tussen de twee functies in.<figcaption>
+        <figcaption>Figuur 6. Grafiek geplot met de functies $f(x) =  e^{x - 4} - 2$ en $g(x) = \ln(x)$. Vlakdeel $V$ ligt tussen de twee functies in.<figcaption>
     </figure>
 
-    We moeten de oppervlakte van $V$ bepalen, dus is het handig om eerst de grenzen te bepalen. Deze zijn bij de [snijpunten tussen de twee functies](kwadratische_vergelijkingen.md#snijpunten-met-andere-grafieken). Om de snijpunten te bepalen, stellen we de twee functies gelijk aan elkaar:
+    We moeten de oppervlakte van $V$ bepalen, dus laten we eerst de grenzen bepalen. In dit geval liggen de grenzen bij de [snijpunten van de twee functies](kwadratische_vergelijkingen.md#snijpunten-met-andere-grafieken). Om de snijpunten te bepalen, stellen we de twee functies gelijk aan elkaar:
 
     $$\large{f(x) = g(x)}$$
 
     $$\large{e^{x - 4} - 2 = \ln(x)}$$
 
-    Er staat geen algebraïsch of exact in de vraag, dus we mogen onze grafische rekenmachine gebruiken. 
+    Er staat geen algebraïsch of exact in de vraag, dus we mogen onze grafische rekenmachine gebruiken om dit op te lossen. 
     
     We voeren in:
 
@@ -2020,7 +1955,7 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     De grenzen van $V$ zijn dus $x \approx 0.13821$ en $x \approx 5.29954$. 
     
-    Nu kunnen we de integraal opstellen. $V$ ligt [tussen twee grafieken](#oppervlakte-tussen-twee-grafieken) in, dus we moeten de bovenste functie min de onderste functie doen. In dit geval ligt $g(x)$ bij de oppervlakte boven $f(x)$, dus we krijgen:
+    Nu kunnen we de integraal opstellen. $V$ ligt [tussen twee grafieken](#oppervlakte-tussen-twee-grafieken) in, dus we moeten de bovenste functie min de onderste functie doen. In Figuur 6 zien we dat tussen de grenzen $g(x)$ boven $f(x)$ ligt, dus we krijgen:
 
     $$\large{V = \int_{0.13821}^{5.29954} \left( \, g(x) - f(x) \, \right) \, dx}$$
 
@@ -2034,9 +1969,9 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     - De eerste term is $\ln(x)$. In de [tabel](#tabel-met-veel-voorkomende-functies) kunnen we zien dat de primiteve hiervan gelijk is aan: $\underline{x\ln(x) - x}$ 
 
-    - De tweede term is een $e$-macht. We weten dat, net zoals bij een afgeleide, de primitieve van een $d$ macht zichzelf is. De primitieve van deze term is dus ook: $\underline{-e^{x - 4}}$
+    - De tweede term is een $e$ macht. We weten dat, net zoals bij een afgeleide, de primitieve van een $e$ macht zichzelf is. De primitieve van $-e^{x - 4}$ is dus gewoon weer: $\underline{-e^{x - 4}}$
 
-    - De laatste term is een constante (een los getal zonder $x$). Om de primitieve van een constante te bepalen, moeten we er gewoon een $x$ aanvast plakken, dus: $\underline{2x}$ 
+    - De laatste term is een constante (een los getal zonder $x$). Om de primitieve van een constante te bepalen, moeten we er gewoon een $x$ aanvast plakken. De primitieve van $2$ is dus: $\underline{2x}$ 
 
     We krijgen dus:
 
@@ -2068,12 +2003,12 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     <figure markdown>
     ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = e^(x - 4) - 2; g(x) = ln(x) (met lijn k).svg){ width="500" }
-        <figcaption>Figuur 6. Grafiek geplot met de functies $f(x) =  e^{x - 4} - 2$, $g(x) = \ln(x)$ en de lijn $k$. Vlakdeel $W$ ligt tussen $g(x)$ en lijn $k$.<figcaption>
+        <figcaption>Figuur 7. Grafiek geplot met de functies $f(x) =  e^{x - 4} - 2$, $g(x) = \ln(x)$ en de lijn $k$. Vlakdeel $W$ ligt tussen $g(x)$ en lijn $k$.<figcaption>
     </figure>
 
     Om oppervlakte $W$ te bepalen, moeten we eerst lijn $k$ opstellen:
     
-    $$\large{k: y = ax + b}$$
+    $$\large{k \! : y = ax + b}$$
 
     We hebben twee punten gegeven gekregen waar de lijn doorheen gaat. We hebben de $x$-coördinaten bij a) al berekend, namelijk $x_1 \approx 0.13821$ en $x_2 \approx 5.29954$. Laten we ook de bijbehorende $y$-coördinaten berekenen. We kunnen het in beide functies invullen, maar we kiezen hier voor $g(x)$:
         
@@ -2089,7 +2024,7 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     De lijn $k$ wordt dus:
 
-    $$\large{k: y = 0.70652x + b}$$
+    $$\large{k \! : y = 0.70652x + b}$$
 
     Om $b$ te bepalen moeten we $1$ van de twee snijpunten invullen. Wij kiezen hier voor het punt $(5.29954, 1.66761)$ (maar het ander snijpunt mag dus ook):
 
@@ -2103,9 +2038,9 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     De lijn $k$ is dus:
 
-    $$\large{\boxed{k: y = 0.70652x − 2.07662}}$$
+    $$\large{\boxed{k \! : y = 0.70652x − 2.07662}}$$
 
-    Nu kunnen we oppervlakte $W$ bepalen. We weten dat deze oppervlakte tussen lijn $k$ en $g(x)$ ligt en we zien in Figuur 6 $g(x)$ boven lijn $k$ ligt. We krijgen dus $g(x)$ min lijn $k$ in de integraal:
+    Nu kunnen we oppervlakte $W$ bepalen. We weten dat deze oppervlakte tussen lijn $k$ en $g(x)$ ligt en we zien in Figuur 7 dat $g(x)$ boven de lijn $k$ ligt. We krijgen dus $g(x)$ min lijn $k$ in de integraal:
 
     $$\large{W = \int_{0.13821}^{5.29954} \left( \, \ln(x) - \left( 0.70652x − 2.07662 \right) \, \right) \, dx}$$
 
@@ -2117,11 +2052,13 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     - De tweede term is van de vorm $f(x) = ax^n$. We moeten dus de macht $+1$ doen en dan een factor van $1$ gedeeld door deze macht keer de term doen. We krijgen dus: $\frac{1}{2} \cdot -0.70652 x^2 = \underline{-0.35326 x^2}$
     
-    - De laatste term is een constante, dus daar plakken we gewoon een $x$ aanvast. We krijgen dus: $2.07662 x$
+    - De laatste term is een constante, dus daar plakken we gewoon een $x$ aanvast. We krijgen dus: $\underline{2.07662 x}$
 
     De primitieve wordt dus:
 
     $$\large{W = \left[ \, x \ln(x) - x - 0.35326 x^2 + 2.07662 x \, \right]_{0.13821}^{5.29954}}$$
+
+    En nu kunnen we nog de $-x$ en de $2.07662 x$ bij elkaar optellen:
 
     $$\large{W = \left[ \, x \ln(x) - 0.35326 x^2 + 1.07662 x \, \right]_{0.13821}^{5.29954}}$$
 
@@ -2139,5 +2076,116 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
         $$\large{W = 4.75}$$
 
 
-## **Oppervlakte Wentelen om de x-as**
+??? example "Voorbeeld 4: Bereken algebraïsch de oppervlakte tussen de functies $f(x) = \sin(3x) + 2$ en $g(x) = \cos(3x) + 2$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = \sin(3x) + 2$ en de functie $g(x) = \cos(3x) + 2$ binnen een bepaald domein (zie Figuur 8).</p>*
+
+    <figure markdown>
+    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = sin(3x) + 2; g(x) = cos(3x) + 2.svg){ width="500" }
+        <figcaption>Figuur 8. Grafiek geplot met de functies $f(x) = \sin(3x) + 2$ en $g(x) = \cos(3x) + 2$. Vlakdeel $V$ ligt tussen deze twee functies. De grenzen van $V$ zijn het eerste positieve snijpunt en de lijn $x = p$.<figcaption>
+    </figure>
+
+    <br>
+
+    **<span style="font-size: 17px;">Bereken algebraïsch de oppervlakte van vlakdeel $V$ als $p = \frac{2}{3} \pi$. Rond af op $3$ decimalen.</span>**
+
+
+    <br><br><br><br><br>
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Om dit op te lossen moeten we eerst de grenzen bepalen. Om dit te doen, hebben we de eerste twee positieve snijpunten nodig. De meest rechter grens hebben we namelijk al gegeven gekregen, want dat is de lijn $x=\frac{2}{3} \pi$.
+
+    Om de [snijpunten te bepalen](kwadratische_vergelijkingen.md#snijpunten-met-andere-grafieken) tussen $f(x)$ en $g(x)$ moeten we de twee functies aan elkaar gelijk stellen:
+
+    $$\large{f(x) = g(x)}$$
+
+    $$\large{\sin(3x) + 2 = \cos(3x) + 2}$$
+
+    Om dit op te lossen beginnen we met aan beide kanten $-2$ te doen:
+
+    $$\large{\sin(3x) = \cos(3x)}$$
+
+    Nu hebben we óf aan beide kanten een sinus nodig óf aan beide kanten een cosinus. Wij schrijven de [cosinus om naar een sinus](goniometrie.md#sinus-en-cosinus-omschrijven) (maar andersom mag ook):
+
+    $$\large{\sin(3x) = \sin(3x + \dfrac{1}{2} \pi)}$$
+
+    Nu kunnen we de [algemene oplossing](goniometrie.md#algemene-oplossing) voor een sinus vergelijking gebruiken:
+
+    $$\large{3x = 3x + \dfrac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 3x = \pi - \left( 3x + \dfrac{1}{2} \pi \right) + k \cdot 2 \pi}$$
+
+    $$\large{3x = 3x + \dfrac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 3x = -3x + \dfrac{1}{2} \pi + k \cdot 2 \pi}$$
+
+    Nu halen we alle $x$ termen naar de linkerkant:
+
+    $$\large{0 = \dfrac{1}{2} \pi + k \cdot 2 \pi \ \vee \ 6x = \dfrac{1}{2} \pi + k \cdot 2 \pi}$$
+
+    De $x$'en zijn bij de linker vergelijking weggevallen, dus daar hebben we niks meer aan. We gaan verder met de rechter vergelijking:
+
+    $$\large{6x = \dfrac{1}{2} \pi + k \cdot 2 \pi}$$
+
+    Nu delen we beide kanten door $6$ om te vinden:
+
+    $$\large{x = \dfrac{1}{12} \pi + k \cdot \dfrac{1}{3} \pi}$$
+
+    We moesten de eerste twee positieve snijpunten bepalen, dus onze oplossingen worden:
+
+    $$\large{x = \dfrac{1}{12} \pi \ \vee \ x = \dfrac{5}{12} \pi}$$
+
+    Het linker snijpunt is dus bij $x=\dfrac{1}{12} \pi$ en het middelste snijpunt bij $x = \dfrac{5}{12} \pi$.
+
+    Nu dat we de grenzen van vlakdeel $V$ hebben, kunnen we de oppervlakte gaan bepalen. De oppervlakte zit [tussen twee grafieken in](#oppervlakte-tussen-twee-grafieken), dus we moeten de bovenste min de onderste functie doen.
+
+
+    ***<p style="text-align: left;font-size:17px;">Maar let op!</p>***
+    Bij het eerste gedeelte van de oppervlakte is $f(x)$ boven $g(x)$, maar bij het tweede gedeelte is juist andersom; $g(x)$ is boven $f(x)$. We moeten dan net zoals bij [een deel boven en een deel onder de $x$-as](#deel-boven-en-deel-onder-de-x-as) de oppervlakte in tweeën delen.
+
+    We weten dat het eerste gedeelte over gaat in het tweede gedeelte bij het tweede snijpunt. En dit snijpunt hebben we net hebben bepaald (namelijk $x = \frac{5}{12} \pi$ ). 
+    
+    De grenzen van het eerste oppervlakte zijn dus $x=\frac{1}{12} \pi$ en $x = \frac{5}{12} \pi$. Van het tweede oppervlakte zijn de grenzen juist $x = \frac{5}{12} \pi$ en $x = \frac{2}{3} \pi$. We kunnen de oppervlakte van $V$ dus als volgt bepalen:
+
+    $$\large{V = \int_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \left( \, f(x) - g(x)  \, \right) \, dx \, + \int_{\frac{5}{12} \pi}^{\frac{2}{3} \pi} \left( \, g(x) - f(x)  \, \right) \, dx}$$
+
+    En nu vullen we $f(x)$ en $g(x)$ in:
+
+    $$\large{V = \int_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \left( \, (\sin(3x) + 2) - (\cos(3x) + 2)  \, \right) \, dx \, + \int_{\frac{5}{12} \pi}^{\frac{2}{3} \pi} \left( \, (\cos(3x) + 2) - (\sin(3x) + 2)  \, \right) \, dx}$$
+
+    En als we dit versimpelen:
+
+    $$\large{V = \int_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \left( \, \sin(3x) - \cos(3x)  \, \right) \, dx \, + \int_{\frac{5}{12} \pi}^{\frac{2}{3} \pi} \left( \, \cos(3x) - \sin(3x) \, \right) \, dx}$$
+
+    We kunnen ook nog een '$-$' buiten de tweede integraal halen:
+
+    $$\large{V = \int_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \left( \, \sin(3x) - \cos(3x)  \, \right) \, dx \, - \int_{\frac{5}{12} \pi}^{\frac{2}{3} \pi} \left( \, -\cos(3x) + \sin(3x) \, \right) \, dx}$$
+
+    $$\large{V = \int_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \left( \, \sin(3x) - \cos(3x)  \, \right) \, dx \, - \int_{\frac{5}{12} \pi}^{\frac{2}{3} \pi} \left( \, \sin(3x) - \cos(3x) \, \right) \, dx}$$
+
+    Nu kunnen we namelijk twee keer hetzelfde integreren en gewoon andere grenzen invullen. Laten we dit integreren:
+
+    - De eerste term is $\sin(3x)$. In de [tabel](#tabel-met-veel-voorkomende-functies) kunnen we zien dat de primitieve van $\sin(x)$ gelijk is aan $-\cos(x)$. Alleen wij hebben nog een $3$ binnen de sinus, dus om rekening te houden met de [kettingregel](afgeleide.md#regels) moeten wij een factor $\frac{1}{3}$ toevoegen. We krijgen dus als primitieve: $\underline{-\dfrac{1}{3} \cos(3x)}$
+
+    - De tweede term is $\cos(3x)$, dus heel vergelijkbaar aan de eerste term. In de [tabel](#tabel-met-veel-voorkomende-functies) zien we dat de primitieve van $\cos(x)$ gelijk is aan $\sin(x)$. Maar we moeten wel weer rekening houden met de [kettingregel](afgeleide.md#regels), dus we krijgen als primitieve: $\underline{\dfrac{1}{3} \sin(3x)}$. 
+
+    We krijgen dus:
+    
+    $$\large{V = \left[ \, -\dfrac{1}{3} \cos(3x) - \dfrac{1}{3} \sin(3x) \, \right]_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \ - \ \left[ \, -\dfrac{1}{3} \cos(3x) - \dfrac{1}{3} \sin(3x) \, \right]_{\frac{5}{12} \pi}^{\frac{2}{3} \pi}}$$
+
+    We kunnen nu nog de factor $-\dfrac{1}{3}$ buiten de haakjes zetten:
+
+    $$\large{V = -\dfrac{1}{3} \left[ \, \cos(3x) + \sin(3x) \, \right]_{\frac{1}{12} \pi}^{\frac{5}{12} \pi} \ + \ \dfrac{1}{3} \left[ \, \cos(3x) + \sin(3x) \, \right]_{\frac{5}{12} \pi}^{\frac{2}{3} \pi}}$$
+
+    En nu kunnen we de grenzen invullen:
+
+    $$\large{V = -\dfrac{1}{3} \left( \cos(3 \cdot \frac{5}{12} \pi) + \sin(3 \cdot \frac{5}{12} \pi) \right) - - \dfrac{1}{3} \left( \cos(3 \cdot \frac{1}{12} \pi) + \sin(3 \cdot \frac{1}{12} \pi) \right) \ + \ \dfrac{1}{3} \left( \cos(3 \cdot \frac{2}{3} \pi) + \sin(3 \cdot \frac{2}{3} \pi) \right) - \dfrac{1}{3} \left( \cos(3 \cdot \frac{5}{12} \pi) + \sin(3 \cdot \frac{5}{12} \pi) \right)}$$
+
+    Deze hele vergelijking kunnen we nu gewoon in een rekenmachine stoppen. We vinden dan:
+
+    $$\large{V = 1.7475468957064...}$$
+
+    We moesten afronden op $3$ decimalen, dus we krijgen als eindantwoord:
+
+    !!! quote ""
+        $$\large{V = 1.748}$$
+
+
+<!-- ## **Oppervlakte Wentelen om de x-as** -->
 
