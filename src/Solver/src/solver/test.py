@@ -484,12 +484,34 @@ string = "(.01)"
 string = math_interpreter(string)
 print(sp.sympify(string))
 
-dict_str = "{'jan': 'hello world'}"
-print(dict_str)
+explanation_raw = {'steps': [{'explanation': 'We beginnen met de vergelijking:', 'output': 'e^x = -1'}, {'explanation': 'We weten dat de basis van natuurlijke exponenten, \\(e\\), altijd positief is. Dus, voor elke waarde van \\(x\\) is \\(e^x > 0\\).', 'output': '\\[\\text{Voor alle } x,\\ e^x > 0 \\]'}, {'explanation': 'Omdat de rechterzijde van de vergelijking \\(-1\\) is, dat is negatief, kunnen we concluderen dat er geen waarde van \\(x\\) is die deze vergelijking waar kan maken.', 'output': '\\[\\text{Geen waarde van } x\\text{ kan } e^x = -1 \\text{ waarmaken}\\]'}, {'explanation': 'Daarom is er geen reële oplossing voor deze vergelijking.', 'output': '\\[\\text{Geen reële oplossing gevonden}\\]'}], 'final_answer': '\\text{Geen reële oplossing gevonden}'}
 
-dictionary = ast.literal_eval(dict_str)
-print(dictionary["jan"])
+def check_display_math(string, final=False):
+    condition = not ((not (r"\[" in string and r"\]" in string)) ^ (not (r"\\[" in string and r"\\]" in string)))
+    if condition and string != '':
+        if final and "boxed" not in string:
+            string = rf"\boxed{{{string}}}"
 
+        string = rf"\[{string}\]"
+
+    elif final and "boxed" not in string:
+        string = string.split(r"\[")[1]
+        string = string.split(r"\]")[0]
+        string = rf"\[\boxed{{{string}}}\]"
+    
+    return string
+
+steps_list = explanation_raw['steps']
+explanation = ""
+
+for step in steps_list:
+    explanation += step["explanation"] + "<br><br>" + check_display_math(step["output"]) + "<br>"
+
+final_answer = rf"{explanation_raw['final_answer']}"
+
+explanation += "We krijgen dus als eindantwoord:" + "<br><br>" + check_display_math(final_answer, final=True)
+
+print(explanation)
 # print(custom_latex(sp.diff(sp.cbrt(sp.ln(x)), x)))
 
 

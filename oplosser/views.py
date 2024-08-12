@@ -13,6 +13,7 @@ from src.Solver.src.solver.openai_api import chatgpt_get_explanation
 from .forms import EquationForm
 import ast
 import html
+import re
 
 
 def serve_search_index(request):
@@ -295,6 +296,22 @@ def generate_plot_data(solver):
     return plot_data, view_x_range, view_y_range
 
 
+def check_display_math(string, final=False):
+    condition = not ((not (r"\[" in string and r"\]" in string)) ^ (not (r"\\[" in string and r"\\]" in string)))
+    if condition and string != '':
+        if final and "boxed" not in string:
+            string = rf"\boxed{{{string}}}"
+
+        string = rf"\[{string}\]"
+
+    elif final and "boxed" not in string:
+        string = string.split(r"\[")[1]
+        string = string.split(r"\]")[0]
+        string = rf"\[\boxed{{{string}}}\]"
+    
+    return string
+
+
 def explain_equation_base(request, use_chatgpt=False):
     if request.method == 'GET':
         if use_chatgpt:
@@ -318,12 +335,15 @@ def explain_equation_base(request, use_chatgpt=False):
         explanation = ""
 
         for step in steps_list:
-            explanation += step["explanation"] + "<br><br>" + step["output"] + "<br>"
+            explanation += step["explanation"] + "<br><br>" + check_display_math(step["output"]) + "<br>"
 
-        explanation += "We krijgen dus als eindantwoord:" + "<br><br>" + rf"{explanation_raw['final_answer']}"
+        final_answer = rf"{explanation_raw['final_answer']}"
+
+        explanation += "We krijgen dus als eindantwoord:" + "<br><br>" + check_display_math(final_answer, final=True)
         
     else:
         explanation = "Geen uitleg beschikbaar"
+
 
     return JsonResponse({'explanation': explanation})
 
