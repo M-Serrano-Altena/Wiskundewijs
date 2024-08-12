@@ -838,7 +838,7 @@ En inderdaad, dit is een extreme waarde (in dit geval een maximum).
     We kunnen hier dus zien dat het helemaal geen extreme waarde is! Deze functie heeft dus gewoon geen extreme waardes. 
 
 ??? example "Voorbeeld 4: Bepaal de extreme waardes van $f(x) = 10e^x(x^2 + 4x + 0.4)$"
-    **<p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waardes van $f(x) = e^x(x^2 + 4x + 0.4)$</p>**
+    **<p style="text-align: center;font-size:20px;">Bepaal de coördinaten van de extreme waardes van $f(x) = 10e^x(x^2 + 4x + 0.4)$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
     Om de extreme waardes te bepalen, moeten we de afgeleide gelijk aan $0$ stellen. Dus als eerst bepalen we de afgeleide van $f(x)$.

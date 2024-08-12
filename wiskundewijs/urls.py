@@ -19,6 +19,7 @@ from oplosser import views as solver_views
 
 urlpatterns = [
     path("oplosser/", solver_views.solve_equation_view, name="oplosser"),
+    path("oplosser/uitleg", solver_views.explain_equation, name="uitleg"),
     path('oplosser/search/search_index.json', solver_views.serve_search_index),
     re_path(r'^oplosser/(?P<path>.*)/$', solver_views.redirect_view),
     path("", include("docs.urls")),

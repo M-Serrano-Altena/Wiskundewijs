@@ -5,6 +5,7 @@ import numpy as np
 import regex as re
 import matplotlib.pyplot as plt
 from sympy.printing.latex import LatexPrinter
+import ast
 
 def main():
     eq_string = "2x^2 + 1 = 9"
@@ -482,6 +483,12 @@ x, y = sp.symbols("x,y", real=True)
 string = "(.01)"
 string = math_interpreter(string)
 print(sp.sympify(string))
+
+dict_str = "{'jan': 'hello world'}"
+print(dict_str)
+
+dictionary = ast.literal_eval(dict_str)
+print(dictionary["jan"])
 
 # print(custom_latex(sp.diff(sp.cbrt(sp.ln(x)), x)))
 

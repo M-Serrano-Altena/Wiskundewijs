@@ -7,8 +7,8 @@
             border: 12px solid #f3f3f3; /* Light grey */
             border-top: 12px solid #00d1ae; /* Blue */
             border-radius: 50%;
-            width: 60px; /* Adjust the size here */
-            height: 60px; /* Adjust the size here */
+            width: 60px; 
+            height: 60px; 
             animation: spin 1.75s linear infinite;
             margin: 0 auto; /* Center the spinner */
             display: block; /* Make the spinner a block element */
@@ -66,9 +66,9 @@
         #function-list {
             border: 2px solid #00d1ae; /* Black border */
             padding: 20px; /* Some padding for spacing inside the box */
-            border-radius: 10px; /* Rounded corners (optional) */
-            background-color: #181722; /* Light grey background (optional) */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for a 3D effect (optional) */
+            border-radius: 10px; /* Rounded corners */
+            background-color: #181722; /* Light grey background  */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for a 3D effect  */
         }
 
         .button-container {
@@ -239,23 +239,29 @@
             document.querySelector('input[name="equation_text"]').blur();
 
             // Initiate the AJAX request and store it in currentRequest
-            $.ajax({
+            currentRequest = $.ajax({
                 url: $(this).attr('action'),
                 type: 'post',
                 data: $(this).serialize(),
-                success: function(response){
-                    // Hide the spinner
-                    document.getElementById('loadingSpinner').style.visibility = 'hidden';
-    
+                success: function(response){    
                     // Hide the Function List and show the result
                     document.getElementById('function-list').style.display = 'none';
                     $("#result").html(response.result).show();
 
                 },
-                error: function() {
-                    // Hide the spinner in case of error
-                    document.getElementById('loadingSpinner').style.visibility = 'hidden';
+                error: function(xhr, errmsg, err) {
+                    // Show an error message if the request fails
+                    $("#result").html("<div class='alert alert-danger'>Er is een fout opgetreden. Probeer het opnieuw.</div>").show();
                 },
+                complete: function() {
+                    // Clear the currentRequest when the request is complete
+                    currentRequest = null;
+
+                    // Hide the spinner
+                    document.getElementById('loadingSpinner').style.visibility = 'hidden';
+                    
+                }
+                
             });
         });
 
