@@ -1,6 +1,14 @@
 from openai import OpenAI
+import json
 
-client = OpenAI()
+try:
+    client = OpenAI()
+except:
+    with open('/etc/config.json') as config_file:
+        config = json.load(config_file)
+
+    OPENAI_API_KEY = config['OPENAI_API_KEY']
+    client = OpenAI(OPENAI_API_KEY)
 
 math_tutor_prompt = r'''
 You are a helpful dutch math tutor. You will be given a math equation via a Python dictionary. It contains the equation and the final answer, and your goal is to work step-by-step towards the solution. You will ultimately arrive at the same final answer as provided.
