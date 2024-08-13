@@ -484,36 +484,72 @@ string = "(.01)"
 string = math_interpreter(string)
 print(sp.sympify(string))
 
-explanation_raw = {'steps': [{'explanation': 'We beginnen met de vergelijking:', 'output': 'e^x = -1'}, {'explanation': 'We weten dat de basis van natuurlijke exponenten, \\(e\\), altijd positief is. Dus, voor elke waarde van \\(x\\) is \\(e^x > 0\\).', 'output': '\\[\\text{Voor alle } x,\\ e^x > 0 \\]'}, {'explanation': 'Omdat de rechterzijde van de vergelijking \\(-1\\) is, dat is negatief, kunnen we concluderen dat er geen waarde van \\(x\\) is die deze vergelijking waar kan maken.', 'output': '\\[\\text{Geen waarde van } x\\text{ kan } e^x = -1 \\text{ waarmaken}\\]'}, {'explanation': 'Daarom is er geen reële oplossing voor deze vergelijking.', 'output': '\\[\\text{Geen reële oplossing gevonden}\\]'}], 'final_answer': '\\text{Geen reële oplossing gevonden}'}
+print()
 
 def check_display_math(string, final=False):
     condition = not ((not (r"\[" in string and r"\]" in string)) ^ (not (r"\\[" in string and r"\\]" in string)))
     if condition and string != '':
         if final and "boxed" not in string:
-            string = rf"\boxed{{{string}}}"
+            string = rf"\\boxed{{{string}}}"
 
-        string = rf"\[{string}\]"
+        string = rf"\\[{string}\\]"
 
     elif final and "boxed" not in string:
         string = string.split(r"\[")[1]
         string = string.split(r"\]")[0]
-        string = rf"\[\boxed{{{string}}}\]"
+        string = rf"\\[\boxed{{{string}}}\\]"
     
+    string = check_forward_slash(string)
+
     return string
+
+def check_forward_slash(string: str):
+    string_list = list(string)
+    print(string_list)
+    for i in range(len(string_list)):
+        # print(string_list[i])
+        if i == 0 and string_list[i] == "\\" and string_list[i+1] != "\\":
+            string_list.insert(i, "\\")
+
+        elif i == len(string_list) and string_list[i] == "\\" and string_list[i-1] != "\\":
+            string_list.insert(i, "\\")
+
+        elif string_list[i] == "\\" and (string_list[i+1] != "\\" and string_list[i-1] != "\\"):
+            string_list.insert(i, "\\")
+
+        elif string_list[i] == '\t':
+            string_list[i] = "t"
+            string_list.insert(i, "\\")
+
+    print()
+    print(string_list)
+
+    string = ''.join(string_list)
+    return string 
+
+explanation_raw = {'steps': [{'explanation': 'We beginnen met de uitdrukking \\( e^{i \theta} \\), waar \\( \theta = \text{pi} \\). Dit is volgens de formule van Euler.', 'output': '\\[ e^{i \text{pi}} \\]'}, {'explanation': 'Volgens de formule van Euler weten we dat \\( e^{i \theta} = \text{cos}(\theta) + i \text{sin}(\theta) \\). Nu vullen we \\( \theta = \text{pi} \\) in.', 'output': '\\[ e^{i \text{pi}} = \text{cos}(\text{pi}) + i \text{sin}(\text{pi}) \\]'}, {'explanation': 'We weten dat \\( \text{cos}(\text{pi}) = -1 \\) en \\( \text{sin}(\text{pi}) = 0 \\). Dit geeft:', 'output': '\\[ e^{i \text{pi}} = -1 + i \\cdot 0 \\]'}, {'explanation': 'Dan kunnen we dit verder vereenvoudigen, omdat de imaginaire term \\( i \\cdot 0 \\) gelijk is aan 0.', 'output': '\\[ e^{i \text{pi}} = -1 \\]'}], 'final_answer': '\\[\\boxed{e^{i \text{pi}} = -1}\\]'} 
+explanation_raw = str(explanation_raw)
+explanation_raw = check_forward_slash(explanation_raw)
+print(explanation_raw)
+print()
+explanation_raw = ast.literal_eval(str(explanation_raw))
+print(explanation_raw)
+print()
 
 steps_list = explanation_raw['steps']
 explanation = ""
 
 for step in steps_list:
-    explanation += step["explanation"] + "<br><br>" + check_display_math(step["output"]) + "<br>"
+    explanation += check_forward_slash(rf"{step["explanation"]}") + "<br><br>" + check_display_math(rf"{step["output"]}") + "<br>"
 
 final_answer = rf"{explanation_raw['final_answer']}"
 
 explanation += "We krijgen dus als eindantwoord:" + "<br><br>" + check_display_math(final_answer, final=True)
 
-print(explanation)
+# print(explanation)
 # print(custom_latex(sp.diff(sp.cbrt(sp.ln(x)), x)))
 
+print(explanation)
 
 exit()
 

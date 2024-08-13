@@ -300,16 +300,28 @@ def check_display_math(string, final=False):
     condition = not ((not (r"\[" in string and r"\]" in string)) ^ (not (r"\\[" in string and r"\\]" in string)))
     if condition and string != '':
         if final and "boxed" not in string:
-            string = rf"\boxed{{{string}}}"
+            string = rf"\\boxed{{{string}}}"
 
-        string = rf"\[{string}\]"
+        string = rf"\\[{string}\\]"
 
     elif final and "boxed" not in string:
         string = string.split(r"\[")[1]
         string = string.split(r"\]")[0]
-        string = rf"\[\boxed{{{string}}}\]"
+        string = rf"\\[\boxed{{{string}}}\\]"
+
+    string = check_forward_slash(string)
     
     return string
+
+def check_forward_slash(string: str):
+    string_list = list(string)
+    for i in range(len(string_list)):
+        if string_list[i] == '\t':
+            string_list[i] = "t"
+            string_list.insert(i, "\\")
+
+    string = ''.join(string_list)
+    return string 
 
 
 def explain_equation_base(request, use_chatgpt=False):
@@ -324,20 +336,24 @@ def explain_equation_base(request, use_chatgpt=False):
             elif data_chatgpt == "numeriek":
                 return JsonResponse({'explanation': 'Voor numerieke oplossingen is er geen uitleg mogelijk <span style="arithmatex">\\( \\phantom{.} \\)</span> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm-96.7-123.3c-2.6 8.4-11.6 13.2-20 10.5s-13.2-11.6-10.5-20C145.2 326.1 196.3 288 256 288s110.8 38.1 127.3 91.3c2.6 8.4-2.1 17.4-10.5 20s-17.4-2.1-20-10.5C340.5 349.4 302.1 320 256 320s-84.5 29.4-96.7 68.7zM144.4 208a32 32 0 1 1 64 0 32 32 0 1 1-64 0zm192-32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span>'})
             
-            chatgpt_response = chatgpt_get_explanation(rf"{data_chatgpt}")
-            explanation_raw = ast.literal_eval(chatgpt_response.content)
+            chatgpt_response = chatgpt_get_explanation(data_chatgpt)
+            chatgpt_response_text = check_forward_slash(chatgpt_response.content)
+            explanation_raw = ast.literal_eval(chatgpt_response_text)
 
         else:
-            explanation_raw = {"steps":[{"explanation":"We beginnen met de originele vergelijking: 3x - 7 = 5x + 3. We willen alle termen met x aan één kant van de vergelijking krijgen en de constante termen aan de andere kant.","output":"3x - 7 = 5x + 3"},{"explanation":"Laten we eerst de termen met x aan één kant van de vergelijking verzamelen. We doen dit door 3x van beide zijden af te trekken.","output":"-7 = 5x - 3x + 3"},{"explanation":"Nu vereenvoudigen we de termen aan de rechterkant; 5x - 3x = 2x.","output":"-7 = 2x + 3"},{"explanation":"Nu willen we de constante termen isoleren, dus we trekken 3 af van beide zijden.","output":"-7 - 3 = 2x"},{"explanation":"Vereenvoudigen we de linkerkant; -7 - 3 = -10.","output":"-10 = 2x"},{"explanation":"Om x te isoleren, delen we beide zijden door 2.","output":"x = -10 / 2"},{"explanation":"Berekenen we de rechterkant; -10 gedeeld door 2 is -5.","output":"x = -5"}],"final_answer":"x = -5"}
-        
+            explanation_raw = {'steps': [{'explanation': 'We beginnen met de uitdrukking \\( e^{i \theta} \\), waar \\( \theta = \text{pi} \\). Dit is volgens de formule van Euler.', 'output': '\\[ e^{i \text{pi}} \\]'}, {'explanation': 'Volgens de formule van Euler weten we dat \\( e^{i \theta} = \text{cos}(\theta) + i \text{sin}(\theta) \\). Nu vullen we \\( \theta = \text{pi} \\) in.', 'output': '\\[ e^{i \text{pi}} = \text{cos}(\text{pi}) + i \text{sin}(\text{pi}) \\]'}, {'explanation': 'We weten dat \\( \text{cos}(\text{pi}) = -1 \\) en \\( \text{sin}(\text{pi}) = 0 \\). Dit geeft:', 'output': '\\[ e^{i \text{pi}} = -1 + i \\cdot 0 \\]'}, {'explanation': 'Dan kunnen we dit verder vereenvoudigen, omdat de imaginaire term \\( i \\cdot 0 \\) gelijk is aan 0.', 'output': '\\[ e^{i \text{pi}} = -1 \\]'}], 'final_answer': '\\[\\boxed{e^{i \text{pi}} = -1}\\]'} 
+            explanation_raw = str(explanation_raw)
+            explanation_raw = check_forward_slash(explanation_raw)
+            explanation_raw = ast.literal_eval(str(explanation_raw))
+
 
         steps_list = explanation_raw['steps']
         explanation = ""
 
         for step in steps_list:
-            explanation += step["explanation"] + "<br><br>" + check_display_math(step["output"]) + "<br>"
+            explanation += check_forward_slash(step["explanation"]) + "<br><br>" + check_display_math(rf"{step["output"]}") + "<br>"
 
-        final_answer = rf"{explanation_raw['final_answer']}"
+        final_answer = explanation_raw['final_answer']
 
         explanation += "We krijgen dus als eindantwoord:" + "<br><br>" + check_display_math(final_answer, final=True)
         
