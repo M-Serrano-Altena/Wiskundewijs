@@ -204,12 +204,27 @@ def generate_plot_data(solver):
     
     plot_data = []
 
-    output_legend1 = f"${f'f({solver.symbol})' if not solver.multivariate else 'y'} = {custom_latex(sp.nsimplify(custom_simplify(solver.eq1(solver.symbol))))}$"
-    output_legend2 = f"${f'g({solver.symbol})' if not solver.multivariate else 'y'} = {custom_latex(sp.nsimplify(custom_simplify(solver.eq2(solver.symbol))))}$"
+    if solver.derivative[0]:
+        function_f_type = r"f'"
+    elif solver.integral[0]:
+        function_f_type = r"F"
+    else:
+        function_f_type = r"f"
 
-    hoverinfo1 = f"{f'f({solver.symbol})' if not solver.multivariate else 'y'} = {str(sp.nsimplify(solver.eq1(solver.symbol))).replace('**', '^').replace('log', 'ln')}"
-    hoverinfo2 = f"{f'g({solver.symbol})' if not solver.multivariate else 'y'} = {str(sp.nsimplify(solver.eq2(solver.symbol))).replace('**', '^').replace('log', 'ln')}"
+    if len(solver.derivative) == 2 and solver.derivative[1]:
+        function_g_type = r"g'"
+    elif len(solver.integral) == 2 and solver.integral[1]:
+        function_g_type = r"G"
+    else:
+        function_g_type = r"g"
+
+    output_legend1 = f"${f"{function_f_type}({solver.symbol})" if not solver.multivariate else 'y'} = {custom_latex(sp.nsimplify(custom_simplify(solver.eq1(solver.symbol))))}$"
+    output_legend2 = f"${f"{function_g_type}({solver.symbol})" if not solver.multivariate else 'y'} = {custom_latex(sp.nsimplify(custom_simplify(solver.eq2(solver.symbol))))}$"
+
+    hoverinfo1 = f"{f'{function_f_type}({solver.symbol})' if not solver.multivariate else 'y'} = {str(sp.nsimplify(solver.eq1(solver.symbol))).replace('**', '^').replace('log', 'ln')}"
+    hoverinfo2 = f"{f'{function_g_type}({solver.symbol})' if not solver.multivariate else 'y'} = {str(sp.nsimplify(solver.eq2(solver.symbol))).replace('**', '^').replace('log', 'ln')}"
     
+
     if len(hoverinfo1) > len(hoverinfo2):
         output_legend1 = output_legend1[:-1] + "\\qquad .$"
     else:
@@ -294,6 +309,8 @@ def generate_plot_data(solver):
     })
 
     return plot_data, view_x_range, view_y_range
+
+
 
 
 def check_display_math(string, final=False):

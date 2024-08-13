@@ -209,7 +209,7 @@ def math_interpreter(eq_string):
 
     eq_string = eq_string.casefold()
     function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
-    function_names.extend(("diff", "integrate", "limit", "Mod"))
+    function_names.extend(("diff", "integrate", "limit", "Mod", "subs"))
     function_names.remove("ff")
     relevant_functions = [func for func in function_names if func in eq_string]
 
@@ -450,6 +450,8 @@ class Solve:
         self.intersect = False
         self.numerical = False
         self.multivariate = False
+        self.derivative = False
+        self.integral = False
 
     def numerical_roots(self, eq, a=-10000, b=10000, dx=0.01, solve_method="newton", dy=0.1, use_scale_factor:bool=False, default_func:bool=True):
         eq_lambda_sp = eq
@@ -741,42 +743,42 @@ class Solve:
             except ValueError:
                 pass
 
-            take_diff = ["diff" in string for string in eq_split]
-            if True in take_diff:
+            self.derivative = np.array(["diff" in string for string in eq_split])
+            if self.derivative.any():
                 if self.symbol is None:
                     symbol = "x"
                 else:
                     symbol = self.symbol
 
-                if len(eq_split) == 2 and take_diff[0] and take_diff[1]:
+                if len(eq_split) == 2 and self.derivative[0] and self.derivative[1]:
                     self.output.append(("De afgeleide van de functies zijn:", {"latex": False}))
 
                 else:
                     self.output.append(("De afgeleide van de functie is:", {"latex": False}))
 
-                if take_diff[0]:
+                if self.derivative[0]:
                     derivative = sp.sympify(eq_split[0].replace("diff", "Derivative"))
                     self.output.append(f"{custom_latex(derivative)} = {custom_latex(custom_simplify(eq1))}")
 
-                if len(eq_split) == 2 and take_diff[1]:
+                if len(eq_split) == 2 and self.derivative[1]:
                     derivative = sp.sympify(eq_split[1].replace("diff", "Derivative"))
                     self.output.append(f"{custom_latex(derivative)} = {custom_latex(custom_simplify(eq2))}")
 
 
-            take_integral = ["integrate" in string for string in eq_split]
-            if True in take_integral:
+            self.integral = np.array(["integrate" in string for string in eq_split])
+            if self.integral.any():
                 if self.symbol is None:
                     symbol = "x"
                 else:
                     symbol = self.symbol
 
-                if len(eq_split) == 2 and take_integral[0] and take_integral[1]:
+                if len(eq_split) == 2 and self.integral[0] and self.integral[1]:
                     self.output.append(("De primitieven van de functies zijn:", {"latex": False}))
 
                 else:
                     self.output.append(("De primitieve van de functie is:", {"latex": False}))
 
-                if take_integral[0]:
+                if self.integral[0]:
                     if eq1.is_number:
                         integral = sp.sympify(eq_split[0].replace("integrate", "Integral"))
                         self.output.append(f"I = {custom_latex(integral)} = {custom_latex(custom_simplify(eq1))}")
@@ -784,7 +786,7 @@ class Solve:
                     else:
                         self.output.append(f"F({symbol}) = {custom_latex(custom_simplify(eq1))} + C")
 
-                if len(eq_split) == 2 and take_integral[1]:
+                if len(eq_split) == 2 and self.integral[1]:
                     if eq2.is_number:
                         integral = sp.sympify(eq_split[1].replace("integrate", "Integral"))
                         self.output.append(f"II = {custom_latex(integral)} = {custom_latex(custom_simplify(eq2))}")
@@ -792,7 +794,7 @@ class Solve:
                     else:
                         self.output.append(f"G({symbol}) = {custom_latex(custom_simplify(eq2))} + C")
 
-            if True in take_diff or True in take_integral:
+            if self.derivative.any() or self.integral.any():
                 self.output.append(("", {"latex": False}))
 
 
@@ -887,7 +889,7 @@ class Solve:
 
                         elif self.eq_string == solution:
                             if eq_split[0] != str(solution):
-                                if True in take_diff or True in take_integral:
+                                if self.derivative.any() or self.integral.any():
                                     self.output.pop()
                                 else:
                                     self.output.append(f"{eq_split[0]} {equals_sign} {custom_latex(solution)}")
