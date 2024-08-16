@@ -5,316 +5,10 @@ from sympy.printing.latex import LatexPrinter
 import regex as re
 import scipy.optimize
 import warnings
+from src.Solver.src.solver.string_parser import add_args_to_func, math_interpreter, replace_dot_funcs
+
 
 warnings.filterwarnings("ignore", category=RuntimeWarning)
-
-
-def replace_func(eq_string, func_name: str='log', replace_with: str='10', amt_commas=1):
-    index_func = [m.start() for m in re.finditer(func_name, eq_string)]
-    if len(index_func) == 0:
-        return eq_string
-    
-    string_split = [list(eq_string)[index_func[i-1]:index_func[i]] if i != len(index_func) else list(eq_string)[index_func[i - 1]:] for i in range(1, len(index_func) + 1) ]
-    index_list = []
-    nested = 0
-    index = 0
-    amt_commas_start = amt_commas
-    for string in string_split:
-
-        replace = True
-        amt_commas = amt_commas_start
-        nested_before = nested
-        nested = 0
-        
-        for char in string:
-        
-            if char == '(':
-                nested += 1
-            elif char == ')':
-                nested -= 1
-
-            elif char == ',' and nested == 1:
-                if amt_commas == 1:
-                    replace = False
-                else:
-                    amt_commas -= 1
-
-            if char == ')' and nested == 0:
-                nested = nested_before
-                if replace:
-                    index_list.append(index)
-                
-                replace = False
-                amt_commas = amt_commas_start
-
-            index += 1
-    
-    additional_index = index_func[0]
-    for index in index_list:
-        eq_string = eq_string[:index + additional_index] + f', {replace_with}' + eq_string[index + additional_index:]
-        additional_index += 2 + len(replace_with)
-    
-    return eq_string
-
-def math_interpreter(eq_string):
-
-    def insert_asterisks(match):
-        char = match.group(1)
-        count = len(match.group(0))
-        pos = match.start()
-
-        # Check if repeated letters are part of any relevant function name
-        for func in relevant_functions:
-            if eq_string[pos:pos+len(func)] == func:
-                return match.group(0)
-
-        # Check if repeated letters are part of any constant name
-        for const in constant_names:
-            if eq_string[pos:pos+len(const)] == const:
-                return match.group(0)
-            
-        for func in relevant_functions:
-            index_range = len(func) - 1
-            index_start = pos - index_range if pos - index_range >= 0 else 0
-            index_end = match.end() + index_range if match.end() + index_range <= len(eq_string) else len(eq_string)
-            if func in eq_string[index_start:index_end]:
-                return match.group(0)
-
-
-        return '*'.join(char for _ in range(count))
-
-    def replace_constant_symbols(eq_string):
-        def replace_superscript(match):
-            matched_super = match.group(1)
-            matched_super_list = list(matched_super)
-            index_list = [list_superscript.index(matched_super_list[i]) for i in range(len(matched_super_list))]
-            letter_list = [list_corresp_letters[i] for i in index_list]
-            letters_string = ''.join(letter_list)
-
-            replace = "^" + f"({letters_string})"
-            return replace
-
-        eq_string = re.sub(r'\b' + r'inf' + r'\b', r'oo', eq_string)
-        eq_string = re.sub(r'\b' + r'infty' + r'\b', r'oo', eq_string)
-        eq_string = re.sub(r'\b' + r'infinity' + r'\b', r'oo', eq_string)
-        eq_string = re.sub(r'∞', r'oo', eq_string)
-
-        eq_string = re.sub(r'π', r'pi', eq_string)
-
-        string_superscripts = "⁰¹²³⁴⁵⁶⁷⁸⁹ᵃᵇᶜᵈᵉᶠᵍʰᶦʲᵏˡᵐⁿᵒᵖᑫʳˢᵗᵘᵛʷˣʸᶻ"
-        string_corresp_letters = "0123456789abcdefghijklmnopqrstuvwxyz"
-        list_superscript = list(string_superscripts)
-        list_corresp_letters = list(string_corresp_letters)
-
-        
-        eq_string = re.sub(f'([{string_superscripts}]+)', replace_superscript, eq_string)
-
-        return eq_string
-    
-
-    def add_parenthesis(match, extra_index=0):
-        function_name = match.group(1)
-        symbol = match.group(2)
-
-        # quick check
-        if function_name + symbol in relevant_functions:
-            return match.group(0)
-        
-        # thourough check
-        for func in relevant_functions:
-            if func == function_name:
-                continue
-
-            length_func_name = len(func)
-            length_match_func = len(function_name)
-            index_range = length_func_name - length_match_func
-
-            if index_range <= 0:
-                continue
-
-            index_start_match = match.start(1) + extra_index
-            index_end_match = match.end(1) + extra_index
-            index_start = index_start_match - index_range if index_start_match - index_range >= 0 else 0
-            index_end = index_end_match + index_range if index_end_match + index_range <= len(eq_string) else len(eq_string)
-
-            if func in eq_string[index_start:index_end]:
-                if function_name in func and func != function_name:
-                    return match.group(0)
-
-        
-        return f'{function_name}({symbol})'
-
-
-    def mult_constants(match):
-        function_name = match.group(1)
-        symbol = match.group(2)
-        extra_index = 0
-
-        # quick check
-        if function_name + symbol in relevant_functions:
-            return match.group(0)
-        
-        # thourough check
-        for func in relevant_functions:
-            if func == function_name:
-                continue
-
-            length_func_name = len(func)
-            length_match_func = len(function_name)
-            index_range = length_func_name - length_match_func
-
-            if index_range <= 0:
-                continue
-
-            index_start_match = match.start(1) + extra_index
-            index_end_match = match.end(1) + extra_index
-            index_start = index_start_match - index_range if index_start_match - index_range >= 0 else 0
-            index_end = index_end_match + index_range if index_end_match + index_range <= len(eq_string) else len(eq_string)
-
-            if func in eq_string[index_start:index_end]:
-                if function_name in func and func != function_name:
-                    return match.group(0)
-
-
-        matched = match.group(1)
-        constant_name = match.group(2)
-
-        # quick check
-        if matched + constant_name in constant_names:
-            return match.group(0)
-        
-        # thourough check
-        for const in constant_names:
-            if const == constant_name:
-                continue
-            
-            length_const_name = len(const)
-            length_match_const = len(constant_name)
-            index_range = length_const_name - length_match_const
-
-            if index_range <= 0:
-                continue
-
-            index_start_match = match.start(1)
-            index_end_match = match.end(2)
-            index_start = index_start_match - index_range if index_start_match - index_range >= 0 else 0
-            index_end = index_end_match + index_range if index_end_match + index_range <= len(eq_string) else len(eq_string)
-
-            if const in eq_string[index_start:index_end]:
-                if constant_name in const and const != constant_name:
-                    return match.group(0)
-
-        return f'{matched}*{constant_name}'
-        
-
-    eq_string = eq_string.casefold()
-    function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
-    function_names.extend(("diff", "integrate", "limit", "Mod", "subs"))
-    function_names.remove("ff")
-    relevant_functions = [func for func in function_names if func in eq_string]
-
-
-    constant_names_og = [name for name, obj in sp.__dict__.items() if isinstance(obj, (sp.Basic, sp.core.singleton.Singleton)) and not name.startswith('_') and sp.sympify(name).is_number]
-    constant_names_og.extend(("inf", "infty", "infinity"))
-    constant_names = [name.casefold() for name in constant_names_og]
-
-    eq_string = replace_constant_symbols(eq_string)
-
-
-    abs_pattern = re.compile(r"\|([^|]+)\|")
-    eq_string = re.sub(abs_pattern, r"Abs(\1)", eq_string)
-    eq_string = re.sub(r'abs', r'Abs', eq_string)
-    eq_string = re.sub(r'mod', r'Mod', eq_string)
-    eq_string = re.sub(r'lambertw', r'LambertW', eq_string)
-
-    arc_gonio_functions = ["arcsin", "arccos", "arctan", "arccot", "arcsec", "arccsc"]
-    relevant_arc_functions = [arc_gonio_func for arc_gonio_func in arc_gonio_functions if arc_gonio_func in eq_string]
-
-    if len(relevant_arc_functions) != 0:
-        for arc_gonio_func in relevant_arc_functions:
-            a_gonio_func = arc_gonio_func[0] + arc_gonio_func[3:]
-            eq_string = re.sub(re.escape(arc_gonio_func), re.escape(a_gonio_func), eq_string)
-            relevant_functions.insert(0, a_gonio_func)
-
-    relevant_functions.extend([func for func in ["Abs", "Mod", "LambertW"] if func in eq_string])
-
-    eq_string = re.sub(r'\b' + r'i'  + r'\b', r'I', eq_string)
-    eq_string = re.sub(r'\b' + r'e'  + r'\b', r'E', eq_string)
-
-    eq_string = re.sub(r"%(?!\d)", r'*0.01', eq_string)
-
-    eq_string = re.sub(r'(\d+/\d+)\s+(\d+/\d+)', r'\1*\2', eq_string)
-    eq_string = re.sub(r'(\d+)\s+(\d+/\d+)', r'(\1+\2)', eq_string)
-
-    if len(relevant_functions) != 0:
-        eq_string = re.sub(rf'({'|'.join(map(re.escape, relevant_functions))})' + r'(?:\s)+([\w]+)', r'\1(\2)', eq_string)
-   
-    eq_string = re.sub(r'(?<=[\w)])\s+(?=[\w(])', '*', eq_string)
-
-    if len(relevant_functions) != 0:
-        eq_string = re.sub(rf'({'|'.join(map(re.escape, relevant_functions))})' r'(?!\w+|\()', r'\1(x)', eq_string)
-    
-    for _ in range(10):
-        eq_string = re.sub(r'(?<!\.)' + r'\b' + r'0(\d)', r'\1', eq_string) # remove leading 0
-
-        eq_string = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', eq_string)
-        eq_string = re.sub(r'\b' + r'([a-zA-Z])(\d)', r'\1^\2', eq_string)
-        eq_string = re.sub(r'\)(\d)', r')*\1', eq_string)
-        eq_string = re.sub(r'(\d)\(', r'\1*(', eq_string)
-
-        eq_string = re.sub(r'\)([a-zA-Z])', r')*\1', eq_string)
-        eq_string = re.sub(r'([a-zA-Z])\(', r'\1*(', eq_string)
-        eq_string = re.sub(r'\)\(', r')*(', eq_string)
-
-        eq_string = re.sub(r'([a-zA-Z])\1+', insert_asterisks, eq_string)
-        eq_string = re.sub(r'\b' + r'([e])' + r'\b', r'E', eq_string)
-        eq_string = re.sub(r'\b' + r'([i])' + r'\b', r'I', eq_string)
-        
-        for function_name1 in relevant_functions:
-            for function_name2 in relevant_functions:
-                eq_string = re.sub(function_name1 + function_name2 + r'\((.*?)\)', rf"{function_name1}({function_name2}\1)", eq_string)
-                eq_string = re.sub(function_name2 + function_name1 + r'\((.*?)\)', rf"{function_name2}({function_name1}\1)", eq_string)
-
-            eq_string = re.sub(function_name1 + r'\*' + rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + r'(\d+|[a-zA-Z])', function_name1 + r'(x)*\1', eq_string)
-
-
-            matches = re.finditer(rf'({re.escape(function_name1)})' + rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' +  r'([\w(]+)', eq_string, overlapped=True)
-            old_eq_string = eq_string
-            for match in matches:
-                extra_index = len(eq_string) - len(old_eq_string)
-                eq_string = re.sub(re.escape(match.group()), add_parenthesis(match, extra_index), eq_string, count=1)
-            
-            if len(relevant_functions) != 0:
-                eq_string = re.sub(r'\b' + rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + r'([\w]+)' + function_name1, r'\1*' + function_name1, eq_string)
-            
-            eq_string = re.sub(function_name1 + r'\*\(', function_name1 + '(', eq_string)
-
-            
-            for function_name2 in relevant_functions:
-                eq_string = re.sub(function_name1 + function_name2 + r'\((.*?)\)', rf"{function_name1}({function_name2}(\1))", eq_string)
-                eq_string = re.sub(function_name2 + function_name1 + r'\((.*?)\)', rf"{function_name2}({function_name1}(\1))", eq_string)
-    
-    if len(relevant_functions) != 0:
-        eq_string = re.sub(rf'({'|'.join(map(re.escape, relevant_functions))})' r'(?!\w+|\()', r'\1(x)', eq_string)
-    
-    for constant in constant_names:
-        if len(relevant_functions) != 0:
-            eq_string = re.sub(rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + r'([\w]+)' + f"({constant})", mult_constants, eq_string)
-            eq_string = re.sub(rf'(?!(?:{'|'.join(map(re.escape, relevant_functions))}))' + f"({constant})" + r'([\w]+)', mult_constants, eq_string)
-        else:
-            eq_string = re.sub(r'([\w]+)' + f"({constant})", mult_constants, eq_string)
-            eq_string = re.sub(f"({constant})" + r'([\w]+)', mult_constants, eq_string)
-    
-    eq_string = replace_func(eq_string, func_name='log', replace_with='10')
-
-    for i in range(len(constant_names)):
-        constant = constant_names[i]
-
-        if re.search(r'\b' + str(constant) + r'\b', eq_string) is not None:
-            if constant in constant_names and constant not in constant_names_og:
-                eq_string = re.sub(r'\b' + str(constant) + r'\b', str(constant_names_og[i]), eq_string)
-    
-    return eq_string
 
 
 def segmented_linspace(start, end, breakpoints, num=10, dx=0.01):
@@ -325,6 +19,15 @@ def segmented_linspace(start, end, breakpoints, num=10, dx=0.01):
 
 def trig_simp(x):
     return TR1(TR2(x))
+
+def pop_iterable(pop_list: list, index_list):
+    index_counter = 0
+    for i in index_list:
+        i -= index_counter
+        pop_list.pop(i)
+        index_counter += 1
+
+    return pop_list
 
 
 class CustomLatexPrinter(LatexPrinter):
@@ -433,7 +136,6 @@ def custom_simplify(expr, **kwargs):
             return sp.simplify(expr)
         except Exception:
             return expr
-
 
 
 class Solve:
@@ -597,11 +299,11 @@ class Solve:
 
             if len(eq_split) == 1:
                 try:
-                    eq1 = TR111(sp.sympify(eq_split[0]))
+                    eq1 = TR111(sp.sympify(eq_split[0])).doit()
                 except ValueError:
-                    eq_split[0] = replace_func(eq_split[0], func_name="integrate", replace_with="x")
-                
-                eq1 = TR111(sp.sympify(eq_split[0])) # Throws error again
+                    eq_split[0] = add_args_to_func(eq_split[0], func_name="integrate", replace_with="x").replace(".integrate()", ".integrate(x)")
+                    eq1 = TR111(sp.sympify(eq_split[0])).doit()
+
                 eq2 = 0
 
                 try:
@@ -664,17 +366,17 @@ class Solve:
 
             elif len(eq_split) == 2:
                 try:
-                    eq1 = TR111(sp.sympify(eq_split[0]))
+                    eq1 = TR111(sp.sympify(eq_split[0])).doit()
                 except ValueError:
-                    eq_split[0] = replace_func(eq_split[0], func_name="integrate", replace_with="x")
-
+                    eq_split[0] = add_args_to_func(eq_split[0], func_name="integrate", replace_with="x").replace(".integrate()", ".integrate(x)")
+                    eq1 = TR111(sp.sympify(eq_split[0])).doit()
+                
                 try:
-                    eq2 = TR111(sp.sympify(eq_split[1]))
+                    eq2 = TR111(sp.sympify(eq_split[1])).doit()
                 except ValueError:
-                    eq_split[1] = replace_func(eq_split[0], func_name="integrate", replace_with="x")
-
-                eq1 = TR111(sp.sympify(eq_split[0]))
-                eq2 = TR111(sp.sympify(eq_split[1]))
+                    eq_split[1] = add_args_to_func(eq_split[1], func_name="integrate", replace_with="x").replace(".integrate()", ".integrate(x)")                
+                    eq2 = TR111(sp.sympify(eq_split[1])).doit()
+                
                 eq12 = eq1 - eq2
 
                 try:
@@ -757,11 +459,11 @@ class Solve:
                     self.output.append(("De afgeleide van de functie is:", {"latex": False}))
 
                 if self.derivative[0]:
-                    derivative = sp.sympify(eq_split[0].replace("diff", "Derivative"))
+                    derivative = replace_dot_funcs(eq_split[0])
                     self.output.append(f"{custom_latex(derivative)} = {custom_latex(custom_simplify(eq1))}")
 
                 if len(eq_split) == 2 and self.derivative[1]:
-                    derivative = sp.sympify(eq_split[1].replace("diff", "Derivative"))
+                    derivative = replace_dot_funcs(eq_split[1])
                     self.output.append(f"{custom_latex(derivative)} = {custom_latex(custom_simplify(eq2))}")
 
 
@@ -779,16 +481,39 @@ class Solve:
                     self.output.append(("De primitieve van de functie is:", {"latex": False}))
 
                 if self.integral[0]:
+                    if self.derivative[0] and len(eq_split) == 2 and self.derivative[1]:
+                        self.output[0] = ("De primitieve en afgeleide van de functies zijn:", {"latex": False})
+                        self.output = pop_iterable(self.output, (1,3))
+                    elif self.derivative[0]:
+                        self.output[0] = ("De primitieve en afgeleide van de functie is:", {"latex": False})
+                        pop_iterable(self.output, (1,2))
+
+
                     if eq1.is_number:
-                        integral = sp.sympify(eq_split[0].replace("integrate", "Integral"))
+                        integral = replace_dot_funcs(eq_split[0])
                         self.output.append(f"I = {custom_latex(integral)} = {custom_latex(custom_simplify(eq1))}")
                     
                     else:
                         self.output.append(f"F({symbol}) = {custom_latex(custom_simplify(eq1))} + C")
 
                 if len(eq_split) == 2 and self.integral[1]:
+                    if self.integral[0]:
+                        if self.derivative[1] and self.derivative[0]:
+                            self.output[0] = ("De primitieve en afgeleide van de functies zijn:", {"latex": False})
+                        elif self.derivative[1]:
+                            self.output[0] = ("De primitieve en afgeleide van de functies zijn:", {"latex": False})
+                            self.output = pop_iterable(self.output, (1,2))
+
+                    else:
+                        if self.derivative[1] and self.derivative[0]:
+                            self.output[0] = ("De primitieve en afgeleide van de functies zijn:", {"latex": False})
+                            self.output = pop_iterable(self.output, (2,3))
+                        elif self.derivative[1]:
+                            self.output[0] = ("De primitieve en afgeleide van de functie is:", {"latex": False})
+                            self.output = pop_iterable(self.output, (1,2))
+
                     if eq2.is_number:
-                        integral = sp.sympify(eq_split[1].replace("integrate", "Integral"))
+                        integral = replace_dot_funcs(eq_split[1])
                         self.output.append(f"II = {custom_latex(integral)} = {custom_latex(custom_simplify(eq2))}")
                     
                     else:
@@ -842,10 +567,14 @@ class Solve:
                 self.solutions = check_numerical 
 
             if len(sp.solve(TR2(self.eq))) == 0 and not self.numerical:
-                self.eq_string = replace_func(self.eq_string, func_name="root", replace_with="evaluate=False", amt_commas=2)
+                self.eq_string = add_args_to_func(self.eq_string, func_name="root", replace_with="evaluate=False", amt_commas=2)
                 self.eq_string = self.eq_string.replace("limit", "Limit")
 
-                self.eq_string = sp.sympify(self.eq_string, evaluate=False)
+                try:
+                    self.eq_string = sp.sympify(self.eq_string, evaluate=False)
+                except AttributeError:
+                    self.eq_string = sp.sympify(self.eq_string)
+
                 if len(eq_split) == 1:
                     if not self.symbol:
                         solution = sp.nsimplify(eq1, [sp.pi])
@@ -891,8 +620,11 @@ class Solve:
                             if eq_split[0] != str(solution):
                                 if self.derivative.any() or self.integral.any():
                                     self.output.pop()
+                                elif ".subs" in eq_split[0] or ".diff" in eq_split[0] or ".integrate" in eq_split[0]:
+                                    self.eq_string = replace_dot_funcs(eq_split[0])
+                                    self.output.append(f"{custom_latex(self.eq_string)} {equals_sign} {custom_latex(solution)}")
                                 else:
-                                    self.output.append(f"{eq_split[0]} {equals_sign} {custom_latex(solution)}")
+                                    self.output.append(f"\\textrm{{{eq_split[0]}}} {equals_sign} {custom_latex(solution)}")
                             
                             else:
                                 self.output.append(f"\\textrm{{Yep dat is }} {custom_latex(solution)}")
@@ -946,10 +678,16 @@ class Solve:
                             self.output.append(f"\\bullet \\quad {custom_latex(eq2)} = {custom_latex(rhs)}")
                     
                     if lhs == rhs:
+                        if self.derivative.any() or self.integral.any():
+                            self.output.append(("De vergelijking wordt dus:", {"latex": False}))
+                        
                         self.output.append((f"{custom_latex(lhs)} = {custom_latex(rhs)}", {"new_line":2}))
                         self.output.append(("Deze vergelijking klopt", {"latex": False}))
 
                     elif lhs.is_number and rhs.is_number:
+                        if self.derivative.any() or self.integral.any():
+                            self.output.append(("De vergelijking wordt dus:", {"latex": False}))
+
                         self.output.append((f"{custom_latex(lhs)} \\neq {custom_latex(rhs)}", {"new_line":2}))
                         self.output.append(("Deze vergelijking klopt niet", {"latex": False}))
 
@@ -989,6 +727,15 @@ class Solve:
             
         except (NotImplementedError, TypeError):
             try:
+                eq1
+                if len(eq_split) == 2:
+                    eq2
+            except UnboundLocalError as e:
+                self.output.append((f"ERROR", {"latex":False}))
+                print(e)
+                return self.equation_interpret, self.output, self.plot
+
+            try:
                 check_numerical = self.check_solve_numerically()
 
                 if check_numerical is not None and not self.intersect:
@@ -1020,7 +767,7 @@ class Solve:
             self.output.append((f"Error: De ingevoerde functie klopt niet", {"latex":False}))
             return self.equation_interpret, self.output, self.plot
 
-        except Exception as e:
+        except ValueError as e:
             self.output.append((f"ERROR", {"latex":False}))
             print(e)
             return self.equation_interpret, self.output, self.plot

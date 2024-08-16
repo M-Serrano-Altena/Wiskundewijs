@@ -97,7 +97,7 @@ def get_view_attributes(equation_text, queue):
     if plot:
         try:
             plot_data, view_x_range, view_y_range = generate_plot_data(solver)
-        except Exception:
+        except ValueError:
             plot = False
             solution_text += "<br>Error: Plot kon niet worden gegenereerd"
 
