@@ -6,7 +6,7 @@ import regex as re
 import matplotlib.pyplot as plt
 from sympy.printing.latex import LatexPrinter
 import ast
-from src.Solver.src.solver.string_parser import add_args_to_func, math_interpreter, replace_dot_funcs
+from src.Solver.src.solver.math_parser import math_interpreter, replace_dot_funcs
 
 
 x, y = sp.symbols("x,y", real=True)
@@ -25,16 +25,13 @@ print(string)
 string = replace_dot_funcs(string)
 print()
 print(string)
-# print(string.doit())
 
-string = "(integrate(t, x).diff(t)).subs(5)"
+
+print("\n\n")
+string = r"sinsinsinsin"
 string = math_interpreter(string)
-print("string = ", string)
-string = replace_dot_funcs(string)
 print(string)
-# print(sp.sympify(string).doit())
-
-# original_string = "(5 * x).integrate(x) + (sin(x) + cos(x) + tan(x).integrate()).integrate((x, 2, 3))"
-# string = "(5 * t).subs(2)"
-# string = math_interpreter(string)
+# print()
+# string =  replace_dot_funcs(string)
 # print(string)
+

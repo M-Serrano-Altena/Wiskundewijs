@@ -515,11 +515,6 @@
             "text": ""
         },
         {
-            "location": "../oplosser",
-            "title": "Oplosser",
-            "text": "Lost een vergelijking op en plot de twee functies aan beide kanten"
-        },
-        {
             "location": "percentages/",
             "title": "Percentages",
             "text": "<p>We zijn allemaal wel een keer percentages tegengekomen. Bijvoorbeeld als je \\(80 \\%\\) van \u20ac\\(10\\) moet betalen, dan hoef je maar \u20ac\\(8\\) te betalen. Heb je \\(50 \\%\\) korting? Dan hoef je alleen maar de helft te betalen, dus \u20ac\\(5\\). Maar hoeveel moet je betalen als je \\(15.3 \\%\\) korting hebt? Deze vraag kunnen we met behulp van de theorie straks beantwoorden.</p>"
@@ -758,6 +753,11 @@
             "location": "stelsels_van_vergelijkingen/#voorbeelden_1",
             "title": "Voorbeelden",
             "text": "Voorbeeld 1: Los dit stelsel van vergelijkingen op: \\(\\large{\\left\\{ \\begin{array}{ c l } -8x - 22y = 56  \\\\ x + 4y = 12 \\end{array} \\right.}\\) <p><p>Los dit stelsel van vergelijkingen op: \\(\\large{\\left\\{ \\begin{array}{ c c } -8x - 22y = 56  \\\\ x + 4y = 12 \\end{array} \\right.}\\)</p> <p>Uitwerking</p></p> <p>We beginnen met een van de twee vergelijkingen omschrijven en \\(1\\) variabele vrijmaken. We kiezen er hier voor om de onderste vergelijking om te schrijven en \\(x\\) vrij te maken:</p> \\[\\large{x = 12 - 4y}\\] <p>Nu substitueren we dit in de eerste vergelijking:</p> \\[\\large{-8 \\times (12 - 4y) - 22y = 56}\\] <p>We lossen dit vervolgens op om \\(y\\) te bepalen:</p> \\[\\large{-96 + 32y - 22y = 56}\\] \\[\\large{-96 + 10y = 56}\\] \\[\\large{10y = 152}\\] \\[\\large{y = 15.2}\\] <p>Nu vullen we deze \\(y\\) in de vergelijking die we eerder hadden gevonden om \\(x\\) te bepalen:</p> \\[\\large{x = 12 - 4 \\times 15.2}\\] \\[\\large{x = -48.8}\\] <p>Ons eindantwoord is dus:</p> \\[\\large{x = -48.8 \\textrm{ en } y = 15.2}\\] Voorbeeld 2: Los dit stelsel van vergelijkingen op: \\(\\large{\\left\\{ \\begin{array}{ c c } -2x + 4y = -4  \\\\ x - y = 64 \\end{array} \\right.}\\) <p><p>Los dit stelsel van vergelijkingen op: \\(\\large{\\left\\{ \\begin{array}{ c c } -2x + 4y = -4  \\\\ x - y = 64 \\end{array} \\right.}\\)</p> <p>Uitwerking</p></p> <p>We beginnen met de onderste vergelijking omschrijven om \\(x\\) vrij te maken. We krijgen dan:</p> \\[\\large{x = y + 64}\\] <p>Dit substitueren we in de bovenste vergelijking:</p> \\[\\large{-2 \\times (y + 64) + 4y = -4}\\] \\[\\large{-2y - 128 + 4y = -4}\\] \\[\\large{2y - 128 = -4}\\] \\[\\large{2y = 124}\\] \\[\\large{y = 62}\\] <p>Nu vullen we dit in de vergelijking die we voor \\(x\\) hebben gevonden:</p> \\[\\large{x = 62 + 64}\\] \\[\\large{x = 126}\\] <p>Ons eindantwoord is dus:</p> \\[\\large{x = 126 \\textrm{ en } y = 62}\\] Voorbeeld 3: Los dit stelsel van vergelijkingen op: \\(\\large{\\left\\{ \\begin{array}{ c c } 2.5x + 7.5y = -9  \\\\ 4x - 8y = 24 \\end{array} \\right.}\\) <p><p>Los dit stelsel van vergelijkingen op: \\(\\large{\\left\\{ \\begin{array}{ c c } 2.5x + 7.5y = -9  \\\\ 4x - 8y = 24 \\end{array} \\right.}\\)</p> <p>Uitwerking</p></p> <p>We beginnen weer met het omschrijven van een vergelijking om \\(1\\) variabele vrij te maken. We kiezen er hier voor om in de onderste vergelijking \\(x\\) vrij te maken:</p> \\[\\large{4x = 24 + 8y}\\] \\[\\large{x = 6 + 2y}\\] <p>Dit substitueren we vervolgens in de bovenste vergelijking:</p> \\[\\large{2.5 \\times (6 + 2y) + 7.5y = -9}\\] \\[\\large{15 + 5y + 7.5y = -9}\\] \\[\\large{15 + 12.5y = -9}\\] \\[\\large{12.5y = -24}\\] \\[\\large{y = -1.92}\\] <p>We vullen dit nu in de vergelijking die we voor \\(x\\) hebben gevonden:</p> \\[\\large{x = 6 + 2 \\times -1.92}\\] \\[\\large{x = 2.16}\\] <p>Ons eindantwoord is dus:</p> \\[\\large{x = 2.16 \\textrm{ en } y = -1.92}\\]"
+        },
+        {
+            "location": "../oplosser",
+            "title": "Oplosser",
+            "text": "Lost een vergelijking op en plot de twee functies aan beide kanten"
         }
     ]
 }

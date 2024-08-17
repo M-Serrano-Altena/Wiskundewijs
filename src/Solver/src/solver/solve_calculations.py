@@ -2,10 +2,13 @@ import numpy as np
 import sympy as sp
 from sympy.simplify.fu import TR2, TR1, TR111
 from sympy.printing.latex import LatexPrinter
+from sympy.parsing.latex import parse_latex
 import regex as re
 import scipy.optimize
 import warnings
-from src.Solver.src.solver.string_parser import add_args_to_func, math_interpreter, replace_dot_funcs
+from src.Solver.src.solver.math_parser import add_args_to_func, math_interpreter, replace_dot_funcs
+
+import traceback
 
 
 warnings.filterwarnings("ignore", category=RuntimeWarning)
@@ -370,7 +373,7 @@ class Solve:
                 except ValueError:
                     eq_split[0] = add_args_to_func(eq_split[0], func_name="integrate", replace_with="x").replace(".integrate()", ".integrate(x)")
                     eq1 = TR111(sp.sympify(eq_split[0])).doit()
-                
+
                 try:
                     eq2 = TR111(sp.sympify(eq_split[1])).doit()
                 except ValueError:
@@ -732,7 +735,7 @@ class Solve:
                     eq2
             except UnboundLocalError as e:
                 self.output.append((f"ERROR", {"latex":False}))
-                print(e)
+                traceback.print_exc()
                 return self.equation_interpret, self.output, self.plot
 
             try:
@@ -759,17 +762,18 @@ class Solve:
 
             except Exception as e:
                 self.output.append((f"ERROR", {"latex":False}))
-                print(e)
+                traceback.print_exc()
                 return self.equation_interpret, self.output, self.plot
 
 
         except sp.SympifyError:
             self.output.append((f"Error: De ingevoerde functie klopt niet", {"latex":False}))
+            traceback.print_exc()
             return self.equation_interpret, self.output, self.plot
 
         except Exception as e:
             self.output.append((f"ERROR", {"latex":False}))
-            print(e)
+            traceback.print_exc()
             return self.equation_interpret, self.output, self.plot
 
         try:
@@ -915,7 +919,7 @@ class Solve:
 
         except Exception as e:
             self.output.append((f"ERROR", {"latex":False}))
-            print(e)
+            traceback.print_exc()
 
         return self.equation_interpret, self.output, self.plot
     

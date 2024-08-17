@@ -3,6 +3,9 @@ hide:
   - navigation
   - toc
   - feedback
+
+search:
+  exclude: true
 ---
 
 *empty*
