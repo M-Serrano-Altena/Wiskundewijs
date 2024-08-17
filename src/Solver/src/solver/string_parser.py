@@ -3,9 +3,9 @@ import sympy as sp
 import regex as re
 
 
-def add_args_to_func(eq_string, func_name: str='log', replace_with: str='10', amt_commas=1, func_amt_commas={'diff': 2, 'subs': 2, 'integrate': 3}, nested_level=1, position_type='after'):
+def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10', amt_commas=1, func_amt_commas={'diff': 2, 'subs': 2, 'integrate': 3}, nested_level=1, position_type='after') -> str:
     
-    def check_object_number():
+    def check_object_number() -> bool:
         index_comma = index - sum([len(string_) for string_ in string_split[:string_index]])
         relevant_index = index_comma + 1
         relevant_string = string[relevant_index:]
@@ -23,14 +23,13 @@ def add_args_to_func(eq_string, func_name: str='log', replace_with: str='10', am
             relevant_index += 1
 
         relevant_string = ''.join(string[index_comma+1:relevant_index])
-        # print(relevant_string)
 
         try:
             return sp.sympify(relevant_string).is_number
         except Exception:
             return False
         
-    def count_commas():
+    def count_commas() -> int:
         index_bracket = index - sum([len(string_) for string_ in string_split[:string_index]])
         relevant_index = index_bracket + 1
         relevant_string = string[relevant_index:]
@@ -103,9 +102,6 @@ def add_args_to_func(eq_string, func_name: str='log', replace_with: str='10', am
         if func_name in func_amt_commas.keys():
             num_comma = func_amt_commas[func_name]
 
-        # print(func_amt_commas_start)
-        # print("num comma = ", num_comma)
-
         for char in string:
             if no_replace():
                 index += 1
@@ -158,7 +154,6 @@ def add_args_to_func(eq_string, func_name: str='log', replace_with: str='10', am
                             replace_with_pretty = f', {replace_with}'
                             check_is_number = check_object_number()
                             comma_amt = count_commas()
-                            # print(check_is_number)
                             if check_is_number and comma_amt < num_comma - 1: 
                                 index_list.append((index_before, replace_with_pretty))
                                 replace -= 1
@@ -171,7 +166,8 @@ def add_args_to_func(eq_string, func_name: str='log', replace_with: str='10', am
 
             elif position_type == 'after':
                 if char == '(':
-                    index_open_bracket = index - sum([len(string_) for string_ in string_split[:string_index]])
+                    if nested == 0:
+                        index_open_bracket = index - sum([len(string_) for string_ in string_split[:string_index]])
                     nested += 1
                 elif char == ')':
                     nested -= 1
@@ -194,8 +190,6 @@ def add_args_to_func(eq_string, func_name: str='log', replace_with: str='10', am
                     replace -= 1
                     amt_commas = amt_commas_start
                     nested = nested_before
-
-            # print(char, nested, nested_before, amt_commas, replace, index, index_list, no_replace())
 
             index += 1
 
