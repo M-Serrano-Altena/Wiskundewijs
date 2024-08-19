@@ -1,11 +1,27 @@
 import regex as re
 import sympy as sp
-from sympy.parsing.latex import parse_latex
-
+import numpy as np
+import scipy.optimize
+import time
 from pylatexenc.latex2text import LatexNodes2Text
+from types import FunctionType
+from collections.abc import Iterable
 
-constant_names_og = [name for name, obj in sp.__dict__.items() if isinstance(obj, (sp.Basic, sp.core.singleton.Singleton)) and not name.startswith('_') and sp.sympify(name).is_number]
-print([type(const) for const in constant_names_og])
+def main():
+    iterate = 100
+    x = sp.symbols("x", real=True)
+    # solutions = sp.solveset(sp.sin(x), x).evalf()
 
-empty = []
-print(re.findall('5', '5'))
+    for _ in range(iterate):
+        domain_eq1 = sp.calculus.util.continuous_domain(sp.N(sp.tan(x)), x, domain=sp.S.Reals)
+
+    # # interval_solutions = sp.solveset(sp.sin(x), x, domain=sp.Interval(-10000, 10000))
+
+    # print(interval_solutions)
+
+
+if __name__ == "__main__":
+    start = time.time()
+    main()
+    end = time.time()
+    print("It took ", end - start, "seconds")

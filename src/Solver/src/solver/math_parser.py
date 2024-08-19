@@ -1,12 +1,12 @@
 import numpy as np
 import sympy as sp
 import regex as re
+from typing import Dict, Union
 from pylatexenc.latex2text import LatexNodes2Text
-
 
 def latex_to_plain_text(latex_str):
     latex_str = re.sub(r"%", r"\%", latex_str)
-    return LatexNodes2Text().latex_to_text(latex_str).replace("·", "*")
+    return LatexNodes2Text().latex_to_text(latex_str).replace("·", "*").replace("×", "*")
 
 def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10', amt_commas: int=1, nested_level: int=1, position_type: str='after') -> str:
     """
@@ -433,6 +433,7 @@ def math_interpreter(eq_string: str) -> str:
         (r'abs', r'Abs'), # abs(x) -> Abs(x)
         (r'mod', r'Mod'), # mod(x, y) -> Mod(x, y)
         (r'lambertw', r'LambertW'), # lambertw(x) -> LambertW(x)
+        (r'√', r'sqrt'), # √(x) -> sqrt(x)
         (r'\bi\b', r'I'), # i -> I
         (r'\be\b', r'E'), # e -> E
         (r"%(?!\d)", r'*0.01'), # 10% -> 10*0.01
@@ -453,8 +454,8 @@ def math_interpreter(eq_string: str) -> str:
             eq_string = re.sub(arc_func, a_func, eq_string)
             relevant_functions.insert(0, a_func)
 
-    # check the capitalized version of the functions
-    relevant_functions.extend([func for func in ["Abs", "Mod", "LambertW"] if func in eq_string])
+    # check the changed version of the functions
+    relevant_functions.extend([func for func in ["Abs", "Mod", "LambertW", "sqrt"] if func in eq_string])
 
     added_x = False
     if relevant_functions:
@@ -568,128 +569,141 @@ def math_interpreter(eq_string: str) -> str:
 
 
 
-def replace_dot_funcs(string: str, func_dict: dict = {"subs": "Subs", "diff": "Derivative", "integrate": "Integral"}):
+def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = {"subs": "Subs", "diff": "Derivative", "integrate": "Integral"}) -> Union[str, sp.Basic]:
+    """
+    Replaces dot notation functions (e.g., `.subs`, `.diff`) in a string with their corresponding unevaluated SymPy function equivalents.
 
-    def replace_function(match):
+    This function processes a given string to replace instances of functions in dot notation with their corresponding
+    SymPy equivalents (x.subs() -> Subs(x), x.diff() -> Derivative(x), etc). It handles cases with varying arguments and ensures proper formatting.
+
+    Args:
+        string (str): The input string containing functions in dot notation.
+        func_dict (Dict[str, str]): A dictionary mapping dot notation function names to their corresponding SymPy functions.
+
+    Returns:
+        Union[str, sp.Basic]: The SymPy expression object if successful, otherwise the original string.
+    """
+
+
+    def replace_function(match: re.Match) -> str:
+        """
+        Replaces a matched dot notation function call with its corresponding SymPy function.
+
+        Args:
+            match (re.Match): The regex match object containing the matched function.
+
+        Returns:
+            str: The formatted SymPy function string.
+        """
         nonlocal extra_index_next
-        expr_str = match.group(1)
+        expr = match.group(1)
         args_str = match.group(2)
-        expr = expr_str
-        try:
-            args_var, args_val = args_str.split(',')
+        args = args_str.split(',')
+
+        # Handle different cases for arguments
+        if len(args) == 1 and not args[0]:
+            func_expr = f"{replace_func}({expr})"
+            extra_index_next -= 3
+
+        elif len(args) != 2:
+            func_expr = f"{replace_func}({expr}, {args_str})"
+            extra_index_next -= 1
+
+        else:
+            args_var, args_val = args
             func_expr = f"{replace_func}({expr}, {args_var}, {args_val})"
-        except ValueError:
-            args_var = args_str
-            if args_var == '':
-                func_expr = f"{replace_func}({expr})"
-                extra_index_next -= 3
-            else:
-                func_expr = f"{replace_func}({expr}, {args_var})"
-                extra_index_next -= 1
 
         extra_index_next += len(replace_func) - len(func)
-        return str(func_expr)
+        return func_expr
     
-    def remove_whitespace(match):
+    def remove_whitespace(match: re.Match) -> str:
+        """
+        Removes all whitespace from the matched function call.
+
+        Args:
+            match (re.Match): The regex match object containing the matched function call.
+
+        Returns:
+            str: The function call with whitespace removed.
+        """
         return re.sub(r'\s+', '', match.group(0))
-    
 
     alphabet_plus = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.^"
-    string_og_list = []
-    result_string = None
+    string_og_list = [string]
+
+    # we want the change to start at the location of the previous letter (counting backwards), but if index == 0 there is no next letter 
+    get_index_range = lambda condition=True: (index + 1, index_func) if not condition or index != 0 else (0, index_func)
 
     for func, replace_func in func_dict.items():
-        string = re.sub(rf"\.{func}\(([^()]+)\)", remove_whitespace, string)
+        # Remove whitespace within dot notation functions
+        string = re.sub(rf"\.{func}\(([^()]+)\)", remove_whitespace, string) 
 
-        index_funcs = [m.start() for m in re.finditer(func, string)]
+        # immediately replace the functions if they aren't dot functions
+        string = re.sub(rf'(?<!\.){func}', replace_func, string)
+
+        # Find positions of dot functions
         index_dot_funcs = [m.start() for m in re.finditer(r'\.' + func, string)]
-        index_range = []
         string_og_list.append(string)
 
-        if len(index_dot_funcs) == 0 and len(index_funcs) == 0:
-            continue
-            
-        elif len(index_dot_funcs) == 0:
+        if not index_dot_funcs:
             string = string.replace(func, replace_func)
             continue
-
 
         extra_index_next = 0
         for index_func in index_dot_funcs:
             index_func += extra_index_next
             relevant_string = string[:index_func]
-            relevant_string_l = [char for char in reversed(relevant_string)]
             nested = 0
-            index = index_func
-            break_activate = False
 
-            for char in relevant_string_l:
+            for index in range(index_func - 1, -1, -1):
+                char = relevant_string[index]
                 if char == ')':
                     nested += 1
 
                 elif char == '(':
                     nested -=1
                     if nested == 0:
-                        break_activate = True
-                        index -= 1
-                        if index > 0:
-                            continue
-                        else:
-                            index_range.append((0, index_func))
+                        if index == 0:
+                            index_range = get_index_range(condition=True)
+                            break
 
-                elif nested == 0 and (char not in alphabet_plus or index == 1):
-                    if index == 1:
-                        index_range.append((0, index_func))
-                    else:
-                        index_range.append((index, index_func))
-                    extra_index_next += 2
-                    break
-
-                if break_activate:
-                    if not (char in alphabet_plus or char in "()") or index == 1 or nested < 0:
-                        if index == 1:
-                            index_range.append((0, index_func))
-                        else:
-                            index_range.append((index, index_func))
-                        extra_index_next += 2
+                    elif nested < 0:
+                        index_range = get_index_range(condition=False)
+                        break
+                
+                elif nested == 0:
+                    if (char not in alphabet_plus) ^ (index == 0):
+                        index_range = get_index_range(condition=True)
+                        break
+                    elif char not in alphabet_plus or index == 0:
+                        index_range = get_index_range(condition=False)
                         break
 
-                index -= 1
-            
-            changed_string_bit = []
-            for index_start, index_end in index_range:
-                changed_string_bit.append(string[index_start:index_end])
+            extra_index_next += 2
+            changed_string = re.escape(string[index_range[0]:index_range[1]])
 
-
+            # Replace dot function with corresponding SymPy function
             result_string = string
-            for changed_string in changed_string_bit:
-                pattern = f"({re.escape(changed_string)})" + rf"\.{func}\(([^()]*)\)"
-                result_string = re.sub(pattern, replace_function, result_string)
+            pattern = f"({changed_string})" + rf"\.{func}\(([^()]*)\)"
+            result_string = re.sub(pattern, replace_function, result_string)
 
-                if result_string == string:
-                    pattern2 = f"({re.escape(changed_string)})" + rf"\.{func}\((\([^()]*\))\)"
-                    result_string = re.sub(pattern2, replace_function, result_string)
+            # Handle nested parentheses
+            if result_string == string:
+                nested_pattern = f"({changed_string})" + rf"\.{func}\((\([^()]*\))\)"
+                result_string = re.sub(nested_pattern, replace_function, result_string)
 
             string = result_string
 
-    if result_string is not None:
-        for func, replace_func in func_dict.items():
-            result_string = re.sub(rf'(?<!\.){func}', replace_func, result_string)
+    string_og_list.append(string)
 
-        string_og_list.append(result_string)
-
-    else:
-        string_og_list = [string]
-
-    string_og_list = [string_og for string_og in reversed(string_og_list)]
-    for result_string in string_og_list:
+    # Attempt to sympify the resulting string for all changes made, if none work
+    for result_string in reversed(string_og_list):
         try:
-            string = sp.sympify(result_string)
-            break
-        except Exception:
+            sympy_expr = sp.sympify(result_string)
+            return sympy_expr
+        
+        except sp.SympifyError:
             continue
-    
-    if isinstance(string, str):
-        string = string_og_list[-1]
 
-    return string
+    # return initial string if sympify fails for all attempts
+    return string_og_list[0]

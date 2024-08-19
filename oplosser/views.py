@@ -13,7 +13,7 @@ from src.Solver.src.solver.openai_api import chatgpt_get_explanation
 from .forms import EquationForm
 import ast
 import html
-import re
+import time
 
 
 def serve_search_index(request):
@@ -112,6 +112,7 @@ def get_view_attributes(equation_text, queue):
 
 def solve_equation_view(request):
     if request.method == 'POST':
+        start_time = time.time()
         form = EquationForm(request.POST)
         if form.is_valid():
             equation_text = form.cleaned_data['equation_text']
@@ -121,7 +122,6 @@ def solve_equation_view(request):
 
             process = multiprocessing.Process(target=get_view_attributes, args=(equation_text, queue))
             process.start()
-
             process.join(timeout=30) # process will be terminated after 30 seconds
 
             if process.is_alive():
@@ -144,7 +144,7 @@ def solve_equation_view(request):
             else:
                 data = queue.get()
                 
-
+            print(f"Time taken: {time.time() - start_time}")
             if data["plot"]:
                 if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                     html = render_to_string('oplosser/equation_result.html', {
@@ -184,21 +184,20 @@ def no_frac(num):
     return num
 
 def generate_plot_data(solver):
-    x_range, view_y_range = solver.get_range()
-    view_x_range = list(x_range)
-    view_y_range = list(view_y_range)
-    extended_range = 50*abs(x_range[1] - x_range[0])*np.array([-1, 1])
+    view_x_range, view_y_range = solver.get_range()
+
+    extended_range = 50*abs(np.ptp(view_x_range))*np.array([-1, 1])
     dx = 0.0001
 
-    if solver.vert_asympt_eq is not None and type(solver.vert_asympt_eq) is not list and not sp.solveset(solver.vert_asympt_eq).is_FiniteSet:
-        extended_range = 5*abs(x_range[1] - x_range[0])*np.array([-1, 1])
+    if solver.vert_asympt_eq is not None and not isinstance(solver.vert_asympt_eq, list):
         dx = 0.02
 
-    x_range = np.array(x_range) + extended_range
+    x_range = view_x_range + extended_range
 
     plottable_x1_coords, y1_coords, plottable_x2_coords, y2_coords = solver.get_plot_data(x_range, dx=dx)
+
+    # swap the values
     if solver.multivariate:
-        # swap the values
         plottable_x1_coords, y1_coords, plottable_x2_coords, y2_coords = plottable_x2_coords, y2_coords, plottable_x1_coords, y1_coords
         solver.eq1, solver.eq2 = solver.eq2, solver.eq1
     
@@ -218,11 +217,11 @@ def generate_plot_data(solver):
     else:
         function_g_type = r"g"
 
-    output_legend1 = f"${f"{function_f_type}({solver.symbol})" if not solver.multivariate else 'y'} = {custom_latex(sp.nsimplify(custom_simplify(solver.eq1(solver.symbol))))}$"
-    output_legend2 = f"${f"{function_g_type}({solver.symbol})" if not solver.multivariate else 'y'} = {custom_latex(sp.nsimplify(custom_simplify(solver.eq2(solver.symbol))))}$"
+    output_legend1 = f"${f"{function_f_type}({solver.symbol})" if not solver.multivariate else 'y'} = {custom_latex(solver.eq1)}$"
+    output_legend2 = f"${f"{function_g_type}({solver.symbol})" if not solver.multivariate else 'y'} = {custom_latex(solver.eq2)}$"
 
-    hoverinfo1 = f"{f'{function_f_type}({solver.symbol})' if not solver.multivariate else 'y'} = {str(sp.nsimplify(solver.eq1(solver.symbol))).replace('**', '^').replace('log', 'ln')}"
-    hoverinfo2 = f"{f'{function_g_type}({solver.symbol})' if not solver.multivariate else 'y'} = {str(sp.nsimplify(solver.eq2(solver.symbol))).replace('**', '^').replace('log', 'ln')}"
+    hoverinfo1 = f"{f'{function_f_type}({solver.symbol})' if not solver.multivariate else 'y'} = {str(solver.eq1).replace('**', '^').replace('log', 'ln')}"
+    hoverinfo2 = f"{f'{function_g_type}({solver.symbol})' if not solver.multivariate else 'y'} = {str(solver.eq2).replace('**', '^').replace('log', 'ln')}"
     
 
     if len(hoverinfo1) > len(hoverinfo2):
@@ -233,8 +232,8 @@ def generate_plot_data(solver):
 
     if solver.vert_asympt is None:
         plot_data.append({
-            'x': list(plottable_x1_coords),
-            'y': list(y1_coords),
+            'x': plottable_x1_coords,
+            'y': y1_coords,
             'type': 'scatter',
             'mode': 'lines',
             'name': output_legend1,
@@ -242,8 +241,8 @@ def generate_plot_data(solver):
             'hovertemplate': '(%{x:.4f}, %{y:.4f})'+ f'<extra>{hoverinfo1}</extra>',
         })
         plot_data.append({
-            'x': list(plottable_x2_coords),
-            'y': list(y2_coords),
+            'x': plottable_x2_coords,
+            'y': y2_coords,
             'type': 'scatter',
             'mode': 'lines',
             'name': output_legend2,
@@ -258,11 +257,15 @@ def generate_plot_data(solver):
         plot_data_g = []
 
         for i in range(len(plottable_x1_coords)):
+            x1_coords_list = list(plottable_x1_coords[i].astype(float))
+            x2_coords_list = list(plottable_x2_coords[i].astype(float))
+            y1_coords_list = list(y1_coords[i].astype(float))
+            y2_coords_list = list(y2_coords[i].astype(float))
 
-            if list(plottable_x1_coords[i]) and list(y1_coords[i]):
+            if x1_coords_list and y1_coords_list:
                 plot_data_f.append({
-                    'x': list(plottable_x1_coords[i]),
-                    'y': list(y1_coords[i]),
+                    'x': x1_coords_list,
+                    'y': y1_coords_list,
                     'type': 'scatter',
                     'mode': 'lines',
                     'name': output_legend1,
@@ -274,10 +277,10 @@ def generate_plot_data(solver):
             else:
                 skip1 += 1
 
-            if list(plottable_x2_coords[i]) and list(y2_coords[i]):
+            if x2_coords_list and y2_coords_list:
                 plot_data_g.append({
-                    'x': list(plottable_x2_coords[i]),
-                    'y': list(y2_coords[i]),
+                    'x': x2_coords_list,
+                    'y': y2_coords_list,
                     'type': 'scatter',
                     'mode': 'lines',
                     'name': output_legend2,
@@ -291,16 +294,33 @@ def generate_plot_data(solver):
 
         plot_data = plot_data_f + plot_data_g
         plot_data_f, plot_data_g = [], []
-        
-    if not solver.intersect:
-        return plot_data, view_x_range, view_y_range
 
-    solver.x_intersect = [round(x, 8) for x in solver.x_intersect]
-    solver.y_intersect = [round(y, 8) for y in solver.y_intersect]
+    if not solver.intersect:
+        return plot_data, list(view_x_range), list(view_y_range)
+    
+    if not solver.solutions_set.is_FiniteSet and not solver.numerical:
+        solver.x_intersect = []
+        counter = 0
+        for solution in solver.solutions_set.evalf():
+            if x_range[0] <= solution <= x_range[1]:
+                solver.x_intersect.append(solution)
+                continue
+            else:
+                counter += 1
+            if counter > 10:
+                break
+
+        solver.x_intersect = np.array(solver.x_intersect).astype(float)
+        solver.y_intersect = solver.eq1_lambda_np(solver.x_intersect)
+        if np.isscalar(solver.y_intersect):
+            solver.y_intersect = np.full(solver.x_intersect.shape, solver.y_intersect)
+
+    solver.x_intersect = np.round(solver.x_intersect, decimals=8)
+    solver.y_intersect = np.round(solver.y_intersect, decimals=8)    
 
     plot_data.append({
-        'x': solver.x_intersect,
-        'y': solver.y_intersect,
+        'x': list(solver.x_intersect),
+        'y': list(solver.y_intersect),
         'type': 'scatter',
         'mode': 'markers',
         'name': f"Snijpunt",
@@ -308,7 +328,7 @@ def generate_plot_data(solver):
         'marker': {'color': 'black', 'size': 10},
     })
 
-    return plot_data, view_x_range, view_y_range
+    return plot_data, list(view_x_range), list(view_y_range)
 
 
 

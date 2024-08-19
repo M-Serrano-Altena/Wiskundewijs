@@ -1,4 +1,4 @@
-from solver.solve_calculations import Solve
+from src.Solver.src.solver.solve_calculations import Solve
 
 import sys
 from PySide6 import QtWidgets, QtGui, QtCore
