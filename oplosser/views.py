@@ -4,6 +4,7 @@ from django.utils.http import url_has_allowed_host_and_scheme
 from django.template.loader import render_to_string
 import sympy as sp
 import numpy as np
+import regex as re
 from django.conf import settings
 import os
 import json
@@ -220,8 +221,19 @@ def generate_plot_data(solver):
     output_legend1 = f"${f"{function_f_type}({solver.symbol})" if not solver.multivariate else 'y'} = {custom_latex(solver.eq1)}$"
     output_legend2 = f"${f"{function_g_type}({solver.symbol})" if not solver.multivariate else 'y'} = {custom_latex(solver.eq2)}$"
 
-    hoverinfo1 = f"{f'{function_f_type}({solver.symbol})' if not solver.multivariate else 'y'} = {str(solver.eq1).replace('**', '^').replace('log', 'ln')}"
-    hoverinfo2 = f"{f'{function_g_type}({solver.symbol})' if not solver.multivariate else 'y'} = {str(solver.eq2).replace('**', '^').replace('log', 'ln')}"
+    hoverinfo1_func = str(solver.eq1).replace('**', '^').replace('log', 'ln')
+    hoverinfo2_func = str(solver.eq2).replace('**', '^').replace('log', 'ln')
+
+    if solver.real_root:
+        if solver.eq1.is_Piecewise:
+            eq1 = solver.eq1.args[1][0]
+            hoverinfo1_func = str(sp.sympify(re.sub(r"\bAbs\b", "", str(eq1))))
+        if solver.eq2.is_Piecewise:
+            eq2 = solver.eq1.args[1][0]
+            hoverinfo2_func = str(sp.sympify(re.sub(r"\bAbs\b", "", str(eq2))))
+
+    hoverinfo1 = f"{f'{function_f_type}({solver.symbol})' if not solver.multivariate else 'y'} = {hoverinfo1_func}"
+    hoverinfo2 = f"{f'{function_g_type}({solver.symbol})' if not solver.multivariate else 'y'} = {hoverinfo2_func}"
     
 
     if len(hoverinfo1) > len(hoverinfo2):
@@ -298,10 +310,10 @@ def generate_plot_data(solver):
     if not solver.intersect:
         return plot_data, list(view_x_range), list(view_y_range)
     
-    if not solver.solutions_set.is_FiniteSet and not solver.numerical:
+    if not solver.solution_set.is_FiniteSet and not solver.numerical:
         solver.x_intersect = []
         counter = 0
-        for solution in solver.solutions_set.evalf():
+        for solution in solver.solution_set.evalf():
             if x_range[0] <= solution <= x_range[1]:
                 solver.x_intersect.append(solution)
                 continue
@@ -311,9 +323,11 @@ def generate_plot_data(solver):
                 break
 
         solver.x_intersect = np.array(solver.x_intersect).astype(float)
-        solver.y_intersect = solver.eq1_lambda_np(solver.x_intersect)
-        if np.isscalar(solver.y_intersect):
-            solver.y_intersect = np.full(solver.x_intersect.shape, solver.y_intersect)
+        solver.y_intersect = solver.apply_func_to_array(solver.eq1_lambda_np, solver.x_intersect)
+
+    elif solver.numerical:
+        solver.x_intersect = solver.roots_numeric
+        solver.y_intersect = solver.apply_func_to_array(solver.eq1_lambda_np, solver.x_intersect)
 
     solver.x_intersect = np.round(solver.x_intersect, decimals=8)
     solver.y_intersect = np.round(solver.y_intersect, decimals=8)    

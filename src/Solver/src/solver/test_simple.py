@@ -8,16 +8,18 @@ from types import FunctionType
 from collections.abc import Iterable
 
 def main():
-    iterate = 100
+    iterate = 1000000
     x = sp.symbols("x", real=True)
     # solutions = sp.solveset(sp.sin(x), x).evalf()
 
-    for _ in range(iterate):
-        domain_eq1 = sp.calculus.util.continuous_domain(sp.N(sp.tan(x)), x, domain=sp.S.Reals)
+    # for _ in range(iterate):
+    #     sp.sympify(sp.sin(x))
+    expr = sp.sympify(re.sub(r"\bAbs\b", "", "x/Abs(x**(2/3))"))
+    print(sp.powsimp(expr, force=True))
 
-    # # interval_solutions = sp.solveset(sp.sin(x), x, domain=sp.Interval(-10000, 10000))
 
-    # print(interval_solutions)
+
+
 
 
 if __name__ == "__main__":

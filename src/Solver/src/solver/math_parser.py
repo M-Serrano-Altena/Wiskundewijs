@@ -268,7 +268,7 @@ def math_interpreter(eq_string: str) -> str:
                 return match.group(0)
 
         # Check if repeated letters are part of any constant name
-        for const in constant_names:
+        for const in relevant_constants:
             if eq_string[pos:pos+len(const)] == const:
                 return match.group(0)
             
@@ -407,7 +407,7 @@ def math_interpreter(eq_string: str) -> str:
         if is_part_of_funcs:
             return match.group(0)
 
-        is_part_of_consts = is_part_of_funcs_or_consts(match, constant_names, obj_match_pos=2)
+        is_part_of_consts = is_part_of_funcs_or_consts(match, relevant_constants, obj_match_pos=2)
         if is_part_of_consts:
             return match.group(0)
 
@@ -415,17 +415,7 @@ def math_interpreter(eq_string: str) -> str:
 
     
     eq_string = latex_to_plain_text(eq_string).casefold()
-    function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
-    function_names.extend(("diff", "integrate", "limit", "Mod", "subs"))
-    function_names.remove("ff")
-    relevant_functions = [func for func in function_names if func in eq_string]
 
-
-    constant_names_og = [name for name, obj in sp.__dict__.items() if isinstance(obj, (sp.Basic, sp.core.singleton.Singleton)) and not name.startswith('_') and sp.sympify(name).is_number]
-    constant_names_og.extend(("inf", "infty", "infinity"))
-    constant_names = [name.casefold() for name in constant_names_og]
-
-    eq_string = replace_constant_symbols(eq_string)
 
     # Replace common functions and symbols
     replacements = [
@@ -434,6 +424,7 @@ def math_interpreter(eq_string: str) -> str:
         (r'mod', r'Mod'), # mod(x, y) -> Mod(x, y)
         (r'lambertw', r'LambertW'), # lambertw(x) -> LambertW(x)
         (r'√', r'sqrt'), # √(x) -> sqrt(x)
+        (r'∛', r'cbrt'), # ∛(x) -> cbrt(x)
         (r'\bi\b', r'I'), # i -> I
         (r'\be\b', r'E'), # e -> E
         (r"%(?!\d)", r'*0.01'), # 10% -> 10*0.01
@@ -446,6 +437,18 @@ def math_interpreter(eq_string: str) -> str:
     for pattern, repl in replacements:
         eq_string = re.sub(pattern, repl, eq_string)
 
+    function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
+    function_names.extend(("diff", "integrate", "limit", "Mod", "subs"))
+    function_names.remove("ff")
+    relevant_functions = [func for func in function_names if func in eq_string]
+
+    constant_names_og = [name for name, obj in sp.__dict__.items() if isinstance(obj, (sp.Basic, sp.core.singleton.Singleton)) and not name.startswith('_') and sp.sympify(name).is_number]
+    constant_names_og.extend(("inf", "infty", "infinity"))
+    constant_names = [name.casefold() for name in constant_names_og]
+    relevant_constants = [constant for constant in constant_names if constant in eq_string]
+
+    eq_string = replace_constant_symbols(eq_string)
+
     arc_functions = ["arcsin", "arccos", "arctan", "arccot", "arcsec", "arccsc"]
     relevant_arc_functions = [arc_func for arc_func in arc_functions if arc_func in eq_string]
     if relevant_arc_functions:
@@ -453,9 +456,6 @@ def math_interpreter(eq_string: str) -> str:
             a_func = arc_func[0] + arc_func[3:]
             eq_string = re.sub(arc_func, a_func, eq_string)
             relevant_functions.insert(0, a_func)
-
-    # check the changed version of the functions
-    relevant_functions.extend([func for func in ["Abs", "Mod", "LambertW", "sqrt"] if func in eq_string])
 
     added_x = False
     if relevant_functions:
@@ -524,7 +524,7 @@ def math_interpreter(eq_string: str) -> str:
 
             eq_string = nest_functions(eq_string)
     
-    for constant in constant_names:
+    for constant in relevant_constants:
         constant_patterns = [r'([\w]+)' + f"({constant})", f"({constant})" + r'([\w]+)']
         for pattern in constant_patterns:
             if relevant_functions:
@@ -540,6 +540,7 @@ def math_interpreter(eq_string: str) -> str:
         ("subs", 'x', 1, 1, "before"),
         ("integrate", 'x', 1, 2, "before"),
         ('log', '10', 1, 1, "after"),
+        ('root', '3', 1, 1, "after"),
     ]
 
     for args in function_adjustments:
@@ -547,7 +548,7 @@ def math_interpreter(eq_string: str) -> str:
 
     eq_string = re.sub(r'(?<!\.)subs', r'Subs', eq_string)
 
-    for i, constant in enumerate(constant_names):
+    for i, constant in enumerate(relevant_constants):
         if re.search(r'\b' + constant + r'\b', eq_string) and constant not in constant_names_og:
             eq_string = re.sub(r'\b' + constant + r'\b', constant_names_og[i], eq_string)
     

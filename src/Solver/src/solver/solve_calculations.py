@@ -66,6 +66,8 @@ class CustomLatexPrinter(LatexPrinter):
     """
     A custom LaTeX printer that provides customized formatting for SymPy expressions.
     """
+    real_root = False
+    eq1 = eq2 = eq12 = eq = None
 
     def _print_Mul(self, expr: sp.Mul, **kwargs) -> str:
 
@@ -109,14 +111,17 @@ class CustomLatexPrinter(LatexPrinter):
             str: The LaTeX representation of the power expression.
         """
 
-        if expr.exp.as_numer_denom()[1] != 1 and expr != sp.root(expr.base, 1/expr.exp, evaluate=False):
-            base = self._print(expr.base)
-            exp = self._print(sp.simplify(expr.exp))
+        base, exp = expr.as_base_exp()
+
+        if expr.is_Rational and exp.q != 1 and expr != sp.root(base, 1/exp, evaluate=False):
+            base = self._print(base)
+            exp = self._print(sp.simplify(exp))
             return f"{base}^{{{exp}}}"
 
         elif expr.as_numer_denom()[1] != 1:
             expr = sp.nsimplify(expr)
             return sp.latex(expr)
+        
 
         return sp.latex(expr).replace("log", "ln")
 
@@ -207,6 +212,10 @@ class CustomLatexPrinter(LatexPrinter):
             return rf'{func_map[func_name]}{{\left({self._print(expr.args[0])}\right)}}'
         
         return super()._print_Function(expr, **kwargs)
+    
+    @classmethod
+    def set_real_root(cls, real_root: bool):
+        cls.real_root = real_root
 
 
 def custom_latex(expr: sp.Basic, **kwargs) -> str:
@@ -219,6 +228,9 @@ def custom_latex(expr: sp.Basic, **kwargs) -> str:
     Returns:
         str: The LaTeX representation of the expression.
     """
+    if CustomLatexPrinter.real_root and sp.sympify(expr).is_Piecewise:
+        expr = expr.args[1][0]
+        expr = sp.sympify(re.sub(r"\bAbs\b", "", str(expr)))
 
     return CustomLatexPrinter(**kwargs).doprint(expr)
 
@@ -260,7 +272,7 @@ class Solve:
         """
 
         self.symbol = None
-        self.solutions_set = None
+        self.solution_set = None
         self.has_any_solutions = False
         self.interval_solutions = None
         self.vert_asympt = None
@@ -274,6 +286,7 @@ class Solve:
         self.multivariate = False
         self.derivative = False
         self.integral = False
+        self.real_root = False
 
     @staticmethod
     def get_lambdas(expr: typing.Union[sp.Expr, typing.Iterable[sp.Expr]], symbol: sp.Symbol, numeric: bool = False) -> typing.Union[FunctionType, typing.Iterable[FunctionType]]:
@@ -298,18 +311,24 @@ class Solve:
                 lambdas.append(sp.lambdify(symbol, single_expr, "sympy"))
 
         return lambdas
+    
+    @staticmethod
+    def apply_func_to_array(func: FunctionType, array: typing.Union[np.ndarray, Number]) -> np.ndarray:
+        obj = func(array)
+        if np.isscalar(obj):
+            return np.full(array.shape, obj).astype(float)
+        return obj.astype(float)
             
 
     def numerical_roots(
         self,
-        eq_sp: FunctionType,
-        eq_lambda_sp: sp.Lambda,
+        eq_sp: sp.Expr,
+        eq_lambda_np: FunctionType,
         a: float = -10000,
         b: float = 10000,
         dx: float = 0.01,
         solve_method: str = "newton",
-        dy: float = 0.1,
-        use_scale_factor: bool = False,
+        tolerance: float = 0.01,
         default_func: bool = True
     ) -> np.ndarray:
         
@@ -330,42 +349,27 @@ class Solve:
             np.ndarray: The array of found roots.
         """
 
-        def use_module(module: str = "numpy") -> tuple:
-            x = sp.symbols('x')
-            eq = eq_lambda_sp(x)
-            eq_lambda = sp.lambdify(x, eq, module)
-            diff_eq = sp.diff(eq, x)
-            diff_eq_lambda = sp.lambdify(x, diff_eq, module)
+        if solve_method == "newton":
+            eq_diff_lambda_np = self.get_lambdas(sp.diff(eq_sp, self.symbol), self.symbol, numeric=True)
+        
+        x_vals = np.linspace(a, b, (b-a) * int(1/dx))
+        y_vals = eq_lambda_np(x_vals)
+        xy = np.vstack((x_vals, y_vals)).T
+        xy = xy[~np.isnan(xy[:,1]) & ~np.isinf(xy[:,1])]
 
-            x_vals = np.linspace(a, b, (b-a) * int(1/dx))
-            y_vals = eq_lambda(x_vals)
-            xy = np.vstack((x_vals, y_vals)).T
-            xy = xy[~np.isnan(xy[:,1]) & ~np.isinf(xy[:,1])]
+        min_values = xy[np.argmin(np.abs(xy[:,1]))]
+        y_value_shift = eq_lambda_np(min_values[0] + tolerance)
+        y_value_shift = tolerance if np.isnan(y_value_shift) or np.isinf(y_value_shift) else y_value_shift
+        tolerance = 3*abs(y_value_shift - min_values[1])
 
-            return eq_lambda, diff_eq_lambda, xy
-
-        try:
-            eq_lambda, diff_eq_lambda, xy = use_module(module="numpy")
-        except NameError:
-            try:
-                eq_lambda, diff_eq_lambda, xy = use_module(module="scipy")
-            except NameError:
-                eq_lambda, diff_eq_lambda, xy = use_module(module="sympy")
-
-        scale_factor = 1
-        if use_scale_factor:
-            min_values = xy[np.argmin(np.abs(xy[:,1]))]
-            y_value_shift = eq_lambda(min_values[0] + dy)
-            scale_factor = abs(y_value_shift - min_values[1]/min_values[1])
-
-        condition = np.abs(xy[:, 1]) < dy * scale_factor
+        condition = np.abs(xy[:, 1]) < tolerance
         indices = np.where(condition)[0]
 
         # Find discontinuities in indices
         discontinuities = np.where(np.diff(indices) != 1)[0] + 1
         split_indices = np.split(indices, discontinuities)
 
-        if len(split_indices) == 1 and split_indices[0].size == 0:
+        if indices.size == 0:
             if default_func:
                 self.intersect = False
                 self.numerical = False
@@ -382,37 +386,37 @@ class Solve:
 
             try:
                 if solve_method == "newton":
-                    root = newton(eq_lambda, guess, fprime=diff_eq_lambda)
+                    root = newton(eq_lambda_np, guess, fprime=eq_diff_lambda_np)
 
                 elif solve_method == "bisect":
                     a_bisect = np.min(xy[indices])
                     b_bisect = np.max(xy[indices])
 
                     try:
-                        if eq_lambda(a_bisect) * eq_lambda(b_bisect) < 0:
-                            root = bisect(eq_lambda, a_bisect, b_bisect)
+                        if eq_lambda_np(a_bisect) * eq_lambda_np(b_bisect) < 0:
+                            root = bisect(eq_lambda_np, a_bisect, b_bisect)
                         else:
                             root = None
                     except ValueError:
                         root = None
 
                 elif solve_method == "fsolve":
-                    root = float(fsolve(eq_lambda, guess))
+                    root = float(fsolve(eq_lambda_np, guess))
 
             except RuntimeError:
                 root = None
 
             if root is not None and not np.isnan(root):
-                roots.append(round(root, 5))
+                roots.append(root)
             
         # Ensure roots are within bounds and remove duplicates
         roots = np.array(roots)
         roots = np.unique(roots[(roots >= a) & (roots <= b)])
 
         # Boundary check
-        if a in roots and eq_lambda(a -1) * eq_lambda(a + 1) >= 0:
+        if a in roots and eq_lambda_np(a -1) * eq_lambda_np(a + 1) >= 0:
             roots = np.delete(roots, np.where(roots == a))
-        if b in roots and eq_lambda(b - 1) * eq_lambda(b + 1) >= 0:
+        if b in roots and eq_lambda_np(b - 1) * eq_lambda_np(b + 1) >= 0:
             roots = np.delete(roots, np.where(roots == b))
 
         if default_func:
@@ -422,7 +426,7 @@ class Solve:
         return roots
 
 
-    def solve_numerically(self, sp_func_lambda: typing.Optional[sp.Expr] = None) -> sp.FiniteSet:
+    def solve_numerically(self, eq_sp: typing.Optional[sp.Expr] = None, eq_lambda_np: typing.Optional[FunctionType] = None) -> sp.FiniteSet:
         """
         Solves the equation numerically and returns the roots as a finite set.
 
@@ -433,30 +437,26 @@ class Solve:
             sp.FiniteSet: A set of the found numerical solutions.
         """
 
-        if sp_func_lambda is None:
+        if eq_sp is None or eq_lambda_np is None:
             default_func = True
-            sp_func_lambda = self.eq2_lambda if self.multivariate else self.eq12_lambda
+            eq_sp = self.eq12 if not self.multivariate else self.eq2
+            eq_lambda_np = self.eq12_lambda_np if not self.multivariate else self.eq2_lambda_np
             self.numerical = True
-
         else:
             default_func = False
 
         methods = ["newton", "fsolve", "bisect"]
 
-        # fast checks between -10 000 and 10 000 with all methods if the previous returns nothing
+        # checks between -10 000 and 10 000 with all methods if the previous returns nothing
         for method in methods:
-            self.roots = self.roots = self.numerical_roots(sp_func_lambda, -10000, 10000, solve_method=method, default_func=default_func)
-            if self.roots.size != 0:
+            self.roots_numeric = self.numerical_roots(eq_sp, eq_lambda_np, -10000, 10000, solve_method=method, default_func=default_func)
+            if self.roots_numeric.size != 0:
                 break
-
-        # thorough check between -100 and 100 if the fast checks give nothing
-        if self.roots.size == 0:
-            self.roots = self.numerical_roots(sp_func_lambda, -100, 100, dx=0.000001, solve_method="newton", use_scale_factor=True, default_func=default_func)
         
-        return sp.FiniteSet(*self.roots)
+        return sp.FiniteSet(*self.roots_numeric)
 
 
-    def check_solve_numerically(self) -> typing.Optional[sp.FiniteSet]:
+    def check_solve_numerically(self, solution_set) -> typing.Optional[sp.FiniteSet]:
         """
         Checks if the equation's solutions need to be solved numerically, and does so if necessary.
 
@@ -464,13 +464,8 @@ class Solve:
             Optional[sp.FiniteSet]: A set of the numerical solutions, or None if not applicable.
         """
 
-        if isinstance(self.solutions_set, sp.ConditionSet):
-            self.eq = self.solutions_set.condition
-            self.solutions_set = sp.solveset(self.eq, domain=sp.S.Reals)
-
-            if isinstance(self.solutions_set, sp.ConditionSet):
-                if self.eq == self.solutions_set.condition:
-                    return self.solve_numerically()
+        if isinstance(solution_set, sp.ConditionSet) and solution_set.condition == self.eq:
+            return self.solve_numerically()
                     
 
 
@@ -483,6 +478,19 @@ class Solve:
             - A list of output messages.
             - A boolean indicating whether to plot the results.
         """
+        def make_froot_real(string):
+            if "root" not in string and "cbrt" not in string:
+                return string
+            
+            CustomLatexPrinter.set_real_root(True)
+            self.real_root = True
+
+            string = re.sub(r"\broot\b", "real_root", string)
+            string = re.sub(r"\bcbrt\b", "real_root", string)
+            string = add_args_to_func(string, func_name='real_root', replace_with='3')
+
+            return string
+
 
         def process_equation(eq_str: str) -> sp.Basic:
             try:
@@ -496,6 +504,30 @@ class Solve:
                 return sp.nsimplify(sp.Eq(eq1, eq2), tolerance=1e-7)
             except AttributeError:
                 return sp.Eq(eq1, eq2)
+            
+        def set_eqs(eq_split, use_self=True):
+            eq1 = process_equation(eq_split[0])
+
+            if len(eq_split) == 1:
+                eq2 = 0
+            elif len(eq_split) == 2:
+                eq2 = process_equation(eq_split[1])
+            elif use_self:
+                self.output.append(("Error: Meer dan 1 '='-teken ", {"latex": False}))
+                return self.equation_interpret, self.output, self.plot 
+            
+            eq12 = eq1 - eq2
+            eq = get_self_eq(eq1, eq2)
+
+            if not use_self:
+                return eq1, eq2, eq12, eq
+            
+            self.eq1, self.eq2, self.eq12, self.eq = eq1, eq2, eq12, eq
+
+            if len(eq_split) == 2:
+                self.eq_string = str(self.eq)
+
+            
 
         def handle_multivariate(eq12: sp.Basic, y_symbol: sp.Symbol) -> typing.Tuple[sp.Basic, sp.Basic]:
             free_y_equation = reversed([sol for sol in sp.solve(eq12, y_symbol) if "I" not in str(sol)])
@@ -541,35 +573,38 @@ class Solve:
             return self.equation_interpret, self.output, self.plot
         
         def set_count_solutions():
-            counter = 0
-            for solution in self.interval_solutions:
-                counter += 1
-                
-                self.output.append(f"{counter}) \\quad {custom_latex(self.symbol)} = {custom_latex(solution)}")
-                if solution != sp.N(solution):
+            is_numerical = lambda solution: solution == sp.N(solution)
+            has_many_decimals = lambda solution: round(sp.N(solution), 9) == round(sp.N(solution), 10)
+            equals_sign = lambda solution: "=" if not is_numerical(solution) or has_many_decimals(solution) else "\\approx"
+            
+            interval_solutions = [sp.nsimplify(solution, [sp.pi, sp.E], rational=False) for solution in self.interval_solutions]
+            if len(self.interval_solutions) == 1:
+                solution = interval_solutions[0]
+                self.output.append(f"{custom_latex(self.symbol)} {equals_sign(solution)} {custom_latex(solution)}")
+                if not is_numerical(solution):
                     self.output[-1] += f" \\approx {round(sp.N(solution), 5)}"
+                return
+            
+            counter = 0
+            for solution in interval_solutions:
+                counter += 1
+
+                self.output.append(f"{counter}) \\quad {custom_latex(self.symbol)} {equals_sign(solution)} {custom_latex(solution)}")
+                if not is_numerical(solution):
+                    self.output[-1] += f" \\approx {round(sp.N(solution), 5)}"
+
 
         def set_numerical_text():
             if self.numerical:
-                if len(self.roots) == 1:
+                if len(self.roots_numeric) == 1:
                     self.output.append(("(Oplossing is numeriek bepaald)", {"latex":False, "new_line":2}))
                 else:
                     self.output.append(("(Oplossingen zijn numeriek bepaald)", {"latex":False, "new_line":2}))
 
         try:
-            eq_split = self.eq_string.split("=")
-            self.eq1 = process_equation(eq_split[0])
-
-            if len(eq_split) == 1:
-                self.eq2 = 0
-            elif len(eq_split) == 2:
-                self.eq2 = process_equation(eq_split[1])
-            else:
-                self.output.append(("Error: Meer dan 1 '='-teken ", {"latex": False}))
-                return self.equation_interpret, self.output, self.plot 
+            eq_split = make_froot_real(self.eq_string).split("=")
             
-            self.eq12 = self.eq1 - self.eq2
-            self.eq = get_self_eq(self.eq1, self.eq2)
+            set_eqs(eq_split=eq_split)
 
             free_symbols = list(self.eq12.free_symbols)
             if free_symbols:
@@ -664,31 +699,23 @@ class Solve:
                 self.output.append(("", {"latex": False}))
 
 
-            if not isinstance(self.eq, sp.AccumBounds):
-                self.solutions_set = sp.solveset(self.eq, domain=sp.S.Reals)
-            else:
-                self.solutions_set = sp.EmptySet
-
-            if self.symbol:
-                try:
-                    complex_symbol = sp.symbols("x")
-                    self.solutions_complex = sp.solve(TR2(sp.Eq(self.eq1_lambda(complex_symbol), self.eq2_lambda(complex_symbol))))
-                    self.solutions = [sol for sol in self.solutions_complex if sol.is_real and self.eq1_lambda(sol).is_real]
-                except NotImplementedError:
-                    self.solutions_complex = sp.EmptySet
-                    self.solutions = sp.solve(TR2(self.eq))
-
-                self.has_any_solutions = bool(self.solutions_complex or self.solutions)
-
             if self.symbol:
                 self.domain = sp.calculus.util.continuous_domain(self.eq, self.symbol, domain=sp.S.Reals)
-                self.domain_is_real = bool(self.domain is sp.S.Reals)
+                self.domain_is_reals = bool(self.domain is sp.S.Reals)
 
+
+            if not isinstance(self.eq, sp.AccumBounds):
+                self.solution_set = sp.solveset(self.eq, domain=sp.S.Reals)
+            else:
+                self.solution_set = sp.EmptySet
+
+
+            if self.symbol:
                 self.vert_asympt_eq = write_as_sin_and_cos(self.eq12).as_numer_denom()[1]
                 if self.vert_asympt_eq.is_number:
                     self.vert_asympt_eq = None
                 
-                elif not self.domain_is_real and (self.domain.is_Interval or self.domain.is_Union):
+                elif not self.domain_is_reals and (self.domain.is_Interval or self.domain.is_Union):
                     amt_intervals = len(self.domain.args) if self.domain.is_Union else 1
                     asympt_check = []
                     asympt_values = []
@@ -702,13 +729,26 @@ class Solve:
                         if not self.vert_asympt_eq:
                             self.vert_asympt_eq = None
 
-            check_numerical = self.check_solve_numerically()
+            check_numerical = self.check_solve_numerically(self.solution_set)
 
             if check_numerical is not None and not self.intersect:
                 return no_solutions_output()
 
             elif check_numerical is not None:
-                self.solutions_set = check_numerical 
+                self.solution_set = check_numerical 
+                self.has_any_solutions = not self.solution_set.is_empty
+
+            elif self.symbol:
+                try:
+                    complex_symbol = sp.symbols("x")
+                    self.solutions_complex = sp.solve(TR2(sp.Eq(self.eq1_lambda(complex_symbol), self.eq2_lambda(complex_symbol))))
+                    self.solutions = [sol for sol in self.solutions_complex if sol.is_real and sp.N(self.eq1_lambda(sol)).is_real]
+                except NotImplementedError:
+                    self.solutions_complex = sp.EmptySet
+                    self.solutions = sp.solve(TR2(self.eq))
+
+                self.has_any_solutions = bool(self.solutions_complex or self.solutions or self.solution_set.is_FiniteSet)
+
 
             if not self.has_any_solutions and not self.numerical:
                 self.eq_string = add_args_to_func(self.eq_string, func_name="root", replace_with="evaluate=False", amt_commas=2)
@@ -803,8 +843,8 @@ class Solve:
 
 
                 elif len(eq_split) == 2:
-                    lhs = sp.nsimplify(self.eq1, [sp.pi])
-                    rhs = sp.nsimplify(self.eq2, [sp.pi])
+                    lhs = sp.nsimplify(self.eq1, [sp.pi, sp.E], rational=False)
+                    rhs = sp.nsimplify(self.eq2, [sp.pi, sp.E], rational=False)
 
                     if self.eq1 != lhs or self.eq2 != rhs:
                         self.output.append((f"Versimpelingen:", {"latex": False}))
@@ -843,7 +883,7 @@ class Solve:
 
                 return self.equation_interpret, self.output, self.plot
             
-            if self.solutions_set.is_empty:
+            if self.solution_set.is_empty:
                 return no_solutions_output()
             
         except (NotImplementedError, TypeError):
@@ -856,13 +896,13 @@ class Solve:
                 return self.equation_interpret, self.output, self.plot
 
             try:
-                check_numerical = self.check_solve_numerically()
+                check_numerical = self.check_solve_numerically(self.solution_set)
 
                 if check_numerical is not None and not self.intersect:
                     return no_solutions_output()
                 
                 elif check_numerical is not None:
-                    self.solutions_set = check_numerical
+                    self.interval_solutions = self.solution_set = check_numerical
 
             except Exception:
                 self.output.append((f"ERROR", {"latex":False}))
@@ -886,80 +926,79 @@ class Solve:
             self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
             self.output.append(f"{custom_latex(self.eq1)} = {custom_latex(self.eq2)}")
 
-            if self.solutions_set.is_FiniteSet:
+            if self.solution_set.is_FiniteSet:
                 set_numerical_text()
 
-                if len(self.solutions_set) == 1:
-                    self.output.append((f"Het snijpunt met de $x$-as is:", {"latex":False}) if self.multivariate else (f"De oplossing is:", {"latex":False}))
-                    self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solutions_set.args[0])}")
-                    if self.solutions_set.args[0] != sp.N(self.solutions_set.args[0]):
-                        self.output[-1] += f" \\approx {round(sp.N(self.solutions_set.args[0]), 5)}"
+                if len(self.solution_set) == 1:
+                    self.output.append((f"De oplossing is:", {"latex":False}) if not self.multivariate else (f"Het snijpunt met de $x$-as is:", {"latex":False}))
+                    self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solution_set.args[0])}")
+                    if self.solution_set.args[0] != sp.N(self.solution_set.args[0]):
+                        self.output[-1] += f" \\approx {round(sp.N(self.solution_set.args[0]), 5)}"
                     
                 else:
-                    self.output.append((f"De snijpunten met de $x$-as zijn:", {"latex":False}) if self.multivariate else (f"De oplossingen zijn:", {"latex":False}))
-
-                    if len(self.solutions_set) > 5:
-                        solution_array = np.array(self.solutions_set)
-                        self.interval_solutions = solution_array[np.argsort(np.abs(solution_array))[:5]]
-                        self.output[-1] = (f"De eerste 5 snijpunten met de $x$-as zijn:", {"latex":False}) if self.multivariate else (f"De eerste 5 oplossingen zijn:", {"latex":False})
+                    self.output.append((f"De oplossingen zijn:", {"latex":False}) if not self.multivariate else (f"De snijpunten met de $x$-as zijn:", {"latex":False}))
+                    if len(self.solution_set) > 5:
+                        solution_array = np.array(list(self.solution_set))
+                        self.interval_solutions = solution_array[np.argsort(np.abs(solution_array))][:5]
+                        self.output[-1] = (f"De eerste 5 oplossingen zijn:", {"latex":False}) if not self.multivariate else (f"De eerste 5 snijpunten met de $x$-as zijn:", {"latex":False})
                     else:
-                        self.interval_solutions = self.solutions_set
+                        self.interval_solutions = self.solution_set
 
                     set_count_solutions()
                             
-                if not self.domain_is_real:
+                if not self.domain_is_reals:
                     self.output.append((f"Het domein van ${self.symbol}$ is:", {"latex":False, "new_line":2}))
                     self.output.append(custom_latex(self.domain))
             
             else:
-                self.output.append((f"De oplossingen zijn:", {"latex":False, "new_line":2}))
-                self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solutions_set)}")         
+                self.output.append((f"De oplossingen zijn:", {"latex":False}) if not self.multivariate else (f"De snijpunten met de $x$-as zijn:", {"latex":False}))
+                self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solution_set)}")         
 
-                if not self.domain_is_real:
-                    self.output.append((f"Met de voorwaarde dat het domein van ${self.symbol}$ is:", {"latex":False, "new_line":2}))
+                if not self.domain_is_reals:
+                    self.output.append((f"Het domein van ${self.symbol}$ is:", {"latex":False, "new_line":2}))
                     self.output.append(custom_latex(self.domain))
 
 
-                self.output.append(("Oplossingen in het domein $[0, 2\\pi]$: ", {"latex":False, "new_line":2}))
-                self.interval_solutions = sp.solveset(self.eq, domain=sp.Interval(0, 2*sp.pi))
+                self.output.append(("Oplossingen in het domein $[0, 2\\pi]$:", {"latex":False, "new_line":2}) if not self.multivariate else ("Snijpunten in het domein $[0, 2\\pi]$:", {"latex":False, "new_line":2}))
 
-                if isinstance(self.interval_solutions, sp.Set):
-                    self.interval_solutions_intersect = sp.Intersection(self.interval_solutions, sp.Interval(0, 2*sp.pi))
+                counter = 0
+                self.interval_solutions = []
 
-                    if isinstance(self.interval_solutions_intersect, sp.Set):
-                        counter = 0
-                        self.interval_solutions_intersect = []
+                if self.solution_set.is_iterable:
+                    for solution in self.solution_set:
 
-                        if self.interval_solutions.is_iterable:
-                            for solution in self.interval_solutions.evalf():
-    
-                                if not solution.is_real:
-                                    continue
-                                
-                                if 0 <= solution <= 2 * np.pi:
-                                    self.interval_solutions_intersect.append(solution)
-                                else:
-                                    counter += 1
-
-                                if counter > 10:
-                                    break
-                        else:
-                            self.solutions_set = self.solve_numerically()
-                            self.interval_solutions_intersect = list(self.solutions_set)
-
-                            if self.numerical and len(self.roots) > 5:
-                                self.interval_solutions_intersect = self.interval_solutions_intersect[:5]
-
-                            set_numerical_text()
-
-                    self.interval_solutions = sp.FiniteSet(*self.interval_solutions_intersect)
-
-                    if self.interval_solutions.is_empty:
-                        self.intersect = False
-                        self.output = self.output[:-6]
-                        self.output.append(("Geen oplossing gevonden", {"latex":False, "new_line":2}))
+                        if not solution.is_real:
+                            continue
                         
-                        return self.equation_interpret, self.output, self.plot
+                        if 0 <= sp.N(solution) <= 2 * np.pi:
+                            self.interval_solutions.append(solution)
+                            continue
+                        else:
+                            counter += 1
+
+                        if counter > 10:
+                            break
+                else:
+                    self.solution_set = self.solve_numerically()
+                    self.interval_solutions = list(self.solution_set)
+
+                    if self.numerical and len(self.roots_numeric) > 5:
+                        self.interval_solutions = self.interval_solutions[:5]
+
+
+                    self.output = self.output[:-2]
+                    if len(self.roots_numeric) == 1:
+                        self.output[-1] = (f"Het snijpunt met de $x$-as is:", {"latex":False}) if self.multivariate else (f"De oplossing is:", {"latex":False})
+                    set_numerical_text()
+                
+                self.interval_solutions = sp.FiniteSet(*self.interval_solutions)
+
+                if self.interval_solutions.is_empty:
+                    self.intersect = False
+                    self.output = self.output[:-6]
+                    self.output.append(("Geen oplossing gevonden", {"latex":False, "new_line":2}) if not self.multivariate else ("Geen snijpunten met de $x$-as gevonden", {"latex":False}))
+                    
+                    return self.equation_interpret, self.output, self.plot
 
                 set_count_solutions()
 
@@ -981,16 +1020,16 @@ class Solve:
         if not self.intersect:
             return no_intersect()
 
-        if self.solutions_set.is_FiniteSet and not (self.numerical and len(self.roots) > 5):
-            self.interval_solutions = self.solutions_set
-        
+        if self.solution_set.is_FiniteSet and not (self.numerical and len(self.roots_numeric) > 5):
+            self.interval_solutions = self.solution_set
+
         self.interval_solutions = list(self.interval_solutions)
         
         self.x_intersect = np.sort(np.array(sp.Matrix(self.interval_solutions).evalf(), dtype=np.float64))
-        self.y_intersect = self.eq1_lambda_np(self.x_intersect)
+        self.y_intersect = self.apply_func_to_array(self.eq1_lambda_np, self.x_intersect)
 
-        self.x_intersect = self.x_intersect[np.isreal(self.y_intersect)]
-        self.y_intersect = self.y_intersect[np.isreal(self.y_intersect)].astype(np.float64)
+        self.x_intersect = self.x_intersect[np.isreal(self.y_intersect) & np.isfinite(self.y_intersect)]
+        self.y_intersect = self.y_intersect[np.isreal(self.y_intersect) & np.isfinite(self.y_intersect)].astype(np.float64)
 
         self.y_intersect[np.abs(self.y_intersect) < 1e-6] = 0
 
@@ -1010,40 +1049,51 @@ class Solve:
 
 
     def get_plot_data(self, x_range, dx=0.01):
+        if self.multivariate:
+            self.eq1 = sp.sympify(0)
+
 
         def get_plottable_coords(x_coords, domain_eq1, domain_eq2):
 
-            def get_plottable_xy(sp_func, np_lambda_func, domain):
-                plottable_x_coords = x_coords_np[np.isreal(np_lambda_func(x_coords_np))]
-                plottable_x_coords = add_endpoint(plottable_x_coords, sp_func, np_lambda_func, domain).ravel()
-                y_coords = np_lambda_func(plottable_x_coords)
-                if np.isscalar(y_coords):
-                    y_coords = np.full(plottable_x_coords.shape, y_coords)
+            def get_plottable_xy(np_lambda_func, domain):
+                y_coords = np_lambda_func(x_coords_np)
+                plottable_x_coords = x_coords_np[np.isreal(y_coords) & np.isfinite(y_coords)]
+                plottable_x_coords = add_endpoint(list(plottable_x_coords), np_lambda_func, domain).ravel()
+                y_coords = self.apply_func_to_array(np_lambda_func, plottable_x_coords)
 
                 return plottable_x_coords, y_coords
             
-            def add_endpoint(plottable_x_coords, sp_func, lambda_func, domain):
-                try:                    
+            def add_endpoint(plottable_x_coords, lambda_func, domain):
+                try:    
                     if domain is sp.S.Reals or not domain.is_Interval:
                         return np.array(plottable_x_coords)
 
                     amt_intervals = len(domain.args) if domain.is_Union else 1
                     for _ in range(amt_intervals):
                         for j in range(2):
-                            if domain.args[j].is_finite and lambda_func(float(domain.args[j])).is_finite and not (min(plottable_x_coords) <= domain.args[j] <= max(plottable_x_coords)):
-                                    plottable_x_coords.append(float(domain.args[j]))
+                            end_point = domain.args[j].evalf()
+                            if end_point.is_finite and np.isfinite(lambda_func(float(end_point))):
+                                max_plottable_x_coords = max(plottable_x_coords)
+                                min_plottable_x_coords = min(plottable_x_coords)
+                                end_point = float(end_point)
+            
+                                if end_point > max_plottable_x_coords:
+                                    plottable_x_coords.extend(list(np.linspace(max_plottable_x_coords - 0.1, end_point, 50)))
+                                elif end_point < min_plottable_x_coords:
+                                    plottable_x_coords.extend(list(np.linspace(end_point, min_plottable_x_coords + 0.1, 50)))
                     
                     plottable_x_coords = np.sort(plottable_x_coords)
                     plottable_x_coords = plottable_x_coords[(domain.args[0] <= plottable_x_coords) & (plottable_x_coords <= domain.args[1])]
 
                 except Exception:
                     plottable_x_coords = np.sort(plottable_x_coords)
-                    return plottable_x_coords
+
+                return plottable_x_coords
 
 
             x_coords_np = np.array(x_coords)
-            plottable_x1_coords, y1_coords = get_plottable_xy(self.eq1, self.eq1_lambda_np, domain_eq1)
-            plottable_x2_coords, y2_coords = get_plottable_xy(self.eq2, self.eq2_lambda_np, domain_eq2)
+            plottable_x1_coords, y1_coords = get_plottable_xy(self.eq1_lambda_np, domain_eq1)
+            plottable_x2_coords, y2_coords = get_plottable_xy(self.eq2_lambda_np, domain_eq2)
 
             return plottable_x1_coords, y1_coords, plottable_x2_coords, y2_coords
 
@@ -1056,8 +1106,8 @@ class Solve:
                 self.vert_asympt = np.array(self.vert_asympt_eq, dtype=np.float64)
             else:
                 self.vert_asympt_set = sp.solveset(self.vert_asympt_eq, domain=sp.Interval(*x_range)).evalf()
-                if isinstance(self.vert_asympt_set, sp.ConditionSet):
-                    self.vert_asympt = np.array(self.solve_numerically(sp.lambdify(self.symbol, self.vert_asympt_eq, "sympy")), dtype=np.float64)
+                if isinstance(self.vert_asympt_set, sp.ConditionSet) and self.vert_asympt_set.condition == self.vert_asympt_eq:
+                    self.vert_asympt = np.array(self.solve_numerically(self.vert_asympt_eq, self.get_lambdas(self.vert_asympt_eq, self.symbol, numeric=True)), dtype=np.float64)
                 else:
                     self.vert_asympt = np.array(list(self.vert_asympt_set), dtype=np.float64)
 
@@ -1066,8 +1116,17 @@ class Solve:
 
 
         if self.vert_asympt_eq is None:
-            domain_eq1 = sp.calculus.util.continuous_domain(sp.N(self.eq1), self.symbol, domain=sp.S.Reals)
-            domain_eq2 = sp.calculus.util.continuous_domain(sp.N(self.eq2), self.symbol, domain=sp.S.Reals)
+            if not self.domain_is_reals:
+                if not self.multivariate:
+                    domain_eq1 = sp.calculus.util.continuous_domain(sp.sympify(self.eq1), self.symbol, domain=sp.S.Reals)
+                    domain_eq2 = sp.calculus.util.continuous_domain(sp.sympify(self.eq2), self.symbol, domain=sp.S.Reals)
+                else:
+                    domain_eq1 = sp.S.Reals
+                    domain_eq2 = self.domain
+
+            else:
+                domain_eq1 = domain_eq2 = sp.S.Reals
+
             plottable_x1_coords, y1_coords, plottable_x2_coords, y2_coords = get_plottable_coords(self.x_coords, domain_eq1, domain_eq2)
             plottable_x1_coords, y1_coords, plottable_x2_coords, y2_coords = plottable_x1_coords.astype(float), y1_coords.astype(float), plottable_x2_coords.astype(float), y2_coords.astype(float)
 
@@ -1077,8 +1136,11 @@ class Solve:
             y1_coords = []
             y2_coords = []
 
-            domain_eq1 = sp.calculus.util.continuous_domain(sp.N(self.eq1), self.symbol, domain=sp.S.Reals)
-            domain_eq2 = sp.calculus.util.continuous_domain(sp.N(self.eq2), self.symbol, domain=sp.S.Reals)
+            if not self.domain_is_reals:
+                domain_eq1 = sp.calculus.util.continuous_domain(sp.N(self.eq1), self.symbol, domain=sp.S.Reals)
+                domain_eq2 = sp.calculus.util.continuous_domain(sp.N(self.eq2), self.symbol, domain=sp.S.Reals)
+            else:
+                domain_eq1 = domain_eq2 = sp.S.Reals
 
             for x_coord in self.x_coords:
                 plottable_x1_coords_i, y1_coords_i, plottable_x2_coords_i, y2_coords_i = get_plottable_coords(x_coord, domain_eq1, domain_eq2)
