@@ -15,6 +15,7 @@ from .forms import EquationForm
 import ast
 import html
 import time
+import traceback
 
 
 def serve_search_index(request):
@@ -98,7 +99,8 @@ def get_view_attributes(equation_text, queue):
     if plot:
         try:
             plot_data, view_x_range, view_y_range = generate_plot_data(solver)
-        except ValueError:
+        except Exception:
+            traceback.print_exc()
             plot = False
             solution_text += "<br>Error: Plot kon niet worden gegenereerd"
 
@@ -145,7 +147,7 @@ def solve_equation_view(request):
             else:
                 data = queue.get()
                 
-            print(f"Time taken: {time.time() - start_time}")
+            print(f"Solving - Time taken: {time.time() - start_time}")
             if data["plot"]:
                 if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                     html = render_to_string('oplosser/equation_result.html', {
@@ -326,7 +328,7 @@ def generate_plot_data(solver):
         solver.y_intersect = solver.apply_func_to_array(solver.eq1_lambda_np, solver.x_intersect)
 
     elif solver.numerical:
-        solver.x_intersect = solver.roots_numeric
+        solver.x_intersect = solver.roots_numeric[(x_range[0] <= solver.roots_numeric) & (solver.roots_numeric <= x_range[1])]
         solver.y_intersect = solver.apply_func_to_array(solver.eq1_lambda_np, solver.x_intersect)
 
     solver.x_intersect = np.round(solver.x_intersect, decimals=8)
@@ -376,6 +378,7 @@ def check_forward_slash(string: str):
 
 
 def explain_equation_base(request, use_chatgpt=False):
+    start_time = time.time()
     if request.method == 'GET':
         if use_chatgpt:
             data_chatgpt = request.GET.get("data_chatgpt", None)
@@ -392,7 +395,7 @@ def explain_equation_base(request, use_chatgpt=False):
             explanation_raw = ast.literal_eval(chatgpt_response_text)
 
         else:
-            explanation_raw = {'steps': [{'explanation': 'We beginnen met de uitdrukking \\( e^{i \theta} \\), waar \\( \theta = \text{pi} \\). Dit is volgens de formule van Euler.', 'output': '\\[ e^{i \text{pi}} \\]'}, {'explanation': 'Volgens de formule van Euler weten we dat \\( e^{i \theta} = \text{cos}(\theta) + i \text{sin}(\theta) \\). Nu vullen we \\( \theta = \text{pi} \\) in.', 'output': '\\[ e^{i \text{pi}} = \text{cos}(\text{pi}) + i \text{sin}(\text{pi}) \\]'}, {'explanation': 'We weten dat \\( \text{cos}(\text{pi}) = -1 \\) en \\( \text{sin}(\text{pi}) = 0 \\). Dit geeft:', 'output': '\\[ e^{i \text{pi}} = -1 + i \\cdot 0 \\]'}, {'explanation': 'Dan kunnen we dit verder vereenvoudigen, omdat de imaginaire term \\( i \\cdot 0 \\) gelijk is aan 0.', 'output': '\\[ e^{i \text{pi}} = -1 \\]'}], 'final_answer': '\\[\\boxed{e^{i \text{pi}} = -1}\\]'} 
+            explanation_raw = {"steps": [{"explanation": "We beginnen met de volgende vergelijking:", "output": "\\[\\sin(x) = \\dfrac{1}{2} \\sqrt{3}\\]"}, {"explanation": "Om dit op te lossen, moeten we eerst aan beide kanten een sinus hebben. Op de eenheidscirkel kunnen we aflezen dat we \\(\\frac{1}{2} \\sqrt{3}\\) kunnen schrijven als de sinus van \\(x = \\frac{1}{3} \\pi\\):", "output": "\\[\\sin(x) = \\sin \\left( \\dfrac{1}{3}\\pi \\right) \\]"}, {"explanation": "Nu kunnen we dit oplossen met de algemene oplossing voor een sinus:", "output": "\\[x = \\dfrac{1}{3}\\pi + n \\cdot 2\\pi \\, \\vee \\, x = \\pi - \\dfrac{1}{3}\\pi + n \\cdot 2\\pi \\]"}, {"explanation": "Hierbij is \\(n\\) een geheel getal (dit geven we ook aan als \\(n \\in \\mathbb{Z}\\) ). We kunnen de vergelijking nog verder versimpelen tot:", "output": "\\[x = \\dfrac{1}{3}\\pi + n \\cdot 2\\pi \\, \\vee \\, x = \\dfrac{2}{3}\\pi + n \\cdot 2\\pi \\]"}, {"explanation": "Dit is de formule voor alle oplossingen, maar we kunnen ook nog de oplossingen in het domein \\( \\left[ 0, 2\\pi \\right] \\) bepalen. We vullen dan alle gehele getallen in voor \\(n\\) die ons een uitkomst tussen \\(0\\) en \\(2\\pi\\) geven. <br> In dit geval is dat alleen voor \\( n=1 \\), dus we vinden als oplossingen:", "output": "\\[ x = \\dfrac{1}{3} \\pi \\, \\vee \\, x = \\dfrac{2}{3} \\pi \\]"}], "final_answer": "\\[\\boxed{1) \\quad x = \\frac{\\pi}{3} \\approx 1.04720}\\]<br>\\[\\boxed{2) \\quad x = \\frac{2 \\pi}{3} \\approx 2.09440}\\]"}
             explanation_raw = str(explanation_raw)
             explanation_raw = check_forward_slash(explanation_raw)
             explanation_raw = ast.literal_eval(str(explanation_raw))
@@ -411,7 +414,7 @@ def explain_equation_base(request, use_chatgpt=False):
     else:
         explanation = "Geen uitleg beschikbaar"
 
-
+    print(f"Explanation - Time taken: {time.time() - start_time}")
     return JsonResponse({'explanation': explanation})
 
 

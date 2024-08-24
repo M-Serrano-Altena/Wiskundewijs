@@ -51,7 +51,7 @@ example_question2 = r'''
 {'equation_text': 'x^2 - 6x + 12 = -x^2 + 8', 'equation_interpret': 'x^2 - 6*x + 12 = -x^2 + 8', 'outputs': [('Vereenvoudigde Vergelijking:', {'latex': False}), 'x^{2} - 6 x + 12 = 8 - x^{2}', ('De oplossingen zijn:', {'latex': False}), '1) \\quad x = 1', '2) \\quad x = 2']}
 '''
 
-example_answer1 = r'''
+example_answer2 = r'''
 {
     "steps": [
         {
@@ -72,15 +72,49 @@ example_answer1 = r'''
         },
         {
             "explanation": r"Twee dingen keer elkaar kunnen alleen \\(0\\) zijn als een van de twee factoren \\(0\\) is. We krijgen dus:",
-            "output": r"\\[ x - 1 = 0 \\ \\vee \\ x - 2 = 0 \\]"
+            "output": r"\\[ x - 1 = 0 \\, \\vee \\, x - 2 = 0 \\]"
         },
         {
             "explanation": r"En hieruit volgt dat:",
-            "output": r"\\[ x = 1 \\ \\vee \\ x = 2 \\]"
+            "output": r"\\[ x = 1 \\, \\vee \\, x = 2 \\]"
         }
 
     ],
     "final_answer": r"\\[\\boxed{1) \\quad x = 1}\\]<br>\\[\\boxed{2) \\quad x = 2}\\]"
+}
+'''
+
+example_question3 = r'''
+{'equation_text': 'sin(x) = 1/2 \\sqrt{3}', 'equation_interpret': 'sin(x) = 1/2*sqrt(3)', 'outputs': [('Vereenvoudigde Vergelijking:', {'latex': False}), '\\sin{\\left(x \\right)} = \\frac{\\sqrt{3}}{2}', ('De oplossingen zijn:', {'latex': False}), 'x = \\left\\{2 n \\pi + \\frac{2 \\pi}{3}\\; \\middle|\\; n \\in \\mathbb{Z}\\right\\} \\cup \\left\\{2 n \\pi + \\frac{\\pi}{3}\\; \\middle|\\; n \\in \\mathbb{Z}\\right\\}', ('Oplossingen in het domein $[0, 2\\pi]$:', {'latex': False, 'new_line': 2}), '1) \\quad x = \\frac{\\pi}{3} \\approx 1.04720', '2) \\quad x = \\frac{2 \\pi}{3} \\approx 2.09440']}
+'''
+
+example_answer3 = r'''
+{
+    "steps": [
+        {
+            "explanation": r"We beginnen met de volgende vergelijking:",
+            "output": r"\\[\\sin(x) = \\dfrac{1}{2} \\sqrt{3}\\]"
+        },
+        {
+            "explanation": r"Om dit op te lossen, moeten we eerst aan beide kanten een sinus hebben. Op de eenheidscirkel kunnen we aflezen dat we \\(\\dfrac{1}{2} \\sqrt{3}\\) kunnen schrijven als de sinus van \\(x = \\dfrac{1}{3} \\pi :\\)",
+            "output": r"\\[\\sin(x) = \\sin \\left( \\dfrac{1}{3}\\pi \\right) \\]"
+        },
+        {
+            "explanation": r"Nu kunnen we dit oplossen met de algemene oplossing voor een sinus:",
+            "output": r"\\[x = \\dfrac{1}{3}\\pi + n \\cdot 2\\pi \\, \\vee \\, x = \\pi - \\dfrac{1}{3}\\pi + n \\cdot 2\\pi \\]"
+        },
+        {
+            "explanation": r"Hierbij is \\(n\\) een geheel getal (dit geven we aan met \\(n \\in \\mathbb{Z}\\) ). We kunnen de vergelijking nog verder versimpelen tot:",
+            "output": r"\\[x = \\dfrac{1}{3}\\pi + n \\cdot 2\\pi \\, \\vee \\, x = \\dfrac{2}{3}\\pi + n \\cdot 2\\pi \\]"
+        },
+        {
+            "explanation": r"Dit is de formule voor alle oplossingen, maar we kunnen ook nog de oplossingen in het domein \\( \\left[ 0, 2\\pi \\right] \\) bepalen. We vullen dan gehele getallen in voor \\(n\\) zodat we alle oplossingen tussen \\(0\\) en \\(2\\pi\\) krijgen. <br><br>In dit geval zijn de oplossingen alleen tussen \\(0\\) en \\(2\\pi\\) als \\( n=0 \\), dus we krijgen als oplossingen:",
+            "output": r"\\[ x = \\dfrac{1}{3} \\pi \\, \\vee \\, x = \\dfrac{2}{3} \\pi \\]"
+        },
+
+
+    ],
+    "final_answer": r"\\[\\boxed{1) \\quad x = \\frac{\\pi}{3} \\approx 1.04720}\\]<br>\\[\\boxed{2) \\quad x = \\frac{2 \\pi}{3} \\approx 2.09440}\\]"
 }
 '''
 
@@ -98,10 +132,27 @@ def chatgpt_get_explanation(question):
             "role": "user", 
             "content": example_question1
         },
-
         {
             "role": "assistant", 
             "content": example_answer1
+        },
+
+        {
+            "role": "user", 
+            "content": example_question2
+        },
+        {
+            "role": "assistant", 
+            "content": example_answer2
+        },  
+
+        {
+            "role": "user", 
+            "content": example_question3
+        },
+        {
+            "role": "assistant", 
+            "content": example_answer3
         },        
 
         {

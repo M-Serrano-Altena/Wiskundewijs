@@ -1,4 +1,5 @@
 import scipy.optimize
+from scipy.interpolate import UnivariateSpline
 import sympy as sp
 from sympy.simplify.fu import TR2, TR1, TR111
 import numpy as np
@@ -46,8 +47,10 @@ string = r"5(x+2      =     3x -     2"
 string = math_interpreter(string)
 print(string)
 
-print(1/sp.real_root(x**2, 3))
-func = 1/sp.real_root(x**2, 3).simplify()
-print(func.subs(sp.zoo, sp.oo))
+func = sp.sympify("1/((x)**(2/3))")
+print(func)
 
-print(sp.lambdify(x, 1/sp.real_root(x**2, 3), "numpy")(-8))
+
+inequality = sp.sympify("Ne(5*x, 0)")
+print(inequality)
+print((sp.solve(inequality)))

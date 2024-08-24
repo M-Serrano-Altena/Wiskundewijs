@@ -14,7 +14,7 @@ from numbers import Number
 
 filterwarnings("ignore", category=RuntimeWarning)
 
-def segmented_linspace(start: float, end: float, breakpoints: typing.Iterable[float], num: int=10, dx: float=0.01) -> typing.List[np.ndarray]:
+def segmented_linspace(start: float, end: float, breakpoints: typing.Iterable[float], num: int=10, breakpoint_offset: float=0.01) -> typing.List[np.ndarray]:
     """
     Generate a list of linearly spaced segments between `start` and `end`, divided by `breakpoints`.
 
@@ -23,14 +23,39 @@ def segmented_linspace(start: float, end: float, breakpoints: typing.Iterable[fl
         end (float): The ending point of the range.
         breakpoints (Iterable[float]): Points at which the range is divided into segments.
         num (int): Number of points in each segment (default is 10).
-        dx (float): Small offset added to the start and end of each segment (default is 0.01).
+        breakpoint_offset (float): Small offset added to the start and end of each segment (default is 0.01).
 
     Returns:
         List[np.ndarray]: A list of numpy arrays, each containing a segment of linearly spaced points.
     """
 
     all_points = sorted([start] + list(breakpoints) + [end])
-    return [np.linspace(all_points[i] + dx, all_points[i+1] - dx, num) for i in range(len(all_points)-1)]
+    return [np.linspace(all_points[i] + breakpoint_offset, all_points[i+1] - breakpoint_offset, num) for i in range(len(all_points)-1)]
+
+
+def get_smooth_x_coords(x_range, dx, vert_asympt=None):
+    if vert_asympt is None:
+        x_coords = np.linspace(x_range[0] - 1, x_range[1] + 1, int(1/dx))
+        for i in range(1, 10):
+            x_coords = np.sort(np.append(x_coords, np.linspace(x_range[0]/(10**i), x_range[1]/(10**i), max(10, int(10/(dx*10**i))))))
+
+    else:
+        x_coords = segmented_linspace(x_range[0] - 1, x_range[1] + 1, vert_asympt, num=int(1/dx), breakpoint_offset=0.00001)
+        if len(x_coords) > 3:
+            return x_coords
+
+        for i in range(1, 5):
+            new_x_coords = segmented_linspace(x_range[0]/(10**i), x_range[1]/(10**i), vert_asympt, num=max(10, int(10/(dx*10**i))), breakpoint_offset=0.00001)
+            for i in range(len(x_coords)):
+                array = x_coords[i]
+                min_array = min(array)
+                max_array = max(array)
+                for array_new in new_x_coords:
+                    if min_array <= np.mean(array_new) <= max_array:
+                        x_coords[i] = np.sort(np.append(array, array_new))
+
+    return x_coords
+
 
 def write_as_sin_and_cos(x):
     """
@@ -66,8 +91,6 @@ class CustomLatexPrinter(LatexPrinter):
     """
     A custom LaTeX printer that provides customized formatting for SymPy expressions.
     """
-    real_root = False
-    eq1 = eq2 = eq12 = eq = None
 
     def _print_Mul(self, expr: sp.Mul, **kwargs) -> str:
 
@@ -213,30 +236,6 @@ class CustomLatexPrinter(LatexPrinter):
         
         return super()._print_Function(expr, **kwargs)
     
-    @classmethod
-    def set_real_root(cls, real_root: bool):
-        cls.real_root = real_root
-
-
-def simplify_piecewise_root(expr):
-    if isinstance(expr, sp.Piecewise):
-        expr = expr.args[1][0]
-        expr = sp.sympify(re.sub(r"\bAbs\b", "", str(expr))) # also immediately simplifies
-
-    elif "Abs" in str(expr) and "sign" in str(expr):
-        expr = sp.sympify(re.sub(r"\bAbs\b", "", str(expr))) # also immediately simplifies
-        expr = sp.sympify(re.sub(r"\**\bsign\((.*)\)", "", str(expr))) # also immediately simplifies
-
-    return expr
-
-def simplify_root_general(expr):
-    if isinstance(expr, sp.Derivative):
-        simplified_arg = simplify_piecewise_root(expr.args[0])
-        return sp.Derivative(simplified_arg, *expr.args[1:])
-    elif isinstance(expr, sp.Piecewise):
-        return simplify_piecewise_root(expr)
-    else:
-        return expr
 
 def custom_latex(expr: sp.Basic, **kwargs) -> str:
     """
@@ -248,8 +247,6 @@ def custom_latex(expr: sp.Basic, **kwargs) -> str:
     Returns:
         str: The LaTeX representation of the expression.
     """
-    if CustomLatexPrinter.real_root:
-        expr = simplify_root_general(expr)
 
     return CustomLatexPrinter(**kwargs).doprint(expr)
 
@@ -280,6 +277,24 @@ def custom_simplify(expr: typing.Union[sp.Basic, Number]) -> typing.Union[sp.Bas
         return symp_expr
     except UnboundLocalError:
         return expr
+    
+def get_real_root(expr: sp.Expr):
+    def replace_root(matched_expr):
+        base = matched_expr.group(1)
+        power = matched_expr.group(2)
+        power_sp = sp.sympify(power)
+        if power_sp.q % 2 == 0 or power_sp.p % 2 == 0:
+            return f"Abs({base})**({power})"
+        return f"sign({base})*Abs({base})**({power})"
+        
+
+    str_expr = str(expr)
+
+    str_expr = re.sub(r"(\w*\(.*\))\*\*\((-*\d+/\d+)\)", replace_root, str_expr)
+    str_expr = re.sub(r"(\w+)\*\*\((-*\d+/\d+)\)", replace_root, str_expr)
+
+    expr = sp.sympify(str_expr)
+    return expr
 
 
 class Solve:
@@ -308,12 +323,14 @@ class Solve:
         self.integral = False
         self.real_root = False
 
+
     @staticmethod
     def get_lambdas(expr: typing.Union[sp.Expr, typing.Iterable[sp.Expr]], symbol: sp.Symbol, numeric: bool = False) -> typing.Union[FunctionType, typing.Iterable[FunctionType]]:
         def get_lambda_numeric(single_expr, modules = ["numpy", "scipy", "sympy"]):
             for module in modules:
                 try:
-                    func = sp.lambdify(symbol, single_expr.subs(sp.zoo, sp.oo), module)
+                    single_expr = get_real_root(single_expr)
+                    func = sp.lambdify(symbol, single_expr, module)
                     try:
                         func(0)
                     except ZeroDivisionError:
@@ -357,7 +374,7 @@ class Solve:
         eq_lambda_np: FunctionType,
         a: float = -10000,
         b: float = 10000,
-        dx: float = 0.01,
+        dx: float = 1e-6,
         solve_method: str = "newton",
         tolerance: float = 0.01,
         default_func: bool = True
@@ -384,7 +401,11 @@ class Solve:
             eq_diff_sp = sp.diff(eq_sp, self.symbol).doit().simplify()
             eq_diff_lambda_np = self.get_lambdas(eq_diff_sp, self.symbol, numeric=True)
 
-        x_vals = np.linspace(a, b, (b-a) * int(1/dx))
+        x_vals = get_smooth_x_coords((a, b), dx, self.vert_asympt)
+        # x_vals = np.linspace(a, b, (b-a) * int(1/dx + 1))
+        # x_vals_diff = x_vals[np.where(np.diff(x_vals) < 1)]
+        # x_vals = np.append(x_vals_diff, x_vals[-1])
+
         y_vals = eq_lambda_np(x_vals)
         xy = np.vstack((x_vals, y_vals)).T
         xy = xy[~np.isnan(xy[:,1]) & ~np.isinf(xy[:,1])]
@@ -510,22 +531,11 @@ class Solve:
             - A list of output messages.
             - A boolean indicating whether to plot the results.
         """
-        def make_froot_real(string):
-            return string
-            if "root" not in string and "cbrt" not in string:
-                return string
-            
-            CustomLatexPrinter.set_real_root(True)
-            self.real_root = True
 
-            string = re.sub(r"\broot\b", "real_root", string)
-            string = re.sub(r"\bcbrt\b", "real_root", string)
-            string = add_args_to_func(string, func_name='real_root', replace_with='3')
+        def process_equation(eq_str: str) -> str:
+            pass
 
-            return string
-
-
-        def process_equation(eq_str: str) -> sp.Basic:
+        def sympify_equation(eq_str: str) -> sp.Basic:
             try:
                 return eq_str, TR111(sp.sympify(eq_str)).doit()
             except ValueError:
@@ -541,12 +551,12 @@ class Solve:
             
 
         def set_eqs(eq_split, use_self=True):
-            eq_split[0], eq1 = process_equation(eq_split[0])
+            eq_split[0], eq1 = sympify_equation(eq_split[0])
 
             if len(eq_split) == 1:
                 eq2 = 0
             elif len(eq_split) == 2:
-                eq_split[1], eq2 = process_equation(eq_split[1])
+                eq_split[1], eq2 = sympify_equation(eq_split[1])
             elif use_self:
                 self.output.append(("Error: Meer dan 1 '='-teken ", {"latex": False}))
                 return self.equation_interpret, self.output, self.plot
@@ -720,7 +730,7 @@ class Solve:
 
 
         try:
-            eq_split = make_froot_real(self.eq_string).split("=")
+            eq_split = self.eq_string.split("=")
             eq_split = set_eqs(eq_split=eq_split)
 
             free_symbols = list(self.eq12.free_symbols)
@@ -786,12 +796,10 @@ class Solve:
 
                     if False in asympt_check:
                         self.vert_asympt_eq = list(set([asympt_values[i] for i in range(len(asympt_values)) if not asympt_check[i]]))
-                        print(self.vert_asympt_eq)
                         if not self.vert_asympt_eq:
                             self.vert_asympt_eq = None
 
             check_numerical = self.check_solve_numerically(self.solution_set)
-            print("1)")
             if check_numerical is not None and not self.intersect:
                 return no_solutions_output()
 
@@ -803,9 +811,7 @@ class Solve:
                 try:
                     complex_symbol = sp.symbols("x")
                     self.solutions_complex = sp.solve(TR2(sp.Eq(self.eq1_lambda(complex_symbol), self.eq2_lambda(complex_symbol))))
-                    print("3)")
                     self.solutions = [sol for sol in self.solutions_complex if sol.is_real and sp.N(self.eq1_lambda(sol)).is_real]
-                    print("3.2)")
                 except Exception:
                     self.solutions_complex = []
                     try:
@@ -815,7 +821,6 @@ class Solve:
 
                 self.has_any_solutions = bool(self.solutions_complex or self.solutions or self.solution_set.is_FiniteSet)
 
-            print(self.solution_set, self.has_any_solutions)
             if not self.has_any_solutions and not self.numerical:
                 self.eq_string = add_args_to_func(self.eq_string, func_name="root", replace_with="evaluate=False", amt_commas=2)
 
@@ -1076,7 +1081,6 @@ class Solve:
     
 
     def get_range(self):
-        print("at least here?")
         def no_intersect():
             self.intersect = False
             self.x_range = np.array([-10, 10])
@@ -1119,16 +1123,31 @@ class Solve:
         if self.multivariate:
             self.eq1 = sp.sympify(0)
 
-
         def get_plottable_coords(x_coords, domain_eq1, domain_eq2):
 
             def get_plottable_xy(np_lambda_func, domain):
                 y_coords = np_lambda_func(x_coords_np)
-                plottable_x_coords = x_coords_np[np.isreal(y_coords) & np.isfinite(y_coords)]
-                plottable_x_coords = add_endpoint(list(plottable_x_coords), np_lambda_func, domain).ravel()
+                plottable_x_coords = x_coords_np[np.isreal(y_coords) & np.isfinite(y_coords)].ravel()
+                plottable_x_coords = add_important_points(list(plottable_x_coords), np_lambda_func, domain).ravel()
+
+                plottable_x_coords_diff = plottable_x_coords[np.where(np.diff(plottable_x_coords) < 1)]
+                plottable_x_coords = np.append(plottable_x_coords_diff, plottable_x_coords[-1])
+
                 y_coords = self.apply_func_to_array(np_lambda_func, plottable_x_coords)
 
                 return plottable_x_coords, y_coords
+            
+            def add_important_points(plottable_x_coords, lambda_func, domain):
+                if self.intersect:
+                    min_plottable_x = min(plottable_x_coords)
+                    max_plottable_x = max(plottable_x_coords)
+                    for x_intersect in self.x_intersect:
+                        if min_plottable_x <= x_intersect <= max_plottable_x:
+                            plottable_x_coords.append(x_intersect)
+                    
+                    plottable_x_coords = sorted(plottable_x_coords)
+
+                return add_endpoint(plottable_x_coords, lambda_func, domain)
             
             def add_endpoint(plottable_x_coords, lambda_func, domain):
                 try:    
@@ -1166,7 +1185,7 @@ class Solve:
 
 
         if self.vert_asympt_eq is None:
-            self.x_coords = np.linspace(x_range[0] - 1, x_range[1] + 1, int(1/dx))
+            self.x_coords = get_smooth_x_coords(x_range, dx, self.vert_asympt_eq)
 
         else:
             if isinstance(self.vert_asympt_eq, list):
@@ -1179,7 +1198,7 @@ class Solve:
                     self.vert_asympt = np.array(list(self.vert_asympt_set), dtype=np.float64)
 
             self.vert_asympt = self.vert_asympt[np.isreal(self.vert_asympt)]
-            self.x_coords = segmented_linspace(x_range[0] - 1, x_range[1] + 1, self.vert_asympt, num=int(1/dx), dx=0.00001)
+            self.x_coords = get_smooth_x_coords(x_range, dx, self.vert_asympt_eq)
 
 
         if self.vert_asympt_eq is None:
