@@ -11,9 +11,43 @@ from types import FunctionType
 from collections.abc import Iterable
 import typing
 
+def get_lambdas(expr: typing.Union[sp.Expr, typing.Iterable[sp.Expr]], symbol: sp.Symbol, numeric: bool = False) -> typing.Union[FunctionType, typing.Iterable[FunctionType]]:
+    def get_lambda_numeric(single_expr, modules = ["numpy", "scipy", "sympy"]):
+        for module in modules:
+            try:
+                func = sp.lambdify(symbol, single_expr, module)
+                # try:
+                #     func(0)
+                # except ZeroDivisionError:
+                #     func(1)
+                return func
+            except NameError:
+                continue
+    
+    if not isinstance(expr, Iterable):
+        if numeric:
+            return get_lambda_numeric(single_expr=expr)
+        return sp.lambdify(symbol, expr, "sympy")
+    
+    lambdas = []
+    if numeric:
+        for single_expr in expr:
+            lambdas.append(get_lambda_numeric(single_expr=single_expr))
+    else:
+        for single_expr in expr:
+            lambdas.append(sp.lambdify(symbol, single_expr, "sympy"))
+
+    return lambdas
+
+
 x, y = sp.symbols("x,y", real=True)
 
-string = r"cbrt(x)"
-string = re.sub(r"\bcbrt\b", "jhan", string)
-# string = math_interpreter(string)
+string = r"5(x+2      =     3x -     2"
+string = math_interpreter(string)
 print(string)
+
+print(1/sp.real_root(x**2, 3))
+func = 1/sp.real_root(x**2, 3).simplify()
+print(func.subs(sp.zoo, sp.oo))
+
+print(sp.lambdify(x, 1/sp.real_root(x**2, 3), "numpy")(-8))

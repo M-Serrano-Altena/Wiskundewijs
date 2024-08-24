@@ -6,9 +6,16 @@ from pylatexenc.latex2text import LatexNodes2Text
 
 def latex_to_plain_text(latex_str):
     latex_str = re.sub(r"%", r"\%", latex_str)
+    latex_str = re.sub(r"\\sqrt\((.*)\)", r"√(\1)", latex_str)
+    latex_str = re.sub(r"\\sqrt\[(.*)\](\w)", r"root(\2, \1)", latex_str)
+    latex_str = re.sub(r"\\sqrt\[(.*)\]\((.*)\)", r"root(\2, \1)", latex_str)
+    latex_str = re.sub(r"\\sqrt\[(.*)\]\{(.*)\}", r"root(\2, \1)", latex_str)
+    latex_str = re.sub(r"∜(\w)", r"root(\1, 4)", latex_str)
+    latex_str = re.sub(r"∜\((.*)\)", r"root(\1, 4)", latex_str)
+    latex_str = re.sub(r"−", r"-", latex_str)
     return LatexNodes2Text().latex_to_text(latex_str).replace("·", "*").replace("×", "*")
 
-def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10', amt_commas: int=1, nested_level: int=1, position_type: str='after') -> str:
+def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10', amt_commas: int=1, nested_level: int=1, position_type: str='after', extra_arguments: int=0) -> str:
     """
     Adds arguments to a specified function within a mathematical expression.
 
@@ -81,7 +88,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
         
         return comma_counter
 
-    func_amt_commas = {'diff': 2, 'subs': 2, 'integrate': 3} # max amount of commas each function has for proper syntax
+    func_amt_commas = {'diff': 2, 'subs': 2, "limit": 3, 'integrate': 3} # max amount of commas each function has for proper syntax
     index_func = [m.start() for m in re.finditer(func_name, eq_string)] # get index list of start of each function name
     
     if len(index_func) == 0:
@@ -189,7 +196,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
                                 add_args -= 1
                                 check_is_number = False
 
-                if amt_commas < 0 and len(index_list) != 0 and nested_before == 0:
+                if amt_commas + extra_arguments < 0 and len(index_list) != 0 and nested_before == 0:
                     index_list.pop()
                     amt_commas += 1
 
@@ -412,9 +419,28 @@ def math_interpreter(eq_string: str) -> str:
             return match.group(0)
 
         return f'{match.group(1)}*{match.group(2)}'
+    
+    def fix_mismatched_brackets(eq_string):
+        eq_split = eq_string.split("=")
+        for i in range(len(eq_split)):
+            eq_split[i] = eq_split[i].strip()
+            count_open_bracket = eq_split[i].count('(')
+            count_close_bracket = eq_split[i].count(')')
+            difference = count_open_bracket - count_close_bracket
+            
+            if difference > 0:
+                eq_split[i] += difference * ")"
+    
+            elif difference < 0:
+                eq_split[i] = abs(difference) * "(" + eq_split[i]
+
+        eq_string = " = ".join(eq_split)
+
+        return eq_string
 
     
     eq_string = latex_to_plain_text(eq_string).casefold()
+    eq_string = fix_mismatched_brackets(eq_string)
 
 
     # Replace common functions and symbols
@@ -442,12 +468,11 @@ def math_interpreter(eq_string: str) -> str:
     function_names.remove("ff")
     relevant_functions = [func for func in function_names if func in eq_string]
 
+    eq_string = replace_constant_symbols(eq_string)
+
     constant_names_og = [name for name, obj in sp.__dict__.items() if isinstance(obj, (sp.Basic, sp.core.singleton.Singleton)) and not name.startswith('_') and sp.sympify(name).is_number]
-    constant_names_og.extend(("inf", "infty", "infinity"))
     constant_names = [name.casefold() for name in constant_names_og]
     relevant_constants = [constant for constant in constant_names if constant in eq_string]
-
-    eq_string = replace_constant_symbols(eq_string)
 
     arc_functions = ["arcsin", "arccos", "arctan", "arccot", "arcsec", "arccsc"]
     relevant_arc_functions = [arc_func for arc_func in arc_functions if arc_func in eq_string]
@@ -534,10 +559,11 @@ def math_interpreter(eq_string: str) -> str:
     
     eq_string_start = eq_string
 
-    # arguments: function_name, replace_with, amt_commas, nested_level, position_type
+    # arguments: function_name, replace_with, amt_commas, nested_level, position_type, extra_arguments
     function_adjustments = [
         ("diff", 'x', 1, 1, "before"),
         ("subs", 'x', 1, 1, "before"),
+        ("limit", 'x', 1, 1, "before", 1),
         ("integrate", 'x', 1, 2, "before"),
         ('log', '10', 1, 1, "after"),
         ('root', '3', 1, 1, "after"),
@@ -570,7 +596,7 @@ def math_interpreter(eq_string: str) -> str:
 
 
 
-def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = {"subs": "Subs", "diff": "Derivative", "integrate": "Integral"}) -> Union[str, sp.Basic]:
+def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = {"subs": "Subs", "diff": "Derivative", "integrate": "Integral", "limit": "Limit"}) -> Union[str, sp.Basic]:
     """
     Replaces dot notation functions (e.g., `.subs`, `.diff`) in a string with their corresponding unevaluated SymPy function equivalents.
 

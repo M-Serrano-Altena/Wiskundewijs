@@ -53,6 +53,11 @@ extra:
   consent:
     title: Cookies
     description: Deze website maakt gebruik van cookies om te zien hoe de website gebruikt wordt. Zo kunnen we jouw ervaring nog beter maken! 
+    actions:
+      - accept
+      - reject
+      - manage
+      
 
     feedback:
       title: Begrijp je de stof nu beter?

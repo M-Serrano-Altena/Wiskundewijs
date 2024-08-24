@@ -7,6 +7,7 @@ from pylatexenc.latex2text import LatexNodes2Text
 from types import FunctionType
 from collections.abc import Iterable
 
+
 def main():
     iterate = 1000000
     x = sp.symbols("x", real=True)
@@ -14,8 +15,10 @@ def main():
 
     # for _ in range(iterate):
     #     sp.sympify(sp.sin(x))
-    expr = sp.sympify(re.sub(r"\bAbs\b", "", "x/Abs(x**(2/3))"))
-    print(sp.powsimp(expr, force=True))
+    func = sp.Piecewise((0, sp.Eq(x, 0)), (1/(3*sp.Abs(x**(2/3))), True))
+    func_lambda = sp.lambdify(x, func, "numpy")
+    print(func_lambda(1))
+
 
 
 

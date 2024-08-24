@@ -225,10 +225,10 @@ def generate_plot_data(solver):
     hoverinfo2_func = str(solver.eq2).replace('**', '^').replace('log', 'ln')
 
     if solver.real_root:
-        if solver.eq1.is_Piecewise:
+        if sp.sympify(solver.eq1).is_Piecewise:
             eq1 = solver.eq1.args[1][0]
             hoverinfo1_func = str(sp.sympify(re.sub(r"\bAbs\b", "", str(eq1))))
-        if solver.eq2.is_Piecewise:
+        if sp.sympify(solver.eq2).is_Piecewise:
             eq2 = solver.eq1.args[1][0]
             hoverinfo2_func = str(sp.sympify(re.sub(r"\bAbs\b", "", str(eq2))))
 
