@@ -5,15 +5,60 @@ from typing import Dict, Union
 from pylatexenc.latex2text import LatexNodes2Text
 
 def latex_to_plain_text(latex_str):
-    latex_str = re.sub(r"%", r"\%", latex_str)
-    latex_str = re.sub(r"\\sqrt\((.*)\)", r"√(\1)", latex_str)
-    latex_str = re.sub(r"\\sqrt\[(.*)\](\w)", r"root(\2, \1)", latex_str)
-    latex_str = re.sub(r"\\sqrt\[(.*)\]\((.*)\)", r"root(\2, \1)", latex_str)
-    latex_str = re.sub(r"\\sqrt\[(.*)\]\{(.*)\}", r"root(\2, \1)", latex_str)
-    latex_str = re.sub(r"∜(\w)", r"root(\1, 4)", latex_str)
-    latex_str = re.sub(r"∜\((.*)\)", r"root(\1, 4)", latex_str)
-    latex_str = re.sub(r"−", r"-", latex_str)
-    return LatexNodes2Text().latex_to_text(latex_str).replace("·", "*").replace("×", "*")
+    replacements_before = [
+        (r"%", r"\%"),  # Escape percent signs
+        (r"\\sqrt\((.*)\)", r"√(\1)"),  # \sqrt(x) --> √(x)
+        (r"\\sqrt\[(.*)\](\w)", r"root(\2, \1)"),  # \sqrt[n]{x} --> root(x, n)
+        (r"\\sqrt\[(.*)\]\((.*)\)", r"root(\2, \1)"),  # \sqrt[n](x) --> root(x, n)
+        (r"\\sqrt\[(.*)\]\{(.*)\}", r"root(\2, \1)"),  # \sqrt[n]{x} --> root(x, n)
+        (r"∜(\w)", r"root(\1, 4)"),  # ∜x --> root(x, 4)
+        (r"∜\((.*)\)", r"root(\1, 4)"),  # ∜(x) --> root(x, 4)
+        (r"−", r"-"),  # Replace special minus sign with standard minus
+    ]
+
+    for pattern, repl in replacements_before:
+        latex_str = re.sub(pattern, repl, latex_str)
+
+    latex_str = LatexNodes2Text().latex_to_text(latex_str)
+
+    replacements_after = [
+        ("≠", "!="), 
+        ("≥", ">="), 
+        ("≤", "<="), 
+        ("≈", "="), 
+        ("≡", "="), 
+        ("·", "* "),  
+        ("×", "* "), 
+    ]
+
+    for pattern, repl in replacements_after:
+        latex_str = re.sub(pattern, repl, latex_str)
+
+    return latex_str
+
+def split_equation(eq_string):
+    equation_symbols = ["!=", ">=", "<=", "==", "=", ">", "<"]
+    relevant_eq_symbols = []
+    for i in range(1, len(eq_string) - 1):
+        char_prev = eq_string[i-1]
+        char = eq_string[i]
+        char_next =  eq_string[i+1]
+        if char_prev + char in equation_symbols and char_prev + char not in relevant_eq_symbols:
+            relevant_eq_symbols.append(eq_string[i-1] + eq_string[i])
+        elif char + char_next in equation_symbols and char + char_next not in relevant_eq_symbols:
+            relevant_eq_symbols.append(eq_string[i] + eq_string[i+1])
+        elif char in equation_symbols and char not in relevant_eq_symbols:
+            relevant_eq_symbols.append(eq_string[i])
+
+    
+    relevant_eq_symbols.sort(key=len, reverse=True)
+
+    symbols_string = '|'.join(relevant_eq_symbols)
+    if symbols_string:
+        return re.split(rf"({symbols_string})", eq_string)
+    else:
+        return [eq_string]
+
 
 def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10', amt_commas: int=1, nested_level: int=1, position_type: str='after', extra_arguments: int=0) -> str:
     """
@@ -420,8 +465,10 @@ def math_interpreter(eq_string: str) -> str:
 
         return f'{match.group(1)}*{match.group(2)}'
     
-    def fix_mismatched_brackets(eq_string):
-        eq_split = eq_string.split("=")
+
+    def fix_mismatched_parenthesis(eq_string):
+        eq_split = split_equation(eq_string)
+
         for i in range(len(eq_split)):
             eq_split[i] = eq_split[i].strip()
             count_open_bracket = eq_split[i].count('(')
@@ -430,17 +477,15 @@ def math_interpreter(eq_string: str) -> str:
             
             if difference > 0:
                 eq_split[i] += difference * ")"
-    
             elif difference < 0:
                 eq_split[i] = abs(difference) * "(" + eq_split[i]
-
-        eq_string = " = ".join(eq_split)
-
+        
+        eq_string = ' '.join(eq_split)
         return eq_string
 
     
     eq_string = latex_to_plain_text(eq_string).casefold()
-    eq_string = fix_mismatched_brackets(eq_string)
+    eq_string = fix_mismatched_parenthesis(eq_string)
 
 
     # Replace common functions and symbols
