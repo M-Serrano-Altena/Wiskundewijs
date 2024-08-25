@@ -105,7 +105,7 @@ def pop_iterable(pop_list: list, index_list: typing.Iterable[int]) -> list:
 
 
 def equation_type_to_latex(equation_symbol):
-    equation_type_latex_map = {"!=": "\\neq", ">=": "\\geq", "<=": "\\leq", "==": "="}
+    equation_type_latex_map = {"!=": "\\neq", ">=": "\\geq", "<=": "\\leq"}
     return equation_type_latex_map.get(equation_symbol, equation_symbol)
 
 def flip_inequality_sign(inequality_sign):
@@ -650,8 +650,11 @@ class Solve:
             - A boolean indicating whether to plot the results.
         """
 
+        def apply_double_equals_operator(lhs, rhs):
+            return apply_opperator(lhs, "==", rhs)
+
         def process_equation(eq_string: str) -> str:
-            equation_symbol_map = {"!=": sp.Ne, ">=": sp.Ge, "<=": sp.Le, "==": sp.Eq, "=": sp.Eq, ">": sp.Gt, "<": sp.Lt}
+            equation_symbol_map = {"!=": sp.Ne, ">=": sp.Ge, "<=": sp.Le, "==": apply_double_equals_operator, "=": sp.Eq, ">": sp.Gt, "<": sp.Lt}
             eq_split = split_equation(eq_string)
             eq_split = [string for string in eq_split if string not in equation_symbol_map.keys()]
 
@@ -698,6 +701,11 @@ class Solve:
             
             self.eq1_unsimplified, self.eq2_unsimplified, self.eq12_unsimplified = self.eq1, self.eq2, self.eq12 = eq1, eq2, eq12
             self.eq = eq
+
+
+            if self.equation_type == "==":
+                self.output.append(f"\\text{{{self.eq}}}")
+                return None
 
             if len(eq_split) == 2:
                 self.eq_string = str(self.eq)
