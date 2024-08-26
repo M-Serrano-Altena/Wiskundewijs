@@ -244,6 +244,8 @@ def generate_plot_data(solver):
         output_legend2 = output_legend2[:-1] + "\\qquad .$"
 
 
+    empty_plot_data = {'x': [None], 'y': [None], 'type': 'scatter', 'mode': 'lines', 'name': '', 'showlegend': True, 'line': {'color': 'rgba(0,0,0,0)'}, 'hoverinfo': 'skip'}
+
     if solver.vert_asympt is None:
         plot_data.append({
             'x': plottable_x1_coords,
@@ -254,6 +256,7 @@ def generate_plot_data(solver):
             'line': {'color': 'darkturquoise'},
             'hovertemplate': '(%{x:.4f}, %{y:.4f})'+ f'<extra>{hoverinfo1}</extra>',
         })
+        # plot_data.append(empty_plot_data)
         plot_data.append({
             'x': plottable_x2_coords,
             'y': y2_coords,

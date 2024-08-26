@@ -231,7 +231,7 @@ class CustomLatexPrinter(LatexPrinter):
             base = denom.args[0]
 
             if isinstance(base, sp.Number):
-                arg = self._print(numer)
+                arg = self._print(arg)
                 base = self._print(base)
 
                 return f' \\ ^{{{base}}} \\! \\log\\left({arg} \\right)'

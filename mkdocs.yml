@@ -55,7 +55,7 @@ extra:
     description: Deze website maakt gebruik van cookies om te zien hoe de website gebruikt wordt. Zo kunnen we jouw ervaring nog beter maken! 
     actions:
       - accept
-      - reject
+      # - reject
       - manage
       
 

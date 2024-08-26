@@ -4,40 +4,253 @@ import regex as re
 from typing import Dict, Union
 from pylatexenc.latex2text import LatexNodes2Text
 
-def latex_to_plain_text(latex_str):
-    replacements_before = [
-        (r"%", r"\%"),  # Escape percent signs
-        (r"\\sqrt\((.*)\)", r"√(\1)"),  # \sqrt(x) --> √(x)
-        (r"\\sqrt\[(.*)\](\w)", r"root(\2, \1)"),  # \sqrt[n]{x} --> root(x, n)
-        (r"\\sqrt\[(.*)\]\((.*)\)", r"root(\2, \1)"),  # \sqrt[n](x) --> root(x, n)
-        (r"\\sqrt\[(.*)\]\{(.*)\}", r"root(\2, \1)"),  # \sqrt[n]{x} --> root(x, n)
+def fix_mismatched_parenthesis(eq_string):
+    eq_split = split_equation(eq_string)
+
+    for i in range(len(eq_split)):
+        eq_split[i] = eq_split[i].strip()
+        count_open_bracket = eq_split[i].count('(')
+        count_close_bracket = eq_split[i].count(')')
+        difference = count_open_bracket - count_close_bracket
+        
+        if difference > 0:
+            eq_split[i] += difference * ")"
+        elif difference < 0:
+            eq_split[i] = abs(difference) * "(" + eq_split[i]
+    
+    eq_string = ' '.join(eq_split)
+    return eq_string
+
+def get_arg_in_brackets(eq_string, index_start_bracket, bracket_type="()"):
+    map_brackets = {"(": ")", "[" : "]", "{": "}"}
+
+    if len(bracket_type) == 2:
+        open_bracket = bracket_type[0]
+        close_bracket = bracket_type[1]
+
+    elif len(bracket_type) == 1:
+        open_bracket = bracket_type
+        close_bracket = map_brackets[bracket_type]
+
+    nested = 0
+    index = index_start_bracket
+    for char in eq_string[index:]:
+        if char == open_bracket:
+            nested += 1
+        elif char == close_bracket:
+            nested -= 1
+            if nested == 0:
+                index_close_bracket = index
+                arg_in_parenthesis = eq_string[index_start_bracket+1:index_close_bracket]
+                return arg_in_parenthesis, index
+
+        index += 1
+
+    return "PLACEHOLDER", index
+
+
+def interpret_latex_root(eq_string):
+    def interpret_latex_sqrt(eq_string):
+        index_sqrt = [m.start() for m in re.finditer(r"\\sqrt\[", eq_string)]
+        index_start_square_brackets = [index + 5 for index in index_sqrt]
+        if not index_sqrt:
+            return eq_string
+        
+        for index in index_start_square_brackets:
+            root_exp, index =  get_arg_in_brackets(eq_string, index, bracket_type="[]")
+            eq_string = re.sub(rf"\\sqrt\[({re.escape(root_exp)})\](\w)", r"root(\2, \1)", eq_string)
+            index += 1
+
+            sqrt_arg, _ = get_arg_in_brackets(eq_string, index, bracket_type="()")
+            eq_string = re.sub(rf"\\sqrt\[({re.escape(root_exp)})\]\(({re.escape(sqrt_arg)})\)", r"root(\2, \1)", eq_string)
+
+            sqrt_arg, _ = get_arg_in_brackets(eq_string, index, bracket_type=r"{}")
+            eq_string = re.sub(rf"\\sqrt\[({re.escape(root_exp)})\]" + r"\{(" + re.escape(sqrt_arg) + r")\}", r"root(\2, \1)", eq_string)
+
+        return eq_string
+
+    def interpret_fourth_root(eq_string):
+        index_fourth_root = [m.start() for m in re.finditer(r"∜\(", eq_string)]
+        index_start_brackets = [index + 1 for index in index_fourth_root]
+        if not index_fourth_root:
+            return eq_string
+        
+        for index in index_start_brackets:
+            root_arg, index =  get_arg_in_brackets(eq_string, index)
+            eq_string = re.sub(rf"∜\(({re.escape(root_arg)})\)", r"root(\1, 4)", eq_string)
+
+        return eq_string
+
+    replacements = [
+        (r"\\sqrt\{", r"sqrt"),
+        (r"\\sqrt\(", r"sqrt("),  # \sqrt(x) --> √(x)
         (r"∜(\w)", r"root(\1, 4)"),  # ∜x --> root(x, 4)
-        (r"∜\((.*)\)", r"root(\1, 4)"),  # ∜(x) --> root(x, 4)
-        (r"−", r"-"),  # Replace special minus sign with standard minus
     ]
+
+    for pattern, repl in replacements:
+        eq_string = re.sub(pattern, repl, eq_string)
+
+    eq_string = interpret_latex_sqrt(eq_string)
+    eq_string = interpret_fourth_root(eq_string)
+
+    return eq_string
+
+
+def interpret_integral(eq_string):
+    def interpret_integral_replacement(eq_string):
+        index_integral = [m.start() for m in re.finditer(r"∫_", eq_string)]
+        if not index_integral:
+            return eq_string
+        
+        for index in index_integral:
+            matched_args = []
+            continue_ = False
+            for char in ["_", "^"]:
+                if index + 2 >= len(eq_string) or eq_string[index+1] != char:
+                    continue_ = True
+                    break
+                
+                index += 2
+                matched_arg, index = get_arg_in_brackets(eq_string, index)
+                matched_args.append(matched_arg)
+
+            if continue_:
+                continue
+
+            matched_subscript, matched_superscript = matched_args
+
+            eq_string = re.sub(rf"∫_\(({re.escape(matched_subscript)})\)\^\(({re.escape(matched_superscript)})\)\s*([^∫]*?)\s*d([a-zA-Z])\b", r"integrate(\3, (\4, \1, \2))", eq_string)
+
+        return eq_string
+
+    format_integral = [
+        (r"∫\s*_\s*(\d+|\w)\s*\^\s*(\d+|\w)", r"∫_(\1)^(\2)"),
+        (r"∫\s*_\s*(\d+|\w)\s*\^\s*\((.*?)\)", r"∫_(\1)^(\2)"),
+        (r"∫\s*_\s*\((.*?)\)\s*\^\s*(\d+|\w)", r"∫_(\1)^(\2)"),
+        (r"∫\s*_\s*\(([^∫]*?)\)\s*\^\s*\((.*?)\)", r"∫_(\1)^(\2)"),
+    ]
+
+    for pattern, repl in format_integral:
+        eq_string = re.sub(pattern, repl, eq_string)
+
+    for _ in range(100):
+        eq_string_before = eq_string
+        eq_string = re.sub(r"∫(?!(?:\s*_\s*\([^∫]*?\)\s*\^\s*\([^∫]*?\)))\s*([^∫]*?)\s*d([a-zA-Z])\b", r"integrate(\1, \2)", eq_string)
+        eq_string = interpret_integral_replacement(eq_string)
+        if eq_string == eq_string_before:
+            break
+
+    return eq_string
+
+
+def interpret_derivative(eq_string):
+    index_derivative = [m.end() for m in re.finditer(r"d/d[a-zA-Z]", eq_string)]
+    index_nth_derivative = [m.end() for m in re.finditer(r"d\^\((\d+)\)/d([a-zA-Z])\^\(\1\)", eq_string)]
+
+    if not (index_derivative or index_nth_derivative):
+        return eq_string
+    
+    diff_args = []
+    for index in index_derivative:
+        diff_arg, _ =  get_arg_in_brackets(eq_string, index)
+        diff_args.append(diff_arg)
+
+    for diff_arg in diff_args:
+        eq_string = re.sub(rf"d/d([a-zA-Z])\s*\(({re.escape(diff_arg)})\)", r"diff(\2, \1)", eq_string)
+    
+    if not index_nth_derivative:
+        return eq_string
+    
+    diff_args = []
+    for index in index_nth_derivative:
+        diff_arg, _ =  get_arg_in_brackets(eq_string, index)
+        diff_args.append(diff_arg)
+
+    for diff_arg in diff_args:
+        eq_string = re.sub(rf"d\^\((\d+)\)/d([a-zA-Z])\^\(\1\)\s*\(({re.escape(diff_arg)})\)", r"diff(\3, \2, \1)", eq_string)
+        
+
+    return eq_string
+
+def interpret_log(eq_string):
+    eq_string = re.sub(r"log_(\d+|\w)", r"log_(\1)", eq_string)
+
+    index_log = [m.end() for m in re.finditer(r"log_", eq_string)]
+
+    if not index_log:
+        return eq_string
+    
+    log_bases = []
+    indices_start_args = []
+    log_args = []
+    for index in index_log:
+        log_base, index =  get_arg_in_brackets(eq_string, index)
+        log_bases.append(log_base)
+        indices_start_args.append(index + 2)
+
+    for log_base in log_bases:
+        eq_string = re.sub(rf"log_\(({re.escape(log_base)})\)\s*(\d+|\w)", r"log_(\1) (\2)", eq_string)
+        eq_string = re.sub(rf"log_\(({re.escape(log_base)})\)\s*\(", r"log_(\1) (", eq_string)
+
+    for index in indices_start_args:
+        log_arg, index =  get_arg_in_brackets(eq_string, index)
+        log_args.append(log_arg)
+
+    for log_base, log_arg in zip(log_bases, log_args):
+        eq_string = re.sub(rf"log_\(({re.escape(log_base)})\)\s*\(({re.escape(log_arg)})\)", r"log(\2, \1)", eq_string)
+
+    return eq_string
+
+
+def latex_to_plain_text(latex_str):
+    diff_formatting = [
+        (r"d/d([a-zA-Z])\s*\(?", r"d/d\1("),
+        (r"d\^[({]*(\d+)[)}]*/d([a-zA-Z])\^[({]*\1[)}]*\s*\(?", r"d^(\1)/d\2^(\1)("),
+        (r"\\frac\{\s*d\s*\}\{d\s*([a-zA-Z])\s*\}\s*\(?", r"d/d\1("),
+        (r"\\frac\{\s*d\^[({]*(\d+)[)}]*\s*\}\{d\s*([a-zA-Z])\^[({]*\1[)}]*\s*\}\s*\(?", r"d^(\1)/d\2^(\1)("),
+    ]    
+    general_formatting = [
+        (r"\{", "{("),
+        (r"\}", ")}"),
+        (r"%", r"\%"),  # Escape percent signs
+    ]
+
+    replacements_before = diff_formatting + general_formatting
 
     for pattern, repl in replacements_before:
         latex_str = re.sub(pattern, repl, latex_str)
 
+    latex_str = interpret_latex_root(latex_str)
     latex_str = LatexNodes2Text().latex_to_text(latex_str)
 
-    replacements_after = [
+    replacements_symbols = [
         ("≠", "!="), 
         ("≥", ">="), 
         ("≤", "<="), 
         ("≈", "="), 
         ("≡", "="), 
         ("·", "* "),  
-        ("×", "* "), 
+        ("×", "* "),
+        (r"−", r"-"), 
+        ("÷", "/ "),
+        (":", "/ "),
     ]
 
-    for pattern, repl in replacements_after:
+    for pattern, repl in replacements_symbols:
         latex_str = re.sub(pattern, repl, latex_str)
+
+    latex_str =fix_mismatched_parenthesis(latex_str)
+
+    latex_str = interpret_derivative(latex_str)
+    latex_str = interpret_integral(latex_str)
+    latex_str = interpret_log(latex_str)
 
     return latex_str
 
+
 def split_equation(eq_string):
     equation_symbols = ["!=", ">=", "<=", "==", "=", ">", "<"]
+
     relevant_eq_symbols = []
     for i in range(1, len(eq_string) - 1):
         char_prev = eq_string[i-1]
@@ -464,24 +677,6 @@ def math_interpreter(eq_string: str) -> str:
             return match.group(0)
 
         return f'{match.group(1)}*{match.group(2)}'
-    
-
-    def fix_mismatched_parenthesis(eq_string):
-        eq_split = split_equation(eq_string)
-
-        for i in range(len(eq_split)):
-            eq_split[i] = eq_split[i].strip()
-            count_open_bracket = eq_split[i].count('(')
-            count_close_bracket = eq_split[i].count(')')
-            difference = count_open_bracket - count_close_bracket
-            
-            if difference > 0:
-                eq_split[i] += difference * ")"
-            elif difference < 0:
-                eq_split[i] = abs(difference) * "(" + eq_split[i]
-        
-        eq_string = ' '.join(eq_split)
-        return eq_string
 
     
     eq_string = latex_to_plain_text(eq_string).casefold()
@@ -572,7 +767,8 @@ def math_interpreter(eq_string: str) -> str:
 
         return eq_string
 
-    for _ in range(5):
+    for _ in range(100):
+        eq_string_before = eq_string
         for pattern, repl in sub_patterns:
             eq_string = re.sub(pattern, repl, eq_string)
         
@@ -593,6 +789,9 @@ def math_interpreter(eq_string: str) -> str:
             eq_string = re.sub(rf'({func1})\*\(', r'\1(', eq_string)
 
             eq_string = nest_functions(eq_string)
+
+        if eq_string == eq_string_before:
+            break
     
     for constant in relevant_constants:
         constant_patterns = [r'([\w]+)' + f"({constant})", f"({constant})" + r'([\w]+)']
