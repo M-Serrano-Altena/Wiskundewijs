@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 from sympy.printing.latex import LatexPrinter
 import ast
 from src.Solver.src.solver.math_parser import math_interpreter, get_uneval_sp_objs, latex_to_plain_text
+from src.Solver.src.solver.solve_calculations import custom_latex
 from types import FunctionType
 from collections.abc import Iterable
 import typing
@@ -23,5 +24,4 @@ string = math_interpreter(string)
 print(string)
 # print(sp.sympify(string))
 
-
-
+print(sp.solve(x**2 < -1))

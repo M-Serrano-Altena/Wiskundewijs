@@ -118,8 +118,15 @@ def flip_inequality_sign(inequality_sign):
     Returns:
         str: The flipped inequality sign.
     """
-    inequality_flip_replacements = {">": "<", "<": ">", ">=": "\\leq", "<=": "\\geq", "!=": "=", "=": "\\neq"}
+    inequality_flip_replacements = {">": "<", "<": ">", ">=": "<=", "<=": ">=", "!=": "=", "=": "!="}
     return inequality_flip_replacements.get(inequality_sign, inequality_sign)
+
+def apply_double_equals_operator(lhs, rhs):
+    return apply_opperator(lhs, "==", rhs)
+
+def map_equation_type_to_sp(eq_type: str):
+    equation_symbol_map = {"!=": sp.Ne, ">=": sp.Ge, "<=": sp.Le, "==": apply_double_equals_operator, "=": sp.Eq, ">": sp.Gt, "<": sp.Lt}
+    return equation_symbol_map.get(eq_type, eq_type)
 
 class CustomLatexPrinter(LatexPrinter):
     """
@@ -146,6 +153,7 @@ class CustomLatexPrinter(LatexPrinter):
             return super()._print_Relational(expr, **kwargs)
         else:
             flipped_relation = flip_inequality_sign(expr.rel_op)
+            flipped_relation = equation_type_to_latex(flipped_relation)
             return f"{self._print(rhs)} {flipped_relation} {self._print(lhs)}"
         
     def _print_Or(self, expr, **kwargs):
@@ -188,25 +196,29 @@ class CustomLatexPrinter(LatexPrinter):
         expr_left = expr.args[0]
         expr_right = expr.args[1]
 
-        symbol_left = expr_left.args[1]
-        symbol_right = expr_right.args[0]
-        lower_bound = expr_left.args[0]
-        upper_bound = expr_right.args[1]
 
-        if not symbol_left.is_Symbol or not symbol_right.is_Symbol:
-            symbol_left = expr_left.args[0]
-            symbol_right = expr_right.args[1]
-            lower_bound = expr_left.args[1]
-            upper_bound = expr_right.args[0]
+        get_symbol_value_pair = lambda expr: (expr.args[0], expr.args[1]) if expr.args[0].is_Symbol else (expr.args[1], expr.args[0])
+        symbol_left, value_left = get_symbol_value_pair(expr_left)
+        symbol_right, value_right = get_symbol_value_pair(expr_right)
+
+        if value_left.evalf() < value_right.evalf():
+            lower_bound, upper_bound = value_left, value_right
+        else:
+            lower_bound, upper_bound = value_right, value_left
 
         if symbol_left != symbol_right or not symbol_left.is_Symbol:
             return super()._print_And(expr, **kwargs)
-        
-        if lower_bound.evalf() > upper_bound.evalf():
-            lower_bound, upper_bound = upper_bound, lower_bound
 
-        left_inequality = equation_type_to_latex(expr_left.rel_op)
-        right_inequality = equation_type_to_latex(expr_right.rel_op)
+        def get_proper_smaller_than(inequality_symbol):
+            if inequality_symbol == ">=":
+                inequality_symbol = "<="
+            elif inequality_symbol == ">":
+                inequality_symbol = "<"
+
+            return inequality_symbol
+        
+        left_inequality = equation_type_to_latex(get_proper_smaller_than(expr_left.rel_op))
+        right_inequality = equation_type_to_latex(get_proper_smaller_than(expr_right.rel_op))
 
         return f"{self._print(lower_bound)} {left_inequality} {self._print(symbol_left)} {right_inequality} {self._print(upper_bound)}"
     
@@ -623,6 +635,51 @@ class Solve:
             self.roots_numeric = self.numerical_roots(eq_sp, eq_lambda_np, -10000, 10000, solve_method=method, default_func=default_func)
             if self.roots_numeric.size != 0:
                 break
+
+        if self.equation_is_inequality and not isinstance(self.solution_inequality, (sp.logic.boolalg.BooleanFalse, sp.logic.boolalg.BooleanTrue, list)):
+            abs_sorted_roots = self.roots_numeric[np.argsort(np.abs(self.roots_numeric))]
+            solution_inequality_list = list(np.append(abs_sorted_roots[abs_sorted_roots >=0], abs_sorted_roots[abs_sorted_roots < 0]))
+
+            test_dx = 0.1 if self.equation_type in ">=" else -0.1
+            self.equation_type_opposite = flip_inequality_sign(self.equation_type)
+            self.equation_type_opposite_sp = map_equation_type_to_sp(self.equation_type_opposite)
+
+            if len(solution_inequality_list) == 1:
+                solution = sp.nsimplify(solution_inequality_list[0], [sp.pi, sp.E], rational=False)
+                if apply_opperator(self.eq12_lambda_np(solution + test_dx), self.equation_type, 0):
+                    self.solution_inequality = self.equation_type_sp(self.symbol, solution)
+                else:
+                    self.solution_inequality = self.equation_type_opposite_sp(self.symbol, solution)
+
+            elif len(solution_inequality_list) > 1:
+                index_limited_items = 4 if len(solution_inequality_list) >= 4 else len(solution_inequality_list)
+                solution_inequality_list = solution_inequality_list[:index_limited_items]
+                solution_inequality_list = [sp.nsimplify(solution, [sp.pi, sp.E], rational=False) for solution in solution_inequality_list]
+                solution_inequality_list = [(int(round(sol, 3)) if int(round(sol, 3)) == round(sol, 3) else round(sol, 3) ) if sp.N(sol) == sol else sol for sol in solution_inequality_list]
+
+                for i, solution in enumerate(solution_inequality_list):
+                    if apply_opperator(self.eq12_lambda_np(float(solution) + test_dx), self.equation_type, 0):
+                        solution_inequality_list[i] = self.equation_type_sp(self.symbol, solution)
+                    else:
+                        solution_inequality_list[i] = self.equation_type_opposite_sp(self.symbol, solution)
+
+                def combine_expressions(expr1, expr2):
+                    if isinstance(sp.simplify(expr1 & expr2), (sp.logic.boolalg.BooleanFalse, sp.logic.boolalg.BooleanTrue)) and len(solution_inequality_list) < 4:
+                        return expr1 | expr2
+                    
+                    if isinstance(sp.simplify(expr1 | expr2), (sp.logic.boolalg.BooleanFalse, sp.logic.boolalg.BooleanTrue)):
+                        return expr1 & expr2
+                    
+                    if expr1 == solution_inequality_list[0] and len(solution_inequality_list) >= 4:
+                        return expr2
+                    
+                    return expr1
+
+                combined_expr = solution_inequality_list[0]
+                for i in range(1, len(solution_inequality_list)):
+                    combined_expr = combine_expressions(combined_expr, solution_inequality_list[i])
+
+                self.solution_inequality = combined_expr
         
         return sp.FiniteSet(*self.roots_numeric)
 
@@ -635,7 +692,7 @@ class Solve:
             Optional[sp.FiniteSet]: A set of the numerical solutions, or None if not applicable.
         """
 
-        if isinstance(solution_set, sp.ConditionSet) and solution_set.condition == self.eq:
+        if isinstance(solution_set, sp.ConditionSet) and solution_set.condition.simplify() == sp.Eq(self.eq12, 0).simplify():
             return self.solve_numerically()
                     
 
@@ -650,18 +707,15 @@ class Solve:
             - A boolean indicating whether to plot the results.
         """
 
-        def apply_double_equals_operator(lhs, rhs):
-            return apply_opperator(lhs, "==", rhs)
-
         def process_equation(eq_string: str) -> str:
-            equation_symbol_map = {"!=": sp.Ne, ">=": sp.Ge, "<=": sp.Le, "==": apply_double_equals_operator, "=": sp.Eq, ">": sp.Gt, "<": sp.Lt}
+            equation_symbols = ["!=", ">=", "<=", "==", "=", ">", "<"]
             eq_split = split_equation(eq_string)
-            eq_split = [string for string in eq_split if string not in equation_symbol_map.keys()]
+            eq_split = [string for string in eq_split if string not in equation_symbols]
 
-            for symbol, equation_type in equation_symbol_map.items():
-                if symbol in eq_string:
-                    self.equation_type = symbol
-                    self.equation_type_sp = equation_type
+            for equation_type in equation_symbols:
+                if equation_type in eq_string:
+                    self.equation_type = equation_type
+                    self.equation_type_sp = map_equation_type_to_sp(equation_type)
                     return set_eqs(eq_split)
                 
             return set_eqs(eq_split)
@@ -748,18 +802,41 @@ class Solve:
             self.eq2 = sp.sympify(self.eq2).subs(self.symbol, symbol_new)
             self.eq12 = self.eq1 - self.eq2
             self.symbol = symbol_new
+
+        def no_solutions_inequality_output():
+            if self.equation_is_inequality:
+                extrema_func = [self.eq12_lambda_np(float(sol)) for sol in sp.solve(sp.diff(self.eq12))]
+                extrema_func = min(extrema_func) if ">" in self.equation_type else max(extrema_func)
+
+                if apply_opperator(extrema_func, self.equation_type, 0):
+                    self.output.append(("Deze vergelijking is waar voor alle x", {"latex": False}))
+                else:
+                    self.output.append(("Deze vergelijking klopt voor geen enkele x", {"latex": False}))
         
 
         def no_solutions_output():
-            self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
-            self.output.append(f"{custom_latex(self.eq1)} = {custom_latex(self.eq2)}")
-
             self.plot = True
+            self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
+            self.output.append(f"{custom_latex(self.eq1)} {equation_type_to_latex(self.equation_type)} {custom_latex(self.eq2)}")
+
+            if self.equation_is_inequality:
+                no_solutions_inequality_output()
+                return self.equation_interpret, self.output, self.plot
+
             if self.multivariate:
                 self.output.append((f"Geen snijpunt met de x-as gevonden", {"latex":False}))
             else:
                 self.output.append(("Geen oplossing gevonden", {"latex": False}))
             return self.equation_interpret, self.output, self.plot
+        
+
+        def set_inequatity_solution_output():
+            if not isinstance(self.solution_inequality, (sp.logic.boolalg.BooleanFalse, sp.logic.boolalg.BooleanTrue, list)):
+                self.output.append((f"De oplossing is:", {"latex":False}))
+                self.output.append(custom_latex(self.solution_inequality))
+                return
+
+            no_solutions_inequality_output()
         
 
         def set_count_solutions():
@@ -770,6 +847,8 @@ class Solve:
             interval_solutions = [sp.nsimplify(solution, [sp.pi, sp.E], rational=False) for solution in self.interval_solutions]
             if len(self.interval_solutions) == 1:
                 solution = interval_solutions[0]
+                if is_numerical(solution):
+                    solution = round(solution, 7)
                 self.output.append(f"{custom_latex(self.symbol)} {equals_sign(solution)} {custom_latex(solution)}")
                 if not is_numerical(solution):
                     self.output[-1] += f" \\approx {round(sp.N(solution), 5)}"
@@ -778,6 +857,9 @@ class Solve:
             counter = 0
             for solution in interval_solutions:
                 counter += 1
+
+                if is_numerical(solution):
+                    solution = round(solution, 7)
 
                 self.output.append(f"{counter}) \\quad {custom_latex(self.symbol)} {equals_sign(solution)} {custom_latex(solution)}")
                 if not is_numerical(solution):
@@ -922,7 +1004,6 @@ class Solve:
 
             if self.equation_is_inequality:
                 self.solution_inequality = sp.solve(self.eq)
-
 
             if self.symbol:
                 self.vert_asympt_eq = write_as_sin_and_cos(self.eq12).as_numer_denom()[1]
@@ -1090,7 +1171,7 @@ class Solve:
                         elif sides_are_numbers:
                             self.output.append(("Dit is niet waar, dus deze vergelijking klopt niet", {"latex": False}))
 
-                    else:                        
+                    else:
                         self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
                         self.output.append(f"{custom_latex(self.eq1)} {equation_type_to_latex(self.equation_type)} {custom_latex(self.eq2)}")
 
@@ -1153,8 +1234,7 @@ class Solve:
 
                 if len(self.solution_set) == 1:
                     if self.equation_is_inequality:
-                        self.output.append((f"De oplossing is:", {"latex":False}))
-                        self.output.append(custom_latex(self.solution_inequality))
+                        set_inequatity_solution_output()
                     else:
                         self.output.append((f"De oplossing is:", {"latex":False}) if not self.multivariate else (f"Het snijpunt met de $x$-as is:", {"latex":False}))
                         self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solution_set.args[0])}")
@@ -1163,18 +1243,19 @@ class Solve:
                         self.output[-1] += f" \\approx {round(sp.N(self.solution_set.args[0]), 5)}"
                     
                 else:
+                    if len(self.solution_set) > 5:
+                        solution_array = np.array(list(self.solution_set))
+                        self.interval_solutions = solution_array[np.argsort(np.abs(solution_array))][:5]
+                    else:
+                        self.interval_solutions = self.solution_set
+                       
                     if self.equation_is_inequality:
-                        self.output.append((f"De oplossing is:", {"latex":False}))
-                        self.output.append(custom_latex(self.solution_inequality))
+                        set_inequatity_solution_output()
                     else:
                         self.output.append((f"De oplossingen zijn:", {"latex":False}) if not self.multivariate else (f"De snijpunten met de $x$-as zijn:", {"latex":False}))
                         if len(self.solution_set) > 5:
-                            solution_array = np.array(list(self.solution_set))
-                            self.interval_solutions = solution_array[np.argsort(np.abs(solution_array))][:5]
                             self.output[-1] = (f"De eerste 5 oplossingen zijn:", {"latex":False}) if not self.multivariate else (f"De eerste 5 snijpunten met de $x$-as zijn:", {"latex":False})
-                        else:
-                            self.interval_solutions = self.solution_set
-
+                            
                         set_count_solutions()
                             
                 if not self.domain_is_reals:
@@ -1183,8 +1264,7 @@ class Solve:
             
             else:
                 if self.equation_is_inequality:
-                    self.output.append((f"De (eerste) oplossing is:", {"latex":False}))
-                    self.output.append(custom_latex(self.solution_inequality))
+                    set_inequatity_solution_output()
                 else:
                     self.output.append((f"De oplossingen zijn:", {"latex":False}) if not self.multivariate else (f"De snijpunten met de $x$-as zijn:", {"latex":False}))
                     self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solution_set)}")         
