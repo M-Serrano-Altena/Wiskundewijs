@@ -1,18 +1,20 @@
 # *Percentages*
 We zijn allemaal wel een keer percentages tegengekomen. Bijvoorbeeld als je $80 \%$ van €$10$ moet betalen, dan hoef je maar €$8$ te betalen. Heb je $50 \%$ korting? Dan hoef je alleen maar de helft te betalen, dus €$5$. Maar hoeveel moet je betalen als je $15.3 \%$ korting hebt? Deze vraag kunnen we met behulp van de theorie straks beantwoorden.
 
+****
+
 ## **Vermenigvuldigingsfactoren**
 Een percentage is eigenlijk niks anders dan een een bepaald deel van een getal. $50 \%$ is bijvoorbeeld de helft. Dit kunnen we ook als een vermenigvuldigingsfactor schrijven. 
 
 Stel we hebben bijvoorbeeld $50 \%$ van €$20$. Dit is de helft van €$20$ en dus €$10$. Dit kunnen we als volgt opschrijven:
 
-$$50\% \textrm{ van } \large{\textrm{€}} \normalsize 20 = \frac{1}{2} * \large{\textrm{€}} \normalsize 20 = \large{\textrm{€}} \normalsize 10.$$
+$$50\% \textrm{ van } \large{\textrm{€}} \normalsize 20 = \frac{1}{2} \times \large{\textrm{€}} \normalsize 20 = \large{\textrm{€}} \normalsize 10.$$
 
 De $50 \%$ komt dus overeen met een vermenigvuldigingsfactor van $\frac{1}{2}$. Want $50 \%$ van een getal is hetzelfde als $\frac{1}{2}$ keer dat getal en dus is $\frac{1}{2}$ hier de vermenigvuldigingsfactor. 
 
 Stel we willen nu weten wat $25 \%$ is van €$20$. Dit is de helft van $50 \%$ van €$20$ en dus de helft van €$10$, dus €$5$. Dit is hetzelfde als een vierde van €$20$. Er geldt dus dat:
 
-$$25\% \textrm{ van } \large{\textrm{€}} \normalsize 20 = \frac{1}{4} * \large{\textrm{€}} \normalsize 20 = \large{\textrm{€}} \normalsize 5.$$
+$$25\% \textrm{ van } \large{\textrm{€}} \normalsize 20 = \frac{1}{4} \times \large{\textrm{€}} \normalsize 20 = \large{\textrm{€}} \normalsize 5.$$
 
 De vermenigvuldigingsfactor die dus bij $25 \%$ hoort is $\frac{1}{4}$. Maar hoe maken we van elk percentage zo'n vermenigvuldigingsfactor? 
 
@@ -39,7 +41,7 @@ $$\textrm{Voor $17.5\%$: Vermenigvuldigingsfactor} = \frac{17.5}{100} = 0.175.$$
 
 Nu moeten we de vermenigvuldigingsfactor keer ons getal doen:
 
-$$0.175*200 = 35$$
+$$0.175 \times 200 = 35$$
 
 Ons eindantwoord is dus:
 
@@ -54,7 +56,7 @@ Ons eindantwoord is dus:
 
     Dit maakt je leven een stuk makkelijker, want de vermenigvuldigingsfactor van $25\%$ is $\frac{1}{4}$. We krijgen dus:
 
-    $$\large{25\% \textrm{ van } 8 = \frac{1}{4} * 8 = 2}$$
+    $$\large{25\% \textrm{ van } 8 = \frac{1}{4} \times 8 = 2}$$
 
     Ons eindantwoord wordt dus:
 
@@ -75,7 +77,7 @@ Ons eindantwoord is dus:
     Nu doen we de vermenigvuldigingsfactor keer $90$ om ons eindresultaat te vinden:
 
     !!! quote ""
-        $$\large{10 \% \textrm{ van } 90 = \frac{1}{10} * 90 = 9}$$
+        $$\large{10 \% \textrm{ van } 90 = \frac{1}{10} \times 90 = 9}$$
 
 
 ??? example "Voorbeeld 2: Bepaal $2.8 \%$ van $250$"
@@ -89,7 +91,7 @@ Ons eindantwoord is dus:
     Nu doen we deze vermenigvuldigingsfactor keer $250$ om te vinden:
 
     !!! quote ""
-        $$\large{2.8 \% \textrm{ van } 250 = 0.028 * 250 = 7}$$
+        $$\large{2.8 \% \textrm{ van } 250 = 0.028 \times 250 = 7}$$
 
 
     ??? note "Oplossen door omkeren"
@@ -103,7 +105,7 @@ Ons eindantwoord is dus:
 
         Als we dit nu uitrekenen, vinden we:
 
-        $$\large{250 \% \textrm{ van } 2.8 = 2.5 * 2.8 = 7}$$
+        $$\large{250 \% \textrm{ van } 2.8 = 2.5 \times 2.8 = 7}$$
 
         En ons eindantwoord wordt dus:
 
@@ -122,8 +124,9 @@ Ons eindantwoord is dus:
     Nu doen we deze vermenigvuldigingsfactor keer $1279.2$ om ons eindantwoord te vinden:
 
     !!! quote ""
-        $$\large{43.9 \% \textrm{ van } 1279.2 = 0.439 * 1279.2 = 561.5688}$$
+        $$\large{43.9 \% \textrm{ van } 1279.2 = 0.439 \times 1279.2 = 561.5688}$$
 
+****
 
 ## **Kortingen**
 Als je korting krijgt, dan hoef je alleen maar een deel van de volledige prijs te betalen. Maar hoe groot is dat deel?
@@ -145,7 +148,7 @@ Als je korting krijgt, dan hoef je alleen maar een deel van de volledige prijs t
     Onze nieuwe prijs wordt dus:
 
     !!! quote ""
-        $$\large{0.75 * \Large{\textrm{€}} \large 100 = \Large{\textrm{€}} \large 75}$$
+        $$\large{0.75 \times \Large{\textrm{€}} \large 100 = \Large{\textrm{€}} \large 75}$$
 
 
     ??? note "Alternatieve methode"
@@ -160,7 +163,7 @@ Als je korting krijgt, dan hoef je alleen maar een deel van de volledige prijs t
 
         Het bedrag korting is dus:
 
-        $$\large{0.25 * \Large{\textrm{€}} \large 100 = \Large{\textrm{€}} \large 25}$$
+        $$\large{0.25 \times \Large{\textrm{€}} \large 100 = \Large{\textrm{€}} \large 25}$$
 
         Het bedrag dat we moeten betalen wordt dan:
 
@@ -181,14 +184,14 @@ $$\textrm{Vermenigvuldigingsfactor} = \frac{84.7}{100} = 0.847$$
 Onze nieuwe prijs wordt dus:
 
 !!! quote ""
-    $$\large{0.847 * \Large{\textrm{€}} \large 10 = \Large{\textrm{€}} \large 8.47}$$
+    $$\large{0.847 \times \Large{\textrm{€}} \large 10 = \Large{\textrm{€}} \large 8.47}$$
 
 ??? note "Opmerking afronden"
     Bedragen ronden we af op $2$ decimalen, percentages op $1$ decimaal.
 
-    - $$\large{0.1 * \Large{\textrm{€}} \large 127.75 \approx \Large{\textrm{€}} \large 12.78}$$
+    - $$\large{0.1 \times \Large{\textrm{€}} \large 127.75 \approx \Large{\textrm{€}} \large 12.78}$$
 
-    - $$\large{0.1 * 53.4\% \approx 5.3\%}$$
+    - $$\large{0.1 \times 53.4\% \approx 5.3\%}$$
 
 
 ### **Voorbeelden**
@@ -207,7 +210,7 @@ Onze nieuwe prijs wordt dus:
     Om de nieuwe prijs te vinden doen we dit keer onze oude prijs:
 
     !!! quote ""
-        $$\large{\textrm{Nieuwe prijs} = 0.25 * \Large{\textrm{€}} \large 200 = \Large{\textrm{€}} \large 50}$$
+        $$\large{\textrm{Nieuwe prijs} = 0.25 \times \Large{\textrm{€}} \large 200 = \Large{\textrm{€}} \large 50}$$
 
 
 ??? example "Voorbeeld 2: Bereken de nieuwe prijs: $12\%$ korting op €$19.50$"
@@ -225,7 +228,7 @@ Onze nieuwe prijs wordt dus:
     De nieuwe prijs wordt dan:
 
     !!! quote ""
-        $$\large{\textrm{Nieuwe prijs} = 0.88 * \Large{\textrm{€}} \large 19.50 = \Large{\textrm{€}} \large 17.16}$$
+        $$\large{\textrm{Nieuwe prijs} = 0.88 \times \Large{\textrm{€}} \large 19.50 = \Large{\textrm{€}} \large 17.16}$$
 
 
 ??? example "Voorbeeld 3: Bereken de nieuwe prijs: $43.8\%$ korting op €$1992.50$"
@@ -243,10 +246,11 @@ Onze nieuwe prijs wordt dus:
     De nieuwe prijs wordt dan:
 
     !!! quote ""
-        $$\large{\textrm{Nieuwe prijs} = 0.562 * \Large{\textrm{€}} \large 1992.50 \approx \Large{\textrm{€}} \large 1119.79}$$
+        $$\large{\textrm{Nieuwe prijs} = 0.562 \times \Large{\textrm{€}} \large 1992.50 \approx \Large{\textrm{€}} \large 1119.79}$$
 
     We ronden hier af op twee decimalen omdat het een bedrag is.
 
+****
 
 ## **Percentages bepalen**
 We hebben net gezien hoe we een bepaald percentage van een getal of bedrag kunnen berekenen. Nu gaan we het omgekeerde bekijken. We willen weten wat het percentage is van een bedrag ten opzichte van een ander bedrag. Stel we moesten bijvoorbeeld maar €5 betalen van iets dat €10 kost. Wat is dan het percentage dat we hebben betaald van het originele bedrag (€10)?
@@ -254,13 +258,13 @@ We hebben net gezien hoe we een bepaald percentage van een getal of bedrag kunne
 ???+ Belangrijk
     Een bepaald percentage van een getal ten opzichte van een ander getal berekenen we als volgt:
 
-    $$\large{\textrm{Percentage} = \frac{\textrm{Deel}}{\textrm{Geheel}} * 100\%}$$
+    $$\large{\textrm{Percentage} = \frac{\textrm{Deel}}{\textrm{Geheel}} \times 100\%}$$
 
 Dus als we willen weten wat €5 is van €10, moeten we het als volgt berekenen:
 
-$$\textrm{Percentage} = \frac{\large{\textrm€} \normalsize 5}{\large{\textrm€} \normalsize 10} * 100\% $$
+$$\textrm{Percentage} = \frac{\large{\textrm€} \normalsize 5}{\large{\textrm€} \normalsize 10} \times 100\% $$
 
-$$\textrm{Percentage} = 0.5 * 100\% = 50\%$$
+$$\textrm{Percentage} = 0.5 \times 100\% = 50\%$$
 
 ### **Voorbeelden**
 ??? example "Voorbeeld 1: Bepaal het percentage: €$20$ van €$1000$"
@@ -269,7 +273,7 @@ $$\textrm{Percentage} = 0.5 * 100\% = 50\%$$
 
     We willen hier weten wat het "deel" is en wat het "geheel" is. In dit geval is het deel de $20$ en het geheel de $1000$. Het enige wat we nu hoeven te doen is de formule invullen:
 
-    $$\large{\textrm{Percentage} = \frac{\Large{\textrm€} \large 20}{\Large{\textrm€} \large 1000} * 100\% }$$
+    $$\large{\textrm{Percentage} = \frac{\Large{\textrm€} \large 20}{\Large{\textrm€} \large 1000} \times 100\% }$$
 
     !!! quote ""
         $$\large{\textrm{Percentage} = 2\%}$$
@@ -283,7 +287,7 @@ $$\textrm{Percentage} = 0.5 * 100\% = 50\%$$
 
     We kunnen $32$ cent ook schrijven als €$0.32$. We moeten namelijk óf twee getallen in euro's door elkaar delen, óf twee getallen in centen door elkaar delen, maar gemixt kan niet. Nu kunnen we gewoon de formule invullen:
 
-    $$\large{\textrm{Percentage} = \frac{\Large{\textrm€} \large 0.32}{\Large{\textrm€} \large 12.79} * 100\% }$$
+    $$\large{\textrm{Percentage} = \frac{\Large{\textrm€} \large 0.32}{\Large{\textrm€} \large 12.79} \times 100\% }$$
 
     !!! quote ""
         $$\large{\textrm{Percentage} \approx 2.5\%}$$
@@ -295,11 +299,12 @@ $$\textrm{Percentage} = 0.5 * 100\% = 50\%$$
 
     We moeten hier weer bepalen wat het "deel" is, en wat het "geheel" is. Ookal is hier de €$563$ groter dan de €$489$, is hier nog steeds de €$563$ het deel en €$489$ het geheel. Nu vullen we dus gewoon de formule als volgt in:
 
-    $$\large{\textrm{Percentage} = \frac{\Large{\textrm€} \large 563}{\Large{\textrm€} \large 489} * 100\% }$$
+    $$\large{\textrm{Percentage} = \frac{\Large{\textrm€} \large 563}{\Large{\textrm€} \large 489} \times 100\% }$$
 
     !!! quote ""
         $$\large{\textrm{Percentage} \approx 115.1\%}$$
 
+****
 
 ## **Procentuele toename/afname bepalen**
 We hebben net gekeken naar het percentage van een getal ten opzichte van een ander getal. Nu kijken we naar wat de toename/afname is van een nieuwe prijs ten opzichte van de oude. Dus stel we hadden eerst een product voor €$10$, maar nu is de prijs verhoogt naar €$15$. Wat is de procentuele toename van de prijs?
@@ -307,7 +312,7 @@ We hebben net gekeken naar het percentage van een getal ten opzichte van een and
 ???+ Belangrijk
     Om een procentuele toename/afname te bepalen kunnen we de volgende formule gebruiken:
 
-    $$\large{\frac{\textrm{Nieuw} - \textrm{Oud}}{\textrm{Oud}} * 100\%}$$
+    $$\large{\frac{\textrm{Nieuw} - \textrm{Oud}}{\textrm{Oud}} \times 100\%}$$
 
     "Nieuw" is dus de nieuwe prijs en "oud" is de oude prijs. De uitkomst kan zowel positief als negatief zijn. 
     
@@ -333,7 +338,7 @@ Het percentage is positief en dus is er een procentuele toename. Ons eindantwoor
 
     We hebben hier een oude prijs van €$100$ en die is verlaagt naar een nieuwe prijs van €$80$. "Oud" is dus €$100$ en "nieuw" is €$80$. Dit vullen we in:
 
-    $$\large{\frac{\Large{\textrm€} \large 80 - \Large{\textrm€} \large 100}{\Large{\textrm€} \large 100} * 100\% = -20\%}$$
+    $$\large{\frac{\Large{\textrm€} \large 80 - \Large{\textrm€} \large 100}{\Large{\textrm€} \large 100} \times 100\% = -20\%}$$
 
     Het percentage is negatief, en dit betekent dus dat er een procentuele afname is. In dit geval is dit dus een procentuele afname van $20\%$.
 
@@ -347,7 +352,7 @@ Het percentage is positief en dus is er een procentuele toename. Ons eindantwoor
 
     De oude prijs is hier €$53.50$ en de nieuwe prijs wordt €$57$. Als we dit invullen vinden we:
 
-    $$\large{\frac{\Large{\textrm€} \large 57 - \Large{\textrm€} \large 53.50}{\Large{\textrm€} \large 53.50} * 100\% \approx 6.5\%}$$
+    $$\large{\frac{\Large{\textrm€} \large 57 - \Large{\textrm€} \large 53.50}{\Large{\textrm€} \large 53.50} \times 100\% \approx 6.5\%}$$
 
     We ronden hier af op $1$ decimaal omdat het een percentage is. Dit percentage is positief, dus er is een procentuele toename. Ons eindantwoord wordt dan:
 
@@ -361,7 +366,7 @@ Het percentage is positief en dus is er een procentuele toename. Ons eindantwoor
 
     We hebben hier een prijs die van €$9.50$ naar €$3.95$ gaat. Onze oude prijs is dus €$9.50$ en de nieuwe prijs wordt €$3.95$. Dit kunnen we invullen:
 
-    $$\large{\frac{\Large{\textrm€} \large 3.95 - \Large{\textrm€} \large 9.50}{\Large{\textrm€} \large 9.50} * 100\% \approx -58.4\%}$$
+    $$\large{\frac{\Large{\textrm€} \large 3.95 - \Large{\textrm€} \large 9.50}{\Large{\textrm€} \large 9.50} \times 100\% \approx -58.4\%}$$
 
     Weer ronden we af op $1$ decimaal omdat het een percentage is. Dit percentage is negatief, en dus er is sprake van een procentuele afname. Ons eindantwoord wordt dus:
 

@@ -35,6 +35,8 @@ Dit kan je onthouden met het ezelsbruggetje: "SOS CAS TOA". Dit kun je als volgt
     - <span style="font-size: 15px;">**Aanliggende zijde:** De andere zijde die samen met de schuine zijde de hoek $\theta$ maakt.</span>
     - <span style="font-size: 15px;">**Overstaande zijde:** De zijde tegenover de hoek $\theta$.</span>
 
+****
+
 ### **Zijdes Bepalen**
 
 Laten we naar een voorbeeld kijken. In Figuur 2 hieronder hebben we een rechthoekige driehoek gegeven gekregen. 
@@ -74,10 +76,12 @@ Als we dit in een rekenmachine stoppen, dan vinden we:
 
 We kunnen in Figuur 2 controleren dat dit antwoord best zou kunnen kloppen.
 
+****
+
 ### **Hoeken Bepalen**
 We kunnen de [goniometrische functies](#goniometrische-functies) ook gebruiken om een hoek te bepalen. We hebben daarvoor $2$ zijdes van de rechthoekige driehoek nodig. 
 
-We gebruiken dan de inverse van de goniometrische functie. Dit noteren we dan met een *arc* of met een $^{-1}$. 
+We gebruiken dan de inverse van de goniometrische functie. Dit noteren we dan met een *arc* of met een macht $-1$. 
 
 ???+ Belangrijk
     $$\large{\sin(\theta) = \frac{\mathrm{Overstaand}}{\mathrm{Schuin}} \iff \theta = \arcsin \! \left(\frac{\mathrm{Overstaand}}{\mathrm{Schuin}}\right)}$$
@@ -95,9 +99,11 @@ We gebruiken dan de inverse van de goniometrische functie. Dit noteren we dan me
     
     Maar we raden het af om het zo op te schrijven, omdat dit verwarring kan opleveren. Want
     
-    $$\Large{\sin^{-1}(x) \neq \frac{1}{\sin(x)}}$$
+    $$\large{\sin^{-1}(x) \neq \frac{1}{\sin(x)}}$$
     
     De inverse betekent hier dus <u>**niet**</u> dat we $1$ gedeeld door de functie moeten doen. Maar bij $x^{-1}$ is dit juist wel het geval. Dit kan verwarrend zijn, dus om dit te vermijden schrijven wij de inverse van $\sin(x)$ als $\arcsin(x)$ op.
+
+<br>
 
 Laten we naar een voorbeeld kijken om te zien hoe dit werkt. In Figuur 3 hebben we een rechthoekige driehoek met zijdes $BC = 2$ en $AB = 2$. 
 
@@ -285,7 +291,8 @@ En als we kijken in Figuur 3, dan kunnen we controleren dat dit een logisch antw
     !!! quote ""
         $$\large{AB = 10}$$
 
-<br>
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
 ## **De Sinus en Cosinus functies**
 Laten we nu iets dieper ingaan op de **sinus** en **cosinus** functies. Wat deze functies bijzonder maakt, is dat het periodieke functies zijn. Dit betekent dat de functie zich herhaalt na een bepaalde tijd. In dit geval is dat elke $2 \pi$. Dus elke $2 \pi$ begint de functie weer opnieuw en herhaalt het zich weer. We zeggen dan dat deze functie een periode heeft van $2 \pi$ (zie ook Figuur 7 en Figuur 8). 
 
@@ -328,7 +335,8 @@ Dus dit betekent bijvoorbeeld dat:
 
 Het feit dat deze functies periodiek zijn, is erg belangrijk als we er vergelijkingen mee gaan oplossen. Laten we kijken hoe dat moet.
 
-<br>
+****
+
 ### **Sinus en Cosinus vergelijkingen**
 
 Stel we willen de volgende vergelijking oplossen:
@@ -371,7 +379,8 @@ Dit is dus voor $k = 0$ of $k = 1$. Want als we andere waardes voor $k$ proberen
 
 We hebben dit opgelost door de functies te schetsen, maar kunnen we het ook oplossen zonder een schets? Het antwoord is ja! Om goed te begrijpen hoe dit moet, moeten we eerst kijken naar de symmetrie in de sinus en cosinus functies. We zullen dat nodig hebben om de [algemene oplossing](#algemene-oplossing) te kunnen begrijpen.
 
-<br>
+****
+
 ### **Symmetrie**
 De cosinus is gespiegeld in de $y$-as (zie eventueel Figuur 8). Dus alles links van de $y$-as is hetzelfde als rechts van de $y$-as. Links van de $y$-as is bij een negatieve $x$, rechts van de $y$-as is bij een positieve $x$. Dus met andere woorden:
 
@@ -428,7 +437,8 @@ We zetten hieronder nog even alle symmetrieën op een rijtje.
     
 Met deze kennis kunnen we nu sinus en cosinus vergelijking gaan oplossen. We hebben daarvoor de [symmetrieformules](#symmetrieformules) en de [periodiciteit](#periodiciteit-van-sinus-en-cosinus) van de functies nodig. Laten we eerst kijken naar een sinus vergelijking.
 
-<br>
+****
+
 **<p style="font-size: 20px;">Sinus vergelijking oplossen</p>**
 
 Laten we [weer](#sinus-en-cosinus-vergelijkingen) kijken naar de volgende vergelijking:
@@ -478,7 +488,8 @@ de volgende oplossingen:
 
 $$\large{x = a + k \cdot 2\pi \ \vee \ x = \pi - a + k \cdot 2\pi}$$
 
-<br>
+****
+
 **<p style="font-size: 20px;">Cosinus vergelijking oplossen</p>**
 
 We kijken nu [weer](#sinus-en-cosinus-vergelijkingen) naar de volgende cosinus vergelijking:
@@ -555,6 +566,8 @@ We hebben nu dus de algemene oplossingen gevonden voor sinus en cosinus vergelij
 
     $k$ kan hier weer elk geheel getal zijn, dus $k = 0, \pm 1, \pm 2, \pm 3, ...$
 
+****
+
 **<p style="font-size: 20px;">Sinus en Cosinus naar elkaar omschrijven</p>**
 
 De sinus en de cosinus functies lijken best veel op elkaar: ze hebben dezelfde vorm, herhalen elke $2 \pi$ en gaan beide van $-1$ tot $1$. Het enige verschil is dat ze op andere punten beginnen. De sinus begint bij $y=0$ en de cosinus bij $y=1$. Dat is het enige verschil tussen de twee functies.
@@ -576,6 +589,8 @@ $$\boxed{\cos(x - \frac{1}{2} \pi) = \sin(x)}$$
     <video controls>
     <source src="../assets/videos/CosToSin.mp4" type="video/mp4">
     </video>
+
+<br>
 
 ???+ Belangrijk
     ### **Sinus en Cosinus omschrijven**
@@ -736,6 +751,7 @@ $$\boxed{\cos(x - \frac{1}{2} \pi) = \sin(x)}$$
     !!! quote ""
         $\large{x = -\dfrac{7}{8} \pi \ \vee \ x = -\dfrac{3}{8} \pi \ \vee \ x = - \dfrac{1}{4} \pi \ \vee \ x = \dfrac{1}{8} \pi \ \vee \ x = \dfrac{3}{4} \pi \ \vee \ x = \dfrac{5}{8} \pi}$
 
+<hr style="height: 1.5px; background-color: #575757; border: none;">
 
 ## **De Eenheidscirkel**
 De eenheidscirkel is eigenlijk gewoon een cirkel met een straal van lengte $1$. We kunnen het gebruiken om verschillende waardes van sinus en cosinus te bepalen bij verschillende hoeken.
@@ -801,6 +817,8 @@ Als we $\cos(\frac{1}{3} \pi)$ wilden weten, dan moeten we naar het $x$-coördin
 $$\large{\cos(\frac{1}{3} \pi) = \frac{1}{2}}$$
 
 Maar we hebben niet altijd de eenheidscirkel bij de hand, bijvoorbeeld bij toetsen niet. Dus is het handig om de eenheidscirkel te onthouden. Maar dit kan wel een beetje een gedoe zijn. Dus om niet alles te hoeven onthouden, kan het volgende trucje handig zijn.
+
+****
 
 ### **Trucje voor het Onthouden**
 Met deze methode hoef je alleen de vorm van de eenheidscirkel te onthouden en $3$ hoeken en $3$ waardes. Met de vorm van de cirkel bedoelen we dat bij $\theta = 0$ we rechts op de cirkel zitten. En met elke $\frac{1}{2} \pi$ (dus $90 ^{\circ}$) gaan we een kwart rondje tegen de klok in.
@@ -928,7 +946,8 @@ Als dit misschien nog niet helemaal duidelijk was, staan hieronder nog een paar 
 
 Maar je bent natuurlijk niet verplicht om dit trucje te gebruiken. Als je het handiger vindt om gewoon de eenheidscirkel helemaal uit je hoofd te leren, doe dat vooral!
 
-<br>
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
 ## **Goniometrische Vergelijkingen**
 
 Deze goniometrische vergelijkingen worden vaak gebruikt om wat lastigere vergelijkingen op te lossen.
@@ -1006,7 +1025,6 @@ We kunnen deze basisvergelijkingen ook zelf bewijzen met de [goniometrische func
         $$\large{\sin^2(\theta) + \cos^2(\theta) = 1}$$
     
     en dit is precies wat we moesten bewijzen.
-
 
 ### **Voorbeelden**
 

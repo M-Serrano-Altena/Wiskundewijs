@@ -6,11 +6,13 @@ Wat zijn ongelijkheden? Een ongelijkheid is een vergelijking waar iets groter of
 
 $$3 > 2.$$
 
-Hier staat dat $3$ groter is dan $2$, en in dit geval klopt deze ongelijkheid, want $3$ is inderdaad groter dan $2$. Voor een ongelijkheid hebben we 4 soorten symbolen:
+Hier staat dat $3$ groter is dan $2$. In dit geval klopt deze ongelijkheid, want $3$ is inderdaad groter dan $2$. Voor een ongelijkheid hebben we 4 soorten symbolen:
 
 ???+ Belangrijk
     ### **<span style="font-size: 19px;">Ongelijkheidstekens**</span>
     $$\Large{\left\{ \begin{array}{l l l l} < & \quad \textrm{betekent: “kleiner dan"}  \\ \leq & \quad \textrm{betekent: “kleiner of gelijk aan"} \\ > & \quad \textrm{betekent: “groter dan"} \\ \geq & \quad \textrm{betekent: “groter of gelijk aan"} \end{array} \right.}$$
+
+****
 
 ### **Lineaire ongelijkheden oplossen**
 
@@ -134,6 +136,8 @@ Het ongelijkheidsteken [wisselt](#ongelijkheidsteken-wisselen) dus ook mee.
         !!! quote ""
             $$\large{x \leq -13.}$$
 
+****
+
 ### **Oplossen met een schets**
 
 We kunnen lineaire ongelijkheden ook oplossen met een schets. We kijken dan vanaf waar de ene lijn groter of kleiner wordt dan de andere lijn.
@@ -196,6 +200,8 @@ Met deze methode hoef je dus alleen de vergelijking op te lossen met een '$=$'-t
         + <span style="font-size: 14px;">Links van het snijpunt: $x$ is kleiner dan het $x$-coördinaat van het snijpunt: $x < x_s$.</span>
 
 Hieronder worden dezelfde voorbeelden opgelost als [hierboven](#voorbeelden), maar nu met een schets.
+
+<br>
 
 #### <span style="font-size: 18px;">Voorbeelden (met schets oplossen)</span>
 
@@ -303,6 +309,7 @@ Hieronder worden dezelfde voorbeelden opgelost als [hierboven](#voorbeelden), ma
     !!! quote ""
         $$\large{x \leq -13}$$
 
+<hr style="height: 1.5px; background-color: #575757; border: none;">
 
 ## **Kwadratische ongelijkheden**
 
@@ -356,7 +363,9 @@ Nu moeten we bepalen voor welke $x$ er geldt dat $f(x) > g(x)$. Met andere woord
 We zien in Figuur 1 dat dit geldt voor alle $x$-waardes links van $x = 1$ en alle $x$-waardes rechts van $x = 2$. Dus er geldt dat $f(x) > g(x)$ als $x$ kleiner is dan $1$, of als $x$ groter is dan $2$. Wiskundig noteren we dit als volgt:
 
 !!! quote ""
-    $$\large{x < -1 \ \vee \ x > 2.}$$
+    $$\large{x < -1 \ \vee \ x > 2}$$
+
+<br>
 
 Laten we nu naar een ander voorbeeld kijken. Stel we hebben de volgende vergelijking:
 

@@ -346,7 +346,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
         
         return comma_counter
 
-    func_amt_commas = {'diff': 2, 'subs': 2, "limit": 3, 'integrate': 3} # max amount of commas each function has for proper syntax
+    func_amt_commas = {'diff': 2, 'subs': 2, "limit": 3, 'integrate': 3, "Sum": 3, "Product": 3} # max amount of commas each function has for proper syntax
     index_func = [m.start() for m in re.finditer(func_name, eq_string)] # get index list of start of each function name
     
     if len(index_func) == 0:
@@ -688,6 +688,10 @@ def math_interpreter(eq_string: str) -> str:
         (r"\|([^|]+)\|", r"Abs(\1)"), # ||x|| -> Abs(x)
         (r'abs', r'Abs'), # abs(x) -> Abs(x)
         (r'mod', r'Mod'), # mod(x, y) -> Mod(x, y)
+        (r'sum', r'Sum'), # sum(x, (x, 1, 4)) -> Sum(x, (x, 1, 4))
+        (r'∑', r'Sum'), # ∑(x, (x, 1, 4)) -> Sum(x, (x, 1, 4))
+        (r'product', r'Product'), # product(x, (x, 1, 4)) -> Product(x, (x, 1, 4))
+        (r'∏', r'Product'), # ∏(x, (x, 1, 4)) -> Product(x, (x, 1, 4))
         (r'lambertw', r'LambertW'), # lambertw(x) -> LambertW(x)
         (r'√', r'sqrt'), # √(x) -> sqrt(x)
         (r'∛', r'cbrt'), # ∛(x) -> cbrt(x)
@@ -704,7 +708,7 @@ def math_interpreter(eq_string: str) -> str:
         eq_string = re.sub(pattern, repl, eq_string)
 
     function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
-    function_names.extend(("diff", "integrate", "limit", "Mod", "subs"))
+    function_names.extend(("diff", "integrate", "limit", "Mod", "subs", "Sum", "Product"))
     function_names.remove("ff")
     relevant_functions = [func for func in function_names if func in eq_string]
 
@@ -809,6 +813,8 @@ def math_interpreter(eq_string: str) -> str:
         ("subs", 'x', 1, 1, "before"),
         ("limit", 'x', 1, 1, "before", 1),
         ("integrate", 'x', 1, 2, "before"),
+        ("Sum", 'x', 1, 2, "before"),
+        ("Product", 'x', 1, 2, "before"),
         ('log', '10', 1, 1, "after"),
         ('root', '3', 1, 1, "after"),
     ]

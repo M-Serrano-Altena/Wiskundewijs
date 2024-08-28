@@ -6,6 +6,8 @@ $$x^2 + 2x + 5 = 1$$
 
 De $x^2$ term maakt dit een kwadratische vergelijking. Maar de vraag is, hoe lossen we dit op? Hier hebben we een aantal methodes voor, afhankelijk van de vorm van de vergelijking.
 
+****
+
 ## **Oplossen vorm x² = c**
 We beginnen met het oplossen van een vergelijking in de vorm
 
@@ -176,6 +178,8 @@ In het algemeen wordt dit:
     !!! quote ""
         **<p style="text-align: center;font-size:19px;">Geen Oplossing</p>**
 
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
 ## **Oplossen vorm x² + bx = 0**
 Laten we nu kijken naar het oplossen van een vergelijking met de algemene vorm:
 
@@ -271,7 +275,7 @@ De tweede vergelijking kunnen we nu oplossen door aan beide kanten van het '='-t
     !!! quote ""
         $$\large{x = 0 \ \vee \ x = 2}$$
 
-
+<hr style="height: 1.5px; background-color: #575757; border: none;">
 
 ## **Oplossen vorm x² + bx + c = 0**
 Laten we nu kijken naar het oplossen van de algemene vorm
@@ -281,6 +285,8 @@ $$x^2 + bx+ c = 0.$$
 We hebben hiervoor drie methodes. Als eerst hebben we de snellere methode van [ontbinden in factoren](#ontbinden-in-factoren). Daarna hebben we de iets minder snelle methode, maar die altijd werkt: [De *abc* formule](#de-abc-formule). En als laatst hebben we [kwadraat afsplitsen](#kwadraat-afsplitsen) dat ook altijd werkt, maar vaak meer stappen zijn.
 
 Laten we als eerst beginnen met ontbinden in factoren.
+
+****
 
 ### **Ontbinden in factoren**
 Zoals de naam eigenlijk al zegt, willen we de vergelijking ontbinden in twee factoren. Stel we hebben bijvoorbeeld de volgende vergelijking:
@@ -474,6 +480,7 @@ $$x + 8 = 0 \ \vee \ x + 3 = 0.$$
     !!! quote ""
         $$\large{x = -1 \ \vee \ x = -4.}$$
 
+****
 
 ### **De *abc* formule**
 In sommige gevallen gaat ontbinden in factoren lastig. Dit is vaak als je alle combinaties van gehele getallen hebt geprobeerd, maar dat de som niet is wat je zoekt. Of als $b$ of $c$ in $𝑥^2+𝑏𝑥+𝑐$ geen gehele getallen zijn, dan gaat ontbinden in factoren vaak ook lastig. 
@@ -825,6 +832,7 @@ Stond er in de vraag dat we mochten afronden op 2 decimalen? Dan wordt het antwo
     !!! quote ""
         **<p style="text-align: center;font-size:19px;">Geen Oplossing</p>**
 
+****
 
 ### **Kwadraat afsplitsen**
 Dit is een andere methode om kwadratische vergelijkingen op te lossen. Net zoals de *abc* formule werkt het in alle gevallen. Het duurt vaak iets langer dan de *abc* formule, maar je hoeft er geen formule voor te onthouden. Laten we kijken hoe het werkt met behulp van een voorbeeld.
@@ -1058,11 +1066,14 @@ Door nu aan beide kanten $-3$ te doen vinden we onze eindoplossing:
 
         We komen er op deze manier dus ook, het duurt alleen iets langer. Dus als we het kunnen vermijden dan liever wel. Maar als je de andere manier niet zag, dan kom je er zo natuurlijk ook.
 
+<hr style="height: 1.5px; background-color: #575757; border: none;">
 
 ## **Grafieken met Parabolen**
 We hebben gezien hoe we een kwadratische vergelijking kunnen oplossen op verschillende manieren. Heel leuk en aardig, maar waar is dat eigenlijk nuttig voor?
 
 Het is vooral handig om snijpunten te berekenen. Bijvoorbeeld snijpunten met de $x$-as of snijpunten van twee grafieken met elkaar. Laten we eerst kijken naar snijpunten met de $x$-as. 
+
+****
 
 ### **Snijpunten met de x-as**
 We gaan kijken naar drie verschillende gevallen. Als eerste kijken we naar een functie die $2$ snijpunten heeft met de $x$-as. Daarna kijken we naar een functie met maar $1$ snijpunt met de $x$-as (dus waar $f(x)$ de $x$-as raakt). En als laatst kijken we naar een functie die de $x$-as niet snijdt, en dus $0$ snijpunten heeft.
@@ -1176,6 +1187,7 @@ Maar zoals we eerder hebben gezien bij deze [opmerking](#opmerkingen), kan een g
 
 Er is gewoon geen enkel moment dat de grafiek van $f(x)$ de $x$-as snijdt, omdat $f(x)$ altijd boven de $x$-as is. En daarom heeft de vergelijking om de snijpunten met de $x$-as te vinden dus ook geen oplossing.
 
+****
 
 ### **Snijpunten met andere grafieken**
 Laten we nu kijken naar de snijpunten van twee functies. Stel we hebben bijvoorbeeld de twee functies $f(x) = x^2 -6x - 1$ en $g(x) = -x^2 + 2x + 3$ en we willen de snijpunten bepalen tussen de twee functies.

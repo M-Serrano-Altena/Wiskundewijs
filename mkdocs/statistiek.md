@@ -1,6 +1,8 @@
 # *Statistiek*
 We gebruiken statistiek om gegevens beter te kunnen begrijpen. Dit kunnen we doen door het op een begrijpelijke manier weer te geven. Bijvoorbeeld in een staafdiagram, histogram of een cirkeldiagram. Maar we kunnen ook bepaalde gegevens berekenen die ons helpen de data beter te begrijpen. Bijvoorbeeld het gemiddelde, de mediaan of de modus geeft ons een beeld van hoe de data eruit ziet. Dit is handig, want dan hoeven we niet alles te zien, maar we kunnen toch iets over deze data zeggen. Ook is dit handig als we data willen vergelijken.
 
+****
+
 ## **Data weergeven**
 We kunnen informatie handig weergeven in grafieken en in diagrammen. We kijken naar een paar verschillende type diagrammen en bekijken hoe je ze af moet lezen en zelf maken. 
 
@@ -42,6 +44,8 @@ We zien dat er op zaterdag de meeste fietsen zijn verkocht, want die staaf is he
     
 In ons voorbeeld is elke dag een andere groep en is de frequentie het aantal fietsen. We zien dus hoeveel fietsen (frequentie) er verkocht zijn per dag (groep).
 
+****
+
 ### **Histogrammen**
 Laten we nu kijken naar een klas die een wiskunde toets heeft gemaakt. De leerlingen hebben dus allemaal verschillende cijfers gehaald. We kunnen die data weergeven met een zogenaamde **histogram**. In Figuur 2 zien we hoe dit eruit ziet.
 
@@ -62,6 +66,7 @@ Dus $4$ leerlingen hebben een $4$ gehaald, $8$ leerlingen hebben een $7$ gehaald
     
 In ons voorbeeld gaat de cijferverdeling van een 4 naar een 9. Dus de leerlingen hebben allemaal tussen een 4 en een 9 gehaald voor de wiskunde toets. En we kunnen dan precies zien hoeveel leerlingen een bepaald cijfer hebben gehaald.
 
+****
 
 ### **Cirkeldiagrammen**
 We kunnen het voorbeeld van net ook weergeven in een zogenaamde **cirkeldiagram**.
@@ -82,6 +87,7 @@ In Figuur 3 kunnen we zien welk deel van de leerlingen een bepaald cijfer heeft 
     
 We kunnen nu dus goed zien welk deel van de leerlingen een bepaald cijfer heeft gehaald. Maar we kunnen niet meer meteen zien hoeveel dat er waren. We kunnen dus niet meer meteen zien dat het 8 leerlingen waren die een 7 hebben gehaald. We kunnen alleen maar zien dat het $26.7\%$ is van alle leerlingen. 
 
+****
 
 ### **Lijndiagrammen**
 De laatste manier om data weer te geven is met een **lijndiagram**. We kijken nu naar de temperatuur in de maand Juli. 
@@ -103,6 +109,7 @@ We kunnen in Figuur 4 precies aflezen wat de minimum temperatuur en wat de maxim
 
 In dit geval kijken we naar het verband tussen de grootheden temperatuur en tijd. We kunnen dan precies zijn hoe de temperatuur verandert in de tijd. We vergelijken ook meerdere datasets met dezelfde grootheden. We kijken namelijk naar de maximum temperatuur en de minimum temperatuur per dag. Dus beide datasets hebben de grootheden temperatuur en tijd, maar met verschillende waardes.
 
+<hr style="height: 1.5px; background-color: #575757; border: none;">
 
 ## **Gemiddelde**
 Het gemiddelde is handig om iets te kunnen zeggen over de hele dataset. Over het algemeen kun je dan kijken waar de meeste data zich bevindt. Dit maakt het vergelijken van verschillende datasets makkelijker. 
@@ -504,6 +511,7 @@ Het gemiddelde van klas A is dus $2$ cijferpunten hoger dan die van klas B. Dus 
 
     Het gewogen gemiddelde van de cijfers is dus een $7.9$.
         
+<hr style="height: 1.5px; background-color: #575757; border: none;">
 
 ## **Mediaan en Modus**
 We hebben net gezien dat een gemiddelde heel erg handig kan zijn om data te vergelijken. Maar soms kan het gemiddelde juist een verkeerd beeld geven. Laten we kijken naar inkomens van $100$ mensen waar er $1$ biljonair bij zit. In Figuur 6 is het inkomen weergegeven van de andere $99$ mensen.
@@ -563,11 +571,15 @@ Het gemiddelde is dus ongeveer 10 miljoen euro! Maar dit is een vertekend beeld,
     !!! quote ""
         $$\large{\textrm{Mediaan} = \frac{5 + 8}{2} = 6.5}$$
 
+<br>
+
 Laten we weer terug gaan naar de inkomens van de groep van 100 mensen. Als we de mediaan willen bepalen, dan moeten we dus alle $100$ inkomens op volgorde van laag naar hoog zetten. $100$ is een even getal en dus berekenen we het gemiddelde van de middelste twee waardes. Als we dit doen, dan vinden we als mediaan:
 
 $$\large{\textrm{Mediaan} = \Large{\textrm{€}} \large 55.834}$$
 
 En we zien dat dit meer lijkt op het inkomen van de meeste mensen, in tegenstelling tot het gemiddelde.
+
+****
 
 Apart van de **mediaan**, kunnen we ook de **modus** bepalen om de data beter te begrijpen. De modus vertelt ons welk getal het vaakst voorkomt.
 
@@ -606,6 +618,8 @@ Apart van de **mediaan**, kunnen we ook de **modus** bepalen om de data beter te
     We zien nu dat $3$ en $4$ allebei het meest voorkomen en omdat dit meer dan 1 getal is, hebben we geen modus.
 
     $$\large{\textrm{Geen Modus}}$$
+
+<br>
 
 ### **Voorbeelden**
 

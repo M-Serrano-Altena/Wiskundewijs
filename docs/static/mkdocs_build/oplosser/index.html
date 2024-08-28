@@ -732,7 +732,7 @@
 <h2 id="mogelijke-opties">Mogelijke Opties</h2>
 <ul>
 <li>
-<p><strong>Vergelijkingen Omschrijven:</strong> Vergelijkingen met <span class="arithmatex">\(y\)</span> en <span class="arithmatex">\(x\)</span> worden omgeschreven om <span class="arithmatex">\(y\)</span> vrij te maken. Daarna worden de snijpunten met de <span class="arithmatex">\(x\)</span>-as bepaald.<br><br><br></p>
+<p><strong>Vergelijkingen Omschrijven:</strong> <span class="arithmatex">\(\phantom{.}\)</span> De <span class="arithmatex">\(y\)</span> in een vergelijking wordt vrijgemaakt. Bijvoorbeeld: <span class="arithmatex">\(\phantom{.}\)</span> <span class="arithmatex">\(3y - 6x = 8 \quad \longrightarrow \quad y = 2x + 4\)</span><br><br><br></p>
 </li>
 <li>
 <p><strong>Ongelijkheden Oplossen:</strong> </p>
@@ -754,19 +754,19 @@
 <li>
 <p><strong>Integreren:</strong> </p>
 <ul>
-<li><strong>Primitieve:</strong> <span class="arithmatex">\(\phantom{mmm.^{..}}\)</span>  <span style="font-size: 19px;"><code>integrate(f(x))</code></span> <span class="arithmatex">\(= \int f(x) \, dx \phantom{mmmm.^{..}} \quad \longrightarrow \quad\)</span> <span style="font-size: 19px;"><code>integrate(x^2)</code></span> <span class="arithmatex">\(= \int x^2 \, dx = \dfrac{x^3}{3} + C\)</span> </li>
+<li><strong>Primitieve:</strong> <span class="arithmatex">\(\phantom{mmm.^{..}}\)</span>  <span style="font-size: 19px;"><code>integrate(f(x))</code></span> <span class="arithmatex">\(= \int f(x) \, dx \phantom{mmmm..^.} \quad \longrightarrow \quad\)</span> <span style="font-size: 19px;"><code>integrate(x^2)</code></span> <span class="arithmatex">\(= \int x^2 \, dx = \dfrac{x^3}{3} + C\)</span> </li>
 <li><strong>Bepaalde Integraal:</strong> <span class="arithmatex">\(\phantom{.}\)</span> <span style="font-size: 19px;"><code>integrate(f(x), (a, b))</code></span> <span class="arithmatex">\(= \int_{a}^{b} f(x) \, dx \quad \longrightarrow \quad\)</span> <span style="font-size: 19px;"><code>integrate(x^2, (0, 1))</code></span> <span class="arithmatex">\(= \int_{0}^{1} x^2 \, dx = \dfrac{1}{3}\)</span> <br> <span class="arithmatex">\(\phantom{mmmmmmmm.} \Longrightarrow\)</span> <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> zijn hier de begin- en eindgrenzen van de integraal. <br> <span class="arithmatex">\(\phantom{mmmmmmmm.} \Longrightarrow\)</span> Als je expliciet de variabele wilt benoemen waarover je integreert: <span class="arithmatex">\(\phantom{.}\)</span> <span style="font-size: 19px;"><code>integrate(f(t), (t, a, b))</code></span> <span class="arithmatex">\(= \int_{a}^{b} f(t) \, dt\)</span><br><br><br></li>
 </ul>
 </li>
 <li>
 <p><strong>Limieten:</strong> </p>
 <ul>
-<li><strong>Continue Limieten:</strong> <span class="arithmatex">\(\phantom{.}\)</span> <span style="font-size: 19px;"><code>limit(f(x), a)</code></span> <span class="arithmatex">\(= \lim\limits_{x \, \to \, a} f{\left(x \right)} \phantom{.} \quad \longrightarrow \quad\)</span> <span style="font-size: 19px;"><code>limit((2x - 1)/x, inf)</code></span> <span class="arithmatex">\(= \lim\limits_{x \, \to \, \infty} \dfrac{2x - 1}{x} = 2\)</span> <br><br></li>
-<li><strong>Rechterlimiet:</strong> <span class="arithmatex">\(\phantom{.}\)</span> <span style="font-size: 19px;"><code>limit(f(x), a, '+')</code></span> <span class="arithmatex">\(= \lim\limits_{x \, \downarrow \, a} f{\left(x \right)} \quad \longrightarrow \quad\)</span> <span style="font-size: 19px;"><code>limit(1/x, 0, '+')</code></span> <span class="arithmatex">\(= \lim\limits_{x \, \downarrow \, 0} \dfrac{1}{x} = \infty\)</span> <br><br></li>
+<li><strong>Continue Limieten:</strong> <span class="arithmatex">\(\phantom{.}\)</span> <span style="font-size: 19px;"><code>limit(f(x), a)</code></span> <span class="arithmatex">\(= \lim\limits_{x \, \to \, a} f{\left(x \right)} \phantom{.} \quad \longrightarrow \quad\)</span> <span style="font-size: 19px;"><code>limit((2x - 1)/x, inf)</code></span> <span class="arithmatex">\(= \lim\limits_{x \, \to \, \infty} \dfrac{2x - 1}{x} = 2\)</span> <br></li>
+<li><strong>Rechterlimiet:</strong> <span class="arithmatex">\(\phantom{.}\)</span> <span style="font-size: 19px;"><code>limit(f(x), a, '+')</code></span> <span class="arithmatex">\(= \lim\limits_{x \, \downarrow \, a} f{\left(x \right)} \quad \longrightarrow \quad\)</span> <span style="font-size: 19px;"><code>limit(1/x, 0, '+')</code></span> <span class="arithmatex">\(= \lim\limits_{x \, \downarrow \, 0} \dfrac{1}{x} = \infty\)</span> <br></li>
 <li><strong>Linkerlimiet:</strong> <span class="arithmatex">\(\phantom{.e}\)</span> <span style="font-size: 19px;"><code>limit(f(x), a, '-')</code></span> <span class="arithmatex">\(= \lim\limits_{x \, \uparrow \, a} f{\left(x \right)} \quad \longrightarrow \quad\)</span> <span style="font-size: 19px;"><code>limit(1/x, 0, '-')</code></span> <span class="arithmatex">\(= \lim\limits_{x \, \uparrow \, 0} \dfrac{1}{x} = -\infty\)</span> <br><br> </li>
 </ul>
-<p><span class="arithmatex">\(\Longrightarrow\)</span> Een rechter- of linkerlimiet bij een continue functie wordt vanzelf omgezet naar een continu limiet <br>
-<span class="arithmatex">\(\Longrightarrow\)</span> Een continu limiet bij een discontinue functie wordt een rechterlimiet <br><br><br></p>
+<p><span class="arithmatex">\(\phantom{mmmmmmmm.} \Longrightarrow\)</span> Een rechter- of linkerlimiet bij een continue functie wordt vanzelf omgezet naar een continu limiet <br>
+<span class="arithmatex">\(\phantom{mmmmmmmm.} \Longrightarrow\)</span> Een continu limiet bij een discontinue functie wordt een rechterlimiet <br><br><br><br></p>
 </li>
 <li>
 <p><strong>Variabele Invullen:</strong> <span class="arithmatex">\(\phantom{.}\)</span> <span style="font-size: 19px;"><code>subs(f(x), a)</code></span> <span class="arithmatex">\(= f(a)\)</span> <span class="arithmatex">\(\phantom{n..n,n}\)</span> <span class="arithmatex">\(\quad \longrightarrow \quad\)</span> <span style="font-size: 19px;"><code>subs(x^2 + 3x + 1, 5)</code></span> <span class="arithmatex">\(= \left. x^2 + 3x + 1 \right|_{\substack{ x=5 }} = 41\)</span> <br><br> <span class="arithmatex">\(\phantom{mmmmmmmn..}\)</span> <span style="font-size: 19px;"><code>subs(diff(f(x)), a)</code></span> <span class="arithmatex">\(= f'(a)\)</span> <span class="arithmatex">\(\quad \longrightarrow \quad\)</span> <span style="font-size: 19px;"><code>subs(diff(x^2 + 3x + 1), 5)</code></span> <span class="arithmatex">\(= \left. \dfrac{d}{d x} \left(x^{2} + 3 x + 1\right) \right|_{\substack{ x=5 }} = 13\)</span> <br><br></p>
@@ -791,9 +791,6 @@
 <hr />
 <h2 id="mogelijke-functies">Mogelijke Functies</h2>
 <ul>
-<li>
-<p><strong>Machten:</strong> <span class="arithmatex">\(\phantom{.}\)</span> <span style="font-size: 19px;"><code>x^n</code></span> <span class="arithmatex">\(\quad \longrightarrow \quad\)</span> <span style="font-size: 19px;"><code>x^2</code></span> <span class="arithmatex">\(= x^2 \quad\)</span><br><br></p>
-</li>
 <li>
 <p><strong>Wortels:</strong></p>
 <ul>
@@ -828,9 +825,9 @@
 <hr />
 <h2 id="mogelijke-constantes">Mogelijke Constantes</h2>
 <ul>
-<li><span style="font-size: 19px;"><code>pi</code></span> of <span style="font-size: 19px;"><code>π</code></span> <span class="arithmatex">\(= \pi \approx 3.14159265358979\)</span></li>
+<li><span style="font-size: 19px;"><code>pi</code></span> <span class="arithmatex">\(= \pi \approx 3.14159265358979\)</span></li>
 <li><span style="font-size: 19px;"><code>e</code></span> <span class="arithmatex">\(= e \approx 2.71828182845905\)</span></li>
-<li><span style="font-size: 19px;"><code>inf</code></span>, <span style="font-size: 19px;"><code>infty</code></span>, <span style="font-size: 19px;"><code>infinity</code></span> of <span style="font-size: 19px;"><code>∞</code></span>  <span class="arithmatex">\(= \infty\)</span></li>
+<li><span style="font-size: 19px;"><code>inf</code></span> <span class="arithmatex">\(= \infty\)</span></li>
 <li><span style="font-size: 19px;"><code>goldenratio</code></span> <span class="arithmatex">\(= \phi \approx 1.61803398874989\)</span></li>
 </ul>
 

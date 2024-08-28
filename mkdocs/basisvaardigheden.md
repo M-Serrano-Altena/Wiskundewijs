@@ -33,11 +33,13 @@ Nu kunnen we beide kanten delen door $A$, en dan krijgen we:
 
 Als we dit controleren met ons getallen voorbeeld, waar $2 = \frac{6}{3}$, klopt het!
 
-!!! tip ""
+<hr style="height: 1.5px; background-color: #575757; border: none;">
 
 
 ## **Vergelijkingen Omschrijven**
-Vergelijkingen omschrijven is eigenlijk hetzelfde als een formule omschrijven. In beide gevallen doe je aan beide kanten van het '$=$'-teken hetzelfde. Hierdoor kunnen we de vorm van de formule of vergelijking veranderen. Laten we kijken naar een paar voorbeelden van vergelijkingen:
+Vergelijkingen omschrijven is eigenlijk hetzelfde als een formule omschrijven. In beide gevallen doe je aan beide kanten van het '$=$'-teken hetzelfde. Hierdoor kunnen we de vorm van de formule of vergelijking veranderen. Laten we kijken naar een paar voorbeelden.
+
+****
 
 ### **Voorbeeld 1**
 
@@ -47,6 +49,8 @@ De meesten zullen in een keer zien dat dit betekent dat $x = 2$. Maar laten we h
 
 !!! quote ""
     $$\Large{x = 2.}$$
+
+****
 
 ### **Voorbeeld 2**
 
@@ -63,6 +67,7 @@ Nu delen we beide kanten door $35$ en vinden:
 !!! quote ""
     $$\Large{x = 7.}$$
 
+****
 
 ### **Voorbeeld 3**
 
@@ -87,7 +92,7 @@ $$\frac{5}{6}x =  2\frac{1}{12}$$
 !!! quote ""
     $$\Large{x =  2\frac{1}{2}}$$
 
-!!! tip ""
+<hr style="height: 1.5px; background-color: #575757; border: none;">
 
 ## **Breuken**
 Breuken worden vaak gebruikt in de wiskunde. Het is daarom belangrijk om goed te leren rekenen met deze breuken. Daarom staan de belangrijkste regels en hoe je met breuken moet rekenen hier op een rijtje.
@@ -117,7 +122,7 @@ Voor breuken gelden er de volgende regels:
 
     6. $$\large{\frac{\frac{a}{b}}{\frac{c}{d}} = \frac{a}{b} \cdot \frac{d}{c} = \frac{a \cdot d}{b \cdot c}}$$
 
-Vaak ziet dit er nog lastig uit, dus kijk naar het voorbeeld hieronder om de regels met getallen te zien.
+Vaak ziet dit er nog lastig uit, dus kijk naar het voorbeeld hieronder om dezelfde regels met getallen te zien.
 
 ??? example "Getallen Voorbeeld Breuken"
     ### **Getallen Voorbeeld Breuken**
@@ -133,6 +138,7 @@ Vaak ziet dit er nog lastig uit, dus kijk naar het voorbeeld hieronder om de reg
 
     6. $$\large{\frac{\frac{1}{2}}{\frac{1}{4}} = \frac{1}{2} \cdot \frac{4}{1} = \frac{4}{2} = 2}$$
 
+<br>
 
 We zien dus dat bij optellen en aftrekken van breuken we eerst gelijke noemers moeten hebben. We kunnen dan gewoon de tellers bij elkaar op tellen of aftrekken (regel $1$ en $2$). Als we geen gelijke noemers hebben, moeten we regel $3$ en $4$ gebruiken om de noemers toch gelijk te maken. Maar waar komen regel $3$ en $4$ vandaan? Het bewijs hieronder laat dat zien.
 
@@ -160,7 +166,7 @@ We zien dus dat bij optellen en aftrekken van breuken we eerst gelijke noemers m
 
     Voor aftrekken geldt precies dezelfde stappen, maar dan moet je het plus-teken vervangen met een min-teken.
 
-!!! tip ""
+<hr style="height: 1.5px; background-color: #575757; border: none;">
 
 
 ## **Operaties met variabelen**
@@ -214,7 +220,7 @@ Alle onderstaande regels gaan beide kanten op, dus je kan iets in de linker vorm
 
     2. $$\large{2A \left(\frac{2B}{4A} + \frac{A}{3B}\right) = B + \frac{2A^2}{3B}}$$
 
-!!! tip ""
+<hr style="height: 1.5px; background-color: #575757; border: none;">
 
 
 ## **Machten en Wortels**
@@ -301,6 +307,8 @@ waarbij $\neq$ dus betekent: "is **niet** gelijk aan". Als we wel rekening houde
 
 $$(2 + 3)^2 = 2^2 + 2 \cdot 2 \cdot 3 + 3^2 = 4 + 12 + 9 = 25$$
 
+****
+
 De volgende regels gelden voor alle soorten machten:
 
 ???+ Belangrijk
@@ -321,11 +329,8 @@ De volgende regels gelden voor alle soorten machten:
 
     7. $$\large{\left(a^n\right)^m = a^{n \cdot m}}$$
 
-    
 
-
-
-Voor wortels gelden precies dezelfde regels als voor machten. Dit is ook logisch want je kan een wortel ook schrijven als tot de macht $\frac{1}{2}$:
+Voor wortels gelden precies dezelfde regels als voor machten. Dit is ook logisch want we kunnen een wortel ook schrijven als een macht $\frac{1}{2}$:
 
 $$\sqrt{x} \equiv \sqrt[2]{x} = x^{\frac{1}{2}}$$
 
@@ -368,70 +373,76 @@ $$\sqrt{x} \equiv \sqrt[2]{x} = x^{\frac{1}{2}}$$
     !!! quote ""
         $$\large{\sqrt{a^2} = |a|}$$
 
-!!! tip ""
+<hr style="height: 1.5px; background-color: #575757; border: none;">
 
 
 ## **Logaritmes**
-Een logaritme is eigenlijk het omgekeerde van een exponent. Met andere woorden:
+Een logaritme is eigenlijk het omgekeerde van een exponent. Dus als:
 
-$$\large{\log{(10^2)} = 2 = 10^{\log{(2)}}}$$
+$$2^3 = 8,$$
 
-Ze heffen dus elkaar op.
+dan kunnen we ook zeggen dat:
 
-Net zoals een exponent heeft een logaritme een grondgetal.
+$$ ^2 \! \log(8) = 3$$
+
+Dus bij een exponent stoppen we de macht erin en krijgen we er een getal uit, bij een logaritme stoppen we er een getal in en krijgen we de macht eruit.
+
+<br>
 
 <figure markdown>
-  ![Vergelijking exponent en logartime](assets/images/basisvaardigheden/Logarithm.svg){ width="300"}
-  <figcaption>Figuur 1. Vergelijking exponent en logaritme. Een exponent vergroot hier het antwoord, en het logaritme doet het omgekeerde.</figcaption>
+<center>![Vergelijking exponent en logartime](assets/images/basisvaardigheden/Logarithm.svg){ width="250"}
+  <figcaption>Figuur 1. Exponent en Logaritme. Bij een exponent stop je er een macht in en krijg je er een getal uit. Bij een logaritme stop je er een getal in en krijg je de macht als antwoord.</figcaption>
 </figure>
 
-??? note "Opmerking Notatie"
-    ### **Opmerking Notatie**
-    Als er geen grondgetal staat bij de logaritme, dan gaan we er vanuit dat het een $^{10} \! \log$ is. Dit is dus een logaritme met een grondgetal $10$.
 
 ???+ Belangrijk
     ### **Regels met Logaritmes**
 
-    1. $$\large{^a \! \log{(a^n)} = n = \Large{a^{^a \! \log{(n)}}}}$$
+    1. $$\large{^a \! \log{(a^n)} = n = \Large{a^{^a \! \phantom{^.} \log{(n)}}}}$$
 
-    2. $$\large{^a \! \log{(b^n)} = n \cdot \ ^a \! \log{(b)}}$$
+    2. $$\large{^a \! \log{(b^n)} = n \cdot \, ^a \! \log{(b)}}$$
 
-    3. $$\large{^a \! \log{(b \cdot c)} =  ^a \! \log{(b)} + ^a \! \log{(c)}}$$
+    3. $$\large{^a \! \log{(b \cdot c)} = \, ^a \! \log{(b)} + \, ^a \! \log{(c)}}$$
 
-    4. $$\large{^a \! \log{(\frac{b}{c})} =  ^a \! \log{(b)} - ^a \! \log{(c)}}$$
+    4. $$\large{^a \! \log{(\frac{b}{c})} = \, ^a \! \log{(b)} - \, ^a \! \log{(c)}}$$
 
-    5. $$\large{^a \! \log{(b)} = \frac{^c \! \log{(b)}}{^c \! \log{(a)}}}$$
+    5. $$\large{^a \! \log{(b)} = \dfrac{^c \! \log{(b)}}{^c \! \log{(a)}}}$$
 
-??? note "Opmerking $\ln$"
-    ### **Opmerking ln**
+### **Opmerkingen**
+
+??? note "Notatie $\log(x)$"
+    Als er geen grondgetal staat bij de logaritme, dan gaan we er vanuit dat het een $^{10} \! \log$ is. Dit is dus een logaritme met een grondgetal $10$.
+
+??? note "Notatie $\ln(x)$"
     Voor een logaritme met een speciaal grondgetal hebben we een aparte notatie. Namelijk voor het grondgetal $e$, het getal van euler.
 
-    $$\large{^e \log \equiv \ln}$$
+    $$\large{^e \! \log \equiv \ln}$$
 
     Dus in plaats van een logaritme met een grondgetal $e$ schrijven we $\ln$. Dit staat voor "natuurlijke logaritme". Maar alleen de notatie is anders en het is verder precies hetzelfde als de andere logaritmes.
 
 ??? note "Domein en Bereik"
-    ### **Domein en Bereik**
     **<p style="text-align: center;font-size:18px;">Exponent</p>**
-    Het domein van een exponent met een positief grondgetal is alle reële getallen:
+    Het domein van een exponent met een positief grondgetal is alle getallen:
 
-    $$\large{\textrm{Domein} = \langle \leftarrow, \rightarrow \rangle \textrm{ of } \mathbb{R}}$$
+    $$\large{\textrm{Domein} = \langle \leftarrow, \rightarrow \rangle}$$
 
-    Maar het bereik is alleen alle getallen groter dan $0$. Dit komt omdat je nooit een negatief getal kan krijgen als het grondgetal niet negatief is. Dus bijvoorbeeld $2^x > 0$ voor alle waardes van $x$:
+    Je kunt namelijk voor $x$ elk getal invullen en dan krijg je er een normale waarde uit. 
+
+    Maar dit geldt niet voor het bereik. Je krijgt namelijk uit een exponent nooit een negatieve waarde. De kleinste waarde die je kunt bereiken is $0$ als $x$ naar min oneindig gaat. Het bereik wordt dus:
 
     $$\large{\textrm{Bereik} = \langle 0, \rightarrow \rangle}$$
 
+    <br>
+
     **<p style="text-align: center;font-size:18px;">Logaritme</p>**
 
-    Omdat een logaritme de inverse is van een exponent, is het domein en bereik precies omgekeerd. Er geldt dus dat:
+    Omdat een logaritme de inverse (het omgekeerde) is van een exponent, is het domein en bereik precies omgekeerd. Er geldt dus dat:
 
     $$\large{\textrm{Domein} = \langle 0, \rightarrow \rangle}$$
 
-    Dit betekent dus dat een logaritme alleen gedefinieerd is voor getallen groter dan 0. Er is dus geen oplossing voor het logaritme van $0$ of een negatief getal. Dit is hetzelfde als dat je geen wortel kan nemen van een negatief getal.
-    
-    Het bereik van een logaritme is dus het domein van een exponent en dus alle reële getallen:
+    $$\large{\textrm{Bereik} = \langle \leftarrow, \rightarrow \rangle}$$
 
-    $$\large{\textrm{Bereik} = \langle \leftarrow, \rightarrow \rangle \textrm{ of } \mathbb{R}}$$
+    Dit betekent dus dat een logaritme alleen gedefinieerd is voor getallen groter dan 0. Het logaritme van $0$ of een negatief getal bestaat dus niet. Dit is een beetje hetzelfde als dat de wortel van een negatief getal ook niet bestaat.
 
 
 ### **Voorbeelden Logaritmes**
@@ -466,7 +477,7 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
     $$\Large{\log{(x)} = \frac{3}{4}}$$
 
-    Er staat hier geen grondgetal bij de logaritme en dus is het grondgetal $10$ (zie [Opmerking Notatie](#opmerking-notatie)). We nemen nu aan beide kanten de exponent met $10$ als grondgetal om van ons logaritme af te komen:
+    Er staat hier geen grondgetal bij de logaritme en dus is het grondgetal $10$ (zie [Notatie $\log(x)$](#opmerkingen)). We nemen nu aan beide kanten de exponent met $10$ als grondgetal om van ons logaritme af te komen:
 
     $$\Large{10^{\log{(x)}} = 10^{\frac{3}{4}}}$$
 
@@ -496,8 +507,8 @@ Net zoals een exponent heeft een logaritme een grondgetal.
             $$\Large{x = \sqrt[4]{1000}}$$
 
 
-??? example "Voorbeeld 3: $^2 \! \log{(4x)} = - ^2 \! \log{(3x)} + 6$"
-    **<p style="text-align: center;font-size:20px;">Bereken x: $^2 \! \log{(4x)} = - ^2 \! \log{(3x)} + 6$</p>**
+??? example "Voorbeeld 3: $^2 \! \log{(4x)} = - \ ^2 \! \log{(3x)} + 6$"
+    **<p style="text-align: center;font-size:20px;">Bereken x: $^2 \! \log{(4x)} = - \ ^2 \! \log{(3x)} + 6$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
     We willen eerst alle termen met $x$ aan de linkerkant hebben. Dit doen we door aan beide kanten van het '$=$'-teken $+ ^2 \! \log{(3x)}$ toe te voegen, zodat het rechts wegvalt:
@@ -537,10 +548,10 @@ Net zoals een exponent heeft een logaritme een grondgetal.
 
         $$\large{^2 \! \log{(-\frac{16}{\sqrt{3}})} = - ^2 \! \log{(-\frac{12}{\sqrt{3}})} + 6}$$
 
-        We krijgen nu dus negatieve getallen in onze logaritmes. Maar we weten dat het [domein](#domein-en-bereik) van een logaritme alleen positieve getallen zijn. Een oplossing waar we een logaritme van een negatief getal krijgen kan dus geen oplossing zijn. De oplossing $x = -\frac{4}{\sqrt{3}}$ voldoet dus niet aan de vergelijking en dus is het ook geen oplossing.
+        We krijgen nu dus negatieve getallen in onze logaritmes. Maar we weten dat het [domein](#opmerkingen) van een logaritme alleen positieve getallen zijn. Een oplossing waar we een logaritme van een negatief getal krijgen kan dus geen oplossing zijn. De oplossing $x = -\frac{4}{\sqrt{3}}$ voldoet dus niet aan de vergelijking en dus is het ook geen oplossing.
 
 
-??? example "Voorbeeld 4: $^{25} \! \log{(4x^4)} - 2 = ^5 \! \log{(2x)}$"
+??? example "Voorbeeld 4: $^{25} \! \log{(4x^4)} - 2 = \, ^5 \! \log{(2x)}$"
     **<p style="text-align: center;font-size:20px;">Bereken x: $^{25} \! \log{(4x^4)} - 2 = ^5 \! \log{(2x)}$</p>**
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 

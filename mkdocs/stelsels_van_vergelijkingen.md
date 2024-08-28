@@ -1,14 +1,12 @@
 # *Stelsels van Vergelijkingen*
-???+ info "Achtergrond kennis" 
-    - [Vergelijkingen omschrijven](basisvaardigheden.md#vergelijkingen-omschrijven)
-
-    - [Operaties met variabelen](basisvaardigheden.md#regels-bij-operaties-met-variabelen)
 
 Een stelsel van vergelijkingen zijn meerdere vergelijkingen die je samen kunt oplossen. Dit is voorbeeld van zo een stelsel:
 
 $$\left\{ \begin{array}{ l l } 4x + 6y = 14  \\ 8x - 3y = 3 \end{array} \right.$$ 
 
-Zo een stelsel kunnen we op meerdere manieren oplossen. We gebruiken vooral de **schoorsteen methode** en de **substitutie methode**. Ons doel bij beide methodes is om een vergelijking te krijgen met maar $1$ variabele. We kunnen die dan oplossen, en daarme acther de andere variabele komen. 
+Zo een stelsel kunnen we op meerdere manieren oplossen. We gebruiken vooral de *schoorsteen methode* en de *substitutie methode*. Ons doel bij beide methodes is om een vergelijking te krijgen met maar $1$ variabele. We kunnen die dan oplossen, en daarme achter de andere variabele komen. 
+
+****
 
 ## **De Schoorsteen methode**
 Ons doel met de schoorsteen methode is dus om maar $1$ variabele over te houden.  We doen dit door de vergelijkingen bij elkaar op te tellen of van elkaar af te trekken. Vaak moeten we nog één of beide vergelijkingen vermenigvuldigen met een bepaald getal. Dit doen we zodat als we optellen of aftrekken, we maar $1$ variabele overhouden. Vind je dit nog een beetje vaag? Het wordt waarschijnlijk wat duidelijker met dit voorbeeld:
@@ -111,6 +109,8 @@ Appels en bananen zijn dus allebei €$2$.
 
     !!! quote ""
         $$\large{n = 1 \textrm{ en } m = \frac{1}{2}}$$
+
+****
 
 ## **De Substitutie methode**
 

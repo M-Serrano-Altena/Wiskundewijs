@@ -296,6 +296,7 @@ Net zoals bij de afgeleides hebben we bij primitiveren een tabel met veel voorko
     !!! quote ""
         $$\large{F(x) = (x - \dfrac{2}{9}) \ln(9x - 2) - x + c}$$
 
+<hr style="height: 1.5px; background-color: #575757; border: none;">
 
 ## **Introductie Integralen**
 We kunnen *integralen* gebruiken om een oppervlakte onder een grafiek te bepalen. Maar hoe werkt het en hoe lossen we zo'n integraal op?
@@ -311,7 +312,7 @@ Stel we willen de oppervlakte $V$ bepalen onder deze grafiek, hoe doen we dat?
 
 Deze oppervlakte heeft een lastige vorm, dus we kunnen het niet zomaar bepalen door lengte keer breedte te gebruiken... Of toch wel? 
 
-Als we deze oppervlakte $V$ indelen in allemaal kleine rechthoeken, dan kunnen we de oppervlaktes van alle rechthoekjes bij elkaar optellen. En deze totale oppervlakte zou dan hetzelfde zijn als de oppervlakte $V$.
+Als we deze oppervlakte $V$ indelen in allemaal kleine rechthoeken, dan kunnen we de oppervlaktes van alle rechthoekjes bij elkaar optellen. En deze totale oppervlakte is dan hetzelfde als de oppervlakte $V$.
 
 <figure markdown>
 ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/Oppervlakte onder de grafiek (met 10 rechthoeken).svg){ width="500" }
@@ -363,7 +364,9 @@ $$V = \int_a^b f(x) \, dx$$
 
 We schrijven $dx$ in plaats van $\Delta x$ om aan te geven dat het om een oneindig kleine afstand gaat. $a$ en $b$ zijn hier de grenzen van het oppervlak. Dus $a$ is het $x$-coördinaat van het begin van de oppervlakte, $b$ het $x$-coördinaat van het einde van de oppervlakte. Voor oppervlakte $V$ van Figuur 1 zou dus gelden: $a=9$ en $b=13$.
 
-Deze notatie noemen we een *integraal*. En het mooie van zo'n integraal is dat we nu niet meer de oppervlakte van elke rechthoek apart bij elkaar op hoeven te tellen. Met oneindig veel rechthoeken zou je namelijk een tijdje bezig zijn... <br><br>
+Deze notatie noemen we een *integraal*. En het mooie van zo'n integraal is dat we nu niet meer de oppervlakte van elke rechthoek apart bij elkaar op hoeven te tellen. Met oneindig veel rechthoeken zou je namelijk een tijdje bezig zijn... 
+
+****
 
 ### **Integralen Uitwerken**
 
@@ -458,6 +461,7 @@ $$V = \left[ \, 2x^3 \, \right]_0^1 = 2 \cdot 1^3 - 2 \cdot 0^3 = 2$$
 
     $$\large{\int f(x) \, dx = F(x)}$$
 
+****
 
 ### **Oppervlaktes onder de x-as**
 
@@ -497,8 +501,7 @@ Dit zorgt ervoor dat de minnen tegen elkaar wegvallen zodat de oppervlakte weer 
 
     Anders krijgen we namelijk een negatieve oppervlakte.
 
-
-<br>
+****
 
 ### **Deel boven en deel onder de x-as**
 
@@ -540,6 +543,8 @@ Als we de totale oppervlakte willen berekenen, dan moeten we oppervlakte $I$ en 
 
     !!! quote ""
         $$\large{V = 0}$$
+
+<br>
 
 We beginnen eerst met de oppervlakte van $I$ te bepalen. Deze oppervlakte gaat van $x=-\pi$ tot $x=0$ en is onder de $x$-as. Onze integraal wordt dan dus:
 
@@ -1242,6 +1247,7 @@ $$V = 2 + 2$$
     !!! quote ""
         $$\large{p = \frac{5}{6} \pi}$$ 
 
+<hr style="height: 1.5px; background-color: #575757; border: none;">
 
 ## **Oppervlakte tussen twee grafieken**
 
@@ -1476,6 +1482,8 @@ $$V = 1 \dfrac{1}{6} + 3 \dfrac{1}{3}$$
 
     !!! quote ""
         $$\large{I = \int_{a}^{b} \left( \, f(x) - g(x) \, \right) \, dx }$$
+
+<br>
 
 En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervlakte tussen twee functies te bepalen.
 

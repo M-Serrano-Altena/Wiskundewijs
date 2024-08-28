@@ -24,4 +24,7 @@ string = math_interpreter(string)
 print(string)
 # print(sp.sympify(string))
 
-print(sp.solve(x**2 < -1))
+string = "sum(1/x^2, (x, 1, inf))"
+string = math_interpreter(string)
+print(string)
+print(sp.sympify(string).doit())

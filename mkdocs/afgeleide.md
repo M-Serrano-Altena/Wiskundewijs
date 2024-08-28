@@ -6,6 +6,8 @@ De afgeleide van een functie geeft je op elk $x$-coördinaat de bijbehorende *ri
 
 *<div> * Richtingscoëfficient is een ander woord voor helling.</div>*
 
+****
+
 ### **Parabool**
 Een parabool heeft in het simpleste geval de vorm
 
@@ -32,22 +34,18 @@ $$f'(x) = 0.$$
 
 Als we deze vergelijking dus oplossen, vinden we het $x$-coördinaat van de top. En als we deze $x$-waarde in $f(x)$ stoppen, krijgen we ook het $y$-coördinaat. Bij [Extreme waardes bepalen](#extreme-waardes-bepalen) kijken we hier meer uitgebreid naar.
 
-### **Exponentiële funtie**
+****
+
+### **Exponentiële functie**
 Een exponentiële functie heeft de vorm
 
 $$f(x) = e^x.$$
 
 Deze $e$ is het getal van euler. Het is een constante met de volgende waarde: $e = 2.7182818...$
 
-Het bijzondere van dit getal is dat de afgeleide van $e^x$ ook $e^x$ is. De afgeleide van deze functie is dus zichzelf!
+Het bijzondere van dit getal is dat de afgeleide van $e^x$ ook $e^x$ is. De afgeleide van deze functie is gewoon weer zichzelf.
 
-Dus als:
-
-$$f(x) = e^x$$
-
-Dan geldt er dat:
-
-$$f'(x) = e^x.$$
+$$f(x) = f'(x) = e^x$$
 
 In het onderstaande filmpje kunnen we goed zien hoe dit eruit ziet.
 
@@ -59,6 +57,8 @@ In het onderstaande filmpje kunnen we goed zien hoe dit eruit ziet.
     *<p style="text-align: center;">Filmpje: Visuele weergave van de afgeleide van de functie $f(x) = e^x$. Er is te zien dat op elk punt geldt dat $f(x) = f'(x)$. Dit is wat de e-macht zo bijzonder maakt. </p>*
 
 De helling op elk punt is dus hetzelfde als het $y$-coördinaat op dat punt. De functie blijft dus maar steeds sneller stijgen als $y$ toeneemt. Als iets op deze manier steeds sneller blijft toenemen, noemen we dat *exponentieel*.
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
 
 ## **Afgeleides Bepalen**
 Om een afgeleide te bepalen, kunnen we de onderstaande [tabel](#tabel-met-veel-voorkomende-functies) gebruiken. Daarin staan de meest voorkomende afgeleides van verschillende functies. En hier vind je de [regels](#regels) voor functies die bestaan uit andere kleinere functies.
@@ -74,7 +74,7 @@ Om een afgeleide te bepalen, kunnen we de onderstaande [tabel](#tabel-met-veel-v
     | $\large{f(x) = e^x}$               | $\large{f'(x) = e^x}$                        |
     | $\large{f(x) = a^x}$               | $\large{f'(x) = a^x \cdot \ln(a)}$         |
     | $\large{f(x) = \ln(x)}$          | $\large{f'(x) = \Large \frac{1}{x}}$                |
-    | $\large{f(x) = \ ^a \! \log(x)}$ | $\large{f'(x) = \Large \frac{1}{x \ \cdot \ \ln(a)}}$ |
+    | $\large{f(x) = \, ^a \! \log(x)}$ | $\large{f'(x) = \Large \frac{1}{x \ \cdot \ \ln(a)}}$ |
     | $\large{f(x) = \sin(x)}$         | $\large{f'(x) = \cos(x)}$                  |
     | $\large{f(x) = \cos(x)}$         | $\large{f'(x) = -\sin(x)}$                 |
 
@@ -97,14 +97,22 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
     ### **Notatie**
     Een afgeleide kan op verschillende manieren worden weergegeven:
 
-    - $\Large{f'(x)}$
-    - $\Large{\dfrac{d f{\left(x \right)}}{d x}}$
-    - $\Large{\dfrac{d}{d x} f{\left(x \right)}}$
-    <br><br>
- 
-    - $\Large{y'}$
-    - $\Large{\dfrac{d y}{d x}}$
-    - $\Large{\dfrac{d}{d x} y}$
+    <div style="display: flex; justify-content: space-around;">
+        <div>
+            <ul>
+                <li>$\large{f'(x)}$</li>
+                <li>$\large{\dfrac{d f{\left(x \right)}}{d x}}$</li>
+                <li>$\large{\dfrac{d}{d x} f{\left(x \right)}}$</li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>$\large{y'}$</li>
+                <li>$\large{\dfrac{d y}{d x}}$</li>
+                <li>$\large{\dfrac{d}{d x} y}$</li>
+            </ul>
+        </div>
+    </div>
 
 
 ### **Voorbeelden**
@@ -565,6 +573,8 @@ Hier staat "n" voor noemer, "t" voor teller en "a" voor afgeleide.
     </div>
 
     <br>
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
 
 ## **Extreme waardes bepalen**
 Zoals we zagen bij het filmpje van een [parabool](#parabool), is de helling $0$ bij een top. Dit kunnen we ook zien aan de raaklijn, want die is gewoon horizontaal. Op dat punt verandert de $y$ dus niet als $x$ een klein beetje verandert. 

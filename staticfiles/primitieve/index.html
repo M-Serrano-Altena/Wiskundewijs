@@ -1255,6 +1255,8 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <div class="arithmatex">\[\large{F(x) = (x - \dfrac{2}{9}) \ln(9x - 2) - x + c}\]</div>
 </div>
 </details>
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
 <h2 id="introductie-integralen"><strong>Introductie Integralen</strong></h2>
 <p>We kunnen <em>integralen</em> gebruiken om een oppervlakte onder een grafiek te bepalen. Maar hoe werkt het en hoe lossen we zo'n integraal op?</p>
 <h3 id="oppervlakte-onder-een-grafiek"><strong>Oppervlakte onder een grafiek</strong></h3>
@@ -1264,7 +1266,7 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
     <figcaption>Figuur 1. Functie geplot met oppervlakte <span class="arithmatex">\(V\)</span> onder de grafiek.</figcaption></p>
 </figure>
 <p>Deze oppervlakte heeft een lastige vorm, dus we kunnen het niet zomaar bepalen door lengte keer breedte te gebruiken... Of toch wel? </p>
-<p>Als we deze oppervlakte <span class="arithmatex">\(V\)</span> indelen in allemaal kleine rechthoeken, dan kunnen we de oppervlaktes van alle rechthoekjes bij elkaar optellen. En deze totale oppervlakte zou dan hetzelfde zijn als de oppervlakte <span class="arithmatex">\(V\)</span>.</p>
+<p>Als we deze oppervlakte <span class="arithmatex">\(V\)</span> indelen in allemaal kleine rechthoeken, dan kunnen we de oppervlaktes van alle rechthoekjes bij elkaar optellen. En deze totale oppervlakte is dan hetzelfde als de oppervlakte <span class="arithmatex">\(V\)</span>.</p>
 <figure>
 <p><img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/Oppervlakte%20onder%20de%20grafiek%20%28met%2010%20rechthoeken%29.svg" width="500" />
     <figcaption>Figuur 2. Functie geplot met <span class="arithmatex">\(10\)</span> rechthoeken onder de grafiek. De breedte van de rechthoeken is <span class="arithmatex">\(\Delta x\)</span>. De hoogte is de waarde van de functie bij de <span class="arithmatex">\(x\)</span> waar de rechthoek begint.</figcaption></p>
@@ -1293,7 +1295,8 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p>En dit kunnen we ook noteren als:</p>
 <div class="arithmatex">\[V = \int_a^b f(x) \, dx\]</div>
 <p>We schrijven <span class="arithmatex">\(dx\)</span> in plaats van <span class="arithmatex">\(\Delta x\)</span> om aan te geven dat het om een oneindig kleine afstand gaat. <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> zijn hier de grenzen van het oppervlak. Dus <span class="arithmatex">\(a\)</span> is het <span class="arithmatex">\(x\)</span>-coördinaat van het begin van de oppervlakte, <span class="arithmatex">\(b\)</span> het <span class="arithmatex">\(x\)</span>-coördinaat van het einde van de oppervlakte. Voor oppervlakte <span class="arithmatex">\(V\)</span> van Figuur 1 zou dus gelden: <span class="arithmatex">\(a=9\)</span> en <span class="arithmatex">\(b=13\)</span>.</p>
-<p>Deze notatie noemen we een <em>integraal</em>. En het mooie van zo'n integraal is dat we nu niet meer de oppervlakte van elke rechthoek apart bij elkaar op hoeven te tellen. Met oneindig veel rechthoeken zou je namelijk een tijdje bezig zijn... <br><br></p>
+<p>Deze notatie noemen we een <em>integraal</em>. En het mooie van zo'n integraal is dat we nu niet meer de oppervlakte van elke rechthoek apart bij elkaar op hoeven te tellen. Met oneindig veel rechthoeken zou je namelijk een tijdje bezig zijn... </p>
+<hr />
 <h3 id="integralen-uitwerken"><strong>Integralen Uitwerken</strong></h3>
 <p>We kunnen een <em>integraal</em> uitwerken door de primitieve te gebruiken. Laten we hiernaar kijken met behulp van een voorbeeld. Stel we hebben bijvoorbeeld de volgende functie:</p>
 <div class="arithmatex">\[f(x) = 6x^2\]</div>
@@ -1347,6 +1350,7 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p>We hebben ook <em>onbepaalde</em> integralen. Dit zijn integralen zonder grenzen. Dit lijkt misschien ingewikkeld, maar eigenlijk is het gewoon een andere manier om een primitieve op te schijven:</p>
 <div class="arithmatex">\[\large{\int f(x) \, dx = F(x)}\]</div>
 </details>
+<hr />
 <h3 id="oppervlaktes-onder-de-x-as"><strong>Oppervlaktes onder de x-as</strong></h3>
 <p>Als een oppervlakte onder de <span class="arithmatex">\(x\)</span>-as ligt, geeft dit een negatieve bijdrage aan een integraal. In het voorbeeld hierboven hebben we gezien dat de oppervlakte <span class="arithmatex">\(V\)</span> van Figuur 4 gelijk is aan <span class="arithmatex">\(2\)</span>:</p>
 <div class="arithmatex">\[V = \int_0^1 6x^2 \, dx = 2\]</div>
@@ -1370,7 +1374,7 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <div class="arithmatex">\[\large{V = - \int_a^b f(x) \, dx}\]</div>
 <p>Anders krijgen we namelijk een negatieve oppervlakte.</p>
 </details>
-<p><br></p>
+<hr />
 <h3 id="deel-boven-en-deel-onder-de-x-as"><strong>Deel boven en deel onder de x-as</strong></h3>
 <p>Als zowel een deel van een oppervlakte boven de <span class="arithmatex">\(x\)</span>-as is als onder de <span class="arithmatex">\(x\)</span>-as, moeten we goed opletten. Want alleen het gedeelte onder de <span class="arithmatex">\(x\)</span>-as krijgt een extra '<span class="arithmatex">\(-\)</span>'. Dit betekent dat we de hele oppervlakte moeten splitsen in het deel boven de <span class="arithmatex">\(x\)</span>-as en het deel onder de <span class="arithmatex">\(x\)</span>-as.</p>
 <p>Laten we kijken naar de volgende functie:</p>
@@ -1397,6 +1401,7 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <div class="arithmatex">\[\large{V = 0}\]</div>
 </div>
 </details>
+<p><br></p>
 <p>We beginnen eerst met de oppervlakte van <span class="arithmatex">\(I\)</span> te bepalen. Deze oppervlakte gaat van <span class="arithmatex">\(x=-\pi\)</span> tot <span class="arithmatex">\(x=0\)</span> en is onder de <span class="arithmatex">\(x\)</span>-as. Onze integraal wordt dan dus:</p>
 <div class="arithmatex">\[I = - \int_{-\pi}^{0} \sin(x) \, dx\]</div>
 <p>Nu kunnen we de primitieve nemen. In de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> zien we dat de primitieve van <span class="arithmatex">\(\sin(x)\)</span> gelijk is aan <span class="arithmatex">\(-\cos(x)\)</span>:</p>
@@ -1812,6 +1817,8 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <div class="arithmatex">\[\large{p = \frac{5}{6} \pi}\]</div>
 </div>
 </details>
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
 <h2 id="oppervlakte-tussen-twee-grafieken"><strong>Oppervlakte tussen twee grafieken</strong></h2>
 <p>We hebben net gezien hoe we de oppervlakte onder een grafiek kunnen berekenen door te integreren. Maar kunnen we ook de oppervlakte berekenen van een vlakdeel tussen twee grafieken? </p>
 <p>Laten we kijken naar de volgende functies:</p>
@@ -1956,6 +1963,7 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <div class="arithmatex">\[\large{I = \int_{a}^{b} \left( \, f(x) - g(x) \, \right) \, dx }\]</div>
 </div>
 </details>
+<p><br></p>
 <p>En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervlakte tussen twee functies te bepalen.</p>
 <details class="belangrijk" open="open">
 <summary>Belangrijk</summary>

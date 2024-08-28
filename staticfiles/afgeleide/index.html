@@ -561,9 +561,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exponentiele-funtie" class="md-nav__link">
+  <a href="#exponentiele-functie" class="md-nav__link">
     <span class="md-ellipsis">
-      Exponentiële funtie
+      Exponentiële functie
     </span>
   </a>
   
@@ -798,9 +798,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exponentiele-funtie" class="md-nav__link">
+  <a href="#exponentiele-functie" class="md-nav__link">
     <span class="md-ellipsis">
-      Exponentiële funtie
+      Exponentiële functie
     </span>
   </a>
   
@@ -914,6 +914,7 @@
 <h2 id="introductie-afgeleide"><strong>Introductie Afgeleide</strong></h2>
 <p>De afgeleide van een functie geeft je op elk <span class="arithmatex">\(x\)</span>-coördinaat de bijbehorende <em>richtingscoëfficient</em>.* De functie geeft dan dus niet meer het <span class="arithmatex">\(y\)</span>-coördinaat als je <span class="arithmatex">\(x\)</span> invult, maar de helling van de grafiek op dat punt. Laten we naar een paar verschillende functies kijken.</p>
 <p><em><div> * Richtingscoëfficient is een ander woord voor helling.</div></em></p>
+<hr />
 <h3 id="parabool"><strong>Parabool</strong></h3>
 <p>Een parabool heeft in het simpleste geval de vorm</p>
 <div class="arithmatex">\[f(x) = x^2.\]</div>
@@ -931,15 +932,13 @@
 <p>In het filmpje kunnen we iets interessants zien. Bij de top van de functie kunnen we zien dat de helling <span class="arithmatex">\(0\)</span> is. Dit betekent dus ook dat de afgeleide gelijk is <span class="arithmatex">\(0\)</span>. En dit blijkt altijd het geval te zijn voor alle toppen. Dus als we de coördinaten van een top willen bepalen, moeten we de afgeleide gelijk stellen aan <span class="arithmatex">\(0\)</span>:</p>
 <div class="arithmatex">\[f'(x) = 0.\]</div>
 <p>Als we deze vergelijking dus oplossen, vinden we het <span class="arithmatex">\(x\)</span>-coördinaat van de top. En als we deze <span class="arithmatex">\(x\)</span>-waarde in <span class="arithmatex">\(f(x)\)</span> stoppen, krijgen we ook het <span class="arithmatex">\(y\)</span>-coördinaat. Bij <a href="#extreme-waardes-bepalen">Extreme waardes bepalen</a> kijken we hier meer uitgebreid naar.</p>
-<h3 id="exponentiele-funtie"><strong>Exponentiële funtie</strong></h3>
+<hr />
+<h3 id="exponentiele-functie"><strong>Exponentiële functie</strong></h3>
 <p>Een exponentiële functie heeft de vorm</p>
 <div class="arithmatex">\[f(x) = e^x.\]</div>
 <p>Deze <span class="arithmatex">\(e\)</span> is het getal van euler. Het is een constante met de volgende waarde: <span class="arithmatex">\(e = 2.7182818...\)</span></p>
-<p>Het bijzondere van dit getal is dat de afgeleide van <span class="arithmatex">\(e^x\)</span> ook <span class="arithmatex">\(e^x\)</span> is. De afgeleide van deze functie is dus zichzelf!</p>
-<p>Dus als:</p>
-<div class="arithmatex">\[f(x) = e^x\]</div>
-<p>Dan geldt er dat:</p>
-<div class="arithmatex">\[f'(x) = e^x.\]</div>
+<p>Het bijzondere van dit getal is dat de afgeleide van <span class="arithmatex">\(e^x\)</span> ook <span class="arithmatex">\(e^x\)</span> is. De afgeleide van deze functie is gewoon weer zichzelf.</p>
+<div class="arithmatex">\[f(x) = f'(x) = e^x\]</div>
 <p>In het onderstaande filmpje kunnen we goed zien hoe dit eruit ziet.</p>
 <details class="video" open="open">
 <summary>Video</summary>
@@ -949,6 +948,8 @@
 <p><em><p style="text-align: center;">Filmpje: Visuele weergave van de afgeleide van de functie <span class="arithmatex">\(f(x) = e^x\)</span>. Er is te zien dat op elk punt geldt dat <span class="arithmatex">\(f(x) = f'(x)\)</span>. Dit is wat de e-macht zo bijzonder maakt. </p></em></p>
 </details>
 <p>De helling op elk punt is dus hetzelfde als het <span class="arithmatex">\(y\)</span>-coördinaat op dat punt. De functie blijft dus maar steeds sneller stijgen als <span class="arithmatex">\(y\)</span> toeneemt. Als iets op deze manier steeds sneller blijft toenemen, noemen we dat <em>exponentieel</em>.</p>
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
 <h2 id="afgeleides-bepalen"><strong>Afgeleides Bepalen</strong></h2>
 <p>Om een afgeleide te bepalen, kunnen we de onderstaande <a href="#tabel-met-veel-voorkomende-functies">tabel</a> gebruiken. Daarin staan de meest voorkomende afgeleides van verschillende functies. En hier vind je de <a href="#regels">regels</a> voor functies die bestaan uit andere kleinere functies.</p>
 <details class="belangrijk" open="open">
@@ -987,7 +988,7 @@
 <td><span class="arithmatex">\(\large{f'(x) = \Large \frac{1}{x}}\)</span></td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\large{f(x) = \ ^a \! \log(x)}\)</span></td>
+<td><span class="arithmatex">\(\large{f(x) = \, ^a \! \log(x)}\)</span></td>
 <td><span class="arithmatex">\(\large{f'(x) = \Large \frac{1}{x \ \cdot \ \ln(a)}}\)</span></td>
 </tr>
 <tr>
@@ -1040,19 +1041,22 @@
 <summary>Opmerking Notatie</summary>
 <h3 id="notatie"><strong>Notatie</strong></h3>
 <p>Een afgeleide kan op verschillende manieren worden weergegeven:</p>
-<ul>
-<li><span class="arithmatex">\(\Large{f'(x)}\)</span></li>
-<li><span class="arithmatex">\(\Large{\dfrac{d f{\left(x \right)}}{d x}}\)</span></li>
-<li>
-<p><span class="arithmatex">\(\Large{\dfrac{d}{d x} f{\left(x \right)}}\)</span>
-<br><br></p>
-</li>
-<li>
-<p><span class="arithmatex">\(\Large{y'}\)</span></p>
-</li>
-<li><span class="arithmatex">\(\Large{\dfrac{d y}{d x}}\)</span></li>
-<li><span class="arithmatex">\(\Large{\dfrac{d}{d x} y}\)</span></li>
-</ul>
+<p><div style="display: flex; justify-content: space-around;">
+    <div>
+        <ul>
+            <li><span class="arithmatex">\(\large{f'(x)}\)</span></li>
+            <li><span class="arithmatex">\(\large{\dfrac{d f{\left(x \right)}}{d x}}\)</span></li>
+            <li><span class="arithmatex">\(\large{\dfrac{d}{d x} f{\left(x \right)}}\)</span></li>
+        </ul>
+    </div>
+    <div>
+        <ul>
+            <li><span class="arithmatex">\(\large{y'}\)</span></li>
+            <li><span class="arithmatex">\(\large{\dfrac{d y}{d x}}\)</span></li>
+            <li><span class="arithmatex">\(\large{\dfrac{d}{d x} y}\)</span></li>
+        </ul>
+    </div>
+</div></p>
 </details>
 <h3 id="voorbeelden"><strong>Voorbeelden</strong></h3>
 <details class="example">
@@ -1349,6 +1353,8 @@
 </div></p>
 <p><br></p>
 </div>
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
 <h2 id="extreme-waardes-bepalen"><strong>Extreme waardes bepalen</strong></h2>
 <p>Zoals we zagen bij het filmpje van een <a href="#parabool">parabool</a>, is de helling <span class="arithmatex">\(0\)</span> bij een top. Dit kunnen we ook zien aan de raaklijn, want die is gewoon horizontaal. Op dat punt verandert de <span class="arithmatex">\(y\)</span> dus niet als <span class="arithmatex">\(x\)</span> een klein beetje verandert. </p>
 <p>Dit kunnen we gebruiken om de coördinaten van de <em>extreme waarde</em> te bepalen.* We moeten dan dus kijken waar de helling en dus de afgeleide gelijk is aan <span class="arithmatex">\(0\)</span>. Hier hoort de volgende vergelijking bij:</p>

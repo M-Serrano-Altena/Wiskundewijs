@@ -477,30 +477,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Voorbeelden">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#voorbeeld-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Voorbeeld 1
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#voorbeeld-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Voorbeeld 2
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -719,30 +695,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Voorbeelden">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#voorbeeld-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Voorbeeld 1
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#voorbeeld-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Voorbeeld 2
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -762,75 +714,186 @@
 
 <h1 id="de-stelling-van-pythagoras"><em>De Stelling van Pythagoras</em></h1>
 <h2 id="theorie"><strong>Theorie</strong></h2>
-<p>Met de stelling van Pythagoras kunnen we de zijdes van een rechthoekige driehoek bepalen. Dit is een driehoek waarvan een van de hoeken <span class="arithmatex">\(90 ^{\circ}\)</span> is. Deze hoek wordt dan een "rechte hoek" genoemd. </p>
+<p>Met de stelling van Pythagoras kunnen we de zijdes van een rechthoekige driehoek bepalen. Dit is een driehoek waarvan één van de hoeken <span class="arithmatex">\(90 ^{\circ}\)</span> is. Deze hoek noemen we dan ook de <em>rechte hoek</em>. </p>
 <p>De stelling van Pythagoras gaat als volgt:</p>
-<p>Bij een rechthoekige driehoek zijn de twee rechthoekszijdes in het kwadraat samen gelijk aan de schuine zijde in het kwadraat. De rechthoekszijdes zijn de zijdes die verbonden zijn met de rechte hoek. De schuine zijde is de zijde tegenover deze rechte hoek.</p>
+<div class="arithmatex">\[\large{\boxed{a^2 + b^2 = c^2}}\]</div>
+<p>Hier zijn <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> de zijdes die verbonden zijn met de rechte hoek. Deze zijdes noemen we daarom ook de <em>rechthoekszijdes</em>. Verder is <span class="arithmatex">\(c\)</span> de schuine zijde van de driehoek. Deze schuine zijde is de zijde tegenover de rechte hoek en is altijd de langste zijde van de driehoek.</p>
 <figure>
-<p><img alt="Rechte driehoek" src="../assets/images/pythagoras/Right_Triangle.svg" width="300" />
-    <figcaption>Figuur 1. Een rechte driehoek, dus een driehoek waarbij 1 hoek 90° is. <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> zijn de rechthoekszijdes, <span class="arithmatex">\(c\)</span> is de schuine zijde. </figcaption></p>
+<p><center><img alt="Rechte driehoek" src="../assets/images/pythagoras/Right_Triangle.svg" width="300" />
+    <figcaption>Figuur 1. Een rechtehoekige driehoek, dus een driehoek waarbij 1 hoek 90° is. <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> zijn de rechthoekszijdes, <span class="arithmatex">\(c\)</span> is de schuine zijde. </figcaption></p>
 </figure>
-<p>In Figuur 1 zijn dus <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> de rechthoekszijdes, want die zijdes zijn verbonden met de rechte hoek. Zijde <span class="arithmatex">\(c\)</span> is dan de schuine zijde, want dit is de zijde tegenover de rechte hoek. </p>
-<p>In formule form wordt de Stelling van Pythagoras:</p>
-<div class="admonition belangrijk">
-<p class="admonition-title">Belangrijk</p>
-<div class="arithmatex">\[\LARGE{a^2 + b^2 = c^2.}\]</div>
-</div>
-<p>met <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> dus de rechthoekszijdes en <span class="arithmatex">\(c\)</span> de schuine zijde. </p>
-<p>Hieronder is er een filmpje om te laten zien waar de Stelling van Pythagoras vandaan komt.</p>
+<p>In Figuur 1 zijn <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> dus de rechthoekszijdes, want die zijdes zijn verbonden met de rechte hoek. Zijde <span class="arithmatex">\(c\)</span> is dan de schuine zijde, want dit is de zijde tegenover de rechte hoek. </p>
+<p><br>
+Maar waar komt de Stelling van Pythagoras vandaan? Hieronder is er een filmpje die dit laat zien:</p>
 <details class="video" open="open">
 <summary>Video</summary>
-<p><video controls>
+<p><strong><p style="font-size:20px;">Bewijs Stelling van Pythagoras</p></strong>
+<video controls>
   <source src="../assets/videos/Pythagoras.mp4" type="video/mp4">
 </video></p>
-<p><em><p style="text-align: center;">Filmpje: Visueel bewijs van de Stelling van Pythagoras</p></em></p>
+</details>
+<p><br>
+Laten we een voorbeeld bekijken. In Figuur 2 hieronder zien we dat we twee zijdes gegeven hebben gekregen.</p>
+<figure>
+<p><center><img alt="Rechte driehoek" src="../assets/images/pythagoras/Right_Triangle2.svg" width="200" />
+    <figcaption>Figuur 2. Een rechtehoekige driehoek met de twee zijdes gegeven. Zijde <span class="arithmatex">\(AC\)</span> heeft lengte <span class="arithmatex">\(4\)</span> en zijde <span class="arithmatex">\(AB\)</span> heeft lengte <span class="arithmatex">\(2\)</span>. </figcaption></p>
+</figure>
+<p>Stel we willen de zijde <span class="arithmatex">\(BC\)</span> bepalen, hoe pakken we dat aan?</p>
+<p>We gebruiken dan de Stelling van Pythagoras:</p>
+<div class="arithmatex">\[a^2 + b^2 = c^2\]</div>
+<p>Als we kijken naar Figuur 2, dan zien we dat zowel <span class="arithmatex">\(AB\)</span> als <span class="arithmatex">\(AC\)</span> verbonden is met de rechte hoek. Dit betekent dus dat <span class="arithmatex">\(AB\)</span> en <span class="arithmatex">\(AC\)</span> de rechthoekszijdes <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> zijn. Zijde <span class="arithmatex">\(c\)</span> moet dan wel <span class="arithmatex">\(BC\)</span> zijn:</p>
+<div class="arithmatex">\[AB^2 + AC^2 = BC^2\]</div>
+<p>Nu kunnen we <span class="arithmatex">\(AB\)</span> en <span class="arithmatex">\(AC\)</span> invullen:</p>
+<div class="arithmatex">\[4^2 + 2^2 = AC^2\]</div>
+<p>Als we de kwadraten uitwerken, krijgen we:</p>
+<div class="arithmatex">\[16 + 4 = AC^2\]</div>
+<p>en dus:</p>
+<div class="arithmatex">\[AC^2 = 20\]</div>
+<p>Nu kunnen we de lengte van <span class="arithmatex">\(AC\)</span> bepalen door aan beide kanten de wortel te nemen:</p>
+<div class="arithmatex">\[AC = \sqrt{20}\]</div>
+<p>Als we dit in onze rekenmachine invullen, dan vinden we:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{AC \approx 4.47}\]</div>
+</div>
+<details class="belangrijk" open="open">
+<summary>Belangrijk</summary>
+<p><strong><span style="font-size: 20px;">De Stelling van Pythagoras</span></strong></p>
+<p>Bij een rechthoekige driehoek zijn de twee rechthoekszijdes in het kwadraat samen gelijk aan de schuine zijde in het kwadraat:</p>
+<div class="arithmatex">\[\Large{\boxed{a^2 + b^2 = c^2}}\]</div>
+<ul>
+<li><span style="font-size: 16px;"><strong>Rechthoekszijde:</strong> Een zijde die verbonden is met de rechte hoek (hoek van <span class="arithmatex">\(90^{\circ} \,\)</span>)</span></li>
+<li><span style="font-size: 16px;"><strong>Schuine zijde:</strong> De zijde tegenover de rechte hoek. Het is ook altijd de langste zijde van de driehoek.</span></li>
+</ul>
 </details>
 <h2 id="voorbeelden"><strong>Voorbeelden</strong></h2>
 <details class="example">
-<summary>Voorbeeld 1: Bereken de lengte van de schuine zijde</summary>
-<h3 id="voorbeeld-1">Voorbeeld 1</h3>
-<p><strong><p style="text-align: center;font-size:20px;">Vraag: Wat is de lengte van de schuine zijde <span class="arithmatex">\(c\)</span>?</p></strong>
-    <strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<summary>Voorbeeld 1: Bereken de lengte van zijde <span class="arithmatex">\(AC\)</span></summary>
+<p><em><p style="text-align: center;font-size:20px;">In Figuur 1 hieronder is er een rechthoekige driehoek weergegeven waarbij zijdes <span class="arithmatex">\(AB\)</span> en <span class="arithmatex">\(BC\)</span> allebei een lengte van <span class="arithmatex">\(2\)</span> hebben.</p></em></p>
 <p><figure markdown>
-  <img alt="Rechte driehoek" src="../assets/images/pythagoras/Right_Triangle_example1.svg" width="300" />
-  <figcaption>Figuur 2. Een rechte driehoek met twee rechte zijdes met lengte 2.</figcaption>
+  <center><img alt="Rechte driehoek" src="../assets/images/pythagoras/Right_Triangle_example1.svg" width="200" />
+  <figcaption>Figuur 1. Een rechtehoekige driehoek met twee rechte zijdes van lengte <span class="arithmatex">\(2\)</span>.</figcaption>
 </figure></p>
-<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong>
-We beginnen met het opschrijven van de stelling van Pythagoras</p>
-<div class="arithmatex">\[\large{a^2 + b^2 = c^2}\]</div>
-<p>We weten dat de rechthoekszijdes allebei een lengte van 2 hebben en dus dat <span class="arithmatex">\(a = 2\)</span> en <span class="arithmatex">\(b = 2\)</span>. Dit kunnen we nu gaan invullen.</p>
-<div class="arithmatex">\[\large{2^2 + 2^2 = c^2}\]</div>
-<div class="arithmatex">\[\large{c^2 = 8}\]</div>
-<p>Nu nemen we aan beide kanten de wortel om van <span class="arithmatex">\(c^2\)</span> naar <span class="arithmatex">\(c\)</span> te gaan (zie eventueel de <a href="../basisvaardigheden/#regels-met-wortels">Regels met Wortels</a>)</p>
-<div class="arithmatex">\[\large{c = \sqrt{8}}\]</div>
-<p>Dit kunnen we versimpelen tot:</p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;">Bereken de lengte van zijde <span class="arithmatex">\(AC\)</span>. Rond zo nodig af op <span class="arithmatex">\(2\)</span> decimalen.</span></strong></p>
+<p><br><br><br><br><br>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Als we kijken naar Figuur 1, dan zien we dat zijdes <span class="arithmatex">\(AB\)</span> en <span class="arithmatex">\(BC\)</span> verbonden zijn met de rechte hoek, dus dat zijn de rechthoekszijdes. Dit betekent dus ook dat zijde <span class="arithmatex">\(AC\)</span>, die tegenover de rechte hoek is, de schuine zijde is. De Stelling van Pythagoras wordt dus:</p>
+<div class="arithmatex">\[\large{AB^2 + BC^2 = AC^2}\]</div>
+<p>Nu kunnen we zijdes <span class="arithmatex">\(AB\)</span> en <span class="arithmatex">\(BC\)</span> invullen, want die hebben allebei een lengte <span class="arithmatex">\(2\)</span>:</p>
+<div class="arithmatex">\[\large{2^2 + 2^2 = AC^2}\]</div>
+<p>Als we de kwadraten uitwerken, dan krijgen we:</p>
+<div class="arithmatex">\[\large{4 + 4 = AC^2}\]</div>
+<p>en dus:</p>
+<div class="arithmatex">\[\large{AC^2 = 8}\]</div>
+<p>Om <span class="arithmatex">\(AC\)</span> te kunnen bepalen, moeten we aan beide kanten de wortel nemen. We krijgen dan:</p>
+<div class="arithmatex">\[\large{AC = \sqrt{8}}\]</div>
+<p>En als we dit invullen op onze rekenmachine, dan vinden we:</p>
+<div class="arithmatex">\[\large{AC = 2.82842712474619...}\]</div>
+<p>We moesten afronden op <span class="arithmatex">\(2\)</span> decimalen, dus we vinden dan:</p>
 <div class="admonition quote">
-<div class="arithmatex">\[\large{c = 2\sqrt{2}}\]</div>
+<div class="arithmatex">\[\large{c \approx 2.83}\]</div>
 </div>
 </details>
 <details class="example">
-<summary>Voorbeeld 2: Bereken de lengte van een van de rechte zijdes</summary>
-<h3 id="voorbeeld-2">Voorbeeld 2</h3>
-<p><strong><p style="text-align: center;font-size:20px;">Vraag: Wat is de lengte van de rechte zijde <span class="arithmatex">\(b\)</span>?</p></strong>
-<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong> </p>
+<summary>Voorbeeld 2: Bereken de lengte van zijde <span class="arithmatex">\(AC\)</span></summary>
+<p><em><p style="text-align: center;font-size:20px;">In Figuur 2 hieronder zien we een rechthoekige driehoek waarbij zijde <span class="arithmatex">\(AB\)</span> een lengte <span class="arithmatex">\(4\)</span> heeft en zijde <span class="arithmatex">\(AB\)</span> een zijde <span class="arithmatex">\(3\)</span></p></em></p>
 <p><figure markdown>
-  <img alt="Rechte driehoek" src="../assets/images/pythagoras/Right_Triangle_example2.svg" width="300" />
-  <figcaption>Figuur 3. Een rechte driehoek met 1 rechte zijde met lengte 3 en een schuine zijde met lengte 5.</figcaption>
+  <center><img alt="Rechte driehoek" src="../assets/images/pythagoras/Right_Triangle_example2.svg" width="200" />
+  <figcaption>Figuur 2. Een rechtehoekige driehoek met zijde <span class="arithmatex">\(AB = 4\)</span> en zijde <span class="arithmatex">\(BC = 3\)</span>.</figcaption>
 </figure></p>
-<p>We schrijven eerst weer de Stelling van Pythagoras op:</p>
-<div class="arithmatex">\[\large{a^2 + b^2 = c^2}\]</div>
-<p>Nu vullen we de gegevens in die we hebben. We weten dat 1 rechtehoekszijde een lengte heeft van 3 en dat de schuine zijde een lengte heeft van 5. Oftewel <span class="arithmatex">\(a=3\)</span> en <span class="arithmatex">\(c=5\)</span>. Laten we dit invullen:</p>
-<div class="arithmatex">\[\large{3^2 + b^2 = 5^2}\]</div>
-<div class="arithmatex">\[\large{9 + b^2 = 25}\]</div>
-<p>We willen nu de <span class="arithmatex">\(b^2\)</span> term vrij maken om dit op te lossen. Dit doen we door aan beide kanten van het '<span class="arithmatex">\(=\)</span>' teken <span class="arithmatex">\(-9\)</span> te doen. We krijgen dan:</p>
-<div class="arithmatex">\[\large{b^2 = 25 - 9}\]</div>
-<div class="arithmatex">\[\large{b^2 = 16}\]</div>
-<p>Om het kwadraat weg te werken nemen we aan beide kanten de wortel:</p>
-<div class="arithmatex">\[\large{\sqrt{b^2} = \sqrt{16}}\]</div>
-<p>Het kwadraat en de wortel vallen tegen elkaar weg, dus we houden over:</p>
-<div class="arithmatex">\[\large{b = \sqrt{16}}\]</div>
-<p>(zie eventueel regel 6 van de <a href="../basisvaardigheden/#regels-met-wortels">Regels met Wortels</a>). Als we de wortel van <span class="arithmatex">\(16\)</span> nog verder versimpelen, dan krijgen we uiteindelijk: </p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;">Bereken de lengte van zijde <span class="arithmatex">\(AC\)</span>. Rond zo nodig af op <span class="arithmatex">\(2\)</span> decimalen.</span></strong></p>
+<p><br><br><br><br><br>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Als we kijken naar Figuur 2, dan zien we dat zijde <span class="arithmatex">\(AB\)</span> tegenover de rechte hoek ligt, dus dit is de schuine zijde. Zijde <span class="arithmatex">\(BC\)</span> is verbonden met de rechte hoek, dus dit is een rechthoekszijde. Zijde <span class="arithmatex">\(AC\)</span> is dus de andere rechthoekszijde.</p>
+<p>Als we de Stelling van Pythagoras willen opstellen, moeten we goed opletten. We doen altijd de twee rechthoekszijdes in het kwadraat plus elkaar. Dus in dit geval wordt dat:</p>
+<div class="arithmatex">\[\large{BC^2 + AC^2 = AB^2}\]</div>
+<p>We weten dat <span class="arithmatex">\(BC = 3\)</span> en <span class="arithmatex">\(AB = 4\)</span>:</p>
+<div class="arithmatex">\[\large{3^2 + AC^2 = 4^2}\]</div>
+<p>Nu werken we de kwadraten uit:</p>
+<div class="arithmatex">\[\large{9 + AC^2 = 16}\]</div>
+<p>We krijgen dus dat <span class="arithmatex">\(AC^2 + 9\)</span> gelijk is aan <span class="arithmatex">\(16\)</span>. Dit betekent dus dat <span class="arithmatex">\(AC^2\)</span> gelijk moet zijn aan <span class="arithmatex">\(7\)</span> (zie eventueel ook <a href="../basisvaardigheden/#vergelijkingen-omschrijven">Vergelijkingen Omschrijven</a>):</p>
+<div class="arithmatex">\[\large{AC^2 = 7}\]</div>
+<p>Nu kunnen we <span class="arithmatex">\(AC\)</span> bepalen door de wortel te nemen:</p>
+<div class="arithmatex">\[\large{AC = \sqrt{7}}\]</div>
+<p>En als we dit invullen op onze rekemachine, dan vinden we:</p>
+<div class="arithmatex">\[\large{x = 2.64575131106459...}\]</div>
 <div class="admonition quote">
-<div class="arithmatex">\[\large{b = 4}\]</div>
+<div class="arithmatex">\[\large{b \approx 2}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 3: Bereken de lengte van zijde <span class="arithmatex">\(AB\)</span></summary>
+<p><em><p style="text-align: center;font-size:20px;">In Figuur 3 zien we een rechthoekige driehoek waarbij zijde <span class="arithmatex">\(AC\)</span> een lengte van <span class="arithmatex">\(8\)</span> heeft en zijde <span class="arithmatex">\(BC\)</span> een lengte <span class="arithmatex">\(6\)</span>.</p></em></p>
+<p><figure markdown>
+  <center><img alt="Rechte driehoek" src="../assets/images/pythagoras/Right_Triangle_example3.svg" width="250" />
+  <figcaption>Figuur 3. Een rechtehoekige driehoek met met zijdes <span class="arithmatex">\(AC = 8\)</span> en <span class="arithmatex">\(BC = 6\)</span>.</figcaption>
+</figure></p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;">Bereken de lengte van zijde <span class="arithmatex">\(AB\)</span>. Rond zo nodig af op <span class="arithmatex">\(2\)</span> decimalen.</span></strong></p>
+<p><br><br><br><br><br>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We zien in Figuur 3 dat zijdes <span class="arithmatex">\(AC\)</span> en <span class="arithmatex">\(BC\)</span> allebei verbonden zijn met de rechte hoek. Dit betekent dus dat het allebei rechthoekszijdes zijn en dus ook dat zijde <span class="arithmatex">\(AB\)</span> de schuine zijde is. De Stelling van Pythagoras wordt dus:</p>
+<div class="arithmatex">\[\large{AC^2 + BC^2 = AB^2}\]</div>
+<p>Nu vullen we de lengte van de zijdes <span class="arithmatex">\(AC\)</span> en <span class="arithmatex">\(BC\)</span> in:</p>
+<div class="arithmatex">\[\large{8^2 + 6^2 = AB^2}\]</div>
+<p>Als we de kwadraten uitwerken, dan vinden we:</p>
+<div class="arithmatex">\[\large{64 + 36 = AB^2}\]</div>
+<p>en dus:</p>
+<div class="arithmatex">\[\large{AB^2 = 100}\]</div>
+<p>Om <span class="arithmatex">\(AB\)</span> te bepalen, moeten we de wortel nemen. We krijgen dus:</p>
+<div class="arithmatex">\[\large{AB = \sqrt{100}}\]</div>
+<p>We kunnen dit invullen op onze rekenmachine. We vinden dan:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{AB = 10}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 4: Bereken de lengte van zijde <span class="arithmatex">\(AB\)</span> en van zijde <span class="arithmatex">\(BD\)</span></summary>
+<p><em><p style="text-align: center;font-size:20px;">We zien in Figuur 4 twee rechte driehoeken aan elkaar met de gegeven zijdes <span class="arithmatex">\(AC=6\)</span>, <span class="arithmatex">\(BC = 5\)</span> en <span class="arithmatex">\(AD = 10\)</span></p></em></p>
+<p><figure markdown>
+  <center><img alt="Rechte driehoek" src="../assets/images/pythagoras/Right_Triangle_example4.svg" width="250" />
+  <figcaption>Figuur 4. Een rechtehoekige driehoek met twee rechte zijdes van lengte <span class="arithmatex">\(2\)</span>.</figcaption>
+</figure></p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;">Bereken de lengte van zijdes <span class="arithmatex">\(AB\)</span> en <span class="arithmatex">\(BD\)</span> zo nodig op <span class="arithmatex">\(2\)</span> decimalen nauwkeurig.</span></strong></p>
+<p><br><br><br><br><br>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We beginnen eerst met zijde <span class="arithmatex">\(AB\)</span> bepalen. We hebben de driehoek <span class="arithmatex">\(\Delta ABC\)</span> en de driehoek <span class="arithmatex">\(\Delta ABD\)</span>. Van driehoek <span class="arithmatex">\(\Delta ABC\)</span> weten we <span class="arithmatex">\(2\)</span> zijdes, van driehoek <span class="arithmatex">\(\Delta ABD\)</span> weten we maar <span class="arithmatex">\(1\)</span> zijde. We gebruiken dus driehoek <span class="arithmatex">\(\Delta ABC\)</span> om zijde <span class="arithmatex">\(AB\)</span> te bepalen.</p>
+<p>We zien in Figuur 4 dat zijde <span class="arithmatex">\(AC\)</span> tegenover de rechte hoek is, dus dat is de schuine zijde. Zijdes <span class="arithmatex">\(BC\)</span> en <span class="arithmatex">\(AB\)</span> zijn verbonden met de rechte hoek, dus dat zijn de rechthoekszijdes. De Stelling van Pythagoras wordt dus:</p>
+<div class="arithmatex">\[\large{AB^2 + BC^2 = AC^2}\]</div>
+<p>We vullen nu de gegevens in die we hebben:</p>
+<div class="arithmatex">\[\large{AB^2 + 5^2 = 6^2}\]</div>
+<p>En als we de kwadraten uitwerken:</p>
+<div class="arithmatex">\[\large{AB^2 + 25 = 36}\]</div>
+<p>We zien dat <span class="arithmatex">\(AB^2\)</span> plus <span class="arithmatex">\(25\)</span> gelijk is aan <span class="arithmatex">\(36\)</span>. We moeten <span class="arithmatex">\(11\)</span> optellen bij <span class="arithmatex">\(25\)</span> om <span class="arithmatex">\(36\)</span> te krijgen, dus dit moet betekenen dat <span class="arithmatex">\(AB^2\)</span> gelijk is aan <span class="arithmatex">\(11\)</span> (zie eventueel anders ook <a href="../basisvaardigheden/#vergelijkingen-omschrijven">Vergelijkingen Omschrijven</a>):</p>
+<div class="arithmatex">\[\large{AB^2 = 11}\]</div>
+<p>Om achter <span class="arithmatex">\(AB\)</span> te komen, moeten we aan beide kanten de wortel nemen om van het kwadraat af te komen:</p>
+<div class="arithmatex">\[\large{AB = \sqrt{11}}\]</div>
+<p>Als we dit op onze rekenmachine invullen, dan vinden we:</p>
+<div class="arithmatex">\[\large{AB = 3.3166247903554...}\]</div>
+<p>Afgerond op <span class="arithmatex">\(2\)</span> decimalen wordt dit:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{AB \approx 3.32}\]</div>
+</div>
+<p><br></p>
+<p>Nu dat we zijde <span class="arithmatex">\(AB\)</span> hebben bepaald, kunnen we ook zijde <span class="arithmatex">\(BD\)</span> bepalen. We hebben nu namelijk <span class="arithmatex">\(2\)</span> zijdes van driehoek <span class="arithmatex">\(\Delta ABD\)</span>.</p>
+<p>Als we weer kijken naar Figuur 4, dan zien we dat zijde <span class="arithmatex">\(AD\)</span> en zijde <span class="arithmatex">\(AB\)</span> allebei verbonden zijn met de rechte hoek, dus het zijn allebei rechthoekszijcdes. Zijde <span class="arithmatex">\(BD\)</span> is dan dus de schuine zijde. De Stelling van Pythagoras word dus:</p>
+<div class="arithmatex">\[\large{AB^2 + AD^2 = BD^2}\]</div>
+<p>En nu vullen we de lengte van de zijdes in:</p>
+<div class="arithmatex">\[3.3166247903554...^2 + 10^2 = BD^2\]</div>
+<p>Het is hier heel belangrijk dat we voor <span class="arithmatex">\(AB\)</span> de niet afgeronde versie gebruiken zodat we geen afrondfouten maken. </p>
+<p>Als we de kwadraten berekenen, dan vinden we:</p>
+<div class="arithmatex">\[\large{11 + 100 = BD^2}\]</div>
+<p>en dus:</p>
+<div class="arithmatex">\[\large{BD^2 = 111}\]</div>
+<p>Om de lengte <span class="arithmatex">\(BD\)</span> te bepalen moeten we aan beide kanten de wortel nemen zodat we van het kwadraat af komen:</p>
+<div class="arithmatex">\[\large{BD = \sqrt{111}}\]</div>
+<p>Als we dit invullen op onze rekenmachine, dan vinden we:</p>
+<div class="arithmatex">\[\large{BD = 10.5356537528527...}\]</div>
+<p>We moesten afronden op <span class="arithmatex">\(2\)</span> decimalen, dus ons eindantwoord wordt:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{BD \approx 10.54}\]</div>
 </div>
 </details>
 
