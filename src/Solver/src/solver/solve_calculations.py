@@ -602,6 +602,8 @@ class Solve:
         if b in roots and eq_lambda_np(b - 1) * eq_lambda_np(b + 1) >= 0:
             roots = np.delete(roots, np.where(roots == b))
 
+        roots = roots[(np.isfinite(eq_lambda_np(roots + 0.01))) | (np.isfinite(eq_lambda_np(roots - 0.01)))]
+
         if default_func:
             self.intersect = True
             self.numerical = True
@@ -636,7 +638,11 @@ class Solve:
             if self.roots_numeric.size != 0:
                 break
 
-        if self.equation_is_inequality and not isinstance(self.solution_inequality, (sp.logic.boolalg.BooleanFalse, sp.logic.boolalg.BooleanTrue, list)):
+        solutions = sp.FiniteSet(*self.roots_numeric)
+        self.intersect = not solutions.is_empty
+
+        # handle inequality
+        if self.equation_is_inequality and not isinstance(self.solution_inequality, (sp.logic.boolalg.BooleanFalse, sp.logic.boolalg.BooleanTrue, list)) and self.intersect:
             abs_sorted_roots = self.roots_numeric[np.argsort(np.abs(self.roots_numeric))]
             solution_inequality_list = list(np.append(abs_sorted_roots[abs_sorted_roots >=0], abs_sorted_roots[abs_sorted_roots < 0]))
 
@@ -681,7 +687,7 @@ class Solve:
 
                 self.solution_inequality = combined_expr
         
-        return sp.FiniteSet(*self.roots_numeric)
+        return solutions
 
 
     def check_solve_numerically(self, solution_set) -> typing.Optional[sp.FiniteSet]:
@@ -800,13 +806,21 @@ class Solve:
             self.eq = self.eq.subs(self.symbol, symbol_new)
             self.eq1 = sp.sympify(self.eq1).subs(self.symbol, symbol_new)
             self.eq2 = sp.sympify(self.eq2).subs(self.symbol, symbol_new)
-            self.eq12 = self.eq1 - self.eq2
+            self.eq12 = self.eq1 - self.eq2 if not self.multivariate else -self.eq2
             self.symbol = symbol_new
 
         def no_solutions_inequality_output():
             if self.equation_is_inequality:
-                extrema_func = [self.eq12_lambda_np(float(sol)) for sol in sp.solve(sp.diff(self.eq12))]
-                extrema_func = min(extrema_func) if ">" in self.equation_type else max(extrema_func)
+                try:
+                    extrema_func = [self.eq12_lambda_np(float(sol)) for sol in sp.solve(sp.diff(self.eq12))]
+                    extrema_func = min(extrema_func) if ">" in self.equation_type else max(extrema_func)
+                except Exception:
+                    values = sorted([num for num in range(-100, 100)], key=abs)
+                    for num in values:
+                        try:
+                            extrema_func = self.eq12_lambda_np(num)
+                        except Exception:
+                            pass
 
                 if apply_opperator(extrema_func, self.equation_type, 0):
                     self.output.append(("Deze vergelijking is waar voor alle x", {"latex": False}))
@@ -964,9 +978,9 @@ class Solve:
                 if len(free_symbols) >= 2:
                     self.output.append(("Error: Meer dan 1 variabele", {"latex": False}))
                     return self.equation_interpret, self.output, self.plot
-
+                
                 set_real_symbol()
-
+                
                 eqs = [self.eq1, self.eq2, self.eq12]
                 self.eq1_unsimplified, self.eq2_unsimplified, self.eq12_unsimplified = eqs
                 eqs = [custom_simplify(eq) for eq in eqs]
@@ -995,7 +1009,7 @@ class Solve:
                 self.domain = sp.calculus.util.continuous_domain(self.eq12, self.symbol, domain=sp.S.Reals)
                 self.domain_is_reals = bool(self.domain is sp.S.Reals)
 
-            self.equation_is_inequality = self.equation_type != '='
+            self.equation_is_inequality = self.equation_type != '=' and not self.multivariate
 
             if not isinstance(self.eq12, sp.AccumBounds):
                 self.solution_set = sp.solveset(self.eq12, domain=sp.S.Reals)

@@ -58,7 +58,7 @@ def interpret_latex_root(eq_string):
         
         for index in index_start_square_brackets:
             root_exp, index =  get_arg_in_brackets(eq_string, index, bracket_type="[]")
-            eq_string = re.sub(rf"\\sqrt\[({re.escape(root_exp)})\](\w)", r"root(\2, \1)", eq_string)
+            eq_string = re.sub(rf"\\sqrt\[({re.escape(root_exp)})\]" + r"([\w\p{Greek}])", r"root(\2, \1)", eq_string)
             index += 1
 
             sqrt_arg, _ = get_arg_in_brackets(eq_string, index, bracket_type="()")
@@ -84,7 +84,7 @@ def interpret_latex_root(eq_string):
     replacements = [
         (r"\\sqrt\{", r"sqrt"),
         (r"\\sqrt\(", r"sqrt("),  # \sqrt(x) --> √(x)
-        (r"∜(\w)", r"root(\1, 4)"),  # ∜x --> root(x, 4)
+        (r"∜([\w\p{Greek}])", r"root(\1, 4)"),  # ∜x --> root(x, 4)
     ]
 
     for pattern, repl in replacements:
@@ -119,14 +119,14 @@ def interpret_integral(eq_string):
 
             matched_subscript, matched_superscript = matched_args
 
-            eq_string = re.sub(rf"∫_\(({re.escape(matched_subscript)})\)\^\(({re.escape(matched_superscript)})\)\s*([^∫]*?)\s*d([a-zA-Z])\b", r"integrate(\3, (\4, \1, \2))", eq_string)
+            eq_string = re.sub(rf"∫_\(({re.escape(matched_subscript)})\)\^\(({re.escape(matched_superscript)})\)\s*([^∫]*?)\s*" + r"(?<!d/)d(\p{L})(?=\b|d\p{L})", r"integrate(\3, (\4, \1, \2))", eq_string)
 
         return eq_string
 
     format_integral = [
-        (r"∫\s*_\s*(\d+|\w)\s*\^\s*(\d+|\w)", r"∫_(\1)^(\2)"),
-        (r"∫\s*_\s*(\d+|\w)\s*\^\s*\((.*?)\)", r"∫_(\1)^(\2)"),
-        (r"∫\s*_\s*\((.*?)\)\s*\^\s*(\d+|\w)", r"∫_(\1)^(\2)"),
+        (r"∫\s*_\s*(\d+|[\w\p{Greek}])\s*\^\s*(\d+|[\w\p{Greek}])", r"∫_(\1)^(\2)"),
+        (r"∫\s*_\s*(\d+|[\w\p{Greek}])\s*\^\s*\((.*?)\)", r"∫_(\1)^(\2)"),
+        (r"∫\s*_\s*\((.*?)\)\s*\^\s*(\d+|[\w\p{Greek}])", r"∫_(\1)^(\2)"),
         (r"∫\s*_\s*\(([^∫]*?)\)\s*\^\s*\((.*?)\)", r"∫_(\1)^(\2)"),
     ]
 
@@ -135,7 +135,7 @@ def interpret_integral(eq_string):
 
     for _ in range(100):
         eq_string_before = eq_string
-        eq_string = re.sub(r"∫(?!(?:\s*_\s*\([^∫]*?\)\s*\^\s*\([^∫]*?\)))\s*([^∫]*?)\s*d([a-zA-Z])\b", r"integrate(\1, \2)", eq_string)
+        eq_string = re.sub(r"∫(?!(?:\s*_\s*\([^∫]*?\)\s*\^\s*\([^∫]*?\)))\s*([^∫]*?)\s*d(\p{L})\b", r"integrate(\1, \2)", eq_string)
         eq_string = interpret_integral_replacement(eq_string)
         if eq_string == eq_string_before:
             break
@@ -144,8 +144,8 @@ def interpret_integral(eq_string):
 
 
 def interpret_derivative(eq_string):
-    index_derivative = [m.end() for m in re.finditer(r"d/d[a-zA-Z]", eq_string)]
-    index_nth_derivative = [m.end() for m in re.finditer(r"d\^\((\d+)\)/d([a-zA-Z])\^\(\1\)", eq_string)]
+    index_derivative = [m.end() for m in re.finditer(r"d/d\p{L}", eq_string)]
+    index_nth_derivative = [m.end() for m in re.finditer(r"d\^\((\d+)\)/d(\p{L})\^\(\1\)", eq_string)]
 
     if not (index_derivative or index_nth_derivative):
         return eq_string
@@ -156,7 +156,7 @@ def interpret_derivative(eq_string):
         diff_args.append(diff_arg)
 
     for diff_arg in diff_args:
-        eq_string = re.sub(rf"d/d([a-zA-Z])\s*\(({re.escape(diff_arg)})\)", r"diff(\2, \1)", eq_string)
+        eq_string = re.sub(rf"d/d(" + r"\p{L}" + rf")\s*\(({re.escape(diff_arg)})\)", r"diff(\2, \1)", eq_string)
     
     if not index_nth_derivative:
         return eq_string
@@ -167,13 +167,13 @@ def interpret_derivative(eq_string):
         diff_args.append(diff_arg)
 
     for diff_arg in diff_args:
-        eq_string = re.sub(rf"d\^\((\d+)\)/d([a-zA-Z])\^\(\1\)\s*\(({re.escape(diff_arg)})\)", r"diff(\3, \2, \1)", eq_string)
+        eq_string = re.sub(rf"d\^\((\d+)\)/d(" + r"\p{L}" + rf")\^\(\1\)\s*\(({re.escape(diff_arg)})\)", r"diff(\3, \2, \1)", eq_string)
         
 
     return eq_string
 
 def interpret_log(eq_string):
-    eq_string = re.sub(r"log_(\d+|\w)", r"log_(\1)", eq_string)
+    eq_string = re.sub(r"log_(\d+|[\w\p{Greek}])", r"log_(\1)", eq_string)
 
     index_log = [m.end() for m in re.finditer(r"log_", eq_string)]
 
@@ -189,7 +189,7 @@ def interpret_log(eq_string):
         indices_start_args.append(index + 2)
 
     for log_base in log_bases:
-        eq_string = re.sub(rf"log_\(({re.escape(log_base)})\)\s*(\d+|\w)", r"log_(\1) (\2)", eq_string)
+        eq_string = re.sub(rf"log_\(({re.escape(log_base)})\)\s*" + r"(\d+|[\w\p{Greek}])", r"log_(\1) (\2)", eq_string)
         eq_string = re.sub(rf"log_\(({re.escape(log_base)})\)\s*\(", r"log_(\1) (", eq_string)
 
     for index in indices_start_args:
@@ -204,15 +204,20 @@ def interpret_log(eq_string):
 
 def latex_to_plain_text(latex_str):
     diff_formatting = [
-        (r"d/d([a-zA-Z])\s*\(?", r"d/d\1("),
-        (r"d\^[({]*(\d+)[)}]*/d([a-zA-Z])\^[({]*\1[)}]*\s*\(?", r"d^(\1)/d\2^(\1)("),
-        (r"\\frac\{\s*d\s*\}\{d\s*([a-zA-Z])\s*\}\s*\(?", r"d/d\1("),
-        (r"\\frac\{\s*d\^[({]*(\d+)[)}]*\s*\}\{d\s*([a-zA-Z])\^[({]*\1[)}]*\s*\}\s*\(?", r"d^(\1)/d\2^(\1)("),
+        (r"d/d(\p{L})\s*(?!\()([\w\p{Greek}()]+)", r"d/d\1(\2)"),
+        (r"d/d(\p{L})\s*\(?", r"d/d\1("),
+        (r"d\^[({]*(\d+)[)}]*/d(\p{L})\^[({]*\1[)}]*\s*(?!\()([\w\p{Greek}()]+)", r"d^(\1)/d\2^(\1)(\3)"),
+        (r"d\^[({]*(\d+)[)}]*/d(\p{L})\^[({]*\1[)}]*\s*\(?", r"d^(\1)/d\2^(\1)("),
+        (r"\\[cd]?frac\{\s*d\s*\}\{d\s*(\p{L})\s*\}\s*(?!\()([\w\p{Greek}()]+)", r"d/d\1(\2)"),
+        (r"\\[cd]?frac\{\s*d\s*\}\{d\s*(\p{L})\s*\}\s*\(?", r"d/d\1("),
+        (r"\\[cd]?frac\{\s*d\^[({]*(\d+)[)}]*\s*\}\{d\s*(\p{L})\^[({]*\1[)}]*\s*\}\s*(?!\()([\w\p{Greek}()]+)", r"d^(\1)/d\2^(\1)(\3)"),
+        (r"\\[cd]?frac\{\s*d\^[({]*(\d+)[)}]*\s*\}\{d\s*(\p{L})\^[({]*\1[)}]*\s*\}\s*\(?", r"d^(\1)/d\2^(\1)("),
     ]    
     general_formatting = [
         (r"\{", "{("),
         (r"\}", ")}"),
         (r"%", r"\%"),  # Escape percent signs
+        (r"\\[cd]?frac", r"\\frac"),
     ]
 
     replacements_before = diff_formatting + general_formatting
@@ -271,7 +276,7 @@ def split_equation(eq_string):
         return re.split(rf"({symbols_string})", eq_string)
     else:
         return [eq_string]
-
+    
 
 def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10', amt_commas: int=1, nested_level: int=1, position_type: str='after', extra_arguments: int=0) -> str:
     """
@@ -290,13 +295,20 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
     """
 
 
-    def check_object_number() -> bool:
+    def check_object_is_type(object_type="number") -> bool:
         """
         Checks if the substring following the current position in the equation is a numeric object.
 
         Returns:
             bool: True if the substring is a number, False otherwise.
         """
+        def is_type(sp_object, object_type):
+            if object_type == "number":
+                return sp_object.is_number
+            elif object_type == "symbol":
+                return sp_object.is_Symbol
+            
+            return False
 
         index_comma = get_index_in_substring()
         relevant_index = index_comma + 1
@@ -309,7 +321,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
                 relevant_nested -= 1
                 if relevant_nested < nested:
                     break
-            elif char == ',':
+            elif char == ',' and relevant_nested == nested:
                 break
         
             relevant_index += 1
@@ -317,7 +329,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
         relevant_string = ''.join(string[index_comma+1:relevant_index])
 
         try:
-            return sp.sympify(relevant_string).is_number
+            return is_type(sp.sympify(relevant_string), object_type)
         except Exception:
             return False
         
@@ -341,10 +353,11 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
                 relevant_nested -= 1
                 if relevant_nested < nested:
                     break
-            elif char == ',':
+            elif char == ',' and relevant_nested == nested:
                 comma_counter += 1
         
         return comma_counter
+
 
     func_amt_commas = {'diff': 2, 'subs': 2, "limit": 3, 'integrate': 3, "Sum": 3, "Product": 3} # max amount of commas each function has for proper syntax
     index_func = [m.start() for m in re.finditer(func_name, eq_string)] # get index list of start of each function name
@@ -390,6 +403,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
         check_is_number = False
         comma_amt = 0
         has_been_nested = False
+        add_close_bracket = False
 
         if func_name in func_amt_commas.keys():
             if is_dot_func[substring_index]:
@@ -410,17 +424,28 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
                     has_been_nested = True
                     nested += 1
                     if amt_commas == 0 and add_args > 0:
+
                         if char_index_before is None:
                             char_index_before = char_index
                         elif nested == nested_level:
-                            char_index_before = None
-                            check_is_number = check_object_number()
                             comma_amt = count_commas()
+                            check_is_number = check_object_is_type(object_type="number")
+                            char_index_before = None
                             if check_is_number and comma_amt <= num_comma - 1:
                                 replace_with_pretty = f'{replace_with}, '
                                 index_list.append((char_index + 1, replace_with_pretty))
                                 add_args -= 1
 
+                        elif nested_level == 2 and nested == 1:
+                            comma_amt = count_commas()
+                            check_is_number = check_object_is_type(object_type="number")
+                            check_is_symbol = check_object_is_type(object_type="symbol")
+                            if comma_amt > 0 and (check_is_number or check_is_symbol):
+                                open_bracket_index = index_func[0] + char_index + 1
+                                open_bracket_index_substring = get_index_in_substring() + 1
+                                string.insert(open_bracket_index_substring, "(")
+                                eq_string = eq_string[:open_bracket_index] + "(" + eq_string[open_bracket_index:]
+                                add_close_bracket = True
                     
                 elif char == ')':
                     nested -= 1
@@ -437,6 +462,14 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
                     if nested == 0:
                         amt_commas = amt_commas_start
                         nested = nested_before
+                        # nested_before = 0
+
+                    elif add_close_bracket and nested == 1:
+                        close_bracket_index = index_func[0] + char_index + 1
+                        close_bracket_index_substring = get_index_in_substring() + 1
+                        string.insert(close_bracket_index_substring, ")")
+                        eq_string = eq_string[:close_bracket_index] + ")" + eq_string[close_bracket_index:]
+                        add_close_bracket = False
 
 
                 elif char == ',' and nested == 1:
@@ -444,15 +477,26 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
 
                     if amt_commas == 0 and add_args > 0:
                         char_index_before = char_index
-
                         if nested_level == 1:
                             replace_with_pretty = f', {replace_with}'
-                            check_is_number = check_object_number()
                             comma_amt = count_commas()
+                            check_is_number = check_object_is_type(object_type="number")
+                            
                             if check_is_number and comma_amt < num_comma - 1: 
                                 index_list.append((char_index_before, replace_with_pretty))
                                 add_args -= 1
                                 check_is_number = False
+
+                        elif nested_level == 2:
+                            comma_amt = count_commas()
+                            check_is_number = check_object_is_type(object_type="number")
+                            check_is_symbol = check_object_is_type(object_type="symbol")
+                            if comma_amt > 0 and (check_is_number or check_is_symbol):
+                                open_bracket_index = index_func[0] + char_index + 2 if eq_string[index_func[0] + char_index + 1] == ' ' else index_func[0] + char_index + 1
+                                open_bracket_index_substring = get_index_in_substring() + (open_bracket_index - char_index)
+                                string.insert(open_bracket_index_substring, "(")
+                                eq_string = eq_string[:open_bracket_index] + "(" + eq_string[open_bracket_index:]
+                                add_close_bracket = True
 
                 if amt_commas + extra_arguments < 0 and len(index_list) != 0 and nested_before == 0:
                     index_list.pop()
@@ -486,13 +530,16 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
                     amt_commas = amt_commas_start
                     nested = nested_before
 
+            # print(char, char_index, nested, nested_before, amt_commas, index_list)
+
             char_index += 1
 
         index_list_secure.extend(index_list)
 
     additional_index = index_func[0]
     for char_index, replace_with_pretty in index_list_secure:
-        eq_string = eq_string[:char_index + additional_index] + replace_with_pretty + eq_string[char_index + additional_index:]
+        char_index += additional_index 
+        eq_string = eq_string[:char_index] + replace_with_pretty + eq_string[char_index:]
         additional_index += len(replace_with_pretty)
     
     return eq_string
@@ -701,7 +748,7 @@ def math_interpreter(eq_string: str) -> str:
         (r'(\d+/\d+)\s+(\d+/\d+)', r'\1*\2'), # 1/2 3/4 -> 1/2*3/4
         (r'(\d+)\s+(\d+/\d+)(?!(?:\.))', r'(\1+\2)'), # 1 2/3 -> (1+2/3)
         (r"\s+\.", "."), #  . -> .
-        (r"\b(\d+)\.([a-zA-Z])", r"(\1).\2"), # 2.diff() -> (2).diff()
+        (r"\b(\d+)\.(\p{L})", r"(\1).\2"), # 2.diff() -> (2).diff()
     ]
 
     for pattern, repl in replacements:
@@ -729,24 +776,24 @@ def math_interpreter(eq_string: str) -> str:
     added_x = False
     if relevant_functions:
         rel_func_pattern = '|'.join(map(re.escape, relevant_functions))
-        eq_string = re.sub(rf'({rel_func_pattern})' + r'(?:\s)+([\w]+)', r'\1(\2)', eq_string) # sin x -> sin(x)
+        eq_string = re.sub(rf'({rel_func_pattern})' + r'(?:\s)+([\w\p{Greek}]+)', r'\1(\2)', eq_string) # sin x -> sin(x)
 
-        add_x_pattern = rf'({rel_func_pattern})' + r'(?!\w+|\()' # sin -> sin(x)
+        add_x_pattern = rf'({rel_func_pattern})' + r'(?![\w\p{Greek}]+|\()' # sin -> sin(x)
         if re.findall(add_x_pattern, eq_string): 
             added_x = True
             eq_string = re.sub(add_x_pattern, r'\1(x)', eq_string)
 
 
-    eq_string = re.sub(r'(?<=[\w)])\s+(?=[\w(])', '*', eq_string)
+    eq_string = re.sub(r'(?<=[\w\p{Greek})])\s+(?=[\w\p{Greek}(])', '*', eq_string)
 
     sub_patterns = [
         (r'(?<!\.)\b0(\d)', r'\1'), # remove leading 0
-        (r'(\d)([a-zA-Z])', r'\1*\2'), # 2x -> 2*x
-        (r'\b([a-zA-Z])(\d)', r'\1^\2'), # x2 -> x^2
-        (r'\)(\w)', r')*\1'), # )x -> )*x or )2 -> )*2
-        (r'(\w)\(', r'\1*('), # x( -> x*( or 2( -> 2*(
+        (r'(\d)(\p{L})', r'\1*\2'), # 2x -> 2*x
+        (r'\b(\p{L})(\d)', r'\1^\2'), # x2 -> x^2
+        (r'\)([\w\p{Greek}])', r')*\1'), # )x -> )*x or )2 -> )*2
+        (r'([\w\p{Greek}])\(', r'\1*('), # x( -> x*( or 2( -> 2*(
         (r'\)\(', r')*('), # )( -> )*(
-        (r'([a-zA-Z])\1+', insert_asterisks), # xx -> x*x
+        (r'(\p{L})\1+', insert_asterisks), # xx -> x*x
         (r'\b([e])\b', r'E'), # e -> E
         (r'\b([i])\b', r'I'), # i -> I
     ]
@@ -780,14 +827,14 @@ def math_interpreter(eq_string: str) -> str:
             eq_string = nest_functions(eq_string)
 
             # Handle cases where function names overlap like sin and sinh
-            matches = re.finditer(rf'({func1})' + rf'(?!(?:{rel_func_pattern}))' +  r'([\w(]+)', eq_string, overlapped=True)
+            matches = re.finditer(rf'({func1})' + rf'(?!(?:{rel_func_pattern}))' +  r'([\w\p{Greek}(]+)', eq_string, overlapped=True)
             old_eq_string = eq_string
             for match in matches:
                 extra_index = len(eq_string) - len(old_eq_string)
                 eq_string = re.sub(re.escape(match.group()), add_parenthesis(match, extra_index), eq_string, count=1)
             
             # Insert multiplication between a function and preceding variable
-            eq_string = re.sub(r'\b' + rf'(?!(?:{rel_func_pattern}))' + rf'([\w]+)({func1})', r'\1*\2', eq_string)
+            eq_string = re.sub(r'\b' + rf'(?!(?:{rel_func_pattern}))' + r'([\w\p{Greek}]+)' + rf'({func1})', r'\1*\2', eq_string)
 
             # Ensure no multiplication sign between function and its arguments
             eq_string = re.sub(rf'({func1})\*\(', r'\1(', eq_string)
@@ -798,7 +845,7 @@ def math_interpreter(eq_string: str) -> str:
             break
     
     for constant in relevant_constants:
-        constant_patterns = [r'([\w]+)' + f"({constant})", f"({constant})" + r'([\w]+)']
+        constant_patterns = [r'([\w\p{Greek}]+)' + f"({constant})", f"({constant})" + r'([\w\p{Greek}]+)']
         for pattern in constant_patterns:
             if relevant_functions:
                 pattern = rf'(?!(?:{rel_func_pattern}))' + pattern

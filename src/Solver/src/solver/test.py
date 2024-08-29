@@ -19,12 +19,14 @@ import operator
 x, y = sp.symbols("x,y", real=True)
 
 # string = r"\int d/dx (\frac{1}{x}) dx + \int \frac{log_100 (x^2) - log(x)}{4 + 1} dt - \int_{∜(16)}^{\sqrt[9](2^9)} \int_{-\infty}^{\infty} e^{-x^2} dx dt"
-string = r"d/dx \sqrt[4]{x^2} != 0"
-string = math_interpreter(string)
-print(string)
+# string = r"d/dx \sqrt[4]{x^2} != 0"
+# string = math_interpreter(string)
+# print(string)
 # print(sp.sympify(string))
 
-string = "sum(1/x^2, (x, 1, inf))"
+string = "integrate(log(x, 4), x, root(4, 2), log(100)) + integrate(log(x^2, 100) - integrate(1/(x log(100))), 4 + 1, 7) - integrate(e^(-x^2), (-oo, oo))"
+string = r"\int_{0}^{2pi} \dfrac{d^2}{dx^2} (sinx + cosx) + 4 dx"
+string = r"\cfrac{1}{2}"
 string = math_interpreter(string)
 print(string)
-print(sp.sympify(string).doit())
+# print(sp.sympify(string).doit())
