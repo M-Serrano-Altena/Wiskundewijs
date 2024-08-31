@@ -1408,6 +1408,7 @@ $$V = 1 \dfrac{1}{6} + 3 \dfrac{1}{3}$$
     !!! quote ""
         $$\large{V = 4 \dfrac{1}{2}}$$
 
+<br>
 
 ???+ Belangrijk
     ### **Integralen samenvoegen**
@@ -2194,6 +2195,334 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
     !!! quote ""
         $$\large{V = 1.748}$$
 
+<hr style="height: 1.5px; background-color: #575757; border: none;">
 
-<!-- ## **Oppervlakte Wentelen om de x-as** -->
+## **Oppervlakte wentelen om de x-as**
 
+We hebben in [net](#oppervlakte-onder-een-grafiek) gezien dat we de oppervlakte onder een grafiek kunnen bepalen met een integraal. We plotten weer een grafiek met daaronder een oppervlakte $V$.
+
+<figure markdown>
+![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/Oppervlakte onder de grafiek - herhaling.svg){ width="500" }
+    <figcaption>Figuur 1. Functie geplot met oppervlakte $V$ onder de grafiek.</figcaption>
+</figure>
+
+Apart van een oppervlakte onder de grafiek kunnen we ook een inhoud maken. Om dit te doen, *wentelen* we de oppervlakte $V$ *om de $x$-as*. Dus met andere woorden, we draaien met de hele oppervlakte een rondje om de $x$-as zodat we een inhoud krijgen. Hieronder kunnen we zien hoe dit eruit ziet: 
+
+<center>
+<iframe 
+    src="/assets/interactive_images/Grafiek wentelen om de x-as.html" 
+    width="500" 
+    height="400" 
+    frameborder="0"
+    allowtransparency="true">
+</iframe>
+*<span>Figuur 2. Oppervlakte $V$ gewenteld om de $x$-as zodat er een lichaam $L$ ontstaat met een bepaalde inhoud.</span>* <br><br>
+</center>
+
+Om de inhoud van dit lichaam $L$ te bepalen, gebruiken we dezelfde methode als bij een [oppervlakte](#oppervlakte-onder-een-grafiek). Bij een oppervlakte telden we oneindig dunne rechthoekjes allemaal bij elkaar op: 
+
+<figure markdown>
+![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/Oppervlakte onder de grafiek - herhaling (met 100 rechthoeken).svg){ width="500" }
+    <figcaption>Figuur 3. Functie geplot met $100$ rechthoeken onder de grafiek.</figcaption>
+</figure>
+
+Want als we de rechthoekjes klein genoeg maken, dan is dat gelijk aan de oppervlakte $V$. We noteerden dit dan als een integraal:
+
+$$V = \int_a^b f(x) \, dx$$
+
+<br>
+
+Bij een inhoud doen we eigenlijk precies hetzelfde. Het enige verschil is dat we nu geen rechthoeken bij elkaar optellen, maar cilinders. Laten we dus als eerst de inhoud van $L$ proberen te benaderen met $10$ cilinders:
+
+<center>
+<iframe 
+    src="/assets/interactive_images/Grafiek wentelen om de x-as (10 cilinders).html" 
+    width="500" 
+    height="400" 
+    frameborder="0"
+    allowtransparency="true">
+</iframe>
+*<span>Figuur 4. Oppervlakte $V$ gewenteld om de $x$-as met $10$ cilinders onder de grafiek.</span>* <br><br>
+</center>
+
+De inhoud van $1$ cilinder kunnen we bepalen met de formule:
+
+$$I(\text{cilinder}) = \pi r^2 \cdot \Delta x$$
+
+In dit geval is de straal de hoogte tot de functie, dus $f(x)$. En $\Delta x$ is de breedte van de cilinder. Dus net zoals bij de rechthoeken is $\Delta x$ voor alle cilinders hetzelfde en wordt steeds kleiner als we meer cilinders toevoegen. In ons geval geldt dus voor $1$ cilinder:
+
+$$I(\text{cilinder}) = \pi \left(f(x)\right)^2 \cdot \Delta x$$
+
+en voor alle cilinders bij elkaar kunnen we het net zoals bij de [oppervlakte](#oppervlakte-onder-een-grafiek) schrijven als:
+
+$$I(\text{cilinders}) = \sum_{i=1}^{10} \pi \left(f(x_i)\right)^2 \cdot \Delta x$$
+
+Maar als we naar Figuur 4 kijken, dan zien we dat we stukjes van $L$ overhouden. De cilinders zijn nu dus nog alleen maar een benadering. En om deze benadering te verbeteren, kunnen we meer cilinders toevoegen:
+
+<center>
+<iframe 
+    src="/assets/interactive_images/Grafiek wentelen om de x-as (50 cilinders).html" 
+    width="500" 
+    height="400" 
+    frameborder="0"
+    allowtransparency="true">
+</iframe>
+*<span>Figuur 5. Oppervlakte $V$ gewenteld om de $x$-as met $50$ cilinders onder de grafiek.</span>* <br><br>
+</center>
+
+In Figuur 5 kunnen we zien dat het met $50$ cilinders al een stuk meer op lichaam $L$ lijkt. Maar als je inzoomt, dan zie je dat het nog steeds niet precies hetzelfde is. Daarom kunnen we net zoals bij een [oppervlakte](#oppervlakte-onder-een-grafiek) oneindig veel cilinders gebruiken die allemaal oneindig dun zijn.
+
+Om dit te doen, laten we $\Delta x$ naar $0$ gaan zodat de cilinders oneindig dun worden. De inhoud van de cillinders wordt dan gelijk aan de inhoud van $L$:
+
+$$I(L) = \lim_{\Delta x \, \to \, 0} \ \sum_{i=1}^{n} \pi \left(f(x_i)\right)^2 \cdot \Delta x$$
+
+En dit kunnen we weer opschrijven als een integraal:
+
+$$I(L) = \int_a^b \pi \left(f(x)\right)^2 \, dx$$
+
+en omdat $\pi$ een constante is, kunnen we die ook buiten de integraal halen. De algemene vorm om een oppervlakte om de $x$-as te wentelen wordt dan dus:
+
+$$\boxed{I(L) = \pi \int_a^b \left(f(x)\right)^2 \, dx}$$
+
+<br>
+
+???+ Belangrijk
+    ### **Algemene Integraal Wentelen x-as**
+
+    Om de inhoud te bepalen van een opperlvakte die gewenteld wordt om de $x$-as, moeten we de volgende integraal berekenen:
+
+    $$\large{\boxed{I(L) = \pi \int_a^b \left(f(x)\right)^2 \, dx}}$$
+
+    waarbij $a$ en $b$ weer de grenzen van de integraal zijn. 
+    
+    Om deze integraal op te lossen moet je dus eerst het kwadraat uitwerken, en daarna pas integreren.
+
+<br>
+
+Laten we naar een voorbeeld kijken om dit wat duidelijker te maken. Stel we hebben de volgende functie:
+
+$$f(x) = 2x^2$$
+
+met een oppervlakte $V$ dat ingesolten wordt door de functie $f(x)$, de $x$-as, de $y$-as en de lijn $x=4$. 
+
+Nu willen we de inhoud bepalen van het lichaam $L$ dat ontstaat als we $V$ om de $x$-as wentelen. Hoe pakken we dit aan?
+
+Laten we als eerst een schets maken van de situatie zodat we het beter kunnen begrijpen:
+
+<center>
+<iframe 
+    src="/assets/interactive_images/f(x) = 2x^2 (3D).html" 
+    width="500" 
+    height="400" 
+    frameborder="0"
+    allowtransparency="true">
+</iframe>
+*<span>Figuur 6. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
+</center>
+
+Om deze inhoud te bepalen, kunnen we de [algemene vorm](#algemene-integraal-wentelen-x-as) voor een omwentelingslichaam om de x-as gebruiken:
+
+$$I(L) = \pi \int_a^b \left(f(x)\right)^2 \, dx$$
+
+De oppervlakte $V$ ligt boven de $x$-as en wordt ingesloten door de $y-as$ en $x=2$. Dit betekent dat de grenzen dus $x=0$ en $x=2$ zijn:
+
+$$I(L) = \pi \int_0^2 \left(2x^2\right)^2 \, dx$$
+
+Nu kunnen we het kwadraat uitwerken:
+
+$$I(L) = \pi \int_0^2 4x^4 \, dx$$
+
+Nu kunnen we dit integreren. Deze functie is in de vorm $f(x) = ax^n$, dus voor de primitieve moeten we de macht $+1$ doen en dan $1$ gedeeld door deze nieuwe macht ervoor zetten:
+
+$$I(L) = \pi \left[ \dfrac{1}{5} \cdot 4x^5 \right]_0^2$$
+
+En als we dit versimpelen:
+
+$$I(L) = \pi \left[ \dfrac{4}{5} x^5 \right]_0^2$$
+
+Nu kunnen we de grenzen invullen:
+
+$$I(L) = \pi \left( \dfrac{4}{5} \cdot 2^5 - \dfrac{4}{5} \cdot 0^5 \right)$$
+
+En als we dit uitwerken, dan krijgen we:
+
+$$I(L) = \pi \left( \dfrac{4}{5} \cdot 32 \right)$$
+
+Ons eindantwoord wordt dan:
+
+!!! quote ""
+    $$\large{I(L) = 25 \dfrac{3}{5} \pi}$$
+
+### **Voorbeelden**
+
+??? example "Voorbeeld 1: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = 4 - x^2$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = 4 - x^2$ en de $x$-as. Oppervlakte $V$ wordt om de $x$-as gewenteld om lichaam $L$ te maken.</p>*
+
+    <br>
+
+    **<span style="font-size: 17px;">Bereken exact de inhoud van omwentelingslichaam $L$.</span>**
+
+    <br><br><br><br><br>
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Om de situatie te begrijpen maken we eerst een plaatje van de situatie:
+
+    <center>
+        <iframe 
+            src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
+            width="500" 
+            height="400" 
+            frameborder="0"
+            allowtransparency="true">
+        </iframe>
+        <br>
+        *<span>Figuur 1. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
+    </center>
+    
+    Om de inhoud van het omwentelingslichaam $L$ te berekenen, moeten we eerst de grenzen bepalen. Vlakdeel $V$ wordt ingesloten door de $x$-as, dus de grenzen zijn de snijpunten met de $x$-as.
+
+    Om de snijpunten met de $x$-as te kunnen bepalen moeten we de functie $f(x)$ gelijk aan $0$ stellen:
+
+    $$\large{4 - x^2 = 0}$$
+
+    Om dit op te lossen halen we de $4$ naar de andere kant en doen beide kanten keer $-1$:
+
+    $$\large{-x^2 = -4}$$
+
+    $$\large{x^2 = 4}$$
+
+    Dit is een vergelijking van de vorm [$x^2 = c$](kwadratische_vergelijkingen.md#oplossen-vorm-x2-c), dus we moeten aan beide kanten de wortel nemen:
+
+    $$\large{x = -2 \, \vee \, x = 2}$$
+
+    De grenzen zijn dus $x=-2$ en $x=2$. Hiermee kunnen we de integraal opstellen. De [algemene vorm](#algemene-integraal-wentelen-x-as) voor een omwentelingslichaam om de $x$-as was:
+
+    $$\large{I(L) = \pi \int_{a}^{b} \left( f(x) \right)^2 \, dx}$$
+
+    Nu kunnen we de grenzen en $f(x)$ invullen:
+
+    $$\large{I(L) = \pi \int_{-2}^{2} \left( 4 - x^2 \right)^2 \, dx}$$
+
+    Als we de [haakjes uitwerken](basisvaardigheden.md#kwadratisch-haakjes-wegwerken), krijgen we:
+
+    $$\large{I(L) = \pi \int_{-2}^{2} \left( 4 - x^2 \right)\left( 4 - x^2 \right) \, dx}$$
+
+    $$\large{I(L) = \pi \int_{-2}^{2} 4^2 - 2 \cdot 4x^2 + \left(x^2\right)^2 \, dx}$$
+
+    $$\large{I(L) = \pi \int_{-2}^{2} 16 - 8x^2 + x^4 \, dx}$$
+
+    Laten we nog even de volgorde omdraaien:
+
+    $$\large{I(L) = \pi \int_{-2}^{2} x^4 - 8x^2 + 16 \, dx}$$
+
+    Nu kunnen we deze functie gaan integreren. Bij de eerste twee termen doen we de macht $+1$ en dan $1$ gedeeld door deze nieuwe macht ervoor. De laatste term is een constante (getal zonder $x$), dus bij de primitieve plakken we er gewoon een $x$ aanvast. 
+    
+    We krijgen dus:
+
+    $$\large{I(L) = \pi \left[ \dfrac{1}{5}x^5 - \dfrac{1}{3} \cdot 8x^3 + 16x \right]_{-2}^{2}}$$
+
+    $$\large{I(L) = \pi \left[ \dfrac{1}{5}x^5 - 2 \dfrac{2}{3} x^3 + 16x \right]_{-2}^{2}}$$
+
+    En nu kunnen we de grenzen invullen en min elkaar doen:
+
+    $$\large{I(L) = \pi \left( \dfrac{1}{5} \cdot 2^5 - 2 \dfrac{2}{3} \cdot 2^3 + 16 \cdot 2 \right) - \pi \left( \dfrac{1}{5} \cdot (-2)^5 - 2 \dfrac{2}{3} \cdot (-2)^3 + 16 \cdot -2 \right)}$$
+
+    Als we dit uitwerken, dan krijgen we:
+
+    $$\large{I(L) = \pi \left( \dfrac{1}{5} \cdot 32 - 2 \dfrac{2}{3} \cdot 8 + 32 \right) - \pi \left( \dfrac{1}{5} \cdot -32 - 2 \dfrac{2}{3} \cdot -8 - 32 \right)}$$
+
+    $$\large{I(L) = \pi \left( 6 \dfrac{2}{5} - 21 \dfrac{1}{3} + 32 \right) - \pi \left( -6 \dfrac{2}{5} + 21 \dfrac{1}{3} - 32 \right)}$$
+
+    $$\large{I(L) =  17 \dfrac{1}{15} \pi - - 17 \dfrac{1}{15} \pi}$$
+
+    Ons eindantwoord wordt dan dus:
+
+    !!! quote ""
+        $$\large{I(L) =  34 \dfrac{2}{15} \pi}$$
+
+
+<!-- ??? example "Voorbeeld 2: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = 4 - x^2$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = 4 - x^2$ en de $x$-as. Oppervlakte $V$ wordt om de $x$-as gewenteld om lichaam $L$ te maken.</p>*
+
+    <br>
+
+    **<span style="font-size: 17px;">Bereken exact de inhoud van omwentelingslichaam $L$.</span>**
+
+    <br><br><br><br><br>
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Om de situatie te begrijpen maken we eerst een plaatje van de situatie:
+
+    <center>
+        <iframe 
+            src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
+            width="500" 
+            height="400" 
+            frameborder="0"
+            allowtransparency="true">
+        </iframe>
+        <br>
+        *<span>Figuur 1. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
+    </center>
+
+
+??? example "Voorbeeld 3: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = 4 - x^2$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = 4 - x^2$ en de $x$-as. Oppervlakte $V$ wordt om de $x$-as gewenteld om lichaam $L$ te maken.</p>*
+
+    <br>
+
+    **<span style="font-size: 17px;">Bereken exact de inhoud van omwentelingslichaam $L$.</span>**
+
+    <br><br><br><br><br>
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Om de situatie te begrijpen maken we eerst een plaatje van de situatie:
+
+    <center>
+        <iframe 
+            src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
+            width="500" 
+            height="400" 
+            frameborder="0"
+            allowtransparency="true">
+        </iframe>
+        <br>
+        *<span>Figuur 1. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
+    </center>
+
+
+??? example "Voorbeeld 4: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = 4 - x^2$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = 4 - x^2$ en de $x$-as. Oppervlakte $V$ wordt om de $x$-as gewenteld om lichaam $L$ te maken.</p>*
+
+    <br>
+
+    **<span style="font-size: 17px;">Bereken exact de inhoud van omwentelingslichaam $L$.</span>**
+
+    <br><br><br><br><br>
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Om de situatie te begrijpen maken we eerst een plaatje van de situatie:
+
+    <center>
+        <iframe 
+            src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
+            width="500" 
+            height="400" 
+            frameborder="0"
+            allowtransparency="true">
+        </iframe>
+        <br>
+        *<span>Figuur 1. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
+    </center>
+
+
+
+
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+## **Omwentelingslichaam tussen twee grafieken** -->

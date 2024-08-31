@@ -24,9 +24,7 @@ x, y = sp.symbols("x,y", real=True)
 # print(string)
 # print(sp.sympify(string))
 
-string = "integrate(log(x, 4), x, root(4, 2), log(100)) + integrate(log(x^2, 100) - integrate(1/(x log(100))), 4 + 1, 7) - integrate(e^(-x^2), (-oo, oo))"
-string = r"\int_{0}^{2pi} \dfrac{d^2}{dx^2} (sinx + cosx) + 4 dx"
-string = r"\cfrac{1}{2}"
+string = r"d/dx x^2 = 34 2/15 pi"
 string = math_interpreter(string)
 print(string)
 # print(sp.sympify(string).doit())

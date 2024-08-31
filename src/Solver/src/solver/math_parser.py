@@ -204,7 +204,7 @@ def interpret_log(eq_string):
 
 def latex_to_plain_text(latex_str):
     diff_formatting = [
-        (r"d/d(\p{L})\s*(?!\()([\w\p{Greek}()]+)", r"d/d\1(\2)"),
+        (r"d/d(\p{L})\s*(?!\()([\w\p{Greek}()^]+)", r"d/d\1(\2)"),
         (r"d/d(\p{L})\s*\(?", r"d/d\1("),
         (r"d\^[({]*(\d+)[)}]*/d(\p{L})\^[({]*\1[)}]*\s*(?!\()([\w\p{Greek}()]+)", r"d^(\1)/d\2^(\1)(\3)"),
         (r"d\^[({]*(\d+)[)}]*/d(\p{L})\^[({]*\1[)}]*\s*\(?", r"d^(\1)/d\2^(\1)("),
@@ -214,10 +214,11 @@ def latex_to_plain_text(latex_str):
         (r"\\[cd]?frac\{\s*d\^[({]*(\d+)[)}]*\s*\}\{d\s*(\p{L})\^[({]*\1[)}]*\s*\}\s*\(?", r"d^(\1)/d\2^(\1)("),
     ]    
     general_formatting = [
+        (r"\\[cd]?frac", r"\\frac"),
+        (r"\\frac\{([\d.]+)\}\{([\d.]+)\}", r"\1/\2"),
         (r"\{", "{("),
         (r"\}", ")}"),
         (r"%", r"\%"),  # Escape percent signs
-        (r"\\[cd]?frac", r"\\frac"),
     ]
 
     replacements_before = diff_formatting + general_formatting
@@ -493,7 +494,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
                             check_is_symbol = check_object_is_type(object_type="symbol")
                             if comma_amt > 0 and (check_is_number or check_is_symbol):
                                 open_bracket_index = index_func[0] + char_index + 2 if eq_string[index_func[0] + char_index + 1] == ' ' else index_func[0] + char_index + 1
-                                open_bracket_index_substring = get_index_in_substring() + (open_bracket_index - char_index)
+                                open_bracket_index_substring = get_index_in_substring() + (open_bracket_index - char_index - index_func[0])
                                 string.insert(open_bracket_index_substring, "(")
                                 eq_string = eq_string[:open_bracket_index] + "(" + eq_string[open_bracket_index:]
                                 add_close_bracket = True

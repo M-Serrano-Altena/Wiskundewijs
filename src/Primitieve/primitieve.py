@@ -1,9 +1,14 @@
 from manim import *
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import plotly.graph_objs as go
+import plotly.io as pio
+from bs4 import BeautifulSoup
 import sympy as sp
 import numpy as np
 import re
 from src.Solver.src.solver.solve_calculations import custom_latex
+import os
 
 class Parabola(Scene):
     def construct(self):
@@ -100,6 +105,12 @@ class Exponential(Scene):
         self.wait()
 
 
+base_path = os.path.dirname(__file__)
+base_path = os.path.dirname(base_path)
+base_path = os.path.dirname(base_path)
+asset_path = os.path.join(base_path, "mkdocs", "assets")
+
+
 def replace_superscript(eq_string):
     def replace_superscript_logic(match):
         matched_super = match.group(1)
@@ -126,6 +137,10 @@ def replace_superscript(eq_string):
 def draw_func(
     func, title, x_range, y_range, func2=None, line=None, **kwargs
 ):
+    global asset_path
+    images_primitieve_path = os.path.join(asset_path, "images", "primitieven")
+    os.chdir(images_primitieve_path)
+
     x = np.arange(x_range[0], x_range[1], 0.01)
 
     x1 = [num for num in x if sp.sympify(func(num)).is_real]
@@ -182,7 +197,7 @@ def draw_func(
     ax.xaxis.label.set_color("#D3D3D3")
     ax.yaxis.label.set_color("#D3D3D3")
     ax.tick_params(axis="both", colors="#D3D3D3")
-    ax.set_facecolor("#708090")
+    ax.set_facecolor("none")
 
     ax.set_title(title, loc="center", color="#D3D3D3")
 
@@ -499,10 +514,10 @@ def draw_func(
     plt.legend(loc="upper right")
 
     save_name = replace_superscript(title).replace('÷', '!divide!')
-    plt.savefig(f"{save_name}.svg")
+    plt.savefig(f"{save_name}.svg", dpi=300)
     plt.show()
 
-
+    os.chdir(asset_path)
 
 
 # draw_func(lambda x: 6*x**2, "f(x) = 6x²", x_range=(-2, 2), y_range=(-2, 8), root=False, integral_range=(0, 1), V_loc_label=(0.72, 1.75), func_label=True)
@@ -541,10 +556,194 @@ def draw_func(
 # draw_func(func=lambda x: 3*x - x**2 + 2, func2=lambda x: x**2 - 2.5*x + 3, title="Oppervlakte tussen twee functies onder de x-as (verschoven)", x_range=(-1, 4), y_range=(-1, 5), root=False, intersect=True, integral_range='intersect', V_loc_label=(1.3, 2.8), func_label=(r"$f(x) + c$", r"$g(x) + c$"), surface_type='between', letter='V', no_ax=True)
 
 # draw_func(func=lambda x: sp.sqrt(x), func2=lambda x: x**2, title="f(x) = sqrt(x); g(x) = x²", x_range=(-0.5, 1.5), y_range=(-0.5, 1.5), root=False, intersect=True, integral_range='intersect', V_loc_label=(0.4, 0.4), func_label=True, surface_type='between', letter='V', no_ax=True)
-draw_func(func=lambda x: sp.sqrt(x), func2=lambda x: x**2, title="f(x) = sqrt(x); g(x) = x² (met lijn k; opp I)", x_range=(-0.5, 2), y_range=(-0.5, 2), root=False, intersect=True, integral_range='intersect', V_loc_label=(0.475, 0.3), func_label=True, surface_type='line, func2', letter='I', no_ax=False, line=lambda x: x, line_label=r"$k \! : y = x$")
-draw_func(func=lambda x: sp.sqrt(x), func2=lambda x: x**2, title="f(x) = sqrt(x); g(x) = x² (met lijn k; opp W)", x_range=(-0.5, 2), y_range=(-0.5, 2), root=False, intersect=True, integral_range='intersect', V_loc_label=(0.7, 0.4), func_label=True, surface_type='line', letter='W', no_ax=True, line=lambda x: x, line_label=r"$k \! : y = x$")
+# draw_func(func=lambda x: sp.sqrt(x), func2=lambda x: x**2, title="f(x) = sqrt(x); g(x) = x² (met lijn k; opp I)", x_range=(-0.5, 2), y_range=(-0.5, 2), root=False, intersect=True, integral_range='intersect', V_loc_label=(0.475, 0.3), func_label=True, surface_type='line, func2', letter='I', no_ax=False, line=lambda x: x, line_label=r"$k \! : y = x$")
+# draw_func(func=lambda x: sp.sqrt(x), func2=lambda x: x**2, title="f(x) = sqrt(x); g(x) = x² (met lijn k; opp W)", x_range=(-0.5, 2), y_range=(-0.5, 2), root=False, intersect=True, integral_range='intersect', V_loc_label=(0.7, 0.4), func_label=True, surface_type='line', letter='W', no_ax=True, line=lambda x: x, line_label=r"$k \! : y = x$")
 
 # draw_func(func=lambda x: sp.sin(3*x) + 2, func2=lambda x: sp.cos(3*x) + 2, title="f(x) = sin(3x) + 2; g(x) = cos(3x) + 2", x_range=(-1, 3), y_range=(-1, 5), root=False, intersect=True, integral_range=(1/12 * sp.pi, 2/3 * sp.pi), V_loc_label=np.array(([0.675, 2], [1.8, 2])), func_label=True, surface_type='between', letter='V', no_ax=False, p_xline=2/3*np.pi)
 
 # draw_func(func=lambda x: sp.exp(x-4) - 2, func2=lambda x: sp.log(x), title="f(x) = e^(x - 4) - 2; g(x) = ln(x)", x_range=(-1, 6), y_range=(-4, 4), root=False, intersect=(0.13821, 5.29954), integral_range=(0.13821, 5.29954), V_loc_label=(2.6, -0.4), func_label=True, surface_type='between', letter='V', no_ax=False)
 # draw_func(func=lambda x: sp.exp(x-4) - 2, func2=lambda x: sp.log(x), title="f(x) = e^(x - 4) - 2; g(x) = ln(x) (met lijn k)", x_range=(-1, 6), y_range=(-4, 4), root=False, intersect=(0.13821, 5.29954), integral_range=(0.13821, 5.29954), V_loc_label=(2, -0.1), func_label=True, surface_type='line, func2', letter='W', no_ax=False, line=lambda x: 0.706523519268244 * x - 2.07663, line_label=r"Lijn $k$")
+
+
+
+def draw_func_3d(save_file, func, x_range, y_range, integral_range, func_label=False, add_caps=True, riemann=False, **kwargs):
+    global asset_path
+
+    def create_plot(save_file):
+        def create_caps(surface_combined, x_start, x_end, colorscale=[[0, 'springgreen'], [1, 'springgreen']], hoverinfo='none'):
+            def create_filled_disk(radius, height, theta):
+                r = np.linspace(0, radius, 100)
+                R, Theta = np.meshgrid(r, theta)
+
+                X_disk = np.full_like(R, height)
+                Y_disk = R * np.cos(Theta)
+                Z_disk = R * np.sin(Theta)
+
+                return X_disk, Y_disk, Z_disk
+            
+            X_lower_bound, Y_lower_bound, Z_lower_bound = create_filled_disk(func_np(x_start), x_start, theta)
+            X_upper_bound, Y_upper_bound, Z_upper_bound = create_filled_disk(func_np(x_end), x_end, theta)
+            surface_lower_bound = go.Surface(x=X_lower_bound, y=Y_lower_bound, z=Z_lower_bound, colorscale=colorscale, opacity=0.5, showscale=False, contours=dict(x=dict(highlight=True), y=dict(highlight=False), z=dict(highlight=False)), hoverinfo=hoverinfo) 
+            surface_upper_bound = go.Surface(x=X_upper_bound, y=Y_upper_bound, z=Z_upper_bound, colorscale=colorscale, opacity=0.5, showscale=False, contours=dict(x=dict(highlight=True), y=dict(highlight=False), z=dict(highlight=False)), hoverinfo=hoverinfo)
+            surface_combined.extend([surface_lower_bound, surface_upper_bound])
+            return surface_combined
+        
+        def create_filled_cylinder(surface_combined, r, x_start, x_end, theta, colorscale, name=None):
+            r = np.array([r, r])
+            Theta, R = np.meshgrid(theta, r)
+
+            X_cylinder = np.array([[x_start, x_end]]).T
+            X_cylinder = np.repeat(X_cylinder, len(theta), axis=1)
+
+            Y_cylinder = R * np.cos(Theta)
+            Z_cylinder = R * np.sin(Theta)
+
+            surface_cylinder = go.Surface(x=X_cylinder, y=Y_cylinder, z=Z_cylinder, colorscale=colorscale, opacity=0.6, showscale=False, contours=dict(x=dict(highlight=True), y=dict(highlight=False), z=dict(highlight=False)), hovertemplate=f"{name}<extra></extra>")
+            surface_combined.append(surface_cylinder)
+
+            return surface_combined
+
+        x_symbol = sp.Symbol('x', real=True)
+        func_np = sp.lambdify(x_symbol, func(x_symbol))
+
+        x = np.linspace(*x_range, 100)
+        y = func_np(x)
+
+        x_volume = np.linspace(*integral_range, 100)
+        theta = np.linspace(0, 2 * np.pi, 100)
+        X, Theta = np.meshgrid(x_volume, theta)
+        Y = func_np(X) * np.cos(Theta)
+        Z = func_np(X) * np.sin(Theta)
+
+        surface_og = go.Surface(x=X, y=np.full_like(X, 0), z=np.abs(Z), colorscale=[[0, 'green'], [1, 'green']], opacity=0.6, showscale=False, contours=dict(x=dict(highlight=False), y=dict(highlight=False), z=dict(highlight=False)), hoverinfo='skip') 
+        surface_rotation = go.Surface(x=X, y=Y, z=Z, colorscale=[[0, 'springgreen'], [1, 'springgreen']], opacity=0.6, showscale=False, contours=dict(x=dict(highlight=not riemann), y=dict(highlight=False), z=dict(highlight=False)), hovertemplate=f"Lichaam L<extra></extra>" if not riemann else None, hoverinfo=None if not riemann else 'none') 
+        surface_combined = [surface_og, surface_rotation]
+        if add_caps and not riemann:
+            surface_combined = create_caps(surface_combined, x_start=x_volume[0], x_end=x_volume[-1])
+
+        camera_eye = dict(x=0.9, y=-1.68, z=0.6)
+
+        if riemann:
+            surface_combined.pop(0)
+
+            if isinstance(riemann, bool):
+                n = 10
+            elif isinstance(riemann, int):
+                n = riemann
+
+            colorscale = [[0, 'blue'], [1, 'blue']]
+            camera_eye = dict(x=0.11, y=-1.7, z=0.42)
+
+            if n <= 50:
+                x_volume = np.linspace(*integral_range, n+1)
+                y_volume = func_np(x_volume)
+                for i in range(n):
+                    surface_combined = create_filled_cylinder(surface_combined, y_volume[i], x_volume[i], x_volume[i+1], theta, colorscale, name=f"Cilinder {i+1}")
+
+                    if add_caps:
+                        surface_combined = create_caps(surface_combined, x_start=x_volume[i], x_end=x_volume[i+1], colorscale=colorscale, hoverinfo='skip')
+
+            else:
+                print(len(surface_combined))
+                surface_combined[0].contours.x.show = True
+                for i in range(len(surface_combined)):
+                    surface_combined[i].colorscale = colorscale
+
+        hover_template = '(%{x:.4f}, %{z:.4f})'+ f'<extra>f(x) = {func(x_symbol)}</extra>' if func_label else '(%{x:.4f}, %{z:.4f})' + f'<extra></extra>'
+
+        line_function = go.Scatter3d(x=x, y=np.zeros_like(x), z=y, mode='lines', line=dict(color="darkturquoise", width=5), name=rf'$f(x) = {custom_latex(func(x_symbol))}$' if func_label else '$f(x)$', hovertemplate=hover_template)
+        line_horizontal = go.Scatter3d(x=x_range, y=[0, 0], z=[0, 0], mode='lines', line=dict(color='#2e2e2e', width=5), showlegend=False, hoverinfo='skip')
+        line_vertical = go.Scatter3d(x=[0, 0], y=[0, 0], z=y_range, mode='lines', line=dict(color='#2e2e2e', width=5), showlegend=False, hoverinfo='skip')
+
+        fig = go.Figure(data=[*surface_combined, line_function, line_horizontal, line_vertical])
+
+        fig.update_layout(
+            scene=dict(
+                xaxis=dict(title='X-as', range=x_range, titlefont=dict(color='#D3D3D3'), tickfont=dict(color='#D3D3D3'), showspikes=False),
+                yaxis=dict(title='', showticklabels=False, range=y_range, titlefont=dict(color='#D3D3D3'), showspikes=False),
+                zaxis=dict(title='Y-as', range=y_range, titlefont=dict(color='#D3D3D3'), tickfont=dict(color='#D3D3D3'), showspikes=False),
+                aspectmode='cube',  # Set equal aspect ratio
+                camera=dict(
+                    eye=camera_eye,  # Adjust the camera position
+                    center=dict(x=-0.25, y=-0, z=-0.25),
+                    up=dict(x=0, y=0, z=1),  # Up the camera view
+                ),
+            ),
+            paper_bgcolor='rgba(0,0,0,0)',  # Set the paper background to transparent
+            plot_bgcolor='rgba(0,0,0,0)',    # Set the plot background to transparent
+            margin=dict(l=0, r=0, t=0, b=0),  # Reduce padding around the plot
+            legend=dict(
+                x=0.98,
+                y=0.93,
+                xanchor='right',
+                yanchor='top',
+                bgcolor='rgba(211,211,211,0.75)',
+                font=dict(color='black'),
+            ),
+            hovermode='closest',
+        )
+
+        config = {
+            'modeBarButtonsToRemove': ['orbitRotation', 'resetCameraDefault'],
+            'displaylogo': False,
+            'scrollZoom': True,
+        }
+
+
+        interactive_image_path = os.path.join(asset_path, "interactive_images")
+        os.chdir(interactive_image_path)
+
+        if save_file.endswith('.html'):
+            save_file = save_file
+        else:
+            save_file += '.html'
+
+        # Save the figure as an interactive HTML file
+        pio.write_html(fig, file=save_file, config=config, auto_open=False)
+
+        return save_file
+
+    def add_meta_tag(save_file):
+        with open(save_file, 'r', encoding='utf-8') as file:
+            soup = BeautifulSoup(file, 'html.parser')
+
+        if soup.head is None:
+            soup.head = soup.new_tag('head')
+            soup.html.insert(0, soup.head)
+
+        meta_tag = soup.new_tag('meta', attrs={'name': 'color-scheme', 'content': 'light dark'})
+        soup.head.append(meta_tag)
+
+        script_tag1 = soup.new_tag('script', attrs={'src': "../javascripts/bundle.6c14ae12.min.js"})
+        script_tag2 = soup.new_tag('script', attrs={'src': "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"})
+
+        soup.head.extend([script_tag1, script_tag2])
+
+        # Save the modified HTML back to the file
+        with open(save_file, 'w', encoding='utf-8') as file:
+            file.write(str(soup))
+
+
+    x_symbol = sp.Symbol('x', real=True)
+    if integral_range == 'root':
+        roots = sp.solve(func(x_symbol), x_symbol)
+        if len(roots) >= 2:
+            integral_range = (float(roots[0]), float(roots[-1]))
+        else:
+            raise ValueError("Not enough roots found to calculate integral range")
+
+    save_file = create_plot(save_file)
+    add_meta_tag(save_file)
+
+    os.chdir(asset_path)
+
+
+# draw_func(lambda x: sp.cos(x) + 3, "Oppervlakte onder de grafiek - herhaling", x_range=(8, 14), y_range=(-2, 8), root=False, integral_range=(9, 13), V_loc_label=(11, 1.5), func_label=False)
+# draw_func(lambda x: sp.cos(x) + 3, "Oppervlakte onder de grafiek - herhaling (met 100 rechthoeken)", x_range=(8, 14), y_range=(-2, 8), root=False, integral_range=(9, 13), riemann_amt=100, func_label=False)
+
+# draw_func_3d("Grafiek wentelen om de x-as", lambda x: sp.cos(x) + 3, x_range=(8, 14), y_range=(-6, 6), root=False, integral_range=(9, 13), func_label=False, add_caps=True)
+# draw_func_3d("Grafiek wentelen om de x-as (10 cilinders)", lambda x: sp.cos(x) + 3, x_range=(8, 14), y_range=(-6, 6), integral_range=(9, 13), func_label=False, add_caps=True, riemann=10)
+# draw_func_3d("Grafiek wentelen om de x-as (50 cilinders)", lambda x: sp.cos(x) + 3, x_range=(8, 14), y_range=(-6, 6), integral_range=(9, 13), func_label=False, add_caps=True, riemann=50)
+
+# draw_func_3d("f(x) = 2x^2 (3D)", lambda x: 2*x**2, x_range=(-1, 3), y_range=(-20, 20), integral_range=(0, 2), func_label=True, add_caps=True)
+draw_func_3d("f(x) = 4 - x^2 (3D)", lambda x: 4 - x**2, x_range=(-3, 3), y_range=(-5, 5), integral_range='root', func_label=True, add_caps=True)

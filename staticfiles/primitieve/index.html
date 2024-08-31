@@ -720,6 +720,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#oppervlakte-wentelen-om-de-x-as" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oppervlakte wentelen om de x-as
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oppervlakte wentelen om de x-as">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algemene-integraal-wentelen-x-as" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algemene Integraal Wentelen x-as
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -967,6 +1000,39 @@
         
           <li class="md-nav__item">
   <a href="#voorbeelden_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oppervlakte-wentelen-om-de-x-as" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oppervlakte wentelen om de x-as
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oppervlakte wentelen om de x-as">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algemene-integraal-wentelen-x-as" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algemene Integraal Wentelen x-as
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden_3" class="md-nav__link">
     <span class="md-ellipsis">
       Voorbeelden
     </span>
@@ -1919,6 +1985,7 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <div class="arithmatex">\[\large{V = 4 \dfrac{1}{2}}\]</div>
 </div>
 </details>
+<p><br></p>
 <details class="belangrijk" open="open">
 <summary>Belangrijk</summary>
 <h3 id="integralen-samenvoegen"><strong>Integralen samenvoegen</strong></h3>
@@ -2388,7 +2455,248 @@ Bij het eerste gedeelte van de oppervlakte is <span class="arithmatex">\(f(x)\)<
 <div class="arithmatex">\[\large{V = 1.748}\]</div>
 </div>
 </details>
-<!-- ## **Oppervlakte Wentelen om de x-as** -->
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+<h2 id="oppervlakte-wentelen-om-de-x-as"><strong>Oppervlakte wentelen om de x-as</strong></h2>
+<p>We hebben in <a href="#oppervlakte-onder-een-grafiek">net</a> gezien dat we de oppervlakte onder een grafiek kunnen bepalen met een integraal. We plotten weer een grafiek met daaronder een oppervlakte <span class="arithmatex">\(V\)</span>.</p>
+<figure>
+<p><img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/Oppervlakte%20onder%20de%20grafiek%20-%20herhaling.svg" width="500" />
+    <figcaption>Figuur 1. Functie geplot met oppervlakte <span class="arithmatex">\(V\)</span> onder de grafiek.</figcaption></p>
+</figure>
+<p>Apart van een oppervlakte onder de grafiek kunnen we ook een inhoud maken. Om dit te doen, <em>wentelen</em> we de oppervlakte <span class="arithmatex">\(V\)</span> <em>om de <span class="arithmatex">\(x\)</span>-as</em>. Dus met andere woorden, we draaien met de hele oppervlakte een rondje om de <span class="arithmatex">\(x\)</span>-as zodat we een inhoud krijgen. Hieronder kunnen we zien hoe dit eruit ziet: </p>
+<p><center></p>
+<iframe 
+    src="/assets/interactive_images/Grafiek wentelen om de x-as.html" 
+    width="500" 
+    height="400" 
+    frameborder="0"
+    allowtransparency="true">
+</iframe>
+<p><em><span>Figuur 2. Oppervlakte <span class="arithmatex">\(V\)</span> gewenteld om de <span class="arithmatex">\(x\)</span>-as zodat er een lichaam <span class="arithmatex">\(L\)</span> ontstaat met een bepaalde inhoud.</span></em> <br><br>
+</center></p>
+<p>Om de inhoud van dit lichaam <span class="arithmatex">\(L\)</span> te bepalen, gebruiken we dezelfde methode als bij een <a href="#oppervlakte-onder-een-grafiek">oppervlakte</a>. Bij een oppervlakte telden we oneindig dunne rechthoekjes allemaal bij elkaar op: </p>
+<figure>
+<p><img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/Oppervlakte%20onder%20de%20grafiek%20-%20herhaling%20%28met%20100%20rechthoeken%29.svg" width="500" />
+    <figcaption>Figuur 3. Functie geplot met <span class="arithmatex">\(100\)</span> rechthoeken onder de grafiek.</figcaption></p>
+</figure>
+<p>Want als we de rechthoekjes klein genoeg maken, dan is dat gelijk aan de oppervlakte <span class="arithmatex">\(V\)</span>. We noteerden dit dan als een integraal:</p>
+<div class="arithmatex">\[V = \int_a^b f(x) \, dx\]</div>
+<p><br></p>
+<p>Bij een inhoud doen we eigenlijk precies hetzelfde. Het enige verschil is dat we nu geen rechthoeken bij elkaar optellen, maar cilinders. Laten we dus als eerst de inhoud van <span class="arithmatex">\(L\)</span> proberen te benaderen met <span class="arithmatex">\(10\)</span> cilinders:</p>
+<p><center></p>
+<iframe 
+    src="/assets/interactive_images/Grafiek wentelen om de x-as (10 cilinders).html" 
+    width="500" 
+    height="400" 
+    frameborder="0"
+    allowtransparency="true">
+</iframe>
+<p><em><span>Figuur 4. Oppervlakte <span class="arithmatex">\(V\)</span> gewenteld om de <span class="arithmatex">\(x\)</span>-as met <span class="arithmatex">\(10\)</span> cilinders onder de grafiek.</span></em> <br><br>
+</center></p>
+<p>De inhoud van <span class="arithmatex">\(1\)</span> cilinder kunnen we bepalen met de formule:</p>
+<div class="arithmatex">\[I(\text{cilinder}) = \pi r^2 \cdot \Delta x\]</div>
+<p>In dit geval is de straal de hoogte tot de functie, dus <span class="arithmatex">\(f(x)\)</span>. En <span class="arithmatex">\(\Delta x\)</span> is de breedte van de cilinder. Dus net zoals bij de rechthoeken is <span class="arithmatex">\(\Delta x\)</span> voor alle cilinders hetzelfde en wordt steeds kleiner als we meer cilinders toevoegen. In ons geval geldt dus voor <span class="arithmatex">\(1\)</span> cilinder:</p>
+<div class="arithmatex">\[I(\text{cilinder}) = \pi \left(f(x)\right)^2 \cdot \Delta x\]</div>
+<p>en voor alle cilinders bij elkaar kunnen we het net zoals bij de <a href="#oppervlakte-onder-een-grafiek">oppervlakte</a> schrijven als:</p>
+<div class="arithmatex">\[I(\text{cilinders}) = \sum_{i=1}^{10} \pi \left(f(x_i)\right)^2 \cdot \Delta x\]</div>
+<p>Maar als we naar Figuur 4 kijken, dan zien we dat we stukjes van <span class="arithmatex">\(L\)</span> overhouden. De cilinders zijn nu dus nog alleen maar een benadering. En om deze benadering te verbeteren, kunnen we meer cilinders toevoegen:</p>
+<p><center></p>
+<iframe 
+    src="/assets/interactive_images/Grafiek wentelen om de x-as (50 cilinders).html" 
+    width="500" 
+    height="400" 
+    frameborder="0"
+    allowtransparency="true">
+</iframe>
+<p><em><span>Figuur 5. Oppervlakte <span class="arithmatex">\(V\)</span> gewenteld om de <span class="arithmatex">\(x\)</span>-as met <span class="arithmatex">\(50\)</span> cilinders onder de grafiek.</span></em> <br><br>
+</center></p>
+<p>In Figuur 5 kunnen we zien dat het met <span class="arithmatex">\(50\)</span> cilinders al een stuk meer op lichaam <span class="arithmatex">\(L\)</span> lijkt. Maar als je inzoomt, dan zie je dat het nog steeds niet precies hetzelfde is. Daarom kunnen we net zoals bij een <a href="#oppervlakte-onder-een-grafiek">oppervlakte</a> oneindig veel cilinders gebruiken die allemaal oneindig dun zijn.</p>
+<p>Om dit te doen, laten we <span class="arithmatex">\(\Delta x\)</span> naar <span class="arithmatex">\(0\)</span> gaan zodat de cilinders oneindig dun worden. De inhoud van de cillinders wordt dan gelijk aan de inhoud van <span class="arithmatex">\(L\)</span>:</p>
+<div class="arithmatex">\[I(L) = \lim_{\Delta x \, \to \, 0} \ \sum_{i=1}^{n} \pi \left(f(x_i)\right)^2 \cdot \Delta x\]</div>
+<p>En dit kunnen we weer opschrijven als een integraal:</p>
+<div class="arithmatex">\[I(L) = \int_a^b \pi \left(f(x)\right)^2 \, dx\]</div>
+<p>en omdat <span class="arithmatex">\(\pi\)</span> een constante is, kunnen we die ook buiten de integraal halen. De algemene vorm om een oppervlakte om de <span class="arithmatex">\(x\)</span>-as te wentelen wordt dan dus:</p>
+<div class="arithmatex">\[\boxed{I(L) = \pi \int_a^b \left(f(x)\right)^2 \, dx}\]</div>
+<p><br></p>
+<details class="belangrijk" open="open">
+<summary>Belangrijk</summary>
+<h3 id="algemene-integraal-wentelen-x-as"><strong>Algemene Integraal Wentelen x-as</strong></h3>
+<p>Om de inhoud te bepalen van een opperlvakte die gewenteld wordt om de <span class="arithmatex">\(x\)</span>-as, moeten we de volgende integraal berekenen:</p>
+<div class="arithmatex">\[\large{\boxed{I(L) = \pi \int_a^b \left(f(x)\right)^2 \, dx}}\]</div>
+<p>waarbij <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> weer de grenzen van de integraal zijn. </p>
+<p>Om deze integraal op te lossen moet je dus eerst het kwadraat uitwerken, en daarna pas integreren.</p>
+</details>
+<p><br></p>
+<p>Laten we naar een voorbeeld kijken om dit wat duidelijker te maken. Stel we hebben de volgende functie:</p>
+<div class="arithmatex">\[f(x) = 2x^2\]</div>
+<p>met een oppervlakte <span class="arithmatex">\(V\)</span> dat ingesolten wordt door de functie <span class="arithmatex">\(f(x)\)</span>, de <span class="arithmatex">\(x\)</span>-as, de <span class="arithmatex">\(y\)</span>-as en de lijn <span class="arithmatex">\(x=4\)</span>. </p>
+<p>Nu willen we de inhoud bepalen van het lichaam <span class="arithmatex">\(L\)</span> dat ontstaat als we <span class="arithmatex">\(V\)</span> om de <span class="arithmatex">\(x\)</span>-as wentelen. Hoe pakken we dit aan?</p>
+<p>Laten we als eerst een schets maken van de situatie zodat we het beter kunnen begrijpen:</p>
+<p><center></p>
+<iframe 
+    src="/assets/interactive_images/f(x) = 2x^2 (3D).html" 
+    width="500" 
+    height="400" 
+    frameborder="0"
+    allowtransparency="true">
+</iframe>
+<p><em><span>Figuur 6. Oppervlakte <span class="arithmatex">\(V\)</span> gewenteld om de <span class="arithmatex">\(x\)</span>-as.</span></em> <br><br>
+</center></p>
+<p>Om deze inhoud te bepalen, kunnen we de <a href="#algemene-integraal-wentelen-x-as">algemene vorm</a> voor een omwentelingslichaam om de x-as gebruiken:</p>
+<div class="arithmatex">\[I(L) = \pi \int_a^b \left(f(x)\right)^2 \, dx\]</div>
+<p>De oppervlakte <span class="arithmatex">\(V\)</span> ligt boven de <span class="arithmatex">\(x\)</span>-as en wordt ingesloten door de <span class="arithmatex">\(y-as\)</span> en <span class="arithmatex">\(x=2\)</span>. Dit betekent dat de grenzen dus <span class="arithmatex">\(x=0\)</span> en <span class="arithmatex">\(x=2\)</span> zijn:</p>
+<div class="arithmatex">\[I(L) = \pi \int_0^2 \left(2x^2\right)^2 \, dx\]</div>
+<p>Nu kunnen we het kwadraat uitwerken:</p>
+<div class="arithmatex">\[I(L) = \pi \int_0^2 4x^4 \, dx\]</div>
+<p>Nu kunnen we dit integreren. Deze functie is in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>, dus voor de primitieve moeten we de macht <span class="arithmatex">\(+1\)</span> doen en dan <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor zetten:</p>
+<div class="arithmatex">\[I(L) = \pi \left[ \dfrac{1}{5} \cdot 4x^5 \right]_0^2\]</div>
+<p>En als we dit versimpelen:</p>
+<div class="arithmatex">\[I(L) = \pi \left[ \dfrac{4}{5} x^5 \right]_0^2\]</div>
+<p>Nu kunnen we de grenzen invullen:</p>
+<div class="arithmatex">\[I(L) = \pi \left( \dfrac{4}{5} \cdot 2^5 - \dfrac{4}{5} \cdot 0^5 \right)\]</div>
+<p>En als we dit uitwerken, dan krijgen we:</p>
+<div class="arithmatex">\[I(L) = \pi \left( \dfrac{4}{5} \cdot 32 \right)\]</div>
+<p>Ons eindantwoord wordt dan:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{I(L) = 25 \dfrac{3}{5} \pi}\]</div>
+</div>
+<h3 id="voorbeelden_3"><strong>Voorbeelden</strong></h3>
+<details class="example">
+<summary>Voorbeeld 1: Bereken exact de inhoud van het omwentelingslichaam onder de functie <span class="arithmatex">\(f(x) = 4 - x^2\)</span></summary>
+<p><em><p style="text-align: center;font-size:20px;">Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de functie <span class="arithmatex">\(f(x) = 4 - x^2\)</span> en de <span class="arithmatex">\(x\)</span>-as. Oppervlakte <span class="arithmatex">\(V\)</span> wordt om de <span class="arithmatex">\(x\)</span>-as gewenteld om lichaam <span class="arithmatex">\(L\)</span> te maken.</p></em></p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;">Bereken exact de inhoud van omwentelingslichaam <span class="arithmatex">\(L\)</span>.</span></strong></p>
+<p><br><br><br><br><br></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Om de situatie te begrijpen maken we eerst een plaatje van de situatie:</p>
+<p><center>
+    <iframe 
+        src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
+        width="500" 
+        height="400" 
+        frameborder="0"
+        allowtransparency="true">
+    </iframe>
+    <br>
+    <em><span>Figuur 1. Oppervlakte <span class="arithmatex">\(V\)</span> gewenteld om de <span class="arithmatex">\(x\)</span>-as.</span></em> <br><br>
+</center></p>
+<p>Om de inhoud van het omwentelingslichaam <span class="arithmatex">\(L\)</span> te berekenen, moeten we eerst de grenzen bepalen. Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de <span class="arithmatex">\(x\)</span>-as, dus de grenzen zijn de snijpunten met de <span class="arithmatex">\(x\)</span>-as.</p>
+<p>Om de snijpunten met de <span class="arithmatex">\(x\)</span>-as te kunnen bepalen moeten we de functie <span class="arithmatex">\(f(x)\)</span> gelijk aan <span class="arithmatex">\(0\)</span> stellen:</p>
+<div class="arithmatex">\[\large{4 - x^2 = 0}\]</div>
+<p>Om dit op te lossen halen we de <span class="arithmatex">\(4\)</span> naar de andere kant en doen beide kanten keer <span class="arithmatex">\(-1\)</span>:</p>
+<div class="arithmatex">\[\large{-x^2 = -4}\]</div>
+<div class="arithmatex">\[\large{x^2 = 4}\]</div>
+<p>Dit is een vergelijking van de vorm <a href="../kwadratische_vergelijkingen/#oplossen-vorm-x2-c"><span class="arithmatex">\(x^2 = c\)</span></a>, dus we moeten aan beide kanten de wortel nemen:</p>
+<div class="arithmatex">\[\large{x = -2 \, \vee \, x = 2}\]</div>
+<p>De grenzen zijn dus <span class="arithmatex">\(x=-2\)</span> en <span class="arithmatex">\(x=2\)</span>. Hiermee kunnen we de integraal opstellen. De <a href="#algemene-integraal-wentelen-x-as">algemene vorm</a> voor een omwentelingslichaam om de <span class="arithmatex">\(x\)</span>-as was:</p>
+<div class="arithmatex">\[\large{I(L) = \pi \int_{a}^{b} \left( f(x) \right)^2 \, dx}\]</div>
+<p>Nu kunnen we de grenzen en <span class="arithmatex">\(f(x)\)</span> invullen:</p>
+<div class="arithmatex">\[\large{I(L) = \pi \int_{-2}^{2} \left( 4 - x^2 \right)^2 \, dx}\]</div>
+<p>Als we de <a href="../basisvaardigheden/#kwadratisch-haakjes-wegwerken">haakjes uitwerken</a>, krijgen we:</p>
+<div class="arithmatex">\[\large{I(L) = \pi \int_{-2}^{2} \left( 4 - x^2 \right)\left( 4 - x^2 \right) \, dx}\]</div>
+<div class="arithmatex">\[\large{I(L) = \pi \int_{-2}^{2} 4^2 - 2 \cdot 4x^2 + \left(x^2\right)^2 \, dx}\]</div>
+<div class="arithmatex">\[\large{I(L) = \pi \int_{-2}^{2} 16 - 8x^2 + x^4 \, dx}\]</div>
+<p>Laten we nog even de volgorde omdraaien:</p>
+<div class="arithmatex">\[\large{I(L) = \pi \int_{-2}^{2} x^4 - 8x^2 + 16 \, dx}\]</div>
+<p>Nu kunnen we deze functie gaan integreren. Bij de eerste twee termen doen we de macht <span class="arithmatex">\(+1\)</span> en dan <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor. De laatste term is een constante (getal zonder <span class="arithmatex">\(x\)</span>), dus bij de primitieve plakken we er gewoon een <span class="arithmatex">\(x\)</span> aanvast. </p>
+<p>We krijgen dus:</p>
+<div class="arithmatex">\[\large{I(L) = \pi \left[ \dfrac{1}{5}x^5 - \dfrac{1}{3} \cdot 8x^3 + 16x \right]_{-2}^{2}}\]</div>
+<div class="arithmatex">\[\large{I(L) = \pi \left[ \dfrac{1}{5}x^5 - 2 \dfrac{2}{3} x^3 + 16x \right]_{-2}^{2}}\]</div>
+<p>En nu kunnen we de grenzen invullen en min elkaar doen:</p>
+<div class="arithmatex">\[\large{I(L) = \pi \left( \dfrac{1}{5} \cdot 2^5 - 2 \dfrac{2}{3} \cdot 2^3 + 16 \cdot 2 \right) - \pi \left( \dfrac{1}{5} \cdot (-2)^5 - 2 \dfrac{2}{3} \cdot (-2)^3 + 16 \cdot -2 \right)}\]</div>
+<p>Als we dit uitwerken, dan krijgen we:</p>
+<div class="arithmatex">\[\large{I(L) = \pi \left( \dfrac{1}{5} \cdot 32 - 2 \dfrac{2}{3} \cdot 8 + 32 \right) - \pi \left( \dfrac{1}{5} \cdot -32 - 2 \dfrac{2}{3} \cdot -8 - 32 \right)}\]</div>
+<div class="arithmatex">\[\large{I(L) = \pi \left( 6 \dfrac{2}{5} - 21 \dfrac{1}{3} + 32 \right) - \pi \left( -6 \dfrac{2}{5} + 21 \dfrac{1}{3} - 32 \right)}\]</div>
+<div class="arithmatex">\[\large{I(L) =  17 \dfrac{1}{15} \pi - - 17 \dfrac{1}{15} \pi}\]</div>
+<p>Ons eindantwoord wordt dan dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{I(L) =  34 \dfrac{2}{15} \pi}\]</div>
+</div>
+</details>
+<!-- ??? example "Voorbeeld 2: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = 4 - x^2$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = 4 - x^2$ en de $x$-as. Oppervlakte $V$ wordt om de $x$-as gewenteld om lichaam $L$ te maken.</p>*
+
+    <br>
+
+    **<span style="font-size: 17px;">Bereken exact de inhoud van omwentelingslichaam $L$.</span>**
+
+    <br><br><br><br><br>
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Om de situatie te begrijpen maken we eerst een plaatje van de situatie:
+
+    <center>
+        <iframe 
+            src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
+            width="500" 
+            height="400" 
+            frameborder="0"
+            allowtransparency="true">
+        </iframe>
+        <br>
+        *<span>Figuur 1. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
+    </center>
+
+
+??? example "Voorbeeld 3: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = 4 - x^2$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = 4 - x^2$ en de $x$-as. Oppervlakte $V$ wordt om de $x$-as gewenteld om lichaam $L$ te maken.</p>*
+
+    <br>
+
+    **<span style="font-size: 17px;">Bereken exact de inhoud van omwentelingslichaam $L$.</span>**
+
+    <br><br><br><br><br>
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Om de situatie te begrijpen maken we eerst een plaatje van de situatie:
+
+    <center>
+        <iframe 
+            src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
+            width="500" 
+            height="400" 
+            frameborder="0"
+            allowtransparency="true">
+        </iframe>
+        <br>
+        *<span>Figuur 1. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
+    </center>
+
+
+??? example "Voorbeeld 4: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = 4 - x^2$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = 4 - x^2$ en de $x$-as. Oppervlakte $V$ wordt om de $x$-as gewenteld om lichaam $L$ te maken.</p>*
+
+    <br>
+
+    **<span style="font-size: 17px;">Bereken exact de inhoud van omwentelingslichaam $L$.</span>**
+
+    <br><br><br><br><br>
+
+    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+
+    Om de situatie te begrijpen maken we eerst een plaatje van de situatie:
+
+    <center>
+        <iframe 
+            src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
+            width="500" 
+            height="400" 
+            frameborder="0"
+            allowtransparency="true">
+        </iframe>
+        <br>
+        *<span>Figuur 1. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
+    </center>
+
+
+
+
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+## **Omwentelingslichaam tussen twee grafieken** -->
 
 
   

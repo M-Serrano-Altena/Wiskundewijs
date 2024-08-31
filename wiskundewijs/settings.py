@@ -145,3 +145,5 @@ DOCS_DIR = os.path.join(BASE_DIR, 'docs', 'static', 'mkdocs_build')
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK ="bootstrap4"
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'

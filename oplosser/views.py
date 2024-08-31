@@ -236,7 +236,7 @@ def generate_plot_data(solver):
 
     hoverinfo1 = f"{f'{function_f_type}({solver.symbol})' if not solver.multivariate else 'y'} = {hoverinfo1_func}"
     hoverinfo2 = f"{f'{function_g_type}({solver.symbol})' if not solver.multivariate else 'y'} = {hoverinfo2_func}"
-    
+    get_hover_template = lambda hoverinfo: '(%{x:.4f}, %{y:.4f})' + f'<extra>{hoverinfo}</extra>'
 
     if len(hoverinfo1) > len(hoverinfo2):
         output_legend1 = output_legend1[:-1] + "\\qquad .$"
@@ -254,7 +254,7 @@ def generate_plot_data(solver):
             'mode': 'lines',
             'name': output_legend1,
             'line': {'color': 'darkturquoise'},
-            'hovertemplate': '(%{x:.4f}, %{y:.4f})'+ f'<extra>{hoverinfo1}</extra>',
+            'hovertemplate': get_hover_template(hoverinfo1),
         })
         # plot_data.append(empty_plot_data)
         plot_data.append({
@@ -264,7 +264,7 @@ def generate_plot_data(solver):
             'mode': 'lines',
             'name': output_legend2,
             'line': {'color': 'springgreen'},
-            'hovertemplate': '(%{x:.4f}, %{y:.4f})'+ f'<extra>{hoverinfo2}</extra>',
+            'hovertemplate': get_hover_template(hoverinfo2),
         })
     
     else:
@@ -288,7 +288,7 @@ def generate_plot_data(solver):
                     'name': output_legend1,
                     'showlegend': i == skip1,
                     'line': {'color': 'darkturquoise'},
-                    'hovertemplate': '(%{x:.4f}, %{y:.4f})'+ f'<extra>{hoverinfo1}</extra>',
+                    'hovertemplate': get_hover_template(hoverinfo1),
                 })
             
             else:
@@ -303,7 +303,7 @@ def generate_plot_data(solver):
                     'name': output_legend2,
                     'showlegend': i == skip2,
                     'line': {'color': 'springgreen'},
-                    'hovertemplate': '(%{x:.4f}, %{y:.4f})'+ f'<extra>{hoverinfo2}</extra>',
+                    'hovertemplate': get_hover_template(hoverinfo2),
                 })
 
             else:
