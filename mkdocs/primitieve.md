@@ -305,19 +305,25 @@ We kunnen *integralen* gebruiken om een oppervlakte onder een grafiek te bepalen
 
 Stel we willen de oppervlakte $V$ bepalen onder deze grafiek, hoe doen we dat?
 
-<figure markdown>
-![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/Oppervlakte onder de grafiek.svg){ width="500" }
-    <figcaption>Figuur 1. Functie geplot met oppervlakte $V$ onder de grafiek.</figcaption>
+<figure>
+    <img src="/assets/images/primitieven/Oppervlakte onder de grafiek.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<center><span><i>Figuur 1. Functie geplot met oppervlakte $V$ onder de grafiek.</i></span></center> <br><br>
 
 Deze oppervlakte heeft een lastige vorm, dus we kunnen het niet zomaar bepalen door lengte keer breedte te gebruiken... Of toch wel? 
 
 Als we deze oppervlakte $V$ indelen in allemaal kleine rechthoeken, dan kunnen we de oppervlaktes van alle rechthoekjes bij elkaar optellen. En deze totale oppervlakte is dan hetzelfde als de oppervlakte $V$.
 
-<figure markdown>
-![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/Oppervlakte onder de grafiek (met 10 rechthoeken).svg){ width="500" }
-    <figcaption>Figuur 2. Functie geplot met $10$ rechthoeken onder de grafiek. De breedte van de rechthoeken is $\Delta x$. De hoogte is de waarde van de functie bij de $x$ waar de rechthoek begint.</figcaption>
+<figure>
+    <img src="/assets/images/primitieven/Oppervlakte onder de grafiek (met 10 rechthoeken).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<center><span><i>Figuur 2. Functie geplot met $10$ rechthoeken onder de grafiek. De breedte van de rechthoeken is $\Delta x$. De hoogte is de waarde van de functie bij de $x$ waar de rechthoek begint.</i></span></center> <br><br>
 
 De oppervlakte van één rechthoek kunnen we bepalen door lengte keer breedte te doen. De breedte van alle rechthoeken is hetzelfde, dus die noemen we $\Delta x$. Maar de lengte (hier hoogte) is afhankelijk van welke rechthoek we naar kijken.
 
@@ -343,10 +349,13 @@ Het enige probleem is dat dit niet helemaal hetzelfde is als oppervlakte $V$ (zi
 
 Maar we kunnen de benadering wel beter maken door meer rechthoeken te gebruiken. Dit zijn er bijvoorbeeld $100$: 
 
-<figure markdown>
-![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/Oppervlakte onder de grafiek (met 100 rechthoeken).svg){ width="500" }
-    <figcaption>Figuur 3. Functie geplot met $100$ rechthoeken onder de grafiek.</figcaption>
+<figure>
+    <img src="/assets/images/primitieven/Oppervlakte onder de grafiek (met 100 rechthoeken).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<center><span><i>Figuur 3. Functie geplot met $100$ rechthoeken onder de grafiek.</i></span></center> <br><br>
 
 Dit is bijvoorbeeld al een stuk beter. Het is nog steeds niet precies hetzelfde als oppervlakte $V$, maar we komen steeds meer in de buurt. We hebben nu dus:
 
@@ -376,10 +385,13 @@ $$f(x) = 6x^2$$
 
 In Figuur 1 is deze functie geschetst met een oppervlakte $V$ onder deze grafiek. 
 
-<figure markdown>
-![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = 6x^2.svg){ width="500" }
-    <figcaption>Figuur 4. De grafiek $f(x) = 6x^2$ geplot met oppervlakte $V$. Deze oppervlakte onder de functie $f(x)$ gaat van $x=0$ tot $x=1$.</figcaption>
+<figure>
+    <img src="/assets/images/primitieven/f(x) = 6x^2.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<center><span><i>Figuur 4. De grafiek $f(x) = 6x^2$ geplot met oppervlakte $V$. Deze oppervlakte onder de functie $f(x)$ gaat van $x=0$ tot $x=1$.</i></span></center> <br><br>
 
 Zoals we bij de sectie [Oppervlakte onder een grafiek](#oppervlakte-onder-een-grafiek) hebben gezien, kunnen we de oppervlakte $V$ bepalen met een integraal. Een integraal heeft de volgende vorm:
 
@@ -481,10 +493,14 @@ $$V_2 = -2$$
 
 Dus zoals we hier kunnen zien krijgen we precies dezelfde oppervlakte als bij $6x$, alleen dan nu negatief. En als we deze functie tekenen, dan zien we ook dat het dezelfde oppervlakte is als bij Figuur 4. Alleen dan nu is de oppervlakte onder de $x$-as:
 
-<figure markdown>
-![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = -6x^2.svg){ width="500" }
-    <figcaption>Figuur 5. De grafiek $f(x) = -6x^2$ geplot met oppervlakte $V$. Deze oppervlakte onder de functie $f(x)$ gaat van $x=0$ tot $x=1$.</figcaption>
+<figure>
+    <img src="/assets/images/primitieven/f(x) = -6x^2.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<center><span><i>Figuur 5. De grafiek $f(x) = -6x^2$ geplot met oppervlakte $V$. Deze oppervlakte onder de functie $f(x)$ gaat van $x=0$ tot $x=1$.</i></span></center> <br><br>
+
 
 Maar omdat een oppervlakte niet negatief kan zijn, voegen we een '$-$' toe bij de integraal:
 
@@ -513,10 +529,14 @@ $$f(x) = \sin(x)$$
 
 Stel dat we de totale oppervlakte willen bepalen van vlakdeel $V$ dat tussen $x=-\pi$ en $x=\pi$ ligt. Dit heeft een deel onder de $x$-as ( $I$ ) en een deel boven de $x$-as ( $II$ ):
 
-<figure markdown>
-![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = sin(x).svg){ width="500" }
-    <figcaption>Figuur 6. De grafiek $f(x) = \sin(x)$ geplot met oppervlakte $I$ en $II$. Samen gaan deze oppervlaktes van $x=-\pi$ tot $x=\pi$. Oppervlakte $I$ ligt onder de $x$-as en oppervlakte $II$ ligt boven de $x$-as.</figcaption>
+<figure>
+    <img src="/assets/images/primitieven/f(x) = sin(x).svg" 
+            loading="lazy" 
+            width="500" 
+            alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<center><span><i>Figuur 6. De grafiek $f(x) = \sin(x)$ geplot met oppervlakte $I$ en $II$. Samen gaan deze oppervlaktes van $x=-\pi$ tot $x=\pi$. Oppervlakte $I$ ligt onder de $x$-as en oppervlakte $II$ ligt boven de $x$-as.</i></span></center> <br><br>
+
 
 Als we de totale oppervlakte willen berekenen, dan moeten we oppervlakte $I$ en oppervlakte $II$ apart berekenen. Want als we het als geheel proberen te integreren, dan krijgen we uit de integraal dat de totale oppervlakte $0$ is. En dit klopt natuurlijk niet. 
 
@@ -603,10 +623,13 @@ $$V = 2 + 2$$
 
     waarbij $c$ dus het snijpunt met de $x$-as tussen $a$ en $b$ is. We krijgen bij de tweede integraal een '$-$' omdat het [onder de $x$-as](#oppervlaktes-onder-de-x-as) ligt.
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/Functie met deel boven en deel onder de x-as.svg){ width="450" }
-        <figcaption>Figuur 7. Voorbeeld van een functie met een deel boven de $x$-as en een deel onder de $x$-as.</figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/Functie met deel boven en deel onder de x-as.svg" 
+             loading="lazy" 
+             width="450" 
+             alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 7. Voorbeeld van een functie met een deel boven de $x$-as en een deel onder de $x$-as.</i></span></center> <br><br>
 
 
 ### **Voorbeelden**
@@ -767,10 +790,13 @@ $$V = 2 + 2$$
 
     We weten dat de lijn $x=p$ het vlakdeel $V$ verdeelt in twee gelijke oppervlaktes. Laten we dit weer schetsen zodat we de situatie beter kunnen begrijpen:
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = -x^2 + 2x + 3 (gesplitst).svg){ width="500" }
-        <figcaption>Figuur 2. De grafiek $f(x) = -x^2 + 2x + 3$ geplot met vlakdeel $V$ verdeelt in $2$ gelijke delen. De twee delen worden gesplitst door de lijn $x=p$.</figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/f(x) = -x^2 + 2x + 3 (gesplitst).svg" 
+             loading="lazy" 
+             width="500" 
+             alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 2. De grafiek $f(x) = -x^2 + 2x + 3$ geplot met vlakdeel $V$ verdeelt in $2$ gelijke delen. De twee delen worden gesplitst door de lijn $x=p$.</i></span></center> <br><br>
 
     We weten uit vraag a) dat de totale oppervlakte $V=9$ is, dus de oppervlakte van $I$ en $II$ zijn beide $4 \frac{1}{2}$:
 
@@ -831,10 +857,13 @@ $$V = 2 + 2$$
 
     Als eerst is het handig om een schets te maken, zodat we beter kunnen begrijpen wat we moeten doen:
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = sqrt(x).svg){ width="500" }
-        <figcaption>Figuur 3. De grafiek $f(x) = \sqrt{x}$ geplot met vlakdeel $V$ en $W$. Vlakdeel $W$ is $\sqrt{2}$ keer groter dan vlakdeel $V$.</figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/f(x) = sqrt(x).svg" 
+             loading="lazy" 
+             width="500" 
+             alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 3. De grafiek $f(x) = \sqrt{x}$ geplot met vlakdeel $V$ en $W$. Vlakdeel $W$ is $\sqrt{2}$ keer groter dan vlakdeel $V$.</i></span></center> <br><br>
 
     Laten we eerst de oppervlakte van vlakdeel $V$ uitdrukken in $p$. Vlakdeel $V$ ligt tussen $x=0$ en $x=p$:
 
@@ -931,10 +960,13 @@ $$V = 2 + 2$$
 
     Laten we als eerst een schets maken om de situatie beter te kunnen begrijpen:
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = 2 !divide! x.svg){ width="500" }
-        <figcaption>Figuur 4. De grafiek $f(x) = \dfrac{1}{x}$ geplot met vlakdeel $V$. Het vlakdeel $V$ gaat van $x = -1000$ (te groot om weer te geven in de schets) tot $x = -1$.</figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/f(x) = 2 !divide! x.svg" 
+             loading="lazy" 
+             width="500" 
+             alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 4. De grafiek $f(x) = \dfrac{1}{x}$ geplot met vlakdeel $V$. Het vlakdeel $V$ gaat van $x = -1000$ (te groot om weer te geven in de schets) tot $x = -1$.</i></span></center> <br><br>
 
     We zien in Figuur 4 dat deze oppervlakte [onder de $x$-as](#oppervlaktes-onder-de-x-as) ligt. Dit betekent dat we een '$-$' moeten toevoegen aan onze integraal. We hebben de grenzen al gekregen, dus onze integraal wordt:
 
@@ -1034,17 +1066,25 @@ $$V = 2 + 2$$
 
     Laten we eerst beginnen met het maken van een schets, zodat we de situatie een beetje kunnen begrijpen:
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = (4x-7)^3 -10x + 18.svg){ width="500" }
-        <figcaption>Figuur 5. De grafiek $f(x) = \left( 4x - 7 \right)^3 - 10x + 18$ geplot met vlakdeel $V$. Vlakdeel $V$ ligt tussen de buitenste twee snijpunten met de $x$-as.<figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/f(x) = (4x-7)^3 -10x + 18.svg" 
+             loading="lazy" 
+             width="500" 
+             alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 5. De grafiek $f(x) = \left( 4x - 7 \right)^3 - 10x + 18$ geplot met vlakdeel $V$. Vlakdeel $V$ ligt tussen de buitenste twee snijpunten met de $x$-as.</i></span></center> <br><br>
+
 
     We zien hier dat de oppervlakte $V$ bestaat uit [een deel boven en een deel onder de $x$-as](#deel-boven-en-deel-onder-de-x-as). We willen $V$ dus opsplitsen in het deel boven en het deel onder de $x$-as:
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = (4x-7)^3 -10x + 18 (gesplitst).svg){ width="500" }
-        <figcaption>Figuur 6. De grafiek $f(x) = \left( 4x - 7 \right)^3 - 10x + 18$ geplot met vlakdeel $I$ en vlakdeel $II$. Vlakdeel $I$ ligt tussen het linker en middelste snijpunt met de $x$-as. Vlakdeel $II$ ligt tussen het middelste en rechter snijpunt met de $x$-as.<figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/f(x) = (4x-7)^3 -10x + 18 (gesplitst).svg" 
+             loading="lazy" 
+             width="500" 
+             alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 6. De grafiek $f(x) = \left( 4x - 7 \right)^3 - 10x + 18$ geplot met vlakdeel $I$ en vlakdeel $II$. Vlakdeel $I$ ligt tussen het linker en middelste snijpunt met de $x$-as. Vlakdeel $II$ ligt tussen het middelste en rechter snijpunt met de $x$-as.</i></span></center> <br><br>
+
 
     Om de oppervlakte van $V$ te kunnen bepalen, moeten we eerst de grenzen weten. We moeten dus de [snijpunten met de $x$-as](kwadratische_vergelijkingen.md#snijpunten-met-de-x-as) bepalen. Om dit te doen, moeten we $f(x)$ gelijk aan $0$ stellen:
 
@@ -1137,17 +1177,25 @@ $$V = 2 + 2$$
 
     Als eerst maken we een schets om de situatie beter te kunnen begrijpen:
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = cos(x).svg){ width="500" }
-        <figcaption>Figuur 7. De grafiek $f(x) = \cos(x)$ geplot met vlakdeel $V$. Het vlakdeel $V$ gaat van $x = \frac{1}{6} \pi$ tot $x = \frac{2}{3} \pi$.</figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/f(x) = cos(x).svg" 
+            loading="lazy" 
+            width="500" 
+            alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 7. De grafiek $f(x) = \cos(x)$ geplot met vlakdeel $V$. Het vlakdeel $V$ gaat van $x = \frac{1}{6} \pi$ tot $x = \frac{2}{3} \pi$.</i></span></center> <br><br>
+
 
     We zien hier dat we een [deel boven en een deel onder de $x$-as](#deel-boven-en-deel-onder-de-x-as) hebben. Om de oppervlakte van $V$ te berekenen, moeten we dit dus opsplitsen in twee oppervlaktes. 
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = cos(x) (gesplitst).svg){ width="500" }
-        <figcaption>Figuur 8. De grafiek $f(x) = \cos(x)$ geplot met vlakdeel $I$ en vlakdeel $II$. Vlakdeel $I$ is het gedeelte van $V$ boven de $x$-as, vlakdeel $II$ het gedeelte onder de $x$-as.</figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/f(x) = cos(x) (gesplitst).svg" 
+            loading="lazy" 
+            width="500" 
+            alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 8. De grafiek $f(x) = \cos(x)$ geplot met vlakdeel $I$ en vlakdeel $II$. Vlakdeel $I$ is het gedeelte van $V$ boven de $x$-as, vlakdeel $II$ het gedeelte onder de $x$-as.</i></span></center> <br><br>
+
 
     Nu dat we $V$ gesplitst hebben in een deel boven de $x$-as en een deel onder de $x$-as, moeten we berekenen waar ze worden gesplitst. Dan weten we namelijk de grenzen van beide oppervlaktes. 
     
@@ -1197,10 +1245,14 @@ $$V = 2 + 2$$
 
     Nu willen we $p$ weten wanneer er geldt dat $V=1$. De oppervlakte die we bij a) hebben berekend is kleiner dan $1$ (want $V = 1\frac{1}{2} - \frac{1}{2} \sqrt{3} \approx 0.63$). Dit betekent dus dat we verwachten dat $p$ groter is dan de $\frac{2}{3} \pi$ van net. Laten we een nieuwe schets maken:
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = cos(x) (p onbekend).svg){ width="500" }
-        <figcaption>Figuur 9. De grafiek $f(x) = \cos(x)$ geplot met vlakdeel $I$ en vlakdeel $II$. Vlakdeel $I$ is het gedeelte van $V$ boven de $x$-as, vlakdeel $II$ het gedeelte onder de $x$-as.</figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/f(x) = cos(x) (p onbekend).svg" 
+            loading="lazy" 
+            width="500" 
+            alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 9. De grafiek $f(x) = \cos(x)$ geplot met vlakdeel $I$ en vlakdeel $II$. Vlakdeel $I$ is het gedeelte van $V$ boven de $x$-as, vlakdeel $II$ het gedeelte onder de $x$-as.</i></span></center> <br><br>
+
     
     Laten we net zoals bij a) de vergelijking voor $V$ opstellen. Alleen nu laten we de grens $x=p$ staan in plaats van $\frac{2}{3} \pi$ in te vullen:
 
@@ -1261,18 +1313,28 @@ Stel dat we de oppervlakte tussen deze twee functies willen bepalen. Hoe pakken 
 
 In Figuur 1 hebben we de twee functies geplot met het vlakdeel $V$ dat tussen de twee functies in ligt:
 
-<figure markdown>
-![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = 6 - x^2; g(x) = x + 4.svg){ width="500" }
-    <figcaption>Figuur 1. Grafiek geplot met de functies $f(x) =  6 - x^2$ en $g(x) = x + 4$. Vlakdeel $V$ ligt tussen de twee functies in.<figcaption>
+<figure>
+    <img src="/assets/images/primitieven/f(x) = 6 - x^2; g(x) = x + 4.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<center><span><i>Figuur 1. Grafiek geplot met de functies $f(x) = 6 - x^2$ en $g(x) = x + 4$. Vlakdeel $V$ ligt tussen de twee functies in.</i></span></center> <br><br>
+
 
 De oppervlakte van $V$ kunnen we bepalen door de oppervlakte onder $f(x)$ en de oppervlakte onder $g(x)$ te gebruiken. Laten we deze twee oppervlaktes tekenen:
 
-<figure markdown>
-![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = 6 - x^2; g(x) = x + 4 (Opp I).svg){ width="500" }
-![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = 6 - x^2; g(x) = x + 4 (Opp II).svg){ width="500" }
-    <figcaption>Figuur 2. Grafiek geplot met de functies $f(x) =  6 - x^2$ en $g(x) = x + 4$. Vlakdeel $I$ is de oppervlakte onder $f(x)$, vlakdeel $II$ is de oppervlakte onder $g(x)$.<figcaption>
+<figure>
+    <img src="/assets/images/primitieven/f(x) = 6 - x^2; g(x) = x + 4 (Opp I).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+    <img src="/assets/images/primitieven/f(x) = 6 - x^2; g(x) = x + 4 (Opp II).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<center><span><i>Figuur 2. Grafiek geplot met de functies $f(x) = 6 - x^2$ en $g(x) = x + 4$. Vlakdeel $I$ is de oppervlakte onder $f(x)$, vlakdeel $II$ is de oppervlakte onder $g(x)$.</i></span></center> <br><br>
 
 In Figuur 2 kunnen we zien dat vlakdeel $I$ heel erg lijkt op vlakdeel $II$. Het enige verschil is dat vlakdeel $I$ het stuk tussen $f(x)$ en $g(x)$ extra heeft. Het gedeelte dat vlakdeel $I$ dus groter maakt dan vlakdeel $II$ is de oppervlakte tussen $f(x)$ en $g(x)$. En dat is precies het vlakdeel $V$ dat we willen berekenen.
 
@@ -1525,17 +1587,25 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 ??? note "Oppervlaktes *tussen twee grafieken* onder de $x$-as"
     Als we een oppervlakte hebben **tussen twee grafieken** dat (deels) onder de $x$-as ligt, dan verandert dat niks aan de integraal. Kijk maar naar het volgende vlakdeel $V$ dat deels onder de $x$-as ligt:
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/Oppervlakte tussen twee functies onder de x-as.svg){ width="500" }
-        <figcaption>Figuur 3. Twee functies geplot met vlakdeel $V$ tussen de twee functies. Vlakdeel $V$ ligt deels onder de $x$-as.<figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/Oppervlakte tussen twee functies onder de x-as.svg" 
+            loading="lazy" 
+            width="500" 
+            alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 3. Twee functies geplot met vlakdeel $V$ tussen de twee functies. Vlakdeel $V$ ligt deels onder de $x$-as.</i></span></center> <br><br>
+
 
     We kunnen deze oppervlakte omhoog verschuiven door beide functies omhoog te verschuiven met een bepaalde constante $c$:
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/Oppervlakte tussen twee functies onder de x-as (verschoven).svg){ width="500" }
-        <figcaption>Figuur 4. De twee functies omhoog verschoven met een bepaalde constante $c$. Vlakdeel $V$ tussen de twee functies ligt nu volledig boven de $x$-as.<figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/Oppervlakte tussen twee functies onder de x-as (verschoven).svg" 
+            loading="lazy" 
+            width="500" 
+            alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 4. De twee functies omhoog verschoven met een bepaalde constante $c$. Vlakdeel $V$ tussen de twee functies ligt nu volledig boven de $x$-as.</i></span></center> <br><br>
+
 
     We kunnen zien dat de oppervlakte $V$ is verschoven, maar het is nog steeds even groot gebleven. Het maakt dus niet uit waar de oppervlakte zich bevindt ten opzichte van de $x$-as. De integraal voor een oppervlakte $V$ tussen twee functies [blijft](#algemene-integraal):
 
@@ -1588,10 +1658,13 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     Om de situatie een beetje te kunnen begrijpen, maken we eerst een schets:
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = x^2 - 4x + 6; g(x) = -x^2 + 4x.svg){ width="500" }
-        <figcaption>Figuur 1. Grafiek geplot met de functies $f(x) = x^2 - 4x + 6$ en $g(x) = -x^2 + 4x$. Vlakdeel $V$ ligt tussen de twee functies in.<figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/f(x) = x^2 - 4x + 6; g(x) = -x^2 + 4x.svg" 
+            loading="lazy" 
+            width="500" 
+            alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 1. Grafiek geplot met de functies $f(x) = x^2 - 4x + 6$ en $g(x) = -x^2 + 4x$. Vlakdeel $V$ ligt tussen de twee functies in.</i></span></center> <br><br>
 
     Om de oppervlakte $V$ te bepalen, hebben we eerst de grenzen nodig. In dit geval zijn dat de [snijpunten tussen de twee functies](kwadratische_vergelijkingen.md#snijpunten-met-andere-grafieken). Om deze te bepalen moeten we $f(x)$ gelijk stellen aan $g(x)$ en de vergelijking oplossen:
 
@@ -1667,10 +1740,13 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     We weten dat de lijn $x=p$ het vlakdeel $V$ zo verdeelt dat vlakdeel $I$ twee keer zo groot is als vlakdeel $II$. Laten we weer een schets maken zodat we de situatie beter kunnen begrijpen:
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = x^2 - 4x + 6; g(x) = -x^2 + 4x (gesplitst).svg){ width="500" }
-        <figcaption>Figuur 2. Grafiek geplot met de functies $f(x) = x^2 - 4x + 6$ en $g(x) = -x^2 + 4x$. Vlakdeel $V$ wordt verdeeld in de vlakdelen $I$ en $II$ zodat $I$ twee keer zo groot is als $II$.<figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/f(x) = x^2 - 4x + 6; g(x) = -x^2 + 4x (gesplitst).svg" 
+            loading="lazy" 
+            width="500" 
+            alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 2. Grafiek geplot met de functies $f(x) = x^2 - 4x + 6$ en $g(x) = -x^2 + 4x$. Vlakdeel $V$ wordt verdeeld in de vlakdelen $I$ en $II$ zodat $I$ twee keer zo groot is als $II$.</i></span></center> <br><br>
 
     Om dit op te lossen, moeten we oppervlakte $I$ en $II$ apart berekenen. We beginnen met oppervlakte $I$.
 
@@ -1759,10 +1835,14 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     Laten we een schets maken zodat we de situatie een beetje kunnen begrijpen:
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = sqrt(x); g(x) = x^2.svg){ width="500" }
-        <figcaption>Figuur 3. Grafiek geplot met de functies $f(x) = \sqrt{x}$ en $g(x) = x^2$. Vlakdeel $V$ ligt tussen de twee functies in.<figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/f(x) = sqrt(x); g(x) = x^2.svg" 
+            loading="lazy" 
+            width="500" 
+            alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 3. Grafiek geplot met de functies $f(x) = \sqrt{x}$ en $g(x) = x^2$. Vlakdeel $V$ ligt tussen de twee functies in.</i></span></center> <br><br>
+
 
     Om de oppervlakte $V$ te kunnen bepalen, hebben we eerst de grenzen nodig. Dit zijn de [snijpunten tussen de twee functies](kwadratische_vergelijkingen.md#snijpunten-met-andere-grafieken), dus laten we die bepalen. We stellen de twee functies gelijk aan elkaar:
 
@@ -1854,10 +1934,13 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     We weten dat lijn $k$ de oppervlakte $V$ in twee gelijke delen verdeelt. In Figuur 4 hieronder zien we het onderste deel, die we vlakdeel $I$ noemen:
     
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = sqrt(x); g(x) = x^2 (met lijn k; opp I).svg){ width="500" }
-        <figcaption>Figuur 4. Grafiek geplot met de functies $f(x) = x^2$, $g(x) = \sqrt{x}$ en de lijn $k$. Vlakdeel $I$ is de oppervlakte tussen lijn $k$ en $g(x)$.<figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/f(x) = sqrt(x); g(x) = x^2 (met lijn k; opp I).svg" 
+            loading="lazy" 
+            width="500" 
+            alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 4. Grafiek geplot met de functies $f(x) = x^2$, $g(x) = \sqrt{x}$ en de lijn $k$. Vlakdeel $I$ is de oppervlakte tussen lijn $k$ en $g(x)$.</i></span></center> <br><br>
     
     De oppervlakte van vlakdeel $I$ is dus de helft van $V$, dus $I = \dfrac{1}{6}$. We kunnen hiermee lijn $k$ bepalen, door de oppervlakte van $I$ ook uit te rekenen met een integraal. 
     
@@ -1893,10 +1976,13 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     We weten dat vlakdeel $W$ de oppervlakte onder lijn $k$ is met de twee snijpunten als grenzen. Laten we nog een schets maken:
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = sqrt(x); g(x) = x^2 (met lijn k; opp W).svg){ width="500" }
-        <figcaption>Figuur 5. Grafiek geplot met de functies $f(x) = x^2$, $g(x) = \sqrt{x}$ en de lijn $k$. Vlakdeel $W$ is de oppervlakte onder lijn $k$.<figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/f(x) = sqrt(x); g(x) = x^2 (met lijn k; opp W).svg" 
+            loading="lazy" 
+            width="500" 
+            alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 5. Grafiek geplot met de functies $f(x) = x^2$, $g(x) = \sqrt{x}$ en de lijn $k$. Vlakdeel $W$ is de oppervlakte onder lijn $k$.</i></span></center> <br><br>
 
     Nu kunnen we oppervlakte $W$ bepalen. We stellen eerst de integraal op:
 
@@ -1941,10 +2027,13 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     Om de situatie een beetje te kunnen begrijpen, maken we eerst een schets:
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = e^(x - 4) - 2; g(x) = ln(x).svg){ width="500" }
-        <figcaption>Figuur 6. Grafiek geplot met de functies $f(x) =  e^{x - 4} - 2$ en $g(x) = \ln(x)$. Vlakdeel $V$ ligt tussen de twee functies in.<figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/f(x) = e^(x - 4) - 2; g(x) = ln(x).svg" 
+            loading="lazy" 
+            width="500" 
+            alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 6. Grafiek geplot met de functies $f(x) = e^{x - 4} - 2$ en $g(x) = \ln(x)$. Vlakdeel $V$ ligt tussen de twee functies in.</i></span></center> <br><br>
 
     We moeten de oppervlakte van $V$ bepalen, dus laten we eerst de grenzen bepalen. In dit geval liggen de grenzen bij de [snijpunten van de twee functies](kwadratische_vergelijkingen.md#snijpunten-met-andere-grafieken). Om de snijpunten te bepalen, stellen we de twee functies gelijk aan elkaar:
 
@@ -2010,10 +2099,13 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     We weten dat lijn $k$ door de twee snijpunten gaat, dus laten we hier een schets van maken:
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = e^(x - 4) - 2; g(x) = ln(x) (met lijn k).svg){ width="500" }
-        <figcaption>Figuur 7. Grafiek geplot met de functies $f(x) =  e^{x - 4} - 2$, $g(x) = \ln(x)$ en de lijn $k$. Vlakdeel $W$ ligt tussen $g(x)$ en lijn $k$.<figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/f(x) = e^(x - 4) - 2; g(x) = ln(x) (met lijn k).svg" 
+            loading="lazy" 
+            width="500" 
+            alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 7. Grafiek geplot met de functies $f(x) = e^{x - 4} - 2$, $g(x) = \ln(x)$ en de lijn $k$. Vlakdeel $W$ ligt tussen $g(x)$ en lijn $k$.</i></span></center> <br><br>
 
     Om oppervlakte $W$ te bepalen, moeten we eerst lijn $k$ opstellen:
     
@@ -2088,10 +2180,13 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 ??? example "Voorbeeld 4: Bereken algebraïsch de oppervlakte tussen de functies $f(x) = \sin(3x) + 2$ en $g(x) = \cos(3x) + 2$"
     *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = \sin(3x) + 2$ en de functie $g(x) = \cos(3x) + 2$ binnen een bepaald domein (zie Figuur 8).</p>*
 
-    <figure markdown>
-    ![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/f(x) = sin(3x) + 2; g(x) = cos(3x) + 2.svg){ width="500" }
-        <figcaption>Figuur 8. Grafiek geplot met de functies $f(x) = \sin(3x) + 2$ en $g(x) = \cos(3x) + 2$. Vlakdeel $V$ ligt tussen deze twee functies. De grenzen van $V$ zijn het eerste positieve snijpunt en de lijn $x = p$.<figcaption>
+    <figure>
+        <img src="/assets/images/primitieven/f(x) = sin(3x) + 2; g(x) = cos(3x) + 2.svg" 
+            loading="lazy" 
+            width="500" 
+            alt="Functie met oppervlakte V onder de grafiek">
     </figure>
+    <center><span><i>Figuur 8. Grafiek geplot met de functies $f(x) = \sin(3x) + 2$ en $g(x) = \cos(3x) + 2$. Vlakdeel $V$ ligt tussen deze twee functies. De grenzen van $V$ zijn het eerste positieve snijpunt en de lijn $x = p$.</i></span></center> <br><br>
 
     <br>
 
@@ -2201,30 +2296,37 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
 We hebben in [net](#oppervlakte-onder-een-grafiek) gezien dat we de oppervlakte onder een grafiek kunnen bepalen met een integraal. We plotten weer een grafiek met daaronder een oppervlakte $V$.
 
-<figure markdown>
-![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/Oppervlakte onder de grafiek - herhaling.svg){ width="500" }
-    <figcaption>Figuur 1. Functie geplot met oppervlakte $V$ onder de grafiek.</figcaption>
+<figure>
+    <img src="/assets/images/primitieven/Oppervlakte onder de grafiek - herhaling.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<center><span><i>Figuur 1. Functie geplot met oppervlakte $V$ onder de grafiek.</i></span></center> <br><br>
 
 Apart van een oppervlakte onder de grafiek kunnen we ook een inhoud maken. Om dit te doen, *wentelen* we de oppervlakte $V$ *om de $x$-as*. Dus met andere woorden, we draaien met de hele oppervlakte een rondje om de $x$-as zodat we een inhoud krijgen. Hieronder kunnen we zien hoe dit eruit ziet: 
 
 <center>
-<iframe 
-    src="/assets/interactive_images/Grafiek wentelen om de x-as.html" 
-    width="500" 
-    height="400" 
-    frameborder="0"
-    allowtransparency="true">
-</iframe>
-*<span>Figuur 2. Oppervlakte $V$ gewenteld om de $x$-as zodat er een lichaam $L$ ontstaat met een bepaalde inhoud.</span>* <br><br>
+    <a href="/assets/interactive_images/Grafiek wentelen om de x-as.html" target="_blank">
+        <img src="/assets/images/primitieven/Grafiek wentelen om de x-as.png" 
+             alt="Omwentelingslichaam L" 
+             width="500" 
+             height="400" 
+             loading="lazy">
+    </a>
+    <br>
+    *<span>Figuur 2. Oppervlakte $V$ gewenteld om de $x$-as zodat er een lichaam $L$ ontstaat met een bepaalde inhoud. (Klik voor <a href="/assets/interactive_images/Grafiek wentelen om de x-as.html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
 </center>
 
 Om de inhoud van dit lichaam $L$ te bepalen, gebruiken we dezelfde methode als bij een [oppervlakte](#oppervlakte-onder-een-grafiek). Bij een oppervlakte telden we oneindig dunne rechthoekjes allemaal bij elkaar op: 
 
-<figure markdown>
-![Functie met oppervlakte V onder de grafiek](assets/images/primitieven/Oppervlakte onder de grafiek - herhaling (met 100 rechthoeken).svg){ width="500" }
-    <figcaption>Figuur 3. Functie geplot met $100$ rechthoeken onder de grafiek.</figcaption>
+<figure>
+    <img src="/assets/images/primitieven/Oppervlakte onder de grafiek - herhaling (met 100 rechthoeken).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<center><span><i>Figuur 3. Functie geplot met $100$ rechthoeken onder de grafiek.</i></span></center> <br><br>
 
 Want als we de rechthoekjes klein genoeg maken, dan is dat gelijk aan de oppervlakte $V$. We noteerden dit dan als een integraal:
 
@@ -2235,14 +2337,15 @@ $$V = \int_a^b f(x) \, dx$$
 Bij een inhoud doen we eigenlijk precies hetzelfde. Het enige verschil is dat we nu geen rechthoeken bij elkaar optellen, maar cilinders. Laten we dus als eerst de inhoud van $L$ proberen te benaderen met $10$ cilinders:
 
 <center>
-<iframe 
-    src="/assets/interactive_images/Grafiek wentelen om de x-as (10 cilinders).html" 
-    width="500" 
-    height="400" 
-    frameborder="0"
-    allowtransparency="true">
-</iframe>
-*<span>Figuur 4. Oppervlakte $V$ gewenteld om de $x$-as met $10$ cilinders onder de grafiek.</span>* <br><br>
+    <a href="/assets/interactive_images/Grafiek wentelen om de x-as (10 cilinders).html" target="_blank">
+        <img src="/assets/images/primitieven/Grafiek wentelen om de x-as (10 cilinders).png" 
+             alt="Omwentelingslichaam L" 
+             width="500" 
+             height="400" 
+             loading="lazy">
+    </a>
+    <br>
+    *<span>Figuur 4. Oppervlakte $V$ gewenteld om de $x$-as met $10$ cilinders onder de grafiek. (Klik voor <a href="/assets/interactive_images/Grafiek wentelen om de x-as (10 cilinders).html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
 </center>
 
 De inhoud van $1$ cilinder kunnen we bepalen met de formule:
@@ -2260,14 +2363,15 @@ $$I(\text{cilinders}) = \sum_{i=1}^{10} \pi \left(f(x_i)\right)^2 \cdot \Delta x
 Maar als we naar Figuur 4 kijken, dan zien we dat we stukjes van $L$ overhouden. De cilinders zijn nu dus nog alleen maar een benadering. En om deze benadering te verbeteren, kunnen we meer cilinders toevoegen:
 
 <center>
-<iframe 
-    src="/assets/interactive_images/Grafiek wentelen om de x-as (50 cilinders).html" 
-    width="500" 
-    height="400" 
-    frameborder="0"
-    allowtransparency="true">
-</iframe>
-*<span>Figuur 5. Oppervlakte $V$ gewenteld om de $x$-as met $50$ cilinders onder de grafiek.</span>* <br><br>
+    <a href="/assets/interactive_images/Grafiek wentelen om de x-as (50 cilinders).html" target="_blank">
+        <img src="/assets/images/primitieven/Grafiek wentelen om de x-as (50 cilinders).png" 
+             alt="Omwentelingslichaam L" 
+             width="500" 
+             height="400" 
+             loading="lazy">
+    </a>
+    <br>
+    *<span>Figuur 5. Oppervlakte $V$ gewenteld om de $x$-as met $50$ cilinders onder de grafiek. (Klik voor <a href="/assets/interactive_images/Grafiek wentelen om de x-as (50 cilinders).html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
 </center>
 
 In Figuur 5 kunnen we zien dat het met $50$ cilinders al een stuk meer op lichaam $L$ lijkt. Maar als je inzoomt, dan zie je dat het nog steeds niet precies hetzelfde is. Daarom kunnen we net zoals bij een [oppervlakte](#oppervlakte-onder-een-grafiek) oneindig veel cilinders gebruiken die allemaal oneindig dun zijn.
@@ -2310,14 +2414,15 @@ Nu willen we de inhoud bepalen van het lichaam $L$ dat ontstaat als we $V$ om de
 Laten we als eerst een schets maken van de situatie zodat we het beter kunnen begrijpen:
 
 <center>
-<iframe 
-    src="/assets/interactive_images/f(x) = 2x^2 (3D).html" 
-    width="500" 
-    height="400" 
-    frameborder="0"
-    allowtransparency="true">
-</iframe>
-*<span>Figuur 6. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
+    <a href="/assets/interactive_images/f(x) = 2x^2 (3D).html" target="_blank">
+        <img src="/assets/images/primitieven/f(x) = 2x^2 (3D).png" 
+                alt="Omwentelingslichaam L" 
+                width="500" 
+                height="400" 
+                loading="lazy">
+    </a>
+    <br>
+    *<span>Figuur 6. Oppervlakte $V$ gewenteld om de $x$-as. (Klik voor <a href="/assets/interactive_images/f(x) = 2x^2 (3D).html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
 </center>
 
 Om deze inhoud te bepalen, kunnen we de [algemene vorm](#algemene-integraal-wentelen-x-as) voor een omwentelingslichaam om de x-as gebruiken:
@@ -2369,15 +2474,15 @@ Ons eindantwoord wordt dan:
     Om de situatie te begrijpen maken we eerst een plaatje van de situatie:
 
     <center>
-        <iframe 
-            src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
-            width="500" 
-            height="400" 
-            frameborder="0"
-            allowtransparency="true">
-        </iframe>
+        <a href="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" target="_blank">
+            <img src="/assets/images/primitieven/f(x) = 4 - x^2 (3D).png" 
+                 alt="Omwentelingslichaam L" 
+                 width="500" 
+                 height="400" 
+                 loading="lazy">
+        </a>
         <br>
-        *<span>Figuur 1. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
+        *<span>Figuur 1. Oppervlakte $V$ gewenteld om de $x$-as. (Klik voor <a href="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
     </center>
     
     Om de inhoud van het omwentelingslichaam $L$ te berekenen, moeten we eerst de grenzen bepalen. Vlakdeel $V$ wordt ingesloten door de $x$-as, dus de grenzen zijn de snijpunten met de $x$-as.
@@ -2442,38 +2547,131 @@ Ons eindantwoord wordt dan:
         $$\large{I(L) =  34 \dfrac{2}{15} \pi}$$
 
 
-<!-- ??? example "Voorbeeld 2: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = 4 - x^2$"
-    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = 4 - x^2$ en de $x$-as. Oppervlakte $V$ wordt om de $x$-as gewenteld om lichaam $L$ te maken.</p>*
+??? example "Voorbeeld 2: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = \sin(x) + \cos(x)$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = \sin(x) + \cos(x)$, de $y$-as en de $x$-as. Vervolgens wordt oppervlakte $V$ om de $x$-as gewenteld om lichaam $L$ te maken.</p>*
 
     <br>
 
     **<span style="font-size: 17px;">Bereken exact de inhoud van omwentelingslichaam $L$.</span>**
 
+    *<span style="font-size: 17px;">\* Hint: Gebruik de [goniometrische vergelijkingen](goniometrie.md#goniometrische-vergelijkingen).</span>*
+
     <br><br><br><br><br>
 
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Om de situatie te begrijpen maken we eerst een plaatje van de situatie:
+    Laten we eerst een plaatje maken om de situatie een beetje te kunnen begrijpen:
 
     <center>
-        <iframe 
-            src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
-            width="500" 
-            height="400" 
-            frameborder="0"
-            allowtransparency="true">
-        </iframe>
+        <a href="/assets/interactive_images/f(x) = sin(x) + cos(x) (3D).html" target="_blank">
+            <img src="/assets/images/primitieven/f(x) = sin(x) + cos(x) (3D).png" 
+                 alt="Omwentelingslichaam L" 
+                 width="500" 
+                 height="400" 
+                 loading="lazy">
+        </a>
         <br>
-        *<span>Figuur 1. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
+        *<span>Figuur 2. Oppervlakte $V$ gewenteld om de $x$-as. (Klik voor <a href="/assets/interactive_images/f(x) = sin(x) + cos(x) (3D).html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
     </center>
 
 
-??? example "Voorbeeld 3: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = 4 - x^2$"
-    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = 4 - x^2$ en de $x$-as. Oppervlakte $V$ wordt om de $x$-as gewenteld om lichaam $L$ te maken.</p>*
+    Om de inhoud van $L$ te bepalen, hebben we eerst de grenzen nodig. We weten dat de linkergrens de $y$-as is, dus $x=0$. De rechtergrens is het eerste positieve snijpunt met de $x$-as. En om die te bepalen, moeten we de functie gelijk aan $0$ stellen:
+
+    $$\large{\sin(x) + \cos(x) = 0}$$
+
+    Om dit op te lossen, doen we aan beide kanten $-\sin(x)$:
+
+    $$\large{\cos(x) = -\sin(x)}$$
+
+    Met de [symmetrieformules](goniometrie.md#symmetrieformules) weten we dat we de $-$ in de sinus kunnen zetten:
+
+    $$\large{\cos(x) = \sin(-x)}$$
+
+    Nu kunnen we de cosinus [omschrijven](goniometrie.md#sinus-en-cosinus-omschrijven) naar een sinus:
+
+    $$\large{\sin(x + \dfrac{1}{2} \pi) = \sin(-x)}$$
+
+    Nu kunnen we deze vergelijking oplossen met de [algemene oplossing](goniometrie.md#algemene-oplossing):
+
+    $$\large{x + \dfrac{1}{2} \pi = -x + k \cdot 2\pi \, \vee \, x + \dfrac{1}{2} \pi = \pi - \left( -x \right) + k \cdot 2\pi}$$
+
+    $$\large{x + \dfrac{1}{2} \pi = -x + k \cdot 2\pi \, \vee \, x + \dfrac{1}{2} \pi = x + \pi + k \cdot 2\pi}$$
+
+    En als we alle getallen naar links halen en alle $x$ termen naar rechts:
+
+    $$\large{2x = -\dfrac{1}{2} \pi + k \cdot 2\pi \, \vee \, 0 = \dfrac{1}{2} \pi + k \cdot 2\pi}$$
+
+    Bij de rechter oplossing is de $x$ term weggevallen, dus daar hebben we niks meer aan. We houden dus alleen over:
+
+    $$\large{2x = -\dfrac{1}{2} \pi + k \cdot 2\pi}$$
+
+    Nu kunnen we beide kanten door $2$ delen om te vinden:
+
+    $$\large{x = -\dfrac{1}{4} \pi + k \cdot \pi}$$
+
+    De eerste positieve oplossing is bij $k=1$, dus bij:
+
+    $$\large{x = -\dfrac{1}{4}\pi + \pi = \dfrac{3}{4} \pi}$$
+
+    De grenzen van oppervlakte $V$ zijn dus $x=0$ en $x=\frac{3}{4}\pi$. Nu kunnen we de integraal opstellen van de inhoud van omwentelingslichaam $L$:
+
+    $$\large{I(L) = \pi \int_0^{\frac{3}{4}\pi} \left( \sin(x) + \cos(x) \right)^2 \, dx}$$
+
+    Als we de [haakjes uitwerken](basisvaardigheden.md#kwadratisch-haakjes-wegwerken), dan vinden we:
+
+    $$\large{I(L) = \pi \int_0^{\frac{3}{4}\pi} \left( \sin(x) + \cos(x) \right)\left( \sin(x) + \cos(x) \right) \, dx}$$
+
+    $$\large{I(L) = \pi \int_0^{\frac{3}{4}\pi} \sin^2(x) + 2\sin(x)\cos(x) + \cos^2(x) \, dx}$$
+
+    Nu kunnen we twee verschillende [goniometrische vergelijkingen](goniometrie.md#goniometrische-vergelijkingen) gebruiken. Daarvoor veranderen we eerst de volgorde van de termen:
+    
+    $$\large{I(L) = \pi \int_0^{\frac{3}{4}\pi} \sin^2(x) + \cos^2(x) + 2\sin(x)\cos(x) \, dx}$$
+    
+    Nu herkennen we als eerst de term $\sin^2(x) + \cos^2(x)$. Deze term is voor alle $x$ gelijk aan $1:$
+
+    $$\large{I(L) = \pi \int_0^{\frac{3}{4}\pi} 1 + 2\sin(x)\cos(x) \, dx}$$
+
+    We hebben nu nog de $2\sin(x)\cos(x)$ term. Met een van de verdubblingsformules kunnen we dit herschrijven als $\sin(2x):$
+
+    $$\large{I(L) = \pi \int_0^{\frac{3}{4}\pi} 1 + \sin(2x) \, dx}$$
+
+    Nu kunnen we deze functie integreren. 
+    
+    - Als eerst hebben we een constante (los getal zonder $x$), dus bij de primitieve plakken we er gewoon een $x$ aanvast. We krijgen dus als primitieve: $\underline{1x \longrightarrow x}$ <br><br>
+    
+    - In de [tabel](#tabel-met-veel-voorkomende-functies) kunnen we zien dat de primitieve van $\sin(x)$ gelijk is aan $-\cos(x)$. Wij hebben $2x$, dus we moeten nog rekening houden met de [kettingregel](#regels). Bij de afgeleide zouden we de functie keer $2$ doen, dus om dit te compenseren moeten we het nu keer $\dfrac{1}{2}$ doen. We krijgen dus als primitieve: $\underline{-\dfrac{1}{2} \cos(2x)}$
+
+    Als we dit combineren, dan vinden we:
+
+    $$\large{I(L) = \pi \left[x - \dfrac{1}{2} \cos(2x) \right]_0^{\frac{3}{4}\pi}}$$
+
+    Nu kunnen we de grenzen invullen en min elkaar doen:
+
+    $$\large{I(L) = \pi \left(\dfrac{3}{4} \pi - \dfrac{1}{2} \cos(2 \cdot \dfrac{3}{4} \pi) \right) - \pi \left(0 - \dfrac{1}{2} \cdot \cos(2 \cdot 0) \right)}$$
+
+    En als we dit uitwerken, dan vinden we:
+
+    $$\large{I(L) = \pi \left(\dfrac{3}{4} \pi - \dfrac{1}{2} \cos(1 \dfrac{1}{2} \pi) \right) - \pi \left(- \dfrac{1}{2} \cdot 1 \right)}$$
+
+    $$\large{I(L) = \pi \left(\dfrac{3}{4} \pi - \dfrac{1}{2} \cdot 0 \right) - \pi \left(- \dfrac{1}{2} \right)}$$
+
+    $$\large{I(L) = \pi \left(\dfrac{3}{4} \pi - 0 \right) - - \dfrac{1}{2} \pi}$$
+
+    Ons eindantwoord wordt dan dus:
+
+    !!! quote ""
+        $$\large{I(L) = \dfrac{3}{4} \pi^2 + \dfrac{1}{2} \pi}$$
+
+
+
+<!-- ??? example "Voorbeeld 3: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = \sqrt{2x - 8}$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $\sqrt{2x - 8}$, de $x$-as en de lijn $x=10$. Vlakdeel $V$ wordt gewenteld om de $x$-as om lichaam $L$ te maken.</p>*
 
     <br>
 
-    **<span style="font-size: 17px;">Bereken exact de inhoud van omwentelingslichaam $L$.</span>**
+    **<span style="font-size: 17px;">a) Bereken exact de inhoud van omwentelingslichaam $L$.</span>**
+
+    **<span style="font-size: 17px;">b) De lijn $x=p$ verdeelt $V$ in vlakdelen $V_1$ en $V_2$ die allebei wentelen om de $x$-as. De omwentelingslichamen van $V_1$ en $V_2$ noemen we $L_1$ en $L_2$. Bereken voor welke $p$ de inhoud van $L_1$ gelijk is aan de inhoud van $L_2$. Rond af op $2$ decimalen nauwkeurig.</span>**
 
     <br><br><br><br><br>
 
@@ -2484,13 +2682,14 @@ Ons eindantwoord wordt dan:
     <center>
         <iframe 
             src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
+            loading="lazy"
             width="500" 
             height="400" 
             frameborder="0"
             allowtransparency="true">
         </iframe>
         <br>
-        *<span>Figuur 1. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
+        *<span>Figuur 3. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
     </center>
 
 
@@ -2510,13 +2709,14 @@ Ons eindantwoord wordt dan:
     <center>
         <iframe 
             src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
+            loading="lazy"
             width="500" 
             height="400" 
             frameborder="0"
             allowtransparency="true">
         </iframe>
         <br>
-        *<span>Figuur 1. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
+        *<span>Figuur 4. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
     </center>
 
 

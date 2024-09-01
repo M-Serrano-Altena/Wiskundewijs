@@ -9,6 +9,7 @@ import numpy as np
 import re
 from src.Solver.src.solver.solve_calculations import custom_latex
 import os
+from pathlib import Path
 
 class Parabola(Scene):
     def construct(self):
@@ -632,7 +633,7 @@ def draw_func_3d(save_file, func, x_range, y_range, integral_range, func_label=F
                 n = riemann
 
             colorscale = [[0, 'blue'], [1, 'blue']]
-            camera_eye = dict(x=0.11, y=-1.7, z=0.42)
+            camera_eye = dict(x=0.13, y=-2, z=0.5)
 
             if n <= 50:
                 x_volume = np.linspace(*integral_range, n+1)
@@ -689,19 +690,31 @@ def draw_func_3d(save_file, func, x_range, y_range, integral_range, func_label=F
             'scrollZoom': True,
         }
 
+        if save_file.endswith('.html'):
+            save_file_html = save_file
+            save_file_png = str(Path(save_file_png).stem + '.png')
+        elif save_file.endswith('.png'):
+            save_file_png = save_file
+            save_file_html = str(Path(save_file_png).stem + '.html')
+        else:
+            save_file_html = save_file + '.html'
+            save_file_png = save_file + '.png'
+
+        interactive_image_path = os.path.join(asset_path, "interactive_images")
+        os.chdir(interactive_image_path)
+        pio.write_html(fig, file=save_file_html, config=config, auto_open=False) # Save the figure as an interactive HTML file
+
+        images_primitieve_path = os.path.join(asset_path, "images", "primitieven")
+        os.chdir(images_primitieve_path)
+
+        fig.write_image(save_file_png, scale=3)  # Save the figure as a PNG file
+
+        
 
         interactive_image_path = os.path.join(asset_path, "interactive_images")
         os.chdir(interactive_image_path)
 
-        if save_file.endswith('.html'):
-            save_file = save_file
-        else:
-            save_file += '.html'
-
-        # Save the figure as an interactive HTML file
-        pio.write_html(fig, file=save_file, config=config, auto_open=False)
-
-        return save_file
+        return save_file_html
 
     def add_meta_tag(save_file):
         with open(save_file, 'r', encoding='utf-8') as file:
@@ -732,8 +745,8 @@ def draw_func_3d(save_file, func, x_range, y_range, integral_range, func_label=F
         else:
             raise ValueError("Not enough roots found to calculate integral range")
 
-    save_file = create_plot(save_file)
-    add_meta_tag(save_file)
+    save_file_html = create_plot(save_file)
+    add_meta_tag(save_file_html)
 
     os.chdir(asset_path)
 
@@ -742,8 +755,9 @@ def draw_func_3d(save_file, func, x_range, y_range, integral_range, func_label=F
 # draw_func(lambda x: sp.cos(x) + 3, "Oppervlakte onder de grafiek - herhaling (met 100 rechthoeken)", x_range=(8, 14), y_range=(-2, 8), root=False, integral_range=(9, 13), riemann_amt=100, func_label=False)
 
 # draw_func_3d("Grafiek wentelen om de x-as", lambda x: sp.cos(x) + 3, x_range=(8, 14), y_range=(-6, 6), root=False, integral_range=(9, 13), func_label=False, add_caps=True)
-# draw_func_3d("Grafiek wentelen om de x-as (10 cilinders)", lambda x: sp.cos(x) + 3, x_range=(8, 14), y_range=(-6, 6), integral_range=(9, 13), func_label=False, add_caps=True, riemann=10)
-# draw_func_3d("Grafiek wentelen om de x-as (50 cilinders)", lambda x: sp.cos(x) + 3, x_range=(8, 14), y_range=(-6, 6), integral_range=(9, 13), func_label=False, add_caps=True, riemann=50)
+draw_func_3d("Grafiek wentelen om de x-as (10 cilinders)", lambda x: sp.cos(x) + 3, x_range=(8, 14), y_range=(-6, 6), integral_range=(9, 13), func_label=False, add_caps=True, riemann=10)
+draw_func_3d("Grafiek wentelen om de x-as (50 cilinders)", lambda x: sp.cos(x) + 3, x_range=(8, 14), y_range=(-6, 6), integral_range=(9, 13), func_label=False, add_caps=True, riemann=50)
 
 # draw_func_3d("f(x) = 2x^2 (3D)", lambda x: 2*x**2, x_range=(-1, 3), y_range=(-20, 20), integral_range=(0, 2), func_label=True, add_caps=True)
-draw_func_3d("f(x) = 4 - x^2 (3D)", lambda x: 4 - x**2, x_range=(-3, 3), y_range=(-5, 5), integral_range='root', func_label=True, add_caps=True)
+# draw_func_3d("f(x) = 4 - x^2 (3D)", lambda x: 4 - x**2, x_range=(-3, 3), y_range=(-5, 5), integral_range='root', func_label=True, add_caps=True)
+# draw_func_3d("f(x) = sin(x) + cos(x) (3D)", lambda x: sp.sin(x) + sp.cos(x), x_range=(-1, 3), y_range=(-2, 2), integral_range=(0, 3*np.pi/4), func_label=True, add_caps=True)

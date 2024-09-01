@@ -1328,15 +1328,21 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <h3 id="oppervlakte-onder-een-grafiek"><strong>Oppervlakte onder een grafiek</strong></h3>
 <p>Stel we willen de oppervlakte <span class="arithmatex">\(V\)</span> bepalen onder deze grafiek, hoe doen we dat?</p>
 <figure>
-<p><img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/Oppervlakte%20onder%20de%20grafiek.svg" width="500" />
-    <figcaption>Figuur 1. Functie geplot met oppervlakte <span class="arithmatex">\(V\)</span> onder de grafiek.</figcaption></p>
+    <img src="/assets/images/primitieven/Oppervlakte onder de grafiek.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<p><center><span><i>Figuur 1. Functie geplot met oppervlakte <span class="arithmatex">\(V\)</span> onder de grafiek.</i></span></center> <br><br></p>
 <p>Deze oppervlakte heeft een lastige vorm, dus we kunnen het niet zomaar bepalen door lengte keer breedte te gebruiken... Of toch wel? </p>
 <p>Als we deze oppervlakte <span class="arithmatex">\(V\)</span> indelen in allemaal kleine rechthoeken, dan kunnen we de oppervlaktes van alle rechthoekjes bij elkaar optellen. En deze totale oppervlakte is dan hetzelfde als de oppervlakte <span class="arithmatex">\(V\)</span>.</p>
 <figure>
-<p><img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/Oppervlakte%20onder%20de%20grafiek%20%28met%2010%20rechthoeken%29.svg" width="500" />
-    <figcaption>Figuur 2. Functie geplot met <span class="arithmatex">\(10\)</span> rechthoeken onder de grafiek. De breedte van de rechthoeken is <span class="arithmatex">\(\Delta x\)</span>. De hoogte is de waarde van de functie bij de <span class="arithmatex">\(x\)</span> waar de rechthoek begint.</figcaption></p>
+    <img src="/assets/images/primitieven/Oppervlakte onder de grafiek (met 10 rechthoeken).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<p><center><span><i>Figuur 2. Functie geplot met <span class="arithmatex">\(10\)</span> rechthoeken onder de grafiek. De breedte van de rechthoeken is <span class="arithmatex">\(\Delta x\)</span>. De hoogte is de waarde van de functie bij de <span class="arithmatex">\(x\)</span> waar de rechthoek begint.</i></span></center> <br><br></p>
 <p>De oppervlakte van één rechthoek kunnen we bepalen door lengte keer breedte te doen. De breedte van alle rechthoeken is hetzelfde, dus die noemen we <span class="arithmatex">\(\Delta x\)</span>. Maar de lengte (hier hoogte) is afhankelijk van welke rechthoek we naar kijken.</p>
 <p>Laten we bijvoorbeeld kijken naar het eerste rechthoekje. De hoogte van deze rechthoek is het <span class="arithmatex">\(y\)</span>-coördinaat van de functie bij het begin van deze rechthoek. Dus als de rechthoek begint bij <span class="arithmatex">\(x_1\)</span>, dan is de hoogte <span class="arithmatex">\(f(x_1)\)</span>. De oppervlakte van het eerste rechthoekje wordt dan dus:</p>
 <div class="arithmatex">\[\textrm{Opp rechthoek 1} = f(x_1) \cdot \Delta x\]</div>
@@ -1350,9 +1356,12 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p>Het enige probleem is dat dit niet helemaal hetzelfde is als oppervlakte <span class="arithmatex">\(V\)</span> (zie Figuur 2). We hebben namelijk aan de bovenkant een paar stukjes van <span class="arithmatex">\(V\)</span> niet meegenomen. Het is dus alleen maar een <em>benadering</em>.</p>
 <p>Maar we kunnen de benadering wel beter maken door meer rechthoeken te gebruiken. Dit zijn er bijvoorbeeld <span class="arithmatex">\(100\)</span>: </p>
 <figure>
-<p><img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/Oppervlakte%20onder%20de%20grafiek%20%28met%20100%20rechthoeken%29.svg" width="500" />
-    <figcaption>Figuur 3. Functie geplot met <span class="arithmatex">\(100\)</span> rechthoeken onder de grafiek.</figcaption></p>
+    <img src="/assets/images/primitieven/Oppervlakte onder de grafiek (met 100 rechthoeken).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<p><center><span><i>Figuur 3. Functie geplot met <span class="arithmatex">\(100\)</span> rechthoeken onder de grafiek.</i></span></center> <br><br></p>
 <p>Dit is bijvoorbeeld al een stuk beter. Het is nog steeds niet precies hetzelfde als oppervlakte <span class="arithmatex">\(V\)</span>, maar we komen steeds meer in de buurt. We hebben nu dus:</p>
 <div class="arithmatex">\[\textrm{Opp alle rechthoeken} = \sum_{i=1}^{100} f(x_i) \cdot \Delta x\]</div>
 <p>Als we meer rechthoekjes gebruiken, wordt de breedte van elke rechthoek (<span class="arithmatex">\(\Delta x\)</span>) ook steeds kleiner. Dus als we deze breedte oneindig klein zouden kunnen maken, dan wordt onze benadering zó goed, dat het eigenlijk geen benadering meer is. </p>
@@ -1368,9 +1377,12 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <div class="arithmatex">\[f(x) = 6x^2\]</div>
 <p>In Figuur 1 is deze functie geschetst met een oppervlakte <span class="arithmatex">\(V\)</span> onder deze grafiek. </p>
 <figure>
-<p><img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%206x%5E2.svg" width="500" />
-    <figcaption>Figuur 4. De grafiek <span class="arithmatex">\(f(x) = 6x^2\)</span> geplot met oppervlakte <span class="arithmatex">\(V\)</span>. Deze oppervlakte onder de functie <span class="arithmatex">\(f(x)\)</span> gaat van <span class="arithmatex">\(x=0\)</span> tot <span class="arithmatex">\(x=1\)</span>.</figcaption></p>
+    <img src="/assets/images/primitieven/f(x) = 6x^2.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<p><center><span><i>Figuur 4. De grafiek <span class="arithmatex">\(f(x) = 6x^2\)</span> geplot met oppervlakte <span class="arithmatex">\(V\)</span>. Deze oppervlakte onder de functie <span class="arithmatex">\(f(x)\)</span> gaat van <span class="arithmatex">\(x=0\)</span> tot <span class="arithmatex">\(x=1\)</span>.</i></span></center> <br><br></p>
 <p>Zoals we bij de sectie <a href="#oppervlakte-onder-een-grafiek">Oppervlakte onder een grafiek</a> hebben gezien, kunnen we de oppervlakte <span class="arithmatex">\(V\)</span> bepalen met een integraal. Een integraal heeft de volgende vorm:</p>
 <div class="arithmatex">\[V = \int_a^b f(x) \, dx,\]</div>
 <p>waarbij <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> de grenzen zijn van de oppervlakte. Dus in ons geval start de oppervlakte van <span class="arithmatex">\(V\)</span> bij <span class="arithmatex">\(x=0\)</span> en eindigt bij <span class="arithmatex">\(x=1\)</span>:</p>
@@ -1427,9 +1439,12 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <div class="arithmatex">\[V_2 = -2\]</div>
 <p>Dus zoals we hier kunnen zien krijgen we precies dezelfde oppervlakte als bij <span class="arithmatex">\(6x\)</span>, alleen dan nu negatief. En als we deze functie tekenen, dan zien we ook dat het dezelfde oppervlakte is als bij Figuur 4. Alleen dan nu is de oppervlakte onder de <span class="arithmatex">\(x\)</span>-as:</p>
 <figure>
-<p><img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20-6x%5E2.svg" width="500" />
-    <figcaption>Figuur 5. De grafiek <span class="arithmatex">\(f(x) = -6x^2\)</span> geplot met oppervlakte <span class="arithmatex">\(V\)</span>. Deze oppervlakte onder de functie <span class="arithmatex">\(f(x)\)</span> gaat van <span class="arithmatex">\(x=0\)</span> tot <span class="arithmatex">\(x=1\)</span>.</figcaption></p>
+    <img src="/assets/images/primitieven/f(x) = -6x^2.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<p><center><span><i>Figuur 5. De grafiek <span class="arithmatex">\(f(x) = -6x^2\)</span> geplot met oppervlakte <span class="arithmatex">\(V\)</span>. Deze oppervlakte onder de functie <span class="arithmatex">\(f(x)\)</span> gaat van <span class="arithmatex">\(x=0\)</span> tot <span class="arithmatex">\(x=1\)</span>.</i></span></center> <br><br></p>
 <p>Maar omdat een oppervlakte niet negatief kan zijn, voegen we een '<span class="arithmatex">\(-\)</span>' toe bij de integraal:</p>
 <div class="arithmatex">\[V_2 = - \int_0^1 -6x^2 \, dx\]</div>
 <p>Dit zorgt ervoor dat de minnen tegen elkaar wegvallen zodat de oppervlakte weer positief wordt.</p>
@@ -1447,9 +1462,12 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <div class="arithmatex">\[f(x) = \sin(x)\]</div>
 <p>Stel dat we de totale oppervlakte willen bepalen van vlakdeel <span class="arithmatex">\(V\)</span> dat tussen <span class="arithmatex">\(x=-\pi\)</span> en <span class="arithmatex">\(x=\pi\)</span> ligt. Dit heeft een deel onder de <span class="arithmatex">\(x\)</span>-as ( <span class="arithmatex">\(I\)</span> ) en een deel boven de <span class="arithmatex">\(x\)</span>-as ( <span class="arithmatex">\(II\)</span> ):</p>
 <figure>
-<p><img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20sin%28x%29.svg" width="500" />
-    <figcaption>Figuur 6. De grafiek <span class="arithmatex">\(f(x) = \sin(x)\)</span> geplot met oppervlakte <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span>. Samen gaan deze oppervlaktes van <span class="arithmatex">\(x=-\pi\)</span> tot <span class="arithmatex">\(x=\pi\)</span>. Oppervlakte <span class="arithmatex">\(I\)</span> ligt onder de <span class="arithmatex">\(x\)</span>-as en oppervlakte <span class="arithmatex">\(II\)</span> ligt boven de <span class="arithmatex">\(x\)</span>-as.</figcaption></p>
+    <img src="/assets/images/primitieven/f(x) = sin(x).svg" 
+            loading="lazy" 
+            width="500" 
+            alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<p><center><span><i>Figuur 6. De grafiek <span class="arithmatex">\(f(x) = \sin(x)\)</span> geplot met oppervlakte <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span>. Samen gaan deze oppervlaktes van <span class="arithmatex">\(x=-\pi\)</span> tot <span class="arithmatex">\(x=\pi\)</span>. Oppervlakte <span class="arithmatex">\(I\)</span> ligt onder de <span class="arithmatex">\(x\)</span>-as en oppervlakte <span class="arithmatex">\(II\)</span> ligt boven de <span class="arithmatex">\(x\)</span>-as.</i></span></center> <br><br></p>
 <p>Als we de totale oppervlakte willen berekenen, dan moeten we oppervlakte <span class="arithmatex">\(I\)</span> en oppervlakte <span class="arithmatex">\(II\)</span> apart berekenen. Want als we het als geheel proberen te integreren, dan krijgen we uit de integraal dat de totale oppervlakte <span class="arithmatex">\(0\)</span> is. En dit klopt natuurlijk niet. </p>
 <details class="abstract">
 <summary>Bewijs dat <span class="arithmatex">\(\int_{-\pi}^{\pi} \sin(x) \, dx\)</span> uitkomt op <span class="arithmatex">\(0\)</span></summary>
@@ -1499,10 +1517,13 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p>Als een gedeelte van de oppervlakte boven de <span class="arithmatex">\(x\)</span>-as is en een gedeelte onder de <span class="arithmatex">\(x\)</span>-as, moeten we de integraal opsplitsen. We berekenen beide oppervlaktes apart en tellen ze daarna pas bij elkaar op:</p>
 <div class="arithmatex">\[\large{V = \int_a^b f(x) \, dx \qquad \Longrightarrow \qquad V = \int_a^c f(x) \, dx \, + \int_c^b -f(x) \, dx}\]</div>
 <p>waarbij <span class="arithmatex">\(c\)</span> dus het snijpunt met de <span class="arithmatex">\(x\)</span>-as tussen <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> is. We krijgen bij de tweede integraal een '<span class="arithmatex">\(-\)</span>' omdat het <a href="#oppervlaktes-onder-de-x-as">onder de <span class="arithmatex">\(x\)</span>-as</a> ligt.</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/Functie%20met%20deel%20boven%20en%20deel%20onder%20de%20x-as.svg" width="450" />
-    <figcaption>Figuur 7. Voorbeeld van een functie met een deel boven de <span class="arithmatex">\(x\)</span>-as en een deel onder de <span class="arithmatex">\(x\)</span>-as.</figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/Functie met deel boven en deel onder de x-as.svg" 
+         loading="lazy" 
+         width="450" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 7. Voorbeeld van een functie met een deel boven de <span class="arithmatex">\(x\)</span>-as en een deel onder de <span class="arithmatex">\(x\)</span>-as.</i></span></center> <br><br></p>
 </details>
 <h3 id="voorbeelden_1"><strong>Voorbeelden</strong></h3>
 <details class="example">
@@ -1606,10 +1627,13 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p><br><br></p>
 <p><strong><span style="font-size: 17px;">b)</span></strong></p>
 <p>We weten dat de lijn <span class="arithmatex">\(x=p\)</span> het vlakdeel <span class="arithmatex">\(V\)</span> verdeelt in twee gelijke oppervlaktes. Laten we dit weer schetsen zodat we de situatie beter kunnen begrijpen:</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20-x%5E2%20%2B%202x%20%2B%203%20%28gesplitst%29.svg" width="500" />
-    <figcaption>Figuur 2. De grafiek <span class="arithmatex">\(f(x) = -x^2 + 2x + 3\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span> verdeelt in <span class="arithmatex">\(2\)</span> gelijke delen. De twee delen worden gesplitst door de lijn <span class="arithmatex">\(x=p\)</span>.</figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = -x^2 + 2x + 3 (gesplitst).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 2. De grafiek <span class="arithmatex">\(f(x) = -x^2 + 2x + 3\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span> verdeelt in <span class="arithmatex">\(2\)</span> gelijke delen. De twee delen worden gesplitst door de lijn <span class="arithmatex">\(x=p\)</span>.</i></span></center> <br><br></p>
 <p>We weten uit vraag a) dat de totale oppervlakte <span class="arithmatex">\(V=9\)</span> is, dus de oppervlakte van <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span> zijn beide <span class="arithmatex">\(4 \frac{1}{2}\)</span>:</p>
 <div class="arithmatex">\[\large{I = 4\dfrac{1}{2} = II}\]</div>
 <p>We kunnen oppervlakte <span class="arithmatex">\(I\)</span> ook schrijven als integraal:</p>
@@ -1643,10 +1667,13 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
 <p><br></p>
 <p>Als eerst is het handig om een schets te maken, zodat we beter kunnen begrijpen wat we moeten doen:</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20sqrt%28x%29.svg" width="500" />
-    <figcaption>Figuur 3. De grafiek <span class="arithmatex">\(f(x) = \sqrt{x}\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span> en <span class="arithmatex">\(W\)</span>. Vlakdeel <span class="arithmatex">\(W\)</span> is <span class="arithmatex">\(\sqrt{2}\)</span> keer groter dan vlakdeel <span class="arithmatex">\(V\)</span>.</figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = sqrt(x).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 3. De grafiek <span class="arithmatex">\(f(x) = \sqrt{x}\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span> en <span class="arithmatex">\(W\)</span>. Vlakdeel <span class="arithmatex">\(W\)</span> is <span class="arithmatex">\(\sqrt{2}\)</span> keer groter dan vlakdeel <span class="arithmatex">\(V\)</span>.</i></span></center> <br><br></p>
 <p>Laten we eerst de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> uitdrukken in <span class="arithmatex">\(p\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen <span class="arithmatex">\(x=0\)</span> en <span class="arithmatex">\(x=p\)</span>:</p>
 <div class="arithmatex">\[\large{V = \int_0^p \sqrt{x} \, dx}\]</div>
 <p>Om dit op te lossen, willen we <span class="arithmatex">\(\sqrt{x}\)</span> eerst schrijven in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. We doen dit door de wortel te schrijven als een macht <span class="arithmatex">\(\frac{1}{2}\)</span>:</p>
@@ -1698,10 +1725,13 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p><br></p>
 <p><strong><span style="font-size: 17px;">a)</span></strong></p>
 <p>Laten we als eerst een schets maken om de situatie beter te kunnen begrijpen:</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%202%20%21divide%21%20x.svg" width="500" />
-    <figcaption>Figuur 4. De grafiek <span class="arithmatex">\(f(x) = \dfrac{1}{x}\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span>. Het vlakdeel <span class="arithmatex">\(V\)</span> gaat van <span class="arithmatex">\(x = -1000\)</span> (te groot om weer te geven in de schets) tot <span class="arithmatex">\(x = -1\)</span>.</figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = 2 !divide! x.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 4. De grafiek <span class="arithmatex">\(f(x) = \dfrac{1}{x}\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span>. Het vlakdeel <span class="arithmatex">\(V\)</span> gaat van <span class="arithmatex">\(x = -1000\)</span> (te groot om weer te geven in de schets) tot <span class="arithmatex">\(x = -1\)</span>.</i></span></center> <br><br></p>
 <p>We zien in Figuur 4 dat deze oppervlakte <a href="#oppervlaktes-onder-de-x-as">onder de <span class="arithmatex">\(x\)</span>-as</a> ligt. Dit betekent dat we een '<span class="arithmatex">\(-\)</span>' moeten toevoegen aan onze integraal. We hebben de grenzen al gekregen, dus onze integraal wordt:</p>
 <div class="arithmatex">\[\large{V = - \int_{-1000}^{-1} \dfrac{2}{x} \, dx}\]</div>
 <p>In de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> kunnen we zien dat de primitieve van <span class="arithmatex">\(\dfrac{1}{x}\)</span> gelijk is aan <span class="arithmatex">\(\ln|x|\)</span>. Nu hebben we nog een extra factor <span class="arithmatex">\(2\)</span>, maar die kunnen we er gewoon voor laten staan:</p>
@@ -1756,15 +1786,21 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p><strong><span style="font-size: 17px;">Bereken de oppervlakte van <span class="arithmatex">\(V\)</span> op <span class="arithmatex">\(2\)</span> decimalen nauwkeurig.</span></strong></p>
 <p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
 <p>Laten we eerst beginnen met het maken van een schets, zodat we de situatie een beetje kunnen begrijpen:</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20%284x-7%29%5E3%20-10x%20%2B%2018.svg" width="500" />
-    <figcaption>Figuur 5. De grafiek <span class="arithmatex">\(f(x) = \left( 4x - 7 \right)^3 - 10x + 18\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen de buitenste twee snijpunten met de <span class="arithmatex">\(x\)</span>-as.<figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = (4x-7)^3 -10x + 18.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 5. De grafiek <span class="arithmatex">\(f(x) = \left( 4x - 7 \right)^3 - 10x + 18\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen de buitenste twee snijpunten met de <span class="arithmatex">\(x\)</span>-as.</i></span></center> <br><br></p>
 <p>We zien hier dat de oppervlakte <span class="arithmatex">\(V\)</span> bestaat uit <a href="#deel-boven-en-deel-onder-de-x-as">een deel boven en een deel onder de <span class="arithmatex">\(x\)</span>-as</a>. We willen <span class="arithmatex">\(V\)</span> dus opsplitsen in het deel boven en het deel onder de <span class="arithmatex">\(x\)</span>-as:</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20%284x-7%29%5E3%20-10x%20%2B%2018%20%28gesplitst%29.svg" width="500" />
-    <figcaption>Figuur 6. De grafiek <span class="arithmatex">\(f(x) = \left( 4x - 7 \right)^3 - 10x + 18\)</span> geplot met vlakdeel <span class="arithmatex">\(I\)</span> en vlakdeel <span class="arithmatex">\(II\)</span>. Vlakdeel <span class="arithmatex">\(I\)</span> ligt tussen het linker en middelste snijpunt met de <span class="arithmatex">\(x\)</span>-as. Vlakdeel <span class="arithmatex">\(II\)</span> ligt tussen het middelste en rechter snijpunt met de <span class="arithmatex">\(x\)</span>-as.<figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = (4x-7)^3 -10x + 18 (gesplitst).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 6. De grafiek <span class="arithmatex">\(f(x) = \left( 4x - 7 \right)^3 - 10x + 18\)</span> geplot met vlakdeel <span class="arithmatex">\(I\)</span> en vlakdeel <span class="arithmatex">\(II\)</span>. Vlakdeel <span class="arithmatex">\(I\)</span> ligt tussen het linker en middelste snijpunt met de <span class="arithmatex">\(x\)</span>-as. Vlakdeel <span class="arithmatex">\(II\)</span> ligt tussen het middelste en rechter snijpunt met de <span class="arithmatex">\(x\)</span>-as.</i></span></center> <br><br></p>
 <p>Om de oppervlakte van <span class="arithmatex">\(V\)</span> te kunnen bepalen, moeten we eerst de grenzen weten. We moeten dus de <a href="../kwadratische_vergelijkingen/#snijpunten-met-de-x-as">snijpunten met de <span class="arithmatex">\(x\)</span>-as</a> bepalen. Om dit te doen, moeten we <span class="arithmatex">\(f(x)\)</span> gelijk aan <span class="arithmatex">\(0\)</span> stellen:</p>
 <div class="arithmatex">\[\large{f(x) = 0}\]</div>
 <div class="arithmatex">\[\large{\left( 4x - 7 \right)^3 - 10x + 18 = 0}\]</div>
@@ -1820,15 +1856,21 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p><br></p>
 <p><strong><span style="font-size: 17px;">a)</span></strong></p>
 <p>Als eerst maken we een schets om de situatie beter te kunnen begrijpen:</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20cos%28x%29.svg" width="500" />
-    <figcaption>Figuur 7. De grafiek <span class="arithmatex">\(f(x) = \cos(x)\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span>. Het vlakdeel <span class="arithmatex">\(V\)</span> gaat van <span class="arithmatex">\(x = \frac{1}{6} \pi\)</span> tot <span class="arithmatex">\(x = \frac{2}{3} \pi\)</span>.</figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = cos(x).svg" 
+        loading="lazy" 
+        width="500" 
+        alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 7. De grafiek <span class="arithmatex">\(f(x) = \cos(x)\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span>. Het vlakdeel <span class="arithmatex">\(V\)</span> gaat van <span class="arithmatex">\(x = \frac{1}{6} \pi\)</span> tot <span class="arithmatex">\(x = \frac{2}{3} \pi\)</span>.</i></span></center> <br><br></p>
 <p>We zien hier dat we een <a href="#deel-boven-en-deel-onder-de-x-as">deel boven en een deel onder de <span class="arithmatex">\(x\)</span>-as</a> hebben. Om de oppervlakte van <span class="arithmatex">\(V\)</span> te berekenen, moeten we dit dus opsplitsen in twee oppervlaktes. </p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20cos%28x%29%20%28gesplitst%29.svg" width="500" />
-    <figcaption>Figuur 8. De grafiek <span class="arithmatex">\(f(x) = \cos(x)\)</span> geplot met vlakdeel <span class="arithmatex">\(I\)</span> en vlakdeel <span class="arithmatex">\(II\)</span>. Vlakdeel <span class="arithmatex">\(I\)</span> is het gedeelte van <span class="arithmatex">\(V\)</span> boven de <span class="arithmatex">\(x\)</span>-as, vlakdeel <span class="arithmatex">\(II\)</span> het gedeelte onder de <span class="arithmatex">\(x\)</span>-as.</figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = cos(x) (gesplitst).svg" 
+        loading="lazy" 
+        width="500" 
+        alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 8. De grafiek <span class="arithmatex">\(f(x) = \cos(x)\)</span> geplot met vlakdeel <span class="arithmatex">\(I\)</span> en vlakdeel <span class="arithmatex">\(II\)</span>. Vlakdeel <span class="arithmatex">\(I\)</span> is het gedeelte van <span class="arithmatex">\(V\)</span> boven de <span class="arithmatex">\(x\)</span>-as, vlakdeel <span class="arithmatex">\(II\)</span> het gedeelte onder de <span class="arithmatex">\(x\)</span>-as.</i></span></center> <br><br></p>
 <p>Nu dat we <span class="arithmatex">\(V\)</span> gesplitst hebben in een deel boven de <span class="arithmatex">\(x\)</span>-as en een deel onder de <span class="arithmatex">\(x\)</span>-as, moeten we berekenen waar ze worden gesplitst. Dan weten we namelijk de grenzen van beide oppervlaktes. </p>
 <p>We weten dat <span class="arithmatex">\(I\)</span> overgaat in <span class="arithmatex">\(II\)</span> bij de <span class="arithmatex">\(x\)</span>-as. We moeten dus het snijpunt bepalen met de <span class="arithmatex">\(x\)</span>-as dat binnen de grenzen van <span class="arithmatex">\(V\)</span> ligt (<span class="arithmatex">\(x=\frac{1}{6} \pi\)</span> en <span class="arithmatex">\(x=\frac{2}{3}\)</span>). Dit doen we door <span class="arithmatex">\(f(x)\)</span> gelijk aan <span class="arithmatex">\(0\)</span> te stellen:</p>
 <div class="arithmatex">\[\large{\cos(x) = 0}\]</div>
@@ -1854,10 +1896,13 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p><br><br></p>
 <p><strong><span style="font-size: 17px;">b)</span></strong></p>
 <p>Nu willen we <span class="arithmatex">\(p\)</span> weten wanneer er geldt dat <span class="arithmatex">\(V=1\)</span>. De oppervlakte die we bij a) hebben berekend is kleiner dan <span class="arithmatex">\(1\)</span> (want <span class="arithmatex">\(V = 1\frac{1}{2} - \frac{1}{2} \sqrt{3} \approx 0.63\)</span>). Dit betekent dus dat we verwachten dat <span class="arithmatex">\(p\)</span> groter is dan de <span class="arithmatex">\(\frac{2}{3} \pi\)</span> van net. Laten we een nieuwe schets maken:</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20cos%28x%29%20%28p%20onbekend%29.svg" width="500" />
-    <figcaption>Figuur 9. De grafiek <span class="arithmatex">\(f(x) = \cos(x)\)</span> geplot met vlakdeel <span class="arithmatex">\(I\)</span> en vlakdeel <span class="arithmatex">\(II\)</span>. Vlakdeel <span class="arithmatex">\(I\)</span> is het gedeelte van <span class="arithmatex">\(V\)</span> boven de <span class="arithmatex">\(x\)</span>-as, vlakdeel <span class="arithmatex">\(II\)</span> het gedeelte onder de <span class="arithmatex">\(x\)</span>-as.</figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = cos(x) (p onbekend).svg" 
+        loading="lazy" 
+        width="500" 
+        alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 9. De grafiek <span class="arithmatex">\(f(x) = \cos(x)\)</span> geplot met vlakdeel <span class="arithmatex">\(I\)</span> en vlakdeel <span class="arithmatex">\(II\)</span>. Vlakdeel <span class="arithmatex">\(I\)</span> is het gedeelte van <span class="arithmatex">\(V\)</span> boven de <span class="arithmatex">\(x\)</span>-as, vlakdeel <span class="arithmatex">\(II\)</span> het gedeelte onder de <span class="arithmatex">\(x\)</span>-as.</i></span></center> <br><br></p>
 <p>Laten we net zoals bij a) de vergelijking voor <span class="arithmatex">\(V\)</span> opstellen. Alleen nu laten we de grens <span class="arithmatex">\(x=p\)</span> staan in plaats van <span class="arithmatex">\(\frac{2}{3} \pi\)</span> in te vullen:</p>
 <div class="arithmatex">\[\large{V = \int_{\frac{1}{6} \pi}^{\frac{1}{2} \pi} \cos(x) \, dx \, + \int_{\frac{1}{2} \pi}^{p} -\cos(x) \, dx}\]</div>
 <div class="arithmatex">\[\large{V = \left[ \, \sin(x) \, \right]_{\frac{1}{6} \pi}^{\frac{1}{2} \pi} + \left[ \, -\sin(x) \, \right]_{\frac{1}{2} \pi}^{p}}\]</div>
@@ -1892,15 +1937,24 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p>Stel dat we de oppervlakte tussen deze twee functies willen bepalen. Hoe pakken we dat aan?</p>
 <p>In Figuur 1 hebben we de twee functies geplot met het vlakdeel <span class="arithmatex">\(V\)</span> dat tussen de twee functies in ligt:</p>
 <figure>
-<p><img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%206%20-%20x%5E2%3B%20g%28x%29%20%3D%20x%20%2B%204.svg" width="500" />
-    <figcaption>Figuur 1. Grafiek geplot met de functies <span class="arithmatex">\(f(x) =  6 - x^2\)</span> en <span class="arithmatex">\(g(x) = x + 4\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen de twee functies in.<figcaption></p>
+    <img src="/assets/images/primitieven/f(x) = 6 - x^2; g(x) = x + 4.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<p><center><span><i>Figuur 1. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = 6 - x^2\)</span> en <span class="arithmatex">\(g(x) = x + 4\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen de twee functies in.</i></span></center> <br><br></p>
 <p>De oppervlakte van <span class="arithmatex">\(V\)</span> kunnen we bepalen door de oppervlakte onder <span class="arithmatex">\(f(x)\)</span> en de oppervlakte onder <span class="arithmatex">\(g(x)\)</span> te gebruiken. Laten we deze twee oppervlaktes tekenen:</p>
 <figure>
-<p><img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%206%20-%20x%5E2%3B%20g%28x%29%20%3D%20x%20%2B%204%20%28Opp%20I%29.svg" width="500" />
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%206%20-%20x%5E2%3B%20g%28x%29%20%3D%20x%20%2B%204%20%28Opp%20II%29.svg" width="500" />
-    <figcaption>Figuur 2. Grafiek geplot met de functies <span class="arithmatex">\(f(x) =  6 - x^2\)</span> en <span class="arithmatex">\(g(x) = x + 4\)</span>. Vlakdeel <span class="arithmatex">\(I\)</span> is de oppervlakte onder <span class="arithmatex">\(f(x)\)</span>, vlakdeel <span class="arithmatex">\(II\)</span> is de oppervlakte onder <span class="arithmatex">\(g(x)\)</span>.<figcaption></p>
+    <img src="/assets/images/primitieven/f(x) = 6 - x^2; g(x) = x + 4 (Opp I).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+    <img src="/assets/images/primitieven/f(x) = 6 - x^2; g(x) = x + 4 (Opp II).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<p><center><span><i>Figuur 2. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = 6 - x^2\)</span> en <span class="arithmatex">\(g(x) = x + 4\)</span>. Vlakdeel <span class="arithmatex">\(I\)</span> is de oppervlakte onder <span class="arithmatex">\(f(x)\)</span>, vlakdeel <span class="arithmatex">\(II\)</span> is de oppervlakte onder <span class="arithmatex">\(g(x)\)</span>.</i></span></center> <br><br></p>
 <p>In Figuur 2 kunnen we zien dat vlakdeel <span class="arithmatex">\(I\)</span> heel erg lijkt op vlakdeel <span class="arithmatex">\(II\)</span>. Het enige verschil is dat vlakdeel <span class="arithmatex">\(I\)</span> het stuk tussen <span class="arithmatex">\(f(x)\)</span> en <span class="arithmatex">\(g(x)\)</span> extra heeft. Het gedeelte dat vlakdeel <span class="arithmatex">\(I\)</span> dus groter maakt dan vlakdeel <span class="arithmatex">\(II\)</span> is de oppervlakte tussen <span class="arithmatex">\(f(x)\)</span> en <span class="arithmatex">\(g(x)\)</span>. En dat is precies het vlakdeel <span class="arithmatex">\(V\)</span> dat we willen berekenen.</p>
 <p>Dus als we <span class="arithmatex">\(V\)</span> willen bepalen, moeten we kijken naar het verschil tussen <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span>. We moeten dus de oppervlaktes min elkaar doen:</p>
 <div class="arithmatex">\[V = I - II\]</div>
@@ -2056,15 +2110,21 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <details class="note">
 <summary>Oppervlaktes <em>tussen twee grafieken</em> onder de <span class="arithmatex">\(x\)</span>-as</summary>
 <p>Als we een oppervlakte hebben <strong>tussen twee grafieken</strong> dat (deels) onder de <span class="arithmatex">\(x\)</span>-as ligt, dan verandert dat niks aan de integraal. Kijk maar naar het volgende vlakdeel <span class="arithmatex">\(V\)</span> dat deels onder de <span class="arithmatex">\(x\)</span>-as ligt:</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/Oppervlakte%20tussen%20twee%20functies%20onder%20de%20x-as.svg" width="500" />
-    <figcaption>Figuur 3. Twee functies geplot met vlakdeel <span class="arithmatex">\(V\)</span> tussen de twee functies. Vlakdeel <span class="arithmatex">\(V\)</span> ligt deels onder de <span class="arithmatex">\(x\)</span>-as.<figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/Oppervlakte tussen twee functies onder de x-as.svg" 
+        loading="lazy" 
+        width="500" 
+        alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 3. Twee functies geplot met vlakdeel <span class="arithmatex">\(V\)</span> tussen de twee functies. Vlakdeel <span class="arithmatex">\(V\)</span> ligt deels onder de <span class="arithmatex">\(x\)</span>-as.</i></span></center> <br><br></p>
 <p>We kunnen deze oppervlakte omhoog verschuiven door beide functies omhoog te verschuiven met een bepaalde constante <span class="arithmatex">\(c\)</span>:</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/Oppervlakte%20tussen%20twee%20functies%20onder%20de%20x-as%20%28verschoven%29.svg" width="500" />
-    <figcaption>Figuur 4. De twee functies omhoog verschoven met een bepaalde constante <span class="arithmatex">\(c\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> tussen de twee functies ligt nu volledig boven de <span class="arithmatex">\(x\)</span>-as.<figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/Oppervlakte tussen twee functies onder de x-as (verschoven).svg" 
+        loading="lazy" 
+        width="500" 
+        alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 4. De twee functies omhoog verschoven met een bepaalde constante <span class="arithmatex">\(c\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> tussen de twee functies ligt nu volledig boven de <span class="arithmatex">\(x\)</span>-as.</i></span></center> <br><br></p>
 <p>We kunnen zien dat de oppervlakte <span class="arithmatex">\(V\)</span> is verschoven, maar het is nog steeds even groot gebleven. Het maakt dus niet uit waar de oppervlakte zich bevindt ten opzichte van de <span class="arithmatex">\(x\)</span>-as. De integraal voor een oppervlakte <span class="arithmatex">\(V\)</span> tussen twee functies <a href="#algemene-integraal">blijft</a>:</p>
 <div class="arithmatex">\[\large{\boxed{V = \int_a^b \left( \, f(x) - g(x) \, \right) \, dx}}\]</div>
 <p>waarbij <span class="arithmatex">\(f(x)\)</span> de bovenste functie is en <span class="arithmatex">\(g(x)\)</span> de onderste functie.</p>
@@ -2096,10 +2156,13 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
 <p><strong><span style="font-size: 17px;">a)</span></strong></p>
 <p>Om de situatie een beetje te kunnen begrijpen, maken we eerst een schets:</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20x%5E2%20-%204x%20%2B%206%3B%20g%28x%29%20%3D%20-x%5E2%20%2B%204x.svg" width="500" />
-    <figcaption>Figuur 1. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = x^2 - 4x + 6\)</span> en <span class="arithmatex">\(g(x) = -x^2 + 4x\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen de twee functies in.<figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = x^2 - 4x + 6; g(x) = -x^2 + 4x.svg" 
+        loading="lazy" 
+        width="500" 
+        alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 1. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = x^2 - 4x + 6\)</span> en <span class="arithmatex">\(g(x) = -x^2 + 4x\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen de twee functies in.</i></span></center> <br><br></p>
 <p>Om de oppervlakte <span class="arithmatex">\(V\)</span> te bepalen, hebben we eerst de grenzen nodig. In dit geval zijn dat de <a href="../kwadratische_vergelijkingen/#snijpunten-met-andere-grafieken">snijpunten tussen de twee functies</a>. Om deze te bepalen moeten we <span class="arithmatex">\(f(x)\)</span> gelijk stellen aan <span class="arithmatex">\(g(x)\)</span> en de vergelijking oplossen:</p>
 <div class="arithmatex">\[\large{f(x) = g(x)}\]</div>
 <div class="arithmatex">\[\large{x^2 - 4x + 6 = -x^2 + 4x}\]</div>
@@ -2144,10 +2207,13 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p><br><br></p>
 <p><strong><span style="font-size: 17px;">b)</span></strong></p>
 <p>We weten dat de lijn <span class="arithmatex">\(x=p\)</span> het vlakdeel <span class="arithmatex">\(V\)</span> zo verdeelt dat vlakdeel <span class="arithmatex">\(I\)</span> twee keer zo groot is als vlakdeel <span class="arithmatex">\(II\)</span>. Laten we weer een schets maken zodat we de situatie beter kunnen begrijpen:</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20x%5E2%20-%204x%20%2B%206%3B%20g%28x%29%20%3D%20-x%5E2%20%2B%204x%20%28gesplitst%29.svg" width="500" />
-    <figcaption>Figuur 2. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = x^2 - 4x + 6\)</span> en <span class="arithmatex">\(g(x) = -x^2 + 4x\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> wordt verdeeld in de vlakdelen <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span> zodat <span class="arithmatex">\(I\)</span> twee keer zo groot is als <span class="arithmatex">\(II\)</span>.<figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = x^2 - 4x + 6; g(x) = -x^2 + 4x (gesplitst).svg" 
+        loading="lazy" 
+        width="500" 
+        alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 2. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = x^2 - 4x + 6\)</span> en <span class="arithmatex">\(g(x) = -x^2 + 4x\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> wordt verdeeld in de vlakdelen <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span> zodat <span class="arithmatex">\(I\)</span> twee keer zo groot is als <span class="arithmatex">\(II\)</span>.</i></span></center> <br><br></p>
 <p>Om dit op te lossen, moeten we oppervlakte <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span> apart berekenen. We beginnen met oppervlakte <span class="arithmatex">\(I\)</span>.</p>
 <p>Het is eigenlijk precies dezelfde integraal als bij a), alleen dan is de rechter grens nu <span class="arithmatex">\(x=p\)</span> in plaats van het rechter snijpunt:</p>
 <div class="arithmatex">\[\large{I = \int_1^p \left( \, g(x) - f(x) \, \right) \, dx}\]</div>
@@ -2195,10 +2261,13 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
 <p><strong><span style="font-size: 17px;">a)</span></strong></p>
 <p>Laten we een schets maken zodat we de situatie een beetje kunnen begrijpen:</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20sqrt%28x%29%3B%20g%28x%29%20%3D%20x%5E2.svg" width="500" />
-    <figcaption>Figuur 3. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = \sqrt{x}\)</span> en <span class="arithmatex">\(g(x) = x^2\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen de twee functies in.<figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = sqrt(x); g(x) = x^2.svg" 
+        loading="lazy" 
+        width="500" 
+        alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 3. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = \sqrt{x}\)</span> en <span class="arithmatex">\(g(x) = x^2\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen de twee functies in.</i></span></center> <br><br></p>
 <p>Om de oppervlakte <span class="arithmatex">\(V\)</span> te kunnen bepalen, hebben we eerst de grenzen nodig. Dit zijn de <a href="../kwadratische_vergelijkingen/#snijpunten-met-andere-grafieken">snijpunten tussen de twee functies</a>, dus laten we die bepalen. We stellen de twee functies gelijk aan elkaar:</p>
 <div class="arithmatex">\[\large{f(x) = g(x)}\]</div>
 <div class="arithmatex">\[\large{\sqrt{x} = x^2}\]</div>
@@ -2245,10 +2314,13 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p>De lijn <span class="arithmatex">\(k\)</span> kunnen we dus versimpelen naar:</p>
 <div class="arithmatex">\[\large{k \! : y = ax}\]</div>
 <p>We weten dat lijn <span class="arithmatex">\(k\)</span> de oppervlakte <span class="arithmatex">\(V\)</span> in twee gelijke delen verdeelt. In Figuur 4 hieronder zien we het onderste deel, die we vlakdeel <span class="arithmatex">\(I\)</span> noemen:</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20sqrt%28x%29%3B%20g%28x%29%20%3D%20x%5E2%20%28met%20lijn%20k%3B%20opp%20I%29.svg" width="500" />
-    <figcaption>Figuur 4. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = x^2\)</span>, <span class="arithmatex">\(g(x) = \sqrt{x}\)</span> en de lijn <span class="arithmatex">\(k\)</span>. Vlakdeel <span class="arithmatex">\(I\)</span> is de oppervlakte tussen lijn <span class="arithmatex">\(k\)</span> en <span class="arithmatex">\(g(x)\)</span>.<figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = sqrt(x); g(x) = x^2 (met lijn k; opp I).svg" 
+        loading="lazy" 
+        width="500" 
+        alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 4. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = x^2\)</span>, <span class="arithmatex">\(g(x) = \sqrt{x}\)</span> en de lijn <span class="arithmatex">\(k\)</span>. Vlakdeel <span class="arithmatex">\(I\)</span> is de oppervlakte tussen lijn <span class="arithmatex">\(k\)</span> en <span class="arithmatex">\(g(x)\)</span>.</i></span></center> <br><br></p>
 <p>De oppervlakte van vlakdeel <span class="arithmatex">\(I\)</span> is dus de helft van <span class="arithmatex">\(V\)</span>, dus <span class="arithmatex">\(I = \dfrac{1}{6}\)</span>. We kunnen hiermee lijn <span class="arithmatex">\(k\)</span> bepalen, door de oppervlakte van <span class="arithmatex">\(I\)</span> ook uit te rekenen met een integraal. </p>
 <p>Lijn <span class="arithmatex">\(k\)</span> is de bovenste functie en <span class="arithmatex">\(g(x)\)</span> de onderste, dus we krijgen:</p>
 <div class="arithmatex">\[\large{I = \int_0^1 \left( \, ax - x^2 \, \right) \, dx}\]</div>
@@ -2266,10 +2338,13 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p>En lijn <span class="arithmatex">\(k\)</span> wordt dus:</p>
 <div class="arithmatex">\[\large{\boxed{k \! : y = x}}\]</div>
 <p>We weten dat vlakdeel <span class="arithmatex">\(W\)</span> de oppervlakte onder lijn <span class="arithmatex">\(k\)</span> is met de twee snijpunten als grenzen. Laten we nog een schets maken:</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20sqrt%28x%29%3B%20g%28x%29%20%3D%20x%5E2%20%28met%20lijn%20k%3B%20opp%20W%29.svg" width="500" />
-    <figcaption>Figuur 5. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = x^2\)</span>, <span class="arithmatex">\(g(x) = \sqrt{x}\)</span> en de lijn <span class="arithmatex">\(k\)</span>. Vlakdeel <span class="arithmatex">\(W\)</span> is de oppervlakte onder lijn <span class="arithmatex">\(k\)</span>.<figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = sqrt(x); g(x) = x^2 (met lijn k; opp W).svg" 
+        loading="lazy" 
+        width="500" 
+        alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 5. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = x^2\)</span>, <span class="arithmatex">\(g(x) = \sqrt{x}\)</span> en de lijn <span class="arithmatex">\(k\)</span>. Vlakdeel <span class="arithmatex">\(W\)</span> is de oppervlakte onder lijn <span class="arithmatex">\(k\)</span>.</i></span></center> <br><br></p>
 <p>Nu kunnen we oppervlakte <span class="arithmatex">\(W\)</span> bepalen. We stellen eerst de integraal op:</p>
 <div class="arithmatex">\[\large{W = \int_0^1 x \, dx}\]</div>
 <p>Als we dit integreren, dan vinden we:</p>
@@ -2295,10 +2370,13 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
 <p><strong><span style="font-size: 17px;">a)</span></strong></p>
 <p>Om de situatie een beetje te kunnen begrijpen, maken we eerst een schets:</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20e%5E%28x%20-%204%29%20-%202%3B%20g%28x%29%20%3D%20ln%28x%29.svg" width="500" />
-    <figcaption>Figuur 6. Grafiek geplot met de functies <span class="arithmatex">\(f(x) =  e^{x - 4} - 2\)</span> en <span class="arithmatex">\(g(x) = \ln(x)\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen de twee functies in.<figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = e^(x - 4) - 2; g(x) = ln(x).svg" 
+        loading="lazy" 
+        width="500" 
+        alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 6. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = e^{x - 4} - 2\)</span> en <span class="arithmatex">\(g(x) = \ln(x)\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen de twee functies in.</i></span></center> <br><br></p>
 <p>We moeten de oppervlakte van <span class="arithmatex">\(V\)</span> bepalen, dus laten we eerst de grenzen bepalen. In dit geval liggen de grenzen bij de <a href="../kwadratische_vergelijkingen/#snijpunten-met-andere-grafieken">snijpunten van de twee functies</a>. Om de snijpunten te bepalen, stellen we de twee functies gelijk aan elkaar:</p>
 <div class="arithmatex">\[\large{f(x) = g(x)}\]</div>
 <div class="arithmatex">\[\large{e^{x - 4} - 2 = \ln(x)}\]</div>
@@ -2340,10 +2418,13 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p><br><br></p>
 <p><strong><span style="font-size: 17px;">b)</span></strong></p>
 <p>We weten dat lijn <span class="arithmatex">\(k\)</span> door de twee snijpunten gaat, dus laten we hier een schets van maken:</p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20e%5E%28x%20-%204%29%20-%202%3B%20g%28x%29%20%3D%20ln%28x%29%20%28met%20lijn%20k%29.svg" width="500" />
-    <figcaption>Figuur 7. Grafiek geplot met de functies <span class="arithmatex">\(f(x) =  e^{x - 4} - 2\)</span>, <span class="arithmatex">\(g(x) = \ln(x)\)</span> en de lijn <span class="arithmatex">\(k\)</span>. Vlakdeel <span class="arithmatex">\(W\)</span> ligt tussen <span class="arithmatex">\(g(x)\)</span> en lijn <span class="arithmatex">\(k\)</span>.<figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = e^(x - 4) - 2; g(x) = ln(x) (met lijn k).svg" 
+        loading="lazy" 
+        width="500" 
+        alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 7. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = e^{x - 4} - 2\)</span>, <span class="arithmatex">\(g(x) = \ln(x)\)</span> en de lijn <span class="arithmatex">\(k\)</span>. Vlakdeel <span class="arithmatex">\(W\)</span> ligt tussen <span class="arithmatex">\(g(x)\)</span> en lijn <span class="arithmatex">\(k\)</span>.</i></span></center> <br><br></p>
 <p>Om oppervlakte <span class="arithmatex">\(W\)</span> te bepalen, moeten we eerst lijn <span class="arithmatex">\(k\)</span> opstellen:</p>
 <div class="arithmatex">\[\large{k \! : y = ax + b}\]</div>
 <p>We hebben twee punten gegeven gekregen waar de lijn doorheen gaat. We hebben de <span class="arithmatex">\(x\)</span>-coördinaten bij a) al berekend, namelijk <span class="arithmatex">\(x_1 \approx 0.13821\)</span> en <span class="arithmatex">\(x_2 \approx 5.29954\)</span>. Laten we ook de bijbehorende <span class="arithmatex">\(y\)</span>-coördinaten berekenen. We kunnen het in beide functies invullen, maar we kiezen hier voor <span class="arithmatex">\(g(x)\)</span>:</p>
@@ -2392,10 +2473,13 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <details class="example">
 <summary>Voorbeeld 4: Bereken algebraïsch de oppervlakte tussen de functies <span class="arithmatex">\(f(x) = \sin(3x) + 2\)</span> en <span class="arithmatex">\(g(x) = \cos(3x) + 2\)</span></summary>
 <p><em><p style="text-align: center;font-size:20px;">Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de functie <span class="arithmatex">\(f(x) = \sin(3x) + 2\)</span> en de functie <span class="arithmatex">\(g(x) = \cos(3x) + 2\)</span> binnen een bepaald domein (zie Figuur 8).</p></em></p>
-<p><figure markdown>
-<img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/f%28x%29%20%3D%20sin%283x%29%20%2B%202%3B%20g%28x%29%20%3D%20cos%283x%29%20%2B%202.svg" width="500" />
-    <figcaption>Figuur 8. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = \sin(3x) + 2\)</span> en <span class="arithmatex">\(g(x) = \cos(3x) + 2\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen deze twee functies. De grenzen van <span class="arithmatex">\(V\)</span> zijn het eerste positieve snijpunt en de lijn <span class="arithmatex">\(x = p\)</span>.<figcaption>
-</figure></p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = sin(3x) + 2; g(x) = cos(3x) + 2.svg" 
+        loading="lazy" 
+        width="500" 
+        alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 8. Grafiek geplot met de functies <span class="arithmatex">\(f(x) = \sin(3x) + 2\)</span> en <span class="arithmatex">\(g(x) = \cos(3x) + 2\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen deze twee functies. De grenzen van <span class="arithmatex">\(V\)</span> zijn het eerste positieve snijpunt en de lijn <span class="arithmatex">\(x = p\)</span>.</i></span></center> <br><br></p>
 <p><br></p>
 <p><strong><span style="font-size: 17px;">Bereken algebraïsch de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> als <span class="arithmatex">\(p = \frac{2}{3} \pi\)</span>. Rond af op <span class="arithmatex">\(3\)</span> decimalen.</span></strong></p>
 <p><br><br><br><br><br></p>
@@ -2460,38 +2544,46 @@ Bij het eerste gedeelte van de oppervlakte is <span class="arithmatex">\(f(x)\)<
 <h2 id="oppervlakte-wentelen-om-de-x-as"><strong>Oppervlakte wentelen om de x-as</strong></h2>
 <p>We hebben in <a href="#oppervlakte-onder-een-grafiek">net</a> gezien dat we de oppervlakte onder een grafiek kunnen bepalen met een integraal. We plotten weer een grafiek met daaronder een oppervlakte <span class="arithmatex">\(V\)</span>.</p>
 <figure>
-<p><img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/Oppervlakte%20onder%20de%20grafiek%20-%20herhaling.svg" width="500" />
-    <figcaption>Figuur 1. Functie geplot met oppervlakte <span class="arithmatex">\(V\)</span> onder de grafiek.</figcaption></p>
+    <img src="/assets/images/primitieven/Oppervlakte onder de grafiek - herhaling.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<p><center><span><i>Figuur 1. Functie geplot met oppervlakte <span class="arithmatex">\(V\)</span> onder de grafiek.</i></span></center> <br><br></p>
 <p>Apart van een oppervlakte onder de grafiek kunnen we ook een inhoud maken. Om dit te doen, <em>wentelen</em> we de oppervlakte <span class="arithmatex">\(V\)</span> <em>om de <span class="arithmatex">\(x\)</span>-as</em>. Dus met andere woorden, we draaien met de hele oppervlakte een rondje om de <span class="arithmatex">\(x\)</span>-as zodat we een inhoud krijgen. Hieronder kunnen we zien hoe dit eruit ziet: </p>
-<p><center></p>
-<iframe 
-    src="/assets/interactive_images/Grafiek wentelen om de x-as.html" 
-    width="500" 
-    height="400" 
-    frameborder="0"
-    allowtransparency="true">
-</iframe>
-<p><em><span>Figuur 2. Oppervlakte <span class="arithmatex">\(V\)</span> gewenteld om de <span class="arithmatex">\(x\)</span>-as zodat er een lichaam <span class="arithmatex">\(L\)</span> ontstaat met een bepaalde inhoud.</span></em> <br><br>
+<p><center>
+    <a href="/assets/interactive_images/Grafiek wentelen om de x-as.html" target="_blank">
+        <img src="/assets/images/primitieven/Grafiek wentelen om de x-as.png" 
+             alt="Omwentelingslichaam L" 
+             width="500" 
+             height="400" 
+             loading="lazy">
+    </a>
+    <br>
+    <em><span>Figuur 2. Oppervlakte <span class="arithmatex">\(V\)</span> gewenteld om de <span class="arithmatex">\(x\)</span>-as zodat er een lichaam <span class="arithmatex">\(L\)</span> ontstaat met een bepaalde inhoud. (Klik voor <a href="/assets/interactive_images/Grafiek wentelen om de x-as.html" target="_blank">interactieve afbeelding</a>)</span></em> <br><br>
 </center></p>
 <p>Om de inhoud van dit lichaam <span class="arithmatex">\(L\)</span> te bepalen, gebruiken we dezelfde methode als bij een <a href="#oppervlakte-onder-een-grafiek">oppervlakte</a>. Bij een oppervlakte telden we oneindig dunne rechthoekjes allemaal bij elkaar op: </p>
 <figure>
-<p><img alt="Functie met oppervlakte V onder de grafiek" src="../assets/images/primitieven/Oppervlakte%20onder%20de%20grafiek%20-%20herhaling%20%28met%20100%20rechthoeken%29.svg" width="500" />
-    <figcaption>Figuur 3. Functie geplot met <span class="arithmatex">\(100\)</span> rechthoeken onder de grafiek.</figcaption></p>
+    <img src="/assets/images/primitieven/Oppervlakte onder de grafiek - herhaling (met 100 rechthoeken).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
 </figure>
+<p><center><span><i>Figuur 3. Functie geplot met <span class="arithmatex">\(100\)</span> rechthoeken onder de grafiek.</i></span></center> <br><br></p>
 <p>Want als we de rechthoekjes klein genoeg maken, dan is dat gelijk aan de oppervlakte <span class="arithmatex">\(V\)</span>. We noteerden dit dan als een integraal:</p>
 <div class="arithmatex">\[V = \int_a^b f(x) \, dx\]</div>
 <p><br></p>
 <p>Bij een inhoud doen we eigenlijk precies hetzelfde. Het enige verschil is dat we nu geen rechthoeken bij elkaar optellen, maar cilinders. Laten we dus als eerst de inhoud van <span class="arithmatex">\(L\)</span> proberen te benaderen met <span class="arithmatex">\(10\)</span> cilinders:</p>
-<p><center></p>
-<iframe 
-    src="/assets/interactive_images/Grafiek wentelen om de x-as (10 cilinders).html" 
-    width="500" 
-    height="400" 
-    frameborder="0"
-    allowtransparency="true">
-</iframe>
-<p><em><span>Figuur 4. Oppervlakte <span class="arithmatex">\(V\)</span> gewenteld om de <span class="arithmatex">\(x\)</span>-as met <span class="arithmatex">\(10\)</span> cilinders onder de grafiek.</span></em> <br><br>
+<p><center>
+    <a href="/assets/interactive_images/Grafiek wentelen om de x-as (10 cilinders).html" target="_blank">
+        <img src="/assets/images/primitieven/Grafiek wentelen om de x-as (10 cilinders).png" 
+             alt="Omwentelingslichaam L" 
+             width="500" 
+             height="400" 
+             loading="lazy">
+    </a>
+    <br>
+    <em><span>Figuur 4. Oppervlakte <span class="arithmatex">\(V\)</span> gewenteld om de <span class="arithmatex">\(x\)</span>-as met <span class="arithmatex">\(10\)</span> cilinders onder de grafiek. (Klik voor <a href="/assets/interactive_images/Grafiek wentelen om de x-as (10 cilinders).html" target="_blank">interactieve afbeelding</a>)</span></em> <br><br>
 </center></p>
 <p>De inhoud van <span class="arithmatex">\(1\)</span> cilinder kunnen we bepalen met de formule:</p>
 <div class="arithmatex">\[I(\text{cilinder}) = \pi r^2 \cdot \Delta x\]</div>
@@ -2500,15 +2592,16 @@ Bij het eerste gedeelte van de oppervlakte is <span class="arithmatex">\(f(x)\)<
 <p>en voor alle cilinders bij elkaar kunnen we het net zoals bij de <a href="#oppervlakte-onder-een-grafiek">oppervlakte</a> schrijven als:</p>
 <div class="arithmatex">\[I(\text{cilinders}) = \sum_{i=1}^{10} \pi \left(f(x_i)\right)^2 \cdot \Delta x\]</div>
 <p>Maar als we naar Figuur 4 kijken, dan zien we dat we stukjes van <span class="arithmatex">\(L\)</span> overhouden. De cilinders zijn nu dus nog alleen maar een benadering. En om deze benadering te verbeteren, kunnen we meer cilinders toevoegen:</p>
-<p><center></p>
-<iframe 
-    src="/assets/interactive_images/Grafiek wentelen om de x-as (50 cilinders).html" 
-    width="500" 
-    height="400" 
-    frameborder="0"
-    allowtransparency="true">
-</iframe>
-<p><em><span>Figuur 5. Oppervlakte <span class="arithmatex">\(V\)</span> gewenteld om de <span class="arithmatex">\(x\)</span>-as met <span class="arithmatex">\(50\)</span> cilinders onder de grafiek.</span></em> <br><br>
+<p><center>
+    <a href="/assets/interactive_images/Grafiek wentelen om de x-as (50 cilinders).html" target="_blank">
+        <img src="/assets/images/primitieven/Grafiek wentelen om de x-as (50 cilinders).png" 
+             alt="Omwentelingslichaam L" 
+             width="500" 
+             height="400" 
+             loading="lazy">
+    </a>
+    <br>
+    <em><span>Figuur 5. Oppervlakte <span class="arithmatex">\(V\)</span> gewenteld om de <span class="arithmatex">\(x\)</span>-as met <span class="arithmatex">\(50\)</span> cilinders onder de grafiek. (Klik voor <a href="/assets/interactive_images/Grafiek wentelen om de x-as (50 cilinders).html" target="_blank">interactieve afbeelding</a>)</span></em> <br><br>
 </center></p>
 <p>In Figuur 5 kunnen we zien dat het met <span class="arithmatex">\(50\)</span> cilinders al een stuk meer op lichaam <span class="arithmatex">\(L\)</span> lijkt. Maar als je inzoomt, dan zie je dat het nog steeds niet precies hetzelfde is. Daarom kunnen we net zoals bij een <a href="#oppervlakte-onder-een-grafiek">oppervlakte</a> oneindig veel cilinders gebruiken die allemaal oneindig dun zijn.</p>
 <p>Om dit te doen, laten we <span class="arithmatex">\(\Delta x\)</span> naar <span class="arithmatex">\(0\)</span> gaan zodat de cilinders oneindig dun worden. De inhoud van de cillinders wordt dan gelijk aan de inhoud van <span class="arithmatex">\(L\)</span>:</p>
@@ -2532,15 +2625,16 @@ Bij het eerste gedeelte van de oppervlakte is <span class="arithmatex">\(f(x)\)<
 <p>met een oppervlakte <span class="arithmatex">\(V\)</span> dat ingesolten wordt door de functie <span class="arithmatex">\(f(x)\)</span>, de <span class="arithmatex">\(x\)</span>-as, de <span class="arithmatex">\(y\)</span>-as en de lijn <span class="arithmatex">\(x=4\)</span>. </p>
 <p>Nu willen we de inhoud bepalen van het lichaam <span class="arithmatex">\(L\)</span> dat ontstaat als we <span class="arithmatex">\(V\)</span> om de <span class="arithmatex">\(x\)</span>-as wentelen. Hoe pakken we dit aan?</p>
 <p>Laten we als eerst een schets maken van de situatie zodat we het beter kunnen begrijpen:</p>
-<p><center></p>
-<iframe 
-    src="/assets/interactive_images/f(x) = 2x^2 (3D).html" 
-    width="500" 
-    height="400" 
-    frameborder="0"
-    allowtransparency="true">
-</iframe>
-<p><em><span>Figuur 6. Oppervlakte <span class="arithmatex">\(V\)</span> gewenteld om de <span class="arithmatex">\(x\)</span>-as.</span></em> <br><br>
+<p><center>
+    <a href="/assets/interactive_images/f(x) = 2x^2 (3D).html" target="_blank">
+        <img src="/assets/images/primitieven/f(x) = 2x^2 (3D).png" 
+                alt="Omwentelingslichaam L" 
+                width="500" 
+                height="400" 
+                loading="lazy">
+    </a>
+    <br>
+    <em><span>Figuur 6. Oppervlakte <span class="arithmatex">\(V\)</span> gewenteld om de <span class="arithmatex">\(x\)</span>-as. (Klik voor <a href="/assets/interactive_images/f(x) = 2x^2 (3D).html" target="_blank">interactieve afbeelding</a>)</span></em> <br><br>
 </center></p>
 <p>Om deze inhoud te bepalen, kunnen we de <a href="#algemene-integraal-wentelen-x-as">algemene vorm</a> voor een omwentelingslichaam om de x-as gebruiken:</p>
 <div class="arithmatex">\[I(L) = \pi \int_a^b \left(f(x)\right)^2 \, dx\]</div>
@@ -2570,15 +2664,15 @@ Bij het eerste gedeelte van de oppervlakte is <span class="arithmatex">\(f(x)\)<
 <p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
 <p>Om de situatie te begrijpen maken we eerst een plaatje van de situatie:</p>
 <p><center>
-    <iframe 
-        src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
-        width="500" 
-        height="400" 
-        frameborder="0"
-        allowtransparency="true">
-    </iframe>
+    <a href="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" target="_blank">
+        <img src="/assets/images/primitieven/f(x) = 4 - x^2 (3D).png" 
+             alt="Omwentelingslichaam L" 
+             width="500" 
+             height="400" 
+             loading="lazy">
+    </a>
     <br>
-    <em><span>Figuur 1. Oppervlakte <span class="arithmatex">\(V\)</span> gewenteld om de <span class="arithmatex">\(x\)</span>-as.</span></em> <br><br>
+    <em><span>Figuur 1. Oppervlakte <span class="arithmatex">\(V\)</span> gewenteld om de <span class="arithmatex">\(x\)</span>-as. (Klik voor <a href="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" target="_blank">interactieve afbeelding</a>)</span></em> <br><br>
 </center></p>
 <p>Om de inhoud van het omwentelingslichaam <span class="arithmatex">\(L\)</span> te berekenen, moeten we eerst de grenzen bepalen. Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de <span class="arithmatex">\(x\)</span>-as, dus de grenzen zijn de snijpunten met de <span class="arithmatex">\(x\)</span>-as.</p>
 <p>Om de snijpunten met de <span class="arithmatex">\(x\)</span>-as te kunnen bepalen moeten we de functie <span class="arithmatex">\(f(x)\)</span> gelijk aan <span class="arithmatex">\(0\)</span> stellen:</p>
@@ -2613,12 +2707,86 @@ Bij het eerste gedeelte van de oppervlakte is <span class="arithmatex">\(f(x)\)<
 <div class="arithmatex">\[\large{I(L) =  34 \dfrac{2}{15} \pi}\]</div>
 </div>
 </details>
-<!-- ??? example "Voorbeeld 2: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = 4 - x^2$"
-    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = 4 - x^2$ en de $x$-as. Oppervlakte $V$ wordt om de $x$-as gewenteld om lichaam $L$ te maken.</p>*
+<details class="example">
+<summary>Voorbeeld 2: Bereken exact de inhoud van het omwentelingslichaam onder de functie <span class="arithmatex">\(f(x) = \sin(x) + \cos(x)\)</span></summary>
+<p><em><p style="text-align: center;font-size:20px;">Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de functie <span class="arithmatex">\(f(x) = \sin(x) + \cos(x)\)</span>, de <span class="arithmatex">\(y\)</span>-as en de <span class="arithmatex">\(x\)</span>-as. Vervolgens wordt oppervlakte <span class="arithmatex">\(V\)</span> om de <span class="arithmatex">\(x\)</span>-as gewenteld om lichaam <span class="arithmatex">\(L\)</span> te maken.</p></em></p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;">Bereken exact de inhoud van omwentelingslichaam <span class="arithmatex">\(L\)</span>.</span></strong></p>
+<p><em><span style="font-size: 17px;">* Hint: Gebruik de <a href="../goniometrie/#goniometrische-vergelijkingen">goniometrische vergelijkingen</a>.</span></em></p>
+<p><br><br><br><br><br></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Laten we eerst een plaatje maken om de situatie een beetje te kunnen begrijpen:</p>
+<p><center>
+    <a href="/assets/interactive_images/f(x) = sin(x) + cos(x) (3D).html" target="_blank">
+        <img src="/assets/images/primitieven/f(x) = sin(x) + cos(x) (3D).png" 
+             alt="Omwentelingslichaam L" 
+             width="500" 
+             height="400" 
+             loading="lazy">
+    </a>
+    <br>
+    <em><span>Figuur 2. Oppervlakte <span class="arithmatex">\(V\)</span> gewenteld om de <span class="arithmatex">\(x\)</span>-as. (Klik voor <a href="/assets/interactive_images/f(x) = sin(x) + cos(x) (3D).html" target="_blank">interactieve afbeelding</a>)</span></em> <br><br>
+</center></p>
+<p>Om de inhoud van <span class="arithmatex">\(L\)</span> te bepalen, hebben we eerst de grenzen nodig. We weten dat de linkergrens de <span class="arithmatex">\(y\)</span>-as is, dus <span class="arithmatex">\(x=0\)</span>. De rechtergrens is het eerste positieve snijpunt met de <span class="arithmatex">\(x\)</span>-as. En om die te bepalen, moeten we de functie gelijk aan <span class="arithmatex">\(0\)</span> stellen:</p>
+<div class="arithmatex">\[\large{\sin(x) + \cos(x) = 0}\]</div>
+<p>Om dit op te lossen, doen we aan beide kanten <span class="arithmatex">\(-\sin(x)\)</span>:</p>
+<div class="arithmatex">\[\large{\cos(x) = -\sin(x)}\]</div>
+<p>Met de <a href="../goniometrie/#symmetrieformules">symmetrieformules</a> weten we dat we de <span class="arithmatex">\(-\)</span> in de sinus kunnen zetten:</p>
+<div class="arithmatex">\[\large{\cos(x) = \sin(-x)}\]</div>
+<p>Nu kunnen we de cosinus <a href="../goniometrie/#sinus-en-cosinus-omschrijven">omschrijven</a> naar een sinus:</p>
+<div class="arithmatex">\[\large{\sin(x + \dfrac{1}{2} \pi) = \sin(-x)}\]</div>
+<p>Nu kunnen we deze vergelijking oplossen met de <a href="../goniometrie/#algemene-oplossing">algemene oplossing</a>:</p>
+<div class="arithmatex">\[\large{x + \dfrac{1}{2} \pi = -x + k \cdot 2\pi \, \vee \, x + \dfrac{1}{2} \pi = \pi - \left( -x \right) + k \cdot 2\pi}\]</div>
+<div class="arithmatex">\[\large{x + \dfrac{1}{2} \pi = -x + k \cdot 2\pi \, \vee \, x + \dfrac{1}{2} \pi = x + \pi + k \cdot 2\pi}\]</div>
+<p>En als we alle getallen naar links halen en alle <span class="arithmatex">\(x\)</span> termen naar rechts:</p>
+<div class="arithmatex">\[\large{2x = -\dfrac{1}{2} \pi + k \cdot 2\pi \, \vee \, 0 = \dfrac{1}{2} \pi + k \cdot 2\pi}\]</div>
+<p>Bij de rechter oplossing is de <span class="arithmatex">\(x\)</span> term weggevallen, dus daar hebben we niks meer aan. We houden dus alleen over:</p>
+<div class="arithmatex">\[\large{2x = -\dfrac{1}{2} \pi + k \cdot 2\pi}\]</div>
+<p>Nu kunnen we beide kanten door <span class="arithmatex">\(2\)</span> delen om te vinden:</p>
+<div class="arithmatex">\[\large{x = -\dfrac{1}{4} \pi + k \cdot \pi}\]</div>
+<p>De eerste positieve oplossing is bij <span class="arithmatex">\(k=1\)</span>, dus bij:</p>
+<div class="arithmatex">\[\large{x = -\dfrac{1}{4}\pi + \pi = \dfrac{3}{4} \pi}\]</div>
+<p>De grenzen van oppervlakte <span class="arithmatex">\(V\)</span> zijn dus <span class="arithmatex">\(x=0\)</span> en <span class="arithmatex">\(x=\frac{3}{4}\pi\)</span>. Nu kunnen we de integraal opstellen van de inhoud van omwentelingslichaam <span class="arithmatex">\(L\)</span>:</p>
+<div class="arithmatex">\[\large{I(L) = \pi \int_0^{\frac{3}{4}\pi} \left( \sin(x) + \cos(x) \right)^2 \, dx}\]</div>
+<p>Als we de <a href="../basisvaardigheden/#kwadratisch-haakjes-wegwerken">haakjes uitwerken</a>, dan vinden we:</p>
+<div class="arithmatex">\[\large{I(L) = \pi \int_0^{\frac{3}{4}\pi} \left( \sin(x) + \cos(x) \right)\left( \sin(x) + \cos(x) \right) \, dx}\]</div>
+<div class="arithmatex">\[\large{I(L) = \pi \int_0^{\frac{3}{4}\pi} \sin^2(x) + 2\sin(x)\cos(x) + \cos^2(x) \, dx}\]</div>
+<p>Nu kunnen we twee verschillende <a href="../goniometrie/#goniometrische-vergelijkingen">goniometrische vergelijkingen</a> gebruiken. Daarvoor veranderen we eerst de volgorde van de termen:</p>
+<div class="arithmatex">\[\large{I(L) = \pi \int_0^{\frac{3}{4}\pi} \sin^2(x) + \cos^2(x) + 2\sin(x)\cos(x) \, dx}\]</div>
+<p>Nu herkennen we als eerst de term <span class="arithmatex">\(\sin^2(x) + \cos^2(x)\)</span>. Deze term is voor alle <span class="arithmatex">\(x\)</span> gelijk aan <span class="arithmatex">\(1:\)</span></p>
+<div class="arithmatex">\[\large{I(L) = \pi \int_0^{\frac{3}{4}\pi} 1 + 2\sin(x)\cos(x) \, dx}\]</div>
+<p>We hebben nu nog de <span class="arithmatex">\(2\sin(x)\cos(x)\)</span> term. Met een van de verdubblingsformules kunnen we dit herschrijven als <span class="arithmatex">\(\sin(2x):\)</span></p>
+<div class="arithmatex">\[\large{I(L) = \pi \int_0^{\frac{3}{4}\pi} 1 + \sin(2x) \, dx}\]</div>
+<p>Nu kunnen we deze functie integreren. </p>
+<ul>
+<li>
+<p>Als eerst hebben we een constante (los getal zonder <span class="arithmatex">\(x\)</span>), dus bij de primitieve plakken we er gewoon een <span class="arithmatex">\(x\)</span> aanvast. We krijgen dus als primitieve: <span class="arithmatex">\(\underline{1x \longrightarrow x}\)</span> <br><br></p>
+</li>
+<li>
+<p>In de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> kunnen we zien dat de primitieve van <span class="arithmatex">\(\sin(x)\)</span> gelijk is aan <span class="arithmatex">\(-\cos(x)\)</span>. Wij hebben <span class="arithmatex">\(2x\)</span>, dus we moeten nog rekening houden met de <a href="#regels">kettingregel</a>. Bij de afgeleide zouden we de functie keer <span class="arithmatex">\(2\)</span> doen, dus om dit te compenseren moeten we het nu keer <span class="arithmatex">\(\dfrac{1}{2}\)</span> doen. We krijgen dus als primitieve: <span class="arithmatex">\(\underline{-\dfrac{1}{2} \cos(2x)}\)</span></p>
+</li>
+</ul>
+<p>Als we dit combineren, dan vinden we:</p>
+<div class="arithmatex">\[\large{I(L) = \pi \left[x - \dfrac{1}{2} \cos(2x) \right]_0^{\frac{3}{4}\pi}}\]</div>
+<p>Nu kunnen we de grenzen invullen en min elkaar doen:</p>
+<div class="arithmatex">\[\large{I(L) = \pi \left(\dfrac{3}{4} \pi - \dfrac{1}{2} \cos(2 \cdot \dfrac{3}{4} \pi) \right) - \pi \left(0 - \dfrac{1}{2} \cdot \cos(2 \cdot 0) \right)}\]</div>
+<p>En als we dit uitwerken, dan vinden we:</p>
+<div class="arithmatex">\[\large{I(L) = \pi \left(\dfrac{3}{4} \pi - \dfrac{1}{2} \cos(1 \dfrac{1}{2} \pi) \right) - \pi \left(- \dfrac{1}{2} \cdot 1 \right)}\]</div>
+<div class="arithmatex">\[\large{I(L) = \pi \left(\dfrac{3}{4} \pi - \dfrac{1}{2} \cdot 0 \right) - \pi \left(- \dfrac{1}{2} \right)}\]</div>
+<div class="arithmatex">\[\large{I(L) = \pi \left(\dfrac{3}{4} \pi - 0 \right) - - \dfrac{1}{2} \pi}\]</div>
+<p>Ons eindantwoord wordt dan dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{I(L) = \dfrac{3}{4} \pi^2 + \dfrac{1}{2} \pi}\]</div>
+</div>
+</details>
+<!-- ??? example "Voorbeeld 3: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = \sqrt{2x - 8}$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $\sqrt{2x - 8}$, de $x$-as en de lijn $x=10$. Vlakdeel $V$ wordt gewenteld om de $x$-as om lichaam $L$ te maken.</p>*
 
     <br>
 
-    **<span style="font-size: 17px;">Bereken exact de inhoud van omwentelingslichaam $L$.</span>**
+    **<span style="font-size: 17px;">a) Bereken exact de inhoud van omwentelingslichaam $L$.</span>**
+
+    **<span style="font-size: 17px;">b) De lijn $x=p$ verdeelt $V$ in vlakdelen $V_1$ en $V_2$ die allebei wentelen om de $x$-as. De omwentelingslichamen van $V_1$ en $V_2$ noemen we $L_1$ en $L_2$. Bereken voor welke $p$ de inhoud van $L_1$ gelijk is aan de inhoud van $L_2$. Rond af op $2$ decimalen nauwkeurig.</span>**
 
     <br><br><br><br><br>
 
@@ -2629,39 +2797,14 @@ Bij het eerste gedeelte van de oppervlakte is <span class="arithmatex">\(f(x)\)<
     <center>
         <iframe 
             src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
+            loading="lazy"
             width="500" 
             height="400" 
             frameborder="0"
             allowtransparency="true">
         </iframe>
         <br>
-        *<span>Figuur 1. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
-    </center>
-
-
-??? example "Voorbeeld 3: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = 4 - x^2$"
-    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = 4 - x^2$ en de $x$-as. Oppervlakte $V$ wordt om de $x$-as gewenteld om lichaam $L$ te maken.</p>*
-
-    <br>
-
-    **<span style="font-size: 17px;">Bereken exact de inhoud van omwentelingslichaam $L$.</span>**
-
-    <br><br><br><br><br>
-
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
-
-    Om de situatie te begrijpen maken we eerst een plaatje van de situatie:
-
-    <center>
-        <iframe 
-            src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
-            width="500" 
-            height="400" 
-            frameborder="0"
-            allowtransparency="true">
-        </iframe>
-        <br>
-        *<span>Figuur 1. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
+        *<span>Figuur 3. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
     </center>
 
 
@@ -2681,13 +2824,14 @@ Bij het eerste gedeelte van de oppervlakte is <span class="arithmatex">\(f(x)\)<
     <center>
         <iframe 
             src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
+            loading="lazy"
             width="500" 
             height="400" 
             frameborder="0"
             allowtransparency="true">
         </iframe>
         <br>
-        *<span>Figuur 1. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
+        *<span>Figuur 4. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
     </center>
 
 
