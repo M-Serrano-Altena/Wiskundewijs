@@ -2521,7 +2521,11 @@ Ons eindantwoord wordt dan:
 
     $$\large{I(L) = \pi \int_{-2}^{2} x^4 - 8x^2 + 16 \, dx}$$
 
-    Nu kunnen we deze functie gaan integreren. Bij de eerste twee termen doen we de macht $+1$ en dan $1$ gedeeld door deze nieuwe macht ervoor. De laatste term is een constante (getal zonder $x$), dus bij de primitieve plakken we er gewoon een $x$ aanvast. 
+    Nu kunnen we deze functie gaan integreren. 
+    
+    - Bij de eerste twee termen doen we de macht $+1$ en dan $1$ gedeeld door deze nieuwe macht ervoor. <br><br>
+    
+    - De laatste term is een constante (getal zonder $x$), dus bij de primitieve plakken we er gewoon een $x$ aanvast. 
     
     We krijgen dus:
 
@@ -2637,9 +2641,9 @@ Ons eindantwoord wordt dan:
 
     Nu kunnen we deze functie integreren. 
     
-    - Als eerst hebben we een constante (los getal zonder $x$), dus bij de primitieve plakken we er gewoon een $x$ aanvast. We krijgen dus als primitieve: $\underline{1x \longrightarrow x}$ <br><br>
+    - Als eerst hebben we een constante (los getal zonder $x$), dus bij de primitieve plakken we er gewoon een $x$ aanvast. We krijgen dus als primitieve: $\quad \underline{1 \longrightarrow x}$ <br><br>
     
-    - In de [tabel](#tabel-met-veel-voorkomende-functies) kunnen we zien dat de primitieve van $\sin(x)$ gelijk is aan $-\cos(x)$. Wij hebben $2x$, dus we moeten nog rekening houden met de [kettingregel](#regels). Bij de afgeleide zouden we de functie keer $2$ doen, dus om dit te compenseren moeten we het nu keer $\dfrac{1}{2}$ doen. We krijgen dus als primitieve: $\underline{-\dfrac{1}{2} \cos(2x)}$
+    - In de [tabel](#tabel-met-veel-voorkomende-functies) kunnen we zien dat de primitieve van $\sin(x)$ gelijk is aan $-\cos(x)$. Wij hebben $2x$, dus we moeten nog rekening houden met de [kettingregel](#regels). Bij de afgeleide zouden we de functie keer $2$ doen, dus om dit te compenseren moeten we het nu keer $\dfrac{1}{2}$ doen. We krijgen dus als primitieve: $\quad \underline{\sin(2x) \longrightarrow -\dfrac{1}{2} \cos(2x)}$
 
     Als we dit combineren, dan vinden we:
 
@@ -2664,41 +2668,175 @@ Ons eindantwoord wordt dan:
 
 
 
-<!-- ??? example "Voorbeeld 3: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = \sqrt{2x - 8}$"
+??? example "Voorbeeld 3: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = \sqrt{2x - 8}$"
     *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $\sqrt{2x - 8}$, de $x$-as en de lijn $x=10$. Vlakdeel $V$ wordt gewenteld om de $x$-as om lichaam $L$ te maken.</p>*
 
     <br>
 
     **<span style="font-size: 17px;">a) Bereken exact de inhoud van omwentelingslichaam $L$.</span>**
 
-    **<span style="font-size: 17px;">b) De lijn $x=p$ verdeelt $V$ in vlakdelen $V_1$ en $V_2$ die allebei wentelen om de $x$-as. De omwentelingslichamen van $V_1$ en $V_2$ noemen we $L_1$ en $L_2$. Bereken voor welke $p$ de inhoud van $L_1$ gelijk is aan de inhoud van $L_2$. Rond af op $2$ decimalen nauwkeurig.</span>**
+    **<span style="font-size: 17px;">b) De lijn $x=p$ verdeelt $V$ in vlakdelen $V_1$ en $V_2$ die allebei wentelen om de $x$-as. De omwentelingslichamen van $V_1$ en $V_2$ noemen we $L_1$ en $L_2$. Bereken exact voor welke $p$ de inhoud van $L_1$ gelijk is aan de inhoud van $L_2$.</span>**
 
     <br><br><br><br><br>
 
     **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
-
-    Om de situatie te begrijpen maken we eerst een plaatje van de situatie:
-
-    <center>
-        <iframe 
-            src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
-            loading="lazy"
-            width="500" 
-            height="400" 
-            frameborder="0"
-            allowtransparency="true">
-        </iframe>
-        <br>
-        *<span>Figuur 3. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
-    </center>
-
-
-??? example "Voorbeeld 4: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = 4 - x^2$"
-    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = 4 - x^2$ en de $x$-as. Oppervlakte $V$ wordt om de $x$-as gewenteld om lichaam $L$ te maken.</p>*
 
     <br>
 
-    **<span style="font-size: 17px;">Bereken exact de inhoud van omwentelingslichaam $L$.</span>**
+    **<span style="font-size: 17px;">a)</span>**
+
+    Om een beetje de situatie te kunnen begrijpen, schetsen we eerst de situatie:
+
+    <center>
+        <a href="/assets/interactive_images/f(x) = sqrt(2x - 8) (3D).html" target="_blank">
+            <img src="/assets/images/primitieven/f(x) = sqrt(2x - 8) (3D).png" 
+                 alt="Omwentelingslichaam L" 
+                 width="500" 
+                 height="400" 
+                 loading="lazy">
+        </a>
+        <br>
+        *<span>Figuur 3. Oppervlakte $V$ gewenteld om de $x$-as om lichaam $L$ te maken. (Klik voor <a href="/assets/interactive_images/f(x) = sqrt(2x - 8) (3D).html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
+    </center>
+
+
+    Om de inhoud van $L$ te bepalen, hebben we de grenzen nodig. We weten al dat de rechter grens gelijk is aan $x=10$, we moeten alleen nog de linker grens bepalen. Als we in Figuur 3 kijken, dan zien we dat dit gebeurt bij het begin $f(x)$. We hebben hier te maken met een wortel functie, dus het begin punt is bij de $x$ waar de wortel gelijk is aan $0$. Want als we onze $x$ nog kleiner zouden maken, dan zouden we een negatieve wortel krijgen en dit mag niet. 
+
+    Om het punt te bepalen waar de wortel gelijk aan $0$ is, moeten we bepalen bij welke $x$ de gedeelte in de wortel gelijk is aan $0$:
+
+    $$\large{2x - 8 = 0}$$
+
+    Als we dit oplossen door aan beide kanten $+8$ te doen en dan beide kanten te delen door $2$, dan vinden we:
+
+    $$\large{2x = 8}$$
+
+    $$\large{x = 4}$$
+
+    Onze grenzen zijn dus $x=4$ en $x=10$. Nu kunnen we de [algemene integraal] voor een omwentelingslichaam opstellen:
+
+    $$\large{I(L) = \pi \int_a^b \left( f(x) \right)^2 \, dx}$$
+
+    Nu kunnen we de grenzen en $f(x)$ invullen:
+
+    $$\large{I(L) = \pi \int_4^{10} \left( \sqrt{2x - 8} \right)^2 \, dx}$$
+
+    Nu kunnen we de haakjes uitwerken. We weten dat een kwadraat en een wortel [tegen elkaar wegvallen](basisvaardigheden.md#regels-met-wortels), dus we houden over:
+
+    $$\large{I(L) = \pi \int_4^{10} 2x - 8 \, dx}$$
+
+    Nu kunnen we dit gaan integreren. 
+    
+    - De eerste term is van de vorm $f(x) = ax^n$, dus om de primitieve te bepalen moeten we de macht $+1$ doen. Daarna doen we $1$ gedeeld door deze nieuwe macht ervoor. Dus in ons geval krijgen we: $\quad \underline{2x \longrightarrow \dfrac{1}{2} \cdot 2x^2 = x^2}$ <br><br>
+
+    - De tweede term is een constante (een los getal zonder $x$), dus om de primitieve te bepalen plakken we er gewoon een $x$ aanvast: $\quad \underline{-8 \longrightarrow -8x}$
+
+    We krijgen dus:
+
+    $$\large{I(L) = \pi \left[ x^2 - 8x \right]_4^{10}}$$
+
+    Nu vullen we de grenzen in en doen die min elkaar:
+
+    $$\large{I(L) = \pi \left( 10^2 - 8 \cdot 10 \right) - \pi \left( 4^2 - 8 \cdot 4 \right)}$$
+    
+    En als we dit uitwerken, vinden we:
+
+    $$\large{I(L) = \pi \left( 100 - 80 \right) - \pi \left( 16 - 32 \right)}$$
+
+    $$\large{I(L) = 20 \pi - - 16 \pi}$$
+
+    Ons eindantwoord wordt dus:
+
+    !!! quote ""
+        $$\large{I(L) = 36 \pi}$$
+
+    <br><br>
+
+    **<span style="font-size: 17px;">b)</span>**
+
+    We moeten bepalen voor welke $p$ het omwentelingslikchaam van $L$ verdeeld wordt in $2$ gelijke inhouden. Samen moeten de twee inhouden gelijk zijn aan de $36 \pi$ die we bij a) hebben gevonden, dus de inhoud van $L_1$ en $L_2$ moet allebei $18 \pi$ zijn. Laten we de integraal voor $L_1$ opstellen:
+
+    $$\large{I(L_1) = \pi \int_4^p \left( \sqrt{2x - 8} \right)^2 \, dx}$$
+
+    We hebben dus eigenlijk dezelfde integraal als bij a), alleen dan weten we nu de rechter grens niet. We weten dus ook dat dit gelijk moet zijn aan $18 \pi$:
+
+    $$\large{\pi \int_4^p \left( \sqrt{2x - 8} \right)^2 \, dx = 18 \pi}$$
+    
+    Omdat het dezelfde integraal is als bij a), kunnen we meteen de primitieve opschrijven:
+
+    $$\large{\pi \left[ x^2 - 8x \right]_4^{p} = 18 \pi}$$
+
+    Nu kunnen we de grenzen invullen:
+
+    $$\large{\pi \left( p^2 - 8p \right) - \pi \left( 4^2 - 8 \cdot 4 \right) = 18 \pi}$$
+
+    $$\large{\pi \left( p^2 - 8p \right) - \pi \left( 16 - 32 \right) = 18 \pi}$$
+
+    $$\large{\pi \left( p^2 - 8p \right) - -16 \pi = 18 \pi}$$
+
+    $$\large{\pi \left( p^2 - 8p + 16 \right) = 18 \pi}$$
+
+    Nu kunnen we deze vergelijking oplossen om $p$ te vinden. We hebben aan beide kanten iets met $\pi$, dus we kunnen aan beide kanten gedeeld door $\pi$ doen:
+
+    $$\large{p^2 - 8p + 16 = 18}$$
+
+    We hebben hier een $p^2$ term, een $p$ term en getallen, dus het is een vergelijking van de vorm [x^2 + bx + c = 0](kwadratische_vergelijkingen.md#oplossen-vorm-x2-bx-c-0). Laten we het dus eerst in de juiste vorm schrijven om het te kunnen oplossen. We doen aan beide kanten $-18$:
+
+    $$\large{p^2 - 8p - 2 = 0}$$
+
+    We kunnen dit proberen te [ontbinden in factoren](kwadratische_vergelijkingen.md#ontbinden-in-factoren), maar we zien al snel dat dit niet makkelijk is. We gebruiken daarom de [*abc* formule](kwadratische_vergelijkingen.md#de-abc-formule).
+
+    We schrijven als eerst de $a$, de $b$ en de $c$ op:
+
+    $$\large{a = 1, \ b = - 8 \ \mathrm{en} \ c = -2}$$
+
+    De discriminant wordt dan:
+
+    $$\large{D = b^2 - 4ac}$$
+
+    $$\large{D = (-8)^2 - 4 \cdot 1 \cdot -2}$$
+
+    $$\large{D = 64 - -8 = 72}$$
+
+    Nu kunnen we $p$ bepalen:
+
+    $$\large{p = \dfrac{-b \pm \sqrt{D}}{2a}}$$
+
+    $$\large{p = \dfrac{- -8 \pm \sqrt{72}}{2 \cdot 1}}$$
+
+    $$\large{p = \dfrac{8 + \sqrt{72}}{2} \, \vee \, p = \dfrac{8 - \sqrt{72}}{2}}$$
+
+    $$\large{p = 4 + \dfrac{1}{2}\sqrt{72} \, \vee \, p = 4 - \dfrac{1}{2}\sqrt{72}}$$
+
+    We kunnen nu nog de $\sqrt{72}$ versimpelen door het te schrijven als $\sqrt{36} \cdot \sqrt{2}$. We kunnen namelijk de $\sqrt{36}$ gewoon uitwerken. We krijgen dan:
+
+    $$\large{p = 4 + \dfrac{1}{2} \cdot 6\sqrt{2} \, \vee \, p = 4 - \dfrac{1}{2} \cdot 6\sqrt{2}}$$
+
+    En dit wordt weer:
+
+    $$\large{p = 4 + 3\sqrt{2} \, \vee \, p = 4 - 3\sqrt{2}}$$
+
+    Nu hebben we twee waardes van $p$ gevonden, maar welke is de juiste waarde? We weten dat $p$ het lichaam $p$ verdeelt in tweeën, dus het moet een waarde tussen $4$ en $x=10$. Het moet namelijk wel binnen de grenzen van lichaam $L$ liggen.
+
+    Als we kijken naar de waarde $4 - 3\sqrt{2}$, dan zien we al dat dit een waarde kleiner dan $4$ is ( want we doen $4$ min een positief getal). Oftewel dat kan niet de waarde voor $p$ zijn, en dus is ons eindantwoord:
+
+    !!! quote ""
+        $$\large{p = 4 + 3\sqrt{2}}$$
+
+
+
+
+
+
+??? example "Voorbeeld 4: Bereken exact de inhoud van het omwentelingslichaam onder de functie $f(x) = \dfrac{x + 1}{x}$"
+    *<p style="text-align: center;font-size:20px;">Vlakdeel $V$ wordt ingesloten door de functie $f(x) = \dfrac{x + 1}{x}$, de lijnen $y=1$, $x=1$ en $x=4$. $L$ is het omwentelingslichaam van vlakdeel $V$</p>*
+
+    <br>
+
+    **<span style="font-size: 17px;">a) Bereken exact de inhoud van $L$ als $V$ om de $x$-as gewenteld wordt.</span>**
+
+    <br>
+
+    **<span style="font-size: 17px;">b) Bereken exact de inhoud van $L$ als $V$ om de lijn $y = 1$ gewenteld wordt.</span>**
 
     <br><br><br><br><br>
 
@@ -2707,17 +2845,144 @@ Ons eindantwoord wordt dan:
     Om de situatie te begrijpen maken we eerst een plaatje van de situatie:
 
     <center>
-        <iframe 
-            src="/assets/interactive_images/f(x) = 4 - x^2 (3D).html" 
-            loading="lazy"
-            width="500" 
-            height="400" 
-            frameborder="0"
-            allowtransparency="true">
-        </iframe>
+        <a href="/assets/interactive_images/f(x) = (x+1) !divide! x (3D).html" target="_blank">
+            <img src="/assets/images/primitieven/f(x) = (x+1) !divide! x (3D).png" 
+                 alt="Omwentelingslichaam L" 
+                 width="500" 
+                 height="400" 
+                 loading="lazy">
+        </a>
         <br>
-        *<span>Figuur 4. Oppervlakte $V$ gewenteld om de $x$-as.</span>* <br><br>
+        *<span>Figuur 4. Oppervlakte $V$ gewenteld om de $x$-as om lichaam $L$ te maken. (Klik voor <a href="/assets/interactive_images/f(x) = (x+1) !divide! x (3D).html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
     </center>
+
+    We hebben $y=1$ als grens, dus als we de inhoud wentelen om de $x$-as krijgen we een deels hol omwentelingslichaam. Hoe kunnen we de inhoud van dit omwentelingslichaam $L$ bepalen?
+
+    Het makkelijkste is om eerst de inhoud van het lichaam zonder gat te berekenen ($I(L_{\text{vol}})$ ), en dan min de inhoud van het gat te doen ($I(\text{gat})$ ). Op deze manier is de inhoud alleen nog van het lichaam $L$ dat we in Figuur 4 zien.
+
+    We weten dat de grenzen $x=1$ en $x=4$ zijn, dus de inhoud van het lichaam zonder gat wordt:
+
+    $$\large{I(L_{\text{vol}}) = \pi \int_1^4 \left(\dfrac{x+1}{x}\right)^3 \, dx}$$
+
+    We beginnen als eerst door de teller en noemer apart in het kwadraat te doen:
+
+    $$\large{I(L_{\text{vol}}) = \pi \int_1^4 \dfrac{\left(x+1\right)^2}{x^2} \, dx}$$
+
+    Nu kunnen we de [haakjes uitwerken](basisvaardigheden.md#kwadratisch-haakjes-wegwerken):
+
+    $$\large{I(L_{\text{vol}}) = \pi \int_1^4 \dfrac{x^2 + 2x + 1}{x^2} \, dx}$$
+
+    En om dit te integreren, moeten we de breuk opdelen in drie kleine breuken. We kunnen namelijk de termen in de teller apart door $x^2$ delen:
+
+    $$\large{I(L_{\text{vol}}) = \pi \int_1^4 1 + \dfrac{2}{x} + \dfrac{1}{x^2} \, dx}$$
+
+    Nu kunnen we dit integreren.
+
+    - De eerste term is een constante (getal zonder $x$), dus bij de primitieve plakken we daar gewoon een $x$ aanvast: $\quad \underline{1 \longrightarrow 1x = 1}$ <br><br>
+
+    - De tweede term is van de vorm $f(x) = \frac{1}{x}$. De primtieve hiervan kunnen vinden bij de tabel: $\quad \underline{\frac{2}{x} \longrightarrow 2\ln|x|}$ <br><br>
+
+    - De derde term is van de vorm $f(x) = ax^n$. We moeten het alleen nog eerst in die vorm zetten door de breuk te vervangen met een `$-$' in de macht: $\quad \frac{1}{x^2} \rightarrow x^{-2}$. Om dit te primitiveren moeten we de macht $+1$ doen en dan $1$ gedeeld door deze nieuwe macht ervoor zetten: $\quad \underline{x^{-2} \longrightarrow \frac{1}{-1} x^{-1} = -\frac{1}{x}}$
+
+    We krijgen dus:
+
+    $$\large{I(L_{\text{vol}}) = \pi \left[ x + 2\ln|x| - \dfrac{1}{x} \right]_1^4}$$
+
+    Nu kunnen we de grenzen invullen:
+
+    $$\large{I(L_{\text{vol}}) = \pi \left( 4 + 2\ln(4) - \dfrac{1}{4} \right) - \pi \left( 1 + 2\ln(1) - \dfrac{1}{1} \right)}$$
+
+    En als we dit versimpelen, dan vinden we:
+
+    $$\large{I(L_{\text{vol}}) =  \pi \left( 3\dfrac{3}{4} + 2\ln(4) \right) - \pi \left( 2\ln(1) \right)}$$
+
+    We weten dat $\ln(1) = 0$ (want $e^0 = 1$ ), dus de inhoud zonder het gat wordt dus:
+
+    $$\large{\boxed{I(L_{\text{vol}}) =  3\dfrac{3}{4} \pi + 2\ln(4) \pi}}$$
+
+    Nu moeten we de inhoud bepalen van het gat. Dit is gewoon een cilinder met straal $1$, dus daarvan kunnen we de inhoud makkelijk bepalen. De formule voor de inhoud van een cilinder is:
+
+    $$\large{I(\text{cilinder}) = \pi r^2 \cdot h}$$
+
+    Dus in ons geval hebben we een straal van $1$ (want het gat gaat tot $y=1$) en een hoogte van $4-1 = 3$
+
+    $$\large{I(\text{gat}) = \pi \cdot 1^2 \cdot 3 = 3\pi}$$
+
+    De inhoud van $L$ wordt dus:
+
+    $$\large{I(L) = 3\dfrac{3}{4} \pi + 2\ln(4) \pi - 3\pi}$$
+
+    En als we dit uitwerken (en $\pi$ buiten haakjes halen), dan vinden we als eindantwoord:
+
+    !!! quote ""
+        $$\large{I(L) = \left( \dfrac{3}{4} + 2\ln(4) \right)\pi}$$
+
+    <br>
+
+    **<span style="font-size: 17px;">b)</span>**
+
+    We moeten dus de inhoud berekenen van $V$ gewenteld om de lijn $y=1$. $laten we eerst weer een schets maken van ons nieuwe omwentelingslichaam $L_2:$
+
+    <center>
+        <a href="/assets/interactive_images/f(x) = (x+1) !divide! x (3D - om y=1).html" target="_blank">
+            <img src="/assets/images/primitieven/f(x) = (x+1) !divide! x (3D - om y=1).png" 
+                 alt="Omwentelingslichaam L" 
+                 width="500" 
+                 height="400" 
+                 loading="lazy">
+        </a>
+        <br>
+        *<span>Figuur 5. Oppervlakte $V$ gewenteld om de lijn $y=1$ om lichaam $L_2$ te maken. (Klik voor <a href="/assets/interactive_images/f(x) = (x+1) !divide! x (3D - om y=1).html.html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
+    </center>
+
+    Om de inhoud van $L_2$ te bepalen, kunnen we de het hele omwentelingslichaam met $1$ omlaag schuiven:
+
+    <center>
+        <a href="/assets/interactive_images/f(x) = 1 !divide! x (3D).html" target="_blank">
+            <img src="/assets/images/primitieven/f(x) = 1 !divide! x (3D).png" 
+                 alt="Omwentelingslichaam L" 
+                 width="500" 
+                 height="400" 
+                 loading="lazy">
+        </a>
+        <br>
+        *<span>Figuur 6. Omwentelingslichaam $L_2$ met $1$ omlaag verschoven. (Klik voor <a href="/assets/interactive_images/f(x) = (x+1) !divide! x (3D - om y=1).html.html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
+    </center>
+
+    We zien in Figuur 6 dat als we het $L_2$ met $1$ naar beneden verschuiven, dat dan vanzelf $f(x)$ ook met $1$ mee naar beneden moet verschuiven. Onze nieuwe functie (aangegeven als $\widetilde{f}(x)$ ) wordt dus:
+
+    $$\large{\widetilde{f}(x) = \dfrac{x + 1}{x} - 1}$$
+
+    En dit kunnen we herschrijven als:
+
+    $$\large{\widetilde{f}(x) = \dfrac{x + 1}{x} - \dfrac{x}{x}}$$
+
+    $$\large{\widetilde{f}(x) = \dfrac{x + 1 - x}{x}}$$
+    
+    $$\large{\widetilde{f}(x) = \dfrac{1}{x}}$$
+
+    Oftewel de inhoud van $V$ gewenteld om de lijn $y=1$ is dus hetzelfde als de inhoud van de functie $\widetilde{f}(x) = \frac{1}{x}$. Laten we deze inhoud bepalen:
+
+    $$\large{I(L_2) = I(\widetilde{L_2}) = \pi \int_1^4 \left(\dfrac{1}{x}\right)^2 \, dx}$$
+
+    $$\large{I(L_2) = I(\widetilde{L_2}) = \pi \int_1^4 \dfrac{1}{x^2} \, dx}$$
+
+    We hebben bij a) gezien dat de primitieve van $\dfrac{1}{x^2}$ gelijk is aan $-\frac{1}{x}:$
+
+    $$\large{I(L_2) = \pi \left[ -\frac{1}{x} \right]_1^4}$$
+
+    Als we de grenzen invullen en min elkaar doen, dan vinden we:
+
+    $$\large{I(L_2) = \pi \left(-\frac{1}{4} -- \frac{1}{1} \right)}$$
+
+    $$\large{I(L_2) =  -\frac{1}{4}\pi + \pi }$$
+
+    Ons eindantwoord wordt dus:
+
+    !!! quote ""
+        $$\large{I(L_2) =  \frac{3}{4}\pi}$$
+
+    
 
 
 
@@ -2725,4 +2990,4 @@ Ons eindantwoord wordt dan:
 
 <hr style="height: 1.5px; background-color: #575757; border: none;">
 
-## **Omwentelingslichaam tussen twee grafieken** -->
+## **Omwentelingslichaam tussen twee grafieken**

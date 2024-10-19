@@ -191,6 +191,58 @@ def chatgpt_get_explanation(question):
 
     return response.choices[0].message
 
+
+question_answerer_prompt = r'''
+You are a knowledgeable Dutch math tutor, here to help students with their questions regarding mathematical concepts and problems. 
+
+When responding, you should:
+1. **Contextualize the Explanation**: Use the provided explanation as a foundation for your answer. Reference specific parts of the explanation when relevant.
+2. **Clarify User Questions**: If the user's question is unclear, ask for clarification. Ensure that you understand what the user is asking before providing a detailed answer.
+3. **Provide Examples**: Whenever applicable, include relevant examples to illustrate your points. This helps in better understanding of the concepts.
+4. **Maintain a Friendly Tone**: Your language should be friendly and approachable, suitable for a third-grader. Avoid jargon unless it's clearly explained.
+5. **Encourage Further Questions**: End your responses by encouraging the user to ask more questions if they need further clarification or assistance.
+6. **Properly Format Answer**: When providing the outcome of each step, use '\\[' and '\\]' for display math notation and '\\(' and '\\)' for inline math notation.
+
+Remember to be patient and clear in your explanations, as some concepts may be challenging for younger learners.
+'''
+
+
+def chatgpt_reply_to_question(previous_explanation, user_question):
+    # Combine the previous explanation with the user question
+    combined_input = f"Dit was de eerdere uitleg over de vergelijking:\n{previous_explanation}\n\n Beantwoord hiermee deze vraag:\n{user_question}"
+
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {
+                "role": "system", 
+                "content": question_answerer_prompt  # Use the same prompt for context
+            },
+            {
+                "role": "user", 
+                "content": combined_input  # Combine explanation and question
+            }
+        ],
+        response_format={
+            "type": "json_schema",
+            "json_schema": {
+                "name": "math_reasoning_reply",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "response": {"type": "string"}  # Structure to capture the reply
+                    },
+                    "required": ["response"],
+                    "additionalProperties": False
+                },
+                "strict": True
+            }
+        }
+    )
+
+    return response.choices[0].message  # Return the reply
+
+
 if __name__ == "__main__":
     # Testing with an example question
     question = "{'equation_text': '3x - 7 = 5x + 3', 'equation_interpret': '3*x - 7 = 5*x + 3', 'outputs': [('Vereenvoudigde Vergelijking:', {'latex': False}), '3 x - 7 = 5 x + 3', ('De oplossing is:', {'latex': False}), 'x = -5']}"

@@ -10,8 +10,8 @@ import os
 import json
 import multiprocessing
 from src.Solver.src.solver.solve_calculations import Solve, math_interpreter, custom_latex, custom_simplify
-from src.Solver.src.solver.openai_api import chatgpt_get_explanation
-from .forms import EquationForm
+from src.Solver.src.solver.openai_api import chatgpt_get_explanation, chatgpt_reply_to_question
+from .forms import EquationForm, QuestionForm
 import ast
 import html
 import time
@@ -71,8 +71,10 @@ def add_solution_text(solution_text, new_text, new_line=True, latex=True, option
     return solution_text
 
 
-def get_view_attributes(equation_text, queue):
-    solver = Solve(input_string=equation_text)
+def get_view_attributes(equation_text, angle_mode, queue):
+    angle_mode_map = {"automatic": None,  "degrees": True, "radians": False}
+
+    solver = Solve(input_string=equation_text, use_degrees=angle_mode_map.get(angle_mode, None))
     equation_interpret, outputs, plot = solver.solve_equation()
     numerical = solver.numerical
     data_chatgpt = {'equation_text': equation_text, 'equation_interpret': equation_interpret, 'outputs': outputs}
@@ -88,6 +90,7 @@ def get_view_attributes(equation_text, queue):
                 output[0] = output[0].replace('$', '\\(', 1)
                 output[0] = output[0].replace('$', '\\)', 1)
                 output = tuple(output)
+
 
             solution_text = add_solution_text(solution_text=solution_text, new_text=output[0], options=output[1])
         
@@ -117,13 +120,14 @@ def solve_equation_view(request):
     if request.method == 'POST':
         start_time = time.time()
         form = EquationForm(request.POST)
+        angle_mode = request.POST["angle_mode"]
         if form.is_valid():
             equation_text = form.cleaned_data['equation_text']
 
             manager = multiprocessing.Manager()
             queue = manager.Queue()
 
-            process = multiprocessing.Process(target=get_view_attributes, args=(equation_text, queue))
+            process = multiprocessing.Process(target=get_view_attributes, args=(equation_text, angle_mode, queue))
             process.start()
             process.join(timeout=30) # process will be terminated after 30 seconds
 
@@ -361,7 +365,10 @@ def check_display_math(string, final=False):
         string = rf"\\[{string}\\]"
 
     elif final and "boxed" not in string:
-        string = string.split(r"\[")[1]
+        string = string.split(r"\[")
+        if len(string) > 1:
+            string = string[1]
+
         string = string.split(r"\]")[0]
         string = rf"\\[\boxed{{{string}}}\\]"
 
@@ -369,7 +376,7 @@ def check_display_math(string, final=False):
     
     return string
 
-def check_forward_slash(string: str):
+def check_forward_slash(string: str) -> str:
     string_list = list(string)
     for i in range(len(string_list)):
         if string_list[i] == '\t':
@@ -378,7 +385,6 @@ def check_forward_slash(string: str):
 
     string = ''.join(string_list)
     return string 
-
 
 def explain_equation_base(request, use_chatgpt=False):
     start_time = time.time()
@@ -426,3 +432,38 @@ def explain_equation_dummy(request):
 
 def explain_equation(request):
     return explain_equation_base(request, use_chatgpt=True)
+
+
+def answer_question(request):
+    if request.method == "POST":
+        start_time = time.time()
+        form = QuestionForm(request.POST)
+        print(request.POST)
+        if form.is_valid():
+            print()
+            print(form.cleaned_data)
+            explanation = request.POST.get("explanation")
+            question = form.cleaned_data.get("question")
+
+            if explanation is None or question is None:
+                return JsonResponse({'explanation': "Er is iets mis gegaan. Probeer het anders opnieuw."})
+                
+            chatgpt_response = chatgpt_reply_to_question(explanation, question).content
+            answer_question = ast.literal_eval(chatgpt_response)["response"]
+            answer_question = answer_question.replace("\n", "<br>")
+            answer_question = check_forward_slash(answer_question)
+            answer_question = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", answer_question)
+            
+        else:
+            answer_question = "Geen uitleg beschikbaar"
+
+        print(f"Answer Question - Time taken: {time.time() - start_time}")
+
+        print(answer_question)
+        return JsonResponse({'answer': answer_question})
+
+    else:
+        form = QuestionForm()
+
+    return render(request, 'equation_result.html', {'form': form})
+

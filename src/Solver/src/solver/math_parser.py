@@ -2,6 +2,7 @@ import numpy as np
 import sympy as sp
 import regex as re
 from typing import Dict, Union
+from types import FunctionType
 from pylatexenc.latex2text import LatexNodes2Text
 
 def fix_mismatched_parenthesis(eq_string):
@@ -374,7 +375,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
         is_dot_func.append(func_index - 1 in index_dot_func)
     
     eq_string_list = list(eq_string)
-    string_split = [eq_string_list[index_func[i]:index_func[i+1]] if i != len(index_func) - 1 else eq_string_list[index_func[i]:] for i in range(len(index_func)) ]
+    string_split = [eq_string_list[index_func[i]:index_func[i+1]] if i != len(index_func) - 1 else eq_string_list[index_func[i]:] for i in range(len(index_func))]
     index_list_secure = []
     nested = 0
     char_index = 0
@@ -521,7 +522,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
                 if char == ')' and nested == 0:
                     index_close_bracket = get_index_in_substring()
 
-                    if np.array([(char in "()") for char in string[index_open_bracket:index_close_bracket + 1]]).all():
+                    if all(char in "()" for char in string[index_open_bracket:index_close_bracket + 1]):
                         replace_with_pretty = replace_with
 
                     if add_args > 0:
@@ -756,7 +757,7 @@ def math_interpreter(eq_string: str) -> str:
         eq_string = re.sub(pattern, repl, eq_string)
 
     function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
-    function_names.extend(("diff", "integrate", "limit", "Mod", "subs", "Sum", "Product"))
+    function_names.extend(("diff", "integrate", "limit", "Mod", "subs", "Sum", "Product", "rad", "deg"))
     function_names.remove("ff")
     relevant_functions = [func for func in function_names if func in eq_string]
 
@@ -1032,3 +1033,77 @@ def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = {"subs": "Subs",
 
     # return initial string if sympify fails for all attempts
     return string_og_list[0]
+
+
+def apply_inner_func_to_func(eq_string: str, func_name: str, inner_func_name: str, inner_arg_condition_func: FunctionType=lambda inner_arg: True) -> str:
+    index_func = [m.start() for m in re.finditer(func_name, eq_string)] # get index list of start of each function name
+    
+    if len(index_func) == 0:
+        return eq_string
+    
+    eq_string_list = list(eq_string)
+    string_split = [eq_string_list[index_func[i]:index_func[i+1]] if i != len(index_func) - 1 else eq_string_list[index_func[i]:] for i in range(len(index_func))]
+
+    nested = 0
+    index_start_list = []
+    index_end_list = []
+    for index, string in zip(index_func, string_split):
+        for char in string:
+            if char == "(":
+                nested += 1
+                if nested == 1:
+                    index_start_list.append(index + 1) # +1 to go to parenthesis index
+
+            elif char == ")":
+                nested -= 1
+                if nested == 0:
+                    index_end_list.append(index)
+            
+            index += 1
+
+    additional_index = 0
+    for start_i, end_i in zip(index_start_list, index_end_list):
+        start_i += additional_index
+        end_i += additional_index
+        
+        inner_arg = eq_string[start_i:end_i]
+        if not inner_arg_condition_func(inner_arg):
+            continue
+
+        eq_string = eq_string[:start_i] + inner_func_name + "(" + inner_arg + ")" + eq_string[end_i:]
+        additional_index += len(inner_func_name) + 2
+
+    return eq_string
+
+
+def add_degree_symbol(eq_string: str, gonio_set: set[str]) -> str:
+    for gonio_func in gonio_set:
+        index_func = [m.start() for m in re.finditer(gonio_func, eq_string)] # get index list of start of each function name
+        
+        if len(index_func) == 0:
+            continue
+        
+        eq_string_list = list(eq_string)
+        string_split = [eq_string_list[index_func[i]:index_func[i+1]] if i != len(index_func) - 1 else eq_string_list[index_func[i]:] for i in range(len(index_func))]
+
+        nested = 0
+        index_list = []
+        for index, string in zip(index_func, string_split):
+            for char in string:
+                if char == "(":
+                    nested += 1
+
+                elif char == ")":
+                    nested -= 1
+                    if nested == 0:
+                        index_list.append(index)
+                
+                index += 1
+
+        additional_index = 0
+        for i in index_list:
+            i += additional_index
+            eq_string = eq_string[:i] + "°" + eq_string[i:]
+            additional_index += 1
+
+    return eq_string

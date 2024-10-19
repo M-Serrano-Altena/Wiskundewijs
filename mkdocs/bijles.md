@@ -222,7 +222,7 @@ Met de In 6-Weken Twee-Punten-Hoger Training kan jij twee cijferpunten hoger hal
 :fontawesome-solid-check:{ .green }  **Jaren ervaring als bijlesdocent**, ook tijdens mijn middelbare schooljaren.
 
 <br>
-Maar je hoeft mij niet op mijn woord te geloven, bekijk <a href="https://maps.app.goo.gl/7pjvxf7rLvqouF547" target="_blank" rel="noopener noreferrer">hier</a> wat andere mensen van de bijles vonden.
+Maar je hoeft mij niet op mijn woord te geloven, bekijk <a href="https://www.google.com/search?client=ms-android-samsung-gs-rev1&sa=X&sca_esv=d9bb93ffaae04d80&sca_upv=1&tbm=lcl&q=Wiskundewijs+Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDcxNTU2tzS3NDY2MTAzMzQ1MNnAyPiKUSQ8szi7NC8ltTwzq1ghKLUsM7W8eBErVmEAwbjW4UkAAAA&rldimm=17455379793340661504&hl=en-NL&ved=2ahUKEwjV4c7P5raIAxW2_bsIHcQtDcUQ9fQKegQINRAF&biw=1536&bih=695&dpr=1.25#lkt=LocalPoiReviews" target="_blank" rel="noopener noreferrer">hier</a> wat andere mensen van de bijles vonden.
 
 <br>
 Ben je dus geinteresseerd? Vul dan je gegevens in zodat we samen wiskunde uiteindelijk begrijpbaar kunnen maken!

@@ -5,7 +5,7 @@ from sympy.printing.latex import LatexPrinter
 import regex as re
 from scipy.optimize import fsolve, bisect, newton
 from warnings import filterwarnings
-from src.Solver.src.solver.math_parser import add_args_to_func, math_interpreter, get_uneval_sp_objs, split_equation
+from src.Solver.src.solver.math_parser import *
 import traceback
 import typing
 from types import FunctionType
@@ -133,6 +133,37 @@ class CustomLatexPrinter(LatexPrinter):
     A custom LaTeX printer that provides customized formatting for SymPy expressions.
     """
 
+    def __init__(self, **kwargs):
+        self.symbol = kwargs.get("symbol", "x")
+        super().__init__()
+
+    def _print_Union(self, expr, **kwargs):
+        """
+        Customize the printing of Union (for trigonometric periodic solutions).
+        Example: x = a + 2k*pi or x = b + 2k*pi instead of set notation.
+        """
+        # Extract individual sets from the union
+        parts = []
+        for arg in expr.args:
+            # Look for expressions in the form {2n*pi + constant | n ∈ Z}
+            if isinstance(arg, sp.ImageSet):
+                # We assume the form 2n*pi + constant for periodic solutions
+                element_expr: sp.Expr = sp.expand(arg.lamda.expr)
+                variable = list(arg.lamda.variables)[0]
+
+                coeff, summation = element_expr.as_coeff_add()
+                if coeff != 0:
+                    summation = (coeff, *summation)
+
+                summation = [f"k \\cdot {str(self._print(element)).replace("n", "")}" if "_n" in str(element) else self._print(element) for element in summation]
+ 
+                # Format the periodic solution in the form a + 2k*pi
+                formatted_expr = f"{' + '.join(summation)}".replace("n", "k")
+                parts.append(formatted_expr)
+
+        # Join the parts with the OR symbol
+        return f' \\ \\vee \\ {self.symbol} = '.join(parts)
+
      
     def _print_Relational(self, expr, **kwargs):
         """
@@ -222,6 +253,27 @@ class CustomLatexPrinter(LatexPrinter):
 
         return f"{self._print(lower_bound)} {left_inequality} {self._print(symbol_left)} {right_inequality} {self._print(upper_bound)}"
     
+    def _print_Rational(self, expr, **kwargs):
+        """
+        Customize the printing of Rational numbers as 'n \\frac{a}{b}' where n is an integer.
+
+        Args:
+            expr (sp.Rational): The rational expression to print.
+
+        Returns:
+            str: The LaTeX representation of the rational expression.
+        """
+        # Separate the expression into integer and fractional parts
+        numer, denom = expr.as_numer_denom()
+        integer_part = numer // denom
+        fractional_part = numer % denom
+
+        if fractional_part == 0:  # If there is no fractional part, print just the integer
+            return rf"{integer_part}"       
+        elif integer_part == 0:  # If there is no integer part, print just the fraction
+            return rf"\frac{{{fractional_part}}}{{{denom}}}"
+        else:  # Print both integer and fractional parts
+            return rf"{integer_part} \frac{{{fractional_part}}}{{{denom}}}"
 
     def _print_Mul(self, expr: sp.Mul, **kwargs) -> str:
 
@@ -235,8 +287,31 @@ class CustomLatexPrinter(LatexPrinter):
             str: The LaTeX representation of the multiplication expression.
         """
 
-        numer, denom = expr.as_numer_denom()
+        if expr.as_numer_denom()[1] == 1:
+            # Default handling with custom modifications
+            result = super()._print_Mul(expr).replace("1 \\cdot", " ")
+            result = re.sub(r"\\left\(-(\d+)\\right\) ", r"- \1 \\cdot", result)
+            return result
 
+        # handle Rationals with a symbol
+        if any(expr.has(obj) for obj in [sp.Symbol, sp.pi, sp.E]):
+            coeff, sym_part = sp.nsimplify(sp.sympify(str(expr))).as_coeff_Mul()
+            numer, denom = coeff.as_numer_denom()
+            if denom == 1:
+                numer, denom = expr.as_numer_denom()
+        else:
+            sym_part = 1
+            numer, denom = expr.as_numer_denom()
+
+        # Check if we're dealing with a Rational
+        if isinstance(numer, sp.Integer) and isinstance(denom, sp.Integer):
+            latex = self._print_Rational(sp.Rational(numer, denom), **kwargs)
+            if sym_part != 1:
+                latex += sp.latex(sym_part)
+            return latex
+        
+        numer, denom = expr.as_numer_denom()
+        
         # Custom handling for logarithms
         if isinstance(numer, sp.log) and isinstance(denom, sp.log):
             arg = numer.args[0]
@@ -247,7 +322,7 @@ class CustomLatexPrinter(LatexPrinter):
                 base = self._print(base)
 
                 return f' \\ ^{{{base}}} \\! \\log\\left({arg} \\right)'
-
+            
         # Default handling with custom modifications
         result = super()._print_Mul(expr).replace("1 \\cdot", " ")
         result = re.sub(r"\\left\(-(\d+)\\right\) ", r"- \1 \\cdot", result)
@@ -277,7 +352,7 @@ class CustomLatexPrinter(LatexPrinter):
             return sp.latex(expr)
         
 
-        return sp.latex(expr).replace("log", "ln")
+        return sp.latex(expr).replace("log", "ln").replace("circ", "\\circ")
 
     def _print_log(self, expr: sp.log, **kwargs) -> str:
         """
@@ -368,17 +443,16 @@ class CustomLatexPrinter(LatexPrinter):
         return super()._print_Function(expr, **kwargs)
     
 
-def custom_latex(expr: sp.Basic, **kwargs) -> str:
+def custom_latex(expr: sp.Expr, **kwargs) -> str:
     """
     Convert a SymPy expression to a custom LaTeX representation.
 
     Args:
-        expr (sp.Basic): The SymPy expression to convert.
+        expr (sp.Expr): The SymPy expression to convert.
 
     Returns:
         str: The LaTeX representation of the expression.
     """
-
     return CustomLatexPrinter(**kwargs).doprint(expr)
 
 
@@ -429,7 +503,7 @@ def get_real_root(expr: sp.Expr):
 
 
 class Solve:
-    def __init__(self, input_string: str) -> None:
+    def __init__(self, input_string: str, use_degrees: typing.Optional[bool]) -> None:
         """
         Initializes the Solve class with the input equation string.
 
@@ -438,6 +512,7 @@ class Solve:
         """
 
         self.symbol = None
+        self.use_degrees = use_degrees
         self.equation_type = "="
         self.equation_type_sp = sp.Eq
         self.solution_set = None
@@ -446,7 +521,13 @@ class Solve:
         self.interval_solutions = None
         self.vert_asympt = None
         self.vert_asympt_eq = None
+
         self.eq_string = math_interpreter(input_string)
+        if any(degree_symbol in self.eq_string for degree_symbol in ["°", "∘"]):
+            self.use_degrees = True
+            self.eq_string = re.sub(r"\^?[°∘]", "", self.eq_string)
+            self.eq_string = re.sub(r"\^?\(\)", "", self.eq_string)
+
         self.output = []
         self.equation_interpret = self.eq_string
         self.plot = False
@@ -734,6 +815,36 @@ class Solve:
                 eq_str = add_args_to_func(eq_str, func_name="integrate", replace_with="x").replace(".integrate()", ".integrate(x)")
                 return eq_str, TR111(sp.sympify(eq_str)).doit()
 
+        def gonio_degree_condition(inner_arg: str) -> bool:
+            return sp.nsimplify(sp.sympify(inner_arg)).is_Rational
+        
+        def convert_gonio_to_degree(eq_str: str, gonio_set: set[str], use_degree_condition=True) -> str:
+            for gonio_func in gonio_set:
+                if gonio_func in eq_str:
+                    if use_degree_condition:
+                        eq_str = apply_inner_func_to_func(eq_str, func_name=gonio_func, inner_func_name="rad", inner_arg_condition_func=gonio_degree_condition)
+                    else:
+                        eq_str = apply_inner_func_to_func(eq_str, func_name=gonio_func, inner_func_name="rad")
+
+            return eq_str
+
+        def gonio_degree_check(eq: sp.Expr, eq_str: str, use_degree: typing.Optional[bool]=None):
+            gonio_set = set(["sin", "cos", "tan", "sec", "csc", "cot"])
+            relevant_gonio_set = set(gonio_func for gonio_func in gonio_set if gonio_func in eq_str)
+
+            # if the equation doesn't contain a gonio function, then just return
+            if use_degree is False or len(relevant_gonio_set) == 0:
+                return eq
+            
+            # only use the condition if use_degree is set to None and not when it's set to True
+            use_degree_condition = not bool(use_degree)
+            eq_str_new = convert_gonio_to_degree(eq_str, relevant_gonio_set, use_degree_condition=use_degree_condition)
+            if eq_str_new != eq_str:
+                self.equation_interpret = add_degree_symbol(self.equation_interpret, gonio_set=relevant_gonio_set)
+                self.eq_string = self.equation_interpret.replace("°", r"^(circ)")
+
+            return sp.sympify(eq_str_new)
+
 
         def get_self_eq(eq1, eq2):
             try:
@@ -753,6 +864,11 @@ class Solve:
                 self.output.append(("Error: Meer dan 1 relatieteken (=, ≥, ≤, etc.)", {"latex": False}))
                 return None
             
+
+            eq1 = gonio_degree_check(eq1, eq_split[0], use_degree=self.use_degrees)
+            if len(eq_split) == 2:
+                eq2 = gonio_degree_check(eq2, eq_split[1], use_degree=self.use_degrees)
+
             eq12 = eq1 - eq2
             eq = get_self_eq(eq1, eq2)
 
@@ -799,7 +915,6 @@ class Solve:
 
                 return eq_split
         
-
         def set_real_symbol():
             self.symbol = free_symbols.pop()
             symbol_new = sp.symbols(str(self.symbol), real=True)
@@ -827,7 +942,6 @@ class Solve:
                 else:
                     self.output.append(("Deze vergelijking klopt voor geen enkele x", {"latex": False}))
         
-
         def no_solutions_output():
             self.plot = True
             self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
@@ -863,7 +977,7 @@ class Solve:
                 solution = interval_solutions[0]
                 if is_numerical(solution):
                     solution = round(solution, 7)
-                self.output.append(f"{custom_latex(self.symbol)} {equals_sign(solution)} {custom_latex(solution)}")
+                self.output.append(f"{custom_latex(self.symbol)} {equals_sign(solution)} {custom_latex(solution, symbol=self.symbol)}")
                 if not is_numerical(solution):
                     self.output[-1] += f" \\approx {round(sp.N(solution), 5)}"
                 return
@@ -875,7 +989,7 @@ class Solve:
                 if is_numerical(solution):
                     solution = round(solution, 7)
 
-                self.output.append(f"{counter}) \\quad {custom_latex(self.symbol)} {equals_sign(solution)} {custom_latex(solution)}")
+                self.output.append(f"{counter}) \\quad {custom_latex(self.symbol)} {equals_sign(solution)} {custom_latex(solution, symbol=self.symbol)}")
                 if not is_numerical(solution):
                     self.output[-1] += f" \\approx {round(sp.N(solution), 5)}"
 
@@ -936,7 +1050,6 @@ class Solve:
                     self.output.append((f"De {specific_text} van de functie is:", {"latex": False}))
 
 
-
         def set_derivative_integral_output(is_integral: bool=False):
             if is_integral:
                 specific_text = "primitieve"
@@ -961,7 +1074,6 @@ class Solve:
                 if "F" in str_func or "G" in str_func:
                     output += " + C"
                 self.output.append(output)
-
 
 
         try:
@@ -1103,12 +1215,11 @@ class Solve:
                         except ValueError:
                             equals_sign = '='
 
-
-                        if self.eq1 != self.eq_string and equals_sign != "=":
+                        if self.eq1 != self.eq_string and equals_sign != "=" and "circ" not in str(self.eq_string):
                             if not complex_num and round(float(solution), 9) == round(float(solution), 10):
                                 equals_sign = '='  
 
-                            self.output.append(f"{custom_latex(self.eq_string)} = {custom_latex(self.eq1)} {equals_sign} {custom_latex(solution)}")
+                            self.output.append(f"{custom_latex(self.eq_string)} = {custom_latex(self.eq1)} {equals_sign} {custom_latex(solution, symbol=self.symbol)}")
 
                         elif self.eq_string == solution:
                             if eq_split[0] != str(solution):
@@ -1117,18 +1228,18 @@ class Solve:
                                     self.output.pop()
                                 elif has_dot_function:
                                     self.eq_string = get_uneval_sp_objs(eq_split[0])
-                                    self.output.append(f"{custom_latex(self.eq_string)} {equals_sign} {custom_latex(solution)}")
+                                    self.output.append(f"{custom_latex(self.eq_string)} {equals_sign} {custom_latex(solution, symbol=self.symbol)}")
                                 else:
-                                    self.output.append(f"\\textrm{{{eq_split[0]}}} {equals_sign} {custom_latex(solution)}")
+                                    self.output.append(f"\\textrm{{{eq_split[0]}}} {equals_sign} {custom_latex(solution, symbol=self.symbol)}")
                             
                             else:
-                                self.output.append(f"\\textrm{{Yep dat is }} {custom_latex(solution)}")
+                                self.output.append(f"\\textrm{{Yep dat is }} {custom_latex(solution, symbol=self.symbol)}")
 
                         else:
                             if equals_sign == '=' and round(solution, 9) != round(solution, 10):
                                 equals_sign = '\\approx'
 
-                            self.output.append(f"{custom_latex(self.eq_string)} {equals_sign} {custom_latex(solution)}")
+                            self.output.append(f"{custom_latex(self.eq_string)} {equals_sign} {custom_latex(solution, symbol=self.symbol)}")
 
                     elif sp.nsimplify(self.eq1, [sp.pi]).is_number:
                         solution = custom_simplify(self.eq1)
@@ -1207,7 +1318,7 @@ class Solve:
             # TypeError from interpretation
             try:
                 self.eq12
-            except UnboundLocalError:
+            except Exception:
                 self.output.append((f"ERROR", {"latex":False}))
                 traceback.print_exc()
                 return self.equation_interpret, self.output, self.plot
@@ -1281,7 +1392,7 @@ class Solve:
                     set_inequatity_solution_output()
                 else:
                     self.output.append((f"De oplossingen zijn:", {"latex":False}) if not self.multivariate else (f"De snijpunten met de $x$-as zijn:", {"latex":False}))
-                    self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solution_set)}")         
+                    self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solution_set, symbol=self.symbol)}")         
 
                 if not self.domain_is_reals:
                     self.output.append((f"Het domein van ${self.symbol}$ is:", {"latex":False, "new_line":2}))
@@ -1497,3 +1608,4 @@ class Solve:
                 y2_coords.append(y2_coords_i)
 
         return list(plottable_x1_coords), list(y1_coords), list(plottable_x2_coords), list(y2_coords)
+    

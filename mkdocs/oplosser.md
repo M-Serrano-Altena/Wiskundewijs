@@ -11,7 +11,7 @@ search:
 *empty*
 
 ## Mogelijke Opties
-- **Vergelijkingen Omschrijven:** $\phantom{.}$ De $y$ in een vergelijking wordt vrijgemaakt. Bijvoorbeeld: $\phantom{.}$ $3y - 6x = 8 \quad \longrightarrow \quad y = 2x + 4$<br><br><br>
+- **Vergelijkingen Omschrijven:** $\phantom{.}$ De $y$ in een vergelijking wordt vrijgemaakt. Bijvoorbeeld: $\phantom{.}$ $2y - 4x = 8 \quad \longrightarrow \quad y = 2x + 4$<br><br><br>
 
 - **Ongelijkheden Oplossen:** 
     + $\phantom{.}$ <span style="font-size: 21px;">`>`</span> voor *groter dan*: $\phantom{.} >$

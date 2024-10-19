@@ -10,3 +10,14 @@ class EquationForm(forms.Form):
             'autocapitalize': 'none'
         })
     )
+
+class QuestionForm(forms.Form):
+    question = forms.CharField(
+        label='Vul hier je vraag in',
+        max_length=255,
+        widget=forms.TextInput(attrs={
+            'placeholder': 'bijv. Waarom geeft x^2 = 1 twee oplossingen?',
+            'class': 'form-control'
+        }),
+        required=True
+    )

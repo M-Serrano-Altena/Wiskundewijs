@@ -567,23 +567,23 @@ def draw_func(
 
 
 
-def draw_func_3d(save_file, func, x_range, y_range, integral_range, func_label=False, add_caps=True, riemann=False, **kwargs):
+def draw_func_3d(save_file, func, x_range, y_range, integral_range, func_label=False, add_caps=True, riemann=False, func2=None, rot_x_axis_line=0, **kwargs):
     global asset_path
 
     def create_plot(save_file):
         def create_caps(surface_combined, x_start, x_end, colorscale=[[0, 'springgreen'], [1, 'springgreen']], hoverinfo='none'):
-            def create_filled_disk(radius, height, theta):
-                r = np.linspace(0, radius, 100)
+            def create_filled_disk(radius, height, theta, radius_inner=0):
+                r = np.linspace(radius_inner, radius, 100)
                 R, Theta = np.meshgrid(r, theta)
 
                 X_disk = np.full_like(R, height)
                 Y_disk = R * np.cos(Theta)
-                Z_disk = R * np.sin(Theta)
+                Z_disk = R * np.sin(Theta) + rot_x_axis_line
 
                 return X_disk, Y_disk, Z_disk
             
-            X_lower_bound, Y_lower_bound, Z_lower_bound = create_filled_disk(func_np(x_start), x_start, theta)
-            X_upper_bound, Y_upper_bound, Z_upper_bound = create_filled_disk(func_np(x_end), x_end, theta)
+            X_lower_bound, Y_lower_bound, Z_lower_bound = create_filled_disk(func_np_shifted(x_start), x_start, theta, radius_inner=0 if func2 is None or rot_x_axis_line != 0 else func2_np(x_start))
+            X_upper_bound, Y_upper_bound, Z_upper_bound = create_filled_disk(func_np_shifted(x_end), x_end, theta, radius_inner=0 if func2 is None or rot_x_axis_line != 0 else func2_np(x_end))
             surface_lower_bound = go.Surface(x=X_lower_bound, y=Y_lower_bound, z=Z_lower_bound, colorscale=colorscale, opacity=0.5, showscale=False, contours=dict(x=dict(highlight=True), y=dict(highlight=False), z=dict(highlight=False)), hoverinfo=hoverinfo) 
             surface_upper_bound = go.Surface(x=X_upper_bound, y=Y_upper_bound, z=Z_upper_bound, colorscale=colorscale, opacity=0.5, showscale=False, contours=dict(x=dict(highlight=True), y=dict(highlight=False), z=dict(highlight=False)), hoverinfo=hoverinfo)
             surface_combined.extend([surface_lower_bound, surface_upper_bound])
@@ -606,19 +606,38 @@ def draw_func_3d(save_file, func, x_range, y_range, integral_range, func_label=F
 
         x_symbol = sp.Symbol('x', real=True)
         func_np = sp.lambdify(x_symbol, func(x_symbol))
+        func_np_shifted = sp.lambdify(x_symbol, func(x_symbol) - rot_x_axis_line)
 
         x = np.linspace(*x_range, 100)
-        y = func_np(x)
-
         x_volume = np.linspace(*integral_range, 100)
+
+        x = np.sort(np.append(x, x_volume))
+        y = func_np(x)
+        y2 = np.full_like(y, 0)
+
         theta = np.linspace(0, 2 * np.pi, 100)
         X, Theta = np.meshgrid(x_volume, theta)
-        Y = func_np(X) * np.cos(Theta)
-        Z = func_np(X) * np.sin(Theta)
+        Y = func_np_shifted(X) * np.cos(Theta)
+        Z = func_np_shifted(X) * np.sin(Theta)
+        Z_diff =np.abs(func_np(X) * np.sin(Theta))
 
-        surface_og = go.Surface(x=X, y=np.full_like(X, 0), z=np.abs(Z), colorscale=[[0, 'green'], [1, 'green']], opacity=0.6, showscale=False, contours=dict(x=dict(highlight=False), y=dict(highlight=False), z=dict(highlight=False)), hoverinfo='skip') 
-        surface_rotation = go.Surface(x=X, y=Y, z=Z, colorscale=[[0, 'springgreen'], [1, 'springgreen']], opacity=0.6, showscale=False, contours=dict(x=dict(highlight=not riemann), y=dict(highlight=False), z=dict(highlight=False)), hovertemplate=f"Lichaam L<extra></extra>" if not riemann else None, hoverinfo=None if not riemann else 'none') 
+        if func2 is not None:
+            func2_np = sp.lambdify(x_symbol, func2(x_symbol))
+            y2 = func2_np(x)
+            Y2 = func2_np(X) * np.cos(Theta)
+            Z2 = func2_np(X) * np.sin(Theta)
+            Z_diff = np.abs(func_np(X) * np.sin(Theta) - Z2) + y2
+
+
+        surface_og = go.Surface(x=X, y=np.full_like(X, 0), z=Z_diff, colorscale=[[0, 'green'], [1, 'green']], opacity=0.6, showscale=False, contours=dict(x=dict(highlight=False), y=dict(highlight=False), z=dict(highlight=False)), hoverinfo='skip')
+        surface_rotation = go.Surface(x=X, y=Y, z=Z + rot_x_axis_line, colorscale=[[0, 'springgreen'], [1, 'springgreen']], opacity=0.6, showscale=False, contours=dict(x=dict(highlight=not riemann), y=dict(highlight=False), z=dict(highlight=False)), hovertemplate=f"Lichaam L<extra></extra>" if not riemann else None, hoverinfo=None if not riemann else 'none') 
         surface_combined = [surface_og, surface_rotation]
+        
+        if func2 is not None and rot_x_axis_line == 0:
+            surface_rotation2 = go.Surface(x=X, y=Y2, z=Z2, colorscale=[[0, 'springgreen'], [1, 'springgreen']], opacity=0.6, showscale=False, contours=dict(x=dict(highlight=not riemann), y=dict(highlight=False), z=dict(highlight=False)), hovertemplate=f"Lichaam L<extra></extra>" if not riemann else None, hoverinfo=None if not riemann else 'none') 
+            surface_combined.append(surface_rotation2)
+
+
         if add_caps and not riemann:
             surface_combined = create_caps(surface_combined, x_start=x_volume[0], x_end=x_volume[-1])
 
@@ -755,9 +774,13 @@ def draw_func_3d(save_file, func, x_range, y_range, integral_range, func_label=F
 # draw_func(lambda x: sp.cos(x) + 3, "Oppervlakte onder de grafiek - herhaling (met 100 rechthoeken)", x_range=(8, 14), y_range=(-2, 8), root=False, integral_range=(9, 13), riemann_amt=100, func_label=False)
 
 # draw_func_3d("Grafiek wentelen om de x-as", lambda x: sp.cos(x) + 3, x_range=(8, 14), y_range=(-6, 6), root=False, integral_range=(9, 13), func_label=False, add_caps=True)
-draw_func_3d("Grafiek wentelen om de x-as (10 cilinders)", lambda x: sp.cos(x) + 3, x_range=(8, 14), y_range=(-6, 6), integral_range=(9, 13), func_label=False, add_caps=True, riemann=10)
-draw_func_3d("Grafiek wentelen om de x-as (50 cilinders)", lambda x: sp.cos(x) + 3, x_range=(8, 14), y_range=(-6, 6), integral_range=(9, 13), func_label=False, add_caps=True, riemann=50)
+# draw_func_3d("Grafiek wentelen om de x-as (10 cilinders)", lambda x: sp.cos(x) + 3, x_range=(8, 14), y_range=(-6, 6), integral_range=(9, 13), func_label=False, add_caps=True, riemann=10)
+# draw_func_3d("Grafiek wentelen om de x-as (50 cilinders)", lambda x: sp.cos(x) + 3, x_range=(8, 14), y_range=(-6, 6), integral_range=(9, 13), func_label=False, add_caps=True, riemann=50)
 
 # draw_func_3d("f(x) = 2x^2 (3D)", lambda x: 2*x**2, x_range=(-1, 3), y_range=(-20, 20), integral_range=(0, 2), func_label=True, add_caps=True)
 # draw_func_3d("f(x) = 4 - x^2 (3D)", lambda x: 4 - x**2, x_range=(-3, 3), y_range=(-5, 5), integral_range='root', func_label=True, add_caps=True)
 # draw_func_3d("f(x) = sin(x) + cos(x) (3D)", lambda x: sp.sin(x) + sp.cos(x), x_range=(-1, 3), y_range=(-2, 2), integral_range=(0, 3*np.pi/4), func_label=True, add_caps=True)
+# draw_func_3d("f(x) = sqrt(2x - 8) (3D)", lambda x: sp.sqrt(2*x - 8), x_range=(-1, 12), y_range=(-4, 4), integral_range=(4, 10), func_label=True, add_caps=True)
+# draw_func_3d(r"f(x) = (x+1) !divide! x (3D)", lambda x: (x+1)/x, func2=lambda x: 1, x_range=(0.01, 6), y_range=(-3, 3), integral_range=(1, 4), func_label=True, add_caps=True)
+draw_func_3d(r"f(x) = (x+1) !divide! x (3D - om y=1)", lambda x: (x+1)/x, func2=lambda x: 1, x_range=(0.01, 6), y_range=(-3, 3), integral_range=(1, 4), func_label=True, add_caps=True, rot_x_axis_line=1)
+draw_func_3d(r"f(x) = 1 !divide! x (3D)", lambda x: 1/x, x_range=(0.01, 6), y_range=(-3, 3), integral_range=(1, 4), func_label=True, add_caps=True)
