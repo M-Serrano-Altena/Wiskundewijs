@@ -1,0 +1,10 @@
+{
+    'equation_text': '3x - 7 = 5x + 3',
+    'equation_interpret': '3*x - 7 = 5*x + 3',
+    'outputs': [
+        ('Vereenvoudigde Vergelijking:', {'latex': False}),
+        '3 x - 7 = 5 x + 3',
+        ('De oplossing is:', {'latex': False}),
+        'x = -5'
+    ]
+}

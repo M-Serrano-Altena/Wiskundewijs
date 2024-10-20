@@ -18,7 +18,7 @@ search:
     + $\phantom{.}$ <span style="font-size: 21px;">`<`</span> voor *kleiner dan*: $\phantom{.} <$
     + $\phantom{.}$ <span style="font-size: 21px;">`>=`</span> voor *groter of gelijk aan*: $\phantom{.} \geq$
     + $\phantom{.}$ <span style="font-size: 21px;">`<=`</span> voor *kleiner of gelijk aan*: $\phantom{.} \leq$
-    + $\phantom{.}$ <span style="font-size: 21px;">`!=`</span> voor *niet gelijk aan* $\phantom{.} \neq$: <br><br><br>
+    + $\phantom{.}$ <span style="font-size: 21px;">`!=`</span> voor *niet gelijk aan* $\phantom{.} \neq$ <br><br><br>
 
 - **Afgeleides nemen:** 
     + **Eerste Afgeleide:** $\phantom{.^{....}}$ <span style="font-size: 19px;">`diff(f(x))`</span> $= \dfrac{d}{d x} f{\left(x \right)} \phantom{^{..}} \quad \longrightarrow \quad$ <span style="font-size: 19px;">`diff(x^2 + 3x + 1)`</span> $= \dfrac{d}{d x}\left(x^2 + 3x + 1\right) = 2x + 3$ <br><br>

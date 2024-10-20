@@ -1,0 +1,11 @@
+{
+    'equation_text': 'x^2 - 6x + 12 = -x^2 + 8',
+    'equation_interpret': 'x^2 - 6*x + 12 = -x^2 + 8',
+    'outputs': [
+        ('Vereenvoudigde Vergelijking:', {'latex': False}),
+        'x^{2} - 6 x + 12 = 8 - x^{2}',
+        ('De oplossingen zijn:', {'latex': False}),
+        '1) \quad x = 1',
+        '2) \quad x = 2'
+    ]
+}

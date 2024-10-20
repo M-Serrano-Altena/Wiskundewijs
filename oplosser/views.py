@@ -10,13 +10,13 @@ import os
 import json
 import multiprocessing
 from src.Solver.src.solver.solve_calculations import Solve, math_interpreter, custom_latex, custom_simplify
-from src.Solver.src.solver.openai_api import chatgpt_get_explanation, chatgpt_reply_to_question
+from src.Solver.src.solver.openai_api import ChatGPT
 from .forms import EquationForm, QuestionForm
 import ast
 import html
 import time
 import traceback
-
+import mistune
 
 def serve_search_index(request):
     with open(os.path.join(settings.STATIC_ROOT, 'search', 'search_index.json')) as f:
@@ -354,7 +354,7 @@ def generate_plot_data(solver):
     return plot_data, list(view_x_range), list(view_y_range)
 
 
-
+chatgpt = ChatGPT()
 
 def check_display_math(string, final=False):
     condition = not ((not (r"\[" in string and r"\]" in string)) ^ (not (r"\\[" in string and r"\\]" in string)))
@@ -383,25 +383,31 @@ def check_forward_slash(string: str) -> str:
             string_list[i] = "t"
             string_list.insert(i, "\\")
 
+        elif string_list[i] == '\f':
+            string_list[i] = "f"
+            string_list.insert(i, "\\")
+
     string = ''.join(string_list)
     return string 
 
 def explain_equation_base(request, use_chatgpt=False):
     start_time = time.time()
+    generation_success = False
     if request.method == 'GET':
         if use_chatgpt:
             data_chatgpt = request.GET.get("data_chatgpt", None)
             data_chatgpt = html.unescape(data_chatgpt)
 
             if data_chatgpt is None or data_chatgpt == "Geen uitleg beschikbaar" or data_chatgpt == "error":
-                return JsonResponse({'explanation': "Geen uitleg beschikbaar"})
+                return JsonResponse({'explanation': "Geen uitleg beschikbaar", 'generation_success': generation_success})
             
             elif data_chatgpt == "numeriek":
-                return JsonResponse({'explanation': 'Voor numerieke oplossingen is er geen uitleg mogelijk <span style="arithmatex">\\( \\phantom{.} \\)</span><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm-96.7-123.3c-2.6 8.4-11.6 13.2-20 10.5s-13.2-11.6-10.5-20C145.2 326.1 196.3 288 256 288s110.8 38.1 127.3 91.3c2.6 8.4-2.1 17.4-10.5 20s-17.4-2.1-20-10.5C340.5 349.4 302.1 320 256 320s-84.5 29.4-96.7 68.7zM144.4 208a32 32 0 1 1 64 0 32 32 0 1 1-64 0zm192-32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span>'})
+                return JsonResponse({'explanation': 'Voor numerieke oplossingen is er geen uitleg mogelijk <span style="arithmatex">\\( \\phantom{.} \\)</span><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm-96.7-123.3c-2.6 8.4-11.6 13.2-20 10.5s-13.2-11.6-10.5-20C145.2 326.1 196.3 288 256 288s110.8 38.1 127.3 91.3c2.6 8.4-2.1 17.4-10.5 20s-17.4-2.1-20-10.5C340.5 349.4 302.1 320 256 320s-84.5 29.4-96.7 68.7zM144.4 208a32 32 0 1 1 64 0 32 32 0 1 1-64 0zm192-32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span>', 'generation_success': generation_success})
             
-            chatgpt_response = chatgpt_get_explanation(data_chatgpt)
-            chatgpt_response_text = check_forward_slash(chatgpt_response.content)
+            chatgpt_response = chatgpt.get_explanation(data_chatgpt)
+            chatgpt_response_text = check_forward_slash(chatgpt_response)
             explanation_raw = ast.literal_eval(chatgpt_response_text)
+            generation_success = True
 
         else:
             explanation_raw = {"steps": [{"explanation": "We beginnen met de volgende vergelijking:", "output": "\\[\\sin(x) = \\dfrac{1}{2} \\sqrt{3}\\]"}, {"explanation": "Om dit op te lossen, moeten we eerst aan beide kanten een sinus hebben. Op de eenheidscirkel kunnen we aflezen dat we \\(\\frac{1}{2} \\sqrt{3}\\) kunnen schrijven als de sinus van \\(x = \\frac{1}{3} \\pi\\):", "output": "\\[\\sin(x) = \\sin \\left( \\dfrac{1}{3}\\pi \\right) \\]"}, {"explanation": "Nu kunnen we dit oplossen met de algemene oplossing voor een sinus:", "output": "\\[x = \\dfrac{1}{3}\\pi + n \\cdot 2\\pi \\, \\vee \\, x = \\pi - \\dfrac{1}{3}\\pi + n \\cdot 2\\pi \\]"}, {"explanation": "Hierbij is \\(n\\) een geheel getal (dit geven we ook aan als \\(n \\in \\mathbb{Z}\\) ). We kunnen de vergelijking nog verder versimpelen tot:", "output": "\\[x = \\dfrac{1}{3}\\pi + n \\cdot 2\\pi \\, \\vee \\, x = \\dfrac{2}{3}\\pi + n \\cdot 2\\pi \\]"}, {"explanation": "Dit is de formule voor alle oplossingen, maar we kunnen ook nog de oplossingen in het domein \\( \\left[ 0, 2\\pi \\right] \\) bepalen. We vullen dan alle gehele getallen in voor \\(n\\) die ons een uitkomst tussen \\(0\\) en \\(2\\pi\\) geven. <br> In dit geval is dat alleen voor \\( n=1 \\), dus we vinden als oplossingen:", "output": "\\[ x = \\dfrac{1}{3} \\pi \\, \\vee \\, x = \\dfrac{2}{3} \\pi \\]"}], "final_answer": "\\[\\boxed{1) \\quad x = \\frac{\\pi}{3} \\approx 1.04720}\\]<br>\\[\\boxed{2) \\quad x = \\frac{2 \\pi}{3} \\approx 2.09440}\\]"}
@@ -424,7 +430,7 @@ def explain_equation_base(request, use_chatgpt=False):
         explanation = "Geen uitleg beschikbaar"
 
     print(f"Explanation - Time taken: {time.time() - start_time}")
-    return JsonResponse({'explanation': explanation})
+    return JsonResponse({'explanation': explanation, 'generation_success': generation_success})
 
 
 def explain_equation_dummy(request):
@@ -433,33 +439,37 @@ def explain_equation_dummy(request):
 def explain_equation(request):
     return explain_equation_base(request, use_chatgpt=True)
 
+def format_answer(answer_question: str) -> str:
+    markdown = mistune.create_markdown()
+
+    answer_question = check_forward_slash(answer_question)
+    answer_question = answer_question.replace("\\", r"\\")
+    answer_question = markdown(answer_question)
+    return answer_question
 
 def answer_question(request):
     if request.method == "POST":
         start_time = time.time()
         form = QuestionForm(request.POST)
-        print(request.POST)
         if form.is_valid():
-            print()
-            print(form.cleaned_data)
             explanation = request.POST.get("explanation")
             question = form.cleaned_data.get("question")
 
             if explanation is None or question is None:
                 return JsonResponse({'explanation': "Er is iets mis gegaan. Probeer het anders opnieuw."})
-                
-            chatgpt_response = chatgpt_reply_to_question(explanation, question).content
+            
+            if chatgpt.amt_questions_asked() == 0:
+                chatgpt.add_user_input(explanation)
+
+            chatgpt_response = chatgpt.reply_to_question(question)
             answer_question = ast.literal_eval(chatgpt_response)["response"]
-            answer_question = answer_question.replace("\n", "<br>")
-            answer_question = check_forward_slash(answer_question)
-            answer_question = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", answer_question)
+            answer_question = format_answer(answer_question)
             
         else:
             answer_question = "Geen uitleg beschikbaar"
 
         print(f"Answer Question - Time taken: {time.time() - start_time}")
 
-        print(answer_question)
         return JsonResponse({'answer': answer_question})
 
     else:

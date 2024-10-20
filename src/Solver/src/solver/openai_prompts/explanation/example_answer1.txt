@@ -1,0 +1,21 @@
+{
+    "steps": [
+        {
+            "explanation": r"We beginnen beginnen met de volgende vergelijking:",
+            "output": r"\[3x - 7 = 5x + 3\]"
+        },
+        {
+            "explanation": r"We doen eerst aan beide kanten van de vergelijking \(-5x\) om alle \(x\) termen naar links te halen:",
+            "output": r"\[-2x - 7 = 3\]"
+        },
+        {
+            "explanation": r"Nu doen we aan beide kanten van de vergelijking \(+7\) om alle getallen rechts te krijgen:",
+            "output": r"\[-2x = 10\]"
+        },
+        {
+            "explanation": r"En nu kunnen we beide kanten delen door \(-2\). We vinden dan:",
+            "output": r"\[x = -5\]"
+        }
+    ],
+    "final_answer": r"\[\boxed{x = -5}\]"
+}

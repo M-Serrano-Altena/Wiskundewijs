@@ -1,0 +1,30 @@
+{
+    "steps": [
+        {
+            "explanation": r"We beginnen beginnen met de volgende vergelijking:",
+            "output": r"\[x^2 - 6x + 12 = -x^2 + 8\]"
+        },
+        {
+            "explanation": r"Om deze vergelijking op te lossen, willen we het eerst in de algemene vorm \(x^2 + bx + c = 0 \) zetten. We willen dus eerst alles naar de linkerkant halen. Om dit te doen, doen we aan beide kanten \(+x^2\) en \(-8\):",
+            "output": r"\[2x^2 - 6x + 4 = 0\]"
+        },
+        {
+            "explanation": r"Nu delen we nog beide kanten van de vergelijking nog door \(2\):",
+            "output": r"\[x^2 - 3x + 2 = 0\]"
+        },
+        {
+            "explanation": r"Nu kunnen we dit gaan ontbinden in factoren. We zoeken twee getallen die vermenigvuldigen tot \(2\) en optellen tot \(-3\). Deze getallen zijn \(-1\) en \(-2\). We kunnen de vergelijking dan schrijven als:",
+            "output": r"\[ \left(x - 1\right) \left(x - 2\right) \]"
+        },
+        {
+            "explanation": r"Twee dingen keer elkaar kunnen alleen \(0\) zijn als een van de twee factoren \(0\) is. We krijgen dus:",
+            "output": r"\[ x - 1 = 0 \, \vee \, x - 2 = 0 \]"
+        },
+        {
+            "explanation": r"En hieruit volgt dat:",
+            "output": r"\[ x = 1 \, \vee \, x = 2 \]"
+        }
+
+    ],
+    "final_answer": r"\[\boxed{1) \quad x = 1}\]<br>\[\boxed{2) \quad x = 2}\]"
+}

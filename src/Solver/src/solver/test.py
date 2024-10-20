@@ -13,6 +13,7 @@ from types import FunctionType
 from collections.abc import Iterable
 import typing
 import operator
+import mistune
 
 
 
@@ -51,3 +52,14 @@ string = math_interpreter(string)
 string = re.sub(r"\^?[°∘]", "", string)
 string = re.sub(r"\^?\(\)", "", string)
 print(string)
+
+string = r"\\t"
+print(string)
+print(string.replace(r"\\", "\\"))
+
+print("'\f'")
+
+a = True
+b = True
+
+print(a is b)
