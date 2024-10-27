@@ -1,9 +1,57 @@
+"""
+math_parser.py
+
+This module provides functions to interpret and transform mathematical expressions, into a format compatible with SymPy. It includes utilities for handling various mathematical operations such as differentiation, integration, logarithms, and more. The module also supports the conversion of LaTeX symbols and functions into their SymPy equivalents, ensuring proper syntax and evaluation.
+
+Key Functions:
+- fix_mismatched_parenthesis: Ensures that parentheses in an equation are properly matched.
+- get_arg_in_brackets: Extracts the argument within specified brackets from a string.
+- interpret_latex_root: Interprets LaTeX root expressions and converts them to a SymPy-compatible format.
+- interpret_integral: Converts LaTeX integral expressions into SymPy integrals.
+- interpret_derivative: Converts LaTeX derivative expressions into SymPy derivatives.
+- interpret_log: Converts LaTeX logarithm expressions into SymPy logarithms.
+- latex_to_plain_text: Converts LaTeX formatted strings into plain text.
+- split_equation: Splits an equation string based on mathematical symbols.
+- count_commas_in_func: Counts the number of commas in a function's argument list.
+- add_args_to_func: Adds arguments to a specified function within an equation string.
+- math_interpreter: Interprets and reformats a mathematical equation string to be compatible with SymPy.
+- get_uneval_sp_objs: Replaces dot notation functions with their corresponding unevaluated SymPy function equivalents.
+- apply_inner_func_to_func: Applies an inner function to the arguments of a specified function.
+- add_degree_symbol: Adds a degree symbol to trigonometric functions in an equation string.
+
+Dependencies:
+- numpy
+- sympy
+- regex
+- pylatexenc
+- typing
+- types
+"""
+
 import numpy as np
 import sympy as sp
 import regex as re
 from typing import Dict, Union
 from types import FunctionType
 from pylatexenc.latex2text import LatexNodes2Text
+from src.Solver.src.solver.sympy_custom_funcs import LOCALS
+from src.Solver.src.solver.helper import unique_preserve_order
+
+ALLOWED_FUNCTIONS = ["diff", "integrate", "limit", "Mod", "subs", "Sum", "Product", "dot", "cross", "magnitude"]
+ALLOWED_FUNCTIONS.extend([key for key, val in  LOCALS.items() if isinstance(val, FunctionType)])
+UNEVAL_SP_OBJECT_DICT = {
+    "subs": "Subs",
+    "diff": "Derivative",
+    "integrate": "Integral",
+    "limit": "Limit",
+    "grad": "Gradient",
+    "div": "Divergence",
+    "curl": "Curl",
+    "dot": "Dot",
+    "cross": "Cross",
+    "laplacian": "Laplacian",
+    "magnitude": "Magnitude",
+}
 
 def fix_mismatched_parenthesis(eq_string):
     eq_split = split_equation(eq_string)
@@ -202,6 +250,33 @@ def interpret_log(eq_string):
 
     return eq_string
 
+def interpret_vector_operation(eq_string, pattern, name_vector_op):
+    index_vect_start = [m.start() for m in re.finditer(pattern, eq_string)]
+    index_vect_end = [m.end() - 1 for m in re.finditer(pattern, eq_string)]
+
+    amt_open_brackets = [eq_string.count(r"(", index_vect_start[i], index_vect_end[i] + 1) for i in range(len(index_vect_start))]
+    amt_close_brackets = [eq_string.count(r")", index_vect_start[i], index_vect_end[i] + 1) for i in range(len(index_vect_start))]
+    extra_brackets = [amt_open_brackets[i] - amt_close_brackets[i] for i in range(len(index_vect_start))]
+
+    if not index_vect_end:
+        return eq_string
+    
+    vector_args = []
+    for index in index_vect_end:
+        vector_arg, index =  get_arg_in_brackets(eq_string, index)
+        vector_args.append(vector_arg)
+
+    for amt_extra_brackets, vector_arg in zip(extra_brackets, vector_args):
+        eq_string = re.sub(rf"{pattern}{re.escape(vector_arg)}\){r'\)'*amt_extra_brackets}", rf").{name_vector_op}(vect({vector_arg}))", eq_string)
+
+    return eq_string
+
+def interpret_vector_operations(eq_string):
+    eq_string = interpret_vector_operation(eq_string, r"\)\s*\^\s*\(*vect\(", "cross")
+    eq_string = interpret_vector_operation(eq_string, r"\)\s*\*\s*\(*vect\(", "dot")
+    return eq_string
+
+
 
 def latex_to_plain_text(latex_str):
     diff_formatting = [
@@ -220,6 +295,7 @@ def latex_to_plain_text(latex_str):
         (r"\{", "{("),
         (r"\}", ")}"),
         (r"%", r"\%"),  # Escape percent signs
+        (r"&", r"\&")   # Escape ampersands
     ]
 
     replacements_before = diff_formatting + general_formatting
@@ -243,14 +319,31 @@ def latex_to_plain_text(latex_str):
         (":", "/ "),
     ]
 
-    for pattern, repl in replacements_symbols:
+    vector_diff_formatting = [
+        (r"∇\s*\*\s*", "div("),
+        (r"∇\^2\s*\(", "laplacian("),
+        (r"∇\^2", "laplacian("),
+        (r"Δ\s*\(", "laplacian("),
+        (r"Δ\s*", "laplacian("),
+        (r"∇\s*\^\s*\(", "curl("),
+        (r"∇\s*\^\s*", "curl("),
+        (r"∇\s*\(", "grad("),
+        (r"∇\s*", "grad("),
+    ]
+
+
+
+    replacements_after = replacements_symbols + vector_diff_formatting
+
+    for pattern, repl in replacements_after:
         latex_str = re.sub(pattern, repl, latex_str)
 
-    latex_str =fix_mismatched_parenthesis(latex_str)
+    latex_str = fix_mismatched_parenthesis(latex_str)
 
     latex_str = interpret_derivative(latex_str)
     latex_str = interpret_integral(latex_str)
     latex_str = interpret_log(latex_str)
+    latex_str = interpret_vector_operations(latex_str)
 
     return latex_str
 
@@ -278,7 +371,36 @@ def split_equation(eq_string):
         return re.split(rf"({symbols_string})", eq_string)
     else:
         return [eq_string]
+
+
+def count_commas_in_func(eq_string: str, func_name: str) -> int|set:
+    index_func = [m.start() for m in re.finditer(func_name, eq_string)] # get index list of start of each function name
     
+    if len(index_func) == 0:
+        return 0
+    
+    eq_string_list = list(eq_string)
+    string_split = [eq_string_list[index_func[i]:index_func[i+1]] if i != len(index_func) - 1 else eq_string_list[index_func[i]:] for i in range(len(index_func))]
+
+    nested = 0
+    amt_commas = 0
+    amt_commas_set = set()
+    for index, string in zip(index_func, string_split):
+        for char in string:
+            if char == "(":
+                nested += 1
+
+            elif char == ")":
+                nested -= 1
+                if nested == 0:
+                    amt_commas_set.add(amt_commas)
+            
+            index += 1
+
+    if len(amt_commas_set) != 1:
+        return amt_commas_set
+    return amt_commas_set.pop()
+
 
 def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10', amt_commas: int=1, nested_level: int=1, position_type: str='after', extra_arguments: int=0) -> str:
     """
@@ -742,6 +864,8 @@ def math_interpreter(eq_string: str) -> str:
         (r'product', r'Product'), # product(x, (x, 1, 4)) -> Product(x, (x, 1, 4))
         (r'∏', r'Product'), # ∏(x, (x, 1, 4)) -> Product(x, (x, 1, 4))
         (r'lambertw', r'LambertW'), # lambertw(x) -> LambertW(x)
+        (r'divergence', r'div'), # divergence(r) -> div(r)
+        (r'gradient', r'grad'), # gradient(x) -> grad(x)
         (r'√', r'sqrt'), # √(x) -> sqrt(x)
         (r'∛', r'cbrt'), # ∛(x) -> cbrt(x)
         (r'\bi\b', r'I'), # i -> I
@@ -757,8 +881,11 @@ def math_interpreter(eq_string: str) -> str:
         eq_string = re.sub(pattern, repl, eq_string)
 
     function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
-    function_names.extend(("diff", "integrate", "limit", "Mod", "subs", "Sum", "Product", "rad", "deg"))
+    function_names_set = set(function_names)
+    function_names.extend([func for func in ALLOWED_FUNCTIONS if func not in function_names_set])
     function_names.remove("ff")
+    function_names = unique_preserve_order(function_names)
+
     relevant_functions = [func for func in function_names if func in eq_string]
 
     eq_string = replace_constant_symbols(eq_string)
@@ -766,6 +893,7 @@ def math_interpreter(eq_string: str) -> str:
     constant_names_og = [name for name, obj in sp.__dict__.items() if isinstance(obj, (sp.Basic, sp.core.singleton.Singleton)) and not name.startswith('_') and sp.sympify(name).is_number]
     constant_names = [name.casefold() for name in constant_names_og]
     relevant_constants = [constant for constant in constant_names if constant in eq_string]
+    constant_to_og_map = {constant: constant_names_og[constant_names.index(constant)] for constant in relevant_constants}
 
     arc_functions = ["arcsin", "arccos", "arctan", "arccot", "arcsec", "arccsc"]
     relevant_arc_functions = [arc_func for arc_func in arc_functions if arc_func in eq_string]
@@ -872,10 +1000,11 @@ def math_interpreter(eq_string: str) -> str:
         eq_string = add_args_to_func(eq_string, *args)
 
     eq_string = re.sub(r'(?<!\.)subs', r'Subs', eq_string)
+    print(eq_string)
 
     for i, constant in enumerate(relevant_constants):
         if re.search(r'\b' + constant + r'\b', eq_string) and constant not in constant_names_og:
-            eq_string = re.sub(r'\b' + constant + r'\b', constant_names_og[i], eq_string)
+            eq_string = re.sub(r'\b' + constant + r'\b', constant_to_og_map[constant], eq_string)
     
     # change the added symbol from x if there is another symbol in the equation
     try:
@@ -895,7 +1024,7 @@ def math_interpreter(eq_string: str) -> str:
 
 
 
-def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = {"subs": "Subs", "diff": "Derivative", "integrate": "Integral", "limit": "Limit"}) -> Union[str, sp.Basic]:
+def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = UNEVAL_SP_OBJECT_DICT) -> Union[str, sp.Basic]:
     """
     Replaces dot notation functions (e.g., `.subs`, `.diff`) in a string with their corresponding unevaluated SymPy function equivalents.
 
@@ -909,6 +1038,19 @@ def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = {"subs": "Subs",
     Returns:
         Union[str, sp.Basic]: The SymPy expression object if successful, otherwise the original string.
     """
+
+    def get_dot_func_args_pattern(eq_string: str, func_name: str) -> re.Match:
+        """
+        Returns the regex match object for a dot notation function call with its arguments.
+
+        Args:
+            eq_string (str): The input equation string.
+            func_name (str): The dot notation function name to match.
+
+        Returns:
+            re.Match: The regex match object for the dot notation function call.
+        """
+        return re.search(rf'\.({func_name})\(([^()]*)\)', eq_string)
 
 
     def replace_function(match: re.Match) -> str:
@@ -1006,26 +1148,38 @@ def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = {"subs": "Subs",
                         break
 
             extra_index_next += 2
-            changed_string = re.escape(string[index_range[0]:index_range[1]])
+            matched_func_snippet = re.escape(string[index_range[0]:index_range[1]])
+            
+            nested = 0
+            index_start_args = 0
+            for index in range(index_func, len(string)):
+                char = string[index]
+                if char == '(':
+                    nested += 1
+                    if nested == 1:
+                        index_start_args = index + 1
+
+                elif char == ')':
+                    nested -= 1
+                    if nested == 0:
+                        matched_func_args = re.escape(string[index_start_args:index])
+                        break
+
 
             # Replace dot function with corresponding SymPy function
             result_string = string
-            pattern = f"({changed_string})" + rf"\.{func}\(([^()]*)\)"
+            pattern = f"({matched_func_snippet})" + rf"\.{func}\(({matched_func_args})\)"
             result_string = re.sub(pattern, replace_function, result_string)
-
-            # Handle nested parentheses
-            if result_string == string:
-                nested_pattern = f"({changed_string})" + rf"\.{func}\((\([^()]*\))\)"
-                result_string = re.sub(nested_pattern, replace_function, result_string)
 
             string = result_string
 
     string_og_list.append(string)
 
+
     # Attempt to sympify the resulting string for all changes made, if none work
     for result_string in reversed(string_og_list):
         try:
-            sympy_expr = sp.sympify(result_string)
+            sympy_expr = sp.sympify(result_string, locals=LOCALS)
             return sympy_expr
         
         except sp.SympifyError:

@@ -1,505 +1,49 @@
+"""
+Module for symbolic and numerical equation solving.
+
+The `solve_calculations` module provides tools for parsing, solving, and analyzing mathematical equations
+symbolically and numerically, utilizing libraries like SymPy and SciPy. It includes the `Solve` class, which
+supports initialization with an equation string and optional angle mode selection (degrees or radians).
+
+Key functionalities:
+- Equation parsing and transformation using custom mathematical parsing tools.
+- Symbolic manipulations and simplifications powered by SymPy.
+- Numerical solutions for equations using methods like `fsolve`, `bisect`, and `newton`.
+- Customizable LaTeX rendering for symbolic outputs.
+
+Dependencies:
+- SymPy, SciPy, NumPy, and other custom helper functions.
+
+"""
+
 import numpy as np
 import sympy as sp
-from sympy.simplify.fu import TR2, TR1, TR111
-from sympy.printing.latex import LatexPrinter
+from sympy.simplify.fu import TR2, TR111
+import sympy.vector as sp_vector
 import regex as re
 from scipy.optimize import fsolve, bisect, newton
 from warnings import filterwarnings
 from src.Solver.src.solver.math_parser import *
+from src.Solver.src.solver.helper import *
+from src.Solver.src.solver.sympy_custom_funcs import LOCALS, custom_latex, custom_simplify
+import src.Solver.src.solver.sympy_custom_funcs as sp_custom
 import traceback
 import typing
 from types import FunctionType
 from collections.abc import Iterable
 from numbers import Number
-import operator
 
 filterwarnings("ignore", category=RuntimeWarning)
 
-def apply_opperator(x, selected_operator, y):
-    # Dictionary to map operator strings to functions
-    operators = {
-        "==": operator.eq,  # Equality
-        "=": operator.eq,   # Equality
-        "!=": operator.ne,  # Not equal
-        ">": operator.gt,   # Greater than
-        "<": operator.lt,   # Less than
-        ">=": operator.ge,  # Greater than or equal to
-        "<=": operator.le,  # Less than or equal to
-    }
-    try:
-        return operators[selected_operator](x, y)
-    except KeyError:
-        raise ValueError("Invalid operator")
-
-def segmented_linspace(start: float, end: float, breakpoints: typing.Iterable[float], num: int=10, breakpoint_offset: float=0.01) -> typing.List[np.ndarray]:
-    """
-    Generate a list of linearly spaced segments between `start` and `end`, divided by `breakpoints`.
-
-    Args:
-        start (float): The starting point of the range.
-        end (float): The ending point of the range.
-        breakpoints (Iterable[float]): Points at which the range is divided into segments.
-        num (int): Number of points in each segment (default is 10).
-        breakpoint_offset (float): Small offset added to the start and end of each segment (default is 0.01).
-
-    Returns:
-        List[np.ndarray]: A list of numpy arrays, each containing a segment of linearly spaced points.
-    """
-
-    all_points = sorted([start] + list(breakpoints) + [end])
-    return [np.linspace(all_points[i] + breakpoint_offset, all_points[i+1] - breakpoint_offset, num) for i in range(len(all_points)-1)]
-
-
-def get_smooth_x_coords(x_range, dx, vert_asympt=None):
-    if vert_asympt is None:
-        x_coords = np.linspace(x_range[0] - 1, x_range[1] + 1, int(1/dx))
-        for i in range(1, 10):
-            x_coords = np.sort(np.append(x_coords, np.linspace(x_range[0]/(10**i), x_range[1]/(10**i), max(10, int(10/(dx*10**i))))))
-
-    else:
-        x_coords = segmented_linspace(x_range[0] - 1, x_range[1] + 1, vert_asympt, num=int(1/dx), breakpoint_offset=0.00001)
-        if len(x_coords) > 3:
-            return x_coords
-
-        for i in range(1, 5):
-            new_x_coords = segmented_linspace(x_range[0]/(10**i), x_range[1]/(10**i), vert_asympt, num=max(10, int(10/(dx*10**i))), breakpoint_offset=0.00001)
-            for i in range(len(x_coords)):
-                array = x_coords[i]
-                min_array = min(array)
-                max_array = max(array)
-                for array_new in new_x_coords:
-                    if min_array <= np.mean(array_new) <= max_array:
-                        x_coords[i] = np.sort(np.append(array, array_new))
-
-    return x_coords
-
-
-def write_as_sin_and_cos(x):
-    """
-    Write sec-csc and tan-cot in terms of cos-sin.
-
-    Args:
-        expr (sp.Basic): The SymPy expression to simplify.
-
-    Returns:
-        sp.Basic: The simplified SymPy expression.
-    """
-
-    return TR1(TR2(x))
-
-def pop_iterable(pop_list: list, index_list: typing.Iterable[int]) -> list:
-    """
-    Remove elements from `pop_list` at the specified indices.
-
-    Args:
-        pop_list (list): The list from which elements will be removed.
-        index_list (Iterable[int]): List of indices to remove from `pop_list`.
-
-    Returns:
-        list: The list after the specified elements have been removed.
-    """
-
-    for index in sorted(index_list, reverse=True):
-        pop_list.pop(index)
-    return pop_list
-
-
-def equation_type_to_latex(equation_symbol):
-    equation_type_latex_map = {"!=": "\\neq", ">=": "\\geq", "<=": "\\leq"}
-    return equation_type_latex_map.get(equation_symbol, equation_symbol)
-
-def flip_inequality_sign(inequality_sign):
-    """
-    Flip the sign of an inequality.
-
-    Args:
-        inequality_sign (str): The inequality sign to flip.
-
-    Returns:
-        str: The flipped inequality sign.
-    """
-    inequality_flip_replacements = {">": "<", "<": ">", ">=": "<=", "<=": ">=", "!=": "=", "=": "!="}
-    return inequality_flip_replacements.get(inequality_sign, inequality_sign)
-
-def apply_double_equals_operator(lhs, rhs):
-    return apply_opperator(lhs, "==", rhs)
-
-def map_equation_type_to_sp(eq_type: str):
-    equation_symbol_map = {"!=": sp.Ne, ">=": sp.Ge, "<=": sp.Le, "==": apply_double_equals_operator, "=": sp.Eq, ">": sp.Gt, "<": sp.Lt}
-    return equation_symbol_map.get(eq_type, eq_type)
-
-class CustomLatexPrinter(LatexPrinter):
-    """
-    A custom LaTeX printer that provides customized formatting for SymPy expressions.
-    """
-
-    def __init__(self, **kwargs):
-        self.symbol = kwargs.get("symbol", "x")
-        super().__init__()
-
-    def _print_Union(self, expr, **kwargs):
-        """
-        Customize the printing of Union (for trigonometric periodic solutions).
-        Example: x = a + 2k*pi or x = b + 2k*pi instead of set notation.
-        """
-        # Extract individual sets from the union
-        parts = []
-        for arg in expr.args:
-            # Look for expressions in the form {2n*pi + constant | n ∈ Z}
-            if isinstance(arg, sp.ImageSet):
-                # We assume the form 2n*pi + constant for periodic solutions
-                element_expr: sp.Expr = sp.expand(arg.lamda.expr)
-                variable = list(arg.lamda.variables)[0]
-
-                coeff, summation = element_expr.as_coeff_add()
-                if coeff != 0:
-                    summation = (coeff, *summation)
-
-                summation = [f"k \\cdot {str(self._print(element)).replace("n", "")}" if "_n" in str(element) else self._print(element) for element in summation]
- 
-                # Format the periodic solution in the form a + 2k*pi
-                formatted_expr = f"{' + '.join(summation)}".replace("n", "k")
-                parts.append(formatted_expr)
-
-        # Join the parts with the OR symbol
-        return f' \\ \\vee \\ {self.symbol} = '.join(parts)
-
-     
-    def _print_Relational(self, expr, **kwargs):
-        """
-        Customize the printing of relational expressions (e.g., inequalities).
-
-        Args:
-            expr (sp.Relational): The relational expression to print.
-
-        Returns:
-            str: The LaTeX representation of the relational expression.
-        """
-
-        lhs = expr.lhs
-        rhs = expr.rhs
-
-        # If the relation is flipped, reverse the relation and swap lhs and rhs
-        if lhs.is_Symbol:
-            return super()._print_Relational(expr, **kwargs)
-        else:
-            flipped_relation = flip_inequality_sign(expr.rel_op)
-            flipped_relation = equation_type_to_latex(flipped_relation)
-            return f"{self._print(rhs)} {flipped_relation} {self._print(lhs)}"
-        
-    def _print_Or(self, expr, **kwargs):
-        """
-        Customize the printing of Or expressions by controlling the order of arguments.
-
-        Args:
-            expr (sp.Or): The Or expression to print.
-
-        Returns:
-            str: The LaTeX representation of the Or expression.
-        """
-
-        if len(expr.args) != 2:
-            return super()._print_Or(expr, **kwargs)
-
-        ordered_args = [expr.args[1], expr.args[0]]
-
-        # Convert the ordered arguments to LaTeX
-        latex_args = [self._print(arg) for arg in ordered_args]
-
-        # Join the LaTeX strings with the \vee symbol
-        return ' \\ \\vee \\ '.join(latex_args)
-    
-
-    def _print_And(self, expr, **kwargs):
-        """
-        Customize the printing of And expressions by combining inequalities.
-
-        Args:
-            expr (sp.And): The And expression to print.
-
-        Returns:
-            str: The LaTeX representation of the And expression.
-        """
-
-        if len(expr.args) != 2:
-            return super()._print_And(expr, **kwargs)
-        
-        expr_left = expr.args[0]
-        expr_right = expr.args[1]
-
-
-        get_symbol_value_pair = lambda expr: (expr.args[0], expr.args[1]) if expr.args[0].is_Symbol else (expr.args[1], expr.args[0])
-        symbol_left, value_left = get_symbol_value_pair(expr_left)
-        symbol_right, value_right = get_symbol_value_pair(expr_right)
-
-        if value_left.evalf() < value_right.evalf():
-            lower_bound, upper_bound = value_left, value_right
-        else:
-            lower_bound, upper_bound = value_right, value_left
-
-        if symbol_left != symbol_right or not symbol_left.is_Symbol:
-            return super()._print_And(expr, **kwargs)
-
-        def get_proper_smaller_than(inequality_symbol):
-            if inequality_symbol == ">=":
-                inequality_symbol = "<="
-            elif inequality_symbol == ">":
-                inequality_symbol = "<"
-
-            return inequality_symbol
-        
-        left_inequality = equation_type_to_latex(get_proper_smaller_than(expr_left.rel_op))
-        right_inequality = equation_type_to_latex(get_proper_smaller_than(expr_right.rel_op))
-
-        return f"{self._print(lower_bound)} {left_inequality} {self._print(symbol_left)} {right_inequality} {self._print(upper_bound)}"
-    
-    def _print_Rational(self, expr, **kwargs):
-        """
-        Customize the printing of Rational numbers as 'n \\frac{a}{b}' where n is an integer.
-
-        Args:
-            expr (sp.Rational): The rational expression to print.
-
-        Returns:
-            str: The LaTeX representation of the rational expression.
-        """
-        # Separate the expression into integer and fractional parts
-        numer, denom = expr.as_numer_denom()
-        integer_part = numer // denom
-        fractional_part = numer % denom
-
-        if fractional_part == 0:  # If there is no fractional part, print just the integer
-            return rf"{integer_part}"       
-        elif integer_part == 0:  # If there is no integer part, print just the fraction
-            return rf"\frac{{{fractional_part}}}{{{denom}}}"
-        else:  # Print both integer and fractional parts
-            return rf"{integer_part} \frac{{{fractional_part}}}{{{denom}}}"
-
-    def _print_Mul(self, expr: sp.Mul, **kwargs) -> str:
-
-        """
-        Customize the printing of multiplication expressions, especially for logarithmic functions.
-
-        Args:
-            expr (sp.Mul): The multiplication expression to print.
-
-        Returns:
-            str: The LaTeX representation of the multiplication expression.
-        """
-
-        if expr.as_numer_denom()[1] == 1:
-            # Default handling with custom modifications
-            result = super()._print_Mul(expr).replace("1 \\cdot", " ")
-            result = re.sub(r"\\left\(-(\d+)\\right\) ", r"- \1 \\cdot", result)
-            return result
-
-        # handle Rationals with a symbol
-        if any(expr.has(obj) for obj in [sp.Symbol, sp.pi, sp.E]):
-            coeff, sym_part = sp.nsimplify(sp.sympify(str(expr))).as_coeff_Mul()
-            numer, denom = coeff.as_numer_denom()
-            if denom == 1:
-                numer, denom = expr.as_numer_denom()
-        else:
-            sym_part = 1
-            numer, denom = expr.as_numer_denom()
-
-        # Check if we're dealing with a Rational
-        if isinstance(numer, sp.Integer) and isinstance(denom, sp.Integer):
-            latex = self._print_Rational(sp.Rational(numer, denom), **kwargs)
-            if sym_part != 1:
-                latex += sp.latex(sym_part)
-            return latex
-        
-        numer, denom = expr.as_numer_denom()
-        
-        # Custom handling for logarithms
-        if isinstance(numer, sp.log) and isinstance(denom, sp.log):
-            arg = numer.args[0]
-            base = denom.args[0]
-
-            if isinstance(base, sp.Number):
-                arg = self._print(arg)
-                base = self._print(base)
-
-                return f' \\ ^{{{base}}} \\! \\log\\left({arg} \\right)'
-            
-        # Default handling with custom modifications
-        result = super()._print_Mul(expr).replace("1 \\cdot", " ")
-        result = re.sub(r"\\left\(-(\d+)\\right\) ", r"- \1 \\cdot", result)
-        return result
-    
-
-    def _print_Pow(self, expr: sp.Pow, **kwargs) -> str:
-        """
-        Customize the printing of power expressions.
-
-        Args:
-            expr (sp.Pow): The power expression to print.
-
-        Returns:
-            str: The LaTeX representation of the power expression.
-        """
-
-        base, exp = expr.as_base_exp()
-
-        if expr.is_Rational and exp.q != 1 and expr != sp.root(base, 1/exp, evaluate=False):
-            base = self._print(base)
-            exp = self._print(sp.simplify(exp))
-            return f"{base}^{{{exp}}}"
-
-        elif expr.as_numer_denom()[1] != 1:
-            expr = sp.nsimplify(expr)
-            return sp.latex(expr)
-        
-
-        return sp.latex(expr).replace("log", "ln").replace("circ", "\\circ")
-
-    def _print_log(self, expr: sp.log, **kwargs) -> str:
-        """
-        Customize the printing of logarithmic expressions.
-
-        Args:
-            expr (sp.log): The logarithmic expression to print.
-
-        Returns:
-            str: The LaTeX representation of the logarithmic expression.
-        """
-
-        arg = self._print(expr.args[0])
-
-        # Natural logarithm
-        if len(expr.args) == 1:
-            return f'\\ln \\left({arg} \\right)'
-        
-        # Logarithm with a specific base
-        elif len(expr.args) == 2:
-            base = self._print(expr.args[1])
-            return f' \\ ^{{{base}}} \\! \\log\\left({arg} \\right)'
-            
-        # Fallback for unexpected cases
-        return super()._print_log(expr)
-        
-
-    def _print_Limit(self, expr: sp.Limit, **kwargs) -> str:
-        """
-        Customize the printing of limit expressions.
-
-        Args:
-            expr (sp.Limit): The limit expression to print.
-
-        Returns:
-            str: The LaTeX representation of the limit expression.
-        """
-
-        func, var, point, direction = expr.args
-        limit_expr = str(expr)
-        limit_value = sp.simplify(expr)
-
-        if str(direction) == "+":
-            limit_expr_opposite = limit_expr.replace("dir='+'", "dir='-'")
-        else:
-            limit_expr_opposite = limit_expr.replace("dir='-'", "dir='+'")
-        
-        limit_value_opposite = sp.simplify(limit_expr_opposite)
-
-
-        if limit_value == limit_value_opposite:
-            return f"\\lim_{{{self._print(var)} \\, \\to \\, {self._print(point)}}} {self._print(func)}"
-        
-        elif str(direction) == "+":
-            return f"\\lim_{{{self._print(var)} \\, \\downarrow \\, {self._print(point)}}} {self._print(func)}"
-        
-        elif str(direction) == "-":
-            return f"\\lim_{{{self._print(var)} \\, \\uparrow \\, {self._print(point)}}} {self._print(func)}"
-
-        # Fallback just in case
-        return super()._print_Limit(expr)
-    
-    
-    def _print_Function(self, expr: sp.Function, **kwargs) -> str:
-        """
-        Customize the printing of specific mathematical functions.
-
-        Args:
-            expr (sp.Function): The function expression to print.
-
-        Returns:
-            str: The LaTeX representation of the function expression.
-        """
-
-        func_name = expr.func.__name__
-        func_map = {
-            'asin': '\\arcsin',
-            'acos': '\\arccos',
-            'atan': '\\arctan',
-            'asec': '\\arcsec',
-            'acsc': '\\arccsc',
-            'acot': '\\arccot',
-        }
-
-        if func_name in func_map:
-            return rf'{func_map[func_name]}{{\left({self._print(expr.args[0])}\right)}}'
-        
-        return super()._print_Function(expr, **kwargs)
-    
-
-def custom_latex(expr: sp.Expr, **kwargs) -> str:
-    """
-    Convert a SymPy expression to a custom LaTeX representation.
-
-    Args:
-        expr (sp.Expr): The SymPy expression to convert.
-
-    Returns:
-        str: The LaTeX representation of the expression.
-    """
-    return CustomLatexPrinter(**kwargs).doprint(expr)
-
-
-def custom_simplify(expr: typing.Union[sp.Basic, Number]) -> typing.Union[sp.Basic, Number]:
-    """
-    Simplify a SymPy expression with custom logic.
-
-    Args:
-        expr: The expression to simplify.
-
-    Returns:
-        sp.Basic: The simplified expression, or the original expression if simplification fails.
-    """
-    if not isinstance(expr, sp.Basic):
-        return expr
-
-    if expr.is_number:
-        return sp.nsimplify(expr)
-
-    try:
-        symp_expr = sp.simplify(expr)
-        return sp.expand_log(symp_expr)
-    except Exception:
-        pass
-
-    try:
-        return symp_expr
-    except UnboundLocalError:
-        return expr
-    
-def get_real_root(expr: sp.Expr):
-    def replace_root(matched_expr):
-        base = matched_expr.group(1)
-        power = matched_expr.group(2)
-        power_sp = sp.sympify(power)
-        if power_sp.q % 2 == 0 or power_sp.p % 2 == 0:
-            return f"Abs({base})**({power})"
-        return f"sign({base})*Abs({base})**({power})"
-        
-
-    str_expr = str(expr)
-
-    str_expr = re.sub(r"(\w*\(.*\))\*\*\((-*\d+/\d+)\)", replace_root, str_expr)
-    str_expr = re.sub(r"(\w+)\*\*\((-*\d+/\d+)\)", replace_root, str_expr)
-
-    expr = sp.sympify(str_expr)
-    return expr
+class VectorFieldError(TypeError):
+    """Custom error raised when an invalid field type is used for vector operations."""
+    def __init__(self, message="Operation requires a vector field, not a scalar function"):
+        super().__init__(message)
+
+class ScalarFieldError(TypeError):
+    """Custom error raised when an invalid field type is used for scalar operations."""
+    def __init__(self, message="Operation requires a scalar field, not a vector function"):
+        super().__init__(message)
 
 
 class Solve:
@@ -538,13 +82,16 @@ class Solve:
         self.integral = False
         self.real_root = False
 
+        self.is_vector = False
+        self.vect_dim = sp_custom.vect_dim
+
 
     @staticmethod
     def get_lambdas(expr: typing.Union[sp.Expr, typing.Iterable[sp.Expr]], symbol: sp.Symbol, numeric: bool = False) -> typing.Union[FunctionType, typing.Iterable[FunctionType]]:
         def get_lambda_numeric(single_expr, modules = ["numpy", "scipy", "sympy"]):
             for module in modules:
                 try:
-                    single_expr = get_real_root(single_expr)
+                    single_expr = sp_custom.get_real_root(single_expr)
                     func = sp.lambdify(symbol, single_expr, module)
                     try:
                         func(0)
@@ -728,7 +275,7 @@ class Solve:
             solution_inequality_list = list(np.append(abs_sorted_roots[abs_sorted_roots >=0], abs_sorted_roots[abs_sorted_roots < 0]))
 
             test_dx = 0.1 if self.equation_type in ">=" else -0.1
-            self.equation_type_opposite = flip_inequality_sign(self.equation_type)
+            self.equation_type_opposite = sp_custom.flip_inequality_sign(self.equation_type)
             self.equation_type_opposite_sp = map_equation_type_to_sp(self.equation_type_opposite)
 
             if len(solution_inequality_list) == 1:
@@ -809,11 +356,14 @@ class Solve:
 
 
         def sympify_equation(eq_str: str) -> sp.Basic:
+            if any(sub_str in eq_str for sub_str in ["div", "curl"]) and "vect" not in eq_str:
+                raise VectorFieldError("Argument must be a vector (use 'vect' function)")
+
             try:
-                return eq_str, TR111(sp.sympify(eq_str)).doit()
+                return eq_str, TR111(sp.sympify(eq_str, locals=LOCALS)).doit()
             except ValueError:
                 eq_str = add_args_to_func(eq_str, func_name="integrate", replace_with="x").replace(".integrate()", ".integrate(x)")
-                return eq_str, TR111(sp.sympify(eq_str)).doit()
+                return eq_str, TR111(sp.sympify(eq_str, locals=LOCALS)).doit()
 
         def gonio_degree_condition(inner_arg: str) -> bool:
             return sp.nsimplify(sp.sympify(inner_arg)).is_Rational
@@ -864,13 +414,22 @@ class Solve:
                 self.output.append(("Error: Meer dan 1 relatieteken (=, ≥, ≤, etc.)", {"latex": False}))
                 return None
             
-
             eq1 = gonio_degree_check(eq1, eq_split[0], use_degree=self.use_degrees)
             if len(eq_split) == 2:
                 eq2 = gonio_degree_check(eq2, eq_split[1], use_degree=self.use_degrees)
 
+            if isinstance(eq1, sp_vector.Vector) or isinstance(eq2, sp_vector.Vector):
+                self.is_vector = True
+                self.vect_dim = sp_custom.vect_dim
+                eq1 = eq1 if isinstance(eq1, sp_vector.Vector) else sp_custom.vect(eq1, dim=self.vect_dim)
+                eq2 = eq2 if isinstance(eq2, sp_vector.Vector) else sp_custom.vect(eq2, dim=self.vect_dim)
+
             eq12 = eq1 - eq2
             eq = get_self_eq(eq1, eq2)
+
+            if any(sub_str in self.eq_string for sub_str in ["vect", "laplacian"]):
+                self.is_vector = True
+                self.vect_dim = sp_custom.vect_dim
 
             if not use_self:
                 return eq1, eq2, eq12, eq
@@ -913,7 +472,7 @@ class Solve:
                     free_symbols.remove(y_symbol)
                     eq_split = (str(y_symbol), str(self.eq2))
 
-                return eq_split
+                    return eq_split
         
         def set_real_symbol():
             self.symbol = free_symbols.pop()
@@ -945,7 +504,7 @@ class Solve:
         def no_solutions_output():
             self.plot = True
             self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
-            self.output.append(f"{custom_latex(self.eq1)} {equation_type_to_latex(self.equation_type)} {custom_latex(self.eq2)}")
+            self.output.append(f"{custom_latex(self.eq1)} {sp_custom.equation_type_to_latex(self.equation_type)} {custom_latex(self.eq2)}")
 
             if self.equation_is_inequality:
                 no_solutions_inequality_output()
@@ -1075,12 +634,15 @@ class Solve:
                     output += " + C"
                 self.output.append(output)
 
-
         try:
             eq_split = process_equation(self.eq_string)
+
             if eq_split is None:
                 return self.equation_interpret, self.output, self.plot
-
+            
+            if self.is_vector:
+                return self.solve_vector()
+            
             free_symbols = list(self.eq12.free_symbols)
             if free_symbols:
                 new_eq_spit = check_multivariate()
@@ -1186,7 +748,7 @@ class Solve:
                         solution = sp.nsimplify(self.eq1, [sp.pi])
                         equals_sign = '='
                         if solution.is_number:
-                            if solution == sp.N(solution) or self.eq1 == sp.N(solution):
+                            if solution - sp.N(solution) == 0 or self.eq1 - sp.N(solution) == 0:
                                 equals_sign = '='
                             else:
                                 equals_sign = '\\approx'
@@ -1194,7 +756,7 @@ class Solve:
                             solution = sp.N(solution)
                             try:
                                 complex_num = False
-                                if solution.is_finite and int(solution) == solution and len(str(round(solution))) < 10:
+                                if solution.is_finite and int(solution) == float(solution) and len(str(round(solution))) < 10:
                                     solution = int(solution)
 
                             except TypeError:
@@ -1236,7 +798,8 @@ class Solve:
                                 self.output.append(f"\\textrm{{Yep dat is }} {custom_latex(solution, symbol=self.symbol)}")
 
                         else:
-                            if equals_sign == '=' and round(solution, 9) != round(solution, 10):
+                            print(round(sp.N(solution), 9) - round(solution, 10))
+                            if equals_sign == '=' and round(sp.N(solution), 9) - round(sp.N(solution), 10) != 0:
                                 equals_sign = '\\approx'
 
                             self.output.append(f"{custom_latex(self.eq_string)} {equals_sign} {custom_latex(solution, symbol=self.symbol)}")
@@ -1277,7 +840,7 @@ class Solve:
 
                     simplify = self.eq1_unsimplified != lhs or self.eq2_unsimplified != rhs
                     if simplify:
-                        self.output.append(f"{custom_latex(self.eq1_unsimplified)} {equation_type_to_latex(self.equation_type)} {custom_latex(self.eq2_unsimplified)}")
+                        self.output.append(f"{custom_latex(self.eq1_unsimplified)} {sp_custom.equation_type_to_latex(self.equation_type)} {custom_latex(self.eq2_unsimplified)}")
                         self.output.append((f"Versimpelingen:", {"latex": False}))
 
                         if self.eq1_unsimplified != lhs:
@@ -1289,7 +852,7 @@ class Solve:
                         if simplify:
                             self.output.append(("Onze vergelijking wordt dus:", {"latex": False}))
 
-                        self.output.append((f"{custom_latex(lhs)} {equation_type_to_latex(self.equation_type)} {custom_latex(rhs)}"))
+                        self.output.append((f"{custom_latex(lhs)} {sp_custom.equation_type_to_latex(self.equation_type)} {custom_latex(rhs)}"))
 
                         if has_equal_sides:
                             self.output.append(("Dit is waar, dus deze vergelijking klopt", {"latex": False}))
@@ -1298,7 +861,7 @@ class Solve:
 
                     else:
                         self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
-                        self.output.append(f"{custom_latex(self.eq1)} {equation_type_to_latex(self.equation_type)} {custom_latex(self.eq2)}")
+                        self.output.append(f"{custom_latex(self.eq1)} {sp_custom.equation_type_to_latex(self.equation_type)} {custom_latex(self.eq2)}")
 
                         if self.multivariate:
                             self.output.append((f"Geen snijpunt met de x-as gevonden", {"latex":False}))
@@ -1313,7 +876,11 @@ class Solve:
             
             if self.solution_set.is_empty:
                 return no_solutions_output()
-            
+        except VectorFieldError:
+            vector_operator = "div" if "div" in self.eq_string else "curl"
+            self.output.append((f"Error: Argument van `{vector_operator}` moet een vector zijn", {"latex": False}))
+            return self.equation_interpret, self.output, self.plot
+
         except (NotImplementedError, TypeError):
             # TypeError from interpretation
             try:
@@ -1352,7 +919,7 @@ class Solve:
             self.plot = True
             self.intersect = True
             self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
-            self.output.append(f"{custom_latex(self.eq1)} {equation_type_to_latex(self.equation_type)} {custom_latex(self.eq2)}")
+            self.output.append(f"{custom_latex(self.eq1)} {sp_custom.equation_type_to_latex(self.equation_type)} {custom_latex(self.eq2)}")
 
             if self.solution_set.is_FiniteSet:
                 set_numerical_text()
@@ -1608,4 +1175,17 @@ class Solve:
                 y2_coords.append(y2_coords_i)
 
         return list(plottable_x1_coords), list(y1_coords), list(plottable_x2_coords), list(y2_coords)
-    
+
+
+    def solve_vector(self):
+        eq_string_sp = self.eq_string
+        try:
+            eq_string_sp = get_uneval_sp_objs(self.eq_string)
+        except AttributeError:
+            eq_string_sp = sp.sympify(self.eq_string, locals=LOCALS)
+
+        if eq_string_sp == self.eq1:
+            eq_string_sp = sp.sympify(self.eq_string, locals=LOCALS, evaluate=False)
+        
+        self.output.append((f"{custom_latex(eq_string_sp, vect_dim=self.vect_dim)} = {custom_latex(self.eq1, vect_dim=self.vect_dim)}"))
+        return self.equation_interpret, self.output, self.plot
