@@ -25,7 +25,7 @@ from scipy.optimize import fsolve, bisect, newton
 from warnings import filterwarnings
 from src.Solver.src.solver.math_parser import *
 from src.Solver.src.solver.helper import *
-from src.Solver.src.solver.sympy_custom_funcs import LOCALS, custom_latex, custom_simplify
+from src.Solver.src.solver.sympy_custom_funcs import *
 import src.Solver.src.solver.sympy_custom_funcs as sp_custom
 import traceback
 import typing
@@ -57,6 +57,8 @@ class Solve:
 
         self.symbol = None
         self.use_degrees = use_degrees
+        self.use_degrees_reciprocal = True if use_degrees is None else use_degrees
+        self.locals = LOCALS.copy()
         self.equation_type = "="
         self.equation_type_sp = sp.Eq
         self.solution_set = None
@@ -71,6 +73,9 @@ class Solve:
             self.use_degrees = True
             self.eq_string = re.sub(r"\^?[°∘]", "", self.eq_string)
             self.eq_string = re.sub(r"\^?\(\)", "", self.eq_string)
+
+        if self.use_degrees_reciprocal:
+            self.locals.update(DEG_ARC_GONIO_LOCALS)
 
         self.output = []
         self.equation_interpret = self.eq_string
@@ -360,13 +365,13 @@ class Solve:
                 raise VectorFieldError("Argument must be a vector (use 'vect' function)")
 
             try:
-                return eq_str, TR111(sp.sympify(eq_str, locals=LOCALS)).doit()
+                return eq_str, TR111(sp.sympify(eq_str, locals=self.locals)).doit()
             except ValueError:
                 eq_str = add_args_to_func(eq_str, func_name="integrate", replace_with="x").replace(".integrate()", ".integrate(x)")
-                return eq_str, TR111(sp.sympify(eq_str, locals=LOCALS)).doit()
+                return eq_str, TR111(sp.sympify(eq_str, locals=self.locals)).doit()
 
         def gonio_degree_condition(inner_arg: str) -> bool:
-            return sp.nsimplify(sp.sympify(inner_arg)).is_Rational
+            return sp.nsimplify(sp.sympify(inner_arg, self.locals).subs(degree, 1)).is_Rational
         
         def convert_gonio_to_degree(eq_str: str, gonio_set: set[str], use_degree_condition=True) -> str:
             for gonio_func in gonio_set:
@@ -380,7 +385,10 @@ class Solve:
 
         def gonio_degree_check(eq: sp.Expr, eq_str: str, use_degree: typing.Optional[bool]=None):
             gonio_set = set(["sin", "cos", "tan", "sec", "csc", "cot"])
-            relevant_gonio_set = set(gonio_func for gonio_func in gonio_set if gonio_func in eq_str)
+            relevant_gonio_set = set()
+            for gonio_func in gonio_set:
+                if bool(re.findall(rf"(?<!a){gonio_func}", eq_str)):
+                    relevant_gonio_set.add(gonio_func)
 
             # if the equation doesn't contain a gonio function, then just return
             if use_degree is False or len(relevant_gonio_set) == 0:
@@ -391,9 +399,15 @@ class Solve:
             eq_str_new = convert_gonio_to_degree(eq_str, relevant_gonio_set, use_degree_condition=use_degree_condition)
             if eq_str_new != eq_str:
                 self.equation_interpret = add_degree_symbol(self.equation_interpret, gonio_set=relevant_gonio_set)
-                self.eq_string = self.equation_interpret.replace("°", r"^(circ)")
+                if any(arc_gonio for arc_gonio in ["asin", "acos", "atan", "asec", "acsc", "acot"] if arc_gonio in eq_str_new):
+                    self.equation_interpret = self.equation_interpret.replace("°", r"")
+                    self.eq_string = self.equation_interpret
+                else:
+                    self.eq_string = self.equation_interpret.replace("°", r"^(circ)")
 
-            return sp.sympify(eq_str_new)
+            # get rid of the degree symbol
+            sp_eq = sp.sympify(eq_str_new, locals=self.locals).subs(degree, 1)
+            return sp_eq
 
 
         def get_self_eq(eq1, eq2):
@@ -423,6 +437,7 @@ class Solve:
                 self.vect_dim = sp_custom.vect_dim
                 eq1 = eq1 if isinstance(eq1, sp_vector.Vector) else sp_custom.vect(eq1, dim=self.vect_dim)
                 eq2 = eq2 if isinstance(eq2, sp_vector.Vector) else sp_custom.vect(eq2, dim=self.vect_dim)
+
 
             eq12 = eq1 - eq2
             eq = get_self_eq(eq1, eq2)
@@ -480,7 +495,7 @@ class Solve:
             self.eq = self.eq.subs(self.symbol, symbol_new)
             self.eq1 = sp.sympify(self.eq1).subs(self.symbol, symbol_new)
             self.eq2 = sp.sympify(self.eq2).subs(self.symbol, symbol_new)
-            self.eq12 = self.eq1 - self.eq2 if not self.multivariate else -self.eq2
+            self.eq12 = self.eq1 - self.eq2 if not self.multivariate else self.eq2
             self.symbol = symbol_new
 
         def no_solutions_inequality_output():
@@ -527,18 +542,18 @@ class Solve:
         
 
         def set_count_solutions():
-            is_numerical = lambda solution: solution == sp.N(solution)
-            has_many_decimals = lambda solution: round(sp.N(solution), 9) == round(sp.N(solution), 10)
+            is_numerical = lambda solution: solution.equals(sp.N(solution))
+            has_many_decimals = lambda solution: sp.N(solution, 9).equals(sp.N(solution, 10))
             equals_sign = lambda solution: "=" if not is_numerical(solution) or has_many_decimals(solution) else "\\approx"
             
             interval_solutions = [sp.nsimplify(solution, [sp.pi, sp.E], rational=False) for solution in self.interval_solutions]
             if len(self.interval_solutions) == 1:
                 solution = interval_solutions[0]
                 if is_numerical(solution):
-                    solution = round(solution, 7)
+                    solution = sp.N(solution, 7)
                 self.output.append(f"{custom_latex(self.symbol)} {equals_sign(solution)} {custom_latex(solution, symbol=self.symbol)}")
                 if not is_numerical(solution):
-                    self.output[-1] += f" \\approx {round(sp.N(solution), 5)}"
+                    self.output[-1] += f" \\approx {sp.N(solution, 5)}"
                 return
             
             counter = 0
@@ -546,11 +561,11 @@ class Solve:
                 counter += 1
 
                 if is_numerical(solution):
-                    solution = round(solution, 7)
+                    solution = sp.N(solution, 7)
 
                 self.output.append(f"{counter}) \\quad {custom_latex(self.symbol)} {equals_sign(solution)} {custom_latex(solution, symbol=self.symbol)}")
                 if not is_numerical(solution):
-                    self.output[-1] += f" \\approx {round(sp.N(solution), 5)}"
+                    self.output[-1] += f" \\approx {sp.N(solution, 5)}"
 
 
         def set_numerical_text():
@@ -643,7 +658,7 @@ class Solve:
             if self.is_vector:
                 return self.solve_vector()
             
-            free_symbols = list(self.eq12.free_symbols)
+            free_symbols = [symbol for symbol in self.eq12.free_symbols if symbol.name != "circ"]
             if free_symbols:
                 new_eq_spit = check_multivariate()
                 if new_eq_spit:
@@ -667,7 +682,6 @@ class Solve:
                 if len(eq_split) == 1 and not sp.sympify(self.eq1).is_number:
                     self.equation_interpret = f"{self.eq_string} = 0"            
 
-
             self.derivative = np.array(["diff" in string for string in eq_split])
             self.integral = np.array(["integrate" in string for string in eq_split])
             if self.derivative.any():
@@ -685,7 +699,7 @@ class Solve:
 
             self.equation_is_inequality = self.equation_type != '=' and not self.multivariate
 
-            if not isinstance(self.eq12, sp.AccumBounds):
+            if not isinstance(self.eq12, sp.AccumBounds) and self.symbol is not None:
                 self.solution_set = sp.solveset(self.eq12, domain=sp.S.Reals)
             else:
                 self.solution_set = sp.EmptySet
@@ -748,7 +762,7 @@ class Solve:
                         solution = sp.nsimplify(self.eq1, [sp.pi])
                         equals_sign = '='
                         if solution.is_number:
-                            if solution - sp.N(solution) == 0 or self.eq1 - sp.N(solution) == 0:
+                            if solution.equals(sp.N(solution)) or self.eq1.equals(sp.N(solution)):
                                 equals_sign = '='
                             else:
                                 equals_sign = '\\approx'
@@ -778,14 +792,13 @@ class Solve:
                             equals_sign = '='
 
                         if self.eq1 != self.eq_string and equals_sign != "=" and "circ" not in str(self.eq_string):
-                            if not complex_num and round(float(solution), 9) == round(float(solution), 10):
+                            if not complex_num and sp.N(solution, 9).equals(sp.N(solution, 10)):
                                 equals_sign = '='  
-
                             self.output.append(f"{custom_latex(self.eq_string)} = {custom_latex(self.eq1)} {equals_sign} {custom_latex(solution, symbol=self.symbol)}")
 
                         elif self.eq_string == solution:
                             if eq_split[0] != str(solution):
-                                has_dot_function = np.array([dot_func in eq_split[0] for dot_func in [".subs", ".diff", ".integrate", "limit"]]).any()
+                                has_dot_function = any(dot_func in eq_split[0] for dot_func in [".subs", ".diff", ".integrate", "limit"])
                                 if self.derivative.any() or self.integral.any():
                                     self.output.pop()
                                 elif has_dot_function:
@@ -798,8 +811,7 @@ class Solve:
                                 self.output.append(f"\\textrm{{Yep dat is }} {custom_latex(solution, symbol=self.symbol)}")
 
                         else:
-                            print(round(sp.N(solution), 9) - round(solution, 10))
-                            if equals_sign == '=' and round(sp.N(solution), 9) - round(sp.N(solution), 10) != 0:
+                            if equals_sign == '=' and not sp.N(solution, 9).equals(sp.N(solution, 10)):
                                 equals_sign = '\\approx'
 
                             self.output.append(f"{custom_latex(self.eq_string)} {equals_sign} {custom_latex(solution, symbol=self.symbol)}")
@@ -807,7 +819,7 @@ class Solve:
                     elif sp.nsimplify(self.eq1, [sp.pi]).is_number:
                         solution = custom_simplify(self.eq1)
                         if solution != sp.N(solution):
-                            self.output.append(f"{custom_latex(self.eq_string)} = {custom_latex(solution)} \\approx {custom_latex(round(sp.N(solution), 5))}")
+                            self.output.append(f"{custom_latex(self.eq_string)} = {custom_latex(solution)} \\approx {custom_latex(sp.N(solution, 5))}")
                         
                         else:
                             self.output.append(f"{custom_latex(self.eq_string)} = {custom_latex(solution)}")
@@ -876,10 +888,20 @@ class Solve:
             
             if self.solution_set.is_empty:
                 return no_solutions_output()
+            
         except VectorFieldError:
             vector_operator = "div" if "div" in self.eq_string else "curl"
             self.output.append((f"Error: Argument van `{vector_operator}` moet een vector zijn", {"latex": False}))
             return self.equation_interpret, self.output, self.plot
+        
+        except ArcReciprocalInvalidDomainError:
+            self.output.append((f"Error: Argument van de arc functie mag niet tussen -1 en 1 zijn", {"latex": False}))
+            return self.equation_interpret, self.output, self.plot
+
+        except ArcGonioInvalidDomainError:
+            self.output.append((f"Error: Argument van de arc functie moet een getal tussen -1 en 1 zijn", {"latex": False}))
+            return self.equation_interpret, self.output, self.plot
+        
 
         except (NotImplementedError, TypeError):
             # TypeError from interpretation
@@ -932,7 +954,7 @@ class Solve:
                         self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solution_set.args[0])}")
                     
                     if self.solution_set.args[0] != sp.N(self.solution_set.args[0]):
-                        self.output[-1] += f" \\approx {round(sp.N(self.solution_set.args[0]), 5)}"
+                        self.output[-1] += f" \\approx {sp.N(self.solution_set.args[0], 5)}"
                     
                 else:
                     if len(self.solution_set) > 5:
@@ -1182,10 +1204,10 @@ class Solve:
         try:
             eq_string_sp = get_uneval_sp_objs(self.eq_string)
         except AttributeError:
-            eq_string_sp = sp.sympify(self.eq_string, locals=LOCALS)
+            eq_string_sp = sp.sympify(self.eq_string, locals=self.locals)
 
         if eq_string_sp == self.eq1:
-            eq_string_sp = sp.sympify(self.eq_string, locals=LOCALS, evaluate=False)
+            eq_string_sp = sp.sympify(self.eq_string, locals=self.locals, evaluate=False)
         
         self.output.append((f"{custom_latex(eq_string_sp, vect_dim=self.vect_dim)} = {custom_latex(self.eq1, vect_dim=self.vect_dim)}"))
         return self.equation_interpret, self.output, self.plot

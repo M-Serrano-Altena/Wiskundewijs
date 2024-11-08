@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from sympy.printing.latex import LatexPrinter
 import ast
 from src.Solver.src.solver.math_parser import *
-from src.Solver.src.solver.sympy_custom_funcs import LOCALS, custom_latex, r
+from src.Solver.src.solver.sympy_custom_funcs import LOCALS, DEG_ARC_GONIO_LOCALS, custom_latex, r, vect
 import src.Solver.src.solver.sympy_custom_funcs as sp_custom
 from types import FunctionType
 from collections.abc import Iterable
@@ -19,13 +19,16 @@ import sympy.vector as sp_vector
 
 x, y = sp.symbols("x,y", real=True)
 
-string = "magnitude(vect(2,3,4))"
+local_funcs = {**LOCALS, **DEG_ARC_GONIO_LOCALS}
+print(vect(1,2,0) ^ (3 * vect(-2,1,0)))
+
+string = "angle(vect(1,2,0),vect(2,-1,0))"
 string = math_interpreter(string)
 print(string)
-print(sp.sympify(string, locals=LOCALS))
+eq = sp.sympify(string, locals=local_funcs)
+print(custom_latex(eq))
 
-
-angle = (sp_custom.vect(4, 3), sp_custom.vect(3, -4))
-print(angle)
-print(angle.doit())
-print(custom_latex(angle))
+eq1 = sp.Eq(2*x + 3*y, 5)
+eq2 = sp.Eq(3*x + 2*y, 4)
+sol = sp.solve([eq1, eq2], (x, y))
+print(sol)

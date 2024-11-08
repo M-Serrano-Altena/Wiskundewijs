@@ -52,6 +52,7 @@ import sympy.vector as sp_vector
 from collections.abc import Iterable
 import regex as re
 from sympy.printing.latex import LatexPrinter
+from sympy.physics.units import degree
 import typing
 from numbers import Number
 
@@ -118,6 +119,179 @@ def convert_symbols_for_vector(args):
     return expr
 
 
+class CustomVector(sp_vector.Vector):
+    def __new__(cls, *args):
+        # Create the vector components in the CoordSys3D basis
+        if len(args) == 2:
+            vector = args[0] * r.i + args[1] * r.j
+        elif len(args) == 3:
+            vector = args[0] * r.i + args[1] * r.j + args[2] * r.k
+        elif len(args) == 1:
+            vector = sp.simplify(args[0])
+        else:
+            raise ValueError("Only 2D and 3D vectors are supported for the CustomVector class")
+        
+        # Return the new object as a Vector instance
+        obj = super(CustomVector, cls).__new__(cls, vector)
+        obj._components = args  # Store components for further use if needed
+        return obj
+    
+
+    def __add__(self, other):
+        # Handle scalar addition by adding the scalar to each component
+        if isinstance(other, (int, float, sp.Number)):
+            new_components = tuple(comp + other for comp in self._components)
+            return CustomVector(*new_components)
+        
+        # Handle vector addition
+        elif isinstance(other, CustomVector):
+            new_components = tuple(a + b for a, b in zip(self._components, other._components))
+            return CustomVector(*new_components)
+
+        raise NotImplementedError()
+    
+    def __sub__(self, other):
+        # Handle scalar subtraction by subtracting the scalar to each component
+        if isinstance(other, (int, float, sp.Number)):
+            new_components = tuple(comp - other for comp in self._components)
+            return CustomVector(*new_components)
+        
+        # Handle vector subtraction
+        elif isinstance(other, CustomVector):
+            new_components = tuple(a - b for a, b in zip(self._components, other._components))
+            return CustomVector(*new_components)
+
+        raise NotImplementedError()
+        
+    def __mul__(self, other):
+        # Handle scalar multiplication
+        if isinstance(other, (int, float, sp.Number)):
+            new_components = tuple(comp * other for comp in self._components)
+            return CustomVector(*new_components)
+        
+        # Handle vector multiplication as dot product
+        elif isinstance(other, CustomVector):
+            return self.dot(other)
+        
+        raise NotImplementedError()
+    
+    def __truediv__(self, other):
+        # Handle scalar division
+        if isinstance(other, (int, float, sp.Number)):
+            new_components = tuple(comp * 1/other for comp in self._components)
+            return CustomVector(*new_components)
+        
+        # Handle vector multiplication as dot product
+        elif isinstance(other, CustomVector):
+            other_components = tuple(1/comp if comp != 0 else comp for comp in other._components)
+            new_other = CustomVector(*other_components)
+            return self.dot(new_other)
+        
+        raise NotImplementedError()
+    
+    def __xor__(self, other):
+        # Handle cross product if other is a CustomVector
+        if isinstance(other, CustomVector):
+            if len(self._components) == 3 and len(other._components) == 3:
+                # Convert components to SymPy vector form
+                self_vector = self._components[0] * r.i + self._components[1] * r.j + self._components[2] * r.k
+                other_vector = other._components[0] * r.i + other._components[1] * r.j + other._components[2] * r.k
+                # Calculate cross product
+                cross_prod = sp_vector.cross(self_vector, other_vector)
+                # Extract components for the result vector
+                new_components = (cross_prod.dot(r.i), cross_prod.dot(r.j), cross_prod.dot(r.k))
+                return CustomVector(*new_components)
+            else:
+                raise ValueError("Cross product requires 3-dimensional vectors.")
+
+        raise NotImplementedError
+    
+    def __pow__(self, other):
+        if isinstance(other, (int, float, sp.Number)):
+            new_components = tuple(comp ** other for comp in self._components)
+            return CustomVector(*new_components)
+        
+        # two vectors to the power of eachother is just seen as curl
+        elif isinstance(other, CustomVector):
+            return self.cross(other)
+
+        raise NotImplementedError()
+    
+    def __neg__(self):
+        # Negate each component to return the negative of the vector
+        new_components = tuple(-comp for comp in self.components)
+        return CustomVector(*new_components)
+
+    def __radd__(self, other):
+        # Support scalar addition from the right side
+        return self.__add__(other)
+    
+    def __rmul__(self, other):
+        # support scalar multiplication from the right side
+        return self.__mul__(other)
+    
+    def __rsub__(self, other):
+        # Handle scalar - vector by subtracting each component from the scalar
+        if isinstance(other, (int, float, sp.Number)):
+            new_components = tuple(other - comp for comp in self.components)
+            return CustomVector(*new_components)
+    
+        raise NotImplementedError("Right-side subtraction only supports scalar types.")
+    
+    def __repr__(self):
+        # Generate a string representation in terms of CoordSys3D basis vectors
+        basis = [r.i, r.j, r.k]
+        return ' + '.join(f"{comp} * {basis[i]}" for i, comp in enumerate(self._components) if i < 3)
+    
+    def __str__(self):
+        return self.__repr__()
+
+    def doit(self):
+        new_components = tuple(sp.simplify(comp) for comp in self._components)
+        return CustomVector(*new_components)
+
+    def to_sympy_vector(self):
+        vector = 0*r.i
+        for comp, basis in zip(self._components, [r.i, r.j, r.k]):
+            vector += comp * basis
+
+        return vector
+
+    def dot(self, other):
+        if isinstance(other, CustomVector):
+            # Perform component-wise multiplication for dot product
+            return sum(a * b for a, b in zip(self._components, other._components))
+        elif isinstance(other, sp_vector.Vector):
+            # Convert CustomVector to a standard Vector to use SymPy's built-in dot product
+            self_vector = self.to_sympy_vector()
+            return dot(self_vector, other)
+        
+        raise TypeError("Dot product requires a CustomVector or a standard SymPy Vector.")
+    
+    def cross(self, other):
+        if isinstance(other, CustomVector):
+            # Perform component-wise calculation for cross product by manually defining the cross product
+            a1, a2, a3 = self._components
+            b1, b2, b3 = other._components
+            # Compute each component of the cross product
+            c1 = a2 * b3 - a3 * b2
+            c2 = a3 * b1 - a1 * b3
+            c3 = a1 * b2 - a2 * b1
+            return CustomVector(c1, c2, c3)
+        
+        elif isinstance(other, sp_vector.Vector):
+            # Convert CustomVector to a standard Vector and perform cross product with SymPy's built-in function
+            self_vector = self.to_sympy_vector()
+            result_vector = sp_vector.cross(self_vector, other)
+            # Extract components from result_vector to return as a CustomVector
+            components = [result_vector.dot(basis) for basis in [r.i, r.j, r.k]]
+            return CustomVector(*components)
+
+        raise TypeError("Cross product requires a CustomVector or a standard SymPy Vector.")
+
+    
+
+
 def vect(*args, dim=None):
     """
     Constructs a vector based on input components or specified dimension, with optional symbol 
@@ -134,6 +308,7 @@ def vect(*args, dim=None):
     Notes:
         The function defaults to a 3D vector if no dimension is provided and the number of arguments is 3.
     """
+    global vect_dim
     if isinstance(args[0], Iterable):
         args = args[0]
 
@@ -149,12 +324,7 @@ def vect(*args, dim=None):
     
     args = convert_symbols_for_vector(args)
 
-    if vect_dim == 1:
-        return args[0] * r.i
-    elif vect_dim == 2:
-        return args[0] * r.i + args[1]*r.j
-    
-    return args[0]*r.i + args[1]*r.j + args[2]*r.k
+    return CustomVector(*args)
 
 class Magnitude(sp.Function):
     """
@@ -275,12 +445,46 @@ def angle(v1, v2):
     """
     return sp.acos(v1.dot(v2) / (v1.magnitude() * v2.magnitude()))
 
+def angle_deg(v1, v2):
+    """
+    Compute the angle in degrees between two vectors.
+
+    Args:
+        v1 (Vector): The first vector.
+        v2 (Vector): The second vector.
+
+    Returns:
+        Expr: The angle in degrees between the two vectors.
+    """
+    return acos_deg(v1.dot(v2) / (v1.magnitude() * v2.magnitude()))
+
+
+def dot(v1, v2):
+    if isinstance(v1, CustomVector):
+        v1 = v1.to_sympy_vector()
+
+    if isinstance(v2, CustomVector):
+        v2 = v2.to_sympy_vector()
+
+    return sp_vector.dot(v1, v2)
+
+def Dot(v1, v2):
+    if isinstance(v1, CustomVector):
+        v1 = v1.to_sympy_vector()
+
+    if isinstance(v2, CustomVector):
+        v2 = v2.to_sympy_vector()
+
+    return sp_vector.Dot(v1, v2)
+
+
+
 LOCALS = {
     "vect": vect, 
     "Abs": Abs, 
     "r": r,
-    "dot": sp_vector.dot,
-    "Dot": sp_vector.Dot,
+    "dot": dot,
+    "Dot": Dot,
     "cross": sp_vector.cross,
     "Cross": sp_vector.Cross,
     "div": sp_vector.divergence, 
@@ -299,6 +503,56 @@ LOCALS = {
     "angle": angle,
 }
 
+class ArcGonioInvalidDomainError(ValueError):
+    """
+    Exception raised when an invalid input value is provided to an arc-goniometric function 
+    (e.g., arcsin, arccos) that would result in a complex output.
+
+    Attributes:
+        message (str): Explanation of the error.
+    """
+    def __init__(self, message="Operation requires a valid input that yields a real result for arc-goniometric functions"):
+        super().__init__(message)
+
+class ArcReciprocalInvalidDomainError(ArcGonioInvalidDomainError):
+    pass
+
+def asin_deg(arg):
+    if not -1 <= arg.subs(degree, 1) <= 1:
+        raise ArcGonioInvalidDomainError()
+    return sp.deg(sp.asin(arg)) * degree
+
+def acos_deg(arg):
+    if not -1 <= arg.subs(degree, 1) <= 1:
+        raise ArcGonioInvalidDomainError()
+    return sp.deg(sp.acos(arg)) * degree
+
+def atan_deg(arg):
+    return sp.deg(sp.atan(arg)) * degree
+
+def asec_deg(arg):
+    if -1 <= arg.subs(degree, 1) <= 1:
+        raise ArcReciprocalInvalidDomainError()
+    return sp.deg(sp.asec(arg)) * degree
+
+def acsc_deg(arg):
+    if -1 <= arg.subs(degree, 1) <= 1:
+        raise ArcReciprocalInvalidDomainError()
+    return sp.deg(sp.acsc(arg)) * degree
+
+def acot_deg(arg):
+    return sp.deg(sp.acot(arg)) * degree
+
+DEG_ARC_GONIO_LOCALS = {
+    "asin": asin_deg,
+    "acos": acos_deg,
+    "atan": atan_deg,
+    "asec": asec_deg,
+    "acsc": acsc_deg, 
+    "acot": acot_deg,
+    "angle": angle_deg
+}
+
 
 class CustomLatexPrinter(LatexPrinter):
     """
@@ -315,6 +569,7 @@ class CustomLatexPrinter(LatexPrinter):
         Customize the printing of Union (for trigonometric periodic solutions).
         Example: x = a + 2k*pi or x = b + 2k*pi instead of set notation.
         """
+
         # Extract individual sets from the union
         parts = []
         for arg in expr.args:
@@ -336,6 +591,26 @@ class CustomLatexPrinter(LatexPrinter):
 
         # Join the parts with the OR symbol
         return f' \\ \\vee \\ {self.symbol} = '.join(parts)
+    
+    def _print_ImageSet(self, expr, **kwargs):
+        """
+        Customize the printing of ImageSet (for trigonometric periodic solutions).
+        Example: x = a + 2k*pi instead of set notation.
+        """
+
+        # We assume the form 2n*pi + constant for periodic solutions
+        element_expr: sp.Expr = sp.expand(expr.lamda.expr)
+        variable = list(expr.lamda.variables)[0]
+
+        coeff, summation = element_expr.as_coeff_add()
+        if coeff != 0:
+            summation = (coeff, *summation)
+
+        summation = [f"k \\cdot {str(self._print(element)).replace("n", "")}" if "_n" in str(element) else self._print(element) for element in summation]
+
+        # Format the periodic solution in the form a + 2k*pi
+        formatted_expr = f"{' + '.join(summation)}".replace("n", "k")
+        return formatted_expr
 
      
     def _print_Relational(self, expr, **kwargs):
@@ -480,7 +755,7 @@ class CustomLatexPrinter(LatexPrinter):
         if isinstance(numer, sp.Integer) and isinstance(denom, sp.Integer):
             latex = self._print_Rational(sp.Rational(numer, denom), **kwargs)
             if sym_part != 1:
-                latex += sp.latex(sym_part)
+                latex += self._print(sym_part)
             return latex
         
         numer, denom = expr.as_numer_denom()
@@ -496,8 +771,12 @@ class CustomLatexPrinter(LatexPrinter):
 
                 return f' \\ ^{{{base}}} \\! \\log\\left({arg} \\right)'
             
+        if expr.has(CustomVector):
+            numer, denom = expr.as_numer_denom()
+            return f"{self._print(1/denom)} \cdot {self._print(numer)}"
+            
         # Default handling with custom modifications
-        result = super()._print_Mul(expr).replace("1 \\cdot", " ")
+        result = self._print_Mul(expr).replace("1 \\cdot", " ")
         result = re.sub(r"\\left\(-(\d+)\\right\) ", r"- \1 \\cdot", result)
         return result
     
@@ -522,10 +801,21 @@ class CustomLatexPrinter(LatexPrinter):
 
         elif expr.as_numer_denom()[1] != 1:
             expr = sp.nsimplify(expr)
-            return sp.latex(expr)
+            return super()._print(expr)
         
+        # For all other cases, directly print the power expression
+        base_str = self._print(base)
+        exp_str = self._print(exp)
 
-        return sp.latex(expr).replace("log", "ln").replace("circ", "\\circ")
+        print(base_str)
+        print(exp_str)
+
+        if base.has(CustomVector) and exp.has(CustomVector):
+            return f"{base_str} \\times {exp_str}"
+
+        result = f"{base_str}^{{{exp_str}}}"
+        result = result.replace("log", "ln").replace("circ", "\\circ")
+        return result
 
     def _print_log(self, expr: sp.log, **kwargs) -> str:
         """
@@ -631,9 +921,10 @@ class CustomLatexPrinter(LatexPrinter):
 
         # Get the components of the vector
         components = [expr.dot(unit_vect) for unit_vect in unit_vects]
-        
+
         # Format the components into a LaTeX column vector
         latex_vector = r'\begin{pmatrix}' + r'\\'.join([self._print(c) for c in components]) + r'\end{pmatrix}'
+
         
         return latex_vector
     

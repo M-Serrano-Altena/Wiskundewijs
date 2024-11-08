@@ -295,7 +295,7 @@ def latex_to_plain_text(latex_str):
         (r"\{", "{("),
         (r"\}", ")}"),
         (r"%", r"\%"),  # Escape percent signs
-        (r"&", r"\&")   # Escape ampersands
+        (r"&", r"\&"),   # Escape ampersands
     ]
 
     replacements_before = diff_formatting + general_formatting
@@ -1190,7 +1190,7 @@ def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = UNEVAL_SP_OBJECT
 
 
 def apply_inner_func_to_func(eq_string: str, func_name: str, inner_func_name: str, inner_arg_condition_func: FunctionType=lambda inner_arg: True) -> str:
-    index_func = [m.start() for m in re.finditer(func_name, eq_string)] # get index list of start of each function name
+    index_func = [m.start() for m in re.finditer(rf"(?<!a){func_name}", eq_string)] # get index list of start of each function name
     
     if len(index_func) == 0:
         return eq_string
