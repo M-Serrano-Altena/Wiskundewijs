@@ -356,12 +356,12 @@ class Solve:
                     self.equation_type = equation_type
                     self.equation_type_sp = map_equation_type_to_sp(equation_type)
                     return set_eqs(eq_split)
-                
+            
             return set_eqs(eq_split)
 
 
         def sympify_equation(eq_str: str) -> sp.Basic:
-            if any(sub_str in eq_str for sub_str in ["div", "curl"]) and "vect" not in eq_str:
+            if any(sub_str in eq_str for sub_str in ["div", "curl"]) and not any(sub_str in eq_str for sub_str in ["vect", "grad"]):
                 raise VectorFieldError("Argument must be a vector (use 'vect' function)")
 
             try:
@@ -371,6 +371,12 @@ class Solve:
                 return eq_str, TR111(sp.sympify(eq_str, locals=self.locals)).doit()
 
         def gonio_degree_condition(inner_arg: str) -> bool:
+            try:
+                if not isinstance(sp.sympify(inner_arg), sp.Expr):
+                    return False
+            except Exception:
+                return False
+            
             return sp.nsimplify(sp.sympify(inner_arg, self.locals).subs(degree, 1)).is_Rational
         
         def convert_gonio_to_degree(eq_str: str, gonio_set: set[str], use_degree_condition=True) -> str:
@@ -431,15 +437,19 @@ class Solve:
             eq1 = gonio_degree_check(eq1, eq_split[0], use_degree=self.use_degrees)
             if len(eq_split) == 2:
                 eq2 = gonio_degree_check(eq2, eq_split[1], use_degree=self.use_degrees)
+                eq12 = eq1 - eq2
+            else:
+                eq12 = eq1
 
-            if isinstance(eq1, sp_vector.Vector) or isinstance(eq2, sp_vector.Vector):
+            if isinstance(eq1, (sp_vector.Vector, CustomVector, sp.Matrix)) or isinstance(eq2, (sp_vector.Vector, CustomVector, sp.Matrix)):
                 self.is_vector = True
                 self.vect_dim = sp_custom.vect_dim
-                eq1 = eq1 if isinstance(eq1, sp_vector.Vector) else sp_custom.vect(eq1, dim=self.vect_dim)
-                eq2 = eq2 if isinstance(eq2, sp_vector.Vector) else sp_custom.vect(eq2, dim=self.vect_dim)
+
+            elif any("grad" in eq_split_part for eq_split_part in eq_split):
+                self.is_vector = True
+                self.vect_dim = sp_custom.vect_dim
 
 
-            eq12 = eq1 - eq2
             eq = get_self_eq(eq1, eq2)
 
             if any(sub_str in self.eq_string for sub_str in ["vect", "laplacian"]):
@@ -549,9 +559,16 @@ class Solve:
             interval_solutions = [sp.nsimplify(solution, [sp.pi, sp.E], rational=False) for solution in self.interval_solutions]
             if len(self.interval_solutions) == 1:
                 solution = interval_solutions[0]
+                solution_display = solution
                 if is_numerical(solution):
-                    solution = sp.N(solution, 7)
-                self.output.append(f"{custom_latex(self.symbol)} {equals_sign(solution)} {custom_latex(solution, symbol=self.symbol)}")
+                    solution_display = sp.N(solution, 7)
+                    try:
+                        if int(solution_display) == float(solution_display):
+                            solution_display = int(solution)
+                    except Exception:
+                        pass
+
+                self.output.append(f"{custom_latex(self.symbol)} {equals_sign(solution)} {custom_latex(solution_display, symbol=self.symbol)}")
                 if not is_numerical(solution):
                     self.output[-1] += f" \\approx {sp.N(solution, 5)}"
                 return
@@ -560,10 +577,16 @@ class Solve:
             for solution in interval_solutions:
                 counter += 1
 
+                solution_display = solution
                 if is_numerical(solution):
-                    solution = sp.N(solution, 7)
+                    solution_display = sp.N(solution, 7)
+                    try:
+                        if int(solution_display) == float(solution_display):
+                            solution_display = int(solution)
+                    except Exception:
+                        pass
 
-                self.output.append(f"{counter}) \\quad {custom_latex(self.symbol)} {equals_sign(solution)} {custom_latex(solution, symbol=self.symbol)}")
+                self.output.append(f"{counter}) \\quad {custom_latex(self.symbol)} {equals_sign(solution)} {custom_latex(solution_display, symbol=self.symbol)}")
                 if not is_numerical(solution):
                     self.output[-1] += f" \\approx {sp.N(solution, 5)}"
 
@@ -656,7 +679,7 @@ class Solve:
                 return self.equation_interpret, self.output, self.plot
             
             if self.is_vector:
-                return self.solve_vector()
+                return self.solve_vector(eq_split=eq_split)
             
             free_symbols = [symbol for symbol in self.eq12.free_symbols if symbol.name != "circ"]
             if free_symbols:
@@ -842,7 +865,7 @@ class Solve:
                 elif len(eq_split) == 2:
                     lhs = sp.nsimplify(self.eq1, [sp.pi, sp.E], rational=False)
                     rhs = sp.nsimplify(self.eq2, [sp.pi, sp.E], rational=False)
-                    
+
                     has_equal_sides = apply_opperator(lhs, self.equation_type, rhs)
                     sides_are_numbers = (lhs.is_number and rhs.is_number)
                     has_solution = has_equal_sides or sides_are_numbers
@@ -953,7 +976,7 @@ class Solve:
                         self.output.append((f"De oplossing is:", {"latex":False}) if not self.multivariate else (f"Het snijpunt met de $x$-as is:", {"latex":False}))
                         self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solution_set.args[0])}")
                     
-                    if self.solution_set.args[0] != sp.N(self.solution_set.args[0]):
+                    if not self.solution_set.args[0].equals(sp.N(self.solution_set.args[0])):
                         self.output[-1] += f" \\approx {sp.N(self.solution_set.args[0], 5)}"
                     
                 else:
@@ -1199,15 +1222,78 @@ class Solve:
         return list(plottable_x1_coords), list(y1_coords), list(plottable_x2_coords), list(y2_coords)
 
 
-    def solve_vector(self):
-        eq_string_sp = self.eq_string
-        try:
-            eq_string_sp = get_uneval_sp_objs(self.eq_string)
-        except AttributeError:
-            eq_string_sp = sp.sympify(self.eq_string, locals=self.locals)
+    def solve_vector(self, eq_split):
+        if len(eq_split) == 1:
+            eq_string_sp = self.eq_string
+            try:
+                eq_string_sp = get_uneval_sp_objs(self.eq_string)
+            except AttributeError:
+                eq_string_sp = sp.sympify(self.eq_string, locals=self.locals)
 
-        if eq_string_sp == self.eq1:
-            eq_string_sp = sp.sympify(self.eq_string, locals=self.locals, evaluate=False)
+            if eq_string_sp == self.eq1:
+                eq_string_sp = sp.sympify(self.eq_string, locals=self.locals, evaluate=False)
+            
+            self.output.append((f"{custom_latex(eq_string_sp, vect_dim=self.vect_dim)} = {custom_latex(self.eq1, vect_dim=self.vect_dim)}"))
+            return self.equation_interpret, self.output, self.plot
         
-        self.output.append((f"{custom_latex(eq_string_sp, vect_dim=self.vect_dim)} = {custom_latex(self.eq1, vect_dim=self.vect_dim)}"))
+
+        lhs = self.eq1.simplify()
+        rhs = self.eq2.simplify()
+
+        if not isinstance(lhs, (CustomVector, sp_vector.Vector)):
+            lhs = convert_symbols_for_vector(lhs)
+        if not isinstance(rhs, (CustomVector, sp_vector.Vector)):
+            rhs = convert_symbols_for_vector(rhs)
+
+        has_equal_sides = apply_opperator(lhs, self.equation_type, rhs)
+        
+        if isinstance(lhs, CustomVector) and isinstance(rhs, CustomVector):
+            sides_are_numbers = (lhs.contain_only_numbers and rhs.contain_only_numbers)
+        else:
+            sides_are_numbers = (lhs.is_number and rhs.is_number)
+
+        different_types = (isinstance(lhs, CustomVector)) ^ (isinstance(rhs, CustomVector))
+
+        try:
+            has_solution = has_equal_sides or sides_are_numbers or different_types
+        except TypeError:
+            has_solution = False
+
+        if self.eq1_unsimplified == self.eq1:
+            self.eq1_unsimplified = get_uneval_sp_objs(eq_split[0])
+            
+        if self.eq2_unsimplified != rhs:
+            self.eq2_unsimplified = get_uneval_sp_objs(eq_split[1])
+
+        if has_solution:
+            self.output.append((f"Vergelijking:", {"latex": False}))
+
+        simplify = self.eq1_unsimplified != lhs or self.eq2_unsimplified != rhs
+        if simplify:
+            self.output.append(f"{custom_latex(self.eq1_unsimplified)} {sp_custom.equation_type_to_latex(self.equation_type)} {custom_latex(self.eq2_unsimplified)}")
+            self.output.append((f"Versimpelingen:", {"latex": False}))
+
+            if self.eq1_unsimplified != lhs:
+                self.output.append(f"\\bullet \\quad {custom_latex(self.eq1_unsimplified)} \\Longrightarrow {custom_latex(lhs)}")
+            if self.eq2_unsimplified != rhs:
+                self.output.append(f"\\bullet \\quad {custom_latex(self.eq2_unsimplified)} \\Longrightarrow {custom_latex(rhs)}")
+        
+        if has_solution:
+            if simplify:
+                self.output.append(("Onze vergelijking wordt dus:", {"latex": False}))
+
+            self.output.append((f"{custom_latex(lhs)} {sp_custom.equation_type_to_latex(self.equation_type)} {custom_latex(rhs)}"))
+
+            if has_equal_sides:
+                self.output.append(("Dit is waar, dus deze vergelijking klopt", {"latex": False}))
+            elif sides_are_numbers:
+                self.output.append(("Dit is niet waar, dus deze vergelijking klopt niet", {"latex": False}))
+            elif different_types:
+                self.output.append(("Dit is niet waar: de een is een vector, de ander is een getal", {"latex": False}))
+
+        else:
+            self.output.append((f"Vereenvoudigde Vergelijking:", {"latex": False}))
+            self.output.append(f"{custom_latex(lhs)} {sp_custom.equation_type_to_latex(self.equation_type)} {custom_latex(rhs)}")
+            self.output.append(("Geen oplossing gevonden", {"latex": False}))
+
         return self.equation_interpret, self.output, self.plot

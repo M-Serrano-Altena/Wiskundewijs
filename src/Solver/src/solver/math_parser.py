@@ -51,6 +51,7 @@ UNEVAL_SP_OBJECT_DICT = {
     "cross": "Cross",
     "laplacian": "Laplacian",
     "magnitude": "Magnitude",
+    "angle": "Angle",
 }
 
 def fix_mismatched_parenthesis(eq_string):
@@ -1000,7 +1001,6 @@ def math_interpreter(eq_string: str) -> str:
         eq_string = add_args_to_func(eq_string, *args)
 
     eq_string = re.sub(r'(?<!\.)subs', r'Subs', eq_string)
-    print(eq_string)
 
     for i, constant in enumerate(relevant_constants):
         if re.search(r'\b' + constant + r'\b', eq_string) and constant not in constant_names_og:

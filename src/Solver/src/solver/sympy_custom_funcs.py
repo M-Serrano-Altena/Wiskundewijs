@@ -238,10 +238,41 @@ class CustomVector(sp_vector.Vector):
     
         raise NotImplementedError("Right-side subtraction only supports scalar types.")
     
+    def __lt__(self, other):
+        # Compare magnitudes of vectors
+        if isinstance(other, (CustomVector, sp_vector.Vector)):
+            return self.magnitude() < other.magnitude()
+        elif isinstance(other, (int, float, sp.Number)):
+            return self.magnitude() < other
+        raise NotImplementedError()
+    
+    def __le__(self, other):
+        # Compare magnitudes of vectors
+        if isinstance(other, (CustomVector, sp_vector.Vector)):
+            return self.magnitude() <= other.magnitude()
+        elif isinstance(other, (int, float, sp.Number)):
+            return self.magnitude() <= other
+        raise NotImplementedError()
+    
+    def __gt__(self, other):
+        # Compare magnitudes of vectors
+        if isinstance(other, (CustomVector, sp_vector.Vector)):
+            return self.magnitude() > other.magnitude()
+        elif isinstance(other, (int, float, sp.Number)):
+            return self.magnitude() > other
+        raise NotImplementedError()
+    
+    def __ge__(self, other):
+        # Compare magnitudes of vectors
+        if isinstance(other, (CustomVector, sp_vector.Vector)):
+            return self.magnitude() >= other.magnitude()
+        elif isinstance(other, (int, float, sp.Number)):
+            return self.magnitude() >= other
+        raise NotImplementedError()
+    
     def __repr__(self):
         # Generate a string representation in terms of CoordSys3D basis vectors
-        basis = [r.i, r.j, r.k]
-        return ' + '.join(f"{comp} * {basis[i]}" for i, comp in enumerate(self._components) if i < 3)
+        return f'CustomVector{self._components}'
     
     def __str__(self):
         return self.__repr__()
@@ -256,6 +287,12 @@ class CustomVector(sp_vector.Vector):
             vector += comp * basis
 
         return vector
+    
+    def simplify(self):
+        return self.doit()
+    
+    def contain_only_numbers(self):
+        return all(isinstance(comp, Number) for comp in self._components)
 
     def dot(self, other):
         if isinstance(other, CustomVector):
@@ -289,7 +326,12 @@ class CustomVector(sp_vector.Vector):
 
         raise TypeError("Cross product requires a CustomVector or a standard SymPy Vector.")
 
-    
+    def normalize(self):
+        # Calculate the magnitude of the vector
+        magnitude = self.magnitude()
+        # Normalize the vector by dividing each component by the magnitude
+        new_components = tuple(comp / magnitude for comp in self._components)
+        return CustomVector(*new_components)
 
 
 def vect(*args, dim=None):
@@ -326,6 +368,18 @@ def vect(*args, dim=None):
 
     return CustomVector(*args)
 
+
+def to_custom_vector(sympy_vector: sp_vector.Vector) -> CustomVector:
+    # Define the basis vectors in the coordinate system (assuming Cartesian coordinates with r.i, r.j, and r.k)
+    basis_vectors = [r.i, r.j, r.k]
+
+    # Extract each component by dotting with the basis vectors
+    components = [sympy_vector.dot(basis) for basis in basis_vectors]
+    
+    # Create and return a CustomVector with the extracted components
+    return CustomVector(*components)
+
+
 class Magnitude(sp.Function):
     """
     Custom Magnitude function that symbolically represents the magnitude
@@ -333,7 +387,7 @@ class Magnitude(sp.Function):
     """
 
     def __new__(cls, vector):
-        if not isinstance(vector, sp_vector.Vector):
+        if not isinstance(vector, (sp_vector.Vector, CustomVector)):
             raise TypeError("Magnitude can only be applied to vector objects.")
         return super(Magnitude, cls).__new__(cls, vector)
 
@@ -385,7 +439,8 @@ def grad(expr):
         Vector: The gradient vector of the input expression.
     """
     expr = convert_symbols_for_vector(expr)
-    return sp_vector.gradient(expr)
+    sympy_vector = sp_vector.gradient(expr)
+    return to_custom_vector(sympy_vector)
 
 def laplacian(expr):
     """
@@ -458,6 +513,24 @@ def angle_deg(v1, v2):
     """
     return acos_deg(v1.dot(v2) / (v1.magnitude() * v2.magnitude()))
 
+class Angle(sp.Function):
+    """
+    Custom Angle function that symbolically represents the angle between two vectors.
+    """
+
+    def __new__(cls, v1, v2):
+        if not isinstance(v1, (sp_vector.Vector, CustomVector)) or not isinstance(v2, (sp_vector.Vector, CustomVector)):
+            raise TypeError("Angle can only be applied to vector objects.")
+        return super(Angle, cls).__new__(cls, v1, v2)
+
+    def doit(self, **hints):
+        """
+        Evaluate the angle between two vectors.
+        """
+        v1 = self.args[0]
+        v2 = self.args[1]
+        return angle(v1, v2)
+
 
 def dot(v1, v2):
     if isinstance(v1, CustomVector):
@@ -477,7 +550,30 @@ def Dot(v1, v2):
 
     return sp_vector.Dot(v1, v2)
 
+def cross(v1, v2):
+    if isinstance(v1, CustomVector):
+        v1 = v1.to_sympy_vector()
 
+    if isinstance(v2, CustomVector):
+        v2 = v2.to_sympy_vector()
+
+    sympy_vector = sp_vector.cross(v1, v2)
+    return to_custom_vector(sympy_vector)
+
+def Cross(v1, v2):
+    if isinstance(v1, CustomVector):
+        v1 = v1.to_sympy_vector()
+
+    if isinstance(v2, CustomVector):
+        v2 = v2.to_sympy_vector()
+
+    return sp_vector.Cross(v1, v2)
+
+
+def matrix(*args):
+    if len(args) == 1 and isinstance(args[0], Iterable):
+        args = args[0]
+    return sp.Matrix(args)
 
 LOCALS = {
     "vect": vect, 
@@ -485,8 +581,8 @@ LOCALS = {
     "r": r,
     "dot": dot,
     "Dot": Dot,
-    "cross": sp_vector.cross,
-    "Cross": sp_vector.Cross,
+    "cross": cross,
+    "Cross": Cross,
     "div": sp_vector.divergence, 
     "Divergence": sp_vector.Divergence,
     "curl": sp_vector.curl, 
@@ -501,6 +597,8 @@ LOCALS = {
     "norm": unit,
     "normalize": unit,
     "angle": angle,
+    "Angle": Angle,
+    "matrix": matrix,
 }
 
 class ArcGonioInvalidDomainError(ValueError):
@@ -520,28 +618,28 @@ class ArcReciprocalInvalidDomainError(ArcGonioInvalidDomainError):
 def asin_deg(arg):
     if not -1 <= arg.subs(degree, 1) <= 1:
         raise ArcGonioInvalidDomainError()
-    return sp.deg(sp.asin(arg)) * degree
+    return sp.N(sp.deg(sp.asin(arg)), 4) * degree
 
 def acos_deg(arg):
     if not -1 <= arg.subs(degree, 1) <= 1:
         raise ArcGonioInvalidDomainError()
-    return sp.deg(sp.acos(arg)) * degree
+    return sp.N(sp.deg(sp.acos(arg)), 4) * degree
 
 def atan_deg(arg):
-    return sp.deg(sp.atan(arg)) * degree
+    return sp.N(sp.deg(sp.atan(arg)), 4) * degree
 
 def asec_deg(arg):
     if -1 <= arg.subs(degree, 1) <= 1:
         raise ArcReciprocalInvalidDomainError()
-    return sp.deg(sp.asec(arg)) * degree
+    return sp.N(sp.deg(sp.asec(arg)), 4) * degree
 
 def acsc_deg(arg):
     if -1 <= arg.subs(degree, 1) <= 1:
         raise ArcReciprocalInvalidDomainError()
-    return sp.deg(sp.acsc(arg)) * degree
+    return sp.N(sp.deg(sp.acsc(arg)), 4) * degree
 
 def acot_deg(arg):
-    return sp.deg(sp.acot(arg)) * degree
+    return sp.N(sp.deg(sp.acot(arg)), 4) * degree
 
 DEG_ARC_GONIO_LOCALS = {
     "asin": asin_deg,
@@ -776,7 +874,7 @@ class CustomLatexPrinter(LatexPrinter):
             return f"{self._print(1/denom)} \cdot {self._print(numer)}"
             
         # Default handling with custom modifications
-        result = self._print_Mul(expr).replace("1 \\cdot", " ")
+        result = sp.latex(expr).replace("1 \\cdot", " ")
         result = re.sub(r"\\left\(-(\d+)\\right\) ", r"- \1 \\cdot", result)
         return result
     
@@ -802,18 +900,14 @@ class CustomLatexPrinter(LatexPrinter):
         elif expr.as_numer_denom()[1] != 1:
             expr = sp.nsimplify(expr)
             return super()._print(expr)
-        
-        # For all other cases, directly print the power expression
-        base_str = self._print(base)
-        exp_str = self._print(exp)
 
-        print(base_str)
-        print(exp_str)
-
-        if base.has(CustomVector) and exp.has(CustomVector):
+        if any(base.has(class_) for class_ in [CustomVector, sp_vector.Gradient]) and any(exp.has(class_) for class_ in [CustomVector, sp_vector.Gradient]):
+            # For vectors and gradients, use the cross product symbol
+            base_str = self._print(base)
+            exp_str = self._print(exp)
             return f"{base_str} \\times {exp_str}"
 
-        result = f"{base_str}^{{{exp_str}}}"
+        result = sp.latex(expr)
         result = result.replace("log", "ln").replace("circ", "\\circ")
         return result
 
@@ -933,6 +1027,11 @@ class CustomLatexPrinter(LatexPrinter):
         return rf"\left| {self._print(expr.args[0])} \right|"
     
 
+    def _print_Angle(self, expr, **kwargs):
+        # Custom LaTeX format for Angle
+        return rf"\angle \left( {self._print(expr.args[0])}, {self._print(expr.args[1])} \right)"
+    
+
 def custom_latex(expr: sp.Expr, **kwargs) -> str:
     """
     Convert a SymPy expression to a custom LaTeX representation.
@@ -946,6 +1045,7 @@ def custom_latex(expr: sp.Expr, **kwargs) -> str:
     latex_str = CustomLatexPrinter(**kwargs).doprint(expr)
     latex_str = latex_str.replace(r"\left(\begin{pmatrix}", r"\begin{pmatrix}").replace(r"\end{pmatrix}\right)", r"\end{pmatrix}")
     return latex_str
+
 
 def custom_simplify(expr: typing.Union[sp.Basic, Number]) -> typing.Union[sp.Basic, Number]:
     """

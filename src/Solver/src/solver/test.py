@@ -20,15 +20,22 @@ import sympy.vector as sp_vector
 x, y = sp.symbols("x,y", real=True)
 
 local_funcs = {**LOCALS, **DEG_ARC_GONIO_LOCALS}
-print(vect(1,2,0) ^ (3 * vect(-2,1,0)))
 
-string = "angle(vect(1,2,0),vect(2,-1,0))"
-string = math_interpreter(string)
+string = "div(vect(x,2,0)) + vect(1,1,1)"
+# string = math_interpreter(string)
 print(string)
 eq = sp.sympify(string, locals=local_funcs)
 print(custom_latex(eq))
 
-eq1 = sp.Eq(2*x + 3*y, 5)
-eq2 = sp.Eq(3*x + 2*y, 4)
-sol = sp.solve([eq1, eq2], (x, y))
-print(sol)
+string = "matrix([1,0], [0,1]) @ matrix([[1],[0]])"
+string = math_interpreter(string)
+print(string)
+matrix = sp.sympify(string, locals=local_funcs)
+# matrix = sp.Matrix([[1,0], [0,1]]) @ sp.Matrix([[1],[0]])
+print(matrix)
+print(custom_latex(matrix))
+
+# eq1 = sp.Eq(2*x + 3*y, 5)
+# eq2 = sp.Eq(3*x + 2*y, 4)
+# sol = sp.solve([eq1, eq2], (x, y))
+# print(sol)
