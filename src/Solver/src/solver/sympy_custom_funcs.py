@@ -139,7 +139,7 @@ class CustomVector(sp_vector.Vector):
 
     def __add__(self, other):
         # Handle scalar addition by adding the scalar to each component
-        if isinstance(other, (int, float, sp.Number)):
+        if sp.sympify(other).is_number:
             new_components = tuple(comp + other for comp in self._components)
             return CustomVector(*new_components)
         
@@ -152,7 +152,7 @@ class CustomVector(sp_vector.Vector):
     
     def __sub__(self, other):
         # Handle scalar subtraction by subtracting the scalar to each component
-        if isinstance(other, (int, float, sp.Number)):
+        if sp.sympify(other).is_number:
             new_components = tuple(comp - other for comp in self._components)
             return CustomVector(*new_components)
         
@@ -165,19 +165,24 @@ class CustomVector(sp_vector.Vector):
         
     def __mul__(self, other):
         # Handle scalar multiplication
-        if isinstance(other, (int, float, sp.Number)):
+        if sp.sympify(other).is_number:
             new_components = tuple(comp * other for comp in self._components)
             return CustomVector(*new_components)
         
         # Handle vector multiplication as dot product
-        elif isinstance(other, CustomVector):
+        elif isinstance(other, (sp_vector.Vector)):
             return self.dot(other)
+        
+        elif isinstance(other, (sp.MatrixBase, sp.MatrixExpr)):
+            return self.to_custom_matrix() * other
+        
+        print(other, type(other))
         
         raise NotImplementedError()
     
     def __truediv__(self, other):
         # Handle scalar division
-        if isinstance(other, (int, float, sp.Number)):
+        if sp.sympify(other).is_number:
             new_components = tuple(comp * 1/other for comp in self._components)
             return CustomVector(*new_components)
         
@@ -204,10 +209,10 @@ class CustomVector(sp_vector.Vector):
             else:
                 raise ValueError("Cross product requires 3-dimensional vectors.")
 
-        raise NotImplementedError
+        raise NotImplementedError()
     
     def __pow__(self, other):
-        if isinstance(other, (int, float, sp.Number)):
+        if sp.sympify(other).is_number:
             new_components = tuple(comp ** other for comp in self._components)
             return CustomVector(*new_components)
         
@@ -226,13 +231,15 @@ class CustomVector(sp_vector.Vector):
         # Support scalar addition from the right side
         return self.__add__(other)
     
-    def __rmul__(self, other):
-        # support scalar multiplication from the right side
+    def __rmul__(self, other):        
+        if isinstance(other, (sp.MatrixBase, sp.MatrixExpr)):
+            return CustomMatMul(other, self.to_custom_matrix())
+        
         return self.__mul__(other)
     
     def __rsub__(self, other):
         # Handle scalar - vector by subtracting each component from the scalar
-        if isinstance(other, (int, float, sp.Number)):
+        if sp.sympify(other).is_number:
             new_components = tuple(other - comp for comp in self.components)
             return CustomVector(*new_components)
     
@@ -242,7 +249,7 @@ class CustomVector(sp_vector.Vector):
         # Compare magnitudes of vectors
         if isinstance(other, (CustomVector, sp_vector.Vector)):
             return self.magnitude() < other.magnitude()
-        elif isinstance(other, (int, float, sp.Number)):
+        elif sp.sympify(other).is_number:
             return self.magnitude() < other
         raise NotImplementedError()
     
@@ -250,7 +257,7 @@ class CustomVector(sp_vector.Vector):
         # Compare magnitudes of vectors
         if isinstance(other, (CustomVector, sp_vector.Vector)):
             return self.magnitude() <= other.magnitude()
-        elif isinstance(other, (int, float, sp.Number)):
+        elif sp.sympify(other).is_number:
             return self.magnitude() <= other
         raise NotImplementedError()
     
@@ -258,7 +265,7 @@ class CustomVector(sp_vector.Vector):
         # Compare magnitudes of vectors
         if isinstance(other, (CustomVector, sp_vector.Vector)):
             return self.magnitude() > other.magnitude()
-        elif isinstance(other, (int, float, sp.Number)):
+        elif sp.sympify(other).is_number:
             return self.magnitude() > other
         raise NotImplementedError()
     
@@ -266,7 +273,7 @@ class CustomVector(sp_vector.Vector):
         # Compare magnitudes of vectors
         if isinstance(other, (CustomVector, sp_vector.Vector)):
             return self.magnitude() >= other.magnitude()
-        elif isinstance(other, (int, float, sp.Number)):
+        elif sp.sympify(other).is_number:
             return self.magnitude() >= other
         raise NotImplementedError()
     
@@ -288,11 +295,15 @@ class CustomVector(sp_vector.Vector):
 
         return vector
     
+    def to_custom_matrix(self):
+        # Convert the vector to a matrix with the components as rows
+        return matrix([[comp] for comp in self._components])
+    
     def simplify(self):
         return self.doit()
     
     def contain_only_numbers(self):
-        return all(isinstance(comp, Number) for comp in self._components)
+        return all(sp.sympify(comp).is_number for comp in self._components)
 
     def dot(self, other):
         if isinstance(other, CustomVector):
@@ -332,6 +343,10 @@ class CustomVector(sp_vector.Vector):
         # Normalize the vector by dividing each component by the magnitude
         new_components = tuple(comp / magnitude for comp in self._components)
         return CustomVector(*new_components)
+    
+    @property
+    def T(self):
+        return sp.Transpose(self.to_custom_matrix())
 
 
 def vect(*args, dim=None):
@@ -387,7 +402,7 @@ class Magnitude(sp.Function):
     """
 
     def __new__(cls, vector):
-        if not isinstance(vector, (sp_vector.Vector, CustomVector)):
+        if not isinstance(vector, sp_vector.Vector):
             raise TypeError("Magnitude can only be applied to vector objects.")
         return super(Magnitude, cls).__new__(cls, vector)
 
@@ -519,7 +534,7 @@ class Angle(sp.Function):
     """
 
     def __new__(cls, v1, v2):
-        if not isinstance(v1, (sp_vector.Vector, CustomVector)) or not isinstance(v2, (sp_vector.Vector, CustomVector)):
+        if not isinstance(v1, sp_vector.Vector) or not isinstance(v2, sp_vector.Vector):
             raise TypeError("Angle can only be applied to vector objects.")
         return super(Angle, cls).__new__(cls, v1, v2)
 
@@ -570,10 +585,214 @@ def Cross(v1, v2):
     return sp_vector.Cross(v1, v2)
 
 
+class CustomMatrix(sp.Matrix):
+    def __new__(cls, *args):
+        # Create a new CustomMatrix instance by calling the constructor of sp.Matrix
+        if len(args) == 1 and isinstance(args[0], list):  # If input is a list of lists
+            matrix_data = args[0]
+            obj = super(CustomMatrix, cls).__new__(cls, matrix_data)
+        elif len(args) == 2 and all(isinstance(arg, int) for arg in args):  # If given dimensions
+            obj = super(CustomMatrix, cls).__new__(cls, args[0], args[1], lambda i, j: 0)
+        else:
+            raise ValueError("CustomMatrix requires either a list of lists or two integers for dimensions")
+        
+        obj._matrix_data = obj.tolist()  # Store components for further use if needed
+        return obj
+
+    def __add__(self, other):
+        # Handle scalar addition by adding the scalar to each element
+        if sp.sympify(other).is_number:
+            return self.applyfunc(lambda x: x + other)
+        
+        # Handle matrix addition if other is CustomMatrix
+        elif isinstance(other, CustomMatrix):
+            return CustomMatAdd(self.to_sympy_matrix(), other.to_sympy_matrix())
+        
+        elif isinstance(other, (sp.MatrixBase, sp.MatrixExpr)):
+            return CustomMatAdd(self.to_sympy_matrix(), other)
+
+        raise NotImplementedError("Only scalar or Matrix addition is supported.")
+
+    def __sub__(self, other):
+        # Handle scalar subtraction
+        if sp.sympify(other).is_number:
+            return self.applyfunc(lambda x: x - other)
+        
+        # Handle matrix subtraction
+        elif isinstance(other, CustomMatrix):
+            return CustomMatAdd(self.to_sympy_matrix(), CustomMatMul(-1, other.to_sympy_matrix()))
+        
+        elif isinstance(other, (sp.MatrixBase, sp.MatrixExpr)):
+            return CustomMatAdd(self.to_sympy_matrix(), CustomMatMul(-1, other))
+
+        raise NotImplementedError("Only scalar or Matrix subtraction is supported.")
+        
+    def __mul__(self, other):
+        # Handle scalar multiplication
+        if sp.sympify(other).is_number:
+            return CustomMatMul(other, self.to_sympy_matrix())
+        
+        # Handle CustomMatrix multiplication
+        elif isinstance(other, CustomMatrix):
+            return CustomMatMul(self.to_sympy_matrix(), other.to_sympy_matrix())
+        
+        # Handle regular matrix multiplication
+        elif isinstance(other, (sp.MatrixBase, sp.MatrixExpr)):
+            return CustomMatMul(self.to_sympy_matrix(), other)
+        
+        # Handle vector multiplication
+        elif isinstance(other, CustomVector):
+            return self * other.to_custom_matrix()
+        
+        raise NotImplementedError("Only scalar or Matrix multiplication is supported.")
+
+    def __truediv__(self, other):
+        # Handle scalar division
+        if sp.sympify(other).is_number:
+            return CustomMatrix((self / other).tolist())
+
+        raise NotImplementedError("Division only supports scalar types.")
+    
+    def __matmul__(self, other):
+        return self.__mul__(other)
+    
+    def __radd__(self, other):
+        return self.__add__(other)
+    
+    def __rmul__(self, other):
+        return self.__mul__(other)
+    
+    def __rsub__(self, other):
+        # Handle scalar subtraction
+        if sp.sympify(other).is_number:
+            return self.applyfunc(lambda x: other - x)
+        
+        return self.__sub__(other)
+
+    def __neg__(self):
+        # Negate each component to return the negative of the matrix
+        return CustomMatMul(-1, self.to_sympy_matrix())
+
+    def __repr__(self):
+        # Generate a string representation for debugging
+        return f'CustomMatrix({self.tolist()})'
+    
+    def __str__(self):
+        # Generate a pretty string representation for display
+        return f'CustomMatrix({self.tolist()})'
+    
+    def transpose(self):
+        # Transpose the matrix
+        return sp.Transpose(self.to_sympy_matrix())
+    
+    def det(self):
+        # Calculate and return the determinant of the matrix
+        if self.rows == self.cols:
+            return sp.Determinant(self.to_sympy_matrix())
+        raise ValueError("Determinant is defined only for square matrices.")
+    
+    def inverse(self):
+        # Calculate the inverse of the matrix
+        if self.rows == self.cols:
+            return to_custom_matrix(self.to_sympy_matrix().inv())
+        raise ValueError("Inverse is defined only for square matrices.")
+    
+    def is_symmetric(self):
+        # Check if the matrix is symmetric
+        return self == self.T
+    
+    def simplify(self):
+        # Simplify each component in the matrix
+        return sp.simplify(self)
+    
+    def to_sympy_matrix(self):
+        # Convert to a standard SymPy Matrix
+        return sp.Matrix(self._matrix_data)
+
+
 def matrix(*args):
+    args = list(args)
     if len(args) == 1 and isinstance(args[0], Iterable):
-        args = args[0]
-    return sp.Matrix(args)
+        args = list(args[0])
+    return CustomMatrix(args)
+
+def to_custom_matrix(sympy_matrix: sp.Matrix) -> CustomMatrix:
+    # Extract each row of the matrix as a list and construct a 2D list
+    matrix_data = sympy_matrix.tolist()
+    
+    # Create and return a CustomMatrix with the extracted matrix data
+    return CustomMatrix(matrix_data)
+
+
+class CustomMatAdd(sp.MatAdd):
+    def __new__(cls, *args, **kwargs):
+        # This ensures that all additions result in a CustomMatAdd instance
+        return super(CustomMatAdd, cls).__new__(cls, *args, **kwargs)
+    
+    def __add__(self, other):
+        return CustomMatAdd(self, other)
+    
+    def __radd__(self, other):
+        return CustomMatAdd(other, self)
+
+    def __sub__(self, other):
+        # Subtraction is treated as adding the negative, resulting in a CustomMatAdd
+        return CustomMatAdd(self, -other)
+    
+    def __rsub__(self, other):
+        # Reverse subtraction also results in a CustomMatAdd
+        return CustomMatAdd(other, -self)
+
+class CustomMatMul(sp.MatMul):
+    def __new__(cls, *args, **kwargs):
+        # This ensures that all multiplications result in a CustomMatMul instance
+        return super(CustomMatMul, cls).__new__(cls, *args, **kwargs)
+    
+    def __mul__(self, other):
+        return CustomMatMul(self, other)
+    
+    def __rmul__(self, other):
+        return CustomMatMul(other, self)
+
+    def __add__(self, other):
+        # Addition should result in a CustomMatAdd if it involves a multiplication
+        return CustomMatAdd(self, other)
+    
+    def __radd__(self, other):
+        return CustomMatAdd(other, self)
+
+
+def inverse_expr(expr):
+    symbol = expr.free_symbols.pop()
+    y = sp.symbols("y")
+    free_y_equation = reversed([sol for sol in sp.solve(expr.subs(symbol, y) - symbol, y) if "I" not in str(sol)])
+    abs_solutions = []
+    new_solutions = []
+    for sol in free_y_equation:
+        if sp.Abs(sol) not in abs_solutions:
+            new_solutions.append(sol)
+            abs_solutions.append(sp.Abs(sol))
+
+    return new_solutions[0]
+
+def inverse(expr):
+    if isinstance(expr, (sp.MatrixBase, sp.MatrixExpr)):
+        return expr.inv()
+    
+    elif sp.sympify(expr).has(sp.Symbol):
+        inverse_expression = inverse_expr(expr)
+        if inverse_expression == expr:
+            return 1 / sp.sympify(expr)
+        
+        return inverse_expression
+    
+    return sp.nsimplify(1 / expr)
+
+def det(matrix):
+    if isinstance(matrix, (sp.MatrixBase, sp.MatrixExpr)):
+        return sp.Determinant(matrix)
+
+    return matrix
 
 LOCALS = {
     "vect": vect, 
@@ -599,6 +818,8 @@ LOCALS = {
     "angle": angle,
     "Angle": Angle,
     "matrix": matrix,
+    "inverse": inverse,
+    "det": det,
 }
 
 class ArcGonioInvalidDomainError(ValueError):
@@ -616,25 +837,42 @@ class ArcReciprocalInvalidDomainError(ArcGonioInvalidDomainError):
     pass
 
 def asin_deg(arg):
-    if not -1 <= arg.subs(degree, 1) <= 1:
+    arg = sp.sympify(arg).subs(degree, 1)
+    if sp.sympify(arg).has(sp.Symbol):
+        return sp.asin(arg)
+    
+    if not -1 <= arg <= 1:
         raise ArcGonioInvalidDomainError()
     return sp.N(sp.deg(sp.asin(arg)), 4) * degree
 
 def acos_deg(arg):
-    if not -1 <= arg.subs(degree, 1) <= 1:
+    arg = sp.sympify(arg).subs(degree, 1)
+    if sp.sympify(arg).has(sp.Symbol):
+        return sp.acos(arg)
+
+    if not -1 <= arg <= 1:
         raise ArcGonioInvalidDomainError()
     return sp.N(sp.deg(sp.acos(arg)), 4) * degree
 
 def atan_deg(arg):
+    arg = sp.sympify(arg).subs(degree, 1)
+    if sp.sympify(arg).has(sp.Symbol):
+        return sp.atan(arg)
+
     return sp.N(sp.deg(sp.atan(arg)), 4) * degree
 
 def asec_deg(arg):
-    if -1 <= arg.subs(degree, 1) <= 1:
+    arg = sp.sympify(arg).subs(degree, 1)
+    if sp.sympify(arg).has(sp.Symbol):
+        return sp.asec(arg)
+
+    if -1 <= arg <= 1:
         raise ArcReciprocalInvalidDomainError()
     return sp.N(sp.deg(sp.asec(arg)), 4) * degree
 
 def acsc_deg(arg):
-    if -1 <= arg.subs(degree, 1) <= 1:
+    arg = sp.sympify(arg).subs(degree, 1)
+    if -1 <= arg <= 1:
         raise ArcReciprocalInvalidDomainError()
     return sp.N(sp.deg(sp.acsc(arg)), 4) * degree
 
@@ -818,6 +1056,10 @@ class CustomLatexPrinter(LatexPrinter):
             return rf"{integer_part}"       
         elif integer_part == 0:  # If there is no integer part, print just the fraction
             return rf"\frac{{{fractional_part}}}{{{denom}}}"
+        elif integer_part == -1:  # If the integer part is negative, print the negative sign
+            return rf"- \frac{{{fractional_part}}}{{{denom}}}"
+        elif integer_part < -1:  # If the integer part is negative and greater than -1, print both parts
+            return rf"{int(numer / denom)} \frac{{{abs(fractional_part)}}}{{{denom}}}"
         else:  # Print both integer and fractional parts
             return rf"{integer_part} \frac{{{fractional_part}}}{{{denom}}}"
 
@@ -871,7 +1113,7 @@ class CustomLatexPrinter(LatexPrinter):
             
         if expr.has(CustomVector):
             numer, denom = expr.as_numer_denom()
-            return f"{self._print(1/denom)} \cdot {self._print(numer)}"
+            return f"{self._print(1/denom)} \\cdot {self._print(numer)}"
             
         # Default handling with custom modifications
         result = sp.latex(expr).replace("1 \\cdot", " ")
@@ -899,7 +1141,7 @@ class CustomLatexPrinter(LatexPrinter):
 
         elif expr.as_numer_denom()[1] != 1:
             expr = sp.nsimplify(expr)
-            return super()._print(expr)
+            return sp.latex(expr)
 
         if any(base.has(class_) for class_ in [CustomVector, sp_vector.Gradient]) and any(exp.has(class_) for class_ in [CustomVector, sp_vector.Gradient]):
             # For vectors and gradients, use the cross product symbol

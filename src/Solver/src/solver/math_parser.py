@@ -251,34 +251,6 @@ def interpret_log(eq_string):
 
     return eq_string
 
-def interpret_vector_operation(eq_string, pattern, name_vector_op):
-    index_vect_start = [m.start() for m in re.finditer(pattern, eq_string)]
-    index_vect_end = [m.end() - 1 for m in re.finditer(pattern, eq_string)]
-
-    amt_open_brackets = [eq_string.count(r"(", index_vect_start[i], index_vect_end[i] + 1) for i in range(len(index_vect_start))]
-    amt_close_brackets = [eq_string.count(r")", index_vect_start[i], index_vect_end[i] + 1) for i in range(len(index_vect_start))]
-    extra_brackets = [amt_open_brackets[i] - amt_close_brackets[i] for i in range(len(index_vect_start))]
-
-    if not index_vect_end:
-        return eq_string
-    
-    vector_args = []
-    for index in index_vect_end:
-        vector_arg, index =  get_arg_in_brackets(eq_string, index)
-        vector_args.append(vector_arg)
-
-    for amt_extra_brackets, vector_arg in zip(extra_brackets, vector_args):
-        eq_string = re.sub(rf"{pattern}{re.escape(vector_arg)}\){r'\)'*amt_extra_brackets}", rf").{name_vector_op}(vect({vector_arg}))", eq_string)
-
-    return eq_string
-
-def interpret_vector_operations(eq_string):
-    eq_string = interpret_vector_operation(eq_string, r"\)\s*\^\s*\(*vect\(", "cross")
-    eq_string = interpret_vector_operation(eq_string, r"\)\s*\*\s*\(*vect\(", "dot")
-    return eq_string
-
-
-
 def latex_to_plain_text(latex_str):
     diff_formatting = [
         (r"d/d(\p{L})\s*(?!\()([\w\p{Greek}()^]+)", r"d/d\1(\2)"),
@@ -344,7 +316,6 @@ def latex_to_plain_text(latex_str):
     latex_str = interpret_derivative(latex_str)
     latex_str = interpret_integral(latex_str)
     latex_str = interpret_log(latex_str)
-    latex_str = interpret_vector_operations(latex_str)
 
     return latex_str
 
@@ -876,6 +847,7 @@ def math_interpreter(eq_string: str) -> str:
         (r'(\d+)\s+(\d+/\d+)(?!(?:\.))', r'(\1+\2)'), # 1 2/3 -> (1+2/3)
         (r"\s+\.", "."), #  . -> .
         (r"\b(\d+)\.(\p{L})", r"(\1).\2"), # 2.diff() -> (2).diff()
+        (r"\.t\b", ".T"), # .t -> .T
     ]
 
     for pattern, repl in replacements:
@@ -1179,6 +1151,7 @@ def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = UNEVAL_SP_OBJECT
     # Attempt to sympify the resulting string for all changes made, if none work
     for result_string in reversed(string_og_list):
         try:
+            print("result string =", result_string)
             sympy_expr = sp.sympify(result_string, locals=LOCALS)
             return sympy_expr
         

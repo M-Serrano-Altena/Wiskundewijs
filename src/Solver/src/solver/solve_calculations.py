@@ -418,6 +418,7 @@ class Solve:
 
         def get_self_eq(eq1, eq2):
             try:
+                print(eq1, eq2)
                 return sp.nsimplify(self.equation_type_sp(eq1, eq2), tolerance=1e-7)
             except AttributeError:
                 return self.equation_type_sp(eq1, eq2)
@@ -441,7 +442,8 @@ class Solve:
             else:
                 eq12 = eq1
 
-            if isinstance(eq1, (sp_vector.Vector, CustomVector, sp.Matrix)) or isinstance(eq2, (sp_vector.Vector, CustomVector, sp.Matrix)):
+            vector_classes = (sp_vector.Vector, sp.MatrixBase, sp.MatrixExpr)
+            if isinstance(eq1, vector_classes) or isinstance(eq2, vector_classes):
                 self.is_vector = True
                 self.vect_dim = sp_custom.vect_dim
 
@@ -452,7 +454,7 @@ class Solve:
 
             eq = get_self_eq(eq1, eq2)
 
-            if any(sub_str in self.eq_string for sub_str in ["vect", "laplacian"]):
+            if any(sub_str in self.eq_string for sub_str in ["vect", "laplacian", "matrix"]):
                 self.is_vector = True
                 self.vect_dim = sp_custom.vect_dim
 
@@ -924,7 +926,10 @@ class Solve:
         except ArcGonioInvalidDomainError:
             self.output.append((f"Error: Argument van de arc functie moet een getal tussen -1 en 1 zijn", {"latex": False}))
             return self.equation_interpret, self.output, self.plot
-        
+        except sp.ShapeError:
+            self.output.append((f"Error: De dimensies van de matrices komen niet overeen", {"latex": False}))
+            return self.equation_interpret, self.output, self.plot
+
 
         except (NotImplementedError, TypeError):
             # TypeError from interpretation
@@ -1227,11 +1232,13 @@ class Solve:
             eq_string_sp = self.eq_string
             try:
                 eq_string_sp = get_uneval_sp_objs(self.eq_string)
+                print(eq_string_sp)
             except AttributeError:
                 eq_string_sp = sp.sympify(self.eq_string, locals=self.locals)
 
             if eq_string_sp == self.eq1:
                 eq_string_sp = sp.sympify(self.eq_string, locals=self.locals, evaluate=False)
+                print(eq_string_sp)
             
             self.output.append((f"{custom_latex(eq_string_sp, vect_dim=self.vect_dim)} = {custom_latex(self.eq1, vect_dim=self.vect_dim)}"))
             return self.equation_interpret, self.output, self.plot
