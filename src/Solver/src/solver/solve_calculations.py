@@ -90,6 +90,8 @@ class Solve:
         self.is_vector = False
         self.vect_dim = sp_custom.vect_dim
 
+        self.is_system_of_eq = ";" in self.eq_string
+
 
     @staticmethod
     def get_lambdas(expr: typing.Union[sp.Expr, typing.Iterable[sp.Expr]], symbol: sp.Symbol, numeric: bool = False) -> typing.Union[FunctionType, typing.Iterable[FunctionType]]:
@@ -333,6 +335,132 @@ class Solve:
 
         if isinstance(solution_set, sp.ConditionSet) and solution_set.condition.simplify() == sp.Eq(self.eq12, 0).simplify():
             return self.solve_numerically()
+        
+
+    def process_equation(self, eq_string: str) -> str:
+        equation_symbols = ["!=", ">=", "<=", "==", "=", ">", "<"]
+        eq_split = split_equation(eq_string)
+        eq_split = [string for string in eq_split if string not in equation_symbols]
+
+        for equation_type in equation_symbols:
+            if equation_type in eq_string:
+                self.equation_type = equation_type
+                self.equation_type_sp = map_equation_type_to_sp(equation_type)
+                return self.set_eqs(eq_split)
+        
+        return self.set_eqs(eq_split)
+
+    def set_eqs(self, eq_split, use_self=True):
+        eq_split[0], eq1 = self.sympify_equation(eq_split[0])
+
+        if len(eq_split) == 1:
+            eq2 = 0
+        elif len(eq_split) == 2:
+            eq_split[1], eq2 = self.sympify_equation(eq_split[1])
+        elif use_self:
+            self.output.append(("Error: Meer dan 1 relatieteken (=, ≥, ≤, etc.)", {"latex": False}))
+            return None
+        
+        eq1 = self.gonio_degree_check(eq1, eq_split[0], use_degree=self.use_degrees)
+        if len(eq_split) == 2:
+            eq2 = self.gonio_degree_check(eq2, eq_split[1], use_degree=self.use_degrees)
+            eq12 = eq1 - eq2
+        else:
+            eq12 = eq1
+
+        vector_classes = (sp_vector.Vector, sp.MatrixBase, sp.MatrixExpr)
+        if isinstance(eq1, vector_classes) or isinstance(eq2, vector_classes):
+            self.is_vector = True
+            self.vect_dim = sp_custom.vect_dim
+
+        elif any("grad" in eq_split_part for eq_split_part in eq_split):
+            self.is_vector = True
+            self.vect_dim = sp_custom.vect_dim
+
+
+        eq = self.get_self_eq(eq1, eq2)
+
+        if any(sub_str in self.eq_string for sub_str in ["vect", "laplacian", "matrix"]):
+            self.is_vector = True
+            self.vect_dim = sp_custom.vect_dim
+
+        if not use_self:
+            return eq1, eq2, eq12, eq
+        
+        self.eq1_unsimplified, self.eq2_unsimplified, self.eq12_unsimplified = self.eq1, self.eq2, self.eq12 = eq1, eq2, eq12
+        self.eq = eq
+
+
+        if self.equation_type == "==":
+            self.output.append(f"\\text{{{self.eq}}}")
+            return None
+
+        if len(eq_split) == 2:
+            self.eq_string = str(self.eq)
+
+        return eq_split
+
+    def sympify_equation(self, eq_str: str) -> sp.Basic:
+        if any(sub_str in eq_str for sub_str in ["div", "curl"]) and not any(sub_str in eq_str for sub_str in ["vect", "grad"]):
+            raise VectorFieldError("Argument must be a vector (use 'vect' function)")
+
+        try:
+            return eq_str, TR111(sp.sympify(eq_str, locals=self.locals)).doit()
+        except ValueError:
+            eq_str = add_args_to_func(eq_str, func_name="integrate", replace_with="x").replace(".integrate()", ".integrate(x)")
+            return eq_str, TR111(sp.sympify(eq_str, locals=self.locals)).doit()
+
+    def gonio_degree_condition(self, inner_arg: str) -> bool:
+        try:
+            if not isinstance(sp.sympify(inner_arg), sp.Expr):
+                return False
+        except Exception:
+            return False
+        
+        return sp.nsimplify(sp.sympify(inner_arg, self.locals).subs(degree, 1)).is_Rational
+    
+    def convert_gonio_to_degree(self, eq_str: str, gonio_set: set[str], use_degree_condition=True) -> str:
+        for gonio_func in gonio_set:
+            if gonio_func in eq_str:
+                if use_degree_condition:
+                    eq_str = apply_inner_func_to_func(eq_str, func_name=gonio_func, inner_func_name="rad", inner_arg_condition_func=self.gonio_degree_condition)
+                else:
+                    eq_str = apply_inner_func_to_func(eq_str, func_name=gonio_func, inner_func_name="rad")
+
+        return eq_str
+
+    def gonio_degree_check(self, eq: sp.Expr, eq_str: str, use_degree: typing.Optional[bool]=None):
+        gonio_set = set(["sin", "cos", "tan", "sec", "csc", "cot"])
+        relevant_gonio_set = set()
+        for gonio_func in gonio_set:
+            if bool(re.findall(rf"(?<!a){gonio_func}\b", eq_str)):
+                relevant_gonio_set.add(gonio_func)
+
+        # if the equation doesn't contain a gonio function, then just return
+        if use_degree is False or len(relevant_gonio_set) == 0:
+            return eq
+        
+        # only use the condition if use_degree is set to None and not when it's set to True
+        use_degree_condition = not bool(use_degree)
+        eq_str_new = self.convert_gonio_to_degree(eq_str, relevant_gonio_set, use_degree_condition=use_degree_condition)
+        if eq_str_new != eq_str:
+            self.equation_interpret = add_degree_symbol(self.equation_interpret, gonio_set=relevant_gonio_set)
+            if any(arc_gonio for arc_gonio in ["asin", "acos", "atan", "asec", "acsc", "acot"] if arc_gonio in eq_str_new):
+                self.equation_interpret = self.equation_interpret.replace("°", r"")
+                self.eq_string = self.equation_interpret
+            else:
+                self.eq_string = self.equation_interpret.replace("°", r"^(circ)")
+
+        # get rid of the degree symbol
+        sp_eq = sp.sympify(eq_str_new, locals=self.locals).subs(degree, 1)
+        return sp_eq
+
+
+    def get_self_eq(self, eq1, eq2):
+        try:
+            return sp.nsimplify(self.equation_type_sp(eq1, eq2), tolerance=1e-7)
+        except AttributeError:
+            return self.equation_type_sp(eq1, eq2)
                     
 
 
@@ -346,135 +474,6 @@ class Solve:
             - A boolean indicating whether to plot the results.
         """
 
-        def process_equation(eq_string: str) -> str:
-            equation_symbols = ["!=", ">=", "<=", "==", "=", ">", "<"]
-            eq_split = split_equation(eq_string)
-            eq_split = [string for string in eq_split if string not in equation_symbols]
-
-            for equation_type in equation_symbols:
-                if equation_type in eq_string:
-                    self.equation_type = equation_type
-                    self.equation_type_sp = map_equation_type_to_sp(equation_type)
-                    return set_eqs(eq_split)
-            
-            return set_eqs(eq_split)
-
-
-        def sympify_equation(eq_str: str) -> sp.Basic:
-            if any(sub_str in eq_str for sub_str in ["div", "curl"]) and not any(sub_str in eq_str for sub_str in ["vect", "grad"]):
-                raise VectorFieldError("Argument must be a vector (use 'vect' function)")
-
-            try:
-                return eq_str, TR111(sp.sympify(eq_str, locals=self.locals)).doit()
-            except ValueError:
-                eq_str = add_args_to_func(eq_str, func_name="integrate", replace_with="x").replace(".integrate()", ".integrate(x)")
-                return eq_str, TR111(sp.sympify(eq_str, locals=self.locals)).doit()
-
-        def gonio_degree_condition(inner_arg: str) -> bool:
-            try:
-                if not isinstance(sp.sympify(inner_arg), sp.Expr):
-                    return False
-            except Exception:
-                return False
-            
-            return sp.nsimplify(sp.sympify(inner_arg, self.locals).subs(degree, 1)).is_Rational
-        
-        def convert_gonio_to_degree(eq_str: str, gonio_set: set[str], use_degree_condition=True) -> str:
-            for gonio_func in gonio_set:
-                if gonio_func in eq_str:
-                    if use_degree_condition:
-                        eq_str = apply_inner_func_to_func(eq_str, func_name=gonio_func, inner_func_name="rad", inner_arg_condition_func=gonio_degree_condition)
-                    else:
-                        eq_str = apply_inner_func_to_func(eq_str, func_name=gonio_func, inner_func_name="rad")
-
-            return eq_str
-
-        def gonio_degree_check(eq: sp.Expr, eq_str: str, use_degree: typing.Optional[bool]=None):
-            gonio_set = set(["sin", "cos", "tan", "sec", "csc", "cot"])
-            relevant_gonio_set = set()
-            for gonio_func in gonio_set:
-                if bool(re.findall(rf"(?<!a){gonio_func}", eq_str)):
-                    relevant_gonio_set.add(gonio_func)
-
-            # if the equation doesn't contain a gonio function, then just return
-            if use_degree is False or len(relevant_gonio_set) == 0:
-                return eq
-            
-            # only use the condition if use_degree is set to None and not when it's set to True
-            use_degree_condition = not bool(use_degree)
-            eq_str_new = convert_gonio_to_degree(eq_str, relevant_gonio_set, use_degree_condition=use_degree_condition)
-            if eq_str_new != eq_str:
-                self.equation_interpret = add_degree_symbol(self.equation_interpret, gonio_set=relevant_gonio_set)
-                if any(arc_gonio for arc_gonio in ["asin", "acos", "atan", "asec", "acsc", "acot"] if arc_gonio in eq_str_new):
-                    self.equation_interpret = self.equation_interpret.replace("°", r"")
-                    self.eq_string = self.equation_interpret
-                else:
-                    self.eq_string = self.equation_interpret.replace("°", r"^(circ)")
-
-            # get rid of the degree symbol
-            sp_eq = sp.sympify(eq_str_new, locals=self.locals).subs(degree, 1)
-            return sp_eq
-
-
-        def get_self_eq(eq1, eq2):
-            try:
-                print(eq1, eq2)
-                return sp.nsimplify(self.equation_type_sp(eq1, eq2), tolerance=1e-7)
-            except AttributeError:
-                return self.equation_type_sp(eq1, eq2)
-            
-
-        def set_eqs(eq_split, use_self=True):
-            eq_split[0], eq1 = sympify_equation(eq_split[0])
-
-            if len(eq_split) == 1:
-                eq2 = 0
-            elif len(eq_split) == 2:
-                eq_split[1], eq2 = sympify_equation(eq_split[1])
-            elif use_self:
-                self.output.append(("Error: Meer dan 1 relatieteken (=, ≥, ≤, etc.)", {"latex": False}))
-                return None
-            
-            eq1 = gonio_degree_check(eq1, eq_split[0], use_degree=self.use_degrees)
-            if len(eq_split) == 2:
-                eq2 = gonio_degree_check(eq2, eq_split[1], use_degree=self.use_degrees)
-                eq12 = eq1 - eq2
-            else:
-                eq12 = eq1
-
-            vector_classes = (sp_vector.Vector, sp.MatrixBase, sp.MatrixExpr)
-            if isinstance(eq1, vector_classes) or isinstance(eq2, vector_classes):
-                self.is_vector = True
-                self.vect_dim = sp_custom.vect_dim
-
-            elif any("grad" in eq_split_part for eq_split_part in eq_split):
-                self.is_vector = True
-                self.vect_dim = sp_custom.vect_dim
-
-
-            eq = get_self_eq(eq1, eq2)
-
-            if any(sub_str in self.eq_string for sub_str in ["vect", "laplacian", "matrix"]):
-                self.is_vector = True
-                self.vect_dim = sp_custom.vect_dim
-
-            if not use_self:
-                return eq1, eq2, eq12, eq
-            
-            self.eq1_unsimplified, self.eq2_unsimplified, self.eq12_unsimplified = self.eq1, self.eq2, self.eq12 = eq1, eq2, eq12
-            self.eq = eq
-
-
-            if self.equation_type == "==":
-                self.output.append(f"\\text{{{self.eq}}}")
-                return None
-
-            if len(eq_split) == 2:
-                self.eq_string = str(self.eq)
-
-            return eq_split
-
-
         def handle_multivariate(eq12: sp.Basic, y_symbol: sp.Symbol) -> typing.Tuple[sp.Basic, sp.Basic]:
             free_y_equation = reversed([sol for sol in sp.solve(eq12, y_symbol) if "I" not in str(sol)])
             abs_solutions = []
@@ -486,7 +485,6 @@ class Solve:
 
             return y_symbol, new_solutions[0]
         
-
         def check_multivariate():
             if len(free_symbols) == 2:
                 y_symbol = sp.symbols("y")
@@ -495,7 +493,7 @@ class Solve:
                     self.multivariate = True
                     self.eq1, self.eq2 = handle_multivariate(eq12=self.eq12, y_symbol=y_symbol)
                     self.eq12 = - self.eq2
-                    self.eq = get_self_eq(0, self.eq2)
+                    self.eq = self.get_self_eq(0, self.eq2)
                     free_symbols.remove(y_symbol)
                     eq_split = (str(y_symbol), str(self.eq2))
 
@@ -675,7 +673,10 @@ class Solve:
                 self.output.append(output)
 
         try:
-            eq_split = process_equation(self.eq_string)
+            if self.is_system_of_eq:
+                return self.solve_system_of_eq()
+
+            eq_split = self.process_equation(self.eq_string)
 
             if eq_split is None:
                 return self.equation_interpret, self.output, self.plot
@@ -719,7 +720,10 @@ class Solve:
                 self.output.append(("", {"latex": False}))
 
             if self.symbol:
-                self.domain = sp.calculus.util.continuous_domain(self.eq12, self.symbol, domain=sp.S.Reals)
+                try:
+                    self.domain = sp.calculus.util.continuous_domain(self.eq12, self.symbol, domain=sp.S.Reals)
+                except NotImplementedError:
+                    self.domain = sp.S.Reals
                 self.domain_is_reals = bool(self.domain is sp.S.Reals)
 
             self.equation_is_inequality = self.equation_type != '=' and not self.multivariate
@@ -925,6 +929,9 @@ class Solve:
 
         except ArcGonioInvalidDomainError:
             self.output.append((f"Error: Argument van de arc functie moet een getal tussen -1 en 1 zijn", {"latex": False}))
+            return self.equation_interpret, self.output, self.plot
+        except VectorShapeError:
+            self.output.append((f"Error: De matrix kan niet omgezet worden naar een vector", {"latex": False}))
             return self.equation_interpret, self.output, self.plot
         except sp.ShapeError:
             self.output.append((f"Error: De dimensies van de matrices komen niet overeen", {"latex": False}))
@@ -1232,13 +1239,11 @@ class Solve:
             eq_string_sp = self.eq_string
             try:
                 eq_string_sp = get_uneval_sp_objs(self.eq_string)
-                print(eq_string_sp)
             except AttributeError:
                 eq_string_sp = sp.sympify(self.eq_string, locals=self.locals)
 
             if eq_string_sp == self.eq1:
                 eq_string_sp = sp.sympify(self.eq_string, locals=self.locals, evaluate=False)
-                print(eq_string_sp)
             
             self.output.append((f"{custom_latex(eq_string_sp, vect_dim=self.vect_dim)} = {custom_latex(self.eq1, vect_dim=self.vect_dim)}"))
             return self.equation_interpret, self.output, self.plot
@@ -1304,3 +1309,90 @@ class Solve:
             self.output.append(("Geen oplossing gevonden", {"latex": False}))
 
         return self.equation_interpret, self.output, self.plot
+    
+    def process_system_of_eq(self, eq_strings):
+        equation_symbols = ["!=", ">=", "<=", "==", "=", ">", "<"]
+        eq_strings = self.eq_string.split(";")
+        eqs = []
+        for eq_string in eq_strings:
+            eq_split = split_equation(eq_string)
+            eq_split = [string for string in eq_split if string not in equation_symbols]
+            eqs.append(self.set_eqs(eq_split, use_self=False))
+
+        return eqs
+    
+    def make_symbols_real(self, eq):
+        symbols = eq.free_symbols
+        for symbol in symbols:
+            if symbol.name != "circ":
+                eq = eq.subs(symbol, sp.symbols(symbol.name, real=True))
+
+        return eq
+    
+    def make_eqs_real(self, eqs):
+        for i in range(len(eqs)):
+            for j in range(len(eqs[i])):
+                eqs[i][j] = self.make_symbols_real(eqs[i][j])
+
+        return eqs
+
+    @staticmethod
+    def convert_sol_list_to_dict(solution: list[dict]) -> dict:
+        new_solution_dict = {}
+        for solution_dict in solution:
+            for key, value in solution_dict.items():
+                if key in new_solution_dict:
+                    if isinstance(new_solution_dict[key], list) and value not in new_solution_dict[key]:
+                        new_solution_dict[key].append(value)
+
+                    elif new_solution_dict[key] != value:
+                        new_solution_dict[key] = [new_solution_dict[key]] + [value]
+                else:
+                    new_solution_dict[key] = value
+
+        return new_solution_dict
+
+    def solve_system_of_eq(self):
+        self.processed_eqs = self.process_system_of_eq(eq_strings=self.eq_string)
+        self.processed_eqs = [list(eqs) for eqs in self.processed_eqs]
+        self.processed_eqs = self.make_eqs_real(self.processed_eqs)
+
+        sp_equations = [eq[3] for eq in self.processed_eqs]
+        self.output.append((f"Stelsel van Vergelijkingen:", {"latex": False}))
+        eq_strings = [f"{custom_latex(eq[0])} = {custom_latex(eq[1])}" for eq in self.processed_eqs]
+        system_eq_string = r"\begin{cases} " + r" \\[4pt] ".join(eq_strings) + r" \end{cases}"
+        self.output.append(system_eq_string)
+
+        solution = sp.solve(sp_equations)
+        if not solution:
+            self.output.append((f"Geen oplossing gevonden", {"latex": False}))
+            return self.equation_interpret, self.output, self.plot
+        
+        if isinstance(solution, list):
+            print(solution)
+            solution = self.convert_sol_list_to_dict(solution)
+        
+        print(solution)
+        solution_strings = []
+        for key, value in solution.items():
+            solution_string_parts = []
+            if isinstance(value, list):
+                for val in value:
+                    solution_string_parts.append(f"{custom_latex(key)} = {custom_latex(val)}")
+            else:
+                solution_string_parts.append(f"{custom_latex(key)} = {custom_latex(value)}")
+            
+            solution_string = f' \\ \\vee \\ '.join(solution_string_parts)
+            solution_strings.append(solution_string)
+
+        if len(solution_strings) == 1:
+            self.output.append((f"Oplossing:", {"latex": False}))
+            solution_str = solution_strings[0]
+        else:
+            self.output.append((f"Oplossingen:", {"latex": False}))
+            solution_str = r"\begin{cases} " + r" \\[4pt]".join(solution_strings) + r" \end{cases}"
+
+        self.output.append(solution_str)
+
+        return self.equation_interpret, self.output, self.plot
+    

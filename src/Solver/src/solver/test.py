@@ -39,14 +39,21 @@ sub_expr = CustomMatMul(3,sp.Matrix([[1,1], [1,1]]))
 expr =  sub_expr + matrix([1,1], [1,1])
 print(expr)
 
-# eq1 = sp.Eq(2*x + 3*y, 5)
-# eq2 = sp.Eq(3*x + 2*y, 4)
-# sol = sp.solve([eq1, eq2], (x, y))
-# print(sol)
+eq1 = sp.Eq(4*x - 2*y, 8)
+eq2 = sp.Eq(x - y, 2)
+sol = sp.solve([eq1, eq2], (x, y))
+print(sol)
 
-print(inverse(sp.sin(x)))
-print(inverse(matrix([1,0], [1,1])))
-print(inverse(sp.asin(x)))
+from sympy import symbols, Eq, latex
+from sympy.matrices import Matrix
 
+# Define variables
+x, y = symbols('x y')
 
-print(sp.Determinant(matrix([1,2], [2,1])).doit())
+# Define equations
+eq1 = Eq(x + y, 10)
+eq2 = Eq(2*x - y, 3)
+
+# Use latex to format as a system
+latex_code = r"\begin{cases} " + latex(eq1) + r" \\ " + latex(eq2) + r" \end{cases}"
+print(latex_code)

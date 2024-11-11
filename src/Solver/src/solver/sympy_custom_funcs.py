@@ -176,8 +176,6 @@ class CustomVector(sp_vector.Vector):
         elif isinstance(other, (sp.MatrixBase, sp.MatrixExpr)):
             return self.to_custom_matrix() * other
         
-        print(other, type(other))
-        
         raise NotImplementedError()
     
     def __truediv__(self, other):
@@ -344,9 +342,23 @@ class CustomVector(sp_vector.Vector):
         new_components = tuple(comp / magnitude for comp in self._components)
         return CustomVector(*new_components)
     
+    def unit(self):
+        return self.normalize()
+    
     @property
     def T(self):
         return sp.Transpose(self.to_custom_matrix())
+
+
+class VectorShapeError(sp.ShapeError):
+    """
+    Exception raised when the number of components in a vector does not match the expected dimension.
+
+    Attributes:
+        message (str): Explanation of the error.
+    """
+    def __init__(self, message="Vector components must match the specified dimension"):
+        super().__init__(message)
 
 
 def vect(*args, dim=None):
@@ -366,6 +378,13 @@ def vect(*args, dim=None):
         The function defaults to a 3D vector if no dimension is provided and the number of arguments is 3.
     """
     global vect_dim
+    if len(args) == 1 and isinstance(args[0], (sp.MatrixBase, sp.MatrixExpr)):
+        args = args[0]
+        if args.cols != 1 or args.rows not in [1, 2, 3]:
+            raise sp.ShapeError("Matrix must be a column matrix with 1, 2, or 3 rows.")
+        args = args.doit().tolist()
+        args = [args[i][0] for i in range(len(args))]
+
     if isinstance(args[0], Iterable):
         args = args[0]
 
@@ -764,8 +783,8 @@ class CustomMatMul(sp.MatMul):
 
 def inverse_expr(expr):
     symbol = expr.free_symbols.pop()
-    y = sp.symbols("y")
-    free_y_equation = reversed([sol for sol in sp.solve(expr.subs(symbol, y) - symbol, y) if "I" not in str(sol)])
+    placeholder_symbol = sp.symbols("PLACEHOLDER_SYMBOL")
+    free_y_equation = reversed([sol for sol in sp.solve(expr.subs(symbol, placeholder_symbol) - symbol, placeholder_symbol) if "I" not in str(sol)])
     abs_solutions = []
     new_solutions = []
     for sol in free_y_equation:
@@ -780,10 +799,7 @@ def inverse(expr):
         return expr.inv()
     
     elif sp.sympify(expr).has(sp.Symbol):
-        inverse_expression = inverse_expr(expr)
-        if inverse_expression == expr:
-            return 1 / sp.sympify(expr)
-        
+        inverse_expression = inverse_expr(expr)        
         return inverse_expression
     
     return sp.nsimplify(1 / expr)
