@@ -172,6 +172,10 @@
             <p><strong>Vergelijkingen Omschrijven:</strong> <span class="arithmatex">\(\phantom{.}\)</span> De <span class="arithmatex">\(y\)</span> in een vergelijking wordt vrijgemaakt. Bijvoorbeeld: <span class="arithmatex">\(\phantom{.}\)</span> <span class="arithmatex">\(2y - 4x = 8 \quad \longrightarrow \quad y = 2x + 4\)</span><br><br><br></p>
             </li>
             <li>
+            <p><strong>Stelsels van Vergelijkingen Oplossen:</strong> <span class="arithmatex">\(\phantom{.}\)</span> Door <span style="font-size: 21px;"><code>;</code></span> te gebruiken kun je meerdere vergelijkingen invullen. <br><br> <span class="arithmatex">\(\phantom{mm.}\)</span> Bijvoorbeeld: <span class="arithmatex">\(\phantom{m}\)</span> <span style="font-size: 21px;"><code>4x - 2y = 6; x - y = 1</code></span> <span class="arithmatex">\(\quad \Longrightarrow \quad \begin{cases} 4x - 2y = 6 \\[4pt] x - y = 1 \end{cases} \quad \longrightarrow \quad \begin{cases} x = 2 \\[4pt] y = 1 \end{cases}\)</span>
+            <br><br><br></p>
+            </li>
+            <li>
             <p><strong>Ongelijkheden Oplossen:</strong> </p>
             <ul>
             <li><span class="arithmatex">\(\phantom{.}\)</span> <span style="font-size: 21px;"><code>&gt;</code></span> voor <em>groter dan</em>: <span class="arithmatex">\(\phantom{.} &gt;\)</span></li>
@@ -267,11 +271,39 @@
             <li><span style="font-size: 19px;"><code>inf</code></span> <span class="arithmatex">\(= \infty\)</span></li>
             <li><span style="font-size: 19px;"><code>goldenratio</code></span> <span class="arithmatex">\(= \phi \approx 1.61803398874989\)</span></li>
             </ul>
+            <hr />
+            <h2 id="overige-opties">Overige Opties</h2>
+            <ul>
+            <li>
+            <p><strong>Vectoren:</strong></p>
+            <ul>
+            <li>
+            <p><strong>Inproduct:</strong> <span class="arithmatex">\(\phantom{.}\)</span> <span style="font-size: 19px;"><code>vect(1,2) * vect(3,4)</code></span> <span class="arithmatex">\(= \begin{pmatrix} 1 \\ 2 \end{pmatrix} \cdot \begin{pmatrix} 3 \\ 4 \end{pmatrix} = 1 \cdot 3 + 2 \cdot 4 = 11\)</span> <br><br></p>
+            </li>
+            <li>
+            <p><strong>Hoek:</strong> <span class="arithmatex">\(\phantom{.}\)</span> <span style="font-size: 19px;"><code>angle(vect(1,0), vect(0,1))</code></span> <span class="arithmatex">\(= \angle \left(\begin{pmatrix} 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \end{pmatrix} \right) = 90^\circ\)</span> <br><br></p>
+            </li>
+            <li>
+            <p><strong>Uitproduct:</strong> <span class="arithmatex">\(\phantom{.}\)</span> <span style="font-size: 19px;"><code>vect(1,0,0) ^ vect(0,1,0)</code></span> <span class="arithmatex">\(= \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} \times \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}\)</span> <br><br><br></p>
+            </li>
+            </ul>
+            </li>
+            <li>
+            <p><strong>Matrices:</strong></p>
+            <ul>
+            <li><strong>Vierkante Matrix:</strong> <span class="arithmatex">\(\phantom{.}\)</span> <span style="font-size: 19px;"><code>matrix([1,0], [0,1])</code></span> <span class="arithmatex">\(= \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix}\)</span> </li>
+            <li><strong>Rij Matrix:</strong> <span class="arithmatex">\(\phantom{.}\)</span> <span style="font-size: 19px;"><code>matrix([1, 0])</code></span> <span class="arithmatex">\(= \begin{bmatrix} 1 &amp; 0 \end{bmatrix}\)</span></li>
+            <li><strong>Kolom Matrix:</strong> <span class="arithmatex">\(\phantom{.}\)</span> <span style="font-size: 19px;"><code>matrix(1, 0)</code></span> <span class="arithmatex">\(= \begin{bmatrix} 1 \\ 0 \end{bmatrix}\)</span> <br><br></li>
+            <li><strong>Transponeren</strong>:  <span class="arithmatex">\(\phantom{.}\)</span> <span style="font-size: 19px;"><code>matrix(1, 0).T</code></span> <span class="arithmatex">\(= \begin{bmatrix} 1 \\ 0 \end{bmatrix}^{T} = \begin{bmatrix} 1 &amp; 0 \end{bmatrix}\)</span> <br><br></li>
+            </ul>
+            </li>
+            </ul>
         </div>
 
         <div id="result"></div>
     </div>
 </body>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>

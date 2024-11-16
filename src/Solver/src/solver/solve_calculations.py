@@ -32,6 +32,8 @@ import typing
 from types import FunctionType
 from collections.abc import Iterable
 from numbers import Number
+from copy import deepcopy
+import itertools
 
 filterwarnings("ignore", category=RuntimeWarning)
 
@@ -60,6 +62,7 @@ class Solve:
         self.use_degrees_reciprocal = True if use_degrees is None else use_degrees
         self.locals = LOCALS.copy()
         self.equation_type = "="
+        self.equation_is_inequality = False
         self.equation_type_sp = sp.Eq
         self.solution_set = None
         self.solution_inequality = None
@@ -174,6 +177,12 @@ class Solve:
         y_vals = eq_lambda_np(x_vals)
         xy = np.vstack((x_vals, y_vals)).T
         xy = xy[~np.isnan(xy[:,1]) & ~np.isinf(xy[:,1])]
+
+        if xy.size == 0:
+            if default_func:
+                self.intersect = False
+                self.numerical = False
+            return np.array([])
 
         min_values = xy[np.argmin(np.abs(xy[:,1]))]
         y_value_shift = eq_lambda_np(min_values[0] + tolerance)
@@ -1236,15 +1245,20 @@ class Solve:
 
     def solve_vector(self, eq_split):
         if len(eq_split) == 1:
-            eq_string_sp = self.eq_string
             try:
-                eq_string_sp = get_uneval_sp_objs(self.eq_string)
-            except AttributeError:
-                eq_string_sp = sp.sympify(self.eq_string, locals=self.locals)
+                eq_string_sp = self.eq_string
+                try:
+                    eq_string_sp = get_uneval_sp_objs(self.eq_string)
+                except AttributeError:
+                    eq_string_sp = sp.sympify(self.eq_string, locals=self.locals)
 
-            if eq_string_sp == self.eq1:
-                eq_string_sp = sp.sympify(self.eq_string, locals=self.locals, evaluate=False)
-            
+                if eq_string_sp == self.eq1:
+                    eq_string_sp = sp.sympify(self.eq_string, locals=self.locals, evaluate=False)
+            except Exception:
+                traceback.print_exc()
+
+            self.eq1 = self.eq1.doit()
+
             self.output.append((f"{custom_latex(eq_string_sp, vect_dim=self.vect_dim)} = {custom_latex(self.eq1, vect_dim=self.vect_dim)}"))
             return self.equation_interpret, self.output, self.plot
         
@@ -1313,6 +1327,7 @@ class Solve:
     def process_system_of_eq(self, eq_strings):
         equation_symbols = ["!=", ">=", "<=", "==", "=", ">", "<"]
         eq_strings = self.eq_string.split(";")
+        eq_strings = [eq_string for eq_string in eq_strings if eq_string.strip()]
         eqs = []
         for eq_string in eq_strings:
             eq_split = split_equation(eq_string)
@@ -1352,6 +1367,279 @@ class Solve:
 
         return new_solution_dict
 
+    
+    @staticmethod
+    def order_equations_by_complexity(sp_equations: list[sp.Expr]) -> list[sp.Expr]:
+        def get_amt_symbols(equation: sp.Expr) -> int:
+            return len(equation.free_symbols)
+        
+        def get_function_compexity(equation: sp.Expr) -> int:
+            return sp.count_ops(equation)
+        
+        def quantize_function_order(equation: sp.Expr) -> float:
+            return get_amt_symbols(equation) + get_function_compexity(equation)/10
+
+        return sorted(sp_equations, key=quantize_function_order)
+    
+    @staticmethod
+    def get_least_used_symbol(equation: sp.Expr) -> sp.Symbol:
+        equation_str = str(equation)
+        least_used_symbol = None
+        least_used_amt = float("inf")
+        for symbol in equation.free_symbols:
+            amt_symbol = equation_str.count(symbol.name)
+            if amt_symbol < least_used_amt:
+                least_used_amt = amt_symbol
+                least_used_symbol = symbol
+
+        return least_used_symbol
+
+    @staticmethod
+    def get_least_complex_substitution(equation: sp.Expr) -> tuple[sp.Symbol, list[sp.Expr]]:
+        substitution_eqs_dict: dict[tuple[sp.Expr], sp.Symbol] = {}
+        for symbol in equation.free_symbols:
+            try:
+                substitution = tuple(sp.solve(equation, symbol))
+                substitution_eqs_dict[substitution] = symbol
+            except NotImplementedError:
+                continue
+
+        def count_combined_ops(substitution: sp.Expr) -> int:
+            return sum(sp.count_ops(eq) for eq in substitution)
+
+        substitution_eqs_all_symbols: list[list[sp.Expr]] = [list(eq) for eq in substitution_eqs_dict]
+        substitution_eqs_all_symbols = [eq for eq in substitution_eqs_all_symbols if eq != []]
+        substitution_eqs_all_symbols = sorted(substitution_eqs_all_symbols, key=len)
+        substitution_eqs_all_symbols = [eq for eq in substitution_eqs_all_symbols if len(eq) == len(substitution_eqs_all_symbols[0])]
+        substitution_eqs_all_symbols = sorted(substitution_eqs_all_symbols, key=count_combined_ops)
+
+        if len(substitution_eqs_all_symbols) > 1:
+            # sorted by name to remove random aspect
+            substitution_eqs_all_symbols = sorted(substitution_eqs_all_symbols, key=lambda x: substitution_eqs_dict[tuple(x)].name, reverse=True)
+            substitution_eqs_symbol = substitution_eqs_all_symbols[0]
+
+        else:
+            substitution_eqs_symbol = substitution_eqs_all_symbols[0]
+        symbol = substitution_eqs_dict[tuple(substitution_eqs_symbol)]
+        return symbol, substitution_eqs_symbol
+    
+    @staticmethod
+    def substitute_symbol_equation(rewritten_eqs: dict[sp.Symbol, sp.Expr], sp_equations: list[sp.Expr], current_equation: sp.Expr) -> list[sp.Expr]:
+        for symbol, equations in rewritten_eqs.items():
+            for i, sp_equation in enumerate(sp_equations.copy()):
+                for j, substitution in enumerate(equations):
+                    # don't substitute the equation with itself
+                    new_sp_equation = sp.simplify(sp_equation.subs(symbol, substitution), inverse=True)
+                    if new_sp_equation in SYMPY_BOOLEANS + (sp.true, sp.false):
+                        continue
+                    
+                    # add any extra versions as an equation. For example:
+                    # x^2 + y^2 = 1 --> y = -sqrt(1 - x^2) AND y = sqrt(1 - x^2)
+                    if j == 0:
+                        sp_equations[i] = new_sp_equation
+                    else:
+                        new_sp_equation = new_sp_equation
+                        if any(equivalent_eq(new_sp_equation, eq) for eq in sp_equations):
+                            continue
+
+                        sp_equations.append(new_sp_equation)
+
+        sp_equations = unique_equivalent_eqs(sp_equations)
+        return sp_equations
+    
+    @staticmethod
+    def substitute_symbol_value(sp_equations: list[sp.Expr], symbol: sp.Symbol, value: float) -> list[sp.Expr]:
+        og_sp_equations = sp_equations.copy()
+        for i, equation in enumerate(og_sp_equations):
+            sp_equations[i] = equation.subs(symbol, value)
+
+        sp_equations = [eq for eq in sp_equations if not isinstance(eq, SYMPY_BOOLEANS)]
+        return sp_equations
+
+    def rewrite_system_into_single_variable_eqs(self, sp_equations: list[sp.Expr], recursion_count: int=0) -> list[sp.Expr]:
+        sp_equations = self.order_equations_by_complexity(sp_equations)
+        prev_sp_equations = sp_equations.copy()
+        rewritten_eqs = {}
+        for equation in sp_equations.copy():
+            if len(equation.free_symbols) == 1:
+                continue
+            try:
+                symbol, substitutions = self.get_least_complex_substitution(equation)
+                if symbol not in rewritten_eqs:
+                    rewritten_eqs[symbol] = substitutions
+                else:
+                    substitutions = [sub for sub in substitutions if sub not in rewritten_eqs[symbol]]
+                    rewritten_eqs[symbol] += substitutions
+            except NotImplementedError:
+                    continue
+
+            sp_equations = self.substitute_symbol_equation(rewritten_eqs, sp_equations, equation)
+
+        if len(sp_equations) != 0 and any(len(eq.free_symbols) > 1 for eq in sp_equations) and recursion_count < 10 and prev_sp_equations != sp_equations:
+            return self.rewrite_system_into_single_variable_eqs(sp_equations, recursion_count + 1)
+        
+        sp_equations = unique_equivalent_eqs(sp_equations)
+
+        return sp_equations
+    
+
+    def solve_system_of_eq_numerically(self, sp_equations, solutions: dict[sp.Symbol, list[float]]|None=None) -> dict[sp.Symbol, list[float]]:
+        sp_equations = self.rewrite_system_into_single_variable_eqs(sp_equations)
+        if solutions is None:
+            solutions = {}
+        
+        for equation in sp_equations:
+            if len(equation.free_symbols) == 1:
+                symbol = list(equation.free_symbols)[0]
+                prior_symbol_solution = solutions.get(symbol, [])
+
+                try:
+                    solutions[symbol] = prior_symbol_solution + [sol for sol in sp.solve(equation) if sol not in prior_symbol_solution]
+                    if not solutions[symbol]:
+                        raise NotImplementedError
+                
+                except NotImplementedError:
+                    self.symbol = symbol # necessary for solve_numerically
+                    equation = equation.lhs - equation.rhs
+                    solutions[symbol] = prior_symbol_solution + [sol for sol in self.solve_numerically(equation, self.get_lambdas(equation, symbol, numeric=True)) if sol not in prior_symbol_solution]
+        
+        og_solutions = solutions.copy()
+        for symbol, values in og_solutions.items():
+            og_sp_equations = sp_equations.copy()
+            for value in values:
+                sp_equations = og_sp_equations.copy()
+
+                if sp_equations == []:
+                    return solutions
+                
+                sp_equations = self.substitute_symbol_value(sp_equations, symbol, value)
+                if og_sp_equations == sp_equations:
+                    continue
+
+                solutions = self.solve_system_of_eq_numerically(sp_equations, solutions)
+
+        return solutions
+    
+    @staticmethod
+    def remove_extra_solutions(solutions: dict[sp.Symbol, list[float]]) -> dict[sp.Symbol, list[float]]:
+        if not solutions:
+            return solutions
+        
+        solutions_count = [len(solutions[symbol]) for symbol in solutions]
+        min_solutions = min(solutions_count)
+        if min_solutions == 0:
+            min_solutions = 1
+        
+        solutions = {symbol: solutions[symbol][:min_solutions] for symbol in solutions}
+        return solutions
+    
+    def add_missing_solutions(self, solutions: dict[sp.Symbol, list[float]]) -> dict[sp.Symbol, list[float]]:
+        solution_pairs: list[dict[sp.Symbol, float]] = transform_dict_list_to_list_dict(solutions)
+        for solution_pair in solution_pairs:
+            sp_equations = self.og_sp_equations.copy()
+
+            for symbol, value in solution_pair.items():
+                sp_equations = self.substitute_symbol_value(sp_equations, symbol, value)
+
+            sp_equations = [eq for eq in sp_equations if not isinstance(eq, SYMPY_BOOLEANS)]
+            if not sp_equations:
+                continue
+
+            new_symbol = self.get_least_used_symbol(sp_equations[0])
+            new_symbol_solutions: list[list[sp.Number]] = [
+                set(round_list_val_with_symbolic(sp.solve(equation, new_symbol))) for equation in sp_equations
+            ]
+            new_symbol_solutions = [sol for sol in new_symbol_solutions if sol] # remove empty solutions
+            if not new_symbol_solutions:
+                continue
+            
+            new_symbol_valid_solutions = new_symbol_solutions[0]
+            for sol_set in new_symbol_solutions:
+                if all(sp.N(sol).is_number for sol in sol_set):
+                    new_symbol_solutions = new_symbol_valid_solutions.intersection(sol_set)
+            
+            if not new_symbol_solutions:
+                continue
+
+            new_symbol_solutions = list(new_symbol_solutions)
+            if new_symbol in solutions:
+                solutions[new_symbol] += new_symbol_solutions
+            else:
+                solutions[new_symbol] = new_symbol_solutions
+        
+        return solutions
+
+
+    def check_solution(self, symbol: sp.Symbol, solution: float, other_solution_dict: dict[sp.Symbol, float]) -> bool:
+        """
+        Checks if a symbol value with a given combination of other symbol values
+        satisfies all equations. True if all equations give True, False otherwise
+
+        Args:
+            symbol (sp.Symbol): Symbol to check
+            solution (float): Found solution value for the given symbol
+            other_solution_dict (dict[sp.Symbol, float]): A given combination of other symbols and their values
+
+        Returns:
+            bool: True if all equations are satisfied with the given combination, false otherwise
+        """
+        for equation in self.og_sp_equations:
+            equation = equation.lhs - equation.rhs
+            equation = equation.subs(symbol, solution)
+            for other_symbol, other_solution in other_solution_dict.items():
+                if symbol == other_symbol:
+                    continue
+
+                equation = equation.subs(other_symbol, other_solution)
+
+            if sp.Abs(sp.N(equation)) > 1e-5:
+                return False
+
+        return True
+
+    @staticmethod
+    def get_all_combinations_of_solutions(solutions: dict[sp.Symbol, list[float]]) -> list[dict[sp.Symbol, float]]:
+        all_combinations = [
+            {key: value for key, value in zip(solutions.keys(), values)}
+            for values in itertools.product(*solutions.values())
+        ]
+        return all_combinations
+
+    def remove_invalid_solutions(self, solutions: dict[sp.Symbol, list[float]]) -> dict[sp.Symbol, list[sp.Number]]:
+        solutions_copy = deepcopy(solutions)
+        for symbol, symbol_solutions in solutions_copy.items():
+            other_solution_copy = deepcopy(solutions_copy)
+            other_solution_copy.pop(symbol, None)
+            remove_symbol_sol = True
+            for symbol_sol in symbol_solutions:
+                for other_solution_dict in self.get_all_combinations_of_solutions(other_solution_copy):
+                    if self.check_solution(symbol, symbol_sol, other_solution_dict):
+                        remove_symbol_sol = False
+                
+                if remove_symbol_sol:
+                    solutions[symbol].remove(symbol_sol)
+
+        return solutions
+    
+    @staticmethod
+    def remove_duplicate_solutions(solutions: dict[sp.Symbol, list[float]]) -> dict[sp.Symbol, list[sp.Number]]:
+        for symbol in solutions:
+            solutions[symbol] = round_list_val_with_symbolic(solutions[symbol])
+            solutions[symbol] = unique_preserve_order(solutions[symbol])
+        return solutions
+    
+
+    def validate_numeric_solutions(self, solutions: dict[sp.Symbol, list[float]]) -> dict[sp.Symbol, list[sp.Number]]:
+        solutions = self.remove_extra_solutions(solutions)
+
+        all_symbols = set(symbol for equation in self.og_sp_equations for symbol in equation.free_symbols)
+        for _ in range(len(all_symbols) - len(solutions)):
+            solutions = self.add_missing_solutions(solutions)
+
+        solutions = self.remove_invalid_solutions(solutions)
+        solutions = self.remove_duplicate_solutions(solutions)
+        return solutions
+
     def solve_system_of_eq(self):
         self.processed_eqs = self.process_system_of_eq(eq_strings=self.eq_string)
         self.processed_eqs = [list(eqs) for eqs in self.processed_eqs]
@@ -1363,18 +1651,30 @@ class Solve:
         system_eq_string = r"\begin{cases} " + r" \\[4pt] ".join(eq_strings) + r" \end{cases}"
         self.output.append(system_eq_string)
 
-        solution = sp.solve(sp_equations)
-        if not solution:
+        try:
+            solutions = sp.solve(sp_equations)
+            if not solutions:
+                raise NotImplementedError
+            
+            self.numerical = False
+        except NotImplementedError:
+            self.og_sp_equations = sp_equations 
+            solutions = self.solve_system_of_eq_numerically(sp_equations)
+            solutions = self.validate_numeric_solutions(solutions)
+            self.numerical = True
+        
+        if not solutions or (isinstance(solutions, dict) and all(sol == [] for sol in solutions.values())):
             self.output.append((f"Geen oplossing gevonden", {"latex": False}))
             return self.equation_interpret, self.output, self.plot
         
-        if isinstance(solution, list):
-            print(solution)
-            solution = self.convert_sol_list_to_dict(solution)
-        
-        print(solution)
+        if isinstance(solutions, list):
+            solutions = self.convert_sol_list_to_dict(solutions)
+
+        # sort solutions alphabetically
+        solutions = {symbol: solutions[symbol] for symbol in sorted(solutions, key=lambda symbol: symbol.name)}
+
         solution_strings = []
-        for key, value in solution.items():
+        for key, value in solutions.items():
             solution_string_parts = []
             if isinstance(value, list):
                 for val in value:
@@ -1386,13 +1686,18 @@ class Solve:
             solution_strings.append(solution_string)
 
         if len(solution_strings) == 1:
+            if self.numerical:
+                self.output.append((f"(Oplossing is numeriek bepaald)", {"latex": False}))
+
             self.output.append((f"Oplossing:", {"latex": False}))
             solution_str = solution_strings[0]
         else:
+            if self.numerical:
+                self.output.append((f"(Oplossingen zijn numeriek bepaald)", {"latex": False}))
+
             self.output.append((f"Oplossingen:", {"latex": False}))
             solution_str = r"\begin{cases} " + r" \\[4pt]".join(solution_strings) + r" \end{cases}"
 
         self.output.append(solution_str)
 
         return self.equation_interpret, self.output, self.plot
-    

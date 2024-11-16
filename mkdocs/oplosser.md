@@ -8,10 +8,11 @@ search:
   exclude: true
 ---
 
-*empty*
-
 ## Mogelijke Opties
 - **Vergelijkingen Omschrijven:** $\phantom{.}$ De $y$ in een vergelijking wordt vrijgemaakt. Bijvoorbeeld: $\phantom{.}$ $2y - 4x = 8 \quad \longrightarrow \quad y = 2x + 4$<br><br><br>
+
+- **Stelsels van Vergelijkingen Oplossen:** $\phantom{.}$ Door <span style="font-size: 21px;">`;`</span> te gebruiken kun je meerdere vergelijkingen invullen. <br><br> $\phantom{mm.}$ Bijvoorbeeld: $\phantom{m}$ <span style="font-size: 21px;">`4x - 2y = 6; x - y = 1`</span> $\quad \Longrightarrow \quad \begin{cases} 4x - 2y = 6 \\[4pt] x - y = 1 \end{cases} \quad \longrightarrow \quad \begin{cases} x = 2 \\[4pt] y = 1 \end{cases}$
+<br><br><br>
 
 - **Ongelijkheden Oplossen:** 
     + $\phantom{.}$ <span style="font-size: 21px;">`>`</span> voor *groter dan*: $\phantom{.} >$
@@ -80,3 +81,20 @@ search:
 - <span style="font-size: 19px;">`e`</span> $= e \approx 2.71828182845905$
 - <span style="font-size: 19px;">`inf`</span> $= \infty$
 - <span style="font-size: 19px;">`goldenratio`</span> $= \phi \approx 1.61803398874989$
+
+****
+
+## Overige Opties
+- **Vectoren:**
+    + **Inproduct:** $\phantom{.}$ <span style="font-size: 19px;">`vect(1,2) * vect(3,4)`</span> $= \begin{pmatrix} 1 \\ 2 \end{pmatrix} \cdot \begin{pmatrix} 3 \\ 4 \end{pmatrix} = 1 \cdot 3 + 2 \cdot 4 = 11$ <br><br>
+
+    + **Hoek:** $\phantom{.}$ <span style="font-size: 19px;">`angle(vect(1,0), vect(0,1))`</span> $= \angle \left(\begin{pmatrix} 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \end{pmatrix} \right) = 90^\circ$ <br><br>
+
+    + **Uitproduct:** $\phantom{.}$ <span style="font-size: 19px;">`vect(1,0,0) ^ vect(0,1,0)`</span> $= \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} \times \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}$ <br><br><br>
+
+
+- **Matrices:**
+    + **Vierkante Matrix:** $\phantom{.}$ <span style="font-size: 19px;">`matrix([1,0], [0,1])`</span> $= \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$ 
+    + **Rij Matrix:** $\phantom{.}$ <span style="font-size: 19px;">`matrix([1, 0])`</span> $= \begin{bmatrix} 1 & 0 \end{bmatrix}$
+    + **Kolom Matrix:** $\phantom{.}$ <span style="font-size: 19px;">`matrix(1, 0)`</span> $= \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ <br><br>
+    + **Transponeren**:  $\phantom{.}$ <span style="font-size: 19px;">`matrix(1, 0).T`</span> $= \begin{bmatrix} 1 \\ 0 \end{bmatrix}^{T} = \begin{bmatrix} 1 & 0 \end{bmatrix}$ <br><br>

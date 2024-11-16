@@ -20,40 +20,37 @@ import sympy.vector as sp_vector
 x, y = sp.symbols("x,y", real=True)
 
 local_funcs = {**LOCALS, **DEG_ARC_GONIO_LOCALS}
+local_funcs.update({"VectorAdd": sp_custom.CustomVectorAdd})
 
-string = "div(vect(x,2,0)) + vect(1,1,1)"
-# string = math_interpreter(string)
-print(string)
-eq = sp.sympify(string, locals=local_funcs, evaluate=False)
-print(custom_latex(eq))
 
-# matrix_ = vect(1,1) * vect(1,1).T
-# print(matrix_)
-# print(matrix_ * vect(1,1))
-# print(custom_latex(vect(1,1) * vect(1,1).T * vect(1,1)))
+from sympy import symbols, Eq, simplify, gcd_terms
 
-print()
-print(CustomMatAdd(CustomMatMul(3,sp.Matrix([[1,1], [1,1]])), sp.Matrix([[1,1], [1,1]])))
+# Define symbols
+x, y, z, t = symbols('x y z t')
 
-sub_expr = CustomMatMul(3,sp.Matrix([[1,1], [1,1]]))
-expr =  sub_expr + matrix([1,1], [1,1])
-print(expr)
+l = [Eq(t, 1), Eq(t, 1), Eq(t, 1), Eq(t, 1), Eq(t, 1), Eq(t + 5, 6), Eq(3 - t, 2), Eq(3 - t, 2), Eq(3 - t, 2), Eq(3 - t, 2), Eq(3*t - 3, 0), Eq(3*t - 3, 0), Eq(3*t - 3, 0)]
+print(l)
 
-eq1 = sp.Eq(4*x - 2*y, 8)
-eq2 = sp.Eq(x - y, 2)
-sol = sp.solve([eq1, eq2], (x, y))
-print(sol)
+print(unique_preserve_order(l))
 
-from sympy import symbols, Eq, latex
-from sympy.matrices import Matrix
+l = [x, z, y, t]
+print(sorted(l, key=lambda x: x.name))
 
-# Define variables
-x, y = symbols('x y')
+print(sp.trigsimp(sp.asin(sp.sin(x)), inverse=True))
 
-# Define equations
-eq1 = Eq(x + y, 10)
-eq2 = Eq(2*x - y, 3)
+from itertools import product
 
-# Use latex to format as a system
-latex_code = r"\begin{cases} " + latex(eq1) + r" \\ " + latex(eq2) + r" \end{cases}"
-print(latex_code)
+data = {"x": [1, 2], "y": [3, 4], "z": [5, 6]}
+
+# Generate all combinations
+combinations = [
+    {key: value for key, value in zip(data.keys(), values)}
+    for values in product(*data.values())
+]
+
+# Print the result
+for combination in combinations:
+    print(combination)
+
+s = set([1])
+print(s.pop())

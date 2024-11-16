@@ -8,34 +8,20 @@ import time
 from pylatexenc.latex2text import LatexNodes2Text
 from types import FunctionType
 from collections.abc import Iterable
+from src.Solver.src.solver.math_parser import *
+from src.Solver.src.solver.sympy_custom_funcs import *
 
 
 def main():
-    iterate = 1000000
-    x = sp.symbols("x", real=True)
-    # solutions = sp.solveset(sp.sin(x), x).evalf()
-
-    # for _ in range(iterate):
-    #     sp.sympify(sp.sin(x))
-    # Sample data with steep regions
-    samples = 1000
-    x = np.linspace(-1000, 1000, samples)
-    y = np.cbrt(x)
-
-    # Fit spline (s = smoothing factor)
-    x_dense = np.linspace(-1000, 1000, 10000*samples)
-    # spline = UnivariateSpline(x, y, s=0.25)
-    # y_smooth = spline(x_dense)
-    y_smooth = np.cbrt(x_dense)
-
-    # Plot
-    plt.plot(x, y, 'o', label='Original data')
-    plt.plot(x_dense, y_smooth, label='Spline interpolation')
-    plt.xlim(-2, 2)
-    plt.ylim(-1, 1)
-    plt.legend()
     
+    from sympy import symbols, Eq, simplify, gcd_terms
 
+    # Define symbols
+    x, y, z, t = symbols('x y z t')
+    l = [Eq(t, 1), Eq(t, 1), Eq(t, 1), Eq(t, 1), Eq(t, 1), Eq(t + 5, 6), Eq(3 - t, 2), Eq(3 - t, 2), Eq(3 - t, 2), Eq(3 - t, 2), Eq(3*t - 3, 0), Eq(3*t - 3, 0), Eq(3*t - 3, 0)]
+    
+    for _ in range(400000):
+        list(set(l))
 
 
 

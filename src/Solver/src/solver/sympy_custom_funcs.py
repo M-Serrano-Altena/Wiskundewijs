@@ -55,10 +55,13 @@ from sympy.printing.latex import LatexPrinter
 from sympy.physics.units import degree
 import typing
 from numbers import Number
+from src.Solver.src.solver.helper import *
 
 
 r = sp_vector.CoordSys3D('r')
 vect_dim = None
+
+SYMPY_BOOLEANS = (sp.logic.boolalg.BooleanTrue, sp.logic.boolalg.BooleanFalse)
 
 def convert_symbols_for_vector(args):
     """
@@ -89,10 +92,9 @@ def convert_symbols_for_vector(args):
         if not free_symbols:
             return args
     
-
-        x = [symbol for symbol in free_symbols if symbol.name == "x"]
-        y = [symbol for symbol in free_symbols if symbol.name == "y"]
-        z = [symbol for symbol in free_symbols if symbol.name == "z"]
+        x = list({symbol for symbol in free_symbols if symbol.name == "x"})
+        y = list({symbol for symbol in free_symbols if symbol.name == "y"})
+        z = list({symbol for symbol in free_symbols if symbol.name == "z"})
 
         symbols = x + y + z
         vect_symbols = []
@@ -118,6 +120,12 @@ def convert_symbols_for_vector(args):
 
     return expr
 
+DifferentialOperators = (
+    sp_vector.Gradient,
+    sp_vector.Divergence,
+    sp_vector.Curl,
+    sp_vector.Laplacian
+)
 
 class CustomVector(sp_vector.Vector):
     def __new__(cls, *args):
@@ -147,6 +155,15 @@ class CustomVector(sp_vector.Vector):
         elif isinstance(other, CustomVector):
             new_components = tuple(a + b for a, b in zip(self._components, other._components))
             return CustomVector(*new_components)
+        
+        elif isinstance(other, (sp.MatrixBase, sp.MatrixExpr)):
+            return self.to_custom_matrix() + other
+        
+        elif isinstance(other, DifferentialOperators):
+            return CustomVectorAdd(self, other)
+        
+        elif isinstance(other, sp.Expr):
+            return CustomVectorAdd(self, other)
 
         raise NotImplementedError()
     
@@ -160,6 +177,15 @@ class CustomVector(sp_vector.Vector):
         elif isinstance(other, CustomVector):
             new_components = tuple(a - b for a, b in zip(self._components, other._components))
             return CustomVector(*new_components)
+        
+        elif isinstance(other, (sp.MatrixBase, sp.MatrixExpr)):
+            return self.to_custom_matrix() - other
+        
+        elif isinstance(other, DifferentialOperators):
+            return CustomVectorAdd(self, -other)
+        
+        elif isinstance(other, sp.Expr):
+            return CustomVectorAdd(self, -other)
 
         raise NotImplementedError()
         
@@ -176,6 +202,12 @@ class CustomVector(sp_vector.Vector):
         elif isinstance(other, (sp.MatrixBase, sp.MatrixExpr)):
             return self.to_custom_matrix() * other
         
+        elif isinstance(other, DifferentialOperators):
+            return CustomVectorMul(self, other)
+        
+        elif isinstance(other, sp.Expr):
+            return CustomVectorMul(self, other)
+        
         raise NotImplementedError()
     
     def __truediv__(self, other):
@@ -183,12 +215,6 @@ class CustomVector(sp_vector.Vector):
         if sp.sympify(other).is_number:
             new_components = tuple(comp * 1/other for comp in self._components)
             return CustomVector(*new_components)
-        
-        # Handle vector multiplication as dot product
-        elif isinstance(other, CustomVector):
-            other_components = tuple(1/comp if comp != 0 else comp for comp in other._components)
-            new_other = CustomVector(*other_components)
-            return self.dot(new_other)
         
         raise NotImplementedError()
     
@@ -222,8 +248,7 @@ class CustomVector(sp_vector.Vector):
     
     def __neg__(self):
         # Negate each component to return the negative of the vector
-        new_components = tuple(-comp for comp in self.components)
-        return CustomVector(*new_components)
+        return CustomVectorMul(-1, self)
 
     def __radd__(self, other):
         # Support scalar addition from the right side
@@ -240,6 +265,12 @@ class CustomVector(sp_vector.Vector):
         if sp.sympify(other).is_number:
             new_components = tuple(other - comp for comp in self.components)
             return CustomVector(*new_components)
+        
+        elif isinstance(other, DifferentialOperators):
+            return CustomVectorAdd(other, -self)
+        
+        elif isinstance(other, sp.Expr):
+            return CustomVectorAdd(other, -self)
     
         raise NotImplementedError("Right-side subtraction only supports scalar types.")
     
@@ -276,15 +307,17 @@ class CustomVector(sp_vector.Vector):
         raise NotImplementedError()
     
     def __repr__(self):
-        # Generate a string representation in terms of CoordSys3D basis vectors
-        return f'CustomVector{self._components}'
-    
+        # Format the representation without expanding into basis vectors
+        return f"CustomVector({', '.join(map(str, self._components))})"
+
     def __str__(self):
+        # Similar to __repr__, display the components directly in vector form
         return self.__repr__()
 
     def doit(self):
-        new_components = tuple(sp.simplify(comp) for comp in self._components)
-        return CustomVector(*new_components)
+        # Simplify each component and create a new CustomVector with the simplified components
+        simplified_components = tuple(sp.simplify(comp).doit() for comp in self._components)
+        return CustomVector(*simplified_components)
 
     def to_sympy_vector(self):
         vector = 0*r.i
@@ -307,6 +340,7 @@ class CustomVector(sp_vector.Vector):
         if isinstance(other, CustomVector):
             # Perform component-wise multiplication for dot product
             return sum(a * b for a, b in zip(self._components, other._components))
+        
         elif isinstance(other, sp_vector.Vector):
             # Convert CustomVector to a standard Vector to use SymPy's built-in dot product
             self_vector = self.to_sympy_vector()
@@ -348,6 +382,62 @@ class CustomVector(sp_vector.Vector):
     @property
     def T(self):
         return sp.Transpose(self.to_custom_matrix())
+    
+    def evalf(self):
+        return CustomVector(*[sp.N(comp) for comp in self._components])
+    
+
+class CustomVectorAdd(sp.Add):
+    def __new__(cls, *args, **kwargs):
+        # Check for 'evaluate' in kwargs, similar to how Add and Mul handle it
+        evaluate = kwargs.get('evaluate', False)
+        if not evaluate:
+            # Return an unevaluated Mul object if evaluate=False
+            return super().__new__(cls, *args, evaluate=False)
+        else:
+            # Use the parent class's __new__ method to handle simplification if evaluate=True
+            return super(CustomVectorAdd, cls).__new__(cls, *args, evaluate=False).doit()
+    
+    def __add__(self, other):
+        return CustomVectorAdd(self, other)
+    
+    def __radd__(self, other):
+        return CustomVectorAdd(other, self)
+    
+    def __sub__(self, other):
+        return CustomVectorAdd(self, -other)
+    
+    def __rsub__(self, other):
+        return CustomVectorAdd(other, -self)
+    
+    def doit(self, **hints):
+        return sum(arg.doit(**hints) for arg in self.args)
+    
+class CustomVectorMul(sp.Mul):
+    def __new__(cls, *args, **kwargs):
+        return super().__new__(cls, *args, **kwargs)
+    
+    def __mul__(self, other):
+        # Support chaining multiplications with other VectorMul objects
+        return CustomVectorMul(self, other)
+    
+    def __rmul__(self, other):
+        return CustomVectorMul(other, self)
+    
+    def __truediv__(self, other):
+        # Allows division to be represented as a reciprocal multiplication
+        return CustomVectorMul(self, sp.Pow(other, -1))
+    
+    def __rtruediv__(self, other):
+        # Reverse division for right-hand operations
+        return CustomVectorMul(other, sp.Pow(self, -1))
+    
+    def doit(self, **hints):
+        # Evaluate each argument in the multiplication
+        result = sp.S.One
+        for arg in self.args:
+            result *= arg.doit(**hints)
+        return result
 
 
 class VectorShapeError(sp.ShapeError):
@@ -491,36 +581,6 @@ def laplacian(expr):
     return sp_vector.laplacian(expr)
 
 
-def equation_type_to_latex(equation_symbol):
-    """
-    Maps common inequality symbols to their LaTeX equivalents.
-
-    Parameters:
-        equation_symbol (str): The symbol representing the type of equation or inequality.
-
-    Returns:
-        str: The LaTeX representation of the inequality or the original symbol if not in the map.
-    
-    Examples:
-        - "!=" maps to "\\neq"
-        - ">=" maps to "\\geq"
-    """
-    equation_type_latex_map = {"!=": "\\neq", ">=": "\\geq", "<=": "\\leq"}
-    return equation_type_latex_map.get(equation_symbol, equation_symbol)
-
-def flip_inequality_sign(inequality_sign):
-    """
-    Flip the sign of an inequality.
-
-    Args:
-        inequality_sign (str): The inequality sign to flip.
-
-    Returns:
-        str: The flipped inequality sign.
-    """
-    inequality_flip_replacements = {">": "<", "<": ">", ">=": "<=", "<=": ">=", "!=": "=", "=": "!="}
-    return inequality_flip_replacements.get(inequality_sign, inequality_sign)
-
 def angle(v1, v2):
     """
     Compute the angle between two vectors.
@@ -602,6 +662,19 @@ def Cross(v1, v2):
         v2 = v2.to_sympy_vector()
 
     return sp_vector.Cross(v1, v2)
+
+def curl(v1):
+    if isinstance(v1, CustomVector):
+        v1 = v1.to_sympy_vector()
+
+    sympy_vector = sp_vector.curl(v1)
+    return to_custom_vector(sympy_vector)
+
+def Curl(v1):
+    if isinstance(v1, CustomVector):
+        v1 = v1.to_sympy_vector()
+
+    return sp_vector.Curl(v1)
 
 
 class CustomMatrix(sp.Matrix):
@@ -729,10 +802,20 @@ class CustomMatrix(sp.Matrix):
         return sp.Matrix(self._matrix_data)
 
 
+def max_depth(lst):
+    if isinstance(lst, list):
+        return 1 + max((max_depth(item) for item in lst), default=0)
+    return 0
+
+
 def matrix(*args):
     args = list(args)
-    if len(args) == 1 and isinstance(args[0], Iterable):
+    if len(args) == 1 and isinstance(args[0], Iterable) and len(args[0]) == 1:
         args = list(args[0])
+
+    while max_depth(args) > 2 and len(args) == 1:
+        args = args[0]
+
     return CustomMatrix(args)
 
 def to_custom_matrix(sympy_matrix: sp.Matrix) -> CustomMatrix:
@@ -820,8 +903,8 @@ LOCALS = {
     "Cross": Cross,
     "div": sp_vector.divergence, 
     "Divergence": sp_vector.Divergence,
-    "curl": sp_vector.curl, 
-    "Curl": sp_vector.Curl,
+    "curl": curl, 
+    "Curl": Curl,
     "grad": grad, 
     "Gradient": sp_vector.Gradient,
     "laplacian": laplacian,
@@ -1091,7 +1174,11 @@ class CustomLatexPrinter(LatexPrinter):
             str: The LaTeX representation of the multiplication expression.
         """
 
+
         if expr.as_numer_denom()[1] == 1:
+            if len(expr.args) == 2 and all(isinstance(arg, CustomVector) for arg in expr.args) and dot(expr.args[0], expr.args[1]).is_number:
+                return f"{self._print(expr.args[0])} \\cdot {self._print(expr.args[1])}"
+            
             # Default handling with custom modifications
             result = super()._print_Mul(expr).replace("1 \\cdot", " ")
             result = re.sub(r"\\left\(-(\d+)\\right\) ", r"- \1 \\cdot", result)
@@ -1126,7 +1213,7 @@ class CustomLatexPrinter(LatexPrinter):
                 base = self._print(base)
 
                 return f' \\ ^{{{base}}} \\! \\log\\left({arg} \\right)'
-            
+        
         if expr.has(CustomVector):
             numer, denom = expr.as_numer_denom()
             return f"{self._print(1/denom)} \\cdot {self._print(numer)}"
@@ -1300,8 +1387,17 @@ def custom_latex(expr: sp.Expr, **kwargs) -> str:
     Returns:
         str: The LaTeX representation of the expression.
     """
+
+    def latex_vectors(match: re.Match):
+        if r"\begin{pmatrix}" in match.group(2):
+            return match.group(0)
+        
+        return match.group(1)
+
     latex_str = CustomLatexPrinter(**kwargs).doprint(expr)
-    latex_str = latex_str.replace(r"\left(\begin{pmatrix}", r"\begin{pmatrix}").replace(r"\end{pmatrix}\right)", r"\end{pmatrix}")
+    vector_pattern = re.escape(r"\left(") + "(" + re.escape(r"\begin{pmatrix}") + r"(.*?)" + re.escape(r"\end{pmatrix}")+ ")" + re.escape(r"\right)")
+    latex_str = re.sub(vector_pattern, latex_vectors, latex_str)
+    # latex_str = latex_str.replace(r"\left(\begin{pmatrix}", r"\begin{pmatrix}").replace(r"\end{pmatrix}\right)", r"\end{pmatrix}")
     return latex_str
 
 

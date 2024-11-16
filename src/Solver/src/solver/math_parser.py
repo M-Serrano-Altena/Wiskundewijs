@@ -1151,7 +1151,6 @@ def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = UNEVAL_SP_OBJECT
     # Attempt to sympify the resulting string for all changes made, if none work
     for result_string in reversed(string_og_list):
         try:
-            print("result string =", result_string)
             sympy_expr = sp.sympify(result_string, locals=LOCALS)
             return sympy_expr
         
