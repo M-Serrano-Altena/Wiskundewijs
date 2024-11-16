@@ -817,12 +817,10 @@ def max_depth(lst):
 
 
 def matrix(*args):
-    print(args)
     args = list(args)
     if len(args) == 1:
         if isinstance(args[0], CustomVector):
             args = list(args[0].components)
-            print(args)
         elif isinstance(args[0], Iterable) and len(args[0]) == 1:
             args = list(args[0])
 
