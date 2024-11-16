@@ -333,7 +333,7 @@ class CustomVector(sp_vector.Vector):
     def simplify(self):
         return self.doit()
     
-    def contain_only_numbers(self):
+    def contains_only_numbers(self):
         return all(sp.sympify(comp).is_number for comp in self._components)
 
     def dot(self, other):
@@ -690,6 +690,9 @@ class CustomMatrix(sp.Matrix):
         
         obj._matrix_data = obj.tolist()  # Store components for further use if needed
         return obj
+    
+    def __init__(self, *args):
+        self._matrix_data = self.tolist()
 
     def __add__(self, other):
         # Handle scalar addition by adding the scalar to each element
@@ -795,12 +798,17 @@ class CustomMatrix(sp.Matrix):
     
     def simplify(self):
         # Simplify each component in the matrix
-        return sp.simplify(self)
+        return self.applyfunc(sp.simplify)
     
     def to_sympy_matrix(self):
         # Convert to a standard SymPy Matrix
+        self._matrix_data = self.tolist()
         return sp.Matrix(self._matrix_data)
-
+        
+    def contains_only_numbers(self):
+        self._matrix_data = self.tolist()
+        return all(sp.sympify(elem).is_number for row in self._matrix_data for elem in row)
+    
 
 def max_depth(lst):
     if isinstance(lst, list):
@@ -809,9 +817,14 @@ def max_depth(lst):
 
 
 def matrix(*args):
+    print(args)
     args = list(args)
-    if len(args) == 1 and isinstance(args[0], Iterable) and len(args[0]) == 1:
-        args = list(args[0])
+    if len(args) == 1:
+        if isinstance(args[0], CustomVector):
+            args = list(args[0].components)
+            print(args)
+        elif isinstance(args[0], Iterable) and len(args[0]) == 1:
+            args = list(args[0])
 
     while max_depth(args) > 2 and len(args) == 1:
         args = args[0]
@@ -844,6 +857,9 @@ class CustomMatAdd(sp.MatAdd):
     def __rsub__(self, other):
         # Reverse subtraction also results in a CustomMatAdd
         return CustomMatAdd(other, -self)
+    
+    def contains_only_numbers(self):
+        return all(arg.contains_only_numbers() for arg in self.args)
 
 class CustomMatMul(sp.MatMul):
     def __new__(cls, *args, **kwargs):
@@ -863,6 +879,8 @@ class CustomMatMul(sp.MatMul):
     def __radd__(self, other):
         return CustomMatAdd(other, self)
 
+    def contains_only_numbers(self):
+        return all(arg.contains_only_numbers() for arg in self.args)
 
 def inverse_expr(expr):
     symbol = expr.free_symbols.pop()

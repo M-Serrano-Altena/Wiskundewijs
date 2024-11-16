@@ -373,7 +373,10 @@ class Solve:
         eq1 = self.gonio_degree_check(eq1, eq_split[0], use_degree=self.use_degrees)
         if len(eq_split) == 2:
             eq2 = self.gonio_degree_check(eq2, eq_split[1], use_degree=self.use_degrees)
-            eq12 = eq1 - eq2
+            if any(isinstance(eq, (CustomMatrix, sp.MatrixBase, sp.MatrixExpr)) for eq in [eq1, eq2]):
+                eq12 = None # it won't be used anyways if a matrix is used
+            else:
+                eq12 = eq1 - eq2
         else:
             eq12 = eq1
 
@@ -1262,19 +1265,27 @@ class Solve:
             self.output.append((f"{custom_latex(eq_string_sp, vect_dim=self.vect_dim)} = {custom_latex(self.eq1, vect_dim=self.vect_dim)}"))
             return self.equation_interpret, self.output, self.plot
         
+        print(self.eq1, self.eq2)
 
         lhs = self.eq1.simplify()
         rhs = self.eq2.simplify()
-
-        if not isinstance(lhs, (CustomVector, sp_vector.Vector)):
+        
+        if not isinstance(lhs, sp_vector.Vector):
             lhs = convert_symbols_for_vector(lhs)
-        if not isinstance(rhs, (CustomVector, sp_vector.Vector)):
+        if not isinstance(rhs, sp_vector.Vector):
             rhs = convert_symbols_for_vector(rhs)
 
+        if isinstance(lhs, sp.MatrixBase):
+            lhs = to_custom_matrix(lhs)
+        if isinstance(rhs, sp.MatrixBase):
+            rhs = to_custom_matrix(rhs)
+
+        print("lhs rhs", lhs, rhs)
         has_equal_sides = apply_opperator(lhs, self.equation_type, rhs)
+        print(has_equal_sides)
         
-        if isinstance(lhs, CustomVector) and isinstance(rhs, CustomVector):
-            sides_are_numbers = (lhs.contain_only_numbers and rhs.contain_only_numbers)
+        if any(isinstance(side, (CustomVector, CustomMatrix, sp.MatrixBase, sp.MatrixExpr)) for side in [lhs, rhs]):
+            sides_are_numbers = (lhs.contains_only_numbers() and rhs.contains_only_numbers())
         else:
             sides_are_numbers = (lhs.is_number and rhs.is_number)
 
@@ -1324,6 +1335,8 @@ class Solve:
 
         return self.equation_interpret, self.output, self.plot
     
+
+
     def process_system_of_eq(self, eq_strings):
         equation_symbols = ["!=", ">=", "<=", "==", "=", ">", "<"]
         eq_strings = self.eq_string.split(";")

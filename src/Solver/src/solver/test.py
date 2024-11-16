@@ -54,3 +54,5 @@ for combination in combinations:
 
 s = set([1])
 print(s.pop())
+
+print(matrix(vect(1,1,1)))
