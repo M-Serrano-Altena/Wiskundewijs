@@ -16,7 +16,7 @@ crispy-bootstrap4==2024.1
 cycler==0.12.1
 decorator==5.1.1
 distro==1.9.0
-Django==5.1
+Django==5.1.1
 django-crispy-forms==2.1
 flatten-dict==0.4.2
 fonttools==4.50.0
