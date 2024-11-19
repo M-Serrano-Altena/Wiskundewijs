@@ -22,6 +22,6 @@ x, y = sp.symbols("x,y", real=True)
 local_funcs = {**LOCALS, **DEG_ARC_GONIO_LOCALS}
 local_funcs.update({"VectorAdd": sp_custom.CustomVectorAdd})
 
-string = r"loglogloglogloglogx"
+string = r"sincpicosx"
 string = math_interpreter(string)
 print(string)

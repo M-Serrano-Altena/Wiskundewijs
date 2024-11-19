@@ -985,6 +985,21 @@ def math_interpreter(eq_string: str) -> str:
                 eq_string = re.sub(rf"{func1}\*{func2}", rf"{func1}{func2}", eq_string)
         
         return eq_string
+    
+    def insert_asterisks_between_symbol_and_function(eq_string: str) -> str:
+        """
+        Inserts asterisks between a symbol and a function in the equation string.
+
+        Args:
+            eq_string (str): The equation string to be processed.
+
+        Returns:
+            str: The modified equation string with asterisks inserted between symbols and functions.
+        """
+        for func in relevant_functions:
+            eq_string = re.sub(rf'(?!(?:{rel_func_pattern}))' + r'([\w\p{Greek}]+)' + rf'({func})', r'\1*\2', eq_string)
+        
+        return eq_string
 
     for _ in range(100):
         eq_string_before = eq_string
@@ -993,6 +1008,7 @@ def math_interpreter(eq_string: str) -> str:
         
         for func1 in relevant_functions:
             eq_string = nest_functions(eq_string)
+            eq_string = insert_asterisks_between_symbol_and_function(eq_string)
 
             # Add parentheses around function arguments
             # Also handles cases where function names overlap like sin and sinh
@@ -1002,8 +1018,6 @@ def math_interpreter(eq_string: str) -> str:
                 extra_index = len(eq_string) - len(old_eq_string)
                 eq_string = re.sub(re.escape(match_.group(0)), add_parenthesis(match_, extra_index), eq_string, count=1)
             
-            # Insert multiplication between a function and preceding variable
-            eq_string = re.sub(rf'(?!(?:{rel_func_pattern}))' + r'([\w\p{Greek}]+)' + rf'({func1})', r'\1*\2', eq_string)
 
             # Ensure no multiplication sign between function and its arguments
             eq_string = re.sub(rf'({func1})\*\(', r'\1(', eq_string)
@@ -1036,9 +1050,7 @@ def math_interpreter(eq_string: str) -> str:
         ('root', '3', 1, 1, "after"),
     ]
 
-    print(eq_string)
     for args in function_adjustments:
-        print(args)
         eq_string = add_args_to_func(eq_string, *args)
 
     eq_string = re.sub(r'(?<!\.)subs', r'Subs', eq_string)

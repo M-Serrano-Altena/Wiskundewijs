@@ -287,6 +287,11 @@ def test_math_interpreter_back_to_back_functions():
     string = math_interpreter(string)
     assert string == "sin(x)*cos(x)"
 
+def test_math_interpreter_back_to_back_functions_flipped():
+    string = "cosxsinx"
+    string = math_interpreter(string)
+    assert string == "cos(x)*sin(x)"
+
 def test_math_interpreter_back_to_back_functions_with_space():
     string = "sin x cos x"
     string = math_interpreter(string)
