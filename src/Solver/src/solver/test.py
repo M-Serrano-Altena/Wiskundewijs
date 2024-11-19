@@ -22,37 +22,6 @@ x, y = sp.symbols("x,y", real=True)
 local_funcs = {**LOCALS, **DEG_ARC_GONIO_LOCALS}
 local_funcs.update({"VectorAdd": sp_custom.CustomVectorAdd})
 
-
-from sympy import symbols, Eq, simplify, gcd_terms
-
-# Define symbols
-x, y, z, t = symbols('x y z t')
-
-l = [Eq(t, 1), Eq(t, 1), Eq(t, 1), Eq(t, 1), Eq(t, 1), Eq(t + 5, 6), Eq(3 - t, 2), Eq(3 - t, 2), Eq(3 - t, 2), Eq(3 - t, 2), Eq(3*t - 3, 0), Eq(3*t - 3, 0), Eq(3*t - 3, 0)]
-print(l)
-
-print(unique_preserve_order(l))
-
-l = [x, z, y, t]
-print(sorted(l, key=lambda x: x.name))
-
-print(sp.trigsimp(sp.asin(sp.sin(x)), inverse=True))
-
-from itertools import product
-
-data = {"x": [1, 2], "y": [3, 4], "z": [5, 6]}
-
-# Generate all combinations
-combinations = [
-    {key: value for key, value in zip(data.keys(), values)}
-    for values in product(*data.values())
-]
-
-# Print the result
-for combination in combinations:
-    print(combination)
-
-s = set([1])
-print(s.pop())
-
-print(matrix(vect(1,1,1)))
+string = r"loglogloglogloglogx"
+string = math_interpreter(string)
+print(string)

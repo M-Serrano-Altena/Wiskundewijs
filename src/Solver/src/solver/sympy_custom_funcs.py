@@ -1165,7 +1165,7 @@ class CustomLatexPrinter(LatexPrinter):
         # Separate the expression into integer and fractional parts
         numer, denom = expr.as_numer_denom()
         integer_part = numer // denom
-        fractional_part = numer % denom
+        fractional_part = abs(numer) % abs(denom)
 
         if fractional_part == 0:  # If there is no fractional part, print just the integer
             return rf"{integer_part}"       
@@ -1190,7 +1190,6 @@ class CustomLatexPrinter(LatexPrinter):
             str: The LaTeX representation of the multiplication expression.
         """
 
-
         if expr.as_numer_denom()[1] == 1:
             if len(expr.args) == 2 and all(isinstance(arg, CustomVector) for arg in expr.args) and dot(expr.args[0], expr.args[1]).is_number:
                 return f"{self._print(expr.args[0])} \\cdot {self._print(expr.args[1])}"
@@ -1212,7 +1211,9 @@ class CustomLatexPrinter(LatexPrinter):
 
         # Check if we're dealing with a Rational
         if isinstance(numer, sp.Integer) and isinstance(denom, sp.Integer):
+            print(sp.Rational(numer, denom))
             latex = self._print_Rational(sp.Rational(numer, denom), **kwargs)
+            print(latex)
             if sym_part != 1:
                 latex += self._print(sym_part)
             return latex
@@ -1233,7 +1234,7 @@ class CustomLatexPrinter(LatexPrinter):
         if expr.has(CustomVector):
             numer, denom = expr.as_numer_denom()
             return f"{self._print(1/denom)} \\cdot {self._print(numer)}"
-            
+        
         # Default handling with custom modifications
         result = sp.latex(expr).replace("1 \\cdot", " ")
         result = re.sub(r"\\left\(-(\d+)\\right\) ", r"- \1 \\cdot", result)

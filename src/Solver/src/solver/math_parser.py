@@ -31,11 +31,12 @@ Dependencies:
 import numpy as np
 import sympy as sp
 import regex as re
-from typing import Dict, Union
+from typing import Dict, Union, Any
 from types import FunctionType
 from pylatexenc.latex2text import LatexNodes2Text
 from src.Solver.src.solver.sympy_custom_funcs import LOCALS
 from src.Solver.src.solver.helper import unique_preserve_order
+from collections import deque
 
 ALLOWED_FUNCTIONS = ["diff", "integrate", "limit", "Mod", "subs", "Sum", "Product", "dot", "cross", "magnitude"]
 ALLOWED_FUNCTIONS.extend([key for key, val in  LOCALS.items() if isinstance(val, FunctionType)])
@@ -53,6 +54,36 @@ UNEVAL_SP_OBJECT_DICT = {
     "magnitude": "Magnitude",
     "angle": "Angle",
 }
+
+def get_last_item_deque(deque_: deque) -> Any|None:
+    """
+    Get the last item in a deque object.
+
+    Args:
+        deque_ (deque): The deque object to extract the last item from.
+
+    Returns:
+        Any: The last item in the deque object, or None if the deque is empty.
+    """
+    try:
+        return deque_[-1]
+    except IndexError:
+        return None
+    
+def pop_last_item_deque(deque_: deque) -> Any|None:
+    """
+    Pop the last item in a deque object.
+
+    Args:
+        deque_ (deque): The deque object to extract the last item from.
+
+    Returns:
+        Any: The last item in the deque object, or None if the deque is empty.
+    """
+    try:
+        return deque_.pop()
+    except IndexError:
+        return None
 
 def fix_mismatched_parenthesis(eq_string):
     eq_split = split_equation(eq_string)
@@ -99,7 +130,16 @@ def get_arg_in_brackets(eq_string, index_start_bracket, bracket_type="()"):
     return "PLACEHOLDER", index
 
 
+def remove_outer_brackets(eq_string):
+    if eq_string[0] == "(" and eq_string[-1] == ")":
+        eq_string = eq_string[1:-1]
+    return eq_string
+
 def interpret_latex_root(eq_string):
+    def replace_root_and_remove_extra_sqrt_brackets(match: re.Match) -> str:
+        return rf"root({remove_outer_brackets(match.group(2))}, {match.group(1)})"
+
+
     def interpret_latex_sqrt(eq_string):
         index_sqrt = [m.start() for m in re.finditer(r"\\sqrt\[", eq_string)]
         index_start_square_brackets = [index + 5 for index in index_sqrt]
@@ -115,7 +155,7 @@ def interpret_latex_root(eq_string):
             eq_string = re.sub(rf"\\sqrt\[({re.escape(root_exp)})\]\(({re.escape(sqrt_arg)})\)", r"root(\2, \1)", eq_string)
 
             sqrt_arg, _ = get_arg_in_brackets(eq_string, index, bracket_type=r"{}")
-            eq_string = re.sub(rf"\\sqrt\[({re.escape(root_exp)})\]" + r"\{(" + re.escape(sqrt_arg) + r")\}", r"root(\2, \1)", eq_string)
+            eq_string = re.sub(rf"\\sqrt\[({re.escape(root_exp)})\]" + r"\{(" + re.escape(sqrt_arg) + r")\}", replace_root_and_remove_extra_sqrt_brackets, eq_string)
 
         return eq_string
 
@@ -263,7 +303,8 @@ def latex_to_plain_text(latex_str):
         (r"\\[cd]?frac\{\s*d\^[({]*(\d+)[)}]*\s*\}\{d\s*(\p{L})\^[({]*\1[)}]*\s*\}\s*\(?", r"d^(\1)/d\2^(\1)("),
     ]    
     general_formatting = [
-        (r"\\[cd]?frac", r"\\frac"),
+        (r"\\[cd]?frac", r"\\frac"), # Replace \cfrac and \dfrac with \frac
+        (r"(\d+)\s*\\frac", r"\1 \\frac"), # for mixed fractions
         (r"\\frac\{([\d.]+)\}\{([\d.]+)\}", r"\1/\2"),
         (r"\{", "{("),
         (r"\}", ")}"),
@@ -472,6 +513,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
     string_split = [eq_string_list[index_func[i]:index_func[i+1]] if i != len(index_func) - 1 else eq_string_list[index_func[i]:] for i in range(len(index_func))]
     index_list_secure = []
     nested = 0
+    nested_before = deque()
     char_index = 0
     add_args = 0 # add the arguments if add_args > 0
 
@@ -479,8 +521,11 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
     num_comma = amt_commas
     substring_index = -1
 
-    get_index_in_substring = lambda: char_index - sum([len(string_) for string_ in string_split[:substring_index]])
-    no_replace = lambda: (nested == 0 and nested_before == 0 and has_been_nested)
+    def get_index_in_substring():
+        return char_index - sum([len(string_) for string_ in string_split[:substring_index]])
+    
+    def no_replace():
+        nested == 0 and get_last_item_deque(nested_before) == 0 and has_been_nested
 
     for string in string_split:
         substring_index += 1
@@ -492,7 +537,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
         index_list = []
         amt_commas = amt_commas_start
         func_amt_commas = func_amt_commas_start.copy()
-        nested_before = nested
+        nested_before.append(nested)
         nested = 0
         replace_with_pretty = f', {replace_with}'
         char_index_before = None
@@ -546,7 +591,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
                 elif char == ')':
                     nested -= 1
                     if nested == 0 and add_args > 0 and char_index_before is not None and check_is_number and comma_amt < num_comma - 1:
-                        if nested_before == 0 and amt_commas == 0:
+                        if get_last_item_deque(nested_before) == 0 and amt_commas == 0:
                             replace_with_pretty = f', {replace_with}'
                             if char_index_before not in index_list:
                                 index_list.append((char_index_before, replace_with_pretty))
@@ -557,8 +602,9 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
 
                     if nested == 0:
                         amt_commas = amt_commas_start
-                        nested = nested_before
-                        # nested_before = 0
+                        nested = pop_last_item_deque(nested_before)
+                        if nested is None:
+                            nested = 0
 
                     elif add_close_bracket and nested == 1:
                         close_bracket_index = index_func[0] + char_index + 1
@@ -594,7 +640,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
                                 eq_string = eq_string[:open_bracket_index] + "(" + eq_string[open_bracket_index:]
                                 add_close_bracket = True
 
-                if amt_commas + extra_arguments < 0 and len(index_list) != 0 and nested_before == 0:
+                if amt_commas + extra_arguments < 0 and len(index_list) != 0 and get_last_item_deque(nested_before) == 0:
                     index_list.pop()
                     amt_commas += 1
 
@@ -604,6 +650,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
                     if nested == 0:
                         index_open_bracket = get_index_in_substring()
                     nested += 1
+
                 elif char == ')':
                     nested -= 1
 
@@ -612,6 +659,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
                         add_args -= 1
                     else:
                         amt_commas -= 1
+                # print(char, char_index, nested, nested_before, add_args, index_list)
 
                 if char == ')' and nested == 0:
                     index_close_bracket = get_index_in_substring()
@@ -624,9 +672,11 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
                     
                     add_args -= 1
                     amt_commas = amt_commas_start
-                    nested = nested_before
+                    nested = pop_last_item_deque(nested_before)
+                    if nested is None:
+                        nested = 0
 
-            # print(char, char_index, nested, nested_before, amt_commas, index_list)
+            print(char, char_index, nested, nested_before, add_args, index_list)
 
             char_index += 1
 
@@ -792,7 +842,6 @@ def math_interpreter(eq_string: str) -> str:
         Returns:
             str: The original string if parentheses are correctly placed, otherwise with added parentheses.
         """
-
         is_part_of_funcs = is_part_of_funcs_or_consts(match, relevant_functions, obj_match_pos=1, extra_index=extra_index)
         if is_part_of_funcs:
             return match.group(0)
@@ -920,6 +969,22 @@ def math_interpreter(eq_string: str) -> str:
             eq_string = re.sub(rf"{func2}{func1}\((.*?)\)", rf"{func2}({func1}(\1))", eq_string)
 
         return eq_string
+    
+    def remove_multiplication_between_functions(eq_string: str) -> str:
+        """
+        Removes multiplication signs between adjacent functions in the equation string.
+
+        Args:
+            eq_string (str): The equation string to be processed.
+
+        Returns:
+            str: The modified equation string with multiplication signs removed between functions.
+        """
+        for func1 in relevant_functions:
+            for func2 in relevant_functions:
+                eq_string = re.sub(rf"{func1}\*{func2}", rf"{func1}{func2}", eq_string)
+        
+        return eq_string
 
     for _ in range(100):
         eq_string_before = eq_string
@@ -929,19 +994,21 @@ def math_interpreter(eq_string: str) -> str:
         for func1 in relevant_functions:
             eq_string = nest_functions(eq_string)
 
-            # Handle cases where function names overlap like sin and sinh
-            matches = re.finditer(rf'({func1})' + rf'(?!(?:{rel_func_pattern}))' +  r'([\w\p{Greek}(]+)', eq_string, overlapped=True)
+            # Add parentheses around function arguments
+            # Also handles cases where function names overlap like sin and sinh
+            matches = re.finditer(rf'({func1})' + rf'(?!(?:{rel_func_pattern}))' + r'(?!(?:\())' + r'([\w\p{Greek}(]+)', eq_string, overlapped=True)
             old_eq_string = eq_string
-            for match in matches:
+            for match_ in matches:
                 extra_index = len(eq_string) - len(old_eq_string)
-                eq_string = re.sub(re.escape(match.group()), add_parenthesis(match, extra_index), eq_string, count=1)
+                eq_string = re.sub(re.escape(match_.group(0)), add_parenthesis(match_, extra_index), eq_string, count=1)
             
             # Insert multiplication between a function and preceding variable
-            eq_string = re.sub(r'\b' + rf'(?!(?:{rel_func_pattern}))' + r'([\w\p{Greek}]+)' + rf'({func1})', r'\1*\2', eq_string)
+            eq_string = re.sub(rf'(?!(?:{rel_func_pattern}))' + r'([\w\p{Greek}]+)' + rf'({func1})', r'\1*\2', eq_string)
 
             # Ensure no multiplication sign between function and its arguments
             eq_string = re.sub(rf'({func1})\*\(', r'\1(', eq_string)
 
+            eq_string = remove_multiplication_between_functions(eq_string)
             eq_string = nest_functions(eq_string)
 
         if eq_string == eq_string_before:
@@ -969,7 +1036,9 @@ def math_interpreter(eq_string: str) -> str:
         ('root', '3', 1, 1, "after"),
     ]
 
+    print(eq_string)
     for args in function_adjustments:
+        print(args)
         eq_string = add_args_to_func(eq_string, *args)
 
     eq_string = re.sub(r'(?<!\.)subs', r'Subs', eq_string)
