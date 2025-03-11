@@ -1383,8 +1383,8 @@ Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> to
 <p>Dit is bijvoorbeeld al een stuk beter. Het is nog steeds niet precies hetzelfde als oppervlakte <span class="arithmatex">\(V\)</span>, maar we komen steeds meer in de buurt. We hebben nu dus:</p>
 <div class="arithmatex">\[\textrm{Opp alle rechthoeken} = \sum_{i=1}^{100} f(x_i) \cdot \Delta x\]</div>
 <p>Als we meer rechthoekjes gebruiken, wordt de breedte van elke rechthoek (<span class="arithmatex">\(\Delta x\)</span>) ook steeds kleiner. Dus als we deze breedte oneindig klein zouden kunnen maken, dan wordt onze benadering zó goed, dat het eigenlijk geen benadering meer is. </p>
-<p>We kunnen dus de oppervlakte van <span class="arithmatex">\(V\)</span> bepalen door oneindig veel rechthoeken te gebruiken. Om dit te doen laten we de breedte <span class="arithmatex">\(\Delta x\)</span> naar <span class="arithmatex">\(0\)</span> gaan:</p>
-<div class="arithmatex">\[V = \lim_{\Delta x \ \to \ 0} \ \sum_{i=1}^{n} f(x_i) \cdot \Delta x\]</div>
+<p>We kunnen dus de oppervlakte van <span class="arithmatex">\(V\)</span> bepalen door oneindig veel rechthoeken te gebruiken. Om dit te doen, laten we de breedte <span class="arithmatex">\(\Delta x\)</span> naar <span class="arithmatex">\(0\)</span> gaan:</p>
+<div class="arithmatex">\[V = \lim_{\Delta x \ \to \ 0} \ \sum_{i=1}^{\infty} f(x_i) \cdot \Delta x\]</div>
 <p>En dit kunnen we ook noteren als:</p>
 <div class="arithmatex">\[V = \int_a^b f(x) \, dx\]</div>
 <p>We schrijven <span class="arithmatex">\(dx\)</span> in plaats van <span class="arithmatex">\(\Delta x\)</span> om aan te geven dat het om een oneindig kleine afstand gaat. <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> zijn hier de grenzen van het oppervlak. Dus <span class="arithmatex">\(a\)</span> is het <span class="arithmatex">\(x\)</span>-coördinaat van het begin van de oppervlakte, <span class="arithmatex">\(b\)</span> het <span class="arithmatex">\(x\)</span>-coördinaat van het einde van de oppervlakte. Voor oppervlakte <span class="arithmatex">\(V\)</span> van Figuur 1 zou dus gelden: <span class="arithmatex">\(a=9\)</span> en <span class="arithmatex">\(b=13\)</span>.</p>
@@ -2640,7 +2640,7 @@ Bij het eerste gedeelte van de oppervlakte is <span class="arithmatex">\(f(x)\)<
 <p><br></p>
 <p>Laten we naar een voorbeeld kijken om dit wat duidelijker te maken. Stel we hebben de volgende functie:</p>
 <div class="arithmatex">\[f(x) = 2x^2\]</div>
-<p>met een oppervlakte <span class="arithmatex">\(V\)</span> dat ingesolten wordt door de functie <span class="arithmatex">\(f(x)\)</span>, de <span class="arithmatex">\(x\)</span>-as, de <span class="arithmatex">\(y\)</span>-as en de lijn <span class="arithmatex">\(x=4\)</span>. </p>
+<p>met een oppervlakte <span class="arithmatex">\(V\)</span> dat ingesloten wordt door de functie <span class="arithmatex">\(f(x)\)</span>, de <span class="arithmatex">\(x\)</span>-as, de <span class="arithmatex">\(y\)</span>-as en de lijn <span class="arithmatex">\(x=2\)</span>. </p>
 <p>Nu willen we de inhoud bepalen van het lichaam <span class="arithmatex">\(L\)</span> dat ontstaat als we <span class="arithmatex">\(V\)</span> om de <span class="arithmatex">\(x\)</span>-as wentelen. Hoe pakken we dit aan?</p>
 <p>Laten we als eerst een schets maken van de situatie zodat we het beter kunnen begrijpen:</p>
 <p><center>
@@ -2656,7 +2656,7 @@ Bij het eerste gedeelte van de oppervlakte is <span class="arithmatex">\(f(x)\)<
 </center></p>
 <p>Om deze inhoud te bepalen, kunnen we de <a href="#algemene-integraal-wentelen-x-as">algemene vorm</a> voor een omwentelingslichaam om de x-as gebruiken:</p>
 <div class="arithmatex">\[I(L) = \pi \int_a^b \left(f(x)\right)^2 \, dx\]</div>
-<p>De oppervlakte <span class="arithmatex">\(V\)</span> ligt boven de <span class="arithmatex">\(x\)</span>-as en wordt ingesloten door de <span class="arithmatex">\(y-as\)</span> en <span class="arithmatex">\(x=2\)</span>. Dit betekent dat de grenzen dus <span class="arithmatex">\(x=0\)</span> en <span class="arithmatex">\(x=2\)</span> zijn:</p>
+<p>De oppervlakte <span class="arithmatex">\(V\)</span> ligt boven de <span class="arithmatex">\(x\)</span>-as en wordt ingesloten door de <span class="arithmatex">\(y\)</span>-as en <span class="arithmatex">\(x=2\)</span>. Dit betekent dat de grenzen dus <span class="arithmatex">\(x=0\)</span> en <span class="arithmatex">\(x=2\)</span> zijn:</p>
 <div class="arithmatex">\[I(L) = \pi \int_0^2 \left(2x^2\right)^2 \, dx\]</div>
 <p>Nu kunnen we het kwadraat uitwerken:</p>
 <div class="arithmatex">\[I(L) = \pi \int_0^2 4x^4 \, dx\]</div>

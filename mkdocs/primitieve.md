@@ -363,9 +363,9 @@ $$\textrm{Opp alle rechthoeken} = \sum_{i=1}^{100} f(x_i) \cdot \Delta x$$
 
 Als we meer rechthoekjes gebruiken, wordt de breedte van elke rechthoek ($\Delta x$) ook steeds kleiner. Dus als we deze breedte oneindig klein zouden kunnen maken, dan wordt onze benadering zó goed, dat het eigenlijk geen benadering meer is. 
 
-We kunnen dus de oppervlakte van $V$ bepalen door oneindig veel rechthoeken te gebruiken. Om dit te doen laten we de breedte $\Delta x$ naar $0$ gaan:
+We kunnen dus de oppervlakte van $V$ bepalen door oneindig veel rechthoeken te gebruiken. Om dit te doen, laten we de breedte $\Delta x$ naar $0$ gaan:
 
-$$V = \lim_{\Delta x \ \to \ 0} \ \sum_{i=1}^{n} f(x_i) \cdot \Delta x$$
+$$V = \lim_{\Delta x \ \to \ 0} \ \sum_{i=1}^{\infty} f(x_i) \cdot \Delta x$$
 
 En dit kunnen we ook noteren als:
 
@@ -2407,7 +2407,7 @@ Laten we naar een voorbeeld kijken om dit wat duidelijker te maken. Stel we hebb
 
 $$f(x) = 2x^2$$
 
-met een oppervlakte $V$ dat ingesolten wordt door de functie $f(x)$, de $x$-as, de $y$-as en de lijn $x=2$. 
+met een oppervlakte $V$ dat ingesloten wordt door de functie $f(x)$, de $x$-as, de $y$-as en de lijn $x=2$. 
 
 Nu willen we de inhoud bepalen van het lichaam $L$ dat ontstaat als we $V$ om de $x$-as wentelen. Hoe pakken we dit aan?
 
@@ -2429,7 +2429,7 @@ Om deze inhoud te bepalen, kunnen we de [algemene vorm](#algemene-integraal-went
 
 $$I(L) = \pi \int_a^b \left(f(x)\right)^2 \, dx$$
 
-De oppervlakte $V$ ligt boven de $x$-as en wordt ingesloten door de $y-as$ en $x=2$. Dit betekent dat de grenzen dus $x=0$ en $x=2$ zijn:
+De oppervlakte $V$ ligt boven de $x$-as en wordt ingesloten door de $y$-as en $x=2$. Dit betekent dat de grenzen dus $x=0$ en $x=2$ zijn:
 
 $$I(L) = \pi \int_0^2 \left(2x^2\right)^2 \, dx$$
 
