@@ -2407,7 +2407,7 @@ Laten we naar een voorbeeld kijken om dit wat duidelijker te maken. Stel we hebb
 
 $$f(x) = 2x^2$$
 
-met een oppervlakte $V$ dat ingesolten wordt door de functie $f(x)$, de $x$-as, de $y$-as en de lijn $x=4$. 
+met een oppervlakte $V$ dat ingesolten wordt door de functie $f(x)$, de $x$-as, de $y$-as en de lijn $x=2$. 
 
 Nu willen we de inhoud bepalen van het lichaam $L$ dat ontstaat als we $V$ om de $x$-as wentelen. Hoe pakken we dit aan?
 
