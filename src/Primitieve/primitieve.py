@@ -10,6 +10,9 @@ import re
 from src.Solver.src.solver.solve_calculations import custom_latex
 import os
 from pathlib import Path
+import typing
+from numbers import Number
+from types import FunctionType
 
 class Parabola(Scene):
     def construct(self):
@@ -565,14 +568,49 @@ def draw_func(
 # draw_func(func=lambda x: sp.exp(x-4) - 2, func2=lambda x: sp.log(x), title="f(x) = e^(x - 4) - 2; g(x) = ln(x)", x_range=(-1, 6), y_range=(-4, 4), root=False, intersect=(0.13821, 5.29954), integral_range=(0.13821, 5.29954), V_loc_label=(2.6, -0.4), func_label=True, surface_type='between', letter='V', no_ax=False)
 # draw_func(func=lambda x: sp.exp(x-4) - 2, func2=lambda x: sp.log(x), title="f(x) = e^(x - 4) - 2; g(x) = ln(x) (met lijn k)", x_range=(-1, 6), y_range=(-4, 4), root=False, intersect=(0.13821, 5.29954), integral_range=(0.13821, 5.29954), V_loc_label=(2, -0.1), func_label=True, surface_type='line, func2', letter='W', no_ax=False, line=lambda x: 0.706523519268244 * x - 2.07663, line_label=r"Lijn $k$")
 
+def apply_func_to_array(func: FunctionType, array: typing.Union[np.ndarray, Number]) -> np.ndarray:
+    try:
+        obj = func(array)
+    except ZeroDivisionError:
+        obj = func(array + 1e-10)
 
 
-def draw_func_3d(save_file, func, x_range, y_range, integral_range, func_label=False, add_caps=True, riemann=False, func2=None, rot_x_axis_line=0, **kwargs):
+    if np.isscalar(obj):
+        return np.full(array.shape, obj).astype(float)
+        
+    return obj.astype(float)
+
+def draw_func_3d(save_file: str, func: sp.Expr, x_range: tuple[int], y_range: tuple[int], integral_range: tuple[int]|str, func_label=False, add_caps=True, riemann=False, func2=None, rot_x_axis_line=0, surface_type: str="func1", **kwargs) -> None:
+    """
+    Generates a 3D plot of a function rotated around the x-axis and saves it as an HTML file.
+    
+    Parameters:
+        save_file (str): Path to save the output HTML file.
+        func (sympy expression): The function to be plotted.
+        x_range (tuple): The range of x-values for the plot (min, max).
+        y_range (tuple): The range of y-values for the plot (min, max).
+        integral_range (tuple): The range of x-values for volume integration.
+        func_label (bool, optional): Whether to display the function label in the plot. Defaults to False.
+        add_caps (bool, optional): Whether to add caps at the ends of the rotated shape. Defaults to True.
+        riemann (bool or int, optional): If True, creates a Riemann sum approximation. If an integer, sets the number of subdivisions. Defaults to False.
+        func2 (sympy expression, optional): An optional second function defining the lower boundary for volume generation. Defaults to None.
+        rot_x_axis_line (float, optional): Defines the rotation axis shift along the y-axis. Defaults to 0.
+        **kwargs: Additional keyword arguments.
+    
+    Returns:
+        None. The function saves the plot as an HTML file.
+    """
+    
     global asset_path
 
-    def create_plot(save_file):
-        def create_caps(surface_combined, x_start, x_end, colorscale=[[0, 'springgreen'], [1, 'springgreen']], hoverinfo='none'):
+    def create_plot(save_file, colour_rotation_surface="springgreen", colour_2D_surface="green", letter="L"):
+        """Creates and configures the 3D plot."""
+
+        def create_caps(surface_combined, x_start, x_end, colorscale=[[0, colour_rotation_surface], [1, colour_rotation_surface]], hoverinfo='none'):
+            """Creates the caps at the ends of the rotated shape."""
+
             def create_filled_disk(radius, height, theta, radius_inner=0):
+                """Creates a filled disk at a given height."""
                 r = np.linspace(radius_inner, radius, 100)
                 R, Theta = np.meshgrid(r, theta)
 
@@ -582,14 +620,54 @@ def draw_func_3d(save_file, func, x_range, y_range, integral_range, func_label=F
 
                 return X_disk, Y_disk, Z_disk
             
-            X_lower_bound, Y_lower_bound, Z_lower_bound = create_filled_disk(func_np_shifted(x_start), x_start, theta, radius_inner=0 if func2 is None or rot_x_axis_line != 0 else func2_np(x_start))
-            X_upper_bound, Y_upper_bound, Z_upper_bound = create_filled_disk(func_np_shifted(x_end), x_end, theta, radius_inner=0 if func2 is None or rot_x_axis_line != 0 else func2_np(x_end))
-            surface_lower_bound = go.Surface(x=X_lower_bound, y=Y_lower_bound, z=Z_lower_bound, colorscale=colorscale, opacity=0.5, showscale=False, contours=dict(x=dict(highlight=True), y=dict(highlight=False), z=dict(highlight=False)), hoverinfo=hoverinfo) 
-            surface_upper_bound = go.Surface(x=X_upper_bound, y=Y_upper_bound, z=Z_upper_bound, colorscale=colorscale, opacity=0.5, showscale=False, contours=dict(x=dict(highlight=True), y=dict(highlight=False), z=dict(highlight=False)), hoverinfo=hoverinfo)
+            def compare_func_with_value(func: FunctionType, n2: Number) -> bool:
+                """
+                Checks if a function only returns a specific value (n2).
+                """
+                try:
+                    result = func(None)  # Try calling the function with None
+                except Exception:
+                    return False  # If the function cannot handle None, we return False
+                
+                # Now compare the result with n2
+                return result == n2
+            
+            radius_inner_lower = 0
+            radius_inner_upper = 0
+
+            if func2 is not None and not compare_func_with_value(func2_np, rot_x_axis_line) and surface_type == "between":
+                radius_inner_lower = func2_np(x_start)
+                radius_inner_upper = func2_np(x_end)
+
+            X_lower_bound, Y_lower_bound, Z_lower_bound = create_filled_disk(
+                func_np_shifted(x_start), x_start, theta, 
+                radius_inner=radius_inner_lower
+            )
+            X_upper_bound, Y_upper_bound, Z_upper_bound = create_filled_disk(
+                func_np_shifted(x_end), x_end, theta, 
+                radius_inner=radius_inner_upper
+            )
+
+            surface_lower_bound = go.Surface(
+                x=X_lower_bound, y=Y_lower_bound, z=Z_lower_bound, 
+                colorscale=colorscale, opacity=0.5, showscale=False, 
+                contours=dict(x=dict(highlight=True), y=dict(highlight=False), z=dict(highlight=False)), 
+                hoverinfo=hoverinfo
+            ) 
+            surface_upper_bound = go.Surface(
+                x=X_upper_bound, y=Y_upper_bound, z=Z_upper_bound, 
+                colorscale=colorscale, opacity=0.5, showscale=False, 
+                contours=dict(x=dict(highlight=True), y=dict(highlight=False), z=dict(highlight=False)), 
+                hoverinfo=hoverinfo
+            )
+
             surface_combined.extend([surface_lower_bound, surface_upper_bound])
             return surface_combined
         
         def create_filled_cylinder(surface_combined, r, x_start, x_end, theta, colorscale, name=None):
+            """
+            Creates a cylindrical volume element between two x values for Riemann sum visualization.
+            """
             r = np.array([r, r])
             Theta, R = np.meshgrid(theta, r)
 
@@ -606,76 +684,197 @@ def draw_func_3d(save_file, func, x_range, y_range, integral_range, func_label=F
 
         x_symbol = sp.Symbol('x', real=True)
         func_np = sp.lambdify(x_symbol, func(x_symbol))
+
+        # Create a shifted version of the function (relative to the rotation axis)
         func_np_shifted = sp.lambdify(x_symbol, func(x_symbol) - rot_x_axis_line)
 
+        # Generate x values for plotting and integration
         x = np.linspace(*x_range, 100)
         x_volume = np.linspace(*integral_range, 100)
-
         x = np.sort(np.append(x, x_volume))
-        y = func_np(x)
-        y2 = np.full_like(y, 0)
 
+        # Compute function values and initialize y2 for a possible second function
+        y = apply_func_to_array(func_np, x)
+
+        # Create a meshgrid for 3D rotation (x along the volume and theta for the circular sweep)
         theta = np.linspace(0, 2 * np.pi, 100)
         X, Theta = np.meshgrid(x_volume, theta)
-        Y = func_np_shifted(X) * np.cos(Theta)
-        Z = func_np_shifted(X) * np.sin(Theta)
-        Z_diff =np.abs(func_np(X) * np.sin(Theta))
 
+        # Convert the function into cylindrical coordinates for 3D plotting
+        R_shifted = apply_func_to_array(func_np_shifted, X)
+        Y = R_shifted * np.cos(Theta)
+        Z = R_shifted * np.sin(Theta)
+
+        R = apply_func_to_array(func_np, X)
+
+        if surface_type == "func1":
+            Z_diff = np.abs(R * np.sin(Theta))
+
+        # If a second function is provided, compute its rotated values
         if func2 is not None:
             func2_np = sp.lambdify(x_symbol, func2(x_symbol))
-            y2 = func2_np(x)
-            Y2 = func2_np(X) * np.cos(Theta)
-            Z2 = func2_np(X) * np.sin(Theta)
-            Z_diff = np.abs(func_np(X) * np.sin(Theta) - Z2) + y2
 
+            # Compute cylindrical coordinates for func2
+            y2 = apply_func_to_array(func2_np, x)
+            y2_volume = apply_func_to_array(func2_np, x_volume)
 
-        surface_og = go.Surface(x=X, y=np.full_like(X, 0), z=Z_diff, colorscale=[[0, 'green'], [1, 'green']], opacity=0.6, showscale=False, contours=dict(x=dict(highlight=False), y=dict(highlight=False), z=dict(highlight=False)), hoverinfo='skip')
-        surface_rotation = go.Surface(x=X, y=Y, z=Z + rot_x_axis_line, colorscale=[[0, 'springgreen'], [1, 'springgreen']], opacity=0.6, showscale=False, contours=dict(x=dict(highlight=not riemann), y=dict(highlight=False), z=dict(highlight=False)), hovertemplate=f"Lichaam L<extra></extra>" if not riemann else None, hoverinfo=None if not riemann else 'none') 
-        surface_combined = [surface_og, surface_rotation]
+            R2 = apply_func_to_array(func2_np, X)
+            Y2 = R2 * np.cos(Theta)
+            Z2 = R2 * np.sin(Theta)
+
+            # Compute the surface between the two functions
+            if surface_type == "between":
+                Z_diff = np.abs(apply_func_to_array(func_np, X) * np.sin(Theta) - Z2) + y2_volume
+            
+            # Compute the surface below the second function
+            elif surface_type == "func2":
+                Z_diff = Z2
+
+        # Create the base surface plot of the original function
+        surface_2D = go.Surface(
+            x=X, 
+            y=np.full_like(X, 0), 
+            z=Z_diff, 
+            colorscale=[[0, colour_2D_surface], [1, colour_2D_surface]], 
+            opacity=0.6, 
+            showscale=False, 
+            contours=dict(x=dict(highlight=False), y=dict(highlight=False), z=dict(highlight=False)), 
+            hoverinfo='skip'
+        )
+
+        # Create the 3D surface of the function after rotation
+        surface_rotation = go.Surface(
+            x=X, 
+            y=Y, 
+            z=Z + rot_x_axis_line, 
+            colorscale=[[0, colour_rotation_surface], [1, colour_rotation_surface]], 
+            opacity=0.6, 
+            showscale=False, 
+            contours=dict(x=dict(highlight=not riemann), y=dict(highlight=False), z=dict(highlight=False)), 
+            hovertemplate=f"Lichaam {letter}<extra></extra>" if not riemann else None, 
+            hoverinfo=None if not riemann else 'none'
+        )
+
+        # Combine the surfaces for visualization
+        surface_combined = [surface_2D, surface_rotation]
         
+        # If a second function (func2) is provided and the rotation axis is at y=0,
+        # create a separate surface plot for func2's rotation.
         if func2 is not None and rot_x_axis_line == 0:
-            surface_rotation2 = go.Surface(x=X, y=Y2, z=Z2, colorscale=[[0, 'springgreen'], [1, 'springgreen']], opacity=0.6, showscale=False, contours=dict(x=dict(highlight=not riemann), y=dict(highlight=False), z=dict(highlight=False)), hovertemplate=f"Lichaam L<extra></extra>" if not riemann else None, hoverinfo=None if not riemann else 'none') 
-            surface_combined.append(surface_rotation2)
+            surface_rotation2 = go.Surface(
+                x=X, 
+                y=Y2, # Radial component for func2 along Y-axis
+                z=Z2, # Radial component for func2 along Z-axis
+                colorscale=[[0, colour_rotation_surface], [1, colour_rotation_surface]], 
+                opacity=0.6, 
+                showscale=False, 
+                contours=dict(x=dict(highlight=not riemann), y=dict(highlight=False), z=dict(highlight=False)), 
+                hovertemplate=f"Lichaam {letter}<extra></extra>" if not riemann else None, 
+                hoverinfo=None if not riemann else 'none'
+            )
+            surface_combined.append(surface_rotation2) # Add to the visualization
 
+        # Remove the surfaces of the function you don't want to display
+        if len(surface_combined) == 3:
+            if surface_type == "func1":
+                surface_combined.pop()
+            elif surface_type == "func2":
+                surface_combined.pop(1)
 
         if add_caps and not riemann:
             surface_combined = create_caps(surface_combined, x_start=x_volume[0], x_end=x_volume[-1])
 
+        # Default camera position for the 3D visualization
         camera_eye = dict(x=0.9, y=-1.68, z=0.6)
 
+        # If Riemann sum visualization is enabled, create the volume elements
         if riemann:
-            surface_combined.pop(0)
+            surface_combined.pop(0) # Remove the original surface since Riemann sums replace it
 
+             # Determine the number of Riemann slices
             if isinstance(riemann, bool):
-                n = 10
+                n = 10 # Default to 10 subdivisions if `riemann=True`
             elif isinstance(riemann, int):
-                n = riemann
+                n = riemann # Use the provided number of subdivisions
 
             colorscale = [[0, 'blue'], [1, 'blue']]
             camera_eye = dict(x=0.13, y=-2, z=0.5)
 
             if n <= 50:
+                # Generate subdivision points for the Riemann sum
                 x_volume = np.linspace(*integral_range, n+1)
                 y_volume = func_np(x_volume)
+
+                # Create `n` filled cylinders to approximate the volume
                 for i in range(n):
                     surface_combined = create_filled_cylinder(surface_combined, y_volume[i], x_volume[i], x_volume[i+1], theta, colorscale, name=f"Cilinder {i+1}")
 
+                    # Optionally add caps to each cylinder
                     if add_caps:
                         surface_combined = create_caps(surface_combined, x_start=x_volume[i], x_end=x_volume[i+1], colorscale=colorscale, hoverinfo='skip')
 
             else:
+                # For a large number of subdivisions, adjust the first surface instead of adding many cylinders
                 print(len(surface_combined))
                 surface_combined[0].contours.x.show = True
                 for i in range(len(surface_combined)):
                     surface_combined[i].colorscale = colorscale
 
-        hover_template = '(%{x:.4f}, %{z:.4f})'+ f'<extra>f(x) = {func(x_symbol)}</extra>' if func_label else '(%{x:.4f}, %{z:.4f})' + f'<extra></extra>'
+        # Define hover text for function line plot
+        hover_template1 = '(%{x:.4f}, %{z:.4f})'+ f'<extra>f(x) = {func(x_symbol)}</extra>' if func_label else '(%{x:.4f}, %{z:.4f})' + f'<extra></extra>'
 
-        line_function = go.Scatter3d(x=x, y=np.zeros_like(x), z=y, mode='lines', line=dict(color="darkturquoise", width=5), name=rf'$f(x) = {custom_latex(func(x_symbol))}$' if func_label else '$f(x)$', hovertemplate=hover_template)
-        line_horizontal = go.Scatter3d(x=x_range, y=[0, 0], z=[0, 0], mode='lines', line=dict(color='#2e2e2e', width=5), showlegend=False, hoverinfo='skip')
-        line_vertical = go.Scatter3d(x=[0, 0], y=[0, 0], z=y_range, mode='lines', line=dict(color='#2e2e2e', width=5), showlegend=False, hoverinfo='skip')
+        line_functions = []
 
-        fig = go.Figure(data=[*surface_combined, line_function, line_horizontal, line_vertical])
+        # Create the function's curve in 3D space
+        line_function = go.Scatter3d(
+            x=x, 
+            y=np.zeros_like(x), 
+            z=y, 
+            mode='lines', 
+            line=dict(color="darkturquoise", width=5), 
+            name=rf'$f(x) = {custom_latex(func(x_symbol))}$' if func_label else '$f(x)$', 
+            hovertemplate=hover_template1
+        )
+
+        line_functions.append(line_function)
+
+        if func2 is not None:
+            hover_template2 = '(%{x:.4f}, %{z:.4f})'+ f'<extra>g(x) = {func2(x_symbol)}</extra>' if func_label else '(%{x:.4f}, %{z:.4f})' + f'<extra></extra>'
+
+            line_function_2 = go.Scatter3d(
+                x=x, 
+                y=np.zeros_like(x), 
+                z=y2, 
+                mode='lines', 
+                line=dict(color="firebrick", width=5), 
+                name=rf'$g(x) = {custom_latex(func2(x_symbol))}$' if func_label else '$g(x)$', 
+                hovertemplate=hover_template2
+            )
+            line_functions.append(line_function_2)
+        
+        # Create horizontal and vertical reference lines
+        line_x_axis = go.Scatter3d(
+            x=x_range, 
+            y=[0, 0], 
+            z=[0, 0], 
+            mode='lines', 
+            line=dict(color='#2e2e2e', width=5), 
+            showlegend=False, 
+            hoverinfo='skip'
+        )
+        
+        line_y_axis = go.Scatter3d(
+            x=[0, 0], 
+            y=[0, 0], 
+            z=y_range, 
+            mode='lines', 
+            line=dict(color='#2e2e2e', width=5), 
+            showlegend=False, 
+            hoverinfo='skip'
+        )
+
+        # Create the final 3D figure with all elements
+        fig = go.Figure(data=[*surface_combined, *line_functions, line_x_axis, line_y_axis])
 
         fig.update_layout(
             scene=dict(
@@ -721,7 +920,7 @@ def draw_func_3d(save_file, func, x_range, y_range, integral_range, func_label=F
 
         interactive_image_path = os.path.join(asset_path, "interactive_images")
         os.chdir(interactive_image_path)
-        pio.write_html(fig, file=save_file_html, config=config, auto_open=False) # Save the figure as an interactive HTML file
+        pio.write_html(fig, file=save_file_html, config=config, auto_open=kwargs.get("auto_open", False)) # Save the figure as an interactive HTML file
 
         images_primitieve_path = os.path.join(asset_path, "images", "primitieven")
         os.chdir(images_primitieve_path)
@@ -763,8 +962,53 @@ def draw_func_3d(save_file, func, x_range, y_range, integral_range, func_label=F
             integral_range = (float(roots[0]), float(roots[-1]))
         else:
             raise ValueError("Not enough roots found to calculate integral range")
+        
+    elif integral_range == 'intersect':
+        intersections = sp.solve(func(x_symbol) - func2(x_symbol), x_symbol)
+        if len(intersections) >= 2:
+            integral_range = (float(intersections[0]), float(intersections[-1]))
+        else:
+            raise ValueError("Not enough intersections found to calculate integral range")
+    
+    colour_matches_surface_type = kwargs.get("colour_matches_surface_type", False)
 
-    save_file_html = create_plot(save_file)
+    surface_types = ['func1', 'func2', 'between']
+    if surface_type not in surface_types and colour_matches_surface_type and colour_matches_surface_type in surface_types:
+        raise ValueError(f"Invalid surface type. Expected one of: {', '.join(surface_types)}")
+    elif surface_type in ['func2', 'between'] and func2 is None:
+        raise ValueError("A second function must be provided for the selected surface type")
+
+    surface_type_colour_map = {
+        "func1": {"rotation": "springgreen", "2D": "green"},
+        "func2": {"rotation": "lightcoral", "2D": "red"},
+        "between": {"rotation": "violet", "2D": "indigo"}
+    }
+
+    colour_rotation_surface = kwargs.get("colour_rotation_surface") 
+    colour_2D_surface = kwargs.get("colour_2D_surface")
+
+    def get_colour(colour, surface_version):
+        """Returns the colour if it is a valid surface type, otherwise returns None."""
+        assert surface_version in ["rotation", "2D"]
+        
+        # if rotation type is given as colour, use the corresponding colour
+        if colour in surface_types:
+            return surface_type_colour_map[colour][surface_version]
+        
+        if colour_matches_surface_type in surface_types:
+            return surface_type_colour_map[colour_matches_surface_type][surface_version]
+        
+        # if colour not given, use default colours
+        if colour is None:
+            return surface_type_colour_map[surface_type][surface_version]
+
+        return colour
+
+    colour_rotation_surface = get_colour(colour_rotation_surface, "rotation")
+    colour_2D_surface = get_colour(colour_2D_surface, "2D")
+    letter = kwargs.get("letter", "L")
+
+    save_file_html = create_plot(save_file, colour_rotation_surface=colour_rotation_surface, colour_2D_surface=colour_2D_surface, letter=letter)
     add_meta_tag(save_file_html)
 
     os.chdir(asset_path)
@@ -781,6 +1025,11 @@ def draw_func_3d(save_file, func, x_range, y_range, integral_range, func_label=F
 # draw_func_3d("f(x) = 4 - x^2 (3D)", lambda x: 4 - x**2, x_range=(-3, 3), y_range=(-5, 5), integral_range='root', func_label=True, add_caps=True)
 # draw_func_3d("f(x) = sin(x) + cos(x) (3D)", lambda x: sp.sin(x) + sp.cos(x), x_range=(-1, 3), y_range=(-2, 2), integral_range=(0, 3*np.pi/4), func_label=True, add_caps=True)
 # draw_func_3d("f(x) = sqrt(2x - 8) (3D)", lambda x: sp.sqrt(2*x - 8), x_range=(-1, 12), y_range=(-4, 4), integral_range=(4, 10), func_label=True, add_caps=True)
-# draw_func_3d(r"f(x) = (x+1) !divide! x (3D)", lambda x: (x+1)/x, func2=lambda x: 1, x_range=(0.01, 6), y_range=(-3, 3), integral_range=(1, 4), func_label=True, add_caps=True)
-draw_func_3d(r"f(x) = (x+1) !divide! x (3D - om y=1)", lambda x: (x+1)/x, func2=lambda x: 1, x_range=(0.01, 6), y_range=(-3, 3), integral_range=(1, 4), func_label=True, add_caps=True, rot_x_axis_line=1)
-draw_func_3d(r"f(x) = 1 !divide! x (3D)", lambda x: 1/x, x_range=(0.01, 6), y_range=(-3, 3), integral_range=(1, 4), func_label=True, add_caps=True)
+
+draw_func_3d(r"f(x) = (x+1) !divide! x (3D)", lambda x: (x+1)/x, func2=lambda x: 1, x_range=(0.01, 6), y_range=(-3, 3), integral_range=(1, 4), func_label=True, add_caps=True, surface_type="between", colour_matches_surface_type="func1", auto_open=True)
+draw_func_3d(r"f(x) = (x+1) !divide! x (3D - om y=1)", lambda x: (x+1)/x, func2=lambda x: 1, x_range=(0.01, 6), y_range=(-3, 3), integral_range=(1, 4), func_label=True, add_caps=True, rot_x_axis_line=1, surface_type="between", letter="L₂", auto_open=True)
+draw_func_3d(r"f(x) = 1 !divide! x (3D)", lambda x: 1/x, x_range=(0.01, 6), y_range=(-3, 3), integral_range=(1, 4), func_label=True, add_caps=True, letter="L₂", colour_matches_surface_type="between", auto_open=True)
+
+# draw_func_3d("Opp tussen twee functies wentelen om x-as", lambda x: sp.sin(x) + 3, func2=lambda x: -sp.sin(x) + 3, x_range=(-0.5, np.pi), y_range=(-6, 6), integral_range="intersect", func_label=True, auto_open=True, surface_type='between')
+# draw_func_3d("Opp tussen twee functies wentelen om x-as (Inhoud 1)", lambda x: sp.sin(x) + 3, func2=lambda x: -sp.sin(x) + 3, x_range=(-0.5, np.pi), y_range=(-6, 6), integral_range="intersect", func_label=True, auto_open=True, surface_type='func1', letter="I")
+# draw_func_3d("Opp tussen twee functies wentelen om x-as (Inhoud 2)", lambda x: sp.sin(x) + 3, func2=lambda x: -sp.sin(x) + 3, x_range=(-0.5, np.pi), y_range=(-6, 6), integral_range="intersect", func_label=True, auto_open=True, surface_type='func2', letter="II")

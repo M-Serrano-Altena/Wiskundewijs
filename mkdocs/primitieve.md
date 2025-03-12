@@ -1322,7 +1322,7 @@ In Figuur 1 hebben we de twee functies geplot met het vlakdeel $V$ dat tussen de
 <center><span><i>Figuur 1. Grafiek geplot met de functies $f(x) = 6 - x^2$ en $g(x) = x + 4$. Vlakdeel $V$ ligt tussen de twee functies in.</i></span></center> <br><br>
 
 
-De oppervlakte van $V$ kunnen we bepalen door de oppervlakte onder $f(x)$ en de oppervlakte onder $g(x)$ te gebruiken. Laten we deze twee oppervlaktes tekenen:
+De oppervlakte van $V$ kunnen we bepalen door de oppervlakte onder $f(x)$ en de oppervlakte onder $g(x)$ te gebruiken. Laten we naar deze twee oppervlaktes kijken:
 
 <figure>
     <img src="/assets/images/primitieven/f(x) = 6 - x^2; g(x) = x + 4 (Opp I).svg" 
@@ -1336,13 +1336,15 @@ De oppervlakte van $V$ kunnen we bepalen door de oppervlakte onder $f(x)$ en de 
 </figure>
 <center><span><i>Figuur 2. Grafiek geplot met de functies $f(x) = 6 - x^2$ en $g(x) = x + 4$. Vlakdeel $I$ is de oppervlakte onder $f(x)$, vlakdeel $II$ is de oppervlakte onder $g(x)$.</i></span></center> <br><br>
 
-In Figuur 2 kunnen we zien dat vlakdeel $I$ heel erg lijkt op vlakdeel $II$. Het enige verschil is dat vlakdeel $I$ het stuk tussen $f(x)$ en $g(x)$ extra heeft. Het gedeelte dat vlakdeel $I$ dus groter maakt dan vlakdeel $II$ is de oppervlakte tussen $f(x)$ en $g(x)$. En dat is precies het vlakdeel $V$ dat we willen berekenen.
+In Figuur 2 kunnen we zien dat vlakdeel $I$ heel erg lijkt op vlakdeel $II$. Het enige verschil is dat vlakdeel $I$ het stuk tussen $f(x)$ en $g(x)$ extra heeft. 
+
+Het gedeelte dat vlakdeel $I$ dus groter maakt dan vlakdeel $II$, is de oppervlakte tussen $f(x)$ en $g(x)$. En dat is precies het vlakdeel $V$ dat we willen berekenen.
 
 Dus als we $V$ willen bepalen, moeten we kijken naar het verschil tussen $I$ en $II$. We moeten dus de oppervlaktes min elkaar doen:
 
 $$V = I - II$$
 
-En deze oppervlaktes kunnen we gewoon bepalen door te integreren. We zien in Figuur 2 dat beide oppervlaktes dezelfde grenzen hebben, namelijk de snijpunten tussen de twee functies. We kunnen aflezen dat dit de punten $x=-2$ en $x=1$ zijn. De integralen worden dan:
+En deze oppervlaktes kunnen we gewoon bepalen door te integreren. We zien in Figuur 2 dat beide oppervlaktes dezelfde grenzen hebben, namelijk de snijpunten tussen de twee functies. We kunnen aflezen dat dit de punten $x=-2$ en $x=1$ zijn. De integralen worden dan dus:
 
 $$I = \int_{-2}^1 f(x) \, dx$$
 
@@ -1562,8 +1564,8 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
     $$\large{\boxed{V = \int_a^b \left( \, f(x) - g(x) \, \right) \, dx}}$$
 
     Hierbij is $f(x)$ de bovenste functie en $g(x)$ de onderste functie.
-
-    (Dit geldt binnen het gebied van de oppervlakte, daarbuiten is $g(x)$ boven $f(x)$ ).
+    
+    (Buiten het gebied van de oppervlakte kan $g(x)$ boven $f(x)$ liggen, maar dat maakt voor de integraal niet uit.)
 
 
 ??? note "Terugblik: Oppervlaktes onder de $x$-as"
@@ -1575,7 +1577,7 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
     $$\large{V = \int_a^b 0 - f(x) \, dx}$$
 
-    En hier kunnen we gewoon de $0$ weglaten:
+    En hier kunnen we de $0$ gewoon weglaten:
 
     $$\large{V = \int_a^b - f(x) \, dx}$$
 
@@ -1622,9 +1624,9 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
         
         $$\large{V = \int_a^b \left( \, f(x) - g(x) \, \right) \, dx}$$
 
-        In Figuur 4 verschuiven we de twee functies omhoog met een constante $c$. Stel we gaan er nu niet vanuit dat de verschoven functies dezelfde oppervlakte omsluiten. Laten we deze nieuwe oppervlakte $W$ noemen en dan kijken of dit hetzelfde is als de oppervlakte $V$ die we eerst hadden.
+        In Figuur 4 verschuiven we de twee functies omhoog met een constante $c$. Stel we gaan er nu niet vanuit dat de verschoven functies dezelfde oppervlakte omsluiten. Laten we deze nieuwe oppervlakte $W$ noemen en dan kijken of dit hetzelfde is als de oppervlakte $V$.
         
-        Onze nieuwe functies worden dus $f(x) + c$ en $g(x) + c:$
+        Onze nieuwe functies worden dus $f(x) + c \,$ en $\, g(x) + c:$
 
         $$\large{W = \int_a^b \left( \, (f(x) + c) - (g(x) + c) \, \right) \, dx}$$
 
@@ -2294,7 +2296,7 @@ En hiermee kunnen we ook gelijk de algemene integraal opschrijven om de oppervla
 
 ## **Oppervlakte wentelen om de x-as**
 
-We hebben in [net](#oppervlakte-onder-een-grafiek) gezien dat we de oppervlakte onder een grafiek kunnen bepalen met een integraal. We plotten weer een grafiek met daaronder een oppervlakte $V$.
+We hebben [net](#oppervlakte-onder-een-grafiek) gezien dat we de oppervlakte onder een grafiek kunnen bepalen met een integraal. We plotten weer een grafiek met daaronder een oppervlakte $V$.
 
 <figure>
     <img src="/assets/images/primitieven/Oppervlakte onder de grafiek - herhaling.svg" 
@@ -2352,11 +2354,11 @@ De inhoud van $1$ cilinder kunnen we bepalen met de formule:
 
 $$I(\text{cilinder}) = \pi r^2 \cdot \Delta x$$
 
-In dit geval is de straal de hoogte tot de functie, dus $f(x)$. En $\Delta x$ is de breedte van de cilinder. Dus net zoals bij de rechthoeken is $\Delta x$ voor alle cilinders hetzelfde en wordt steeds kleiner als we meer cilinders toevoegen. In ons geval geldt dus voor $1$ cilinder:
+In dit geval is de straal ($r$) de hoogte tot de functie, dus $f(x)$. En $\Delta x$ is de breedte van de cilinder. Dus net zoals bij de rechthoeken is $\Delta x$ voor alle cilinders hetzelfde en wordt steeds kleiner als we meer cilinders toevoegen. In ons geval geldt dus voor $1$ cilinder:
 
 $$I(\text{cilinder}) = \pi \left(f(x)\right)^2 \cdot \Delta x$$
 
-en voor alle cilinders bij elkaar kunnen we het net zoals bij de [oppervlakte](#oppervlakte-onder-een-grafiek) schrijven als:
+en als we de oppervlakte van alle cilinders bij elkaar doen, dan kunnen we het net zoals bij de [oppervlakte](#oppervlakte-onder-een-grafiek) schrijven als:
 
 $$I(\text{cilinders}) = \sum_{i=1}^{10} \pi \left(f(x_i)\right)^2 \cdot \Delta x$$
 
@@ -2378,7 +2380,7 @@ In Figuur 5 kunnen we zien dat het met $50$ cilinders al een stuk meer op lichaa
 
 Om dit te doen, laten we $\Delta x$ naar $0$ gaan zodat de cilinders oneindig dun worden. De inhoud van de cillinders wordt dan gelijk aan de inhoud van $L$:
 
-$$I(L) = \lim_{\Delta x \, \to \, 0} \ \sum_{i=1}^{n} \pi \left(f(x_i)\right)^2 \cdot \Delta x$$
+$$I(L) = \lim_{\Delta x \, \to \, 0} \ \sum_{i=1}^{\infty} \pi \left(f(x_i)\right)^2 \cdot \Delta x$$
 
 En dit kunnen we weer opschrijven als een integraal:
 
@@ -2433,11 +2435,11 @@ De oppervlakte $V$ ligt boven de $x$-as en wordt ingesloten door de $y$-as en $x
 
 $$I(L) = \pi \int_0^2 \left(2x^2\right)^2 \, dx$$
 
-Nu kunnen we het kwadraat uitwerken:
+En nu kunnen we nog het kwadraat uitwerken:
 
 $$I(L) = \pi \int_0^2 4x^4 \, dx$$
 
-Nu kunnen we dit integreren. Deze functie is in de vorm $f(x) = ax^n$, dus voor de primitieve moeten we de macht $+1$ doen en dan $1$ gedeeld door deze nieuwe macht ervoor zetten:
+En nu dat het kwadraat is uitgewerkt, kunnen we dit gaan integreren. Deze functie is van de vorm $f(x) = ax^n$, dus voor de primitieve moeten we de macht $+1$ doen en dan $1$ gedeeld door deze nieuwe macht ervoor zetten:
 
 $$I(L) = \pi \left[ \dfrac{1}{5} \cdot 4x^5 \right]_0^2$$
 
@@ -2921,7 +2923,7 @@ Ons eindantwoord wordt dan:
 
     **<span style="font-size: 17px;">b)</span>**
 
-    We moeten dus de inhoud berekenen van $V$ gewenteld om de lijn $y=1$. $laten we eerst weer een schets maken van ons nieuwe omwentelingslichaam $L_2:$
+    We moeten dus de inhoud berekenen van $V$ gewenteld om de lijn $y=1$. Laten we eerst weer een schets maken van ons nieuwe omwentelingslichaam $L_2:$
 
     <center>
         <a href="/assets/interactive_images/f(x) = (x+1) !divide! x (3D - om y=1).html" target="_blank">
@@ -2932,7 +2934,7 @@ Ons eindantwoord wordt dan:
                  loading="lazy">
         </a>
         <br>
-        *<span>Figuur 5. Oppervlakte $V$ gewenteld om de lijn $y=1$ om lichaam $L_2$ te maken. (Klik voor <a href="/assets/interactive_images/f(x) = (x+1) !divide! x (3D - om y=1).html.html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
+        *<span>Figuur 5. Oppervlakte $V$ gewenteld om de lijn $y=1$ om lichaam $L_2$ te maken. (Klik voor <a href="/assets/interactive_images/f(x) = (x+1) !divide! x (3D - om y=1).html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
     </center>
 
     Om de inhoud van $L_2$ te bepalen, kunnen we de het hele omwentelingslichaam met $1$ omlaag schuiven:
@@ -2946,7 +2948,7 @@ Ons eindantwoord wordt dan:
                  loading="lazy">
         </a>
         <br>
-        *<span>Figuur 6. Omwentelingslichaam $L_2$ met $1$ omlaag verschoven. (Klik voor <a href="/assets/interactive_images/f(x) = (x+1) !divide! x (3D - om y=1).html.html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
+        *<span>Figuur 6. Omwentelingslichaam $L_2$ met $1$ omlaag verschoven. (Klik voor <a href="/assets/interactive_images/f(x) = (x+1) !divide! x (3D - om y=1).html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
     </center>
 
     We zien in Figuur 6 dat als we het $L_2$ met $1$ naar beneden verschuiven, dat dan vanzelf $f(x)$ ook met $1$ mee naar beneden moet verschuiven. Onze nieuwe functie (aangegeven als $\widetilde{f}(x)$ ) wordt dus:
@@ -2984,10 +2986,44 @@ Ons eindantwoord wordt dan:
 
     
 
-
-
-
-
 <hr style="height: 1.5px; background-color: #575757; border: none;">
 
 ## **Omwentelingslichaam tussen twee grafieken**
+
+We zagen [eerder](#oppervlakte-tussen-twee-grafieken) dat we een oppervlakte tussen twee functies kunnen bereken door de oppervlakte van beide functies min elkaar te doen.
+
+<center>
+    <a href="/assets/interactive_images/Opp tussen twee functies wentelen om x-as.html" target="_blank">
+        <img src="/assets/images/primitieven/Opp tussen twee functies wentelen om x-as.png" 
+                alt="Omwentelingslichaam L" 
+                width="500" 
+                height="400" 
+                loading="lazy">
+    </a>
+    <br>
+    *<span>Figuur 1. Omwentelingslichaam $L_2$ met $1$ omlaag verschoven. (Klik voor <a href="/assets/interactive_images/Opp tussen twee functies wentelen om x-as.html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
+</center>
+
+<center>
+    <a href="/assets/interactive_images/Opp tussen twee functies wentelen om x-as (Inhoud 1).html" target="_blank">
+        <img src="/assets/images/primitieven/Opp tussen twee functies wentelen om x-as (Inhoud 1).png" 
+                alt="Omwentelingslichaam L" 
+                width="500" 
+                height="400" 
+                loading="lazy">
+    </a>
+    <br>
+    *<span>Figuur 1. Omwentelingslichaam $L_2$ met $1$ omlaag verschoven. (Klik voor <a href="/assets/interactive_images/Opp tussen twee functies wentelen om x-as (Inhoud 1).html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
+</center>
+
+<center>
+    <a href="/assets/interactive_images/Opp tussen twee functies wentelen om x-as (Inhoud 2).html" target="_blank">
+        <img src="/assets/images/primitieven/Opp tussen twee functies wentelen om x-as (Inhoud 2).png" 
+                alt="Omwentelingslichaam L" 
+                width="500" 
+                height="400" 
+                loading="lazy">
+    </a>
+    <br>
+    *<span>Figuur 1. Omwentelingslichaam $L_2$ met $1$ omlaag verschoven. (Klik voor <a href="/assets/interactive_images/Opp tussen twee functies wentelen om x-as (Inhoud 2).html" target="_blank">interactieve afbeelding</a>)</span>* <br><br>
+</center>
