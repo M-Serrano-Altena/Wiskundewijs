@@ -194,13 +194,13 @@ hide:
 
 ![Foto Marc Serrano Altena](assets/images/general/Marc_Serrano_Altena_photo.png){ width="200" align=right}
 
-Wiskunde kan soms **te snel** gaan en dat **niet alle stappen duidelijk** zijn. Het voelt dan alsof je het maar niet kan begrijpen, terwijl het voor anderen schijnbaar heel logisch is. En dit zorgt ervoor dat je slecht over jezelf voelt en zelfvertrouwen verliest. Je bent echt niet de enige. 
+Wiskunde kan soms **te snel** gaan waardoor **niet alle stappen duidelijk** zijn. Het voelt dan alsof je het maar niet kan begrijpen, terwijl het voor anderen schijnbaar heel logisch is. En dit zorgt ervoor dat je slecht over jezelf voelt en zelfvertrouwen verliest. Je bent echt niet de enige. 
 
 Dit is natuurlijk hartstikke vervelend, maar gelukkig hoeft dit niet zo te blijven. Met de online **een-op-een bijles** kunnen we samen jouw achterstanden inhalen en de stof uiteindelijk is een keer begrijpbaar maken. We nemen dan gewoon lekker de tijd zodat jij al je vragen kunt stellen.
 
 Je krijgt bovenop de bijlessen ook als bonus een aantal **stappenplannen**. Je hoeft dan alleen het stappenplan te volgen om te weten hoe je een opdracht moet aanpakken. En buiten de bijlessen zelf kun je mij altijd vragen stellen over het huiswerk. 
 
-<!-- De **eerste 5 leerlingen help ik volledig gratis**. En ik garandeer dat jouw kind voor de volgende toets **2 cijferpunten hoger** haalt dan zijn of haar gemiddelde. En anders dan blijf ik volledig gratis doorgaan met de bijles totdat het wel lukt. De eerste **drie plekken zijn al gevult**, dus ik help nu **nog maar 2 leerlingen gratis** voordat de prijs omhoog gaat.  -->
+<!-- De **eerste 5 leerlingen help ik volledig gratis**. En ik garandeer dat jouw kind voor de volgende toets **2 cijferpunten hoger** haalt dan zijn of haar gemiddelde. En anders dan blijf ik volledig gratis doorgaan met de bijles totdat het wel lukt. De eerste **drie plekken zijn al gevuld**, dus ik help nu **nog maar 2 leerlingen gratis** voordat de prijs omhoog gaat.  -->
 
 
 <!-- 
@@ -217,7 +217,7 @@ Met de In 6-Weken Twee-Punten-Hoger Training kan jij twee cijferpunten hoger hal
 
 **<p style="text-align: left;font-size:19px;">Waarom mijn wiskunde bijles?</p>**
 
-:fontawesome-solid-check:{ .green }  **Gemiddelde van 8.5** voor mijn studie Natuur- en Sterrenkunde.
+:fontawesome-solid-check:{ .green }  **Gemiddeld een 9** voor mijn studie Natuur- en Sterrenkunde.
 
 :fontawesome-solid-check:{ .green }  **Jaren ervaring als bijlesdocent**, ook tijdens mijn middelbare schooljaren.
 
@@ -225,4 +225,4 @@ Met de In 6-Weken Twee-Punten-Hoger Training kan jij twee cijferpunten hoger hal
 Maar je hoeft mij niet op mijn woord te geloven, bekijk <a href="https://www.google.com/search?client=ms-android-samsung-gs-rev1&sa=X&sca_esv=d9bb93ffaae04d80&sca_upv=1&tbm=lcl&q=Wiskundewijs+Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDcxNTU2tzS3NDY2MTAzMzQ1MNnAyPiKUSQ8szi7NC8ltTwzq1ghKLUsM7W8eBErVmEAwbjW4UkAAAA&rldimm=17455379793340661504&hl=en-NL&ved=2ahUKEwjV4c7P5raIAxW2_bsIHcQtDcUQ9fQKegQINRAF&biw=1536&bih=695&dpr=1.25#lkt=LocalPoiReviews" target="_blank" rel="noopener noreferrer">hier</a> wat andere mensen van de bijles vonden.
 
 <br>
-Ben je dus geinteresseerd? Vul dan je gegevens in zodat we samen wiskunde uiteindelijk begrijpbaar kunnen maken!
+Ben je dus geïnteresseerd? Vul dan je gegevens in zodat we samen wiskunde uiteindelijk begrijpbaar kunnen maken!

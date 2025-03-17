@@ -2,7 +2,7 @@ site_name: Wiskundewijs
 site_author: Marc Serrano Altena
 site_url: https://wiskundewijs.com/
 site_description: Hier worden verschillende wiskundige onderwerpen duidelijk en helder behandelt. De hoofdstukken hebben een theorie sectie waar de stof wordt uitgelegt en daarna worden wat voorbeelden behandelt om te laten zien hoe de theorie toegepast wordt in de opdrachten. 
-copyright: Copyright &copy; 2024, Marc Serrano Altena <br> <a href="#__consent" style="color:#B0B0B0"><i>Cookie instellingen</i></a>
+copyright: Copyright &copy; 2025, Marc Serrano Altena <br> <a href="#__consent" style="color:#B0B0B0"><i>Cookie instellingen</i></a>
 
 
 docs_dir: 'mkdocs'
@@ -42,7 +42,7 @@ extra:
       link: https://github.com/M-Serrano-Altena
 
     - icon: material/email-outline
-      link: mailto:<Marc.Serrano.Altena@gmail.com>
+      link: mailto:<marcsa@wiskundewijs.com>
 
   generator: false
 
@@ -125,7 +125,7 @@ markdown_extensions:
 
 extra_javascript:
   - javascripts/mathjax.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js
 
 extra_css:
   - stylesheets/extra.css

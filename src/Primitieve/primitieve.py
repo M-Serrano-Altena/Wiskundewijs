@@ -268,7 +268,7 @@ def draw_func(
 
 
     # calculate and plot integral
-    def plot_integral(main_color="springgreen", letter="V"):
+    def plot_integral(main_colour="springgreen", letter="V"):
         if kwargs.get('integral_range', False) is not False:
 
             if kwargs['integral_range'] == 'roots' or kwargs['integral_range'] == 'roots1':
@@ -320,26 +320,31 @@ def draw_func(
                 print(f"split at x = {x_split}")
 
 
+                split_colours = kwargs.get("split_colours", ("darkviolet", "darkorchid"))
+
                 if surface_type == "between" and func2 is not None:
-                    plt.fill_between(x, f_fill, f2_fill, where=[(x >= integral_range[0]) and (x <= x_split) for x in x], color="darkviolet", zorder=3, alpha=0.7)
-                    plt.fill_between(x, f_fill, f2_fill, where=[(x > x_split) and (x <= integral_range[1]) for x in x], color="darkorchid", zorder=3, alpha=0.7)
+                    plt.fill_between(x, f_fill, f2_fill, where=[(x >= integral_range[0]) and (x <= x_split) for x in x], color=split_colours[0], zorder=3, alpha=0.7)
+                    plt.fill_between(x, f_fill, f2_fill, where=[(x > x_split) and (x <= integral_range[1]) for x in x], color=split_colours[1], zorder=3, alpha=0.7)
                 
                 elif surface_type == "line" and line is not None:
-                    plt.fill_between(x, f_line_fill, where=[(x >= integral_range[0]) and (x <= x_split) for x in x], color="darkviolet", zorder=3, alpha=0.7)
-                    plt.fill_between(x, f_line_fill, where=[(x > x_split) and (x <= integral_range[1]) for x in x], color="darkorchid", zorder=3, alpha=0.7)
+                    plt.fill_between(x, f_line_fill, where=[(x >= integral_range[0]) and (x <= x_split) for x in x], color=split_colours[0], zorder=3, alpha=0.7)
+                    plt.fill_between(x, f_line_fill, where=[(x > x_split) and (x <= integral_range[1]) for x in x], color=split_colours[1], zorder=3, alpha=0.7)
 
                 else:
-                    plt.fill_between(x, f_fill, where=[(x >= integral_range[0]) and (x <= x_split) for x in x], color=main_color, zorder=3, alpha=0.7)
-                    plt.fill_between(x, f_fill, where=[(x > x_split) and (x <= integral_range[1]) for x in x], color="mediumspringgreen", zorder=3, alpha=0.7)
+                    split_colours = kwargs.get("split_colours", (main_colour, "mediumspringgreen"))
+                    plt.fill_between(x, f_fill, where=[(x >= integral_range[0]) and (x <= x_split) for x in x], color=split_colours[0], zorder=3, alpha=0.7)
+                    plt.fill_between(x, f_fill, where=[(x > x_split) and (x <= integral_range[1]) for x in x], color=split_colours[1], zorder=3, alpha=0.7)
 
 
                 if func2 is not None:
-                    p_line_color = "springgreen"
+                    p_line_colour = "springgreen"
                 else:
-                    p_line_color = "firebrick"
+                    p_line_colour = "firebrick"
+
+                p_line_colour = kwargs.get("p_line_colour", p_line_colour)
 
                 if kwargs.get("split_line", True):
-                    plt.vlines(x=x_split, ymin=y_range[0], ymax=y_range[1], color=p_line_color, zorder=4, linestyle="--", label=r"$x=p$")
+                    plt.vlines(x=x_split, ymin=y_range[0], ymax=y_range[1], color=p_line_colour, zorder=4, linestyle="--", label=r"$x=p$")
 
 
                 if kwargs.get("split_numbered", False):
@@ -359,7 +364,7 @@ def draw_func(
 
 
             elif kwargs.get("riemann_amt", False):
-                plt.fill_between(x, f_fill, where=[(x >= integral_range[0]) and (x <= integral_range[1]) for x in x], color=main_color, zorder=3, alpha=0.7)
+                plt.fill_between(x, f_fill, where=[(x >= integral_range[0]) and (x <= integral_range[1]) for x in x], color=main_colour, zorder=3, alpha=0.7)
 
                 n = kwargs["riemann_amt"]
                 if type(n) == bool:
@@ -402,7 +407,7 @@ def draw_func(
                     plt.fill_between(x, f_line_fill, f2_fill, where=[(x >= integral_range[0]) and (x <= integral_range[1]) for x in x], color="goldenrod", zorder=3, alpha=0.7)
 
                 else:
-                    plt.fill_between(x, f_fill, where=[(x >= integral_range[0]) and (x <= integral_range[1]) for x in x], color=main_color, zorder=3, alpha=0.7)
+                    plt.fill_between(x, f_fill, where=[(x >= integral_range[0]) and (x <= integral_range[1]) for x in x], color=main_colour, zorder=3, alpha=0.7)
 
                 if kwargs.get('V_loc_label', False) is not False:
                     V_loc_label = kwargs['V_loc_label']
@@ -426,7 +431,7 @@ def draw_func(
                 if V_loc_label is not False:
                     kwargs["V_loc_label"] = V_loc_label[i]
 
-                plot_integral(main_color=colors[i], letter=letters[i])
+                plot_integral(main_colour=colors[i], letter=letters[i])
     
     else:
         plot_integral(letter=kwargs.get("letter", "V"))
@@ -695,6 +700,7 @@ def draw_func_3d(save_file: str, func: sp.Expr, x_range: tuple[int], y_range: tu
 
         # Compute function values and initialize y2 for a possible second function
         y = apply_func_to_array(func_np, x)
+        y_volume = apply_func_to_array(func_np, x_volume)
 
         # Create a meshgrid for 3D rotation (x along the volume and theta for the circular sweep)
         theta = np.linspace(0, 2 * np.pi, 100)
@@ -724,47 +730,121 @@ def draw_func_3d(save_file: str, func: sp.Expr, x_range: tuple[int], y_range: tu
 
             # Compute the surface between the two functions
             if surface_type == "between":
-                Z_diff = np.abs(apply_func_to_array(func_np, X) * np.sin(Theta) - Z2) + y2_volume
+                # calculate the top function in the integral range
+                top_function = "func1" if np.mean(y_volume) > np.mean(y2_volume) else "func2"
+                if top_function == "func1":
+                    Z_diff = np.abs(apply_func_to_array(func_np, X) * np.sin(Theta) - Z2) + y2_volume
+                else:
+                    Z_diff = np.abs(apply_func_to_array(func2_np, X) * np.sin(Theta) - Z) + y_volume
             
             # Compute the surface below the second function
             elif surface_type == "func2":
-                Z_diff = Z2
+                Z_diff = np.abs(Z2)
 
-        # Create the base surface plot of the original function
-        surface_2D = go.Surface(
-            x=X, 
-            y=np.full_like(X, 0), 
-            z=Z_diff, 
-            colorscale=[[0, colour_2D_surface], [1, colour_2D_surface]], 
-            opacity=0.6, 
-            showscale=False, 
-            contours=dict(x=dict(highlight=False), y=dict(highlight=False), z=dict(highlight=False)), 
-            hoverinfo='skip'
-        )
+        # compute surfaces that are split at a certain x value
+        x_split = kwargs.get("x_split", None)
+        if x_split is not None:
+            split_rotation_colours = kwargs.get("split_rotation_colours", ("darkviolet", "blue"))
+            split_2D_colours = kwargs.get("split_2D_colours", ("indigo", "mediumblue"))
 
-        # Create the 3D surface of the function after rotation
-        surface_rotation = go.Surface(
-            x=X, 
-            y=Y, 
-            z=Z + rot_x_axis_line, 
-            colorscale=[[0, colour_rotation_surface], [1, colour_rotation_surface]], 
-            opacity=0.6, 
-            showscale=False, 
-            contours=dict(x=dict(highlight=not riemann), y=dict(highlight=False), z=dict(highlight=False)), 
-            hovertemplate=f"Lichaam {letter}<extra></extra>" if not riemann else None, 
-            hoverinfo=None if not riemann else 'none'
-        )
 
-        # Combine the surfaces for visualization
-        surface_combined = [surface_2D, surface_rotation]
-        
-        # If a second function (func2) is provided and the rotation axis is at y=0,
-        # create a separate surface plot for func2's rotation.
-        if func2 is not None and rot_x_axis_line == 0:
-            surface_rotation2 = go.Surface(
+            surface_2D_left = go.Surface(
+                x=np.where(X <= x_split, X, np.nan),
+                y=np.full_like(X, 0), 
+                z=np.where(X <= x_split, Z_diff, np.nan), 
+                colorscale=[[0, split_2D_colours[0]], [1, split_2D_colours[0]]], 
+                opacity=0.6, 
+                showscale=False, 
+                contours=dict(x=dict(highlight=False), y=dict(highlight=False), z=dict(highlight=False)), 
+                hoverinfo='skip'
+            )
+
+            surface_2D_right = go.Surface(
+                x=np.where(X >= x_split, X, np.nan),
+                y=np.full_like(X, 0), 
+                z=np.where(X >= x_split, Z_diff, np.nan), 
+                colorscale=[[0, split_2D_colours[1]], [1, split_2D_colours[1]]], 
+                opacity=0.6, 
+                showscale=False, 
+                contours=dict(x=dict(highlight=False), y=dict(highlight=False), z=dict(highlight=False)), 
+                hoverinfo='skip'
+            )
+
+            surface_combined = [surface_2D_left, surface_2D_right]
+
+            if surface_type != "func2":
+                surface_rotation_left = go.Surface(
+                    x=np.where(X <= x_split, X, np.nan), 
+                    y=np.where(X <= x_split, Y, np.nan), 
+                    z=np.where(X <= x_split, Z, np.nan), 
+                    colorscale=[[0, split_rotation_colours[0]], [1, split_rotation_colours[0]]], 
+                    opacity=0.6, 
+                    showscale=False, 
+                    contours=dict(x=dict(highlight=False), y=dict(highlight=False), z=dict(highlight=False)), 
+                    hovertemplate=f"Lichaam {letter}₁<extra></extra>", 
+                    hoverinfo='none'
+                )
+
+                surface_rotation_right = go.Surface(
+                    x=np.where(X >= x_split, X, np.nan), 
+                    y=np.where(X >= x_split, Y, np.nan), 
+                    z=np.where(X >= x_split, Z, np.nan), 
+                    colorscale=[[0, split_rotation_colours[1]], [1, split_rotation_colours[1]]], 
+                    opacity=0.6, 
+                    showscale=False, 
+                    contours=dict(x=dict(highlight=False), y=dict(highlight=False), z=dict(highlight=False)), 
+                    hovertemplate=f"Lichaam {letter}₂<extra></extra>", 
+                    hoverinfo='none'
+                )
+
+                surface_combined.extend([surface_rotation_left, surface_rotation_right])
+
+            if func2 is not None and rot_x_axis_line == 0 and surface_type != "func1":
+                surface_rotation2_left = go.Surface(
+                    x=np.where(X <= x_split, X, np.nan), 
+                    y=np.where(X <= x_split, Y2, np.nan),  # Radial component for func2 along Y-axis
+                    z=np.where(X <= x_split, Z2, np.nan),  # Radial component for func2 along Z-axis
+                    colorscale=[[0, split_rotation_colours[0]], [1, split_rotation_colours[0]]], 
+                    opacity=0.6, 
+                    showscale=False, 
+                    contours=dict(x=dict(highlight=not riemann), y=dict(highlight=False), z=dict(highlight=False)), 
+                    hovertemplate=f"Lichaam {letter}₁<extra></extra>" if not riemann else None, 
+                    hoverinfo=None if not riemann else 'none'
+                )
+
+                surface_rotation2_right = go.Surface(
+                    x=np.where(X >= x_split, X, np.nan),
+                    y=np.where(X >= x_split, Y2, np.nan),  # Radial component for func2 along Y-axis
+                    z=np.where(X >= x_split, Z2, np.nan),  # Radial component for func2 along Z-axis
+                    colorscale=[[0, split_rotation_colours[1]], [1, split_rotation_colours[1]]], 
+                    opacity=0.6, 
+                    showscale=False, 
+                    contours=dict(x=dict(highlight=not riemann), y=dict(highlight=False), z=dict(highlight=False)), 
+                    hovertemplate=f"Lichaam {letter}₂<extra></extra>" if not riemann else None, 
+                    hoverinfo=None if not riemann else 'none'
+                )
+
+                surface_combined.extend([surface_rotation2_left, surface_rotation2_right])  # Add to the visualization
+
+
+        else:
+            # Create the base surface plot of the original function
+            surface_2D = go.Surface(
                 x=X, 
-                y=Y2, # Radial component for func2 along Y-axis
-                z=Z2, # Radial component for func2 along Z-axis
+                y=np.full_like(X, 0), 
+                z=Z_diff, 
+                colorscale=[[0, colour_2D_surface], [1, colour_2D_surface]], 
+                opacity=0.6, 
+                showscale=False, 
+                contours=dict(x=dict(highlight=False), y=dict(highlight=False), z=dict(highlight=False)), 
+                hoverinfo='skip'
+            )
+
+            # Create the 3D surface of the function after rotation
+            surface_rotation = go.Surface(
+                x=X, 
+                y=Y, 
+                z=Z + rot_x_axis_line, 
                 colorscale=[[0, colour_rotation_surface], [1, colour_rotation_surface]], 
                 opacity=0.6, 
                 showscale=False, 
@@ -772,14 +852,32 @@ def draw_func_3d(save_file: str, func: sp.Expr, x_range: tuple[int], y_range: tu
                 hovertemplate=f"Lichaam {letter}<extra></extra>" if not riemann else None, 
                 hoverinfo=None if not riemann else 'none'
             )
-            surface_combined.append(surface_rotation2) # Add to the visualization
 
-        # Remove the surfaces of the function you don't want to display
-        if len(surface_combined) == 3:
-            if surface_type == "func1":
-                surface_combined.pop()
-            elif surface_type == "func2":
-                surface_combined.pop(1)
+            # Combine the surfaces for visualization
+            surface_combined = [surface_2D, surface_rotation]
+            
+            # If a second function (func2) is provided and the rotation axis is at y=0,
+            # create a separate surface plot for func2's rotation.
+            if func2 is not None and rot_x_axis_line == 0:
+                surface_rotation2 = go.Surface(
+                    x=X, 
+                    y=Y2, # Radial component for func2 along Y-axis
+                    z=Z2, # Radial component for func2 along Z-axis
+                    colorscale=[[0, colour_rotation_surface], [1, colour_rotation_surface]], 
+                    opacity=0.6, 
+                    showscale=False, 
+                    contours=dict(x=dict(highlight=not riemann), y=dict(highlight=False), z=dict(highlight=False)), 
+                    hovertemplate=f"Lichaam {letter}<extra></extra>" if not riemann else None, 
+                    hoverinfo=None if not riemann else 'none'
+                )
+                surface_combined.append(surface_rotation2) # Add to the visualization
+
+            # Remove the surfaces of the function you don't want to display
+            if len(surface_combined) == 3:
+                if surface_type == "func1":
+                    surface_combined.pop()
+                elif surface_type == "func2":
+                    surface_combined.pop(1)
 
         if add_caps and not riemann:
             surface_combined = create_caps(surface_combined, x_start=x_volume[0], x_end=x_volume[-1])
@@ -822,8 +920,8 @@ def draw_func_3d(save_file: str, func: sp.Expr, x_range: tuple[int], y_range: tu
 
         # Define hover text for function line plot
         hover_template1 = '(%{x:.4f}, %{z:.4f})'+ f'<extra>f(x) = {func(x_symbol)}</extra>' if func_label else '(%{x:.4f}, %{z:.4f})' + f'<extra></extra>'
-
         line_functions = []
+
 
         # Create the function's curve in 3D space
         line_function = go.Scatter3d(
@@ -851,6 +949,29 @@ def draw_func_3d(save_file: str, func: sp.Expr, x_range: tuple[int], y_range: tu
                 hovertemplate=hover_template2
             )
             line_functions.append(line_function_2)
+
+        if x_split is not None:
+            if func2 is not None:
+                p_line_colour = "springgreen"
+            else:
+                p_line_colour = "firebrick"
+
+            p_line_colour = kwargs.get("p_line_colour", p_line_colour)
+            hover_template_p_line = '(%{x:.4f}, %{z:.4f})'+ f'<extra>x = p</extra>'
+
+
+            if kwargs.get("split_line", True):
+                p_line_vertical = go.Scatter3d(
+                    x=np.full_like(x, x_split),
+                    y=np.zeros_like(x), 
+                    z=y, 
+                    mode='lines', 
+                    line=dict(color=p_line_colour, width=5, dash="dash"), 
+                    name="$x=p$", 
+                    hovertemplate=hover_template_p_line
+                )
+                line_functions.append(p_line_vertical)
+
         
         # Create horizontal and vertical reference lines
         line_x_axis = go.Scatter3d(
@@ -872,6 +993,7 @@ def draw_func_3d(save_file: str, func: sp.Expr, x_range: tuple[int], y_range: tu
             showlegend=False, 
             hoverinfo='skip'
         )
+
 
         # Create the final 3D figure with all elements
         fig = go.Figure(data=[*surface_combined, *line_functions, line_x_axis, line_y_axis])
@@ -907,6 +1029,8 @@ def draw_func_3d(save_file: str, func: sp.Expr, x_range: tuple[int], y_range: tu
             'displaylogo': False,
             'scrollZoom': True,
         }
+
+        save_file = replace_superscript(save_file).replace('÷', '!divide!')
 
         if save_file.endswith('.html'):
             save_file_html = save_file
@@ -1026,10 +1150,36 @@ def draw_func_3d(save_file: str, func: sp.Expr, x_range: tuple[int], y_range: tu
 # draw_func_3d("f(x) = sin(x) + cos(x) (3D)", lambda x: sp.sin(x) + sp.cos(x), x_range=(-1, 3), y_range=(-2, 2), integral_range=(0, 3*np.pi/4), func_label=True, add_caps=True)
 # draw_func_3d("f(x) = sqrt(2x - 8) (3D)", lambda x: sp.sqrt(2*x - 8), x_range=(-1, 12), y_range=(-4, 4), integral_range=(4, 10), func_label=True, add_caps=True)
 
-draw_func_3d(r"f(x) = (x+1) !divide! x (3D)", lambda x: (x+1)/x, func2=lambda x: 1, x_range=(0.01, 6), y_range=(-3, 3), integral_range=(1, 4), func_label=True, add_caps=True, surface_type="between", colour_matches_surface_type="func1", auto_open=True)
-draw_func_3d(r"f(x) = (x+1) !divide! x (3D - om y=1)", lambda x: (x+1)/x, func2=lambda x: 1, x_range=(0.01, 6), y_range=(-3, 3), integral_range=(1, 4), func_label=True, add_caps=True, rot_x_axis_line=1, surface_type="between", letter="L₂", auto_open=True)
-draw_func_3d(r"f(x) = 1 !divide! x (3D)", lambda x: 1/x, x_range=(0.01, 6), y_range=(-3, 3), integral_range=(1, 4), func_label=True, add_caps=True, letter="L₂", colour_matches_surface_type="between", auto_open=True)
+# draw_func_3d(r"f(x) = (x+1) !divide! x (3D)", lambda x: (x+1)/x, func2=lambda x: 1, x_range=(0.01, 6), y_range=(-3, 3), integral_range=(1, 4), func_label=True, add_caps=True, surface_type="between", colour_matches_surface_type="func1", auto_open=True)
+# draw_func_3d(r"f(x) = (x+1) !divide! x (3D - om y=1)", lambda x: (x+1)/x, func2=lambda x: 1, x_range=(0.01, 6), y_range=(-3, 3), integral_range=(1, 4), func_label=True, add_caps=True, rot_x_axis_line=1, surface_type="between", letter="L₂", auto_open=True)
+# draw_func_3d(r"f(x) = 1 !divide! x (3D)", lambda x: 1/x, x_range=(0.01, 6), y_range=(-3, 3), integral_range=(1, 4), func_label=True, add_caps=True, letter="L₂", colour_matches_surface_type="between", auto_open=True)
 
-# draw_func_3d("Opp tussen twee functies wentelen om x-as", lambda x: sp.sin(x) + 3, func2=lambda x: -sp.sin(x) + 3, x_range=(-0.5, np.pi), y_range=(-6, 6), integral_range="intersect", func_label=True, auto_open=True, surface_type='between')
-# draw_func_3d("Opp tussen twee functies wentelen om x-as (Inhoud 1)", lambda x: sp.sin(x) + 3, func2=lambda x: -sp.sin(x) + 3, x_range=(-0.5, np.pi), y_range=(-6, 6), integral_range="intersect", func_label=True, auto_open=True, surface_type='func1', letter="I")
-# draw_func_3d("Opp tussen twee functies wentelen om x-as (Inhoud 2)", lambda x: sp.sin(x) + 3, func2=lambda x: -sp.sin(x) + 3, x_range=(-0.5, np.pi), y_range=(-6, 6), integral_range="intersect", func_label=True, auto_open=True, surface_type='func2', letter="II")
+# explanatory functions
+# draw_func(title="Opp tussen twee functies wentelen om x-as (2D)", func=lambda x: -x**2 + 3, func2=lambda x: x**2 + 1, x_range=(-2, 2), y_range=(-2, 5), root=False, intersect=True, integral_range='intersect', V_loc_label=(0.25, 1.8), func_label=True, surface_type='between', letter='V')
+# draw_func(title="Opp tussen twee functies wentelen om x-as (2D - opp I)", func=lambda x: -x**2 + 3, func2=lambda x: x**2 + 1, x_range=(-2, 2), y_range=(-2, 5), root=False, intersect=True, integral_range='intersect', V_loc_label=(-0.25, 1.8), func_label=True, surface_type='func1', letter='I')
+# draw_func(title="Opp tussen twee functies wentelen om x-as (2D - opp II)", func=lambda x: -x**2 + 3, func2=lambda x: x**2 + 1, x_range=(-2, 2), y_range=(-2, 5), root=False, intersect=True, integral_range='intersect', V_loc_label=(0.4, 0.5), func_label=True, surface_type='func2', letter='II')
+
+# draw_func_3d("Opp tussen twee functies wentelen om x-as", lambda x: -x**2 + 3, func2=lambda x: x**2 + 1, x_range=(-3, 3), y_range=(-3, 9), integral_range="intersect", func_label=True, auto_open=True, surface_type='between')
+# draw_func_3d("Opp tussen twee functies wentelen om x-as (Inhoud 1)", lambda x: -x**2 + 3, func2=lambda x: x**2 + 1, x_range=(-3, 3), y_range=(-3, 9), integral_range="intersect", func_label=True, auto_open=True, surface_type='func1', letter="L₁")
+# draw_func_3d("Opp tussen twee functies wentelen om x-as (Inhoud 2)", lambda x: -x**2 + 3, func2=lambda x: x**2 + 1, x_range=(-3, 3), y_range=(-3, 9), integral_range="intersect", func_label=True, auto_open=True, surface_type='func2', letter="L₂")
+
+# sin functions: volume between functions
+# draw_func_3d("f(x) = sin(x) + 3; g(x) = -sin(x) + 3", lambda x: sp.sin(x) + 3, func2=lambda x: -sp.sin(x) + 3, x_range=(-0.5, np.pi), y_range=(-6, 6), integral_range="intersect", func_label=True, auto_open=True, surface_type='between')
+# draw_func_3d("f(x) = sin(x) + 3; g(x) = -sin(x) + 3 (Inhoud 1)", lambda x: sp.sin(x) + 3, func2=lambda x: -sp.sin(x) + 3, x_range=(-0.5, np.pi), y_range=(-6, 6), integral_range="intersect", func_label=True, auto_open=True, surface_type='func1', letter="I")
+# draw_func_3d("f(x) = sin(x) + 3; g(x) = -sin(x) + 3 (Inhoud 2)", lambda x: sp.sin(x) + 3, func2=lambda x: -sp.sin(x) + 3, x_range=(-0.5, np.pi), y_range=(-6, 6), integral_range="intersect", func_label=True, auto_open=True, surface_type='func2', letter="II")
+
+# explanation under the x-axis
+# draw_func(title="f(x)= x² - 3; g(x) = -x² - 1", func=lambda x: -(-x**2 + 3), func2=lambda x: -(x**2 + 1), x_range=(-2, 2), y_range=(-5, 2), root=False, intersect=True, integral_range='intersect', V_loc_label=(0.25, -2), func_label=True, surface_type='between', letter='V_2')
+# draw_func_3d("f(x)= x^2 - 3; g(x) = -x^2 - 1 (Inhoud)", lambda x: x**2 - 3, func2=lambda x: -x**2 - 1, x_range=(-3, 3), y_range=(-5, 7), integral_range="intersect", func_label=True, auto_open=True, surface_type='between', letter="L₂")
+
+
+# draw_func_3d("f(x) = x + 3; g(x) = x^2 + 1", lambda x: x + 3, func2=lambda x: x**2 + 1, x_range=(-2, 4), y_range=(-6, 6), integral_range="intersect", func_label=True, surface_type='between', auto_open=True)
+
+# draw_func_3d("f(x) = e^(x - 5); g(x) = sqrt(2x)", lambda x: sp.exp(x - 5), func2=lambda x: sp.sqrt(2*x), x_range=(-2, 8), y_range=(-5, 5), integral_range=(1, 5), func_label=True, add_caps=True, surface_type='between', auto_open=True)
+
+# draw_func(title="f(x) = -cos(x) - 2; g(x) = cos(x) - 2", func=lambda x: -sp.cos(x) - 2, func2=lambda x: sp.cos(x) - 2, x_range=(-1, 6), y_range=(-4, 1), integral_range=(np.pi/2, 3*np.pi/2), func_label=True, V_loc_label=(3.1, -2), surface_type="between")
+# draw_func_3d("f(x) = -cos(x) - 2; g(x) = cos(x) - 2", lambda x: -sp.cos(x) - 2, func2=lambda x: sp.cos(x) - 2, x_range=(-1, 6), y_range=(-4, 4), integral_range=(np.pi/2, 3*np.pi/2), func_label=True, surface_type='between', auto_open=True)
+
+# draw_func_3d("f(x) = 6x - x³; g(x) = 2x", lambda x: 6*x - x**3, func2=lambda x: 2*x, x_range=(-2, 4), y_range=(-6, 6), integral_range=(0, 2), func_label=True, auto_open=True, surface_type='between')
+# draw_func(func=lambda x: 6*x - x**3, func2=lambda x: 2*x, title="f(x) = 6x - x³; g(x) = 2x (gesplitst - 2D)", x_range=(-2, 4), y_range=(-6, 6), root=False, intersect=True, integral_range=(0, 2), V_loc_label=(1.8, 2.8), func_label=True, surface_type='between', letter='V', no_ax=True, x_split=1.2180, split_numbered=True, split_colours=("mediumorchid", "darkmagenta"), split_loc=np.array(([0.9, 3.1], [1.4, 3.75])).astype(float))
+draw_func_3d("f(x) = 6x - x³; g(x) = 2x (gesplitst - 3D)", lambda x: 6*x - x**3, func2=lambda x: 2*x, x_range=(-2, 4), y_range=(-6, 6), integral_range=(0, 2), func_label=True, auto_open=True, surface_type='between', x_split=1.2180, p_line_colour="springgreen", split_rotation_colours=("plum", "darkorchid"), split_2D_colours=("blueviolet", "indigo"), split_line=True)
