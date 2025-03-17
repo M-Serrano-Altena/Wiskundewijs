@@ -3687,7 +3687,7 @@ Ons eindantwoord wordt dan uiteindelijk dus:
 
     $$\large{x = 0 \, \vee \, x = 2 \, \vee \, x = -2 }$$
 
-    (zie eventueel [oplossen vorm $x^2 = c$](#oplossen-vorm-x2-c))
+    (zie eventueel [oplossen vorm $x^2 = c$](kwadratische_vergelijkingen.md#oplossen-vorm-x2-c))
 
     De oplossingen op volgorde van klein naar groot zijn dus:
     

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("img").forEach(img => {
+        img.setAttribute("loading", "lazy");
+    });
+});
+</script>
+{% endblock %}

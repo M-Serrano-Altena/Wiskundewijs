@@ -23,6 +23,7 @@ theme:
   favicon: assets/images/general/calculator-variant.ico
 
   features:
+    - navigation.instant
     - navigation.footer
     - navigation.tabs
     - navigation.top
