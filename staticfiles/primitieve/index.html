@@ -71,6 +71,14 @@
     
     
     
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("img").forEach(img => {
+        img.setAttribute("loading", "lazy");
+    });
+});
+</script>
+
   </head>
   
   
@@ -3510,7 +3518,7 @@ Bij het eerste gedeelte van de oppervlakte is <span class="arithmatex">\(f(x)\)<
 <div class="arithmatex">\[\large{x = 0 \, \vee \, x^2 = 4 }\]</div>
 <p>De oplossingen hiervan zijn:</p>
 <div class="arithmatex">\[\large{x = 0 \, \vee \, x = 2 \, \vee \, x = -2 }\]</div>
-<p>(zie eventueel <a href="#oplossen-vorm-x2-c">oplossen vorm <span class="arithmatex">\(x^2 = c\)</span></a>)</p>
+<p>(zie eventueel <a href="../kwadratische_vergelijkingen/#oplossen-vorm-x2-c">oplossen vorm <span class="arithmatex">\(x^2 = c\)</span></a>)</p>
 <p>De oplossingen op volgorde van klein naar groot zijn dus:</p>
 <div class="arithmatex">\[\large{x = -2, \, x=0, \, x=2}\]</div>
 <p>En als we naar Figuur 5 kijken, dan zien we dat <span class="arithmatex">\(V\)</span> ingesloten wordt door de oorsprong en het snijpunt rechts daarvan. Oftewel door het punt <span class="arithmatex">\(x=0\)</span> en het punt <span class="arithmatex">\(x=2\)</span>.</p>
@@ -3778,7 +3786,7 @@ Bij het eerste gedeelte van de oppervlakte is <span class="arithmatex">\(f(x)\)<
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
     
     
       <script src="../assets/javascripts/bundle.6c14ae12.min.js"></script>
