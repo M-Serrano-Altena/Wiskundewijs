@@ -1,0 +1,1491 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Hier worden verschillende wiskundige onderwerpen duidelijk en helder behandelt. De hoofdstukken hebben een theorie sectie waar de stof wordt uitgelegt en daarna worden wat voorbeelden behandelt om te laten zien hoe de theorie toegepast wordt in de opdrachten.">
+      
+      
+        <meta name="author" content="Marc Serrano Altena">
+      
+      
+        <link rel="canonical" href="https://wiskundewijs.com/main_sections/primitieve/introductie_integralen/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/general/calculator-variant.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.4.10">
+    
+    
+      
+        <title>Introductie integralen - Wiskundewijs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-4JQXCEL3Q5"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-4JQXCEL3Q5",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-4JQXCEL3Q5",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("img").forEach(img => {
+        img.setAttribute("loading", "lazy");
+    });
+});
+</script>
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introductie-integralen" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Wiskundewijs" class="md-header__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+      
+  <img src="../../../assets/images/general/calculator-variant-outline.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wiskundewijs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introductie integralen
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../basisvaardigheden/" class="md-tabs__link">
+          
+  
+  Stof
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../oplosser/" class="md-tabs__link">
+        
+  
+    
+  
+  Oplosser
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../bijles/" class="md-tabs__link">
+        
+  
+    
+  
+  Bijles
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Wiskundewijs" class="md-nav__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+      
+  <img src="../../../assets/images/general/calculator-variant-outline.svg" alt="logo">
+
+    </a>
+    Wiskundewijs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Stof
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Stof
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basisvaardigheden/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basisvaardigheden
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../percentages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percentages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistiek/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistiek
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pythagoras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Stelling van Pythagoras
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kwadratische_vergelijkingen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kwadratische Vergelijkingen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ongelijkheden/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ongelijkheden
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stelsels_van_vergelijkingen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stelsels van Vergelijkingen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../afgeleide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Afgeleide Functie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../primitieve/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Primitieve Functie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../goniometrie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Goniometrie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../oplosser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Oplosser
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bijles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bijles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introductie-integralen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introductie Integralen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introductie Integralen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oppervlakte-onder-een-grafiek" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oppervlakte onder een grafiek
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integralen-uitwerken" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integralen Uitwerken
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integralen Uitwerken">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algemene-vorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algemene Vorm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oppervlaktes-onder-de-x-as" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oppervlaktes onder de x-as
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deel-boven-en-deel-onder-de-x-as" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deel boven en deel onder de x-as
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deel boven en deel onder de x-as">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algemeen-deel-boven-deel-onder-x-as" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algemeen deel boven deel onder x-as
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Introductie integralen</h1>
+
+<h2 id="introductie-integralen"><strong>Introductie Integralen</strong></h2>
+<p>We kunnen <em>integralen</em> gebruiken om een oppervlakte onder een grafiek te bepalen. Maar hoe werkt het en hoe lossen we zo'n integraal op?</p>
+<h3 id="oppervlakte-onder-een-grafiek"><strong>Oppervlakte onder een grafiek</strong></h3>
+<p>Stel we willen de oppervlakte <span class="arithmatex">\(V\)</span> bepalen onder deze grafiek, hoe doen we dat?</p>
+<figure>
+    <img src="/assets/images/primitieven/Oppervlakte onder de grafiek.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<p><center><span><i>Figuur 1. Functie geplot met oppervlakte <span class="arithmatex">\(V\)</span> onder de grafiek.</i></span></center> <br><br></p>
+<p>Deze oppervlakte heeft een lastige vorm, dus we kunnen het niet zomaar bepalen door lengte keer breedte te gebruiken... Of toch wel? </p>
+<p>Als we deze oppervlakte <span class="arithmatex">\(V\)</span> indelen in allemaal kleine rechthoeken, dan kunnen we de oppervlaktes van alle rechthoekjes bij elkaar optellen. En deze totale oppervlakte is dan hetzelfde als de oppervlakte <span class="arithmatex">\(V\)</span>.</p>
+<figure>
+    <img src="/assets/images/primitieven/Oppervlakte onder de grafiek (met 10 rechthoeken).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<p><center><span><i>Figuur 2. Functie geplot met <span class="arithmatex">\(10\)</span> rechthoeken onder de grafiek. De breedte van de rechthoeken is <span class="arithmatex">\(\Delta x\)</span>. De hoogte is de waarde van de functie bij de <span class="arithmatex">\(x\)</span> waar de rechthoek begint.</i></span></center> <br><br></p>
+<p>De oppervlakte van één rechthoek kunnen we bepalen door lengte keer breedte te doen. De breedte van alle rechthoeken is hetzelfde, dus die noemen we <span class="arithmatex">\(\Delta x\)</span>. Maar de lengte (hier hoogte) is afhankelijk van welke rechthoek we naar kijken.</p>
+<p>Laten we bijvoorbeeld kijken naar het eerste rechthoekje. De hoogte van deze rechthoek is het <span class="arithmatex">\(y\)</span>-coördinaat van de functie bij het begin van deze rechthoek. Dus als de rechthoek begint bij <span class="arithmatex">\(x_1\)</span>, dan is de hoogte <span class="arithmatex">\(f(x_1)\)</span>. De oppervlakte van het eerste rechthoekje wordt dan dus:</p>
+<div class="arithmatex">\[\textrm{Opp rechthoek 1} = f(x_1) \cdot \Delta x\]</div>
+<p>En op dezelfde manier is de oppervlakte van rechthoek <span class="arithmatex">\(2\)</span>:</p>
+<div class="arithmatex">\[\textrm{Opp rechthoek 2} = f(x_2) \cdot \Delta x\]</div>
+<p>En zo kunnen we verder gaan voor de andere rechthoeken. De totale oppervlakte wordt dan:</p>
+<div class="arithmatex">\[\textrm{Opp alle rechthoeken} = f(x_1) \cdot \Delta x + f(x_2) \cdot \Delta x + f(x_3) \cdot \Delta x \ + \ ...\]</div>
+<p>Dit wordt een beetje een gedoe om helemaal uit te schrijven, dus we schrijven het iets korter op:</p>
+<div class="arithmatex">\[\textrm{Opp alle rechthoeken} = \sum_{i=1}^{10} f(x_i) \cdot \Delta x\]</div>
+<p>Hier is <span class="arithmatex">\(\sum\)</span> het sommatieteken. We zeggen hier dus eigenlijk "verander <span class="arithmatex">\(i\)</span> steeds van <span class="arithmatex">\(1\)</span> tot <span class="arithmatex">\(10\)</span> en tel al deze termen bij elkaar op".</p>
+<p>Het enige probleem is dat dit niet helemaal hetzelfde is als oppervlakte <span class="arithmatex">\(V\)</span> (zie Figuur 2). We hebben namelijk aan de bovenkant een paar stukjes van <span class="arithmatex">\(V\)</span> niet meegenomen. Het is dus alleen maar een <em>benadering</em>.</p>
+<p>Maar we kunnen de benadering wel beter maken door meer rechthoeken te gebruiken. Dit zijn er bijvoorbeeld <span class="arithmatex">\(100\)</span>: </p>
+<figure>
+    <img src="/assets/images/primitieven/Oppervlakte onder de grafiek (met 100 rechthoeken).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<p><center><span><i>Figuur 3. Functie geplot met <span class="arithmatex">\(100\)</span> rechthoeken onder de grafiek.</i></span></center> <br><br></p>
+<p>Dit is bijvoorbeeld al een stuk beter. Het is nog steeds niet precies hetzelfde als oppervlakte <span class="arithmatex">\(V\)</span>, maar we komen steeds meer in de buurt. We hebben nu dus:</p>
+<div class="arithmatex">\[\textrm{Opp alle rechthoeken} = \sum_{i=1}^{100} f(x_i) \cdot \Delta x\]</div>
+<p>Als we meer rechthoekjes gebruiken, wordt de breedte van elke rechthoek (<span class="arithmatex">\(\Delta x\)</span>) ook steeds kleiner. Dus als we deze breedte oneindig klein zouden kunnen maken, dan wordt onze benadering zó goed, dat het eigenlijk geen benadering meer is. </p>
+<p>We kunnen dus de oppervlakte van <span class="arithmatex">\(V\)</span> bepalen door oneindig veel rechthoeken te gebruiken. Om dit te doen, laten we de breedte <span class="arithmatex">\(\Delta x\)</span> naar <span class="arithmatex">\(0\)</span> gaan:</p>
+<div class="arithmatex">\[V = \lim_{\Delta x \ \to \ 0} \ \sum_{i=1}^{\infty} f(x_i) \cdot \Delta x\]</div>
+<p>En dit kunnen we ook noteren als:</p>
+<div class="arithmatex">\[V = \int_a^b f(x) \, dx\]</div>
+<p>We schrijven <span class="arithmatex">\(dx\)</span> in plaats van <span class="arithmatex">\(\Delta x\)</span> om aan te geven dat het om een oneindig kleine afstand gaat. <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> zijn hier de grenzen van het oppervlak. Dus <span class="arithmatex">\(a\)</span> is het <span class="arithmatex">\(x\)</span>-coördinaat van het begin van de oppervlakte, <span class="arithmatex">\(b\)</span> het <span class="arithmatex">\(x\)</span>-coördinaat van het einde van de oppervlakte. Voor oppervlakte <span class="arithmatex">\(V\)</span> van Figuur 1 zou dus gelden: <span class="arithmatex">\(a=9\)</span> en <span class="arithmatex">\(b=13\)</span>.</p>
+<p>Deze notatie noemen we een <em>integraal</em>. En het mooie van zo'n integraal is dat we nu niet meer de oppervlakte van elke rechthoek apart bij elkaar op hoeven te tellen. Met oneindig veel rechthoeken zou je namelijk een tijdje bezig zijn... </p>
+<hr />
+<h3 id="integralen-uitwerken"><strong>Integralen Uitwerken</strong></h3>
+<p>We kunnen een <em>integraal</em> uitwerken door de primitieve te gebruiken. Laten we hiernaar kijken met behulp van een voorbeeld. Stel we hebben bijvoorbeeld de volgende functie:</p>
+<div class="arithmatex">\[f(x) = 6x^2\]</div>
+<p>In Figuur 1 is deze functie geschetst met een oppervlakte <span class="arithmatex">\(V\)</span> onder deze grafiek. </p>
+<figure>
+    <img src="/assets/images/primitieven/f(x) = 6x^2.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<p><center><span><i>Figuur 4. De grafiek <span class="arithmatex">\(f(x) = 6x^2\)</span> geplot met oppervlakte <span class="arithmatex">\(V\)</span>. Deze oppervlakte onder de functie <span class="arithmatex">\(f(x)\)</span> gaat van <span class="arithmatex">\(x=0\)</span> tot <span class="arithmatex">\(x=1\)</span>.</i></span></center> <br><br></p>
+<p>Zoals we bij de sectie <a href="#oppervlakte-onder-een-grafiek">Oppervlakte onder een grafiek</a> hebben gezien, kunnen we de oppervlakte <span class="arithmatex">\(V\)</span> bepalen met een integraal. Een integraal heeft de volgende vorm:</p>
+<div class="arithmatex">\[V = \int_a^b f(x) \, dx,\]</div>
+<p>waarbij <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> de grenzen zijn van de oppervlakte. Dus in ons geval start de oppervlakte van <span class="arithmatex">\(V\)</span> bij <span class="arithmatex">\(x=0\)</span> en eindigt bij <span class="arithmatex">\(x=1\)</span>:</p>
+<div class="arithmatex">\[V = \int_0^1 f(x) \, dx\]</div>
+<p>Nu vullen we <span class="arithmatex">\(f(x)\)</span> ook in:</p>
+<div class="arithmatex">\[V = \int_0^1 6x^2 \, dx\]</div>
+<p>Nu moeten we de functie <em>integreren</em>. Dit is eigenlijk hetzelfde als primitiveren, alleen dan moeten we daarna nog de grenzen invullen:</p>
+<div class="arithmatex">\[V = \int_a^b f(x) \, dx = \left[ \, F(x) \, \vphantom{\frac{1}{2}} \right]_a^b = F(b) - F(a)\]</div>
+<p>Laten we dus eerst de functie primitiveren. </p>
+<p>We hebben <span class="arithmatex">\(6x^2\)</span> als functie en dit is van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Om deze vorm te primitiveren, moeten we de macht <span class="arithmatex">\(+1\)</span> doen en dan <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor zetten. </p>
+<p>We hadden een macht van <span class="arithmatex">\(2\)</span>, dus dat wordt nu een <span class="arithmatex">\(3\)</span>. En we zetten dan een factor <span class="arithmatex">\(\frac{1}{3}\)</span> ervoor:</p>
+<div class="arithmatex">\[F(x) = \dfrac{1}{3} \cdot 6 x^{3} + c\]</div>
+<p>Als we dit versimpelen, krijgen we:</p>
+<div class="arithmatex">\[F(x) = 2 x^{3} + c\]</div>
+<p>Onze integraal wordt dus:</p>
+<div class="arithmatex">\[V = \left[ \, 2x^3 + c \, \vphantom{\frac{1}{2}} \right]_0^1\]</div>
+<p>Nu moeten we de grenzen gaan invullen en min elkaar doen. We krijgen dan dus:</p>
+<div class="arithmatex">\[V = 2 \cdot 1^3  + c - \left( 2 \cdot 0^3 + c \right)\]</div>
+<div class="arithmatex">\[V = 2 + c - c\]</div>
+<p>We hebben <span class="arithmatex">\(c - c\)</span>, dus dat wordt gewoon <span class="arithmatex">\(0\)</span>:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{V = 2}\]</div>
+</div>
+<p><br></p>
+<p>De oppervlakte van <span class="arithmatex">\(V\)</span> is dus <span class="arithmatex">\(2\)</span>.</p>
+<p>Zoals we hier kunnen zien, doen we de <span class="arithmatex">\(c\)</span>'s min elkaar en vallen ze tegen elkaar weg. Dit is altijd het geval bij dit soort integralen met grenzen, dus hoeven we hier de <span class="arithmatex">\(+c\)</span> term niet op te schrijven. </p>
+<p>Dus:</p>
+<div class="arithmatex">\[V = \int_0^1 6x^2 \, dx\]</div>
+<p>wordt:</p>
+<div class="arithmatex">\[V = \left[ \, 2x^3 \, \vphantom{\frac{1}{2}}\right]_0^1 = 2 \cdot 1^3 - 2 \cdot 0^3 = 2\]</div>
+<details class="belangrijk" open="open">
+<summary>Belangrijk</summary>
+<h4 id="algemene-vorm"><strong><span style="font-size: 18px;">Algemene Vorm</span></strong></h4>
+<p>Een integraal los je op door de primitieve te bepalen en daarna de grenzen in te vullen: </p>
+<div class="arithmatex">\[\large{V = \int_a^b f(x) \, dx = \left[ \, F(x) \, \vphantom{\frac{1}{2}}\right]_a^b = F(b) - F(a)}\]</div>
+<p>Hier zijn <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> de grenzen van de integraal. Dus bij een oppervlakte is <span class="arithmatex">\(a\)</span> de linkergrens van de oppervlakte, en <span class="arithmatex">\(b\)</span> de rechtergrens.</p>
+</details>
+<details class="note">
+<summary>Bepaalde en Onbepaalde Integralen</summary>
+<p>We hebben net gekeken naar <em>bepaalde</em> integralen. Dit zijn integralen met grenzen, dus van de vorm:</p>
+<div class="arithmatex">\[\large{V = \int_a^b f(x) \, dx = \left[\, F(x) \, \vphantom{\frac{1}{2}} \right]_a^b = F(b) - F(a)}\]</div>
+<p><br></p>
+<p>We hebben ook <em>onbepaalde</em> integralen. Dit zijn integralen zonder grenzen. Dit lijkt misschien ingewikkeld, maar eigenlijk is het gewoon een andere manier om een primitieve op te schijven:</p>
+<div class="arithmatex">\[\large{\int f(x) \, dx = F(x)}\]</div>
+</details>
+<hr />
+<h3 id="oppervlaktes-onder-de-x-as"><strong>Oppervlaktes onder de x-as</strong></h3>
+<p>Als een oppervlakte onder de <span class="arithmatex">\(x\)</span>-as ligt, geeft dit een negatieve bijdrage aan een integraal. In het voorbeeld hierboven hebben we gezien dat de oppervlakte <span class="arithmatex">\(V\)</span> van Figuur 4 gelijk is aan <span class="arithmatex">\(2\)</span>:</p>
+<div class="arithmatex">\[V = \int_0^1 6x^2 \, dx = 2\]</div>
+<p>Maar stel dat we nu <span class="arithmatex">\(-6x\)</span> gebruiken in plaats van <span class="arithmatex">\(6x\)</span>. Wat komt er dan uit de integraal?</p>
+<div class="arithmatex">\[V_2 = \int_0^1 -6x^2 \, dx\]</div>
+<div class="arithmatex">\[V_2 = \left[ \, -2x^3 \, \vphantom{\frac{1}{2}} \right]_0^1\]</div>
+<div class="arithmatex">\[V_2 = -2 \cdot 1^3 - -2 \cdot 0^3\]</div>
+<div class="arithmatex">\[V_2 = -2\]</div>
+<p>Dus zoals we hier kunnen zien krijgen we precies dezelfde oppervlakte als bij <span class="arithmatex">\(6x\)</span>, alleen dan nu negatief. En als we deze functie tekenen, dan zien we ook dat het dezelfde oppervlakte is als bij Figuur 4. Alleen dan nu is de oppervlakte onder de <span class="arithmatex">\(x\)</span>-as:</p>
+<figure>
+    <img src="/assets/images/primitieven/f(x) = -6x^2.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<p><center><span><i>Figuur 5. De grafiek <span class="arithmatex">\(f(x) = -6x^2\)</span> geplot met oppervlakte <span class="arithmatex">\(V\)</span>. Deze oppervlakte onder de functie <span class="arithmatex">\(f(x)\)</span> gaat van <span class="arithmatex">\(x=0\)</span> tot <span class="arithmatex">\(x=1\)</span>.</i></span></center> <br><br></p>
+<p>Maar omdat een oppervlakte niet negatief kan zijn, voegen we een '<span class="arithmatex">\(-\)</span>' toe bij de integraal:</p>
+<div class="arithmatex">\[V_2 = - \int_0^1 -6x^2 \, dx\]</div>
+<p>Dit zorgt ervoor dat de minnen tegen elkaar wegvallen zodat de oppervlakte weer positief wordt.</p>
+<details class="belangrijk" open="open">
+<summary>Belangrijk</summary>
+<p><strong><span style="font-size: 18px;">Algemene vorm onder de x-as</span></strong></p>
+<p>Als we een oppervlakte onder de <span class="arithmatex">\(x\)</span>-as hebben, moeten we een '<span class="arithmatex">\(-\)</span>' toevoegen aan de integraal:</p>
+<div class="arithmatex">\[\large{V = - \int_a^b f(x) \, dx}\]</div>
+<p>Anders krijgen we namelijk een negatieve oppervlakte.</p>
+</details>
+<hr />
+<h3 id="deel-boven-en-deel-onder-de-x-as"><strong>Deel boven en deel onder de x-as</strong></h3>
+<p>Als zowel een deel van een oppervlakte boven de <span class="arithmatex">\(x\)</span>-as is als onder de <span class="arithmatex">\(x\)</span>-as, moeten we goed opletten. Want alleen het gedeelte onder de <span class="arithmatex">\(x\)</span>-as krijgt een extra '<span class="arithmatex">\(-\)</span>'. Dit betekent dat we de hele oppervlakte moeten splitsen in het deel boven de <span class="arithmatex">\(x\)</span>-as en het deel onder de <span class="arithmatex">\(x\)</span>-as.</p>
+<p>Laten we kijken naar de volgende functie:</p>
+<div class="arithmatex">\[f(x) = \sin(x)\]</div>
+<p>Stel dat we de totale oppervlakte willen bepalen van vlakdeel <span class="arithmatex">\(V\)</span> dat tussen <span class="arithmatex">\(x=-\pi\)</span> en <span class="arithmatex">\(x=\pi\)</span> ligt. Dit heeft een deel onder de <span class="arithmatex">\(x\)</span>-as ( <span class="arithmatex">\(I\)</span> ) en een deel boven de <span class="arithmatex">\(x\)</span>-as ( <span class="arithmatex">\(II\)</span> ):</p>
+<figure>
+    <img src="/assets/images/primitieven/f(x) = sin(x).svg" 
+            loading="lazy" 
+            width="500" 
+            alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<p><center><span><i>Figuur 6. De grafiek <span class="arithmatex">\(f(x) = \sin(x)\)</span> geplot met oppervlakte <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span>. Samen gaan deze oppervlaktes van <span class="arithmatex">\(x=-\pi\)</span> tot <span class="arithmatex">\(x=\pi\)</span>. Oppervlakte <span class="arithmatex">\(I\)</span> ligt onder de <span class="arithmatex">\(x\)</span>-as en oppervlakte <span class="arithmatex">\(II\)</span> ligt boven de <span class="arithmatex">\(x\)</span>-as.</i></span></center> <br><br></p>
+<p>Als we de totale oppervlakte willen berekenen, dan moeten we oppervlakte <span class="arithmatex">\(I\)</span> en oppervlakte <span class="arithmatex">\(II\)</span> apart berekenen. Want als we het als geheel proberen te integreren, dan krijgen we uit de integraal dat de totale oppervlakte <span class="arithmatex">\(0\)</span> is. En dit klopt natuurlijk niet. </p>
+<details class="abstract">
+<summary>Bewijs dat <span class="arithmatex">\(\int_{-\pi}^{\pi} \sin(x) \, dx\)</span> uitkomt op <span class="arithmatex">\(0\)</span></summary>
+<p>We kunnen dit zelf ook gewoon berekenen met de kennis die we nu hebben. De oppervlakte onder <span class="arithmatex">\(f(x) = \sin(x)\)</span> gaat van <span class="arithmatex">\(-\pi\)</span> tot <span class="arithmatex">\(\pi\)</span>. Onze integraal wordt dus:</p>
+<div class="arithmatex">\[\large{V = \int_{-\pi}^{\pi} \sin(x) \, dx}\]</div>
+<p>We kunnen in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> zien dat de primitieve van <span class="arithmatex">\(\sin(x)\)</span> is <span class="arithmatex">\(-\cos(x)\)</span>:</p>
+<div class="arithmatex">\[\large{V = \left[ \, -\cos(x) \, \vphantom{\frac{1}{2}}\right]_{-\pi}^{\pi}}\]</div>
+<p>Nu vullen we de grenzen in en doen ze min elkaar:</p>
+<div class="arithmatex">\[\large{V = -\cos(\pi) - -\cos(-\pi)}\]</div>
+<div class="arithmatex">\[\large{V = -\cos(\pi) + \cos(-\pi)}\]</div>
+<p>We weten dat zowel <span class="arithmatex">\(\cos(\pi)\)</span> als <span class="arithmatex">\(\cos(-\pi)\)</span> is <span class="arithmatex">\(-1\)</span>, dus:</p>
+<div class="arithmatex">\[\large{V = - -1 + -1}\]</div>
+<div class="arithmatex">\[\large{V = 1 - 1}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{V = 0}\]</div>
+</div>
+</details>
+<p><br></p>
+<p>We beginnen eerst met de oppervlakte van <span class="arithmatex">\(I\)</span> te bepalen. Deze oppervlakte gaat van <span class="arithmatex">\(x=-\pi\)</span> tot <span class="arithmatex">\(x=0\)</span> en is onder de <span class="arithmatex">\(x\)</span>-as. Onze integraal wordt dan dus:</p>
+<div class="arithmatex">\[I = - \int_{-\pi}^{0} \sin(x) \, dx\]</div>
+<p>Nu kunnen we de primitieve nemen. In de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> zien we dat de primitieve van <span class="arithmatex">\(\sin(x)\)</span> gelijk is aan <span class="arithmatex">\(-\cos(x)\)</span>:</p>
+<div class="arithmatex">\[I = -\left[ \, -\cos(x) \, \vphantom{\frac{1}{2}} \right]_{-\pi}^{0}\]</div>
+<p>Nu vullen we de grenzen in en doen ze min elkaar:</p>
+<div class="arithmatex">\[I = -\left( -\cos(0) - -\cos(-\pi) \right)\]</div>
+<div class="arithmatex">\[I = -\left( -\cos(0) + \cos(-\pi) \right)\]</div>
+<div class="arithmatex">\[I = \cos(0) - \cos(-\pi)\]</div>
+<p>Als we dit uitwerken, vinden we:</p>
+<div class="arithmatex">\[I = 1 - -1\]</div>
+<div class="arithmatex">\[\boxed{I = 2}\]</div>
+<p>En nu kunnen we hetzelfde doen voor oppervlakte <span class="arithmatex">\(II\)</span>. Deze oppervlakte gaat van <span class="arithmatex">\(x=0\)</span> tot <span class="arithmatex">\(x=\pi\)</span> en is boven de <span class="arithmatex">\(x\)</span>-as. We krijgen dan:</p>
+<div class="arithmatex">\[II = \int_{0}^{\pi} \sin(x) \, dx\]</div>
+<div class="arithmatex">\[II = \left[ \, -\cos(x) \, \vphantom{\frac{1}{2}} \right]_{0}^{\pi}\]</div>
+<div class="arithmatex">\[II = -\cos(\pi) - -\cos(0)\]</div>
+<div class="arithmatex">\[II = -\cos(\pi) + \cos(0)\]</div>
+<p>En als we dit uitwerken, krijgen we:</p>
+<div class="arithmatex">\[II = --1 + 1\]</div>
+<div class="arithmatex">\[\boxed{II = 2}\]</div>
+<p>En nu kunnen we uiteindelijk de totale oppervlakte <span class="arithmatex">\(V\)</span> bepalen door <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span> bij elkaar op te tellen:</p>
+<div class="arithmatex">\[V = I + II\]</div>
+<div class="arithmatex">\[V = 2 + 2\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{V = 4}\]</div>
+</div>
+<details class="belangrijk" open="open">
+<summary>Belangrijk</summary>
+<h4 id="algemeen-deel-boven-deel-onder-x-as"><strong><span style="font-size: 18px;">Algemeen deel boven deel onder x-as</span></strong></h4>
+<p>Als een gedeelte van de oppervlakte boven de <span class="arithmatex">\(x\)</span>-as is en een gedeelte onder de <span class="arithmatex">\(x\)</span>-as, moeten we de integraal opsplitsen. We berekenen beide oppervlaktes apart en tellen ze daarna pas bij elkaar op:</p>
+<div class="arithmatex">\[\large{V = \int_a^b f(x) \, dx \qquad \Longrightarrow \qquad V = \int_a^c f(x) \, dx \, + \int_c^b -f(x) \, dx}\]</div>
+<p>waarbij <span class="arithmatex">\(c\)</span> dus het snijpunt met de <span class="arithmatex">\(x\)</span>-as tussen <span class="arithmatex">\(a\)</span> en <span class="arithmatex">\(b\)</span> is. We krijgen bij de tweede integraal een '<span class="arithmatex">\(-\)</span>' omdat het <a href="#oppervlaktes-onder-de-x-as">onder de <span class="arithmatex">\(x\)</span>-as</a> ligt.</p>
+<p><figure>
+    <img src="/assets/images/primitieven/Functie met deel boven en deel onder de x-as.svg" 
+         loading="lazy" 
+         width="450" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 7. Voorbeeld van een functie met een deel boven de <span class="arithmatex">\(x\)</span>-as en een deel onder de <span class="arithmatex">\(x\)</span>-as.</i></span></center> <br><br></p>
+</details>
+<h3 id="voorbeelden"><strong>Voorbeelden</strong></h3>
+<details class="example">
+<summary>Voorbeeld 1: Los op <span class="arithmatex">\(I = \int_1^4 3x \, dx\)</span></summary>
+<p><strong><p style="text-align: center;font-size:20px;">Los op <span class="arithmatex">\(I = \int_1^4 3x \, dx\)</span></p></strong></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Om dit op te lossen moeten we eerst de functie <span class="arithmatex">\(3x\)</span> primitiveren. Deze functie is van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Om de primitieve van deze vorm te bepalen, doen we de macht <span class="arithmatex">\(+1\)</span> en zetten <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor. We gaan dus van een macht <span class="arithmatex">\(1\)</span> naar een <span class="arithmatex">\(2\)</span> en zetten een factor <span class="arithmatex">\(\frac{1}{2}\)</span> ervoor:</p>
+<div class="arithmatex">\[\large{I = \left[ \, \dfrac{1}{2} \cdot 3x^2 \, \right]_1^4}\]</div>
+<p>De integratieconstante <span class="arithmatex">\(c\)</span> mogen we weglaten omdat het toch wegvalt als we de grenzen invullen. Als we dit verder versimpelen, krijgen we:</p>
+<div class="arithmatex">\[\large{I = \left[ \, 1 \dfrac{1}{2} x^2 \, \right]_1^4}\]</div>
+<p>Nu kunnen we de grenzen gaan invullen en min elkaar doen:</p>
+<div class="arithmatex">\[\large{I = 1 \dfrac{1}{2} \cdot 4^2 - 1 \dfrac{1}{2} \cdot 1^2}\]</div>
+<p>En als we dit uitwerken, dan vinden we:</p>
+<div class="arithmatex">\[\large{I = 1 \dfrac{1}{2} \cdot 16 - 1 \dfrac{1}{2}}\]</div>
+<div class="arithmatex">\[\large{I = 24 - 1 \dfrac{1}{2}}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{I = 22 \dfrac{1}{2}}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 2: Los op <span class="arithmatex">\(I = \int_{-2}^{2} 2x^3 - 6x^2 + x - 3 \, dx\)</span></summary>
+<p><strong><p style="text-align: center;font-size:20px;">Los op <span class="arithmatex">\(I = \int_{-2}^{2} 2x^3 - 6x^2 + x - 3 \, dx\)</span></p></strong></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Om dit op te lossen moeten we eerst de functie primitiveren. </p>
+<ul>
+<li>
+<p>De eerste <span class="arithmatex">\(3\)</span> termen hebben de vorm <span class="arithmatex">\(f(x) = ax^n\)</span> (we weten namelijk dat <span class="arithmatex">\(x = x^1\)</span>). Dus daar doen we de macht <span class="arithmatex">\(+1\)</span> en zetten <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor. </p>
+</li>
+<li>
+<p>De laatste term is een los getal zonder <span class="arithmatex">\(x\)</span>, dus daar voegen we gewoon een <span class="arithmatex">\(x\)</span> toe.</p>
+</li>
+</ul>
+<p>We krijgen dus:</p>
+<div class="arithmatex">\[\large{I = \left[ \, \dfrac{1}{4} \cdot 2x^4 + \dfrac{1}{3} \cdot -6x^3 + \dfrac{1}{2} x^2 - 3x \, \right]_{-2}^{2}}\]</div>
+<p>Als we dit versimpelen, krijgen we:</p>
+<div class="arithmatex">\[\large{I = \left[ \, \dfrac{1}{2} x^4 - 2x^3 + \dfrac{1}{2} x^2 - 3x \, \right]_{-2}^{2}}\]</div>
+<p>Nu vullen we de grenzen in en doen ze min elkaar:</p>
+<div class="arithmatex">\[\large{I = \left( \dfrac{1}{2} \cdot 2^4  - 2 \cdot 2^3 + \dfrac{1}{2} \cdot 2^2 - 3 \cdot 2 \right) - \left( \dfrac{1}{2} \cdot (-2)^4 - 2 \cdot (-2)^3 + \dfrac{1}{2} \cdot (-2)^2 - 3 \cdot -2 \right)}\]</div>
+<p>En als we dit uitwerken, krijgen we:</p>
+<div class="arithmatex">\[\large{I = \left( \dfrac{1}{2} \cdot 16 - 2 \cdot 8 + \dfrac{1}{2} \cdot 4 - 6 \right) - \left( \dfrac{1}{2} \cdot 16 - 2 \cdot -8 + \dfrac{1}{2} \cdot 4 + 6 \right)}\]</div>
+<div class="arithmatex">\[\large{I = \left( 8 - 16 + 2 - 6 \right)- \left( 8 + 16 + 2 + 6 \right)}\]</div>
+<div class="arithmatex">\[\large{I = \left( -12 \right) - \left( 32 \right)}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{I = -44}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 3: Bereken de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> onder de functie <span class="arithmatex">\(f(x) = -x^2 + 2x + 3\)</span></summary>
+<p><em><p style="text-align: center;font-size:20px;">Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de functie <span class="arithmatex">\(f(x) = -x^2 + 2x + 3\)</span>, de <span class="arithmatex">\(x\)</span>-as en de <span class="arithmatex">\(y\)</span>-as.</p></em></p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;">a) Bereken de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span>.</span></strong></p>
+<p><strong><span style="font-size: 17px;">b) De lijn <span class="arithmatex">\(x=p\)</span> verdeelt <span class="arithmatex">\(V\)</span> in twee gelijke oppervlaktes. Bepaal <span class="arithmatex">\(p\)</span> op <span class="arithmatex">\(3\)</span> decimalen nauwkeurig.</span></strong></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;">a)</span></strong></p>
+<p>Laten we eerst een schets maken zodat we een beetje de situatie kunnen begrijpen:</p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = -x^2 + 2x + 3.svg" 
+         loading="lazy" 
+         width="450" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 1. De grafiek <span class="arithmatex">\(f(x) = -x^2 + 2x + 3\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door <span class="arithmatex">\(f(x)\)</span>, de <span class="arithmatex">\(x\)</span>-as en de <span class="arithmatex">\(y\)</span>-as.</i></span></center> <br><br></p>
+<p>Om de oppervlakte <span class="arithmatex">\(V\)</span> te bepalen, schrijven we eerst de <a href="#algemene-vorm">algemene vorm</a> van een integraal op:</p>
+<div class="arithmatex">\[\large{V = \int_a^b f(x) \, dx}\]</div>
+<p>Om dit op te lossen moeten we eerst de grenzen bepalen. We weten dat <span class="arithmatex">\(V\)</span> begint bij de <span class="arithmatex">\(y\)</span>-as, dus bij <span class="arithmatex">\(x=0.\)</span> Vlakdeel <span class="arithmatex">\(V\)</span> eindigt bij het rechter snijpunt met de <span class="arithmatex">\(x\)</span>-as, dus die moeten we eerst bepalen.</p>
+<p>De <a href="/kwadratische_vergelijkingen/#snijpunten-met-de-x-as">snijpunten met de <span class="arithmatex">\(x\)</span>-as</a> bepalen we door de volgende vergelijking op te lossen:</p>
+<div class="arithmatex">\[\large{f(x) = 0}\]</div>
+<p>Dus als we <span class="arithmatex">\(f(x)\)</span> invullen:</p>
+<div class="arithmatex">\[\large{-x^2 + 2x + 3 = 0}\]</div>
+<p>Om dit op te lossen, doen we eerst alles keer <span class="arithmatex">\(-1\)</span>:</p>
+<div class="arithmatex">\[\large{x^2 - 2x - 3 = 0}\]</div>
+<p>We kunnen dit nu oplossen door het te <a href="/kwadratische_vergelijkingen/#ontbinden-in-factoren">ontbinden in factoren</a>. We moeten dus twee getallen verzinnen die keer elkaar <span class="arithmatex">\(-3\)</span> zijn en plus elkaar <span class="arithmatex">\(-2\)</span>. </p>
+<p>Na een paar combinaties te proberen, vinden we de factoren <span class="arithmatex">\(-3\)</span> en <span class="arithmatex">\(1\)</span>. We krijgen dus:</p>
+<div class="arithmatex">\[\large{(x - 3)(x + 1) = 0}\]</div>
+<p>Hieruit volgt:</p>
+<div class="arithmatex">\[\large{x - 3 = 0 \ \vee \ x + 1 = 0}\]</div>
+<div class="arithmatex">\[\large{x = 3 \ \vee \ x = -1}\]</div>
+<p>We wilden het rechter snijpunt weten, dus we gebruiken het snijpunt <span class="arithmatex">\(x=3\)</span>. De grenzen van de integraal zijn dus <span class="arithmatex">\(a=0\)</span> en <span class="arithmatex">\(b=3\)</span>:</p>
+<div class="arithmatex">\[\large{V = \int_0^3 f(x) \, dx}\]</div>
+<p>Nu kunnen we <span class="arithmatex">\(f(x)\)</span> invullen:</p>
+<div class="arithmatex">\[\large{V = \int_0^3 -x^2 + 2x + 3 \, dx}\]</div>
+<p>Dit zijn allemaal termen plus elkaar, dus we kunnen gewoon alle losse termen apart integreren. </p>
+<ul>
+<li>
+<p>De eerste twee termen zijn van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>, want we kunnen <span class="arithmatex">\(2x\)</span> schrijven als <span class="arithmatex">\(2x^1\)</span>. Om deze vorm te primitiveren, doen we doen we de macht <span class="arithmatex">\(+1\)</span> en dan <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor. </p>
+</li>
+<li>
+<p>De laatste term is alleen een getal, dus daar plakken we gewoon een <span class="arithmatex">\(x\)</span> aan vast.</p>
+</li>
+</ul>
+<p>We krijgen dus:</p>
+<div class="arithmatex">\[\large{V = \left[ \, -\dfrac{1}{3}x^3 + \dfrac{1}{2} \cdot 2x^2 + 3x \, \right]_0^3}\]</div>
+<p>En als we dit versimpelen:</p>
+<div class="arithmatex">\[\large{V = \left[ \, -\dfrac{1}{3}x^3 + x^2 + 3x \, \right]_0^3}\]</div>
+<p>Nu kunnen we de grenzen invullen en min elkaar doen:</p>
+<div class="arithmatex">\[\large{V = \left( -\dfrac{1}{3} \cdot 3^3 + 3^2 + 3 \cdot 3 \right) - \left( -\dfrac{1}{3} \cdot 0^3 + 0^2 + 3 \cdot 0 \right)}\]</div>
+<p>Als we dit versimpelen, vinden we:</p>
+<div class="arithmatex">\[\large{V = \left( -\dfrac{1}{3} \cdot 27 + 9 + 9 \right) - (0)}\]</div>
+<div class="arithmatex">\[\large{V = -9 + 18}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{V = 9}\]</div>
+</div>
+<p><br><br></p>
+<p><strong><span style="font-size: 17px;">b)</span></strong></p>
+<p>We weten dat de lijn <span class="arithmatex">\(x=p\)</span> het vlakdeel <span class="arithmatex">\(V\)</span> verdeelt in twee gelijke oppervlaktes. Laten we dit weer schetsen zodat we de situatie beter kunnen begrijpen:</p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = -x^2 + 2x + 3 (gesplitst).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 2. De grafiek <span class="arithmatex">\(f(x) = -x^2 + 2x + 3\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span> verdeelt in <span class="arithmatex">\(2\)</span> gelijke delen. De twee delen worden gesplitst door de lijn <span class="arithmatex">\(x=p\)</span>.</i></span></center> <br><br></p>
+<p>We weten uit vraag a) dat de totale oppervlakte <span class="arithmatex">\(V=9\)</span> is, dus de oppervlakte van <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span> zijn beide <span class="arithmatex">\(4 \frac{1}{2}\)</span>:</p>
+<div class="arithmatex">\[\large{I = 4\dfrac{1}{2} = II}\]</div>
+<p>We kunnen oppervlakte <span class="arithmatex">\(I\)</span> ook schrijven als integraal:</p>
+<div class="arithmatex">\[\large{I = \int_0^p -x^2 + 2x + 3 \, dx}\]</div>
+<p>Oppervlakte <span class="arithmatex">\(I\)</span> gaat van <span class="arithmatex">\(0\)</span> tot <span class="arithmatex">\(p\)</span>, dus vandaar dat dat ook de grenzen in de integraal zijn. We gebruiken hier oppervlakte <span class="arithmatex">\(I\)</span> om <span class="arithmatex">\(p\)</span> te bepalen, maar we hadden ook oppervlakte <span class="arithmatex">\(II\)</span> kunnen gebruiken. Het enige verschil is dat de grenzen dan niet van <span class="arithmatex">\(0\)</span> tot <span class="arithmatex">\(p\)</span> zouden gaan, maar van <span class="arithmatex">\(p\)</span> tot <span class="arithmatex">\(3\)</span>. </p>
+<p>Omdat we net gezegd hebben dat <span class="arithmatex">\(I = 4 \dfrac{1}{2}\)</span>, krijgen we de volgende vergelijking:</p>
+<div class="arithmatex">\[\large{\int_0^p -x^2 + 2x + 3 \, dx = 4 \dfrac{1}{2}}\]</div>
+<p>We kunnen nu de functie integreren (zie eventueel weer vraag a) ):</p>
+<div class="arithmatex">\[\large{\left[ \, -\dfrac{1}{3} x^3 + x^2 + 3x \, \right]_0^p = 4 \dfrac{1}{2}}\]</div>
+<p>Nu vullen we de grenzen in en doen ze min elkaar:</p>
+<div class="arithmatex">\[\large{\left( -\dfrac{1}{3} p^3 + p^2 + 3p \right) - \left( -\dfrac{1}{3} 0^3 + 0^2 + 30 \right) = 4 \dfrac{1}{2}}\]</div>
+<div class="arithmatex">\[\large{-\dfrac{1}{3} p^3 + p^2 + 3p = 4 \dfrac{1}{2}}\]</div>
+<p>Dit is een vergelijking met een derdemacht, dus dit is lastig om met de hand op te lossen. Maar gelukkig stond er in de vraag geen algebraïsch of exact, dus mogen we het met onze grafische rekenmachine oplossen.</p>
+<p>We voeren in:</p>
+<div class="arithmatex">\[\large{\left\{ \begin{array}{ l l } y_1 = -\dfrac{1}{3} x^3 + x^2 + 3x  \\ y_2 = 4 \dfrac{1}{2} \end{array} \right.}\]</div>
+<p>De optie intersect geeft:</p>
+<div class="arithmatex">\[\large{\left\{ \begin{array}{ l l l } x_1 = -2.563913...  \\ x_2 = 1.209095... \\ x_3 = 4.354817... \end{array} \right.}\]</div>
+<p>We hebben hier <span class="arithmatex">\(3\)</span> oplossingen, maar welke van deze <span class="arithmatex">\(3\)</span> oplossingen is <span class="arithmatex">\(p\)</span>? </p>
+<p>We weten dat <span class="arithmatex">\(p\)</span> in het vlakdeel <span class="arithmatex">\(V\)</span> ligt, dus het moet een waarde tussen <span class="arithmatex">\(0\)</span> en <span class="arithmatex">\(3\)</span> zijn. Als we kijken naar de <span class="arithmatex">\(3\)</span> oplossingen, dan zien we dat alleen <span class="arithmatex">\(x_2\)</span> tussen <span class="arithmatex">\(0\)</span> en <span class="arithmatex">\(3\)</span> ligt. Oftewel:</p>
+<div class="arithmatex">\[\large{p = 1.209095...}\]</div>
+<p>We moesten afronden op <span class="arithmatex">\(3\)</span> decimalen, dus we krijgen als eindantwoord:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{p \approx 1.209}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 4: Bereken exact de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> onder de functie <span class="arithmatex">\(f(x) = \sqrt{x}\)</span></summary>
+<p><em><p style="text-align: center;font-size:20px;">Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de functie <span class="arithmatex">\(f(x) = \sqrt{x}\)</span>, de <span class="arithmatex">\(x\)</span>-as en de lijn <span class="arithmatex">\(x = p\)</span>, met <span class="arithmatex">\(p &gt; 1\)</span>. Vlakdeel <span class="arithmatex">\(W\)</span> wordt ingesloten door de grafiek van <span class="arithmatex">\(f(x)\)</span>, de <span class="arithmatex">\(x\)</span>-as, de lijn <span class="arithmatex">\(x=2\)</span> en de lijn <span class="arithmatex">\(x = 2p\)</span></p></em></p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;"> Bereken exact de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> als vlakdeel <span class="arithmatex">\(W\)</span> een factor <span class="arithmatex">\(\sqrt{2}\)</span> groter is dan <span class="arithmatex">\(V\)</span>.</span></strong></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p><br></p>
+<p>Als eerst is het handig om een schets te maken, zodat we beter kunnen begrijpen wat we moeten doen:</p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = sqrt(x).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 3. De grafiek <span class="arithmatex">\(f(x) = \sqrt{x}\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span> en <span class="arithmatex">\(W\)</span>. Vlakdeel <span class="arithmatex">\(W\)</span> is <span class="arithmatex">\(\sqrt{2}\)</span> keer groter dan vlakdeel <span class="arithmatex">\(V\)</span>.</i></span></center> <br><br></p>
+<p>Laten we eerst de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> uitdrukken in <span class="arithmatex">\(p\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen <span class="arithmatex">\(x=0\)</span> en <span class="arithmatex">\(x=p\)</span>:</p>
+<div class="arithmatex">\[\large{V = \int_0^p \sqrt{x} \, dx}\]</div>
+<p>Om dit op te lossen, willen we <span class="arithmatex">\(\sqrt{x}\)</span> eerst schrijven in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. We doen dit door de wortel te schrijven als een macht <span class="arithmatex">\(\frac{1}{2}\)</span>:</p>
+<div class="arithmatex">\[\large{V = \int_0^p x^{\frac{1}{2}} \, dx}\]</div>
+<p>Nu staat het in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span> en kunnen we het gaan integreren. We doen dan de macht <span class="arithmatex">\(+1\)</span> en zetten <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor:</p>
+<div class="arithmatex">\[\large{V = \left[ \, \dfrac{1}{1 \frac{1}{2}} \cdot x^{1\frac{1}{2}} \, \right]_0^p}\]</div>
+<p>En dit kunnen we versimpelen naar:</p>
+<div class="arithmatex">\[\large{V = \left[ \, \dfrac{2}{3} x^{1\frac{1}{2}} \, \right]_0^p}\]</div>
+<p>Nu vullen we de grenzen in:</p>
+<div class="arithmatex">\[\large{V = \dfrac{2}{3} p^{1\frac{1}{2}} - \dfrac{2}{3} \cdot 0^{1\frac{1}{2}}}\]</div>
+<div class="arithmatex">\[\large{\boxed{V = \dfrac{2}{3} p^{1\frac{1}{2}}}}\]</div>
+<p>Nu doen we hetzelfde met de oppervlakte van <span class="arithmatex">\(W\)</span>. Het is dezelfde functie, maar dan met andere grenzen. De grenzen gaan nu van <span class="arithmatex">\(x=2\)</span> tot <span class="arithmatex">\(x=2p\)</span>:</p>
+<div class="arithmatex">\[\large{W = \int_2^{2p} x^{\frac{1}{2}} \, dx}\]</div>
+<div class="arithmatex">\[\large{W = \left[ \, \dfrac{2}{3} x^{1\frac{1}{2}} \, \right]_2^{2p}}\]</div>
+<p>En nu vullen we weer de grenzen in:</p>
+<div class="arithmatex">\[\large{W = \dfrac{2}{3} (2p)^{1\frac{1}{2}} - \dfrac{2}{3} \cdot 2^{1\frac{1}{2}}}\]</div>
+<p>Als we dit versimpelen, krijgen we:</p>
+<div class="arithmatex">\[\large{\boxed{W = \dfrac{4\sqrt{2}}{3} p^{1\frac{1}{2}} - \dfrac{4\sqrt{2}}{3}}}\]</div>
+<p>Nu dat we <span class="arithmatex">\(V\)</span> en <span class="arithmatex">\(W\)</span> hebben uitgedrukt in <span class="arithmatex">\(p\)</span>, kunnen we een vergelijking opstellen. We weten namelijk dat:</p>
+<div class="arithmatex">\[\large{W = \sqrt{2} \cdot V}\]</div>
+<p>Nu kunnen we allebei de oppervlaktes invullen en de vergelijking oplossen om <span class="arithmatex">\(p\)</span> te vinden:</p>
+<div class="arithmatex">\[\large{\dfrac{4\sqrt{2}}{3} p^{1\frac{1}{2}} - \dfrac{4\sqrt{2}}{3} = \sqrt{2} \cdot \dfrac{2}{3} p^{1\frac{1}{2}}}\]</div>
+<div class="arithmatex">\[\large{\dfrac{4\sqrt{2}}{3} p^{1\frac{1}{2}} - \dfrac{4\sqrt{2}}{3} = \dfrac{2\sqrt{2}}{3} p^{1\frac{1}{2}}}\]</div>
+<p>Nu kunnen we de termen met <span class="arithmatex">\(p\)</span> aan de linkerkant zetten en het getal rechts:</p>
+<div class="arithmatex">\[\large{\dfrac{4\sqrt{2}}{3} p^{1\frac{1}{2}} - \dfrac{2\sqrt{2}}{3} p^{1\frac{1}{2}} = \dfrac{4\sqrt{2}}{3}}\]</div>
+<p>De ene term met <span class="arithmatex">\(p^{1 \frac{1}{2}}\)</span> heeft een factor <span class="arithmatex">\(\frac{4\sqrt{2}}{3}\)</span> en de andere heeft een factor <span class="arithmatex">\(\frac{2\sqrt{2}}{3}\)</span>. Het enige verschil is dus dat de ene een <span class="arithmatex">\(4\)</span> heeft en de andere een <span class="arithmatex">\(2\)</span>, dus we kunnen ze gewoon samenvoegen door <span class="arithmatex">\(4 - 2\)</span> te doen:</p>
+<div class="arithmatex">\[\large{\dfrac{2\sqrt{2}}{3} p^{1\frac{1}{2}} = \dfrac{4\sqrt{2}}{3}}\]</div>
+<p>Nu delen we beide kanten door <span class="arithmatex">\(\frac{2\sqrt{2}}{3}\)</span>:</p>
+<div class="arithmatex">\[\large{p^{1\frac{1}{2}} = 2}\]</div>
+<p>We kunnen nu <span class="arithmatex">\(p\)</span> vrijmaken door beide kanten tot de macht <span class="arithmatex">\(\dfrac{1}{1 \frac{1}{2}}\)</span> te doen:</p>
+<div class="arithmatex">\[\large{p = 2^{\frac{1}{1 \frac{1}{2}}}}\]</div>
+<p>Dit kunnen we nog versimpelen naar:</p>
+<div class="arithmatex">\[\large{p = 2^{\frac{2}{3}}}\]</div>
+<p>Nu dat we <span class="arithmatex">\(p\)</span> hebben gevonden, kunnen we het in de formule voor <span class="arithmatex">\(V\)</span> stoppen om de oppervlakte van <span class="arithmatex">\(V\)</span> te bepalen:</p>
+<div class="arithmatex">\[\large{V = \dfrac{2}{3} \cdot \left( 2^{\frac{2}{3}} \right)^{1\frac{1}{2}}}\]</div>
+<p>En als we dit uitwerken, vinden we:</p>
+<div class="arithmatex">\[\large{V = \dfrac{2}{3} \cdot 2}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{V = 1 \dfrac{1}{3}}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 5: Bereken de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> onder de functie <span class="arithmatex">\(f(x) = \dfrac{2}{x}\)</span></summary>
+<p><em><p style="text-align: center;font-size:20px;">Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de functie <span class="arithmatex">\(f(x) = \dfrac{2}{x}\)</span>, de <span class="arithmatex">\(x\)</span>-as, de lijn <span class="arithmatex">\(x=-1\)</span> en de lijn <span class="arithmatex">\(x=p\)</span>, met <span class="arithmatex">\(p &lt; -1\)</span>.</p></em></p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;">a) Bereken de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> met <span class="arithmatex">\(p = 1000\)</span>.</span></strong></p>
+<p><strong><span style="font-size: 17px;">b) Bepaal de factor waarmee <span class="arithmatex">\(p\)</span> moet toenemen om de oppervlakte van <span class="arithmatex">\(V\)</span> te verdubbelen.</span></strong></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;">a)</span></strong></p>
+<p>Laten we als eerst een schets maken om de situatie beter te kunnen begrijpen:</p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = 2 !divide! x.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 4. De grafiek <span class="arithmatex">\(f(x) = \dfrac{1}{x}\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span>. Het vlakdeel <span class="arithmatex">\(V\)</span> gaat van <span class="arithmatex">\(x = -1000\)</span> (te groot om weer te geven in de schets) tot <span class="arithmatex">\(x = -1\)</span>.</i></span></center> <br><br></p>
+<p>We zien in Figuur 4 dat deze oppervlakte <a href="#oppervlaktes-onder-de-x-as">onder de <span class="arithmatex">\(x\)</span>-as</a> ligt. Dit betekent dat we een '<span class="arithmatex">\(-\)</span>' moeten toevoegen aan onze integraal. We hebben de grenzen al gekregen, dus onze integraal wordt:</p>
+<div class="arithmatex">\[\large{V = - \int_{-1000}^{-1} \dfrac{2}{x} \, dx}\]</div>
+<p>In de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> kunnen we zien dat de primitieve van <span class="arithmatex">\(\dfrac{1}{x}\)</span> gelijk is aan <span class="arithmatex">\(\ln|x|\)</span>. Nu hebben we nog een extra factor <span class="arithmatex">\(2\)</span>, maar die kunnen we er gewoon voor laten staan:</p>
+<div class="arithmatex">\[\large{V = - \left[ \, 2\ln|x| \, \vphantom{\frac{1}{2}}\right]_{-1000}^{-1}}\]</div>
+<p>Als we de grenzen invullen en min elkaar doen, krijgen we:</p>
+<div class="arithmatex">\[\large{V = -\left( \,  2\ln|\! - \! 1| \ - \ 2\ln|\! - \! 1000| \, \right)}\]</div>
+<div class="arithmatex">\[\large{V = -2\ln|\! - \! 1| \ + \ 2\ln|\! - \! 1000|}\]</div>
+<p>En nu zien we waarom de absolute waarde nemen hier zo belangrijk is. Want een logaritme van een negatief getal bestaat niet. Maar gelukkig maakt de absolute waarde het weer positief:</p>
+<div class="arithmatex">\[\large{V = -2\ln(1) + 2\ln(1000)}\]</div>
+<p>Het logaritme van <span class="arithmatex">\(1\)</span> is altijd <span class="arithmatex">\(0\)</span> (want <span class="arithmatex">\(e^0\)</span> is <span class="arithmatex">\(1\)</span>), dus we kunnen dit versimpelen naar:</p>
+<div class="arithmatex">\[\large{V = 2\ln(1000)}\]</div>
+<p>We kunnen eventueel de <span class="arithmatex">\(1000\)</span> nog schrijven als <span class="arithmatex">\(10^3\)</span> en dan de derde macht uit de <span class="arithmatex">\(\ln\)</span> halen:</p>
+<div class="arithmatex">\[\large{V = 3\cdot 2\ln(10)}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{V = 6\ln(10)}\]</div>
+</div>
+<p><br><br></p>
+<p><strong><span style="font-size: 17px;">b)</span></strong></p>
+<p>We willen dat de oppervlakte van <span class="arithmatex">\(V\)</span> verdubbelt, dus onze nieuwe oppervlakte wordt dan:</p>
+<div class="arithmatex">\[\large{V = 2 \cdot 6\ln(10)}\]</div>
+<div class="arithmatex">\[\large{V = 12\ln(10)}\]</div>
+<p>We willen dus bepalen bij welke <span class="arithmatex">\(p\)</span> een grens van <span class="arithmatex">\(x=p\)</span> een oppervlakte geeft van <span class="arithmatex">\(V = 12\ln(10)\)</span>.</p>
+<p>We hebben de integraal bij a) al berekend, alleen laten we de <span class="arithmatex">\(p\)</span> nu staan in plaats van <span class="arithmatex">\(-1000\)</span> in te vullen bij de grenzen:</p>
+<div class="arithmatex">\[\large{V = -\int_{p}^{-1} \dfrac{2}{x} \, dx}\]</div>
+<div class="arithmatex">\[\large{V = -\left[ \, 2\ln|x| \, \vphantom{\frac{1}{2}} \right]_{p}^{-1}}\]</div>
+<p>Nu vullen we deze grenzen in en doen het min elkaar:</p>
+<div class="arithmatex">\[\large{V = -\left( \, 2\ln|\! - \! 1| \ - \ 2\ln|p| \, \right)}\]</div>
+<div class="arithmatex">\[\large{V = -2\ln|\! - \! 1| \ + \ 2\ln|p|}\]</div>
+<p>We weten dat <span class="arithmatex">\(\ln(1)\)</span> is <span class="arithmatex">\(0\)</span>, dus dit kunnen we versimpelen naar:</p>
+<div class="arithmatex">\[\large{V = 2\ln|p|}\]</div>
+<p>En nu kunnen we zeggen dit gelijk moet zijn aan de <span class="arithmatex">\(12\ln(10)\)</span> die we net hebben berekend:</p>
+<div class="arithmatex">\[\large{2\ln|p| = 12\ln(10)}\]</div>
+<p>En deze vergelijking kunnen we gaan oplossen om <span class="arithmatex">\(p\)</span> te bepalen. We beginnen met aan beide kanten te delen door <span class="arithmatex">\(2\)</span>:</p>
+<div class="arithmatex">\[\large{\ln|p| = 6\ln(10)}\]</div>
+<p>Om de logaritmes weg te werken, stoppen we de <span class="arithmatex">\(6\)</span> eerst in de logaritme als macht:</p>
+<div class="arithmatex">\[\large{\ln|p| = \ln(10^6)}\]</div>
+<p>Nu kunnen we de logaritme aan beide kanten weghalen:</p>
+<div class="arithmatex">\[\large{|p| = 10^6}\]</div>
+<p>We hebben nu dat <span class="arithmatex">\(|p|\)</span> gelijk is aan <span class="arithmatex">\(10^6\)</span>, dus dit betekent dat er twee opties zijn:</p>
+<div class="arithmatex">\[\large{p = 10^6 \ \vee \ p = -10^6}\]</div>
+<p>We hebben in de vraag gekregen dat <span class="arithmatex">\(p &lt; -1\)</span>, dus de juiste oplossing is:</p>
+<div class="arithmatex">\[\large{p = -10^6 = -1 \, 000 \, 000}\]</div>
+<p>We moesten in de vraag bepalen met welke factor <span class="arithmatex">\(p\)</span> groter werd. <span class="arithmatex">\(p\)</span> is van <span class="arithmatex">\(-1000\)</span> naar <span class="arithmatex">\(-1 \, 000 \, 000\)</span> gegaan, dus het is toegenomen met een <span class="arithmatex">\(1000\)</span>:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\textrm{Toename met een factor } 1000}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 6: Bereken de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> onder de functie <span class="arithmatex">\(f(x) = \left( 4x - 7 \right)^3 - 10x + 18\)</span></summary>
+<p><em><p style="text-align: center;font-size:20px;">Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de functie <span class="arithmatex">\(f(x) = \left( 4x - 7 \right)^3 - 10x + 18\)</span>, de <span class="arithmatex">\(x\)</span>-as en de buitenste twee snijpunten met de <span class="arithmatex">\(x\)</span>-as.</p></em></p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;">Bereken de oppervlakte van <span class="arithmatex">\(V\)</span> op <span class="arithmatex">\(2\)</span> decimalen nauwkeurig.</span></strong></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Laten we eerst beginnen met het maken van een schets, zodat we de situatie een beetje kunnen begrijpen:</p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = (4x-7)^3 -10x + 18.svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 5. De grafiek <span class="arithmatex">\(f(x) = \left( 4x - 7 \right)^3 - 10x + 18\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span>. Vlakdeel <span class="arithmatex">\(V\)</span> ligt tussen de buitenste twee snijpunten met de <span class="arithmatex">\(x\)</span>-as.</i></span></center> <br><br></p>
+<p>We zien hier dat de oppervlakte <span class="arithmatex">\(V\)</span> bestaat uit <a href="#deel-boven-en-deel-onder-de-x-as">een deel boven en een deel onder de <span class="arithmatex">\(x\)</span>-as</a>. We willen <span class="arithmatex">\(V\)</span> dus opsplitsen in het deel boven en het deel onder de <span class="arithmatex">\(x\)</span>-as:</p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = (4x-7)^3 -10x + 18 (gesplitst).svg" 
+         loading="lazy" 
+         width="500" 
+         alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 6. De grafiek <span class="arithmatex">\(f(x) = \left( 4x - 7 \right)^3 - 10x + 18\)</span> geplot met vlakdeel <span class="arithmatex">\(I\)</span> en vlakdeel <span class="arithmatex">\(II\)</span>. Vlakdeel <span class="arithmatex">\(I\)</span> ligt tussen het linker en middelste snijpunt met de <span class="arithmatex">\(x\)</span>-as. Vlakdeel <span class="arithmatex">\(II\)</span> ligt tussen het middelste en rechter snijpunt met de <span class="arithmatex">\(x\)</span>-as.</i></span></center> <br><br></p>
+<p>Om de oppervlakte van <span class="arithmatex">\(V\)</span> te kunnen bepalen, moeten we eerst de grenzen weten. We moeten dus de <a href="/kwadratische_vergelijkingen/#snijpunten-met-de-x-as">snijpunten met de <span class="arithmatex">\(x\)</span>-as</a> bepalen. Om dit te doen, moeten we <span class="arithmatex">\(f(x)\)</span> gelijk aan <span class="arithmatex">\(0\)</span> stellen:</p>
+<div class="arithmatex">\[\large{f(x) = 0}\]</div>
+<div class="arithmatex">\[\large{\left( 4x - 7 \right)^3 - 10x + 18 = 0}\]</div>
+<p>In de vraag staat geen algebraïsch of exact, dus we mogen onze grafische rekenmachine gebruiken om dit op te lossen.</p>
+<p>We voeren in:</p>
+<div class="arithmatex">\[\large{\left\{ \begin{array}{ l l } y_1 = \left( 4x - 7 \right)^3 - 10x + 18  \\ y_2 = 0 \end{array} \right.}\]</div>
+<p>De optie intersect geeft:</p>
+<div class="arithmatex">\[\large{\left\{ \begin{array}{ l l l } x_1 \approx 1.33175  \\ x_2 \approx 1.80084 \\ x_3 \approx 2.11740 \end{array} \right.}\]</div>
+<p>Laten we eerst de integraal opstellen voor <span class="arithmatex">\(I\)</span>. We zeiden net dat die het linker en middelste snijpunt als grenzen heeft:</p>
+<div class="arithmatex">\[\large{I = \int_{1.33175}^{1.80084} \left( 4x - 7 \right)^3 - 10x + 18 \, dx}\]</div>
+<p>Nu moeten we deze functie primitiveren. </p>
+<ul>
+<li>
+<p>De eerste twee termen zijn van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Om de primitieve te bepalen van deze vorm, moeten we de macht <span class="arithmatex">\(+1\)</span> doen en <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor zetten. </p>
+</li>
+<li>
+<p>De laatste term is gewoon een constante (getal zonder <span class="arithmatex">\(x\)</span>), dus daar plakken we gewoon een <span class="arithmatex">\(x\)</span> aan vast.</p>
+</li>
+</ul>
+<p>We krijgen dus:</p>
+<div class="arithmatex">\[\large{\widetilde{I} = \left[ \, \dfrac{1}{4} \left( 4x - 7 \right)^4 - \dfrac{1}{2} \cdot 10x^2 + 18x \, \right]_{1.33175}^{1.80084}}\]</div>
+<p>Maar als we de eerste term zouden afleiden, dan krijgen we door de <a href="/afgeleide/#regels">kettingregel</a> een extra factor <span class="arithmatex">\(4\)</span>. Omdat we die factor niet willen hebben, moeten we bij de primitieve deze weg compenseren door een extra factor <span class="arithmatex">\(\frac{1}{4}\)</span> toe te voegen:</p>
+<div class="arithmatex">\[\large{\widetilde{I} = \left[ \, \dfrac{1}{4} \cdot \dfrac{1}{4} \left( 4x - 7 \right)^4 - \dfrac{1}{2} \cdot 10x^2 + 18x \, \right]_{1.33175}^{1.80084}}\]</div>
+<p>Dit kunnen we nog iets versimpelen:</p>
+<div class="arithmatex">\[\large{I = \left[ \, \dfrac{1}{16} \left( 4x + 7 \right)^4 - 5x^2 + 18x \, \right]_{1.33175}^{1.80084}}\]</div>
+<p>Nu moeten we de grenzen invullen en min elkaar doen:</p>
+<div class="arithmatex">\[\large{I = \dfrac{1}{16} \left( 4 \cdot 1.80084 - 7 \right)^4 - 5 \cdot 1.80084^2 + 18 \cdot 1.80084 - \left( \dfrac{1}{16} \left( 4 \cdot 1.33175 - 7 \right)^4 - 5 \cdot 1.33175^2 + 18 \cdot 1.33175 \right)}\]</div>
+<p>En als we dit uitrekenen met een rekenmachine, dan vinden we:</p>
+<div class="arithmatex">\[\large{\boxed{I = 0.606768454058562...}}\]</div>
+<p>Nu kunnen we hetzelfde doen voor <span class="arithmatex">\(II\)</span>. We zagen eerder dat deze oppervlakte tussen het middelste snijpunt (<span class="arithmatex">\(x \approx 1.80084\)</span>) en het rechter snijpunt (<span class="arithmatex">\(x \approx 2.11740\)</span>) zit. Verder is deze oppervlakte <a href="#oppervlaktes-onder-de-x-as">onder de <span class="arithmatex">\(x\)</span>-as</a>, dus we moeten nog een '<span class="arithmatex">\(-\)</span>' toevoegen bij de integraal:</p>
+<div class="arithmatex">\[\large{II = - \int_{1.80084}^{2.11740} \left( 4x - 7 \right)^3 - 10x + 18 \, dx}\]</div>
+<p>We hebben net al de primitieve bepaald:</p>
+<div class="arithmatex">\[\large{II = - \left[ \, \dfrac{1}{16} \left( 4x + 7 \right)^4 - 5x^2 + 18x \, \right]_{1.80084}^{2.11740}}\]</div>
+<p>En nu vullen we de grenzen in:</p>
+<div class="arithmatex">\[\large{II = - \left( \, \dfrac{1}{16} \left( 4 \cdot 2.11740 - 7 \right)^4 - 5 \cdot 2.11740^2 + 18 \cdot 2.11740 - \left( \dfrac{1}{16} \left( 4 \cdot 1.80084 - 7 \right)^4 - 5 \cdot 1.80084^2 + 18 \cdot 1.80084 \right) \, \right)}\]</div>
+<p>En als we dit uitrekenen met een rekenmachine, dan vinden we:</p>
+<div class="arithmatex">\[\large{\boxed{II = 0.212291635293138...}}\]</div>
+<p>En nu kunnen we <span class="arithmatex">\(V\)</span> bepalen door <span class="arithmatex">\(I\)</span> en <span class="arithmatex">\(II\)</span> bij elkaar op te tellen:</p>
+<div class="arithmatex">\[\large{V = 0.606768454058562... \ + \ 0.212291635293138...}\]</div>
+<div class="arithmatex">\[\large{V = 0.8190600893517...}\]</div>
+<p>We moesten dit op twee decimalen nauwkeurig schrijven, dus ons eindantwoord wordt:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{V \approx 0.82}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 7: Bereken exact de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> onder de functie <span class="arithmatex">\(f(x) = \cos(x)\)</span></summary>
+<p><em><p style="text-align: center;font-size:20px;">Vlakdeel <span class="arithmatex">\(V\)</span> wordt ingesloten door de functie <span class="arithmatex">\(f(x) = \cos(x)\)</span>, de lijn <span class="arithmatex">\(x = \frac{1}{6} \pi\)</span> en de lijn <span class="arithmatex">\(x = p\)</span>, met <span class="arithmatex">\(\frac{1}{6} \pi &lt; p &lt; \pi\)</span>.</p></em></p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;">a) Bereken de oppervlakte van vlakdeel <span class="arithmatex">\(V\)</span> voor <span class="arithmatex">\(p = \frac{2}{3} \pi\)</span>.</span></strong></p>
+<p><strong><span style="font-size: 17px;">b) Bepaal <span class="arithmatex">\(p\)</span> als <span class="arithmatex">\(V\)</span> precies <span class="arithmatex">\(1\)</span> is.</span></strong></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p><br></p>
+<p><strong><span style="font-size: 17px;">a)</span></strong></p>
+<p>Als eerst maken we een schets om de situatie beter te kunnen begrijpen:</p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = cos(x).svg" 
+        loading="lazy" 
+        width="500" 
+        alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 7. De grafiek <span class="arithmatex">\(f(x) = \cos(x)\)</span> geplot met vlakdeel <span class="arithmatex">\(V\)</span>. Het vlakdeel <span class="arithmatex">\(V\)</span> gaat van <span class="arithmatex">\(x = \frac{1}{6} \pi\)</span> tot <span class="arithmatex">\(x = \frac{2}{3} \pi\)</span>.</i></span></center> <br><br></p>
+<p>We zien hier dat we een <a href="#deel-boven-en-deel-onder-de-x-as">deel boven en een deel onder de <span class="arithmatex">\(x\)</span>-as</a> hebben. Om de oppervlakte van <span class="arithmatex">\(V\)</span> te berekenen, moeten we dit dus opsplitsen in twee oppervlaktes. </p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = cos(x) (gesplitst).svg" 
+        loading="lazy" 
+        width="500" 
+        alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 8. De grafiek <span class="arithmatex">\(f(x) = \cos(x)\)</span> geplot met vlakdeel <span class="arithmatex">\(I\)</span> en vlakdeel <span class="arithmatex">\(II\)</span>. Vlakdeel <span class="arithmatex">\(I\)</span> is het gedeelte van <span class="arithmatex">\(V\)</span> boven de <span class="arithmatex">\(x\)</span>-as, vlakdeel <span class="arithmatex">\(II\)</span> het gedeelte onder de <span class="arithmatex">\(x\)</span>-as.</i></span></center> <br><br></p>
+<p>Nu dat we <span class="arithmatex">\(V\)</span> gesplitst hebben in een deel boven de <span class="arithmatex">\(x\)</span>-as en een deel onder de <span class="arithmatex">\(x\)</span>-as, moeten we berekenen waar ze worden gesplitst. Dan weten we namelijk de grenzen van beide oppervlaktes. </p>
+<p>We weten dat <span class="arithmatex">\(I\)</span> overgaat in <span class="arithmatex">\(II\)</span> bij de <span class="arithmatex">\(x\)</span>-as. We moeten dus het snijpunt bepalen met de <span class="arithmatex">\(x\)</span>-as dat binnen de grenzen van <span class="arithmatex">\(V\)</span> ligt (<span class="arithmatex">\(x=\frac{1}{6} \pi\)</span> en <span class="arithmatex">\(x=\frac{2}{3}\)</span>). Dit doen we door <span class="arithmatex">\(f(x)\)</span> gelijk aan <span class="arithmatex">\(0\)</span> te stellen:</p>
+<div class="arithmatex">\[\large{\cos(x) = 0}\]</div>
+<p>Om dit op te lossen moeten we eerst de <span class="arithmatex">\(0\)</span> schrijven als een cosinus. Op de <a href="/goniometrie/#de-eenheidscirkel">eenheidscirkel</a> kunnen we aflezen dat <span class="arithmatex">\(\cos(\frac{1}{2} \pi) = 0\)</span>. We kunnen dit dus ook schrijven als:</p>
+<div class="arithmatex">\[\large{\cos(x) = \cos(\frac{1}{2} \pi)}\]</div>
+<p>En nu kunnen we deze <a href="/goniometrie/#algemene-oplossing">cosinus vergelijking uitwerken</a>:</p>
+<div class="arithmatex">\[\large{x = \frac{1}{2} \pi + k \cdot 2\pi \ \vee \ x = -\frac{1}{2} + k \cdot 2\pi}\]</div>
+<p>We wilden het snijpunt bepalen dat tussen <span class="arithmatex">\(x=\frac{1}{6} \pi\)</span> en <span class="arithmatex">\(x=\frac{2}{3} \pi\)</span> ligt. We vinden dan alleen maar <span class="arithmatex">\(1\)</span> oplossing:</p>
+<div class="arithmatex">\[\large{\boxed{x = \frac{1}{2} \pi}}\]</div>
+<p>Nu weten we dus de grenzen van zowel <span class="arithmatex">\(I\)</span> als <span class="arithmatex">\(II\)</span>, want de grenzen van <span class="arithmatex">\(V\)</span> wisten we al. Dus <span class="arithmatex">\(I\)</span> begint bij <span class="arithmatex">\(x=\frac{1}{6} \pi\)</span> en eindigt bij <span class="arithmatex">\(x=\frac{1}{2} \pi\)</span> en <span class="arithmatex">\(II\)</span> begint juist bij <span class="arithmatex">\(x=\frac{1}{2} \pi\)</span> en eindigt bij <span class="arithmatex">\(x=\frac{2}{3} \pi\)</span>. <span class="arithmatex">\(V\)</span> is deze twee vlakdelen plus elkaar, dus we krijgen: </p>
+<div class="arithmatex">\[\large{V = \int_{\frac{1}{6} \pi}^{\frac{1}{2} \pi} \cos(x) \, dx \, + \int_{\frac{1}{2} \pi}^{\frac{2}{3} \pi} -\cos(x) \, dx}\]</div>
+<p>De tweede integraal krijgt dus een '<span class="arithmatex">\(-\)</span>' omdat vlakdeel <span class="arithmatex">\(II\)</span> <a href="#oppervlaktes-onder-de-x-as">onder de <span class="arithmatex">\(x\)</span>-as</a> ligt.</p>
+<p>In de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> kunnen we zien dat de primitieve van <span class="arithmatex">\(\cos(x)\)</span> gelijk is aan <span class="arithmatex">\(\sin(x)\)</span>:</p>
+<div class="arithmatex">\[\large{V = \left[ \, \sin(x) \, \vphantom{\frac{1}{2}} \right]_{\frac{1}{6} \pi}^{\frac{1}{2} \pi} + \left[ \, -\sin(x) \, \vphantom{\frac{1}{2}} \right]_{\frac{1}{2} \pi}^{\frac{2}{3} \pi}}\]</div>
+<p>Nu vullen we de grenzen in:</p>
+<div class="arithmatex">\[\large{V = \left( \sin(\frac{1}{2} \pi) - \sin(\frac{1}{6} \pi) \right) + \left( -\sin(\frac{2}{3} \pi) - -\sin(\frac{1}{2} \pi) \right)}\]</div>
+<div class="arithmatex">\[\large{V = \left( \sin(\frac{1}{2} \pi) - \sin(\frac{1}{6} \pi) \right) + \left( -\sin(\frac{2}{3} \pi) + \sin(\frac{1}{2} \pi) \right)}\]</div>
+<p>En als we dit uitwerken, vinden we:</p>
+<div class="arithmatex">\[\large{V = \left( 1 - \frac{1}{2} \right) + \left( -\dfrac{1}{2} \sqrt{3} + 1\right)}\]</div>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{V = 1\dfrac{1}{2} - \dfrac{1}{2} \sqrt{3}}\]</div>
+</div>
+<p><br><br></p>
+<p><strong><span style="font-size: 17px;">b)</span></strong></p>
+<p>Nu willen we <span class="arithmatex">\(p\)</span> weten wanneer er geldt dat <span class="arithmatex">\(V=1\)</span>. De oppervlakte die we bij a) hebben berekend is kleiner dan <span class="arithmatex">\(1\)</span> (want <span class="arithmatex">\(V = 1\frac{1}{2} - \frac{1}{2} \sqrt{3} \approx 0.63\)</span>). Dit betekent dus dat we verwachten dat <span class="arithmatex">\(p\)</span> groter is dan de <span class="arithmatex">\(\frac{2}{3} \pi\)</span> van net. Laten we een nieuwe schets maken:</p>
+<p><figure>
+    <img src="/assets/images/primitieven/f(x) = cos(x) (p onbekend).svg" 
+        loading="lazy" 
+        width="500" 
+        alt="Functie met oppervlakte V onder de grafiek">
+</figure>
+<center><span><i>Figuur 9. De grafiek <span class="arithmatex">\(f(x) = \cos(x)\)</span> geplot met vlakdeel <span class="arithmatex">\(I\)</span> en vlakdeel <span class="arithmatex">\(II\)</span>. Vlakdeel <span class="arithmatex">\(I\)</span> is het gedeelte van <span class="arithmatex">\(V\)</span> boven de <span class="arithmatex">\(x\)</span>-as, vlakdeel <span class="arithmatex">\(II\)</span> het gedeelte onder de <span class="arithmatex">\(x\)</span>-as.</i></span></center> <br><br></p>
+<p>Laten we net zoals bij a) de vergelijking voor <span class="arithmatex">\(V\)</span> opstellen. Alleen nu laten we de grens <span class="arithmatex">\(x=p\)</span> staan in plaats van <span class="arithmatex">\(\frac{2}{3} \pi\)</span> in te vullen:</p>
+<div class="arithmatex">\[\large{V = \int_{\frac{1}{6} \pi}^{\frac{1}{2} \pi} \cos(x) \, dx \, + \int_{\frac{1}{2} \pi}^{p} -\cos(x) \, dx}\]</div>
+<div class="arithmatex">\[\large{V = \left[ \, \sin(x) \, \vphantom{\frac{1}{2}} \right]_{\frac{1}{6} \pi}^{\frac{1}{2} \pi} + \left[ \, -\sin(x) \, \vphantom{\frac{1}{2}} \right]_{\frac{1}{2} \pi}^{p}}\]</div>
+<p>Nu vullen we de grenzen in:</p>
+<div class="arithmatex">\[\large{V = \left( \sin(\frac{1}{2} \pi) - \sin(\frac{1}{6} \pi) \right) + \left( -\sin(p) - -\sin(\frac{1}{2} \pi) \right)}\]</div>
+<div class="arithmatex">\[\large{V = \left( \sin(\frac{1}{2} \pi) - \sin(\frac{1}{6} \pi) \right) + \left( -\sin(p) + \sin(\frac{1}{2} \pi) \right)}\]</div>
+<p>En als we dit uitwerken, vinden we:</p>
+<div class="arithmatex">\[\large{V = \left( 1 - \frac{1}{2} \right) + \left( -\sin(p) + 1\right)}\]</div>
+<div class="arithmatex">\[\large{V = -\sin(p) + 1\dfrac{1}{2}}\]</div>
+<p>We wilden <span class="arithmatex">\(p\)</span> weten voor <span class="arithmatex">\(V = 1\)</span>:</p>
+<div class="arithmatex">\[\large{-\sin(p) + 1\frac{1}{2} = 1}\]</div>
+<p>Nu kunnen we deze vergelijking oplossen om <span class="arithmatex">\(p\)</span> te vinden. We halen eerst alle getallen naar rechts door aan beide kanten <span class="arithmatex">\(-1\frac{1}{2}\)</span> te doen:</p>
+<div class="arithmatex">\[\large{-\sin(p) = -\dfrac{1}{2}}\]</div>
+<p>En nu doen we nog beide kanten keer <span class="arithmatex">\(-1\)</span>:</p>
+<div class="arithmatex">\[\large{\sin(p) = \dfrac{1}{2}}\]</div>
+<p>Om dit op te lossen moeten we eerst aan beide kanten een sinus hebben. We kunnen op de <a href="/goniometrie/#de-eenheidscirkel">eenheidscirkel</a> aflezen dat <span class="arithmatex">\(\sin(\frac{1}{6} \pi) = \frac{1}{2}\)</span>, dus we kunnen dit ook schrijven als:</p>
+<div class="arithmatex">\[\large{\sin(p) = \sin(\frac{1}{6} \pi)}\]</div>
+<p>Nu kunnen we de <a href="/goniometrie/#algemene-oplossing">algemene oplossing</a> gebruiken voor een sinus:</p>
+<div class="arithmatex">\[\large{p = \frac{1}{6} \pi + k \cdot 2 \pi \ \vee \ p = \pi - \frac{1}{6} \pi + k \cdot 2 \pi}\]</div>
+<div class="arithmatex">\[\large{p = \frac{1}{6} \pi + k \cdot 2 \pi \ \vee \ p = \frac{5}{6} \pi + k \cdot 2 \pi}\]</div>
+<p>We hadden in de vraag gegeven gekregen dat <span class="arithmatex">\(p\)</span> tussen <span class="arithmatex">\(\frac{1}{6} \pi\)</span> en <span class="arithmatex">\(\pi\)</span> ligt. Maar het kan niet <span class="arithmatex">\(p=\frac{1}{6} \pi\)</span> zijn, want daar begint de oppervlakte. Er blijft dan maar <span class="arithmatex">\(1\)</span> mogelijke oplossing over:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{p = \frac{5}{6} \pi}\]</div>
+</div>
+</details>
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025, Marc Serrano Altena <br> <a href="#__consent" style="color:#B0B0B0"><i>Cookie instellingen</i></a>
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/marc-serrano-altena-a96800285/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/M-Serrano-Altena" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<marcsa@wiskundewijs.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6m-2 0-8 5-8-5h16m0 12H4V8l8 5 8-5v10Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+
+
+
+<h4>Cookies</h4>
+<p>Deze website maakt gebruik van cookies om te zien hoe de website gebruikt wordt. Zo kunnen we jouw ervaring nog beter maken!</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accepteren</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Instellingen</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    
+    
+    
+      <script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+      
+        <script src="../../../javascripts/load_sections.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_ID"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  </body>
+</html>

@@ -9,3 +9,10 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 {% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_ID"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+{% endblock %}

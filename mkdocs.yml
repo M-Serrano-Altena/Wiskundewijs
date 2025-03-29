@@ -23,7 +23,6 @@ theme:
   favicon: assets/images/general/calculator-variant.ico
 
   features:
-    - navigation.instant
     - navigation.footer
     - navigation.tabs
     - navigation.top
@@ -72,6 +71,10 @@ extra:
           data: 0
           note: Bedankt voor de feedback! Ik zou het heel erg waarderen als je mij vertelt wat jij denkt dat verbeterd kan worden. <a href="https://docs.google.com/forms/d/e/1FAIpQLSebi8Nv-t1BBU7mzvMK8COd_1aHSTnjgzBQWQXhjt64OuVsFQ/viewform?usp=pp_url&entry.1328585866={title}" target="_blank" rel="noopener">Jouw feedback</a> kan mensen helpen die tegen hetzelfde aanlopen!
 
+  static_templates:
+    - 404.html
+    - main_sections/primitieve/introductie_primitieven.md
+
 nav:
   - Home: index.md
   
@@ -85,6 +88,7 @@ nav:
     - Stelsels van Vergelijkingen: stelsels_van_vergelijkingen.md
     - De Afgeleide Functie: afgeleide.md
     - De Primitieve Functie: primitieve.md
+    
     - goniometrie.md
 
   - Oplosser: oplosser.md
@@ -92,8 +96,15 @@ nav:
   - bijles.md
   
 
-not_in_nav:
+not_in_nav: |
   meetkunde.md
+  primitieve_single_page.md
+  main_sections/primitieve/introductie_primitieven.md
+  main_sections/primitieve/introductie_integralen.md
+  main_sections/primitieve/oppervlakte_tussen_grafieken.md
+  main_sections/primitieve/oppervlakte_wentelen_x.md
+  main_sections/primitieve/omwentelings_tussen_grafieken.md
+  main_sections/primitieve/oppervlakte_wentelen_y.md
   
 plugins:
   - search
@@ -125,8 +136,9 @@ markdown_extensions:
 
 
 extra_javascript:
+  - https://cdn.jsdelivr.net/npm/marked/marked.min.js 
+  - javascripts/load_sections.js
   - javascripts/mathjax.js
-  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js
 
 extra_css:
   - stylesheets/extra.css

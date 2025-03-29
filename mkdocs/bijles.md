@@ -194,7 +194,7 @@ hide:
 
 ![Foto Marc Serrano Altena](assets/images/general/Marc_Serrano_Altena_photo.png){ width="200" align=right}
 
-Wiskunde kan soms **te snel** gaan waardoor **niet alle stappen duidelijk** zijn. Het voelt dan alsof je het maar niet kan begrijpen, terwijl het voor anderen schijnbaar heel logisch is. En dit zorgt ervoor dat je slecht over jezelf voelt en zelfvertrouwen verliest. Je bent echt niet de enige. 
+Wiskunde kan soms **te snel** gaan, waardoor **niet alle stappen duidelijk** zijn. Het voelt dan alsof je het maar niet kan begrijpen, terwijl het voor anderen schijnbaar heel logisch is. En dit zorgt ervoor dat je slecht over jezelf voelt en zelfvertrouwen verliest. Je bent echt niet de enige. 
 
 Dit is natuurlijk hartstikke vervelend, maar gelukkig hoeft dit niet zo te blijven. Met de online **een-op-een bijles** kunnen we samen jouw achterstanden inhalen en de stof uiteindelijk is een keer begrijpbaar maken. We nemen dan gewoon lekker de tijd zodat jij al je vragen kunt stellen.
 
