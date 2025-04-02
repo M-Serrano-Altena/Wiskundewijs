@@ -1,12 +1,23 @@
+// import { mountTableOfContents, watchTableOfContents } from "assets/javascripts/src/templates/assets/javascripts/components/toc/index.ts";
+
 document.addEventListener("DOMContentLoaded", function () {
     const elements = Array.from(document.querySelectorAll(".not-observed"));
     const use_observer = false; // Use IntersectionObserver for lazy loading
     const loading_delay = 100 * use_observer; // Delay between loading sections
     let index = 0;
     let next_index = 1; // Preload the next section
-    let tocContainer = document.querySelector('ul.md-nav__list[data-md-component="toc"]');
+
+    let tocContainerPrimary = document.querySelector(
+        "body > div.md-container > main > div > div.md-sidebar.md-sidebar--primary > div > div > nav > ul > li.md-nav__item.md-nav__item--active.md-nav__item--section.md-nav__item--nested > nav > ul > li.md-nav__item.md-nav__item--active > nav > ul.md-nav__list[data-md-component='toc']"
+    );
+
+    let tocContainerSecondary = document.querySelector(
+        'body > div.md-container > main > div > div.md-sidebar.md-sidebar--secondary > div > div > nav > ul.md-nav__list[data-md-component="toc"]'
+    );
+
     const sectionId = window.location.hash; // Get the current section ID from the URL
     let sectionLoaded = false;
+
     
     // Observer to detect when the next section is visible
     const observer = new IntersectionObserver((entries) => {
@@ -37,18 +48,35 @@ document.addEventListener("DOMContentLoaded", function () {
                 el.innerHTML = data.content; // Load the content
 
                 // Update TOC
-                if (!tocContainer) {
-                    tocContainer = document.querySelector('nav.md-nav.md-nav--secondary[aria-label="Inhoudsopgave"]')
-                    createToc();
-                    tocContainer = document.querySelector('ul.md-nav__list[data-md-component="toc"]');
+                if (!tocContainerSecondary) {
+
+                    tocContainerSecondary = document.querySelector(
+                        'body > div.md-container > main > div > div.md-sidebar.md-sidebar--secondary > div > div > nav.md-nav.md-nav--secondary[aria-label="Inhoudsopgave"]'
+                    );
+                    createTocSecondary(tocContainerSecondary);
+                    tocContainerSecondary = document.querySelector(
+                        'body > div.md-container > main > div > div.md-sidebar.md-sidebar--secondary > div > div > nav > ul.md-nav__list[data-md-component="toc"]'
+                    );
                 }
+
+                if (!tocContainerPrimary) {
+                    tocContainerPrimary = document.querySelector(
+                        "body > div.md-container > main > div > div.md-sidebar.md-sidebar--primary > div > div > nav > ul > li.md-nav__item.md-nav__item--active.md-nav__item--section.md-nav__item--nested > nav > ul > li.md-nav__item.md-nav__item--active"
+                    );
+                    createTocPrimary(tocContainerPrimary);
+                    tocContainerPrimary = document.querySelector(
+                        "body > div.md-container > main > div > div.md-sidebar.md-sidebar--primary > div > div > nav > ul > li.md-nav__item.md-nav__item--active.md-nav__item--section.md-nav__item--nested > nav > ul > li.md-nav__item.md-nav__item--active > nav > ul.md-nav__list[data-md-component='toc']"
+                    );
+                }
+
                 mergeToc(data.toc);
+
 
                 // Process LaTeX with MathJax
                 return MathJax.typesetPromise([el]);
             })
             .then(() => {
-                // console.log(`Loaded: ${file}`);
+                console.log(`Loaded: ${file}`);
 
                 // Remove "not-observed" class (for styling purposes)
                 el.classList.remove("not-observed");
@@ -91,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Start by loading the first section immediately
     loadNext();
 
-    function createToc() {
+    function createTocSecondary(container) {
         // Create the <label> element
         const label = document.createElement("label");
         label.classList.add("md-nav__title");
@@ -107,15 +135,47 @@ document.addEventListener("DOMContentLoaded", function () {
         ul.classList.add("md-nav__list");
         ul.setAttribute("data-md-component", "toc");
     
-        tocContainer.appendChild(label);
-        tocContainer.appendChild(ul);
+        container.appendChild(label);
+        container.appendChild(ul);
     }
+
+    function createTocPrimary(container) {
+        const label = document.createElement("label");
+        label.classList.add("md-nav__link");
+        label.setAttribute("for", "__toc");
+
+        const existingAnchor = container.querySelector("a");
+
+        const labelSpan = document.createElement("span");
+        labelSpan.classList.add("md-ellipsis");
+        labelSpan.textContent = existingAnchor.textContent;
+        label.appendChild(labelSpan);
     
+        const labelIcon = document.createElement("span");
+        labelIcon.classList.add("md-nav__icon", "md-icon");
+        label.appendChild(labelIcon);
+
+        const nav = document.createElement("nav");
+        nav.classList.add("md-nav", "md-nav--secondary");
+        nav.setAttribute("aria-label", "Inhoudsopgave");
+
+        createTocSecondary(nav);
+
+        container.insertBefore(label, existingAnchor);
+        container.appendChild(nav);
+
+    }
 
     // Function to merge TOC
     function mergeToc(newTocHtml) {
         const tempDiv = document.createElement("div");
         tempDiv.innerHTML = newTocHtml;
+
+    
+        if (!tocContainerSecondary && !tocContainerPrimary) {
+            console.warn("TOC containers not found.");
+            return;
+        }
 
         // Track occurrences of each header ID
         const idCounts = new Map();
@@ -182,41 +242,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         tempDiv.querySelectorAll(":scope > li").forEach(newList => {
             // Append the new list item to the existing toc
-            tocContainer.appendChild(newList.cloneNode(true));
+            if (tocContainerPrimary) {
+                tocContainerPrimary.appendChild(newList.cloneNode(true));
+            }
+            if (tocContainerSecondary) {
+                tocContainerSecondary.appendChild(newList.cloneNode(true));
+            }
         });
     }
 
-    // function updateTocAndSections() {
-    //     tocLinks = document.querySelectorAll('.md-nav__link');
-    
-    //     // Optionally, reset the class of all links
-    //     tocLinks.forEach(link => link.classList.remove('md-nav__link--passed', 'md-nav__link--active'));
-    
-    //     // Reset current active link
-    //     currentActiveLink = null;
-    // }
-
-    // const tocHighlightObserver = new IntersectionObserver((entries) => {
-    //     entries.forEach(entry => {
-    //         const sectionId = entry.target.id;
-    //         const tocLink = document.querySelector(`.md-nav__link[href="#${sectionId}"]`);
-    
-    //         if (entry.isIntersecting) {
-    //             // Add active class to the current section
-    //             if (currentActiveLink) {
-    //                 currentActiveLink.classList.remove('md-nav__link--active');
-    //                 currentActiveLink.classList.add('md-nav__link--passed');
-    //             }
-    
-    //             tocLink.classList.add('md-nav__link--active');
-    //             currentActiveLink = tocLink; // Update the current active link
-    //         } else {
-    //             // Remove active class when the section is no longer visible
-    //             tocLink.classList.remove('md-nav__link--active');
-    //             tocLink.classList.add('md-nav__link--passed');
-    //         }
-    //     });
-    // }, { threshold: 0 }); // Observer for 50% visibility
-    
 
 });
