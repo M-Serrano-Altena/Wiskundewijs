@@ -1,5 +1,3 @@
-// import { mountTableOfContents, watchTableOfContents } from "assets/javascripts/src/templates/assets/javascripts/components/toc/index.ts";
-
 document.addEventListener("DOMContentLoaded", function () {
     const elements = Array.from(document.querySelectorAll(".not-observed"));
     const use_observer = false; // Use IntersectionObserver for lazy loading
@@ -18,18 +16,134 @@ document.addEventListener("DOMContentLoaded", function () {
     const sectionId = window.location.hash; // Get the current section ID from the URL
     let sectionLoaded = false;
 
-    
-    // Observer to detect when the next section is visible
+    let previousActiveLinkPrimary = null;
+    let previousActiveLinkSecondary = null;
+    let allOriginalHeaders = Array.from(document.querySelectorAll("h1, h2, h3, h4, h5, h6"));
+    let allHeaders = Array.from(document.querySelectorAll("h1, h2, h3, h4, h5, h6"));
+    let lastScrollY = window.scrollY;
+    let lastActiveIndex = -1;
+
+    let lastActiveId = null;
+    let visibleHeaders = new Set(); // Track visible headers
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting && entry.target.dataset.pending === "true") {
-                entry.target.dataset.pending = "false"; // Prevent multiple triggers
-                next_index++; // Allow the next section to be loaded
-                observer.unobserve(entry.target); // Stop observing this element
-                setTimeout(() => loadNext(), loading_delay); // Wait 1 second before loading
+            if (entry.isIntersecting) {
+                visibleHeaders.add(entry.target); // Mark header as visible
+            } else {
+                visibleHeaders.delete(entry.target); // Remove header when out of view
             }
         });
-    }, { threshold: 0 }); // Trigger when the section is visible
+        window.dispatchEvent(new Event("scroll")); // Trigger scroll event to check for closest header
+        
+    }, { threshold: 0.1 }); // Adjust threshold if needed
+
+    const originalHeadersObserver = new MutationObserver((mutationsList) => {
+        for (let mutation of mutationsList) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                const target = mutation.target;
+                const targetId = target.getAttribute('href').substring(1); // Get the ID from the href
+                const targetIndex = allHeaders.findIndex(header => header.id === targetId);
+                if (target.classList.contains('md-nav__link--active') && targetIndex < lastActiveIndex) {
+                    console.log('Removing active header:', target);
+                    target.classList.remove('md-nav__link--active');
+                }
+            }
+        }
+    });
+
+    allOriginalHeaders.forEach(header => {
+        const config = { attributes: true, attributeFilter: ['class'] };
+        if (!tocContainerPrimary || !tocContainerSecondary) return; // Ensure both containers exist
+
+        const primaryTocLink = tocContainerPrimary.querySelector(`a[href="#${header.id}"]`);
+        const secondaryTocLink = tocContainerSecondary.querySelector(`a[href="#${header.id}"]`);
+        if (primaryTocLink) {
+            originalHeadersObserver.observe(secondaryTocLink, config);
+        }
+        if (secondaryTocLink) {
+            originalHeadersObserver.observe(primaryTocLink, config);
+        }
+    });
+    
+    
+    // Step 2: Scroll Event - Find the closest visible header
+    window.addEventListener('scroll', () => {
+        const isScrollingDown = window.scrollY >= lastScrollY;
+        lastScrollY = window.scrollY;
+        let closestHeader = null;
+
+        visibleHeaders.forEach(header => {
+            const top = header.getBoundingClientRect().top;
+            if (top >= 0 && top <= 150) { // Adjust 150 to fine-tune activation point
+                if (!closestHeader || top < closestHeader.getBoundingClientRect().top) {
+                    closestHeader = header;
+                }
+            }
+        });
+
+        if (visibleHeaders.size === 0 && !isScrollingDown) {
+            currentHeader = allHeaders[lastActiveIndex]; // Get the last active header
+            if (currentHeader && currentHeader.getBoundingClientRect().top > 0) {
+                prev_index = Math.max(lastActiveIndex - 1, 0); // Go back to the previous section if no headers are visible when scrolling up
+                closestHeader = allHeaders[prev_index]; // Get the previous header
+            }
+        }
+            
+    
+        if (closestHeader && closestHeader.id !== lastActiveId) {
+            updateToC(closestHeader.id, tocContainerSecondary);
+            updateToC(closestHeader.id, tocContainerPrimary);
+            lastActiveId = closestHeader.id;
+        }
+    });
+
+    function markPassedHeaders(allHeaders, container) {
+        allHeaders.forEach((header, index) => {
+            const tocLink = container.querySelector(`a[href="#${header.id}"]`);
+            if (!tocLink) return;
+    
+            if (index < lastActiveIndex) {
+                tocLink.classList.add('md-nav__link--passed');
+                tocLink.classList.remove('md-nav__link--active');
+            } else if (index === lastActiveIndex) {
+                tocLink.classList.add('md-nav__link--active');
+                tocLink.classList.remove('md-nav__link--passed');
+            } else {
+                tocLink.classList.remove('md-nav__link--passed');
+            }
+        });
+    }
+    
+    // Step 3: Update the Table of Contents highlighting
+    function updateToC(activeId, container) {
+        const tocLink = container.querySelector(`a[href="#${activeId}"]`);
+        let previousActiveLink = null; // Reset previous active link for each update
+        let isPrimary = container === tocContainerPrimary; // Check if the container is primary or secondary
+
+        if (isPrimary) {
+            previousActiveLink = previousActiveLinkPrimary; // Reset previous active link for each update
+        } else {
+            previousActiveLink = previousActiveLinkSecondary; // Reset previous active link for each update
+        }
+
+
+        if (tocLink) {
+            if (previousActiveLink && tocLink !== previousActiveLink) {
+                previousActiveLink.classList.remove('md-nav__link--active');
+            }
+            tocLink.classList.add('md-nav__link--active');
+            if (isPrimary) {
+                previousActiveLinkPrimary = tocLink;
+            } else {
+                previousActiveLinkSecondary = tocLink;
+            }
+            lastActiveIndex = allHeaders.findIndex(h => h.id === activeId);
+        }
+
+        markPassedHeaders(allHeaders, container);
+    
+    }
 
     function loadNext() {
         if (index >= elements.length) return; // Stop when all are loaded
@@ -76,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return MathJax.typesetPromise([el]);
             })
             .then(() => {
-                console.log(`Loaded: ${file}`);
+                // console.log(`Loaded: ${file}`);
 
                 // Remove "not-observed" class (for styling purposes)
                 el.classList.remove("not-observed");
@@ -85,11 +199,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Move to the next section
                 index++;
 
-                // If there's another section, observe it for visibility
-                if (index < elements.length) {
-                    elements[index].dataset.pending = "true"; // Mark it as "pending"
-                    observer.observe(elements[index]); // Start observing
-                }
+                allHeaders = Array.from(document.querySelectorAll("h1, h2, h3, h4, h5, h6")); // Get all headers
+                allHeaders.forEach(header => observer.observe(header)); // Observe all headers
 
                 // Preemptively load the next section
                 if (!use_observer || (index <= next_index && index + 1 < elements.length)) {
@@ -99,7 +210,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (sectionId && !sectionLoaded) {
                     const targetElement = document.querySelector(sectionId);
                     if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: "auto", block: "center" });
+                        targetElement.scrollIntoView({ behavior: "auto", block: "start" });
+                        window.scrollBy(0, -69) // nice
+                        window.dispatchEvent(new Event("scroll")); // Trigger scroll event to check for closest header
                         sectionLoaded = true; // Mark as loaded to prevent multiple scrolls
                     }
                 }
@@ -252,4 +365,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    
 });

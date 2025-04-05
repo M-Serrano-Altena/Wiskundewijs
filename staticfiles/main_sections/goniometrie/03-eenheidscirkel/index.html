@@ -1,0 +1,998 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Hier worden verschillende wiskundige onderwerpen duidelijk en helder behandelt. De hoofdstukken hebben een theorie sectie waar de stof wordt uitgelegt en daarna worden wat voorbeelden behandelt om te laten zien hoe de theorie toegepast wordt in de opdrachten.">
+      
+      
+        <meta name="author" content="Marc Serrano Altena">
+      
+      
+        <link rel="canonical" href="https://wiskundewijs.com/main_sections/goniometrie/03-eenheidscirkel/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/general/calculator-variant.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.4.10">
+    
+    
+      
+        <title>03 eenheidscirkel - Wiskundewijs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-4JQXCEL3Q5"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-4JQXCEL3Q5",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-4JQXCEL3Q5",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("img").forEach(img => {
+        img.setAttribute("loading", "lazy");
+    });
+});
+</script>
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#de-eenheidscirkel" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Wiskundewijs" class="md-header__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+      
+  <img src="../../../assets/images/general/calculator-variant-outline.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wiskundewijs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              03 eenheidscirkel
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../basisvaardigheden/" class="md-tabs__link">
+          
+  
+  Stof
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../oplosser/" class="md-tabs__link">
+        
+  
+    
+  
+  Oplosser
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../bijles/" class="md-tabs__link">
+        
+  
+    
+  
+  Bijles
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Wiskundewijs" class="md-nav__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+      
+  <img src="../../../assets/images/general/calculator-variant-outline.svg" alt="logo">
+
+    </a>
+    Wiskundewijs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Stof
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Stof
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basisvaardigheden/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basisvaardigheden
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../percentages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percentages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistiek/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistiek
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pythagoras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Stelling van Pythagoras
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kwadratische_vergelijkingen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kwadratische Vergelijkingen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ongelijkheden/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ongelijkheden
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stelsels_van_vergelijkingen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stelsels van Vergelijkingen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../afgeleide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Afgeleide Functie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../primitieve/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Primitieve Functie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../goniometrie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Goniometrie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../oplosser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Oplosser
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bijles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bijles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#de-eenheidscirkel" class="md-nav__link">
+    <span class="md-ellipsis">
+      De Eenheidscirkel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="De Eenheidscirkel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trucje-voor-het-onthouden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trucje voor het Onthouden
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trucje voor het Onthouden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#om-te-onthouden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Om te onthouden
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>03 eenheidscirkel</h1>
+
+<h2 id="de-eenheidscirkel"><strong>De Eenheidscirkel</strong></h2>
+<p>De eenheidscirkel is eigenlijk gewoon een cirkel met een straal van lengte <span class="arithmatex">\(1\)</span>. We kunnen het gebruiken om verschillende waardes van sinus en cosinus te bepalen bij verschillende hoeken.</p>
+<details class="video" open="open">
+<summary>Video</summary>
+<p><video controls>
+<source src="/assets/videos/UnitCircle.mp4" type="video/mp4">
+</video></p>
+<p><em><p style="text-align: center;">Filmpje: Een schets van de eenheidscirkel. Het <span class="arithmatex">\(x\)</span>-coördinaat van een punt op de cirkel is de cosinus van de bijbehorende hoek. Het <span class="arithmatex">\(y\)</span>-coördinaat van dat punt is de sinus van die bijbehorende hoek.</p></em></p>
+</details>
+<figure>
+    <img src="/assets/images/goniometrie/Unit_Circle.svg" 
+        loading="lazy" 
+        width="1000" 
+        alt="Eenheidscirkel">
+</figure>
+<p><center><span><i>Figuur 1. De eenheidscirkel met de hoeken in het blauw weergegeven.</i></span></center> <br><br></p>
+<p>We kunnen met de eenheidscirkel kijken wat de cosinus en sinus van een bepaalde hoek zijn. We kijken dan naar het <span class="arithmatex">\(x\)</span>- en <span class="arithmatex">\(y\)</span>-coördinaat van het punt op de cirkel dat hoort bij die hoek. Het <span class="arithmatex">\(x\)</span>-coördinaat bij die hoek is hetzelfde als de cosinus van die hoek. En het <span class="arithmatex">\(y\)</span>-coördinaat bij de hoek is hetzelfde als de sinus van die hoek. Hieronder kunnen zien we waarom dit het geval is.</p>
+<details class="abstract">
+<summary>Bewijs</summary>
+<p>We hebben hieronder de eenheidscirkel getekend met een willekeurige hoek <span class="arithmatex">\(\theta\)</span>. Bij deze hoek hebben we een driehoek getekent met de straal als schuine zijde. Deze zijde heeft een lengte <span class="arithmatex">\(1\)</span>, want de straal van een eenheidscirkel is altijd <span class="arithmatex">\(1\)</span>.</p>
+<p><figure>
+    <img src="/assets/images/goniometrie/Unit_Circle_triangle.svg" 
+        loading="lazy" 
+        width="300" 
+        alt="Eenheidscirkel met driehoek">
+</figure>
+<center><span><i>Figuur 2. De eenheidscirkel met daarin een driehoek getekend met een bepaalde hoek <span class="arithmatex">\(\theta\)</span>. <span class="arithmatex">\(x\)</span> en <span class="arithmatex">\(y\)</span> zijn het <span class="arithmatex">\(x\)</span>- en <span class="arithmatex">\(y\)</span>-coördinaat van het punt.</i></span></center> <br><br></p>
+<p>Zijde <span class="arithmatex">\(b\)</span> is hier de overstaande zijde en zijde <span class="arithmatex">\(a\)</span> is de aanliggende zijde (zie eventueel de opmerking bij <a href="#goniometrische-functies">goniometrische functies</a>). Bij de <a href="#goniometrische-functies">goniometrische functies</a> hebben de volgende verbanden gezien:</p>
+<div class="arithmatex">\[\large{\sin(\theta) = \frac{\mathrm{Overstaand}}{\mathrm{Schuin}}}\]</div>
+<div class="arithmatex">\[\large{\cos(\theta) = \frac{\mathrm{Aanliggend}}{\mathrm{Schuin}}}\]</div>
+<p>We hebben net gezien dat onze schuine zijde een lengte <span class="arithmatex">\(1\)</span> heeft. Als we dit invullen, dan delen we door <span class="arithmatex">\(1\)</span> en houden we dus alleen de teller over:</p>
+<div class="arithmatex">\[\large{\sin(\theta) = \mathrm{Overstaand}}\]</div>
+<div class="arithmatex">\[\large{\cos(\theta) = \mathrm{Aanliggend}}\]</div>
+<p>We hebben net ook gezien dat zijde <span class="arithmatex">\(b\)</span> onze overstaande zijde is en zijde <span class="arithmatex">\(a\)</span> de aanliggende. Dit kunnen we dus gaan invullen:</p>
+<div class="arithmatex">\[\large{\sin{(\theta)} = b}\]</div>
+<div class="arithmatex">\[\large{\cos{(\theta)} = a}\]</div>
+<p>Maar de lengte van <span class="arithmatex">\(a\)</span> is precies hetzelfde als het <span class="arithmatex">\(x\)</span>-coördinaat van het punt. Want de zijde begint bij de oorsprong en eindigt bij <span class="arithmatex">\(x\)</span>. En dus als we bij <span class="arithmatex">\(0\)</span> beginnen en een afstand <span class="arithmatex">\(a\)</span> afleggen om bij <span class="arithmatex">\(x\)</span> te komen, dan moet <span class="arithmatex">\(x\)</span> gelijk zijn aan de lengte <span class="arithmatex">\(a\)</span>.</p>
+<p>We kunnen hetzelfde argument gebruiken voor <span class="arithmatex">\(b\)</span>. We beginnen bij <span class="arithmatex">\(y=0\)</span> en gaan dan tot het <span class="arithmatex">\(y\)</span>-coördinaat van het punt. Als we een afstand <span class="arithmatex">\(b\)</span> af moeten leggen om daar te komen, dan is het <span class="arithmatex">\(y\)</span>-coördinaat hetzelfde als de lengte <span class="arithmatex">\(b\)</span>. </p>
+<p>Als we dit invullen in de sinus en cosinus formules die we net gevonden hebben, dan krijgen we dus: </p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\sin(\theta) = x\textrm{-coordinaat}}\]</div>
+<div class="arithmatex">\[\large{\cos(\theta) = y\textrm{-coordinaat}}\]</div>
+</div>
+</details>
+<p><br>
+Stel dus dat we er bijvoorbeeld achter willen komen wat <span class="arithmatex">\(\sin(\frac{1}{3} \pi)\)</span> is. We kunnen dan op de eenheidscirkel zoeken naar de hoek <span class="arithmatex">\(\frac{1}{3} \pi\)</span>. We willen de sinus weten van deze hoek, dus moeten we kijken naar het <span class="arithmatex">\(y\)</span>-coordinaat van het punt bij deze hoek. In Figuur 1 kunnen we aflezen dat dit <span class="arithmatex">\(\frac{\sqrt{3}}{2}\)</span> is. Er geldt dus dat:</p>
+<div class="arithmatex">\[\large{\sin(\frac{1}{3} \pi) = \frac{\sqrt{3}}{2}}\]</div>
+<p>Als we <span class="arithmatex">\(\cos(\frac{1}{3} \pi)\)</span> wilden weten, dan moeten we naar het <span class="arithmatex">\(x\)</span>-coördinaat van dat punt kijken. We zien dat dit <span class="arithmatex">\(\frac{1}{2}\)</span> is, dus er geldt dat:</p>
+<div class="arithmatex">\[\large{\cos(\frac{1}{3} \pi) = \frac{1}{2}}\]</div>
+<p>Maar we hebben niet altijd de eenheidscirkel bij de hand, bijvoorbeeld bij toetsen niet. Dus is het handig om de eenheidscirkel te onthouden. Maar dit kan wel een beetje een gedoe zijn. Dus om niet alles te hoeven onthouden, kan het volgende trucje handig zijn.</p>
+<hr />
+<h3 id="trucje-voor-het-onthouden"><strong>Trucje voor het Onthouden</strong></h3>
+<p>Met deze methode hoef je alleen de vorm van de eenheidscirkel te onthouden en <span class="arithmatex">\(3\)</span> hoeken en <span class="arithmatex">\(3\)</span> waardes. Met de vorm van de cirkel bedoelen we dat bij <span class="arithmatex">\(\theta = 0\)</span> we rechts op de cirkel zitten. En met elke <span class="arithmatex">\(\frac{1}{2} \pi\)</span> (dus <span class="arithmatex">\(90 ^{\circ}\)</span>) gaan we een kwart rondje tegen de klok in.</p>
+<p>Als je dit onthoudt, samen met de volgende hoeken en waardes kun je de hele eenheidscirkel zelf opstellen.</p>
+<details class="belangrijk" open="open">
+<summary>Belangrijk</summary>
+<h4 id="om-te-onthouden"><strong><p style="font-size: 18px;">Om te onthouden<p></strong></h4>
+<p>Hoeken:</p>
+<div class="arithmatex">\[\Large{\boxed{\frac{1}{6} \pi &lt; \frac{1}{4} \pi &lt;\frac{1}{3} \pi}}\]</div>
+<p>Waardes:</p>
+<div class="arithmatex">\[\Large{\boxed{\frac{1}{2} &lt; \frac{1}{2} \sqrt{2} &lt; \frac{1}{2} \sqrt{3}}}\]</div>
+</details>
+<p>Om te kijken hoe we dit moeten toepassen, kijken we weer naar <span class="arithmatex">\(\sin(\frac{1}{3} \pi)\)</span>.</p>
+<p>We delen de eenheidscirkel op in <span class="arithmatex">\(4\)</span> kwartjes. We beginnen bij het kwart rechtsboven en dan tellen we tegen de klok in verder. Elk kwart cirkel heeft zijn eigen start- en eindhoek. Bij het eerste kwart is dit een starthoek van <span class="arithmatex">\(0\)</span> en een eindhoek van <span class="arithmatex">\(\frac{1}{2} \pi\)</span>, bij het tweede kwart een starthoek van <span class="arithmatex">\(\frac{1}{2} \pi\)</span> en een eindhoek van <span class="arithmatex">\(\pi\)</span>, enzovoort. </p>
+<p>We hebben de hoek <span class="arithmatex">\(\frac{1}{3} \pi\)</span> en dit is tussen <span class="arithmatex">\(0\)</span> en <span class="arithmatex">\(\frac{1}{2} \pi\)</span>. We zitten dus in het eerste kwart van de cirkel, dus het kwart rechtsboven. Als we dat weten, dan kijken we naar de voortgang om van het begin- naar het eindpunt te gaan. Hoe groter de hoek, hoe meer voortgang. Dus <span class="arithmatex">\(\frac{1}{3} \pi\)</span> is de grootste hoek van <a href="#om-te-onthouden">de <span class="arithmatex">\(3\)</span> hoeken</a>, dus we hebben de meeste voortgang gemaakt tussen het begin- en eindpunt. </p>
+<p>Het beginpunt is bij <span class="arithmatex">\((1,0)\)</span> en het eindpunt is bij <span class="arithmatex">\((0,1)\)</span>. We nemen de sinus, dus we zijn alleen geïnteresseerd in het <span class="arithmatex">\(y\)</span>-coördinaat. En we moeten dus kijken welke van <a href="#om-te-onthouden">de <span class="arithmatex">\(3\)</span> waardes</a> ons de meeste voortgang geeft om van <span class="arithmatex">\(y=0\)</span> naar <span class="arithmatex">\(y=1\)</span> te gaan. De meeste voortgang hier is dus de waarde <span class="arithmatex">\(y = \frac{1}{2}\sqrt{3}\)</span>. Dit is namelijk de grootste waarde tussen <span class="arithmatex">\(0\)</span> en <span class="arithmatex">\(1\)</span> van <a href="#om-te-onthouden">de <span class="arithmatex">\(3\)</span> waardes</a>. Onze sinus wordt dan dus:</p>
+<div class="arithmatex">\[\sin(\frac{1}{3} \pi) = \frac{1}{2}\sqrt{3}\]</div>
+<p>En die <span class="arithmatex">\(y\)</span>-waarde zien we ook als we de eenheidscirkel tekenen.</p>
+<figure>
+    <img src="/assets/images/goniometrie/Unit_Circle_Triangle_1_3_Pi.svg" 
+        loading="lazy" 
+        width="650" 
+        alt="Eenheidscirkel met driehoek voor sin(1/3 pi)">
+</figure>
+<p><center><span><i>Figuur 3. De eenheidscirkel met de driehoek van de hoek <span class="arithmatex">\(\frac{1}{3} \pi\)</span>. We willen de sinus van de hoek weten, dus kijken we naar het <span class="arithmatex">\(y\)</span>-coördinaat. We kunnen aflezen dat het <span class="arithmatex">\(y\)</span> coördinaat gelijk is aan <span class="arithmatex">\(\frac{1}{2}\sqrt{3}\)</span>.</i></span></center> <br><br></p>
+<p>Laten we nu kijken naar een voorbeeld waar we niet in het eerste kwart van de cirkel zitten. Dus stel we willen bepalen wat <span class="arithmatex">\(\cos(\frac{5}{6} \pi)\)</span> is. Hoe pakken we dit dan aan?</p>
+<p>We hebben dus de hoek <span class="arithmatex">\(\theta = \frac{5}{6} \pi\)</span> en deze hoek zit tussen de starthoek <span class="arithmatex">\(\frac{1}{2} \pi\)</span> en de eindhoek <span class="arithmatex">\(\pi\)</span>. Deze hoek zit dus in het tweede kwart van de cirkel, dus linksboven. Om met <a href="#om-te-onthouden">dezelfde <span class="arithmatex">\(3\)</span> hoeken</a> te kunnen werken moeten we onze hoek min de starthoek doen:</p>
+<div class="arithmatex">\[\theta' = \frac{5}{6} \pi - \frac{1}{2} \pi\]</div>
+<div class="arithmatex">\[\theta' = \frac{1}{3} \pi\]</div>
+<p>Hiermee kunnen we dezelfde stappen als net toepassen. Dit is de grootste hoek uit <a href="#om-te-onthouden">de <span class="arithmatex">\(3\)</span> hoeken</a>, dus er is de meeste voortgang gemaakt tussen ons begin- en eindpunt. Ons beginpunt is nu bij <span class="arithmatex">\((0, 1)\)</span> en ons eindpunt is bij <span class="arithmatex">\((-1, 0)\)</span>. We nemen de consinus, dus we zijn alleen geïnteresseerd in het <span class="arithmatex">\(x\)</span>-coördinaat. De meeste voortgang om van <span class="arithmatex">\(x = 0\)</span> naar <span class="arithmatex">\(x = -1\)</span> te gaan uit <a href="#om-te-onthouden">de <span class="arithmatex">\(3\)</span> waardes</a> is bij <span class="arithmatex">\(x = -\frac{1}{2} \sqrt{3}\)</span>. De cosinus wordt dan dus:</p>
+<div class="arithmatex">\[\large{\cos(\frac{5}{6} \pi) = - \frac{1}{2}\sqrt{3}}\]</div>
+<p>En dit <span class="arithmatex">\(x\)</span>-coördinaat kunnen we ook zien als we de eenheidscirkel tekenen.</p>
+<figure>
+    <img src="/assets/images/goniometrie/Unit_Circle_Triangle_5_6_Pi.svg" 
+        loading="lazy" 
+        width="650" 
+        alt="Eenheidscirkel met driehoek voor cos(5/6 pi)">
+</figure>
+<p><center><span><i>Figuur 4. De eenheidscirkel met de driehoek van de hoek <span class="arithmatex">\(\frac{5}{6} \pi\)</span>. We willen de cosinus van de hoek weten, dus kijken we naar het <span class="arithmatex">\(x\)</span>-coördinaat. We kunnen aflezen dat het <span class="arithmatex">\(x\)</span>-coördinaat gelijk is aan <span class="arithmatex">\(-\frac{1}{2}\sqrt{3}\)</span>.</i></span></center> <br><br></p>
+<p>Als dit misschien nog niet helemaal duidelijk was, staan hieronder nog een paar andere voorbeelden om ermee te oefenen.</p>
+<h4 id="voorbeelden"><strong><p style="font-size: 20px;">Voorbeelden<p></strong></h4>
+<details class="example">
+<summary>Voorbeeld 1: <span class="arithmatex">\(\cos(\frac{3}{4} \pi)\)</span></summary>
+<p><strong><p style="text-align: center;font-size:20px;">Bepaal: <span class="arithmatex">\(\cos(\frac{3}{4} \pi)\)</span></p></strong></p>
+<p><br><br><br><br><br></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We hebben hier een hoek van <span class="arithmatex">\(\theta = \frac{3}{4} \pi\)</span> en dat zit tussen de starthoek <span class="arithmatex">\(\frac{1}{2} \pi\)</span> en de eindhoek <span class="arithmatex">\(\pi\)</span>. We nemen de cosinus, dus we zijn alleen geïnteresseerd in het <span class="arithmatex">\(x\)</span>-coördinaat. Om dit te bepalen, moeten we eerst onze hoek min de starthoek doen:</p>
+<div class="arithmatex">\[\large{\theta' = \frac{3}{4} \pi - \frac{1}{2} \pi}\]</div>
+<div class="arithmatex">\[\large{\theta' = \frac{1}{4} \pi}\]</div>
+<p>Dit is de middelste hoek uit <a href="#om-te-onthouden">de <span class="arithmatex">\(3\)</span> hoeken</a>. Dus onze voorgang om van het begin- naar het eindpunt te gaan zit in het midden. Ons startpunt is bij <span class="arithmatex">\((0, 1)\)</span> en ons eindpunt is bij <span class="arithmatex">\((-1, 0)\)</span>. </p>
+<p>We kijken dus alleen naar het <span class="arithmatex">\(x\)</span>-coördinaat, dus we moeten kijken naar de voortgang om van <span class="arithmatex">\(x=0\)</span> naar <span class="arithmatex">\(x=-1\)</span> te gaan. De middelste waarde tussen <span class="arithmatex">\(0\)</span> en <span class="arithmatex">\(-1\)</span> uit <a href="#om-te-onthouden">de <span class="arithmatex">\(3\)</span> waardes</a> is <span class="arithmatex">\(x = -\frac{1}{2}\sqrt{2}\)</span>. De cosinus wordt dus: </p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\cos(\frac{3}{4} \pi) = -\frac{1}{2} \sqrt{2}}\]</div>
+</div>
+<p>En dit <span class="arithmatex">\(x\)</span>-coördinaat zien we ook als we de eenheidscirkel tekenen.</p>
+<p><figure>
+    <img src="/assets/images/goniometrie/Unit_Circle_Triangle_3_4_Pi.svg" 
+        loading="lazy" 
+        width="550" 
+        alt="Eenheidscirkel met driehoek voor cos(3/4 pi)">
+</figure>
+<center><span><i>Figuur 1. De eenheidscirkel met de driehoek van de hoek <span class="arithmatex">\(\frac{3}{4} \pi\)</span>. We willen de cosinus van de hoek weten, dus kijken we naar het <span class="arithmatex">\(x\)</span>-coördinaat. We kunnen aflezen dat het <span class="arithmatex">\(x\)</span>-coördinaat gelijk is aan <span class="arithmatex">\(-\frac{1}{2}\sqrt{2}\)</span>.</i></span></center> <br><br></p>
+</details>
+<details class="example">
+<summary>Voorbeeld 2: <span class="arithmatex">\(\sin(1 \frac{1}{6} \pi)\)</span></summary>
+<p><strong><p style="text-align: center;font-size:20px;">Bepaal: <span class="arithmatex">\(\sin(1 \frac{1}{6} \pi)\)</span></p></strong></p>
+<p><br><br><br><br><br></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We hebben hier een hoek van <span class="arithmatex">\(\theta = 1 \frac{1}{6}\)</span> en dit zit tussen de starthoek <span class="arithmatex">\(\pi\)</span> en de eindhoek <span class="arithmatex">\(1 \frac{1}{2} \pi\)</span>. We nemen de sinus, dus we zijn alleen geïnteresseerd in het <span class="arithmatex">\(y\)</span>-coördinaat. Om dit te bepalen doen we onze hoek min de starthoek:</p>
+<div class="arithmatex">\[\large{\theta' = 1 \frac{1}{6} \pi - \pi}\]</div>
+<div class="arithmatex">\[\large{\theta' = \frac{1}{6} \pi}\]</div>
+<p>Deze hoek is de kleinste hoek uit <a href="#om-te-onthouden">de <span class="arithmatex">\(3\)</span> hoeken</a>, dus we hebben de minste voortgang gemaakt tussen ons begin- en eindpunt. Ons beginpunt is bij <span class="arithmatex">\((-1,0)\)</span> en ons eindpunt is bij <span class="arithmatex">\((0, -1)\)</span>. Dus we moeten kijken welke <a href="#om-te-onthouden">waarde</a> van de <span class="arithmatex">\(3\)</span> de minste voortgang geeft om van <span class="arithmatex">\(y=0\)</span> naar <span class="arithmatex">\(y=-1\)</span> te gaan. Dit is bij <span class="arithmatex">\(y = -\frac{1}{2}\)</span>. De sinus wordt dan dus: </p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\sin(1 \frac{1}{6} \pi) = - \frac{1}{2}}\]</div>
+</div>
+<p>Deze <span class="arithmatex">\(y\)</span>-waarde zien we ook als de eenheidscirkel tekenen.</p>
+<p><figure>
+    <img src="/assets/images/goniometrie/Unit_Circle_Triangle_1_1_6_Pi.svg" 
+        loading="lazy" 
+        width="550" 
+        alt="Eenheidscirkel met driehoek voor sin(1 1/6 pi)">
+</figure>
+<center><span><i>Figuur 2. De eenheidscirkel met de driehoek van de hoek <span class="arithmatex">\(1 \frac{1}{6} \pi\)</span>. We willen de sinus van de hoek weten, dus kijken we naar het <span class="arithmatex">\(y\)</span>-coördinaat. We kunnen aflezen dat het <span class="arithmatex">\(y\)</span>-coördinaat gelijk is aan <span class="arithmatex">\(-\frac{1}{2}\)</span>.</i></span></center> <br><br></p>
+</details>
+<details class="example">
+<summary>Voorbeeld 3: <span class="arithmatex">\(\cos(1 \frac{2}{3} \pi)\)</span></summary>
+<p><strong><p style="text-align: center;font-size:20px;">Bepaal: <span class="arithmatex">\(\cos(1 \frac{2}{3} \pi)\)</span></p></strong></p>
+<p><br><br><br><br><br></p>
+<p><strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We hebben hier een hoek van <span class="arithmatex">\(\theta = 1 \frac{2}{3}\)</span> dat tussen de starthoek <span class="arithmatex">\(\theta = 1 \frac{1}{2} \pi\)</span> en de eindhoek <span class="arithmatex">\(2 \pi\)</span> zit. Als eerst doen we onze hoek min de starthoek: </p>
+<div class="arithmatex">\[\large{\theta' = 1 \frac{2}{3} \pi - 1 \frac{1}{2} \pi}\]</div>
+<div class="arithmatex">\[\large{\theta' = \frac{1}{6} \pi}\]</div>
+<p>Deze hoek is de kleinste uit <a href="#om-te-onthouden">de <span class="arithmatex">\(3\)</span> hoeken</a> en dus is er de minste voortgang gemaakt tussen ons start- en eindpunt. </p>
+<p>Ons startpunt is <span class="arithmatex">\((0, -1)\)</span> en ons eindpunt is <span class="arithmatex">\((1, 0)\)</span>. We nemen de cosinus en we zijn dus alleen geïntereseerd in het <span class="arithmatex">\(x\)</span>-coördinaat. De minste voortgang om van <span class="arithmatex">\(x = 0\)</span> naar <span class="arithmatex">\(x = 1\)</span> te gaan is bij <span class="arithmatex">\(x = \frac{1}{2}\)</span>. De cosinus van <span class="arithmatex">\(1 \frac{2}{3} \pi\)</span> is dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{\cos(1 \frac{2}{3} \pi) = \frac{1}{2}}\]</div>
+</div>
+<p>En dit <span class="arithmatex">\(x\)</span>-coördinaat kunnen we ook zien als we het tekenen.</p>
+<p><figure>
+    <img src="/assets/images/goniometrie/Unit_Circle_Triangle_1_2_3_Pi.svg" 
+        loading="lazy" 
+        width="550" 
+        alt="Eenheidscirkel met driehoek voor cos(1 2/3 pi)">
+</figure>
+<center><span><i>Figuur 3. De eenheidscirkel met de driehoek van de hoek <span class="arithmatex">\(1 \frac{2}{3} \pi\)</span>. We willen de cosinus van de hoek weten, dus kijken we naar het <span class="arithmatex">\(x\)</span>-coördinaat. We kunnen aflezen dat het <span class="arithmatex">\(x\)</span>-coördinaat gelijk is aan <span class="arithmatex">\(\frac{1}{2}\)</span>.</i></span></center> <br><br></p>
+</details>
+<p>Maar je bent natuurlijk niet verplicht om dit trucje te gebruiken. Als je het handiger vindt om gewoon de eenheidscirkel helemaal uit je hoofd te leren, doe dat vooral!</p>
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025, Marc Serrano Altena <br> <a href="#__consent" style="color:#B0B0B0"><i>Cookie instellingen</i></a>
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/marc-serrano-altena-a96800285/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/M-Serrano-Altena" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<marcsa@wiskundewijs.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6m-2 0-8 5-8-5h16m0 12H4V8l8 5 8-5v10Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+
+
+
+<h4>Cookies</h4>
+<p>Deze website maakt gebruik van cookies om te zien hoe de website gebruikt wordt. Zo kunnen we jouw ervaring nog beter maken!</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accepteren</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Instellingen</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    
+    
+    
+      <script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+      
+        <script src="../../../javascripts/load_sections.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_ID"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  </body>
+</html>

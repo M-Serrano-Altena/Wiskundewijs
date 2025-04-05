@@ -1,0 +1,1095 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Hier worden verschillende wiskundige onderwerpen duidelijk en helder behandelt. De hoofdstukken hebben een theorie sectie waar de stof wordt uitgelegt en daarna worden wat voorbeelden behandelt om te laten zien hoe de theorie toegepast wordt in de opdrachten.">
+      
+      
+        <meta name="author" content="Marc Serrano Altena">
+      
+      
+        <link rel="canonical" href="https://wiskundewijs.com/main_sections/primitieve/01-introductie_primitieven/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/general/calculator-variant.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.4.10">
+    
+    
+      
+        <title>01 introductie primitieven - Wiskundewijs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-4JQXCEL3Q5"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-4JQXCEL3Q5",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-4JQXCEL3Q5",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("img").forEach(img => {
+        img.setAttribute("loading", "lazy");
+    });
+});
+</script>
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introductie-primitieven" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Wiskundewijs" class="md-header__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+      
+  <img src="../../../assets/images/general/calculator-variant-outline.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wiskundewijs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              01 introductie primitieven
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../basisvaardigheden/" class="md-tabs__link">
+          
+  
+  Stof
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../oplosser/" class="md-tabs__link">
+        
+  
+    
+  
+  Oplosser
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../bijles/" class="md-tabs__link">
+        
+  
+    
+  
+  Bijles
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Wiskundewijs" class="md-nav__button md-logo" aria-label="Wiskundewijs" data-md-component="logo">
+      
+  <img src="../../../assets/images/general/calculator-variant-outline.svg" alt="logo">
+
+    </a>
+    Wiskundewijs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Stof
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Stof
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basisvaardigheden/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basisvaardigheden
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../percentages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percentages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistiek/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistiek
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pythagoras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Stelling van Pythagoras
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kwadratische_vergelijkingen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kwadratische Vergelijkingen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ongelijkheden/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ongelijkheden
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stelsels_van_vergelijkingen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stelsels van Vergelijkingen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../afgeleide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Afgeleide Functie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../primitieve/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    De Primitieve Functie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../goniometrie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Goniometrie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../oplosser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Oplosser
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bijles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bijles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introductie-primitieven" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introductie Primitieven
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introductie Primitieven">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabel-met-veel-voorkomende-functies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabel met veel voorkomende functies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeelden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>01 introductie primitieven</h1>
+
+<h2 id="introductie-primitieven"><strong>Introductie Primitieven</strong></h2>
+<p>Een primitieve is eigenlijk precies het omgekeerde van een afgeleide. Stel we hebben bijvoorbeeld de volgende afgeleide:</p>
+<div class="arithmatex">\[f'(x) = 3x^2\]</div>
+<p>En we willen bepalen wat de originele functie <span class="arithmatex">\(f(x)\)</span> is. Misschien zou je kunnen bedenken dat de functie dat hier bij hoort de volgende vorm heeft:</p>
+<div class="arithmatex">\[f(x) = x^3,\]</div>
+<p>want als we <span class="arithmatex">\(f(x)\)</span> nu afleiden, dan krijgen we inderdaad <span class="arithmatex">\(3x^2\)</span>. Maar we weten ook dat de afgeleide van een <em>constante</em> (dus een los getal zonder <span class="arithmatex">\(x\)</span>) gelijk is aan <span class="arithmatex">\(0\)</span>. We kunnen dus elke willekeurige constante bij <span class="arithmatex">\(f(x)\)</span> optellen en dan blijft de afgeleide <span class="arithmatex">\(3x^2\)</span>. </p>
+<p>Dus bijvoorbeeld:</p>
+<div class="arithmatex">\[f_6(x) = x^3 + 6 \longrightarrow f_6'(x) = 3x^2\]</div>
+<div class="arithmatex">\[f_{13}(x) = x^3 + 13 \longrightarrow f_{13}'(x) = 3x^2\]</div>
+<p>Omdat we elk willekeurig getal kunnen toevoegen, schrijven we het algemener op:</p>
+<div class="arithmatex">\[f(x) = x^3 + c\]</div>
+<p>en deze <span class="arithmatex">\(c\)</span> noemen we de <strong>integratieconstante</strong>.</p>
+<p>Wat we net hebben gedaan heet <em>primitiveren</em>. We bepalen dan de zogenaamde <em>primitieve</em> van een functie. Een primitieve is eigenlijk een functie die met afleiden weer terug gaat naar de originele functie. En we noteren een primitieve met een hoofdletter. Dus als:</p>
+<div class="arithmatex">\[g(x) = 3x^2,\]</div>
+<p>dan is de primitieve:</p>
+<div class="arithmatex">\[G(x) = x^3 + c.\]</div>
+<p>Net zoals bij de afgeleides hebben we bij primitiveren een tabel met veel voorkomende functies en hun primitieven.</p>
+<details class="belangrijk" open="open">
+<summary>Belangrijk</summary>
+<h3 id="tabel-met-veel-voorkomende-functies"><strong>Tabel met veel voorkomende functies</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Functie</th>
+<th>Primitieve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = 0}\)</span></td>
+<td><span class="arithmatex">\(\large{F(x) = c}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = a}\)</span></td>
+<td><span class="arithmatex">\(\large{F(x) = ax + c}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = ax^n}\)</span></td>
+<td><span class="arithmatex">\(\large{F(x) = \dfrac{1}{n + 1} \cdot ax^{n+1} + c}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = e^x}\)</span></td>
+<td><span class="arithmatex">\(\large{F(x) = e^x + c}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = a^x}\)</span></td>
+<td><span class="arithmatex">\(\large{F(x) = \dfrac{a^x}{\ln(a)} + c}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = \dfrac{1}{x}}\)</span></td>
+<td><span class="arithmatex">\(\large{F(x) = \ln &#124; x &#124;}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = \ln(x)}\)</span></td>
+<td><span class="arithmatex">\(\large{F(x) = x \ln(x) - x + c}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = \ ^a \! \log(x)}\)</span></td>
+<td><span class="arithmatex">\(\large{F(x) = \dfrac{1}{\ln(a)} \cdot \left(x \ln(x) - x \right) + c}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = \sin(x)}\)</span></td>
+<td><span class="arithmatex">\(\large{F(x) = -\cos(x) + c}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\large{f(x) = \cos(x)}\)</span></td>
+<td><span class="arithmatex">\(\large{F(x) = \sin(x) + c}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>waarbij <span class="arithmatex">\(n\)</span> en <span class="arithmatex">\(a\)</span> constantes zijn (losse getallen zonder <span class="arithmatex">\(x\)</span>). </p>
+<p><span class="arithmatex">\(c\)</span> is de zogenaamde <em>integratieconstante</em>. Deze constante komt er bij elke functie die je primitiveert erbij. Als we de primitieve zouden afleiden, dan zou deze constante namelijk weer verdwijnen.</p>
+<p><br></p>
+<h3 id="regels"><strong>Regels</strong></h3>
+<p>Bij primitiveren hebben we geen <a href="/afgeleide/#regels">productregel</a> of <a href="/afgeleide/#regels">quotiëntregel</a>, maar wel de <a href="/afgeleide/#regels">somregel</a> en (deels) de omgekeerde <a href="/afgeleide/#regels">kettingregel</a>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Functie</th>
+<th>Primitieve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Somregel</td>
+<td><span class="arithmatex">\(\large{f(x) = g(x) + h(x)}\)</span></td>
+<td><span class="arithmatex">\(\large{F(x) = G(x) + H(x)}\)</span></td>
+</tr>
+<tr>
+<td>Kettingregel</td>
+<td><span class="arithmatex">\(\large{f(x) = f(ax + b)}\)</span></td>
+<td><span class="arithmatex">\(\large F(x) = \frac{1}{a} \cdot F(ax + b)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong><em><p style="text-align: left;font-size:17px;">Let op!</p></em></strong></p>
+<p>De kettingregel voor primitieven geldt alleen voor lineaire functies als binnenste functie. Er mag namelijk geen extra <span class="arithmatex">\(x\)</span> term bij komen door de kettingregel. Want door die extra <span class="arithmatex">\(x\)</span> term zou de afgeleide van deze primitieve niet meer de originele functie zijn.</p>
+</details>
+<h3 id="voorbeelden"><strong>Voorbeelden</strong></h3>
+<details class="example">
+<summary>Voorbeeld 1: Bepaal de primitieve van <span class="arithmatex">\(f(x) = 2x^2\)</span></summary>
+<p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = 2x^2\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Deze functie is van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>, met hier <span class="arithmatex">\(a=2\)</span> en <span class="arithmatex">\(n=2\)</span>. Om de primitieve te bepalen bij zo'n vorm, moeten we eerst de macht <span class="arithmatex">\(+1\)</span> doen. Dus de <span class="arithmatex">\(2\)</span> in de macht wordt nu een <span class="arithmatex">\(3\)</span>. En daarna doen we <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor (en vergeet de <span class="arithmatex">\(+c\)</span> niet):</p>
+<div class="arithmatex">\[\large{F(x) = \dfrac{1}{3} \cdot 2 x^3 + c}\]</div>
+<p>Als we dit versimpelen, dan vinden we:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{F(x) = \dfrac{2}{3}x^3 + c}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 2: Bepaal de primitieve van <span class="arithmatex">\(f(x) = x^3 + 6x - 4\)</span></summary>
+<p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = x^3 + 6x - 4\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Bij <a href="#regels">Regels</a> zien we dat we bij primitiveren ook de somregel kunnen gebruiken, net zoals bij afgeleides. We kunnen dus van elke term apart de primitieve bepalen. Bij de eerste twee doen we de macht <span class="arithmatex">\(+1\)</span> en zetten we een factor <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor: <br><br></p>
+<ul>
+<li>Functie: <span class="arithmatex">\(\quad x^{3}\)</span> <span class="arithmatex">\(\qquad \Longrightarrow \qquad\)</span> Primitieve: <span class="arithmatex">\(\quad \dfrac{1}{4}x^4\)</span></li>
+<li>Functie: <span class="arithmatex">\(\quad 6x\)</span> <span class="arithmatex">\(\qquad \Longrightarrow \qquad\)</span> Primitieve: <span class="arithmatex">\(\quad \dfrac{1}{2} \cdot 6x^2 = 3x^2\)</span></li>
+</ul>
+<p><br><br>
+De laatste term is gewoon een constante, dus van de vorm <span class="arithmatex">\(f(x) = a\)</span>. De primitieve van deze vorm is <span class="arithmatex">\(F(x) = ax\)</span>, dus plakken gewoon een <span class="arithmatex">\(x\)</span> aan het getal vast: <br><br></p>
+<ul>
+<li>Functie: <span class="arithmatex">\(\quad -4\)</span> <span class="arithmatex">\(\qquad \Longrightarrow \qquad\)</span> Primitieve: <span class="arithmatex">\(\quad -4x\)</span></li>
+</ul>
+<p><br><br>
+Als we dit nu allemaal samenvoegen (en <span class="arithmatex">\(+c\)</span> toevoegen), vinden we:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{F(x) = \dfrac{1}{4}x^4 + 3x^2 - 4x + c}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 3: Bepaal de primitieve van <span class="arithmatex">\(f(x) = (3x - 7)^2\)</span></summary>
+<p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = (3x - 7)^2\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Om dit op te lossen werken we eerst de <a href="/basisvaardigheden/#kwadratisch-haakjes-wegwerken">haakjes</a> uit:</p>
+<div class="arithmatex">\[\large{f(x) = 9x^2 - 42x + 49}\]</div>
+<p>Nu kunnen we de primitieve nemen van de losse termen. Bij de eerste twee termen doen we de macht <span class="arithmatex">\(+1\)</span> en dan een factor <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor. Bij het losse getal voegen we alleen een <span class="arithmatex">\(x\)</span> toe:</p>
+<div class="arithmatex">\[\large{F(x) = \dfrac{1}{3} \cdot 9x^3 - \dfrac{1}{2} \cdot 42x^2 + 49x + c}\]</div>
+<p>Als we dit versimpelen, dan vinden we:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{F(x) = 3x^3 - 21x^2 + 49x + c}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 4: Bepaal de primitieve van <span class="arithmatex">\(f(x) = 6\sqrt{x}\)</span></summary>
+<p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = 6\sqrt{x}\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Om dit op te lossen moeten we het eerst schrijven in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. We doen dit door de wortel eerst als macht <span class="arithmatex">\(\frac{1}{2}\)</span> te schrijven:</p>
+<div class="arithmatex">\[\large{f(x) = 6x^{\frac{1}{2}}}\]</div>
+<p>Nu staat de functie wel in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Om deze vorm te primitiveren, doen we de macht <span class="arithmatex">\(+1\)</span>. Dus van een macht <span class="arithmatex">\(\frac{1}{2}\)</span> gaan we naar een macht <span class="arithmatex">\(1 \frac{1}{2}\)</span>. Daarna zetten we een factor van <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor:</p>
+<div class="arithmatex">\[\large{F(x) = \dfrac{1}{1 \frac{1}{2}} \cdot 6x^{1 \frac{1}{2}} + c}\]</div>
+<p>Als we dit versimpelen:</p>
+<div class="arithmatex">\[\large{F(x) = \dfrac{2}{3} \cdot 6x^{1 \frac{1}{2}} + c}\]</div>
+<div class="arithmatex">\[\large{F(x) = 4x^{1 \frac{1}{2}} + c}\]</div>
+<p>We hadden in de vraag geen breuk in de macht, dus dat moeten we weer schrijven met wortels. We hebben een macht <span class="arithmatex">\(1 \frac{1}{2}\)</span>, dus dat kunnen we schrijven als <span class="arithmatex">\(x \sqrt{x}\)</span>. De <span class="arithmatex">\(x\)</span> komt van de <span class="arithmatex">\(1\)</span> in de macht, de <span class="arithmatex">\(\sqrt{x}\)</span> komt van de <span class="arithmatex">\(\frac{1}{2}\)</span>.</p>
+<p>We krijgen dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{F(x) = 4x\sqrt{x} + c}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 5: Bepaal de primitieve van <span class="arithmatex">\(f(x) = \dfrac{3x\sqrt{x}}{2x^3}\)</span></summary>
+<p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = \dfrac{3x\sqrt{x}}{2x^3}\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Om dit te primitiveren, moeten we deze functie eerst schrijven in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>. Om dit te doen schrijven we de wortel eerst als een macht <span class="arithmatex">\(\frac{1}{2}\)</span>:</p>
+<div class="arithmatex">\[\large{f(x) = \dfrac{3x \cdot x^{\frac{1}{2}}}{2x^3}}\]</div>
+<p>We kunnen nu de <span class="arithmatex">\(x\)</span> termen in de teller combineren. We hebben twee <span class="arithmatex">\(x\)</span> termen keer elkaar, dus moeten we de machten bij elkaar op tellen. We weten dat <span class="arithmatex">\(x = x^1\)</span>, dus krijgen we:</p>
+<div class="arithmatex">\[\large{f(x) = \dfrac{3x^{1 + \frac{1}{2}}}{2x^3}}\]</div>
+<div class="arithmatex">\[\large{f(x) = \dfrac{3x^{1 \frac{1}{2}}}{2x^3}}\]</div>
+<p>Nu kunnen we de twee overige <span class="arithmatex">\(x\)</span> termen door elkaar delen. Als we twee <span class="arithmatex">\(x\)</span> termen met elkaar delen, doen we de machten juist min elkaar:</p>
+<div class="arithmatex">\[\large{f(x) = \dfrac{3}{2} \cdot x^{1 \frac{1}{2} - 3}}\]</div>
+<p>En nu kunnen we de macht versimpelen:</p>
+<div class="arithmatex">\[\large{f(x) = \dfrac{3}{2} x^{-1 \frac{1}{2}}}\]</div>
+<p>Nu staat de functie in de vorm <span class="arithmatex">\(f(x) = ax^n\)</span> en kunnen we het primitiveren. We doen dan de macht <span class="arithmatex">\(+1\)</span> en halen een factor <span class="arithmatex">\(1\)</span> gedeeld door deze nieuwe macht ervoor. We krijgen dus als nieuwe macht <span class="arithmatex">\(-1\frac{1}{2} + 1 = - \frac{1}{2}\)</span>:</p>
+<div class="arithmatex">\[\large{F(x) = \dfrac{1}{-\frac{1}{2}} \cdot \dfrac{3}{2} x^{-\frac{1}{2}} + c}\]</div>
+<p>En als we dit versimpelen:</p>
+<div class="arithmatex">\[\large{F(x) = -2 \cdot \dfrac{3}{2} x^{-\frac{1}{2}} + c}\]</div>
+<div class="arithmatex">\[\large{F(x) = -3x^{-\frac{1}{2}} + c}\]</div>
+<p>We hadden in de vraag geen negatieve of breuk in de macht, dus dat moeten we weer schrijven als breuk en met wortels. We veranderen eerst de '<span class="arithmatex">\(-\)</span>' in de macht met een breuk:</p>
+<div class="arithmatex">\[\large{F(x) = -3 \cdot \dfrac{1}{x^{\frac{1}{2}}} + c}\]</div>
+<p>En de macht <span class="arithmatex">\(\frac{1}{2}\)</span> kunnen we ook schrijven als wortel:</p>
+<div class="arithmatex">\[\large{F(x) = -3 \cdot \dfrac{1}{\sqrt{x}} + c}\]</div>
+<p>Als laatst kunnen we nog eventueel de <span class="arithmatex">\(3\)</span> in de breuk zetten:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{F(x) = - \dfrac{3}{\sqrt{x}} + c}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 6: Bepaal de primitieve van <span class="arithmatex">\(f(x) = 5\cos(x)\)</span></summary>
+<p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = 5\cos(x)\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>De primitieve van een cosinus kunnen we vinden in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. We zien daar dat dit <span class="arithmatex">\(\sin(x)\)</span> is. In ons geval hebben we nog een factor <span class="arithmatex">\(5\)</span>, maar die kunnen we er gewoon lekker voor laten staan: </p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{F(x) = 5\sin(x) + c}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 7: Bepaal de primitieve van <span class="arithmatex">\(f(x) = \sin(2x)\)</span></summary>
+<p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = \sin(2x)\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>De primitieve van een sinus kunnen we opzoeken in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. We zien daar dat dit <span class="arithmatex">\(-\cos(x)\)</span> is. Om onze functie <span class="arithmatex">\(\sin(2x)\)</span> te primitiveren, zou onze eerste gok misschien zijn:</p>
+<div class="arithmatex">\[\large{\widetilde{F}(x) = -\cos(2x) + c}\]</div>
+<p>Maar als we dit weer gaan afleiden, dan krijgen we door de <a href="/afgeleide/#regels">kettingregel</a> een extra factor <span class="arithmatex">\(2\)</span> ervoor:</p>
+<div class="arithmatex">\[\large{\widetilde{F}'(x) = 2\sin(2x) \neq f(x)}\]</div>
+<p>Omdat we deze factor niet willen, moeten we die bij de primitieve weg compenseren door <span class="arithmatex">\(\frac{1}{2}\)</span> ervoor toe te voegen:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{F(x) = -\dfrac{1}{2}\cos(2x) + c}\]</div>
+</div>
+<p><br></p>
+<p>(Nu geldt er namelijk wel weer <span class="arithmatex">\(F'(x) = f(x)\)</span> )</p>
+</details>
+<details class="example">
+<summary>Voorbeeld 8: Bepaal de primitieve van <span class="arithmatex">\(f(x) = e^{4x + 7}\)</span></summary>
+<p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = e^{4x + 7}\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>We hebben hier te maken met een <span class="arithmatex">\(e\)</span> macht en we weten dat de afgeleide van een <span class="arithmatex">\(e\)</span> macht zichzelf is. Dit betekent dus ook dat de primitieve van een <span class="arithmatex">\(e\)</span> macht zichzelf moet zijn. Dus als eerste gok proberen we:</p>
+<div class="arithmatex">\[\large{\widetilde{F}(x) = e^{4x + 7}}\]</div>
+<p>Maar als we deze functie weer afleiden, krijgen we door de <a href="/afgeleide/#regels">kettingregel</a> een extra factor <span class="arithmatex">\(4\)</span> ervoor:</p>
+<div class="arithmatex">\[\large{\widetilde{F}'(x) = 4 \cdot e^{4x + 7} \neq f(x)}\]</div>
+<p>Omdat we deze factor niet willen, compenseren we hem weg door in de primitieve <span class="arithmatex">\(\frac{1}{4}\)</span> toe te voegen:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{F(x) = \dfrac{1}{4}e^{4x + 7} + c}\]</div>
+</div>
+<p>(Nu geldt er namelijk wel weer <span class="arithmatex">\(F'(x) = f(x)\)</span> )</p>
+</details>
+<details class="example">
+<summary>Voorbeeld 9: Bepaal de primitieve van <span class="arithmatex">\(f(x) = \dfrac{14}{x}\)</span></summary>
+<p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = \dfrac{14}{x}\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p><em>Let op!</em> We hebben hier een functie van de vorm <span class="arithmatex">\(f(x) = \dfrac{1}{x}\)</span>, en niet van de vorm <span class="arithmatex">\(f(x) = ax^n\)</span>.</p>
+<p>De primitieve van deze vorm kunnen we opzoeken in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. We vinden daar dat het <span class="arithmatex">\(F(x) = \ln|x|\)</span> is. In ons geval hebben we nog een extra factor <span class="arithmatex">\(14\)</span>, maar die kunnen we er gewoon lekker voor laten staan:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{F(x) = 14\ln|x|}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 10: Bepaal de primitieve van <span class="arithmatex">\(f(x) = \ ^2 \! \log(x)\)</span></summary>
+<p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = \ ^2 \! \log(x)\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Deze functie is van de vorm <span class="arithmatex">\(f(x) = \ ^a \! \log(x)\)</span>, met hier <span class="arithmatex">\(a=2\)</span>. De primitieve van deze vorm kunnen we opzoeken in de <a href="#tabel-met-veel-voorkomende-functies">tabel</a>. Daar vinden we dat het van de vorm <span class="arithmatex">\(F(x) = \dfrac{1}{\ln(a)} \cdot \left( x \ln(x) - x \right) + c\)</span> is. In ons geval wordt dat dus:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{F(x) = \frac{1}{\ln(2)} \cdot \left( x \ln(x) - x \right) + c}\]</div>
+</div>
+</details>
+<details class="example">
+<summary>Voorbeeld 11: Bepaal de primitieve van <span class="arithmatex">\(f(x) = \ln(9x - 2)\)</span></summary>
+<p><strong><p style="text-align: center;font-size:20px;">Bepaal de primitieve van de functie <span class="arithmatex">\(f(x) = \ln(9x - 2)\)</span></p></strong>
+<strong><p style="text-align: center;font-size:20px;">Uitwerking</p></strong></p>
+<p>Deze functie is van de vorm <span class="arithmatex">\(f(x) = \ln(x)\)</span>. In de <a href="#tabel-met-veel-voorkomende-functies">tabel</a> kunnen we zien dat de primitieve van deze vorm <span class="arithmatex">\(F(x) = x \ln(x) - x + c\)</span> is. In ons geval hebben we geen <span class="arithmatex">\(x\)</span> maar <span class="arithmatex">\(9x - 2\)</span>. We moeten dus alle <span class="arithmatex">\(x\)</span> in deze vorm vervangen voor <span class="arithmatex">\(9x - 2\)</span>:</p>
+<div class="arithmatex">\[\large{\widetilde{F}(x) = (9x - 2) \ln(9x-2) - (9x - 2) + c}\]</div>
+<p>Maar als we dit afleiden, dan zouden we door de <a href="/afgeleide/#regels">kettingregel</a> een extra factor <span class="arithmatex">\(9\)</span> krijgen. Om die weg te compenseren, voegen wij een factor <span class="arithmatex">\(\dfrac{1}{9}\)</span> toe aan onze primitieve:</p>
+<div class="arithmatex">\[\large{F(x) = \dfrac{1}{9} \cdot \left( (9x - 2) \ln(9x - 2) - (9x - 2) \right) + c}\]</div>
+<p>Dit kunnen we eventueel nog iets verder versimpelen:</p>
+<div class="arithmatex">\[\large{F(x) = (x - \dfrac{2}{9}) \ln(9x - 2) - (x - \dfrac{2}{9}) + c}\]</div>
+<p>Omdat we al de integratieconstante <span class="arithmatex">\(c\)</span> hebben toegevoegd, kunnen we de <span class="arithmatex">\(\frac{2}{9}\)</span> op het einde weg laten. De integratieconstante <span class="arithmatex">\(c\)</span> staat namelijk al voor elk mogelijk getal, dus de extra <span class="arithmatex">\(\frac{2}{9}\)</span> voegt niks toe:</p>
+<div class="admonition quote">
+<div class="arithmatex">\[\large{F(x) = (x - \dfrac{2}{9}) \ln(9x - 2) - x + c}\]</div>
+</div>
+</details>
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025, Marc Serrano Altena <br> <a href="#__consent" style="color:#B0B0B0"><i>Cookie instellingen</i></a>
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/marc-serrano-altena-a96800285/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/M-Serrano-Altena" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<marcsa@wiskundewijs.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6m-2 0-8 5-8-5h16m0 12H4V8l8 5 8-5v10Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+
+
+
+<h4>Cookies</h4>
+<p>Deze website maakt gebruik van cookies om te zien hoe de website gebruikt wordt. Zo kunnen we jouw ervaring nog beter maken!</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accepteren</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Instellingen</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    
+    
+    
+      <script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+      
+        <script src="../../../javascripts/load_sections.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_ID"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  </body>
+</html>

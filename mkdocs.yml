@@ -98,13 +98,18 @@ nav:
 
 not_in_nav: |
   meetkunde.md
-  primitieve_single_page.md
-  main_sections/primitieve/introductie_primitieven.md
-  main_sections/primitieve/introductie_integralen.md
-  main_sections/primitieve/oppervlakte_tussen_grafieken.md
-  main_sections/primitieve/oppervlakte_wentelen_x.md
-  main_sections/primitieve/omwentelings_tussen_grafieken.md
-  main_sections/primitieve/oppervlakte_wentelen_y.md
+
+  main_sections/primitieve/01-introductie_primitieven.md
+  main_sections/primitieve/02-introductie_integralen.md
+  main_sections/primitieve/03-oppervlakte_tussen_grafieken.md
+  main_sections/primitieve/04-oppervlakte_wentelen_x.md
+  main_sections/primitieve/05-omwentelings_tussen_grafieken.md
+  main_sections/primitieve/06-oppervlakte_wentelen_y.md
+
+  main_sections/goniometrie/01-goniometrische_functies.md
+  main_sections/goniometrie/02-sin_cos_functies.md
+  main_sections/goniometrie/03-eenheidscirkel.md
+  main_sections/goniometrie/04-goniometrische_vergelijkingen.md
   
 plugins:
   - search

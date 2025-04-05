@@ -2,107 +2,122 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://wiskundewijs.com/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiskundewijs.com/afgeleide/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiskundewijs.com/basisvaardigheden/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiskundewijs.com/bijles/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiskundewijs.com/goniometrie/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiskundewijs.com/kwadratische_vergelijkingen/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiskundewijs.com/meetkunde/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiskundewijs.com/ongelijkheden/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiskundewijs.com/oplosser/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiskundewijs.com/percentages/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiskundewijs.com/primitieve/</loc>
-         <lastmod>2025-04-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://wiskundewijs.com/primitieve_single_page/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiskundewijs.com/pythagoras/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiskundewijs.com/statistiek/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiskundewijs.com/stelsels_van_vergelijkingen/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wiskundewijs.com/main_sections/primitieve/introductie_integralen/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <loc>https://wiskundewijs.com/main_sections/goniometrie/01-goniometrische_functies/</loc>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wiskundewijs.com/main_sections/primitieve/introductie_primitieven/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <loc>https://wiskundewijs.com/main_sections/goniometrie/02-sin_cos_functies/</loc>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wiskundewijs.com/main_sections/primitieve/omwentelings_tussen_grafieken/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <loc>https://wiskundewijs.com/main_sections/goniometrie/03-eenheidscirkel/</loc>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wiskundewijs.com/main_sections/primitieve/oppervlakte_tussen_grafieken/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <loc>https://wiskundewijs.com/main_sections/goniometrie/04-goniometrische_vergelijkingen/</loc>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wiskundewijs.com/main_sections/primitieve/oppervlakte_wentelen_x/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <loc>https://wiskundewijs.com/main_sections/primitieve/01-introductie_primitieven/</loc>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://wiskundewijs.com/main_sections/primitieve/oppervlakte_wentelen_y/</loc>
-         <lastmod>2025-04-02</lastmod>
+         <loc>https://wiskundewijs.com/main_sections/primitieve/02-introductie_integralen/</loc>
+         <lastmod>2025-04-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wiskundewijs.com/main_sections/primitieve/03-oppervlakte_tussen_grafieken/</loc>
+         <lastmod>2025-04-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wiskundewijs.com/main_sections/primitieve/04-oppervlakte_wentelen_x/</loc>
+         <lastmod>2025-04-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wiskundewijs.com/main_sections/primitieve/05-omwentelings_tussen_grafieken/</loc>
+         <lastmod>2025-04-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wiskundewijs.com/main_sections/primitieve/06-oppervlakte_wentelen_y/</loc>
+         <lastmod>2025-04-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
