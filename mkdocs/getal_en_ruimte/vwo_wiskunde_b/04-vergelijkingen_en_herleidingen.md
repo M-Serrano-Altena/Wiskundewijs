@@ -1,0 +1,37 @@
+# *Vergelijkingen en herleidingen*
+
+*VWO Wiskunde B · Hoofdstuk 4 · Getal & Ruimte*
+
+<!-- TODO: korte introductie van het hoofdstuk -->
+
+****
+
+## **4.1 Stelsels vergelijkingen** {#p4-1}
+
+<!-- TODO: uitleg, belangrijke regels en voorbeelden -->
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+## **4.2 Hogeregraadsvergelijkingen** {#p4-2}
+
+<!-- TODO: uitleg, belangrijke regels en voorbeelden -->
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+## **4.3 Regels voor het oplossen van vergelijkingen** {#p4-3}
+
+<!-- TODO: uitleg, belangrijke regels en voorbeelden -->
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+## **4.4 Formules met breuken herleiden** {#p4-4}
+
+<!-- TODO: uitleg, belangrijke regels en voorbeelden -->
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+## **4.5 Inverse functies** {#p4-5}
+
+<!-- TODO: uitleg, belangrijke regels en voorbeelden -->
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">

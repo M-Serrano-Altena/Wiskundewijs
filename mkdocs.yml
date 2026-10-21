@@ -91,6 +91,209 @@ nav:
     
     - goniometrie.md
 
+  - Getal & Ruimte:
+    - getal_en_ruimte/index.md
+    - "VWO":
+      - "VWO 1":
+        - "Deel 1":
+          - "1. Figuren": getal_en_ruimte/vwo1/01-figuren.md
+          - "2. Getallen en bewerkingen": getal_en_ruimte/vwo1/02-getallen_en_bewerkingen.md
+          - "3. Grafieken en formules": getal_en_ruimte/vwo1/03-grafieken_en_formules.md
+          - "4. Rekenen in de praktijk": getal_en_ruimte/vwo1/04-rekenen_in_de_praktijk.md
+          - "5. Lijnen en hoeken": getal_en_ruimte/vwo1/05-lijnen_en_hoeken.md
+        - "Deel 2":
+          - "6. Formules en letters": getal_en_ruimte/vwo1/06-formules_en_letters.md
+          - "7. Meten": getal_en_ruimte/vwo1/07-meten.md
+          - "8. Herleiden en machten": getal_en_ruimte/vwo1/08-herleiden_en_machten.md
+          - "9. Symmetrie en vlakke figuren": getal_en_ruimte/vwo1/09-symmetrie_en_vlakke_figuren.md
+      - "VWO 2":
+        - "Deel 1":
+          - "1. Rekenen met letters": getal_en_ruimte/vwo2/01-rekenen_met_letters.md
+          - "2. Afstand en oppervlakte": getal_en_ruimte/vwo2/02-afstand_en_oppervlakte.md
+          - "3. Lineaire formules en vergelijkingen": getal_en_ruimte/vwo2/03-lineaire_formules_en_vergelijkingen.md
+          - "4. Procenten en diagrammen": getal_en_ruimte/vwo2/04-procenten_en_diagrammen.md
+        - "Deel 2":
+          - "5. Kwadraten en wortels": getal_en_ruimte/vwo2/05-kwadraten_en_wortels.md
+          - "6. De stelling van Pythagoras": getal_en_ruimte/vwo2/06-de_stelling_van_pythagoras.md
+          - "7. Kwadratische vergelijkingen": getal_en_ruimte/vwo2/07-kwadratische_vergelijkingen.md
+          - "8. Inhoud en vergroten": getal_en_ruimte/vwo2/08-inhoud_en_vergroten.md
+      - "VWO 3":
+        - "Deel 1":
+          - "1. Lineaire problemen": getal_en_ruimte/vwo3/01-lineaire_problemen.md
+          - "2. Gelijkvormigheid": getal_en_ruimte/vwo3/02-gelijkvormigheid.md
+          - "3. Kwadratische problemen": getal_en_ruimte/vwo3/03-kwadratische_problemen.md
+          - "4. Procenten en statistiek": getal_en_ruimte/vwo3/04-procenten_en_statistiek.md
+          - "5. Vaardigheden en vergelijkingen": getal_en_ruimte/vwo3/05-vaardigheden_en_vergelijkingen.md
+        - "Deel 2":
+          - "6. Goniometrie": getal_en_ruimte/vwo3/06-goniometrie.md
+          - "7. Ongelijkheden": getal_en_ruimte/vwo3/07-ongelijkheden.md
+          - "8. Allerlei verbanden": getal_en_ruimte/vwo3/08-allerlei_verbanden.md
+          - "9. Spreiding, tellen en kans": getal_en_ruimte/vwo3/09-spreiding_tellen_en_kans.md
+      - "Wiskunde A":
+        - "Deel 1":
+          - "1. Formules en grafieken": getal_en_ruimte/vwo_wiskunde_ac/01-formules_en_grafieken.md
+          - "2. De statistische cyclus": getal_en_ruimte/vwo_wiskunde_ac/02-de_statistische_cyclus.md
+          - "3. Rekenen en herleiden": getal_en_ruimte/vwo_wiskunde_ac/03-rekenen_en_herleiden.md
+          - "4. Combinatoriek": getal_en_ruimte/vwo_wiskunde_ac/04-combinatoriek.md
+        - "Deel 2":
+          - "5. Machtsverbanden": getal_en_ruimte/vwo_wiskunde_ac/05-machtsverbanden.md
+          - "6. Kansrekening": getal_en_ruimte/vwo_wiskunde_ac/06-kansrekening.md
+          - "7. Statistiek met de computer": getal_en_ruimte/vwo_wiskunde_ac/07-statistiek_met_de_computer.md
+          - "Extra: Lineair programmeren": getal_en_ruimte/vwo_wiskunde_ac/k-lineair_programmeren.md
+        - "Deel 3":
+          - "8. Differentiaalrekening": getal_en_ruimte/vwo_wiskunde_a/08-differentiaalrekening.md
+          - "9. Kansverdelingen": getal_en_ruimte/vwo_wiskunde_a/09-kansverdelingen.md
+          - "10. Exponenten en logaritmen": getal_en_ruimte/vwo_wiskunde_a/10-exponenten_en_logaritmen.md
+          - "11. Het toetsen van hypothesen": getal_en_ruimte/vwo_wiskunde_a/11-het_toetsen_van_hypothesen.md
+        - "Deel 4":
+          - "12. Rijen": getal_en_ruimte/vwo_wiskunde_a/12-rijen.md
+          - "13. Allerlei formules": getal_en_ruimte/vwo_wiskunde_a/13-allerlei_formules.md
+          - "14. Toepassingen van differentiaalrekening": getal_en_ruimte/vwo_wiskunde_a/14-toepassingen_van_differentiaalrekening.md
+          - "15. Examentraining": getal_en_ruimte/vwo_wiskunde_a/15-examentraining.md
+      - "Wiskunde B":
+        - "Deel 1 (VWO 4)":
+          - "1. Functies en grafieken": getal_en_ruimte/vwo_wiskunde_b/01-functies_en_grafieken.md
+          - "2. De afgeleide functie": getal_en_ruimte/vwo_wiskunde_b/02-de_afgeleide_functie.md
+          - "3. Meetkunde": getal_en_ruimte/vwo_wiskunde_b/03-meetkunde.md
+          - "4. Vergelijkingen en herleidingen": getal_en_ruimte/vwo_wiskunde_b/04-vergelijkingen_en_herleidingen.md
+        - "Deel 2 (VWO 4/5)":
+          - "5. Functies en vergelijkingen": getal_en_ruimte/vwo_wiskunde_b/05-functies_en_vergelijkingen.md
+          - "6. Differentiaalrekening": getal_en_ruimte/vwo_wiskunde_b/06-differentiaalrekening.md
+          - "7. Meetkunde met coördinaten": getal_en_ruimte/vwo_wiskunde_b/07-meetkunde_met_coordinaten.md
+          - "8. Goniometrische functies": getal_en_ruimte/vwo_wiskunde_b/08-goniometrische_functies.md
+        - "Deel 3 (VWO 5)":
+          - "9. Exponentiële en logaritmische functies": getal_en_ruimte/vwo_wiskunde_b/09-exponentiele_en_logaritmische_functies.md
+          - "10. Meetkunde met vectoren": getal_en_ruimte/vwo_wiskunde_b/10-meetkunde_met_vectoren.md
+          - "11. Integraalrekening": getal_en_ruimte/vwo_wiskunde_b/11-integraalrekening.md
+          - "12. Goniometrische formules": getal_en_ruimte/vwo_wiskunde_b/12-goniometrische_formules.md
+          - "Extra: Voortgezette integraalrekening": getal_en_ruimte/vwo_wiskunde_b/k-voortgezette_integraalrekening.md
+        - "Deel 4 (VWO 6)":
+          - "13. Limieten en asymptoten": getal_en_ruimte/vwo_wiskunde_b/13-limieten_en_asymptoten.md
+          - "14. Meetkunde toepassen": getal_en_ruimte/vwo_wiskunde_b/14-meetkunde_toepassen.md
+          - "15. Afgeleiden en primitieven": getal_en_ruimte/vwo_wiskunde_b/15-afgeleiden_en_primitieven.md
+          - "16. Examentraining": getal_en_ruimte/vwo_wiskunde_b/16-examentraining.md
+      - "Wiskunde C":
+        - "Deel 1":
+          - "1. Formules en grafieken": getal_en_ruimte/vwo_wiskunde_ac/01-formules_en_grafieken.md
+          - "2. De statistische cyclus": getal_en_ruimte/vwo_wiskunde_ac/02-de_statistische_cyclus.md
+          - "3. Rekenen en herleiden": getal_en_ruimte/vwo_wiskunde_ac/03-rekenen_en_herleiden.md
+          - "4. Combinatoriek": getal_en_ruimte/vwo_wiskunde_ac/04-combinatoriek.md
+        - "Deel 2":
+          - "5. Machtsverbanden": getal_en_ruimte/vwo_wiskunde_ac/05-machtsverbanden.md
+          - "6. Kansrekening": getal_en_ruimte/vwo_wiskunde_ac/06-kansrekening.md
+          - "7. Statistiek met de computer": getal_en_ruimte/vwo_wiskunde_ac/07-statistiek_met_de_computer.md
+          - "Extra: Lineair programmeren": getal_en_ruimte/vwo_wiskunde_ac/k-lineair_programmeren.md
+        - "Deel 3":
+          - "8. Meetkunde": getal_en_ruimte/vwo_wiskunde_c/08-meetkunde.md
+          - "9. Kansverdelingen": getal_en_ruimte/vwo_wiskunde_c/09-kansverdelingen.md
+          - "10. Exponenten en logaritmen": getal_en_ruimte/vwo_wiskunde_c/10-exponenten_en_logaritmen.md
+          - "11. Logisch redeneren": getal_en_ruimte/vwo_wiskunde_c/11-logisch_redeneren.md
+      - "Wiskunde D":
+        - "Deel 1":
+          - "1. Combinatoriek": getal_en_ruimte/vwo_wiskunde_d/01-combinatoriek.md
+          - "2. Discrete wiskunde": getal_en_ruimte/vwo_wiskunde_d/02-discrete_wiskunde.md
+          - "3. Kansrekening": getal_en_ruimte/vwo_wiskunde_d/03-kansrekening.md
+          - "4. Matrices": getal_en_ruimte/vwo_wiskunde_d/04-matrices.md
+        - "Deel 2":
+          - "5. Discrete kansverdelingen": getal_en_ruimte/vwo_wiskunde_d/05-discrete_kansverdelingen.md
+          - "6. Discrete dynamische modellen": getal_en_ruimte/vwo_wiskunde_d/06-discrete_dynamische_modellen.md
+          - "7. Bewijzen": getal_en_ruimte/vwo_wiskunde_d/07-bewijzen.md
+          - "8. Vectormeetkunde": getal_en_ruimte/vwo_wiskunde_d/08-vectormeetkunde.md
+        - "Deel 3":
+          - "9. Meetkundige plaatsen en raaklijneigenschappen": getal_en_ruimte/vwo_wiskunde_d/09-meetkundige_plaatsen_en_raaklijneigenschappen.md
+          - "10. Complexe getallen": getal_en_ruimte/vwo_wiskunde_d/10-complexe_getallen.md
+          - "11. Lineaire algebra": getal_en_ruimte/vwo_wiskunde_d/11-lineaire_algebra.md
+          - "12. Continue kansverdelingen": getal_en_ruimte/vwo_wiskunde_d/12-continue_kansverdelingen.md
+        - "Deel 4":
+          - "13. Kegelsneden": getal_en_ruimte/vwo_wiskunde_d/13-kegelsneden.md
+          - "14. Mathematische statistiek": getal_en_ruimte/vwo_wiskunde_d/14-mathematische_statistiek.md
+          - "15. Continue dynamische modellen": getal_en_ruimte/vwo_wiskunde_d/15-continue_dynamische_modellen.md
+          - "16. Complexe functies": getal_en_ruimte/vwo_wiskunde_d/16-complexe_functies.md
+    - "Havo":
+      - "Havo/VWO 1":
+        - "Deel 1":
+          - "1. Figuren": getal_en_ruimte/havo1/01-figuren.md
+          - "2. Getallen en bewerkingen": getal_en_ruimte/havo1/02-getallen_en_bewerkingen.md
+          - "3. Grafieken en formules": getal_en_ruimte/havo1/03-grafieken_en_formules.md
+          - "4. Rekenen in de praktijk": getal_en_ruimte/havo1/04-rekenen_in_de_praktijk.md
+          - "5. Lijnen en hoeken": getal_en_ruimte/havo1/05-lijnen_en_hoeken.md
+        - "Deel 2":
+          - "6. Formules en letters": getal_en_ruimte/havo1/06-formules_en_letters.md
+          - "7. Meten": getal_en_ruimte/havo1/07-meten.md
+          - "8. Herleiden en machten": getal_en_ruimte/havo1/08-herleiden_en_machten.md
+          - "9. Symmetrie en vlakke figuren": getal_en_ruimte/havo1/09-symmetrie_en_vlakke_figuren.md
+      - "Havo/VWO 2":
+        - "Deel 1":
+          - "1. Rekenen met letters": getal_en_ruimte/havo2/01-rekenen_met_letters.md
+          - "2. Afstand en oppervlakte": getal_en_ruimte/havo2/02-afstand_en_oppervlakte.md
+          - "3. Lineaire formules en vergelijkingen": getal_en_ruimte/havo2/03-lineaire_formules_en_vergelijkingen.md
+          - "4. Procenten en diagrammen": getal_en_ruimte/havo2/04-procenten_en_diagrammen.md
+        - "Deel 2":
+          - "5. Kwadraten en wortels": getal_en_ruimte/havo2/05-kwadraten_en_wortels.md
+          - "6. De stelling van Pythagoras": getal_en_ruimte/havo2/06-de_stelling_van_pythagoras.md
+          - "7. Kwadratische vergelijkingen": getal_en_ruimte/havo2/07-kwadratische_vergelijkingen.md
+          - "8. Inhoud en vergroten": getal_en_ruimte/havo2/08-inhoud_en_vergroten.md
+      - "Havo 3":
+        - "Deel 1":
+          - "1. Lineaire problemen": getal_en_ruimte/havo3/01-lineaire_problemen.md
+          - "2. Gelijkvormigheid": getal_en_ruimte/havo3/02-gelijkvormigheid.md
+          - "3. Kwadratische problemen": getal_en_ruimte/havo3/03-kwadratische_problemen.md
+          - "4. Procenten en statistiek": getal_en_ruimte/havo3/04-procenten_en_statistiek.md
+          - "5. Algebraïsche vaardigheden": getal_en_ruimte/havo3/05-algebraische_vaardigheden.md
+        - "Deel 2":
+          - "6. Goniometrie": getal_en_ruimte/havo3/06-goniometrie.md
+          - "7. Kwadratische vergelijkingen en ongelijkheden": getal_en_ruimte/havo3/07-kwadratische_vergelijkingen_en_ongelijkheden.md
+          - "8. Allerlei verbanden": getal_en_ruimte/havo3/08-allerlei_verbanden.md
+          - "9. Spreiding, tellen en kans": getal_en_ruimte/havo3/09-spreiding_tellen_en_kans.md
+      - "Wiskunde A":
+        - "Deel 1":
+          - "1. Rekenen en groei": getal_en_ruimte/havo_wiskunde_a/01-rekenen_en_groei.md
+          - "2. De statistische cyclus": getal_en_ruimte/havo_wiskunde_a/02-de_statistische_cyclus.md
+          - "3. Lineaire verbanden": getal_en_ruimte/havo_wiskunde_a/03-lineaire_verbanden.md
+          - "4. Combinatoriek": getal_en_ruimte/havo_wiskunde_a/04-combinatoriek.md
+        - "Deel 2":
+          - "5. Veranderingen": getal_en_ruimte/havo_wiskunde_a/05-veranderingen.md
+          - "6. Formules en herleiden": getal_en_ruimte/havo_wiskunde_a/06-formules_en_herleiden.md
+          - "7. Conclusies bij statistiek": getal_en_ruimte/havo_wiskunde_a/07-conclusies_bij_statistiek.md
+          - "8. Statistiek met de computer": getal_en_ruimte/havo_wiskunde_a/08-statistiek_met_de_computer.md
+        - "Deel 3":
+          - "9. Exponentiële verbanden": getal_en_ruimte/havo_wiskunde_a/09-exponentiele_verbanden.md
+          - "10. Statistiek gebruiken": getal_en_ruimte/havo_wiskunde_a/10-statistiek_gebruiken.md
+          - "11. Formules en variabelen": getal_en_ruimte/havo_wiskunde_a/11-formules_en_variabelen.md
+          - "12. Examentraining": getal_en_ruimte/havo_wiskunde_a/12-examentraining.md
+      - "Wiskunde B":
+        - "Deel 1":
+          - "1. Lineaire en kwadratische vormen": getal_en_ruimte/havo_wiskunde_b/01-lineaire_en_kwadratische_vormen.md
+          - "2. Veranderingen": getal_en_ruimte/havo_wiskunde_b/02-veranderingen.md
+          - "3. Meetkunde": getal_en_ruimte/havo_wiskunde_b/03-meetkunde.md
+          - "4. Werken met formules": getal_en_ruimte/havo_wiskunde_b/04-werken_met_formules.md
+        - "Deel 2":
+          - "5. Functies en vergelijkingen": getal_en_ruimte/havo_wiskunde_b/05-functies_en_vergelijkingen.md
+          - "6. De afgeleide functie": getal_en_ruimte/havo_wiskunde_b/06-de_afgeleide_functie.md
+          - "7. Lijnen en cirkels": getal_en_ruimte/havo_wiskunde_b/07-lijnen_en_cirkels.md
+          - "8. Goniometrische functies en vergelijkingen": getal_en_ruimte/havo_wiskunde_b/08-goniometrische_functies_en_vergelijkingen.md
+        - "Deel 3":
+          - "9. Exponentiële en logaritmische functies": getal_en_ruimte/havo_wiskunde_b/09-exponentiele_en_logaritmische_functies.md
+          - "10. Meetkundige berekeningen": getal_en_ruimte/havo_wiskunde_b/10-meetkundige_berekeningen.md
+          - "11. Verbanden en functies": getal_en_ruimte/havo_wiskunde_b/11-verbanden_en_functies.md
+          - "12. Examentraining": getal_en_ruimte/havo_wiskunde_b/12-examentraining.md
+      - "Wiskunde D":
+        - "Deel 1":
+          - "1. Combinatoriek": getal_en_ruimte/havo_wiskunde_d/01-combinatoriek.md
+          - "2. Oppervlakte en inhoud": getal_en_ruimte/havo_wiskunde_d/02-oppervlakte_en_inhoud.md
+          - "3. Kansrekening": getal_en_ruimte/havo_wiskunde_d/03-kansrekening.md
+          - "4. Aanzichten en doorsneden": getal_en_ruimte/havo_wiskunde_d/04-aanzichten_en_doorsneden.md
+        - "Deel 2":
+          - "5. Kansverdelingen": getal_en_ruimte/havo_wiskunde_d/05-kansverdelingen.md
+          - "6. Vectormeetkunde": getal_en_ruimte/havo_wiskunde_d/06-vectormeetkunde.md
+          - "7. De normale verdeling": getal_en_ruimte/havo_wiskunde_d/07-de_normale_verdeling.md
+          - "8. Groeiprocessen": getal_en_ruimte/havo_wiskunde_d/08-groeiprocessen.md
+        - "Deel 3":
+          - "9. Afgeleide en tweede afgeleide": getal_en_ruimte/havo_wiskunde_d/09-afgeleide_en_tweede_afgeleide.md
+          - "10. Toetsen van hypothesen": getal_en_ruimte/havo_wiskunde_d/10-toetsen_van_hypothesen.md
+          - "11. Periodieke functies": getal_en_ruimte/havo_wiskunde_d/11-periodieke_functies.md
+          - "12. e-machten en natuurlijke logaritmen": getal_en_ruimte/havo_wiskunde_d/12-e_machten_en_natuurlijke_logaritmen.md
+
   - Oplosser: oplosser.md
 
   - bijles.md

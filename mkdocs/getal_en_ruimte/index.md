@@ -1,0 +1,924 @@
+# *Getal & Ruimte*
+
+Hier vind je uitleg die dezelfde indeling volgt als de boeken van Getal & Ruimte (13e editie). Kies hieronder je niveau, je leerjaar of vak en het hoofdstuk waar je mee bezig bent.
+
+****
+
+## **VWO**
+
+### **VWO 1**
+
+- **[Hoofdstuk 1: Figuren](vwo1/01-figuren.md)**
+    - [1.1 Ruimtefiguren en uitslagen](vwo1/01-figuren.md#p1-1)
+    - [1.2 Vierkant en kubus](vwo1/01-figuren.md#p1-2)
+    - [1.3 Rechthoek en balk](vwo1/01-figuren.md#p1-3)
+    - [1.4 Cirkel en cilinder](vwo1/01-figuren.md#p1-4)
+    - [1.5 Veelhoeken en diagonalen](vwo1/01-figuren.md#p1-5)
+    - [1.6 Prisma en piramide](vwo1/01-figuren.md#p1-6)
+- **[Hoofdstuk 2: Getallen en bewerkingen](vwo1/02-getallen_en_bewerkingen.md)**
+    - [2.1 Bewerkingen](vwo1/02-getallen_en_bewerkingen.md#p2-1)
+    - [2.2 De ggd en het kgv](vwo1/02-getallen_en_bewerkingen.md#p2-2)
+    - [2.3 Breuken](vwo1/02-getallen_en_bewerkingen.md#p2-3)
+    - [2.4 Negatieve getallen](vwo1/02-getallen_en_bewerkingen.md#p2-4)
+    - [2.5 Negatieve getallen vermenigvuldigen en delen](vwo1/02-getallen_en_bewerkingen.md#p2-5)
+    - [2.6 Negatieve breuken](vwo1/02-getallen_en_bewerkingen.md#p2-6)
+- **[Hoofdstuk 3: Grafieken en formules](vwo1/03-grafieken_en_formules.md)**
+    - [3.1 Assenstelsels](vwo1/03-grafieken_en_formules.md#p3-1)
+    - [3.2 Regelmaat in assenstelsels](vwo1/03-grafieken_en_formules.md#p3-2)
+    - [3.3 Grafieken in assenstelsels](vwo1/03-grafieken_en_formules.md#p3-3)
+    - [3.4 Woordformules](vwo1/03-grafieken_en_formules.md#p3-4)
+    - [3.5 Formules met letters](vwo1/03-grafieken_en_formules.md#p3-5)
+    - [3.6 Grafiek bij een formule](vwo1/03-grafieken_en_formules.md#p3-6)
+- **[Hoofdstuk 4: Rekenen in de praktijk](vwo1/04-rekenen_in_de_praktijk.md)**
+    - [4.1 Decimale getallen](vwo1/04-rekenen_in_de_praktijk.md#p4-1)
+    - [4.2 De rekenmachine](vwo1/04-rekenen_in_de_praktijk.md#p4-2)
+    - [4.3 Rekenen in praktische situaties](vwo1/04-rekenen_in_de_praktijk.md#p4-3)
+    - [4.4 Procenten](vwo1/04-rekenen_in_de_praktijk.md#p4-4)
+    - [4.5 Evenredig en omgekeerd evenredig](vwo1/04-rekenen_in_de_praktijk.md#p4-5)
+- **[Hoofdstuk 5: Lijnen en hoeken](vwo1/05-lijnen_en_hoeken.md)**
+    - [5.1 Lijnen](vwo1/05-lijnen_en_hoeken.md#p5-1)
+    - [5.2 Hoeken en graden](vwo1/05-lijnen_en_hoeken.md#p5-2)
+    - [5.3 Hoeken meten](vwo1/05-lijnen_en_hoeken.md#p5-3)
+    - [5.4 Hoeken tekenen](vwo1/05-lijnen_en_hoeken.md#p5-4)
+    - [5.5 Hoeken berekenen](vwo1/05-lijnen_en_hoeken.md#p5-5)
+    - [5.6 Hoeken in vlakke figuren](vwo1/05-lijnen_en_hoeken.md#p5-6)
+- **[Hoofdstuk 6: Formules en letters](vwo1/06-formules_en_letters.md)**
+    - [6.1 Kwadraten](vwo1/06-formules_en_letters.md#p6-1)
+    - [6.2 Kwadratische formules](vwo1/06-formules_en_letters.md#p6-2)
+    - [6.3 Grafieken](vwo1/06-formules_en_letters.md#p6-3)
+    - [6.4 Rekenen met letters](vwo1/06-formules_en_letters.md#p6-4)
+    - [6.5 Herleiden](vwo1/06-formules_en_letters.md#p6-5)
+    - [6.6 Herleiden van breuken](vwo1/06-formules_en_letters.md#p6-6)
+- **[Hoofdstuk 7: Meten](vwo1/07-meten.md)**
+    - [7.1 Lengte](vwo1/07-meten.md#p7-1)
+    - [7.2 Oppervlakte](vwo1/07-meten.md#p7-2)
+    - [7.3 De cirkel](vwo1/07-meten.md#p7-3)
+    - [7.4 Inhoud](vwo1/07-meten.md#p7-4)
+    - [7.5 Aanzichten](vwo1/07-meten.md#p7-5)
+- **[Hoofdstuk 8: Herleiden en machten](vwo1/08-herleiden_en_machten.md)**
+    - [8.1 Herleiden](vwo1/08-herleiden_en_machten.md#p8-1)
+    - [8.2 Haakjes wegwerken](vwo1/08-herleiden_en_machten.md#p8-2)
+    - [8.3 Machten](vwo1/08-herleiden_en_machten.md#p8-3)
+    - [8.4 De wetenschappelijke notatie](vwo1/08-herleiden_en_machten.md#p8-4)
+    - [8.5 Machten en letters](vwo1/08-herleiden_en_machten.md#p8-5)
+- **[Hoofdstuk 9: Symmetrie en vlakke figuren](vwo1/09-symmetrie_en_vlakke_figuren.md)**
+    - [9.1 Lijnsymmetrie](vwo1/09-symmetrie_en_vlakke_figuren.md#p9-1)
+    - [9.2 Draaisymmetrie](vwo1/09-symmetrie_en_vlakke_figuren.md#p9-2)
+    - [9.3 Bijzondere driehoeken](vwo1/09-symmetrie_en_vlakke_figuren.md#p9-3)
+    - [9.4 Bijzondere vierhoeken](vwo1/09-symmetrie_en_vlakke_figuren.md#p9-4)
+    - [9.5 Z-hoeken en F-hoeken](vwo1/09-symmetrie_en_vlakke_figuren.md#p9-5)
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+### **VWO 2**
+
+- **[Hoofdstuk 1: Rekenen met letters](vwo2/01-rekenen_met_letters.md)**
+    - [1.1 Haakjes wegwerken](vwo2/01-rekenen_met_letters.md#p1-1)
+    - [1.2 Herleiden van breuken](vwo2/01-rekenen_met_letters.md#p1-2)
+    - [1.3 Machten vermenigvuldigen, optellen en aftrekken](vwo2/01-rekenen_met_letters.md#p1-3)
+    - [1.4 Machten herleiden](vwo2/01-rekenen_met_letters.md#p1-4)
+    - [1.5 De wetenschappelijke notatie](vwo2/01-rekenen_met_letters.md#p1-5)
+- **[Hoofdstuk 2: Afstand en oppervlakte](vwo2/02-afstand_en_oppervlakte.md)**
+    - [2.1 Afstanden](vwo2/02-afstand_en_oppervlakte.md#p2-1)
+    - [2.2 Middelloodlijn en omgeschreven cirkel](vwo2/02-afstand_en_oppervlakte.md#p2-2)
+    - [2.3 Bissectrice en ingeschreven cirkel](vwo2/02-afstand_en_oppervlakte.md#p2-3)
+    - [2.4 Zwaartelijn en hoogtelijn](vwo2/02-afstand_en_oppervlakte.md#p2-4)
+    - [2.5 De oppervlakte van een driehoek](vwo2/02-afstand_en_oppervlakte.md#p2-5)
+    - [2.6 De oppervlakte van een vierhoek](vwo2/02-afstand_en_oppervlakte.md#p2-6)
+- **[Hoofdstuk 3: Lineaire formules en vergelijkingen](vwo2/03-lineaire_formules_en_vergelijkingen.md)**
+    - [3.1 Lineaire formules](vwo2/03-lineaire_formules_en_vergelijkingen.md#p3-1)
+    - [3.2 De formule van een lijn opstellen](vwo2/03-lineaire_formules_en_vergelijkingen.md#p3-2)
+    - [3.3 De balansmethode](vwo2/03-lineaire_formules_en_vergelijkingen.md#p3-3)
+    - [3.4 Vergelijkingen oplossen](vwo2/03-lineaire_formules_en_vergelijkingen.md#p3-4)
+    - [3.5 Vergelijkingen toepassen](vwo2/03-lineaire_formules_en_vergelijkingen.md#p3-5)
+- **[Hoofdstuk 4: Procenten en diagrammen](vwo2/04-procenten_en_diagrammen.md)**
+    - [4.1 Rekenen met procentuele toe- en afname](vwo2/04-procenten_en_diagrammen.md#p4-1)
+    - [4.2 Procentuele verandering](vwo2/04-procenten_en_diagrammen.md#p4-2)
+    - [4.3 Diagrammen](vwo2/04-procenten_en_diagrammen.md#p4-3)
+    - [4.4 Histogram](vwo2/04-procenten_en_diagrammen.md#p4-4)
+    - [4.5 Centrummaten](vwo2/04-procenten_en_diagrammen.md#p4-5)
+- **[Hoofdstuk 5: Kwadraten en wortels](vwo2/05-kwadraten_en_wortels.md)**
+    - [5.1 De formule $y = ax^2 + b$](vwo2/05-kwadraten_en_wortels.md#p5-1)
+    - [5.2 Wortels en wortelformules](vwo2/05-kwadraten_en_wortels.md#p5-2)
+    - [5.3 Wortels herleiden](vwo2/05-kwadraten_en_wortels.md#p5-3)
+    - [5.4 Wortels en machten](vwo2/05-kwadraten_en_wortels.md#p5-4)
+    - [5.5 Soorten getallen](vwo2/05-kwadraten_en_wortels.md#p5-5)
+- **[Hoofdstuk 6: De stelling van Pythagoras](vwo2/06-de_stelling_van_pythagoras.md)**
+    - [6.1 Rechthoekige driehoeken](vwo2/06-de_stelling_van_pythagoras.md#p6-1)
+    - [6.2 Schuine zijden berekenen](vwo2/06-de_stelling_van_pythagoras.md#p6-2)
+    - [6.3 Rechthoekszijden berekenen](vwo2/06-de_stelling_van_pythagoras.md#p6-3)
+    - [6.4 De stelling van Pythagoras toepassen](vwo2/06-de_stelling_van_pythagoras.md#p6-4)
+    - [6.5 Pythagoras in de ruimte](vwo2/06-de_stelling_van_pythagoras.md#p6-5)
+    - [6.6 De hpq-stelling en de stelling van Thales](vwo2/06-de_stelling_van_pythagoras.md#p6-6)
+- **[Hoofdstuk 7: Kwadratische vergelijkingen](vwo2/07-kwadratische_vergelijkingen.md)**
+    - [7.1 Buiten haakjes brengen](vwo2/07-kwadratische_vergelijkingen.md#p7-1)
+    - [7.2 De product-som methode](vwo2/07-kwadratische_vergelijkingen.md#p7-2)
+    - [7.3 Kwadratische vergelijkingen](vwo2/07-kwadratische_vergelijkingen.md#p7-3)
+    - [7.4 Oplosmethoden](vwo2/07-kwadratische_vergelijkingen.md#p7-4)
+    - [7.5 Vergelijkingen opstellen](vwo2/07-kwadratische_vergelijkingen.md#p7-5)
+- **[Hoofdstuk 8: Inhoud en vergroten](vwo2/08-inhoud_en_vergroten.md)**
+    - [8.1 Inhoud prisma en cilinder](vwo2/08-inhoud_en_vergroten.md#p8-1)
+    - [8.2 Inhoud piramide en kegel](vwo2/08-inhoud_en_vergroten.md#p8-2)
+    - [8.3 Vergroten en verkleinen](vwo2/08-inhoud_en_vergroten.md#p8-3)
+    - [8.4 Oppervlakte bij vergroten](vwo2/08-inhoud_en_vergroten.md#p8-4)
+    - [8.5 Inhoud bij vergroten](vwo2/08-inhoud_en_vergroten.md#p8-5)
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+### **VWO 3**
+
+- **[Hoofdstuk 1: Lineaire problemen](vwo3/01-lineaire_problemen.md)**
+    - [1.1 Lineaire vergelijkingen](vwo3/01-lineaire_problemen.md#p1-1)
+    - [1.2 Lineaire formules](vwo3/01-lineaire_problemen.md#p1-2)
+    - [1.3 Lineaire functies](vwo3/01-lineaire_problemen.md#p1-3)
+    - [1.4 Snijpunten van grafieken](vwo3/01-lineaire_problemen.md#p1-4)
+    - [1.5 Vergelijkingen met twee variabelen](vwo3/01-lineaire_problemen.md#p1-5)
+    - [1.6 Stelsels vergelijkingen](vwo3/01-lineaire_problemen.md#p1-6)
+- **[Hoofdstuk 2: Gelijkvormigheid](vwo3/02-gelijkvormigheid.md)**
+    - [2.1 Gelijkvormigheid](vwo3/02-gelijkvormigheid.md#p2-1)
+    - [2.2 Gelijkvormige driehoeken](vwo3/02-gelijkvormigheid.md#p2-2)
+    - [2.3 Bewijzen met gelijkvormigheid](vwo3/02-gelijkvormigheid.md#p2-3)
+    - [2.4 Middenparallel en zwaartelijn](vwo3/02-gelijkvormigheid.md#p2-4)
+- **[Hoofdstuk 3: Kwadratische problemen](vwo3/03-kwadratische_problemen.md)**
+    - [3.1 Kwadratische vergelijkingen](vwo3/03-kwadratische_problemen.md#p3-1)
+    - [3.2 Kwadratische functies](vwo3/03-kwadratische_problemen.md#p3-2)
+    - [3.3 De functie $f(x) = a(x-d)(x-e)$](vwo3/03-kwadratische_problemen.md#p3-3)
+    - [3.4 De functie $f(x) = a(x-p)^2 + q$](vwo3/03-kwadratische_problemen.md#p3-4)
+    - [3.5 De abc-formule](vwo3/03-kwadratische_problemen.md#p3-5)
+    - [3.6 Verschillende oplosmethoden](vwo3/03-kwadratische_problemen.md#p3-6)
+- **[Hoofdstuk 4: Procenten en statistiek](vwo3/04-procenten_en_statistiek.md)**
+    - [4.1 Rekenen met procenten](vwo3/04-procenten_en_statistiek.md#p4-1)
+    - [4.2 Informatieverwerking](vwo3/04-procenten_en_statistiek.md#p4-2)
+    - [4.3 Misleidende statistiek](vwo3/04-procenten_en_statistiek.md#p4-3)
+    - [4.4 Interpoleren en extrapoleren](vwo3/04-procenten_en_statistiek.md#p4-4)
+- **[Hoofdstuk 5: Vaardigheden en vergelijkingen](vwo3/05-vaardigheden_en_vergelijkingen.md)**
+    - [5.1 Herleiden](vwo3/05-vaardigheden_en_vergelijkingen.md#p5-1)
+    - [5.2 Kwadraatafsplitsen](vwo3/05-vaardigheden_en_vergelijkingen.md#p5-2)
+    - [5.3 Breuken met letters herleiden](vwo3/05-vaardigheden_en_vergelijkingen.md#p5-3)
+    - [5.4 Gebroken vergelijkingen](vwo3/05-vaardigheden_en_vergelijkingen.md#p5-4)
+    - [5.5 Wortels herleiden](vwo3/05-vaardigheden_en_vergelijkingen.md#p5-5)
+    - [5.6 Wortelvergelijkingen](vwo3/05-vaardigheden_en_vergelijkingen.md#p5-6)
+- **[Hoofdstuk 6: Goniometrie](vwo3/06-goniometrie.md)**
+    - [6.1 Hellingen](vwo3/06-goniometrie.md#p6-1)
+    - [6.2 Tangens en hellingshoek](vwo3/06-goniometrie.md#p6-2)
+    - [6.3 Berekeningen met de tangens](vwo3/06-goniometrie.md#p6-3)
+    - [6.4 De sinus en de cosinus](vwo3/06-goniometrie.md#p6-4)
+    - [6.5 Goniometrische verhoudingen](vwo3/06-goniometrie.md#p6-5)
+    - [6.6 Goniometrie in de ruimte](vwo3/06-goniometrie.md#p6-6)
+- **[Hoofdstuk 7: Ongelijkheden](vwo3/07-ongelijkheden.md)**
+    - [7.1 Lineaire ongelijkheden](vwo3/07-ongelijkheden.md#p7-1)
+    - [7.2 Ongelijkheden en grafieken](vwo3/07-ongelijkheden.md#p7-2)
+    - [7.3 Kwadratische ongelijkheden](vwo3/07-ongelijkheden.md#p7-3)
+    - [7.4 Bijzondere ongelijkheden](vwo3/07-ongelijkheden.md#p7-4)
+    - [7.5 Werken met parameters](vwo3/07-ongelijkheden.md#p7-5)
+- **[Hoofdstuk 8: Allerlei verbanden](vwo3/08-allerlei_verbanden.md)**
+    - [8.1 Exponentiële groei](vwo3/08-allerlei_verbanden.md#p8-1)
+    - [8.2 Tabellen en groei](vwo3/08-allerlei_verbanden.md#p8-2)
+    - [8.3 Periodieke verbanden](vwo3/08-allerlei_verbanden.md#p8-3)
+    - [8.4 Machtsfuncties](vwo3/08-allerlei_verbanden.md#p8-4)
+    - [8.5 Hogeremachtsvergelijkingen](vwo3/08-allerlei_verbanden.md#p8-5)
+- **[Hoofdstuk 9: Spreiding, tellen en kans](vwo3/09-spreiding_tellen_en_kans.md)**
+    - [9.1 Gegevens groeperen](vwo3/09-spreiding_tellen_en_kans.md#p9-1)
+    - [9.2 Kwartielen en spreiding](vwo3/09-spreiding_tellen_en_kans.md#p9-2)
+    - [9.3 De boxplot](vwo3/09-spreiding_tellen_en_kans.md#p9-3)
+    - [9.4 Telproblemen](vwo3/09-spreiding_tellen_en_kans.md#p9-4)
+    - [9.5 Kansrekening](vwo3/09-spreiding_tellen_en_kans.md#p9-5)
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+### **VWO Wiskunde A**
+
+- **[Hoofdstuk 1: Formules en grafieken](vwo_wiskunde_ac/01-formules_en_grafieken.md)**
+    - [1.1 Lineaire formules](vwo_wiskunde_ac/01-formules_en_grafieken.md#p1-1)
+    - [1.2 Een lijn door twee gegeven punten](vwo_wiskunde_ac/01-formules_en_grafieken.md#p1-2)
+    - [1.3 Interpoleren, extrapoleren en evenredigheid](vwo_wiskunde_ac/01-formules_en_grafieken.md#p1-3)
+    - [1.4 Wiskundige modellen](vwo_wiskunde_ac/01-formules_en_grafieken.md#p1-4)
+- **[Hoofdstuk 2: De statistische cyclus](vwo_wiskunde_ac/02-de_statistische_cyclus.md)**
+    - [2.1 De onderzoeksvraag](vwo_wiskunde_ac/02-de_statistische_cyclus.md#p2-1)
+    - [2.2 Data verzamelen](vwo_wiskunde_ac/02-de_statistische_cyclus.md#p2-2)
+    - [2.3 Data analyseren](vwo_wiskunde_ac/02-de_statistische_cyclus.md#p2-3)
+    - [2.4 Kwartielen en spreiding](vwo_wiskunde_ac/02-de_statistische_cyclus.md#p2-4)
+    - [2.5 Statistische verdelingen](vwo_wiskunde_ac/02-de_statistische_cyclus.md#p2-5)
+    - [2.6 Conclusies trekken](vwo_wiskunde_ac/02-de_statistische_cyclus.md#p2-6)
+- **[Hoofdstuk 3: Rekenen en herleiden](vwo_wiskunde_ac/03-rekenen_en_herleiden.md)**
+    - [3.1 Breuken en verhoudingen](vwo_wiskunde_ac/03-rekenen_en_herleiden.md#p3-1)
+    - [3.2 Herleiden van formules](vwo_wiskunde_ac/03-rekenen_en_herleiden.md#p3-2)
+    - [3.3 Procentberekeningen en de wetenschappelijke notatie](vwo_wiskunde_ac/03-rekenen_en_herleiden.md#p3-3)
+    - [3.4 Rekenen met eenheden](vwo_wiskunde_ac/03-rekenen_en_herleiden.md#p3-4)
+- **[Hoofdstuk 4: Combinatoriek](vwo_wiskunde_ac/04-combinatoriek.md)**
+    - [4.1 Regels voor telproblemen](vwo_wiskunde_ac/04-combinatoriek.md#p4-1)
+    - [4.2 Permutaties en combinaties](vwo_wiskunde_ac/04-combinatoriek.md#p4-2)
+    - [4.3 Rijtjes en roosters](vwo_wiskunde_ac/04-combinatoriek.md#p4-3)
+    - [4.4 Allerlei telproblemen](vwo_wiskunde_ac/04-combinatoriek.md#p4-4)
+- **[Hoofdstuk 5: Machtsverbanden](vwo_wiskunde_ac/05-machtsverbanden.md)**
+    - [5.1 Grafieken veranderen](vwo_wiskunde_ac/05-machtsverbanden.md#p5-1)
+    - [5.2 Rekenen met machten](vwo_wiskunde_ac/05-machtsverbanden.md#p5-2)
+    - [5.3 Formules herleiden en variabelen vrijmaken](vwo_wiskunde_ac/05-machtsverbanden.md#p5-3)
+    - [5.4 Formules met machten en wortels](vwo_wiskunde_ac/05-machtsverbanden.md#p5-4)
+- **[Hoofdstuk 6: Kansrekening](vwo_wiskunde_ac/06-kansrekening.md)**
+    - [6.1 Kansen](vwo_wiskunde_ac/06-kansrekening.md#p6-1)
+    - [6.2 Empirische kansen](vwo_wiskunde_ac/06-kansrekening.md#p6-2)
+    - [6.3 Regels voor kansrekening](vwo_wiskunde_ac/06-kansrekening.md#p6-3)
+    - [6.4 Het vaasmodel](vwo_wiskunde_ac/06-kansrekening.md#p6-4)
+    - [6.5 Allerlei kansproblemen](vwo_wiskunde_ac/06-kansrekening.md#p6-5)
+- **[Hoofdstuk 7: Statistiek met de computer](vwo_wiskunde_ac/07-statistiek_met_de_computer.md)**
+    - [7.1 Werken met een spreadsheet](vwo_wiskunde_ac/07-statistiek_met_de_computer.md#p7-1)
+    - [7.2 Werken met datasets](vwo_wiskunde_ac/07-statistiek_met_de_computer.md#p7-2)
+    - [7.3 Draaitabellen en draaigrafieken](vwo_wiskunde_ac/07-statistiek_met_de_computer.md#p7-3)
+- **[Extra: Lineair programmeren](vwo_wiskunde_ac/k-lineair_programmeren.md)**
+    - [K.1 Stelsels van lineaire vergelijkingen](vwo_wiskunde_ac/k-lineair_programmeren.md#pk-1)
+    - [K.2 Ongelijkheden met twee variabelen](vwo_wiskunde_ac/k-lineair_programmeren.md#pk-2)
+    - [K.3 Lineaire programmeringsproblemen](vwo_wiskunde_ac/k-lineair_programmeren.md#pk-3)
+    - [K.4 De hoekpuntmethode](vwo_wiskunde_ac/k-lineair_programmeren.md#pk-4)
+    - [K.5 Lineair programmeren met Excel](vwo_wiskunde_ac/k-lineair_programmeren.md#pk-5)
+- **[Hoofdstuk 8: Differentiaalrekening](vwo_wiskunde_a/08-differentiaalrekening.md)**
+    - [8.1 Toenamediagrammen en differentiequotiënten](vwo_wiskunde_a/08-differentiaalrekening.md#p8-1)
+    - [8.2 Hellinggrafieken](vwo_wiskunde_a/08-differentiaalrekening.md#p8-2)
+    - [8.3 Differentiëren](vwo_wiskunde_a/08-differentiaalrekening.md#p8-3)
+    - [8.4 Notaties en regels voor de afgeleide](vwo_wiskunde_a/08-differentiaalrekening.md#p8-4)
+    - [8.5 Extreme waarden en de afgeleide](vwo_wiskunde_a/08-differentiaalrekening.md#p8-5)
+- **[Hoofdstuk 9: Kansverdelingen](vwo_wiskunde_a/09-kansverdelingen.md)**
+    - [9.1 Toevalsvariabelen en verwachtingswaarde](vwo_wiskunde_a/09-kansverdelingen.md#p9-1)
+    - [9.2 De binomiale verdeling](vwo_wiskunde_a/09-kansverdelingen.md#p9-2)
+    - [9.3 De normale verdeling](vwo_wiskunde_a/09-kansverdelingen.md#p9-3)
+    - [9.4 De normale verdeling toepassen](vwo_wiskunde_a/09-kansverdelingen.md#p9-4)
+- **[Hoofdstuk 10: Exponenten en logaritmen](vwo_wiskunde_a/10-exponenten_en_logaritmen.md)**
+    - [10.1 Exponentiële groei](vwo_wiskunde_a/10-exponenten_en_logaritmen.md#p10-1)
+    - [10.2 Exponentiële en lineaire groei](vwo_wiskunde_a/10-exponenten_en_logaritmen.md#p10-2)
+    - [10.3 Logaritmen](vwo_wiskunde_a/10-exponenten_en_logaritmen.md#p10-3)
+    - [10.4 Werken met logaritmen](vwo_wiskunde_a/10-exponenten_en_logaritmen.md#p10-4)
+    - [10.5 Het getal e en de natuurlijke logaritme](vwo_wiskunde_a/10-exponenten_en_logaritmen.md#p10-5)
+- **[Hoofdstuk 11: Het toetsen van hypothesen](vwo_wiskunde_a/11-het_toetsen_van_hypothesen.md)**
+    - [11.1 De wortel-n-wet](vwo_wiskunde_a/11-het_toetsen_van_hypothesen.md#p11-1)
+    - [11.2 Beslissen op grond van een steekproef](vwo_wiskunde_a/11-het_toetsen_van_hypothesen.md#p11-2)
+    - [11.3 Eenzijdig en tweezijdig toetsen](vwo_wiskunde_a/11-het_toetsen_van_hypothesen.md#p11-3)
+    - [11.4 Binomiale toetsen](vwo_wiskunde_a/11-het_toetsen_van_hypothesen.md#p11-4)
+- **[Hoofdstuk 12: Rijen](vwo_wiskunde_a/12-rijen.md)**
+    - [12.1 Rekenkundige en meetkundige rijen](vwo_wiskunde_a/12-rijen.md#p12-1)
+    - [12.2 Notaties en rijen op de GR](vwo_wiskunde_a/12-rijen.md#p12-2)
+    - [12.3 Toepassingen van rijen](vwo_wiskunde_a/12-rijen.md#p12-3)
+    - [12.4 Somrijen](vwo_wiskunde_a/12-rijen.md#p12-4)
+- **[Hoofdstuk 13: Allerlei formules](vwo_wiskunde_a/13-allerlei_formules.md)**
+    - [13.1 Sinusoïden](vwo_wiskunde_a/13-allerlei_formules.md#p13-1)
+    - [13.2 Toepassingen van sinusoïden](vwo_wiskunde_a/13-allerlei_formules.md#p13-2)
+    - [13.3 Formules herschrijven](vwo_wiskunde_a/13-allerlei_formules.md#p13-3)
+    - [13.4 Herleiden van formules met exponenten en logaritmen](vwo_wiskunde_a/13-allerlei_formules.md#p13-4)
+- **[Hoofdstuk 14: Toepassingen van differentiaalrekening](vwo_wiskunde_a/14-toepassingen_van_differentiaalrekening.md)**
+    - [14.1 Optimaliseren](vwo_wiskunde_a/14-toepassingen_van_differentiaalrekening.md#p14-1)
+    - [14.2 Regels voor de afgeleide](vwo_wiskunde_a/14-toepassingen_van_differentiaalrekening.md#p14-2)
+    - [14.3 Redeneren met formules](vwo_wiskunde_a/14-toepassingen_van_differentiaalrekening.md#p14-3)
+    - [14.4 Redeneren met de afgeleide](vwo_wiskunde_a/14-toepassingen_van_differentiaalrekening.md#p14-4)
+    - [14.5 De afgeleide en soorten van stijgen en dalen](vwo_wiskunde_a/14-toepassingen_van_differentiaalrekening.md#p14-5)
+- **[Hoofdstuk 15: Examentraining](vwo_wiskunde_a/15-examentraining.md)**
+    - [15.1 Algemene vaardigheden](vwo_wiskunde_a/15-examentraining.md#p15-1)
+    - [15.2 Combinatoriek en rijen](vwo_wiskunde_a/15-examentraining.md#p15-2)
+    - [15.3 Werken met formules](vwo_wiskunde_a/15-examentraining.md#p15-3)
+    - [15.4 Exponenten en logaritmen](vwo_wiskunde_a/15-examentraining.md#p15-4)
+    - [15.5 Differentiaalrekening](vwo_wiskunde_a/15-examentraining.md#p15-5)
+    - [15.6 Onderzoeksopgaven](vwo_wiskunde_a/15-examentraining.md#p15-6)
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+### **VWO Wiskunde B**
+
+- **[Hoofdstuk 1: Functies en grafieken](vwo_wiskunde_b/01-functies_en_grafieken.md)**
+    - [1.1 Lineaire verbanden](vwo_wiskunde_b/01-functies_en_grafieken.md#p1-1)
+    - [1.2 Tweedegraadsvergelijkingen en tweedegraadsfuncties](vwo_wiskunde_b/01-functies_en_grafieken.md#p1-2)
+    - [1.3 Werken met parameters](vwo_wiskunde_b/01-functies_en_grafieken.md#p1-3)
+    - [1.4 Absolute waarden](vwo_wiskunde_b/01-functies_en_grafieken.md#p1-4)
+    - [1.5 Grafisch-numeriek oplossen](vwo_wiskunde_b/01-functies_en_grafieken.md#p1-5)
+- **[Hoofdstuk 2: De afgeleide functie](vwo_wiskunde_b/02-de_afgeleide_functie.md)**
+    - [2.1 Snelheden](vwo_wiskunde_b/02-de_afgeleide_functie.md#p2-1)
+    - [2.2 Raaklijnen en hellinggrafieken](vwo_wiskunde_b/02-de_afgeleide_functie.md#p2-2)
+    - [2.3 Limiet en afgeleide](vwo_wiskunde_b/02-de_afgeleide_functie.md#p2-3)
+    - [2.4 De productregel en de quotiëntregel](vwo_wiskunde_b/02-de_afgeleide_functie.md#p2-4)
+    - [2.5 Afgeleide, raaklijn en snelheid](vwo_wiskunde_b/02-de_afgeleide_functie.md#p2-5)
+- **[Hoofdstuk 3: Meetkunde](vwo_wiskunde_b/03-meetkunde.md)**
+    - [3.1 Berekeningen in driehoeken](vwo_wiskunde_b/03-meetkunde.md#p3-1)
+    - [3.2 Lengte, omtrek en oppervlakte](vwo_wiskunde_b/03-meetkunde.md#p3-2)
+    - [3.3 Vergelijkingen in de meetkunde](vwo_wiskunde_b/03-meetkunde.md#p3-3)
+    - [3.4 De sinusregel en de cosinusregel](vwo_wiskunde_b/03-meetkunde.md#p3-4)
+- **[Hoofdstuk 4: Vergelijkingen en herleidingen](vwo_wiskunde_b/04-vergelijkingen_en_herleidingen.md)**
+    - [4.1 Stelsels vergelijkingen](vwo_wiskunde_b/04-vergelijkingen_en_herleidingen.md#p4-1)
+    - [4.2 Hogeregraadsvergelijkingen](vwo_wiskunde_b/04-vergelijkingen_en_herleidingen.md#p4-2)
+    - [4.3 Regels voor het oplossen van vergelijkingen](vwo_wiskunde_b/04-vergelijkingen_en_herleidingen.md#p4-3)
+    - [4.4 Formules met breuken herleiden](vwo_wiskunde_b/04-vergelijkingen_en_herleidingen.md#p4-4)
+    - [4.5 Inverse functies](vwo_wiskunde_b/04-vergelijkingen_en_herleidingen.md#p4-5)
+- **[Hoofdstuk 5: Functies en vergelijkingen](vwo_wiskunde_b/05-functies_en_vergelijkingen.md)**
+    - [5.1 Machtsfuncties](vwo_wiskunde_b/05-functies_en_vergelijkingen.md#p5-1)
+    - [5.2 Wortelfuncties](vwo_wiskunde_b/05-functies_en_vergelijkingen.md#p5-2)
+    - [5.3 Machten met negatieve en gebroken exponenten](vwo_wiskunde_b/05-functies_en_vergelijkingen.md#p5-3)
+    - [5.4 Exponentiële functies](vwo_wiskunde_b/05-functies_en_vergelijkingen.md#p5-4)
+    - [5.5 Logaritmen](vwo_wiskunde_b/05-functies_en_vergelijkingen.md#p5-5)
+- **[Hoofdstuk 6: Differentiaalrekening](vwo_wiskunde_b/06-differentiaalrekening.md)**
+    - [6.1 Toppen en buigpunten](vwo_wiskunde_b/06-differentiaalrekening.md#p6-1)
+    - [6.2 De afgeleide van machtsfuncties](vwo_wiskunde_b/06-differentiaalrekening.md#p6-2)
+    - [6.3 De kettingregel](vwo_wiskunde_b/06-differentiaalrekening.md#p6-3)
+    - [6.4 Raaklijnen, toppen, rakende en loodrecht snijdende grafieken](vwo_wiskunde_b/06-differentiaalrekening.md#p6-4)
+- **[Hoofdstuk 7: Meetkunde met coördinaten](vwo_wiskunde_b/07-meetkunde_met_coordinaten.md)**
+    - [7.1 Lijnen en hoeken](vwo_wiskunde_b/07-meetkunde_met_coordinaten.md#p7-1)
+    - [7.2 Afstanden bij punten en lijnen](vwo_wiskunde_b/07-meetkunde_met_coordinaten.md#p7-2)
+    - [7.3 Cirkelvergelijkingen](vwo_wiskunde_b/07-meetkunde_met_coordinaten.md#p7-3)
+    - [7.4 Afstanden en raaklijnen bij cirkels](vwo_wiskunde_b/07-meetkunde_met_coordinaten.md#p7-4)
+- **[Hoofdstuk 8: Goniometrische functies](vwo_wiskunde_b/08-goniometrische_functies.md)**
+    - [8.1 De eenheidscirkel en radialen](vwo_wiskunde_b/08-goniometrische_functies.md#p8-1)
+    - [8.2 Sinusoïden](vwo_wiskunde_b/08-goniometrische_functies.md#p8-2)
+    - [8.3 Goniometrische vergelijkingen](vwo_wiskunde_b/08-goniometrische_functies.md#p8-3)
+    - [8.4 Herleiden en differentiëren](vwo_wiskunde_b/08-goniometrische_functies.md#p8-4)
+- **[Hoofdstuk 9: Exponentiële en logaritmische functies](vwo_wiskunde_b/09-exponentiele_en_logaritmische_functies.md)**
+    - [9.1 Groeifactoren en groeipercentages](vwo_wiskunde_b/09-exponentiele_en_logaritmische_functies.md#p9-1)
+    - [9.2 Rekenregels voor logaritmen](vwo_wiskunde_b/09-exponentiele_en_logaritmische_functies.md#p9-2)
+    - [9.3 Overgaan op ander grondtal](vwo_wiskunde_b/09-exponentiele_en_logaritmische_functies.md#p9-3)
+    - [9.4 Het grondtal $e$](vwo_wiskunde_b/09-exponentiele_en_logaritmische_functies.md#p9-4)
+    - [9.5 De natuurlijke logaritme](vwo_wiskunde_b/09-exponentiele_en_logaritmische_functies.md#p9-5)
+- **[Hoofdstuk 10: Meetkunde met vectoren](vwo_wiskunde_b/10-meetkunde_met_vectoren.md)**
+    - [10.1 Vectoren en rotaties](vwo_wiskunde_b/10-meetkunde_met_vectoren.md#p10-1)
+    - [10.2 Vectoren en lijnen](vwo_wiskunde_b/10-meetkunde_met_vectoren.md#p10-2)
+    - [10.3 Vectoren en hoeken](vwo_wiskunde_b/10-meetkunde_met_vectoren.md#p10-3)
+    - [10.4 Vectoren bij snelheid en versnelling](vwo_wiskunde_b/10-meetkunde_met_vectoren.md#p10-4)
+- **[Hoofdstuk 11: Integraalrekening](vwo_wiskunde_b/11-integraalrekening.md)**
+    - [11.1 Primitieven en integralen](vwo_wiskunde_b/11-integraalrekening.md#p11-1)
+    - [11.2 Oppervlakten](vwo_wiskunde_b/11-integraalrekening.md#p11-2)
+    - [11.3 Inhouden](vwo_wiskunde_b/11-integraalrekening.md#p11-3)
+    - [11.4 Toepassingen van integralen](vwo_wiskunde_b/11-integraalrekening.md#p11-4)
+- **[Hoofdstuk 12: Goniometrische formules](vwo_wiskunde_b/12-goniometrische_formules.md)**
+    - [12.1 Goniometrische formules bij vergelijkingen en herleidingen](vwo_wiskunde_b/12-goniometrische_formules.md#p12-1)
+    - [12.2 Goniometrische formules bij symmetrie en primitiveren](vwo_wiskunde_b/12-goniometrische_formules.md#p12-2)
+    - [12.3 Eenparige cirkelbewegingen en harmonische trillingen](vwo_wiskunde_b/12-goniometrische_formules.md#p12-3)
+    - [12.4 Bewegingsvergelijkingen met goniometrische formules](vwo_wiskunde_b/12-goniometrische_formules.md#p12-4)
+- **[Extra: Voortgezette integraalrekening](vwo_wiskunde_b/k-voortgezette_integraalrekening.md)**
+    - [K.1 De substitutiemethode](vwo_wiskunde_b/k-voortgezette_integraalrekening.md#pk-1)
+    - [K.2 Partieel integreren](vwo_wiskunde_b/k-voortgezette_integraalrekening.md#pk-2)
+    - [K.3 Cyclometrische functies](vwo_wiskunde_b/k-voortgezette_integraalrekening.md#pk-3)
+    - [K.4 Breuksplitsen](vwo_wiskunde_b/k-voortgezette_integraalrekening.md#pk-4)
+    - [K.5 Integralen bij parameterkrommen](vwo_wiskunde_b/k-voortgezette_integraalrekening.md#pk-5)
+- **[Hoofdstuk 13: Limieten en asymptoten](vwo_wiskunde_b/13-limieten_en_asymptoten.md)**
+    - [13.1 Limieten en perforaties](vwo_wiskunde_b/13-limieten_en_asymptoten.md#p13-1)
+    - [13.2 Sprongen en knikken in grafieken](vwo_wiskunde_b/13-limieten_en_asymptoten.md#p13-2)
+    - [13.3 Asymptoten bij gebroken functies](vwo_wiskunde_b/13-limieten_en_asymptoten.md#p13-3)
+    - [13.4 Limieten bij exponentiële en logaritmische functies](vwo_wiskunde_b/13-limieten_en_asymptoten.md#p13-4)
+- **[Hoofdstuk 14: Meetkunde toepassen](vwo_wiskunde_b/14-meetkunde_toepassen.md)**
+    - [14.1 Zwaartepunten, middelloodlijnen en bissectrices](vwo_wiskunde_b/14-meetkunde_toepassen.md#p14-1)
+    - [14.2 Raakproblemen bij cirkels](vwo_wiskunde_b/14-meetkunde_toepassen.md#p14-2)
+    - [14.3 Cirkels en snijpunten](vwo_wiskunde_b/14-meetkunde_toepassen.md#p14-3)
+    - [14.4 Parametervoorstellingen en bewegingsvergelijkingen](vwo_wiskunde_b/14-meetkunde_toepassen.md#p14-4)
+- **[Hoofdstuk 15: Afgeleiden en primitieven](vwo_wiskunde_b/15-afgeleiden_en_primitieven.md)**
+    - [15.1 Lijnstukproblemen](vwo_wiskunde_b/15-afgeleiden_en_primitieven.md#p15-1)
+    - [15.2 Optimaliseringsproblemen](vwo_wiskunde_b/15-afgeleiden_en_primitieven.md#p15-2)
+    - [15.3 Hellingen en buigpunten](vwo_wiskunde_b/15-afgeleiden_en_primitieven.md#p15-3)
+    - [15.4 Integralen bij oppervlakte en inhoud](vwo_wiskunde_b/15-afgeleiden_en_primitieven.md#p15-4)
+- **[Hoofdstuk 16: Examentraining](vwo_wiskunde_b/16-examentraining.md)**
+    - [16.1 Algemene vaardigheden](vwo_wiskunde_b/16-examentraining.md#p16-1)
+    - [16.2 Functies en grafieken](vwo_wiskunde_b/16-examentraining.md#p16-2)
+    - [16.3 Differentiaal- en integraalrekening](vwo_wiskunde_b/16-examentraining.md#p16-3)
+    - [16.4 Exponenten en logaritmen](vwo_wiskunde_b/16-examentraining.md#p16-4)
+    - [16.5 Meetkunde](vwo_wiskunde_b/16-examentraining.md#p16-5)
+    - [16.6 Vectoren en bewegingsvergelijkingen](vwo_wiskunde_b/16-examentraining.md#p16-6)
+    - [16.7 Goniometrie](vwo_wiskunde_b/16-examentraining.md#p16-7)
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+### **VWO Wiskunde C**
+
+- **[Hoofdstuk 1: Formules en grafieken](vwo_wiskunde_ac/01-formules_en_grafieken.md)**
+    - [1.1 Lineaire formules](vwo_wiskunde_ac/01-formules_en_grafieken.md#p1-1)
+    - [1.2 Een lijn door twee gegeven punten](vwo_wiskunde_ac/01-formules_en_grafieken.md#p1-2)
+    - [1.3 Interpoleren, extrapoleren en evenredigheid](vwo_wiskunde_ac/01-formules_en_grafieken.md#p1-3)
+    - [1.4 Wiskundige modellen](vwo_wiskunde_ac/01-formules_en_grafieken.md#p1-4)
+- **[Hoofdstuk 2: De statistische cyclus](vwo_wiskunde_ac/02-de_statistische_cyclus.md)**
+    - [2.1 De onderzoeksvraag](vwo_wiskunde_ac/02-de_statistische_cyclus.md#p2-1)
+    - [2.2 Data verzamelen](vwo_wiskunde_ac/02-de_statistische_cyclus.md#p2-2)
+    - [2.3 Data analyseren](vwo_wiskunde_ac/02-de_statistische_cyclus.md#p2-3)
+    - [2.4 Kwartielen en spreiding](vwo_wiskunde_ac/02-de_statistische_cyclus.md#p2-4)
+    - [2.5 Statistische verdelingen](vwo_wiskunde_ac/02-de_statistische_cyclus.md#p2-5)
+    - [2.6 Conclusies trekken](vwo_wiskunde_ac/02-de_statistische_cyclus.md#p2-6)
+- **[Hoofdstuk 3: Rekenen en herleiden](vwo_wiskunde_ac/03-rekenen_en_herleiden.md)**
+    - [3.1 Breuken en verhoudingen](vwo_wiskunde_ac/03-rekenen_en_herleiden.md#p3-1)
+    - [3.2 Herleiden van formules](vwo_wiskunde_ac/03-rekenen_en_herleiden.md#p3-2)
+    - [3.3 Procentberekeningen en de wetenschappelijke notatie](vwo_wiskunde_ac/03-rekenen_en_herleiden.md#p3-3)
+    - [3.4 Rekenen met eenheden](vwo_wiskunde_ac/03-rekenen_en_herleiden.md#p3-4)
+- **[Hoofdstuk 4: Combinatoriek](vwo_wiskunde_ac/04-combinatoriek.md)**
+    - [4.1 Regels voor telproblemen](vwo_wiskunde_ac/04-combinatoriek.md#p4-1)
+    - [4.2 Permutaties en combinaties](vwo_wiskunde_ac/04-combinatoriek.md#p4-2)
+    - [4.3 Rijtjes en roosters](vwo_wiskunde_ac/04-combinatoriek.md#p4-3)
+    - [4.4 Allerlei telproblemen](vwo_wiskunde_ac/04-combinatoriek.md#p4-4)
+- **[Hoofdstuk 5: Machtsverbanden](vwo_wiskunde_ac/05-machtsverbanden.md)**
+    - [5.1 Grafieken veranderen](vwo_wiskunde_ac/05-machtsverbanden.md#p5-1)
+    - [5.2 Rekenen met machten](vwo_wiskunde_ac/05-machtsverbanden.md#p5-2)
+    - [5.3 Formules herleiden en variabelen vrijmaken](vwo_wiskunde_ac/05-machtsverbanden.md#p5-3)
+    - [5.4 Formules met machten en wortels](vwo_wiskunde_ac/05-machtsverbanden.md#p5-4)
+- **[Hoofdstuk 6: Kansrekening](vwo_wiskunde_ac/06-kansrekening.md)**
+    - [6.1 Kansen](vwo_wiskunde_ac/06-kansrekening.md#p6-1)
+    - [6.2 Empirische kansen](vwo_wiskunde_ac/06-kansrekening.md#p6-2)
+    - [6.3 Regels voor kansrekening](vwo_wiskunde_ac/06-kansrekening.md#p6-3)
+    - [6.4 Het vaasmodel](vwo_wiskunde_ac/06-kansrekening.md#p6-4)
+    - [6.5 Allerlei kansproblemen](vwo_wiskunde_ac/06-kansrekening.md#p6-5)
+- **[Hoofdstuk 7: Statistiek met de computer](vwo_wiskunde_ac/07-statistiek_met_de_computer.md)**
+    - [7.1 Werken met een spreadsheet](vwo_wiskunde_ac/07-statistiek_met_de_computer.md#p7-1)
+    - [7.2 Werken met datasets](vwo_wiskunde_ac/07-statistiek_met_de_computer.md#p7-2)
+    - [7.3 Draaitabellen en draaigrafieken](vwo_wiskunde_ac/07-statistiek_met_de_computer.md#p7-3)
+- **[Extra: Lineair programmeren](vwo_wiskunde_ac/k-lineair_programmeren.md)**
+    - [K.1 Stelsels van lineaire vergelijkingen](vwo_wiskunde_ac/k-lineair_programmeren.md#pk-1)
+    - [K.2 Ongelijkheden met twee variabelen](vwo_wiskunde_ac/k-lineair_programmeren.md#pk-2)
+    - [K.3 Lineaire programmeringsproblemen](vwo_wiskunde_ac/k-lineair_programmeren.md#pk-3)
+    - [K.4 De hoekpuntmethode](vwo_wiskunde_ac/k-lineair_programmeren.md#pk-4)
+    - [K.5 Lineair programmeren met Excel](vwo_wiskunde_ac/k-lineair_programmeren.md#pk-5)
+- **[Hoofdstuk 8: Meetkunde](vwo_wiskunde_c/08-meetkunde.md)**
+    - [8.1 Vlakke figuren](vwo_wiskunde_c/08-meetkunde.md#p8-1)
+    - [8.2 Ruimtefiguren](vwo_wiskunde_c/08-meetkunde.md#p8-2)
+    - [8.3 Aanzichten](vwo_wiskunde_c/08-meetkunde.md#p8-3)
+    - [8.4 Perspectief](vwo_wiskunde_c/08-meetkunde.md#p8-4)
+- **[Hoofdstuk 9: Kansverdelingen](vwo_wiskunde_c/09-kansverdelingen.md)**
+    - [9.1 Toevalsvariabelen en verwachtingswaarde](vwo_wiskunde_c/09-kansverdelingen.md#p9-1)
+    - [9.2 De binomiale verdeling](vwo_wiskunde_c/09-kansverdelingen.md#p9-2)
+    - [9.3 De normale verdeling](vwo_wiskunde_c/09-kansverdelingen.md#p9-3)
+    - [9.4 De normale verdeling toepassen](vwo_wiskunde_c/09-kansverdelingen.md#p9-4)
+    - [9.5 De wortel-n-wet](vwo_wiskunde_c/09-kansverdelingen.md#p9-5)
+- **[Hoofdstuk 10: Exponenten en logaritmen](vwo_wiskunde_c/10-exponenten_en_logaritmen.md)**
+    - [10.1 Exponentiële groei](vwo_wiskunde_c/10-exponenten_en_logaritmen.md#p10-1)
+    - [10.2 Exponentiële en lineaire groei](vwo_wiskunde_c/10-exponenten_en_logaritmen.md#p10-2)
+    - [10.3 Logaritmen](vwo_wiskunde_c/10-exponenten_en_logaritmen.md#p10-3)
+    - [10.4 Werken met logaritmen](vwo_wiskunde_c/10-exponenten_en_logaritmen.md#p10-4)
+- **[Hoofdstuk 11: Logisch redeneren](vwo_wiskunde_c/11-logisch_redeneren.md)**
+    - [11.1 Redeneren](vwo_wiskunde_c/11-logisch_redeneren.md#p11-1)
+    - [11.2 Logische symbolen](vwo_wiskunde_c/11-logisch_redeneren.md#p11-2)
+    - [11.3 Beweringen en voorwaarden](vwo_wiskunde_c/11-logisch_redeneren.md#p11-3)
+    - [11.4 Redeneren met groepen](vwo_wiskunde_c/11-logisch_redeneren.md#p11-4)
+    - [11.5 Paradoxen en leugens](vwo_wiskunde_c/11-logisch_redeneren.md#p11-5)
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+### **VWO Wiskunde D**
+
+- **[Hoofdstuk 1: Combinatoriek](vwo_wiskunde_d/01-combinatoriek.md)**
+    - [1.1 De somregel en de productregel](vwo_wiskunde_d/01-combinatoriek.md#p1-1)
+    - [1.2 Variaties en herhalingsvariaties](vwo_wiskunde_d/01-combinatoriek.md#p1-2)
+    - [1.3 Combinaties en herhalingscombinaties](vwo_wiskunde_d/01-combinatoriek.md#p1-3)
+    - [1.4 Variaties en combinaties toepassen](vwo_wiskunde_d/01-combinatoriek.md#p1-4)
+- **[Hoofdstuk 2: Discrete wiskunde](vwo_wiskunde_d/02-discrete_wiskunde.md)**
+    - [2.1 Het binomium van Newton](vwo_wiskunde_d/02-discrete_wiskunde.md#p2-1)
+    - [2.2 Recursieve formules](vwo_wiskunde_d/02-discrete_wiskunde.md#p2-2)
+    - [2.3 Rekenkundige rijen](vwo_wiskunde_d/02-discrete_wiskunde.md#p2-3)
+    - [2.4 Meetkundige rijen](vwo_wiskunde_d/02-discrete_wiskunde.md#p2-4)
+- **[Hoofdstuk 3: Kansrekening](vwo_wiskunde_d/03-kansrekening.md)**
+    - [3.1 Het kansbegrip](vwo_wiskunde_d/03-kansrekening.md#p3-1)
+    - [3.2 Empirische kansen](vwo_wiskunde_d/03-kansrekening.md#p3-2)
+    - [3.3 Het vaasmodel en de productregel](vwo_wiskunde_d/03-kansrekening.md#p3-3)
+    - [3.4 De somregel en de complementregel](vwo_wiskunde_d/03-kansrekening.md#p3-4)
+    - [3.5 Voorwaardelijke kansen](vwo_wiskunde_d/03-kansrekening.md#p3-5)
+- **[Hoofdstuk 4: Matrices](vwo_wiskunde_d/04-matrices.md)**
+    - [4.1 Rekenen met matrices](vwo_wiskunde_d/04-matrices.md#p4-1)
+    - [4.2 Matrices en kansen](vwo_wiskunde_d/04-matrices.md#p4-2)
+    - [4.3 Stelsels en matrices](vwo_wiskunde_d/04-matrices.md#p4-3)
+    - [4.4 Inverse matrices en determinanten](vwo_wiskunde_d/04-matrices.md#p4-4)
+- **[Hoofdstuk 5: Discrete kansverdelingen](vwo_wiskunde_d/05-discrete_kansverdelingen.md)**
+    - [5.1 Het herhalen van kansexperimenten](vwo_wiskunde_d/05-discrete_kansverdelingen.md#p5-1)
+    - [5.2 Pakken met en zonder terugleggen](vwo_wiskunde_d/05-discrete_kansverdelingen.md#p5-2)
+    - [5.3 De verwachtingswaarde](vwo_wiskunde_d/05-discrete_kansverdelingen.md#p5-3)
+    - [5.4 De binomiale verdeling](vwo_wiskunde_d/05-discrete_kansverdelingen.md#p5-4)
+    - [5.5 De poissonverdeling](vwo_wiskunde_d/05-discrete_kansverdelingen.md#p5-5)
+- **[Hoofdstuk 6: Discrete dynamische modellen](vwo_wiskunde_d/06-discrete_dynamische_modellen.md)**
+    - [6.1 Lineaire differentievergelijkingen van de eerste orde](vwo_wiskunde_d/06-discrete_dynamische_modellen.md#p6-1)
+    - [6.2 Logistische groei](vwo_wiskunde_d/06-discrete_dynamische_modellen.md#p6-2)
+    - [6.3 Stelsels differentievergelijkingen](vwo_wiskunde_d/06-discrete_dynamische_modellen.md#p6-3)
+    - [6.4 Lineaire differentievergelijkingen van de tweede orde](vwo_wiskunde_d/06-discrete_dynamische_modellen.md#p6-4)
+- **[Hoofdstuk 7: Bewijzen](vwo_wiskunde_d/07-bewijzen.md)**
+    - [7.1 Bewijzen in driehoeken en vierhoeken](vwo_wiskunde_d/07-bewijzen.md#p7-1)
+    - [7.2 Bewijzen in cirkels](vwo_wiskunde_d/07-bewijzen.md#p7-2)
+    - [7.3 Volledige inductie](vwo_wiskunde_d/07-bewijzen.md#p7-3)
+    - [7.4 Andere bewijsmethoden](vwo_wiskunde_d/07-bewijzen.md#p7-4)
+- **[Hoofdstuk 8: Vectormeetkunde](vwo_wiskunde_d/08-vectormeetkunde.md)**
+    - [8.1 Coördinaten in de ruimte](vwo_wiskunde_d/08-vectormeetkunde.md#p8-1)
+    - [8.2 Vergelijkingen van vlakken](vwo_wiskunde_d/08-vectormeetkunde.md#p8-2)
+    - [8.3 Hoeken in de ruimte](vwo_wiskunde_d/08-vectormeetkunde.md#p8-3)
+    - [8.4 Afstanden in de ruimte](vwo_wiskunde_d/08-vectormeetkunde.md#p8-4)
+- **[Hoofdstuk 9: Meetkundige plaatsen en raaklijneigenschappen](vwo_wiskunde_d/09-meetkundige_plaatsen_en_raaklijneigenschappen.md)**
+    - [9.1 Meetkundige plaatsen](vwo_wiskunde_d/09-meetkundige_plaatsen_en_raaklijneigenschappen.md#p9-1)
+    - [9.2 De ellips en de hyperbool als meetkundige plaats](vwo_wiskunde_d/09-meetkundige_plaatsen_en_raaklijneigenschappen.md#p9-2)
+    - [9.3 Raaklijneigenschappen](vwo_wiskunde_d/09-meetkundige_plaatsen_en_raaklijneigenschappen.md#p9-3)
+- **[Hoofdstuk 10: Complexe getallen](vwo_wiskunde_d/10-complexe_getallen.md)**
+    - [10.1 Rekenen met complexe getallen](vwo_wiskunde_d/10-complexe_getallen.md#p10-1)
+    - [10.2 Het complexe vlak](vwo_wiskunde_d/10-complexe_getallen.md#p10-2)
+    - [10.3 Poolcoördinaten en de formule van Euler](vwo_wiskunde_d/10-complexe_getallen.md#p10-3)
+    - [10.4 Complexe e-machten en complexe wortels](vwo_wiskunde_d/10-complexe_getallen.md#p10-4)
+    - [10.5 Krachten en snelheden met complexe getallen](vwo_wiskunde_d/10-complexe_getallen.md#p10-5)
+- **[Hoofdstuk 11: Lineaire algebra](vwo_wiskunde_d/11-lineaire_algebra.md)**
+    - [11.1 Lineaire afbeeldingen](vwo_wiskunde_d/11-lineaire_algebra.md#p11-1)
+    - [11.2 Eigenwaarden en eigenvectoren](vwo_wiskunde_d/11-lineaire_algebra.md#p11-2)
+    - [11.3 Machtreeksen en differentievergelijkingen](vwo_wiskunde_d/11-lineaire_algebra.md#p11-3)
+- **[Hoofdstuk 12: Continue kansverdelingen](vwo_wiskunde_d/12-continue_kansverdelingen.md)**
+    - [12.1 Kansdichtheid en verdelingsfunctie](vwo_wiskunde_d/12-continue_kansverdelingen.md#p12-1)
+    - [12.2 De normale verdeling](vwo_wiskunde_d/12-continue_kansverdelingen.md#p12-2)
+    - [12.3 Toepassingen van de normale verdeling](vwo_wiskunde_d/12-continue_kansverdelingen.md#p12-3)
+    - [12.4 Som en verschil van toevalsvariabelen](vwo_wiskunde_d/12-continue_kansverdelingen.md#p12-4)
+    - [12.5 De exponentiële verdeling](vwo_wiskunde_d/12-continue_kansverdelingen.md#p12-5)
+- **[Hoofdstuk 13: Kegelsneden](vwo_wiskunde_d/13-kegelsneden.md)**
+    - [13.1 Cirkel, ellips, hyperbool en parabool als kegelsnede](vwo_wiskunde_d/13-kegelsneden.md#p13-1)
+    - [13.2 Vergelijkingen van parabool, ellips en hyperbool](vwo_wiskunde_d/13-kegelsneden.md#p13-2)
+    - [13.3 Transformaties bij kegelsneden](vwo_wiskunde_d/13-kegelsneden.md#p13-3)
+    - [13.4 Raaklijnen en poollijnen](vwo_wiskunde_d/13-kegelsneden.md#p13-4)
+    - [13.5 Variabele punten en omwentelingsoppervlakken](vwo_wiskunde_d/13-kegelsneden.md#p13-5)
+- **[Hoofdstuk 14: Mathematische statistiek](vwo_wiskunde_d/14-mathematische_statistiek.md)**
+    - [14.1 Regressielijnen en correlatiecoëfficiënt](vwo_wiskunde_d/14-mathematische_statistiek.md#p14-1)
+    - [14.2 Regressievoorspellingen en betrouwbaarheidsintervallen](vwo_wiskunde_d/14-mathematische_statistiek.md#p14-2)
+    - [14.3 Beslissen op grond van een steekproef](vwo_wiskunde_d/14-mathematische_statistiek.md#p14-3)
+    - [14.4 Eenzijdig en tweezijdig toetsen](vwo_wiskunde_d/14-mathematische_statistiek.md#p14-4)
+    - [14.5 Binomiale toetsen](vwo_wiskunde_d/14-mathematische_statistiek.md#p14-5)
+- **[Hoofdstuk 15: Continue dynamische modellen](vwo_wiskunde_d/15-continue_dynamische_modellen.md)**
+    - [15.1 Continue dynamische modellen opstellen](vwo_wiskunde_d/15-continue_dynamische_modellen.md#p15-1)
+    - [15.2 Differentiaalvergelijkingen](vwo_wiskunde_d/15-continue_dynamische_modellen.md#p15-2)
+    - [15.3 Oplossingen van differentiaalvergelijkingen](vwo_wiskunde_d/15-continue_dynamische_modellen.md#p15-3)
+    - [15.4 Differentiaalvergelijkingen van de eerste orde](vwo_wiskunde_d/15-continue_dynamische_modellen.md#p15-4)
+    - [15.5 Differentiaalvergelijkingen van de tweede orde](vwo_wiskunde_d/15-continue_dynamische_modellen.md#p15-5)
+- **[Hoofdstuk 16: Complexe functies](vwo_wiskunde_d/16-complexe_functies.md)**
+    - [16.1 Lineaire complexe functies](vwo_wiskunde_d/16-complexe_functies.md#p16-1)
+    - [16.2 Niet-lineaire complexe functies](vwo_wiskunde_d/16-complexe_functies.md#p16-2)
+    - [16.3 Meetkunde met complexe getallen](vwo_wiskunde_d/16-complexe_functies.md#p16-3)
+    - [16.4 Derdegraadsvergelijkingen](vwo_wiskunde_d/16-complexe_functies.md#p16-4)
+    - [16.5 Wisselspanning](vwo_wiskunde_d/16-complexe_functies.md#p16-5)
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+## **Havo**
+
+### **Havo/VWO 1**
+
+- **[Hoofdstuk 1: Figuren](havo1/01-figuren.md)**
+    - [1.1 Ruimtefiguren en uitslagen](havo1/01-figuren.md#p1-1)
+    - [1.2 Vierkant en kubus](havo1/01-figuren.md#p1-2)
+    - [1.3 Rechthoek en balk](havo1/01-figuren.md#p1-3)
+    - [1.4 Cirkel en cilinder](havo1/01-figuren.md#p1-4)
+    - [1.5 Veelhoek en prisma](havo1/01-figuren.md#p1-5)
+    - [1.6 Piramide](havo1/01-figuren.md#p1-6)
+- **[Hoofdstuk 2: Getallen en bewerkingen](havo1/02-getallen_en_bewerkingen.md)**
+    - [2.1 Bewerkingen](havo1/02-getallen_en_bewerkingen.md#p2-1)
+    - [2.2 Breuken](havo1/02-getallen_en_bewerkingen.md#p2-2)
+    - [2.3 Negatieve getallen](havo1/02-getallen_en_bewerkingen.md#p2-3)
+    - [2.4 Negatieve getallen vermenigvuldigen en delen](havo1/02-getallen_en_bewerkingen.md#p2-4)
+    - [2.5 Negatieve breuken](havo1/02-getallen_en_bewerkingen.md#p2-5)
+- **[Hoofdstuk 3: Grafieken en formules](havo1/03-grafieken_en_formules.md)**
+    - [3.1 Assenstelsels](havo1/03-grafieken_en_formules.md#p3-1)
+    - [3.2 Grafieken in assenstelsels](havo1/03-grafieken_en_formules.md#p3-2)
+    - [3.3 Woordformules](havo1/03-grafieken_en_formules.md#p3-3)
+    - [3.4 Formules met letters](havo1/03-grafieken_en_formules.md#p3-4)
+    - [3.5 Grafiek bij een formule](havo1/03-grafieken_en_formules.md#p3-5)
+- **[Hoofdstuk 4: Rekenen in de praktijk](havo1/04-rekenen_in_de_praktijk.md)**
+    - [4.1 Decimale getallen](havo1/04-rekenen_in_de_praktijk.md#p4-1)
+    - [4.2 De rekenmachine](havo1/04-rekenen_in_de_praktijk.md#p4-2)
+    - [4.3 Rekenen in praktische situaties](havo1/04-rekenen_in_de_praktijk.md#p4-3)
+    - [4.4 Procenten](havo1/04-rekenen_in_de_praktijk.md#p4-4)
+    - [4.5 Evenredig en omgekeerd evenredig](havo1/04-rekenen_in_de_praktijk.md#p4-5)
+- **[Hoofdstuk 5: Lijnen en hoeken](havo1/05-lijnen_en_hoeken.md)**
+    - [5.1 Lijnen](havo1/05-lijnen_en_hoeken.md#p5-1)
+    - [5.2 Hoeken en graden](havo1/05-lijnen_en_hoeken.md#p5-2)
+    - [5.3 Hoeken meten](havo1/05-lijnen_en_hoeken.md#p5-3)
+    - [5.4 Hoeken tekenen](havo1/05-lijnen_en_hoeken.md#p5-4)
+    - [5.5 Hoeken berekenen](havo1/05-lijnen_en_hoeken.md#p5-5)
+    - [5.6 Hoekensom driehoek](havo1/05-lijnen_en_hoeken.md#p5-6)
+- **[Hoofdstuk 6: Formules en letters](havo1/06-formules_en_letters.md)**
+    - [6.1 Kwadraten](havo1/06-formules_en_letters.md#p6-1)
+    - [6.2 Kwadratische formules](havo1/06-formules_en_letters.md#p6-2)
+    - [6.3 Grafieken](havo1/06-formules_en_letters.md#p6-3)
+    - [6.4 Rekenen met letters](havo1/06-formules_en_letters.md#p6-4)
+    - [6.5 Herleiden](havo1/06-formules_en_letters.md#p6-5)
+- **[Hoofdstuk 7: Meten](havo1/07-meten.md)**
+    - [7.1 Lengte](havo1/07-meten.md#p7-1)
+    - [7.2 Oppervlakte](havo1/07-meten.md#p7-2)
+    - [7.3 De cirkel](havo1/07-meten.md#p7-3)
+    - [7.4 Inhoud](havo1/07-meten.md#p7-4)
+    - [7.5 Aanzichten](havo1/07-meten.md#p7-5)
+- **[Hoofdstuk 8: Herleiden en machten](havo1/08-herleiden_en_machten.md)**
+    - [8.1 Herleiden](havo1/08-herleiden_en_machten.md#p8-1)
+    - [8.2 Haakjes wegwerken](havo1/08-herleiden_en_machten.md#p8-2)
+    - [8.3 Machten](havo1/08-herleiden_en_machten.md#p8-3)
+    - [8.4 De wetenschappelijke notatie](havo1/08-herleiden_en_machten.md#p8-4)
+    - [8.5 Machten en letters](havo1/08-herleiden_en_machten.md#p8-5)
+- **[Hoofdstuk 9: Symmetrie en vlakke figuren](havo1/09-symmetrie_en_vlakke_figuren.md)**
+    - [9.1 Lijnsymmetrie](havo1/09-symmetrie_en_vlakke_figuren.md#p9-1)
+    - [9.2 Draaisymmetrie](havo1/09-symmetrie_en_vlakke_figuren.md#p9-2)
+    - [9.3 Bijzondere driehoeken](havo1/09-symmetrie_en_vlakke_figuren.md#p9-3)
+    - [9.4 Bijzondere vierhoeken](havo1/09-symmetrie_en_vlakke_figuren.md#p9-4)
+    - [9.5 Z-hoeken en F-hoeken](havo1/09-symmetrie_en_vlakke_figuren.md#p9-5)
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+### **Havo/VWO 2**
+
+- **[Hoofdstuk 1: Rekenen met letters](havo2/01-rekenen_met_letters.md)**
+    - [1.1 Haakjes wegwerken](havo2/01-rekenen_met_letters.md#p1-1)
+    - [1.2 Breuken optellen](havo2/01-rekenen_met_letters.md#p1-2)
+    - [1.3 Breuken vermenigvuldigen en delen](havo2/01-rekenen_met_letters.md#p1-3)
+    - [1.4 Machten vermenigvuldigen, optellen en aftrekken](havo2/01-rekenen_met_letters.md#p1-4)
+    - [1.5 Machten herleiden](havo2/01-rekenen_met_letters.md#p1-5)
+    - [1.6 De wetenschappelijke notatie](havo2/01-rekenen_met_letters.md#p1-6)
+- **[Hoofdstuk 2: Afstand en oppervlakte](havo2/02-afstand_en_oppervlakte.md)**
+    - [2.1 Afstanden](havo2/02-afstand_en_oppervlakte.md#p2-1)
+    - [2.2 Middelloodlijn en omgeschreven cirkel](havo2/02-afstand_en_oppervlakte.md#p2-2)
+    - [2.3 Bissectrice en ingeschreven cirkel](havo2/02-afstand_en_oppervlakte.md#p2-3)
+    - [2.4 Zwaartelijn en hoogtelijn](havo2/02-afstand_en_oppervlakte.md#p2-4)
+    - [2.5 De oppervlakte van een driehoek](havo2/02-afstand_en_oppervlakte.md#p2-5)
+    - [2.6 De oppervlakte van een vierhoek](havo2/02-afstand_en_oppervlakte.md#p2-6)
+- **[Hoofdstuk 3: Lineaire formules en vergelijkingen](havo2/03-lineaire_formules_en_vergelijkingen.md)**
+    - [3.1 Grafieken van lineaire formules](havo2/03-lineaire_formules_en_vergelijkingen.md#p3-1)
+    - [3.2 De formule van een lijn opstellen](havo2/03-lineaire_formules_en_vergelijkingen.md#p3-2)
+    - [3.3 De balansmethode](havo2/03-lineaire_formules_en_vergelijkingen.md#p3-3)
+    - [3.4 Vergelijkingen oplossen](havo2/03-lineaire_formules_en_vergelijkingen.md#p3-4)
+- **[Hoofdstuk 4: Procenten en diagrammen](havo2/04-procenten_en_diagrammen.md)**
+    - [4.1 Rekenen met procentuele toe- en afname](havo2/04-procenten_en_diagrammen.md#p4-1)
+    - [4.2 Procentuele verandering](havo2/04-procenten_en_diagrammen.md#p4-2)
+    - [4.3 Staaf-, lijn- en cirkeldiagram](havo2/04-procenten_en_diagrammen.md#p4-3)
+    - [4.4 Histogram](havo2/04-procenten_en_diagrammen.md#p4-4)
+    - [4.5 Centrummaten](havo2/04-procenten_en_diagrammen.md#p4-5)
+- **[Hoofdstuk 5: Kwadraten en wortels](havo2/05-kwadraten_en_wortels.md)**
+    - [5.1 Kwadratische formules](havo2/05-kwadraten_en_wortels.md#p5-1)
+    - [5.2 Wortels en wortelformules](havo2/05-kwadraten_en_wortels.md#p5-2)
+    - [5.3 Wortels herleiden](havo2/05-kwadraten_en_wortels.md#p5-3)
+    - [5.4 Soorten getallen](havo2/05-kwadraten_en_wortels.md#p5-4)
+- **[Hoofdstuk 6: De stelling van Pythagoras](havo2/06-de_stelling_van_pythagoras.md)**
+    - [6.1 Rechthoekige driehoeken](havo2/06-de_stelling_van_pythagoras.md#p6-1)
+    - [6.2 Schuine zijden berekenen](havo2/06-de_stelling_van_pythagoras.md#p6-2)
+    - [6.3 Rechthoekszijden berekenen](havo2/06-de_stelling_van_pythagoras.md#p6-3)
+    - [6.4 De stelling van Pythagoras toepassen](havo2/06-de_stelling_van_pythagoras.md#p6-4)
+    - [6.5 Pythagoras in de ruimte](havo2/06-de_stelling_van_pythagoras.md#p6-5)
+- **[Hoofdstuk 7: Kwadratische vergelijkingen](havo2/07-kwadratische_vergelijkingen.md)**
+    - [7.1 Buiten haakjes brengen](havo2/07-kwadratische_vergelijkingen.md#p7-1)
+    - [7.2 De product-som-methode](havo2/07-kwadratische_vergelijkingen.md#p7-2)
+    - [7.3 Kwadratische vergelijkingen](havo2/07-kwadratische_vergelijkingen.md#p7-3)
+    - [7.4 Oplosmethoden](havo2/07-kwadratische_vergelijkingen.md#p7-4)
+- **[Hoofdstuk 8: Inhoud en vergroten](havo2/08-inhoud_en_vergroten.md)**
+    - [8.1 Inhoud prisma en cilinder](havo2/08-inhoud_en_vergroten.md#p8-1)
+    - [8.2 Inhoud piramide en kegel](havo2/08-inhoud_en_vergroten.md#p8-2)
+    - [8.3 Vergroten en verkleinen](havo2/08-inhoud_en_vergroten.md#p8-3)
+    - [8.4 Oppervlakte bij vergroten](havo2/08-inhoud_en_vergroten.md#p8-4)
+    - [8.5 Inhoud bij vergroten](havo2/08-inhoud_en_vergroten.md#p8-5)
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+### **Havo 3**
+
+- **[Hoofdstuk 1: Lineaire problemen](havo3/01-lineaire_problemen.md)**
+    - [1.1 De formule $y = ax + b$](havo3/01-lineaire_problemen.md#p1-1)
+    - [1.2 Lineaire verbanden](havo3/01-lineaire_problemen.md#p1-2)
+    - [1.3 Lineaire vergelijkingen](havo3/01-lineaire_problemen.md#p1-3)
+    - [1.4 Snijpunten van grafieken](havo3/01-lineaire_problemen.md#p1-4)
+    - [1.5 Lineaire ongelijkheden](havo3/01-lineaire_problemen.md#p1-5)
+    - [1.6 Vergelijkingen met twee variabelen](havo3/01-lineaire_problemen.md#p1-6)
+- **[Hoofdstuk 2: Gelijkvormigheid](havo3/02-gelijkvormigheid.md)**
+    - [2.1 Verhoudingstabellen](havo3/02-gelijkvormigheid.md#p2-1)
+    - [2.2 Gelijkvormigheid](havo3/02-gelijkvormigheid.md#p2-2)
+    - [2.3 Gelijkvormigheid aantonen](havo3/02-gelijkvormigheid.md#p2-3)
+    - [2.4 Lengtes van lijnstukken berekenen](havo3/02-gelijkvormigheid.md#p2-4)
+- **[Hoofdstuk 3: Kwadratische problemen](havo3/03-kwadratische_problemen.md)**
+    - [3.1 Kwadratische functies](havo3/03-kwadratische_problemen.md#p3-1)
+    - [3.2 Werken met kwadratische functies](havo3/03-kwadratische_problemen.md#p3-2)
+    - [3.3 Kwadratische vergelijkingen](havo3/03-kwadratische_problemen.md#p3-3)
+    - [3.4 De functie $f(x) = a(x-d)(x-e)$](havo3/03-kwadratische_problemen.md#p3-4)
+    - [3.5 De functie $f(x) = a(x-p)^2 + q$](havo3/03-kwadratische_problemen.md#p3-5)
+- **[Hoofdstuk 4: Procenten en statistiek](havo3/04-procenten_en_statistiek.md)**
+    - [4.1 Procentuele verandering](havo3/04-procenten_en_statistiek.md#p4-1)
+    - [4.2 Rekenen met procenten](havo3/04-procenten_en_statistiek.md#p4-2)
+    - [4.3 Informatieverwerking](havo3/04-procenten_en_statistiek.md#p4-3)
+    - [4.4 Misleidende statistiek](havo3/04-procenten_en_statistiek.md#p4-4)
+    - [4.5 Interpoleren en extrapoleren](havo3/04-procenten_en_statistiek.md#p4-5)
+- **[Hoofdstuk 5: Algebraïsche vaardigheden](havo3/05-algebraische_vaardigheden.md)**
+    - [5.1 Herleiden](havo3/05-algebraische_vaardigheden.md#p5-1)
+    - [5.2 Breuken met letters herleiden](havo3/05-algebraische_vaardigheden.md#p5-2)
+    - [5.3 Machten herleiden](havo3/05-algebraische_vaardigheden.md#p5-3)
+    - [5.4 Wortels herleiden](havo3/05-algebraische_vaardigheden.md#p5-4)
+- **[Hoofdstuk 6: Goniometrie](havo3/06-goniometrie.md)**
+    - [6.1 Hellingen](havo3/06-goniometrie.md#p6-1)
+    - [6.2 Tangens en hellingshoek](havo3/06-goniometrie.md#p6-2)
+    - [6.3 Berekeningen met de tangens](havo3/06-goniometrie.md#p6-3)
+    - [6.4 De sinus en de cosinus](havo3/06-goniometrie.md#p6-4)
+    - [6.5 Goniometrische verhoudingen](havo3/06-goniometrie.md#p6-5)
+    - [6.6 Goniometrie in de ruimte](havo3/06-goniometrie.md#p6-6)
+- **[Hoofdstuk 7: Kwadratische vergelijkingen en ongelijkheden](havo3/07-kwadratische_vergelijkingen_en_ongelijkheden.md)**
+    - [7.1 Snijpunten van grafieken](havo3/07-kwadratische_vergelijkingen_en_ongelijkheden.md#p7-1)
+    - [7.2 De abc-formule](havo3/07-kwadratische_vergelijkingen_en_ongelijkheden.md#p7-2)
+    - [7.3 Verschillende oplosmethoden](havo3/07-kwadratische_vergelijkingen_en_ongelijkheden.md#p7-3)
+    - [7.4 Ongelijkheden en grafieken](havo3/07-kwadratische_vergelijkingen_en_ongelijkheden.md#p7-4)
+    - [7.5 Kwadratische ongelijkheden](havo3/07-kwadratische_vergelijkingen_en_ongelijkheden.md#p7-5)
+- **[Hoofdstuk 8: Allerlei verbanden](havo3/08-allerlei_verbanden.md)**
+    - [8.1 Exponentiële groei](havo3/08-allerlei_verbanden.md#p8-1)
+    - [8.2 Procenten en groeifactoren](havo3/08-allerlei_verbanden.md#p8-2)
+    - [8.3 Tabellen en groei](havo3/08-allerlei_verbanden.md#p8-3)
+    - [8.4 Periodieke verbanden](havo3/08-allerlei_verbanden.md#p8-4)
+    - [8.5 Machtsverbanden](havo3/08-allerlei_verbanden.md#p8-5)
+    - [8.6 Omgekeerd evenredige verbanden](havo3/08-allerlei_verbanden.md#p8-6)
+- **[Hoofdstuk 9: Spreiding, tellen en kans](havo3/09-spreiding_tellen_en_kans.md)**
+    - [9.1 Gegevens groeperen](havo3/09-spreiding_tellen_en_kans.md#p9-1)
+    - [9.2 Kwartielen en spreiding](havo3/09-spreiding_tellen_en_kans.md#p9-2)
+    - [9.3 De boxplot](havo3/09-spreiding_tellen_en_kans.md#p9-3)
+    - [9.4 Telproblemen](havo3/09-spreiding_tellen_en_kans.md#p9-4)
+    - [9.5 Kansrekening](havo3/09-spreiding_tellen_en_kans.md#p9-5)
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+### **Havo Wiskunde A**
+
+- **[Hoofdstuk 1: Rekenen en groei](havo_wiskunde_a/01-rekenen_en_groei.md)**
+    - [1.1 Rekenen](havo_wiskunde_a/01-rekenen_en_groei.md#p1-1)
+    - [1.2 Procenten](havo_wiskunde_a/01-rekenen_en_groei.md#p1-2)
+    - [1.3 Exponentiële groei](havo_wiskunde_a/01-rekenen_en_groei.md#p1-3)
+    - [1.4 Informatie in tabellen en grafieken](havo_wiskunde_a/01-rekenen_en_groei.md#p1-4)
+- **[Hoofdstuk 2: De statistische cyclus](havo_wiskunde_a/02-de_statistische_cyclus.md)**
+    - [2.1 De onderzoeksvraag](havo_wiskunde_a/02-de_statistische_cyclus.md#p2-1)
+    - [2.2 Data verzamelen](havo_wiskunde_a/02-de_statistische_cyclus.md#p2-2)
+    - [2.3 Data analyseren](havo_wiskunde_a/02-de_statistische_cyclus.md#p2-3)
+    - [2.4 Kwartielen en spreiding](havo_wiskunde_a/02-de_statistische_cyclus.md#p2-4)
+    - [2.5 Statistische verdelingen](havo_wiskunde_a/02-de_statistische_cyclus.md#p2-5)
+- **[Hoofdstuk 3: Lineaire verbanden](havo_wiskunde_a/03-lineaire_verbanden.md)**
+    - [3.1 Lineaire formules](havo_wiskunde_a/03-lineaire_verbanden.md#p3-1)
+    - [3.2 Lineaire formules opstellen](havo_wiskunde_a/03-lineaire_verbanden.md#p3-2)
+    - [3.3 Vergelijkingen en ongelijkheden](havo_wiskunde_a/03-lineaire_verbanden.md#p3-3)
+    - [3.4 Lineaire vergelijkingen met twee variabelen](havo_wiskunde_a/03-lineaire_verbanden.md#p3-4)
+    - [3.5 Interpoleren, extrapoleren en lineaire modellen](havo_wiskunde_a/03-lineaire_verbanden.md#p3-5)
+- **[Hoofdstuk 4: Combinatoriek](havo_wiskunde_a/04-combinatoriek.md)**
+    - [4.1 Regels bij telproblemen](havo_wiskunde_a/04-combinatoriek.md#p4-1)
+    - [4.2 Permutaties en combinaties](havo_wiskunde_a/04-combinatoriek.md#p4-2)
+    - [4.3 Combinatoriek toepassen](havo_wiskunde_a/04-combinatoriek.md#p4-3)
+    - [4.4 Allerlei telproblemen](havo_wiskunde_a/04-combinatoriek.md#p4-4)
+- **[Hoofdstuk 5: Veranderingen](havo_wiskunde_a/05-veranderingen.md)**
+    - [5.1 Stijgen en dalen](havo_wiskunde_a/05-veranderingen.md#p5-1)
+    - [5.2 Toenamediagrammen](havo_wiskunde_a/05-veranderingen.md#p5-2)
+    - [5.3 Differentiequotiënten](havo_wiskunde_a/05-veranderingen.md#p5-3)
+- **[Hoofdstuk 6: Formules en herleiden](havo_wiskunde_a/06-formules_en_herleiden.md)**
+    - [6.1 Werken met formules](havo_wiskunde_a/06-formules_en_herleiden.md#p6-1)
+    - [6.2 Formules met breuken](havo_wiskunde_a/06-formules_en_herleiden.md#p6-2)
+    - [6.3 Evenredigheden](havo_wiskunde_a/06-formules_en_herleiden.md#p6-3)
+    - [6.4 Formules met machten](havo_wiskunde_a/06-formules_en_herleiden.md#p6-4)
+- **[Hoofdstuk 7: Conclusies bij statistiek](havo_wiskunde_a/07-conclusies_bij_statistiek.md)**
+    - [7.1 Populatieproportie](havo_wiskunde_a/07-conclusies_bij_statistiek.md#p7-1)
+    - [7.2 Betrouwbaarheidsintervallen toepassen](havo_wiskunde_a/07-conclusies_bij_statistiek.md#p7-2)
+    - [7.3 Steekproefomvang](havo_wiskunde_a/07-conclusies_bij_statistiek.md#p7-3)
+    - [7.4 Conclusies trekken](havo_wiskunde_a/07-conclusies_bij_statistiek.md#p7-4)
+- **[Hoofdstuk 8: Statistiek met de computer](havo_wiskunde_a/08-statistiek_met_de_computer.md)**
+    - [8.1 Werken met een spreadsheet](havo_wiskunde_a/08-statistiek_met_de_computer.md#p8-1)
+    - [8.2 Werken met datasets](havo_wiskunde_a/08-statistiek_met_de_computer.md#p8-2)
+    - [8.3 Draaitabellen en draaigrafieken](havo_wiskunde_a/08-statistiek_met_de_computer.md#p8-3)
+- **[Hoofdstuk 9: Exponentiële verbanden](havo_wiskunde_a/09-exponentiele_verbanden.md)**
+    - [9.1 Exponentiële groei](havo_wiskunde_a/09-exponentiele_verbanden.md#p9-1)
+    - [9.2 Formules bij exponentiële groei](havo_wiskunde_a/09-exponentiele_verbanden.md#p9-2)
+    - [9.3 Exponentiële en lineaire groei](havo_wiskunde_a/09-exponentiele_verbanden.md#p9-3)
+    - [9.4 Herleiden en redeneren](havo_wiskunde_a/09-exponentiele_verbanden.md#p9-4)
+- **[Hoofdstuk 10: Statistiek gebruiken](havo_wiskunde_a/10-statistiek_gebruiken.md)**
+    - [10.1 Statistische diagrammen](havo_wiskunde_a/10-statistiek_gebruiken.md#p10-1)
+    - [10.2 Causaliteit en groepen vergelijken](havo_wiskunde_a/10-statistiek_gebruiken.md#p10-2)
+    - [10.3 Statistiek toepassen](havo_wiskunde_a/10-statistiek_gebruiken.md#p10-3)
+- **[Hoofdstuk 11: Formules en variabelen](havo_wiskunde_a/11-formules_en_variabelen.md)**
+    - [11.1 Grafieken en gebieden](havo_wiskunde_a/11-formules_en_variabelen.md#p11-1)
+    - [11.2 Herleiden en vrijmaken](havo_wiskunde_a/11-formules_en_variabelen.md#p11-2)
+    - [11.3 Redeneren met formules](havo_wiskunde_a/11-formules_en_variabelen.md#p11-3)
+    - [11.4 Formulevaardigheden](havo_wiskunde_a/11-formules_en_variabelen.md#p11-4)
+- **[Hoofdstuk 12: Examentraining](havo_wiskunde_a/12-examentraining.md)**
+    - [12.1 Algemene vaardigheden](havo_wiskunde_a/12-examentraining.md#p12-1)
+    - [12.2 Lineaire verbanden](havo_wiskunde_a/12-examentraining.md#p12-2)
+    - [12.3 Exponentiële verbanden](havo_wiskunde_a/12-examentraining.md#p12-3)
+    - [12.4 Herleiden en redeneren](havo_wiskunde_a/12-examentraining.md#p12-4)
+    - [12.5 Statistiek](havo_wiskunde_a/12-examentraining.md#p12-5)
+    - [12.6 Onderzoeksopgaven](havo_wiskunde_a/12-examentraining.md#p12-6)
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+### **Havo Wiskunde B**
+
+- **[Hoofdstuk 1: Lineaire en kwadratische vormen](havo_wiskunde_b/01-lineaire_en_kwadratische_vormen.md)**
+    - [1.1 Lineaire verbanden](havo_wiskunde_b/01-lineaire_en_kwadratische_vormen.md#p1-1)
+    - [1.2 Een lijn door twee gegeven punten](havo_wiskunde_b/01-lineaire_en_kwadratische_vormen.md#p1-2)
+    - [1.3 De vergelijking $ax + by = c$](havo_wiskunde_b/01-lineaire_en_kwadratische_vormen.md#p1-3)
+    - [1.4 Stelsels vergelijkingen](havo_wiskunde_b/01-lineaire_en_kwadratische_vormen.md#p1-4)
+    - [1.5 Kwadratische verbanden](havo_wiskunde_b/01-lineaire_en_kwadratische_vormen.md#p1-5)
+- **[Hoofdstuk 2: Veranderingen](havo_wiskunde_b/02-veranderingen.md)**
+    - [2.1 Toenamediagrammen](havo_wiskunde_b/02-veranderingen.md#p2-1)
+    - [2.2 Differentiequotiënt en snelheid](havo_wiskunde_b/02-veranderingen.md#p2-2)
+    - [2.3 Raaklijnen en hellinggrafieken](havo_wiskunde_b/02-veranderingen.md#p2-3)
+    - [2.4 Differentiëren](havo_wiskunde_b/02-veranderingen.md#p2-4)
+- **[Hoofdstuk 3: Meetkunde](havo_wiskunde_b/03-meetkunde.md)**
+    - [3.1 Goniometrische verhoudingen](havo_wiskunde_b/03-meetkunde.md#p3-1)
+    - [3.2 De sinusregel](havo_wiskunde_b/03-meetkunde.md#p3-2)
+    - [3.3 De cosinusregel](havo_wiskunde_b/03-meetkunde.md#p3-3)
+    - [3.4 Vergelijkingen in de meetkunde](havo_wiskunde_b/03-meetkunde.md#p3-4)
+    - [3.5 Lengte, omtrek en oppervlakte](havo_wiskunde_b/03-meetkunde.md#p3-5)
+- **[Hoofdstuk 4: Werken met formules](havo_wiskunde_b/04-werken_met_formules.md)**
+    - [4.1 De formules $y = a(x-p)^2 + q$ en $y = a(x-d)(x-e)$](havo_wiskunde_b/04-werken_met_formules.md#p4-1)
+    - [4.2 De formule $y = ax^2 + bx + c$](havo_wiskunde_b/04-werken_met_formules.md#p4-2)
+    - [4.3 Machtsformules](havo_wiskunde_b/04-werken_met_formules.md#p4-3)
+    - [4.4 Hogeregraadsvergelijkingen](havo_wiskunde_b/04-werken_met_formules.md#p4-4)
+    - [4.5 Extreme waarden en wiskundige modellen](havo_wiskunde_b/04-werken_met_formules.md#p4-5)
+- **[Hoofdstuk 5: Functies en vergelijkingen](havo_wiskunde_b/05-functies_en_vergelijkingen.md)**
+    - [5.1 Gebroken functies](havo_wiskunde_b/05-functies_en_vergelijkingen.md#p5-1)
+    - [5.2 Wortelfuncties](havo_wiskunde_b/05-functies_en_vergelijkingen.md#p5-2)
+    - [5.3 Machten met negatieve en gebroken exponenten](havo_wiskunde_b/05-functies_en_vergelijkingen.md#p5-3)
+    - [5.4 Exponentiële functies](havo_wiskunde_b/05-functies_en_vergelijkingen.md#p5-4)
+    - [5.5 Logaritmen](havo_wiskunde_b/05-functies_en_vergelijkingen.md#p5-5)
+- **[Hoofdstuk 6: De afgeleide functie](havo_wiskunde_b/06-de_afgeleide_functie.md)**
+    - [6.1 Raaklijnen en toppen](havo_wiskunde_b/06-de_afgeleide_functie.md#p6-1)
+    - [6.2 De afgeleide van machtsfuncties](havo_wiskunde_b/06-de_afgeleide_functie.md#p6-2)
+    - [6.3 De kettingregel](havo_wiskunde_b/06-de_afgeleide_functie.md#p6-3)
+    - [6.4 Toepassingen van de afgeleide](havo_wiskunde_b/06-de_afgeleide_functie.md#p6-4)
+- **[Hoofdstuk 7: Lijnen en cirkels](havo_wiskunde_b/07-lijnen_en_cirkels.md)**
+    - [7.1 Lijnen en hoeken](havo_wiskunde_b/07-lijnen_en_cirkels.md#p7-1)
+    - [7.2 Afstanden bij punten en lijnen](havo_wiskunde_b/07-lijnen_en_cirkels.md#p7-2)
+    - [7.3 Cirkelvergelijkingen](havo_wiskunde_b/07-lijnen_en_cirkels.md#p7-3)
+    - [7.4 Afstanden en raaklijnen bij cirkels](havo_wiskunde_b/07-lijnen_en_cirkels.md#p7-4)
+- **[Hoofdstuk 8: Goniometrische functies en vergelijkingen](havo_wiskunde_b/08-goniometrische_functies_en_vergelijkingen.md)**
+    - [8.1 De eenheidscirkel en radialen](havo_wiskunde_b/08-goniometrische_functies_en_vergelijkingen.md#p8-1)
+    - [8.2 Formules van sinusoïden opstellen](havo_wiskunde_b/08-goniometrische_functies_en_vergelijkingen.md#p8-2)
+    - [8.3 Sinusoïden tekenen](havo_wiskunde_b/08-goniometrische_functies_en_vergelijkingen.md#p8-3)
+    - [8.4 Goniometrische vergelijkingen](havo_wiskunde_b/08-goniometrische_functies_en_vergelijkingen.md#p8-4)
+    - [8.5 Toepassingen van sinusoïden](havo_wiskunde_b/08-goniometrische_functies_en_vergelijkingen.md#p8-5)
+- **[Hoofdstuk 9: Exponentiële en logaritmische functies](havo_wiskunde_b/09-exponentiele_en_logaritmische_functies.md)**
+    - [9.1 Groeifactoren en groeipercentages](havo_wiskunde_b/09-exponentiele_en_logaritmische_functies.md#p9-1)
+    - [9.2 Werken met logaritmen](havo_wiskunde_b/09-exponentiele_en_logaritmische_functies.md#p9-2)
+    - [9.3 Rekenregels voor logaritmen](havo_wiskunde_b/09-exponentiele_en_logaritmische_functies.md#p9-3)
+- **[Hoofdstuk 10: Meetkundige berekeningen](havo_wiskunde_b/10-meetkundige_berekeningen.md)**
+    - [10.1 Hoeken en lijnstukken](havo_wiskunde_b/10-meetkundige_berekeningen.md#p10-1)
+    - [10.2 Omtrek en oppervlakte](havo_wiskunde_b/10-meetkundige_berekeningen.md#p10-2)
+    - [10.3 Cirkels en raaklijnen](havo_wiskunde_b/10-meetkundige_berekeningen.md#p10-3)
+    - [10.4 Cirkels en afstanden](havo_wiskunde_b/10-meetkundige_berekeningen.md#p10-4)
+    - [10.5 Functies, cirkels en raaklijnen](havo_wiskunde_b/10-meetkundige_berekeningen.md#p10-5)
+- **[Hoofdstuk 11: Verbanden en functies](havo_wiskunde_b/11-verbanden_en_functies.md)**
+    - [11.1 Evenredigheden](havo_wiskunde_b/11-verbanden_en_functies.md#p11-1)
+    - [11.2 Standaardgrafieken en transformaties](havo_wiskunde_b/11-verbanden_en_functies.md#p11-2)
+    - [11.3 Tweede- en derdegraadsfuncties](havo_wiskunde_b/11-verbanden_en_functies.md#p11-3)
+    - [11.4 Wortelfuncties](havo_wiskunde_b/11-verbanden_en_functies.md#p11-4)
+    - [11.5 Gebroken functies](havo_wiskunde_b/11-verbanden_en_functies.md#p11-5)
+- **[Hoofdstuk 12: Examentraining](havo_wiskunde_b/12-examentraining.md)**
+    - [12.1 Vergelijkingen en ongelijkheden](havo_wiskunde_b/12-examentraining.md#p12-1)
+    - [12.2 Werken met formules](havo_wiskunde_b/12-examentraining.md#p12-2)
+    - [12.3 Differentiaalrekening](havo_wiskunde_b/12-examentraining.md#p12-3)
+    - [12.4 Exponenten en logaritmen](havo_wiskunde_b/12-examentraining.md#p12-4)
+    - [12.5 Goniometrie](havo_wiskunde_b/12-examentraining.md#p12-5)
+    - [12.6 Meetkunde zonder coördinaten](havo_wiskunde_b/12-examentraining.md#p12-6)
+    - [12.7 Meetkunde met coördinaten](havo_wiskunde_b/12-examentraining.md#p12-7)
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
+
+### **Havo Wiskunde D**
+
+- **[Hoofdstuk 1: Combinatoriek](havo_wiskunde_d/01-combinatoriek.md)**
+    - [1.1 Systematisch tellen](havo_wiskunde_d/01-combinatoriek.md#p1-1)
+    - [1.2 Tellen met en zonder herhaling](havo_wiskunde_d/01-combinatoriek.md#p1-2)
+    - [1.3 Permutaties en combinaties](havo_wiskunde_d/01-combinatoriek.md#p1-3)
+    - [1.4 Combinaties toepassen](havo_wiskunde_d/01-combinatoriek.md#p1-4)
+- **[Hoofdstuk 2: Oppervlakte en inhoud](havo_wiskunde_d/02-oppervlakte_en_inhoud.md)**
+    - [2.1 Lengten en oppervlakten](havo_wiskunde_d/02-oppervlakte_en_inhoud.md#p2-1)
+    - [2.2 Uitslagen](havo_wiskunde_d/02-oppervlakte_en_inhoud.md#p2-2)
+    - [2.3 Oppervlakte van ruimtefiguren](havo_wiskunde_d/02-oppervlakte_en_inhoud.md#p2-3)
+    - [2.4 Inhoud van ruimtefiguren](havo_wiskunde_d/02-oppervlakte_en_inhoud.md#p2-4)
+    - [2.5 Vergrotingen](havo_wiskunde_d/02-oppervlakte_en_inhoud.md#p2-5)
+- **[Hoofdstuk 3: Kansrekening](havo_wiskunde_d/03-kansrekening.md)**
+    - [3.1 Het kansbegrip](havo_wiskunde_d/03-kansrekening.md#p3-1)
+    - [3.2 Empirische kansen](havo_wiskunde_d/03-kansrekening.md#p3-2)
+    - [3.3 Het vaasmodel](havo_wiskunde_d/03-kansrekening.md#p3-3)
+    - [3.4 De somregel en de complementregel](havo_wiskunde_d/03-kansrekening.md#p3-4)
+- **[Hoofdstuk 4: Aanzichten en doorsneden](havo_wiskunde_d/04-aanzichten_en_doorsneden.md)**
+    - [4.1 Aanzichten](havo_wiskunde_d/04-aanzichten_en_doorsneden.md#p4-1)
+    - [4.2 Doorsneden](havo_wiskunde_d/04-aanzichten_en_doorsneden.md#p4-2)
+    - [4.3 Doorsneden en oppervlakte](havo_wiskunde_d/04-aanzichten_en_doorsneden.md#p4-3)
+    - [4.4 Doorsneden en inhoud](havo_wiskunde_d/04-aanzichten_en_doorsneden.md#p4-4)
+- **[Hoofdstuk 5: Kansverdelingen](havo_wiskunde_d/05-kansverdelingen.md)**
+    - [5.1 De productregel](havo_wiskunde_d/05-kansverdelingen.md#p5-1)
+    - [5.2 Het herhalen van kansexperimenten](havo_wiskunde_d/05-kansverdelingen.md#p5-2)
+    - [5.3 Pakken met en zonder terugleggen](havo_wiskunde_d/05-kansverdelingen.md#p5-3)
+    - [5.4 De verwachtingswaarde](havo_wiskunde_d/05-kansverdelingen.md#p5-4)
+    - [5.5 De binomiale verdeling](havo_wiskunde_d/05-kansverdelingen.md#p5-5)
+- **[Hoofdstuk 6: Vectormeetkunde](havo_wiskunde_d/06-vectormeetkunde.md)**
+    - [6.1 Vectoren en lijnen](havo_wiskunde_d/06-vectormeetkunde.md#p6-1)
+    - [6.2 Vectoren en hoeken](havo_wiskunde_d/06-vectormeetkunde.md#p6-2)
+    - [6.3 Coördinaten in de ruimte](havo_wiskunde_d/06-vectormeetkunde.md#p6-3)
+    - [6.4 Vergelijkingen van vlakken](havo_wiskunde_d/06-vectormeetkunde.md#p6-4)
+    - [6.5 Hoeken in de ruimte](havo_wiskunde_d/06-vectormeetkunde.md#p6-5)
+    - [6.6 Afstanden en vectoren](havo_wiskunde_d/06-vectormeetkunde.md#p6-6)
+- **[Hoofdstuk 7: De normale verdeling](havo_wiskunde_d/07-de_normale_verdeling.md)**
+    - [7.1 Vuistregels bij de normale verdeling](havo_wiskunde_d/07-de_normale_verdeling.md#p7-1)
+    - [7.2 Berekeningen bij normaalkrommen](havo_wiskunde_d/07-de_normale_verdeling.md#p7-2)
+    - [7.3 Toepassingen van de normale verdeling](havo_wiskunde_d/07-de_normale_verdeling.md#p7-3)
+    - [7.4 De binomiale en de normale verdeling](havo_wiskunde_d/07-de_normale_verdeling.md#p7-4)
+- **[Hoofdstuk 8: Groeiprocessen](havo_wiskunde_d/08-groeiprocessen.md)**
+    - [8.1 Groeifactor en tijdseenheid](havo_wiskunde_d/08-groeiprocessen.md#p8-1)
+    - [8.2 Rekenen met logaritmen](havo_wiskunde_d/08-groeiprocessen.md#p8-2)
+    - [8.3 Logaritmische schalen](havo_wiskunde_d/08-groeiprocessen.md#p8-3)
+    - [8.4 Geremde groei](havo_wiskunde_d/08-groeiprocessen.md#p8-4)
+- **[Hoofdstuk 9: Afgeleide en tweede afgeleide](havo_wiskunde_d/09-afgeleide_en_tweede_afgeleide.md)**
+    - [9.1 De productregel en de quotiëntregel](havo_wiskunde_d/09-afgeleide_en_tweede_afgeleide.md#p9-1)
+    - [9.2 De kettingregel](havo_wiskunde_d/09-afgeleide_en_tweede_afgeleide.md#p9-2)
+    - [9.3 De tweede afgeleide](havo_wiskunde_d/09-afgeleide_en_tweede_afgeleide.md#p9-3)
+    - [9.4 Snelheid en versnelling](havo_wiskunde_d/09-afgeleide_en_tweede_afgeleide.md#p9-4)
+- **[Hoofdstuk 10: Toetsen van hypothesen](havo_wiskunde_d/10-toetsen_van_hypothesen.md)**
+    - [10.1 Steekproef en steekproefgemiddelde](havo_wiskunde_d/10-toetsen_van_hypothesen.md#p10-1)
+    - [10.2 Beslissen op grond van een steekproef](havo_wiskunde_d/10-toetsen_van_hypothesen.md#p10-2)
+    - [10.3 Eenzijdig en tweezijdig toetsen](havo_wiskunde_d/10-toetsen_van_hypothesen.md#p10-3)
+    - [10.4 Binomiale toetsen](havo_wiskunde_d/10-toetsen_van_hypothesen.md#p10-4)
+    - [10.5 De toets van Wilcoxon](havo_wiskunde_d/10-toetsen_van_hypothesen.md#p10-5)
+- **[Hoofdstuk 11: Periodieke functies](havo_wiskunde_d/11-periodieke_functies.md)**
+    - [11.1 Trillingen](havo_wiskunde_d/11-periodieke_functies.md#p11-1)
+    - [11.2 De tangens en goniometrische formules](havo_wiskunde_d/11-periodieke_functies.md#p11-2)
+    - [11.3 Goniometrische functies differentiëren](havo_wiskunde_d/11-periodieke_functies.md#p11-3)
+    - [11.4 Goniometrische modellen](havo_wiskunde_d/11-periodieke_functies.md#p11-4)
+- **[Hoofdstuk 12: e-machten en natuurlijke logaritmen](havo_wiskunde_d/12-e_machten_en_natuurlijke_logaritmen.md)**
+    - [12.1 Het grondtal e](havo_wiskunde_d/12-e_machten_en_natuurlijke_logaritmen.md#p12-1)
+    - [12.2 De natuurlijke logaritme](havo_wiskunde_d/12-e_machten_en_natuurlijke_logaritmen.md#p12-2)
+    - [12.3 Formules met e-machten en natuurlijke logaritmen](havo_wiskunde_d/12-e_machten_en_natuurlijke_logaritmen.md#p12-3)
+
+<hr style="height: 1.5px; background-color: #575757; border: none;">
