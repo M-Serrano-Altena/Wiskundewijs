@@ -16,7 +16,7 @@ from sympy.calculus.util import continuous_domain
 
 from src.Solver.src.solver.helper import FloatArray, XRange, segmented_smooth_x_coords, smooth_x_coords
 from src.Solver.src.solver.latex_printer import custom_latex
-from src.Solver.src.solver.numeric import NumericFunction, apply_func_to_array, numpy_function_or_none
+from src.Solver.src.solver.numeric import NumericFunction, apply_func_to_array, numpy_function, numpy_function_or_none
 
 if TYPE_CHECKING:
     from src.Solver.src.solver.solve_calculations import Solve
@@ -315,6 +315,15 @@ def generate_plot_data(solver: Solve, simplify: bool = True) -> tuple[list[PlotT
         plot_data = _traces_per_piece(x1, y1, legend1, "darkturquoise", hoverinfo1)
         plot_data += _traces_per_piece(x2, y2, legend2, "springgreen", hoverinfo2)
 
+    if solver.plot_first_side_only:
+        # a derivative or integral on its own: only its graph, not the line y = 0
+        plot_data = [trace for trace in plot_data if trace["line"]["color"] == "darkturquoise"]
+
+    if solver.multivariate:
+        # the other halves of the graph, like the lower half of a circle
+        for branch in solver.y_branches[1:]:
+            plot_data.append(_branch_trace(solver, branch, x_range, dx))
+
     if simplify:
         simplify_traces(plot_data, view_x_range, view_y_range)
 
@@ -322,6 +331,18 @@ def generate_plot_data(solver: Solve, simplify: bool = True) -> tuple[list[PlotT
         plot_data.append(_intersection_trace(solver, x_range))
 
     return plot_data, list(view_x_range), list(view_y_range)
+
+
+def _branch_trace(solver: Solve, branch: Any, x_range: XRange, dx: float) -> PlotTrace:
+    """The graph of another function y = f(x) of an equation in x and y, like y = -sqrt(1 - x^2)."""
+    lambda_func = numpy_function(branch, solver.symbol)
+    try:
+        domain = continuous_domain(branch, solver.symbol, domain=sp.S.Reals)
+    except NotImplementedError:
+        domain = sp.S.Reals
+    x, y = _plottable_xy(solver, smooth_x_coords(x_range, dx), lambda_func, domain)
+    hoverinfo = f"y = {str(branch).replace('**', '^').replace('log', 'ln')}"
+    return _trace(list(x.astype(float)), list(y.astype(float)), f"$y = {custom_latex(branch)}$", "darkturquoise", hoverinfo)
 
 
 def _traces_per_piece(x_pieces: list[Any], y_pieces: list[Any], name: str, color: str, hoverinfo: str) -> list[PlotTrace]:

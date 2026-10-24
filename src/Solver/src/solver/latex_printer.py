@@ -14,6 +14,7 @@ from typing import Any
 import regex as re
 import sympy as sp
 import sympy.vector as sp_vector
+from sympy.core.relational import Relational
 from sympy.printing.latex import LatexPrinter
 
 from src.Solver.src.solver.helper import equation_type_to_latex, flip_inequality_sign
@@ -35,36 +36,93 @@ _ARC_FUNCTIONS = {
 
 
 def _remove_unit_factor(latex: str) -> str:
-    latex = latex.replace("1 \\cdot", " ")
+    # "1 \cdot x" -> "x", but not the 1 at the end of a number like 21 or 0.01
+    latex = re.sub(r"(?<![\d.])1 \\cdot ", " ", latex)
     return re.sub(r"\\left\(-(\d+)\\right\) ", r"- \1 \\cdot", latex)
+
+
+_TRIG_FUNCTIONS = {"sin", "cos", "tan", "sec", "csc", "cot"}
+
+
+def _offset_and_period(image_set: Any) -> tuple[Any, Any]:
+    """{2nπ + a | n ∈ Z} -> (a, 2π)"""
+    k = sp.Symbol("k", integer=True)
+    element_expr: Any = sp.expand(image_set.lamda.expr.subs(image_set.lamda.variables[0], k))
+    period = element_expr.coeff(k)
+    return sp.expand(element_expr - period * k), period
+
+
+def _merge_periodic(offsets_periods: list[tuple[Any, Any]]) -> tuple[Any, Any] | None:
+    """Several series with the same period, evenly spread over the period, as one series.
+
+    [(½π, 2π), (1½π, 2π)] -> (½π, π). None if they can't be merged.
+    """
+    amount = len(offsets_periods)
+    if amount < 2:
+        return None
+    period = offsets_periods[0][1]
+    if any(other_period != period for _, other_period in offsets_periods):
+        return None
+
+    try:
+        offsets: list[Any] = sorted((sp.Mod(offset, period) for offset, _ in offsets_periods), key=lambda value: float(sp.N(value)))
+    except TypeError:
+        return None
+    step = period / amount
+    if all(sp.simplify(offsets[i] - offsets[0] - i * step) == 0 for i in range(amount)):
+        return offsets[0], step
+    return None
+
+
+def _sort_key(condition: Any) -> float:
+    """Where a part of a solution like x < 1 ∨ 2 < x < 3 starts on the number line."""
+    if isinstance(condition, sp.And):
+        return max(_sort_key(arg) for arg in condition.args)
+    if isinstance(condition, Relational):
+        symbol_left = condition.lhs.is_Symbol
+        value: Any = condition.rhs if symbol_left else condition.lhs
+        is_lower_bound = isinstance(condition, (sp.StrictGreaterThan, sp.GreaterThan)) == symbol_left
+        if is_lower_bound and value.is_number:
+            return float(value.evalf())
+    return float("-inf")
 
 
 class CustomLatexPrinter(LatexPrinter):
     def __init__(self, **kwargs: Any) -> None:
         self.symbol = kwargs.get("symbol", "x")
         self.vect_dim = kwargs.get("vect_dim", 3)
-        super().__init__()
+        self.degrees = kwargs.get("degrees", False)
+        # order="none" prints sums in the order they were typed (for showing the input)
+        super().__init__({"order": kwargs["order"]} if "order" in kwargs else None)
 
-    def _print_periodic_solution(self, image_set: Any) -> str:
-        """{2nπ + a | n ∈ Z} -> a + k·2π"""
-        element_expr: Any = sp.expand(image_set.lamda.expr)
-        coeff, summation = element_expr.as_coeff_add()
-        if coeff != 0:
-            summation = (coeff, *summation)
+    def _print_periodic(self, offset: Any, period: Any) -> str:
+        """a + k·2π"""
+        period_latex = f"k \\cdot {self._print(period)}"
+        if offset == 0:
+            return period_latex
+        return f"{self._print(offset)} + {period_latex}"
 
-        terms = [
-            f"k \\cdot {str(self._print(term)).replace('n', '')}" if "_n" in str(term) else self._print(term)
-            for term in summation
-        ]
-        return " + ".join(terms).replace("n", "k")
+    def periodic_parts(self, periodic_set: Any) -> list[str]:
+        """{2nπ + a | n ∈ Z} ∪ {2nπ + b | n ∈ Z} -> ["a + k·2π", "b + k·2π"], merged where possible.
+
+        Like at school, ½π + k·2π and 1½π + k·2π are written as ½π + k·π.
+        """
+        image_sets = list(periodic_set.args) if isinstance(periodic_set, sp.Union) else [periodic_set]
+        offsets_periods = [_offset_and_period(image_set) for image_set in image_sets]
+
+        merged = _merge_periodic(offsets_periods)
+        if merged is not None:
+            offsets_periods = [merged]
+        return [self._print_periodic(offset, period) for offset, period in offsets_periods]
 
     def _print_Union(self, expr: Any, **kwargs: Any) -> str:
         """Periodic solutions as x = a + k·2π ∨ x = b + k·2π instead of set notation."""
-        parts = [self._print_periodic_solution(arg) for arg in expr.args if isinstance(arg, sp.ImageSet)]
-        return f" \\ \\vee \\ {self.symbol} = ".join(parts)
+        if not all(isinstance(arg, sp.ImageSet) for arg in expr.args):
+            return super()._print_Union(expr)
+        return f" \\ \\vee \\ {self.symbol} = ".join(self.periodic_parts(expr))
 
     def _print_ImageSet(self, expr: Any, **kwargs: Any) -> str:
-        return self._print_periodic_solution(expr)
+        return self.periodic_parts(expr)[0]
 
     def _print_Relational(self, expr: Any, **kwargs: Any) -> str:
         """Always print the variable on the left: 3 < x instead of x > 3 stays x > 3, 3 > x becomes x < 3."""
@@ -75,10 +133,8 @@ class CustomLatexPrinter(LatexPrinter):
         return f"{self._print(expr.rhs)} {flipped_relation} {self._print(expr.lhs)}"
 
     def _print_Or(self, expr: Any, **kwargs: Any) -> str:
-        if len(expr.args) != 2:
-            return super()._print_Or(expr, **kwargs)
-
-        return " \\ \\vee \\ ".join(self._print(arg) for arg in (expr.args[1], expr.args[0]))
+        """The parts of a solution from left to right on the number line: x < 1 ∨ 2 < x < 3 ∨ x > 4"""
+        return " \\ \\vee \\ ".join(self._print(arg) for arg in sorted(expr.args, key=_sort_key))
 
     def _print_And(self, expr: Any, **kwargs: Any) -> str:
         """x > 1 ∧ x < 3 -> 1 < x < 3"""
@@ -127,6 +183,11 @@ class CustomLatexPrinter(LatexPrinter):
         return rf"{integer_part} \frac{{{fractional_part}}}{{{denom}}}"
 
     def _print_Mul(self, expr: Any, **kwargs: Any) -> str:
+        # in degree mode, arcsin(x) is calculated as 180/π · arcsin(x); show it as arcsin(x)
+        arc_functions = [arg for arg in expr.args if isinstance(arg, (sp.asin, sp.acos, sp.atan, sp.asec, sp.acsc, sp.acot))]
+        if len(arc_functions) == 1 and expr / arc_functions[0] == 180 / sp.pi:
+            return self._print(arc_functions[0])
+
         if expr.as_numer_denom()[1] == 1:
             return self._print_Mul_without_denominator(expr)
 
@@ -160,7 +221,7 @@ class CustomLatexPrinter(LatexPrinter):
         if expr.has(CustomVector):
             return f"{self._print(sp.S.One / denom)} \\cdot {self._print(numer)}"
 
-        return _remove_unit_factor(sp.latex(expr))
+        return _remove_unit_factor(super()._print_Mul(expr))
 
     def _print_Mul_without_denominator(self, expr: Any) -> str:
         if (
@@ -179,14 +240,15 @@ class CustomLatexPrinter(LatexPrinter):
             return f"{self._print(base)}^{{{self._print(sp.simplify(exp))}}}"
 
         if expr.as_numer_denom()[1] != 1:
-            return sp.latex(sp.nsimplify(expr))
+            simplified = sp.nsimplify(expr)
+            return super()._print_Pow(simplified) if isinstance(simplified, sp.Pow) else self._print(simplified)
 
         vector_types = [CustomVector, sp_vector.Gradient]
         if any(base.has(class_) for class_ in vector_types) and any(exp.has(class_) for class_ in vector_types):
             # vector ^ vector is the cross product
             return f"{self._print(base)} \\times {self._print(exp)}"
 
-        return sp.latex(expr).replace("log", "ln").replace("circ", "\\circ")
+        return super()._print_Pow(expr).replace("circ", "\\circ")
 
     def _print_log(self, expr: Any, **kwargs: Any) -> str:
         arg = self._print(expr.args[0])
@@ -219,6 +281,11 @@ class CustomLatexPrinter(LatexPrinter):
 
     def _print_Function(self, expr: Any, **kwargs: Any) -> str:
         func_name = expr.func.__name__
+        if self.degrees and func_name in _TRIG_FUNCTIONS:
+            # in degree mode sin(x) is calculated as sin(π/180·x); show it as sin(x°)
+            angle = sp.expand(expr.args[0] * 180 / sp.pi)
+            if not angle.has(sp.pi):
+                return rf"\{func_name}{{\left({self._print(angle)}^{{\circ}} \right)}}"
         if func_name in _ARC_FUNCTIONS:
             return rf"{_ARC_FUNCTIONS[func_name]}{{\left({self._print(expr.args[0])}\right)}}"
         return super()._print_Function(expr, **kwargs)

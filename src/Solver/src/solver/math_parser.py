@@ -36,6 +36,8 @@ from typing import Any
 
 import regex as re
 import sympy as sp
+import sympy.functions as sp_functions
+from sympy.core.singleton import Singleton
 from pylatexenc.latex2text import LatexNodes2Text
 
 from src.Solver.src.solver.helper import unique_preserve_order
@@ -683,7 +685,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
 
 @cache
 def _function_names() -> tuple[str, ...]:
-    function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
+    function_names = [name for name in dir(sp_functions) if not name.startswith('_')]
     function_names_set = set(function_names)
     function_names.extend([func for func in ALLOWED_FUNCTIONS if func not in function_names_set])
     function_names.remove("ff")
@@ -695,7 +697,7 @@ def _constant_names() -> tuple[str, ...]:
     """Names of sympy's numeric constants (pi, E, oo, GoldenRatio, ...)."""
     return tuple(
         name for name, obj in sp.__dict__.items()
-        if isinstance(obj, (sp.Basic, sp.core.singleton.Singleton)) and not name.startswith('_') and safe_sympify(name).is_number
+        if isinstance(obj, (sp.Basic, Singleton)) and not name.startswith('_') and safe_sympify(name).is_number
     )
 
 
@@ -884,6 +886,7 @@ def math_interpreter(eq_string: str) -> str:
 
     # Replace common functions and symbols
     replacements = [
+        (r"(?<![\w.])(\d+(?:\.\d+)?)e([+-]?\d+)(?![\w.(])", r"(\1*10^(\2))"), # 1e3 -> (1*10^(3)), like on a calculator
         (r"\|([^|]+)\|", r"Abs(\1)"), # ||x|| -> Abs(x)
         (r'abs', r'Abs'), # abs(x) -> Abs(x)
         (r'mod', r'Mod'), # mod(x, y) -> Mod(x, y)
@@ -1030,13 +1033,21 @@ def math_interpreter(eq_string: str) -> str:
             break
     
     for constant in relevant_constants:
+        # Hide longer constants that contain this one (the e and i in goldenratio), so they aren't split up.
+        longer_constants = [other for other in relevant_constants if other != constant and constant in other]
+        for index, longer_constant in enumerate(longer_constants):
+            eq_string = eq_string.replace(longer_constant, f"⟦{index}⟧")
+
         constant_patterns = [r'([\w\p{Greek}]+)' + f"({constant})", f"({constant})" + r'([\w\p{Greek}]+)']
         for pattern in constant_patterns:
             if relevant_functions:
                 pattern = rf'(?!(?:{rel_func_pattern}))' + pattern
-                
+
             eq_string = re.sub(pattern, mult_constants, eq_string)
-    
+
+        for index, longer_constant in enumerate(longer_constants):
+            eq_string = eq_string.replace(f"⟦{index}⟧", longer_constant)
+
     eq_string_start = eq_string
 
     # arguments: function_name, replace_with, amt_commas, nested_level, position_type, extra_arguments
@@ -1293,33 +1304,13 @@ def apply_inner_func_to_func(eq_string: str, func_name: str, inner_func_name: st
 
 
 def add_degree_symbol(eq_string: str, gonio_set: set[str]) -> str:
+    """sin(30) -> sin(30°), for the trigonometric functions in gonio_set (not for arcsin and the like)."""
     for gonio_func in gonio_set:
-        index_func = [m.start() for m in re.finditer(gonio_func, eq_string)] # get index list of start of each function name
-        
-        if len(index_func) == 0:
-            continue
-        
-        eq_string_list = list(eq_string)
-        string_split = [eq_string_list[index_func[i]:index_func[i+1]] if i != len(index_func) - 1 else eq_string_list[index_func[i]:] for i in range(len(index_func))]
-
-        nested = 0
-        index_list = []
-        for index, string in zip(index_func, string_split):
-            for char in string:
-                if char == "(":
-                    nested += 1
-
-                elif char == ")":
-                    nested -= 1
-                    if nested == 0:
-                        index_list.append(index)
-                
-                index += 1
-
-        additional_index = 0
-        for i in index_list:
-            i += additional_index
-            eq_string = eq_string[:i] + "°" + eq_string[i:]
-            additional_index += 1
+        # from the last to the first, so inserting doesn't move the positions still to come
+        for match in reversed(list(re.finditer(rf"(?<![a-z]){gonio_func}\(", eq_string))):
+            _, index_close_bracket = get_arg_in_brackets(eq_string, match.end() - 1)
+            # (the other side of the equation can contain the same function, which already got its °)
+            if index_close_bracket < len(eq_string) and eq_string[index_close_bracket - 1] != "°":
+                eq_string = eq_string[:index_close_bracket] + "°" + eq_string[index_close_bracket:]
 
     return eq_string

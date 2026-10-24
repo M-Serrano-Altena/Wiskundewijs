@@ -54,7 +54,7 @@ class SystemSolver:
 
         solutions: Any
         try:
-            solutions = sp.solve(sp_equations)
+            solutions = _readable_solutions(sp.solve(sp_equations))
             if not solutions:
                 raise NotImplementedError
             solver.numerical = False
@@ -246,7 +246,7 @@ def _solution_output(solutions: dict[Any, Any], numerical: bool) -> list[Any]:
     solution_strings: list[str] = []
     for symbol, value in solutions.items():
         values = value if isinstance(value, list) else [value]
-        solution_strings.append(" \\ \\vee \\ ".join(f"{custom_latex(symbol)} = {custom_latex(val)}" for val in values))
+        solution_strings.append(" \\ \\vee \\ ".join(f"{custom_latex(symbol)} {_equals_sign(val)} {custom_latex(val)}" for val in values))
 
     if len(solution_strings) == 1:
         lines: list[Any] = [text("(Oplossing is numeriek bepaald)")] if numerical else []
@@ -254,6 +254,26 @@ def _solution_output(solutions: dict[Any, Any], numerical: bool) -> list[Any]:
 
     lines = [text("(Oplossingen zijn numeriek bepaald)")] if numerical else []
     return [*lines, text("Oplossingen:"), r"\begin{cases} " + r" \\[4pt]".join(solution_strings) + r" \end{cases}"]
+
+
+def _equals_sign(value: Any) -> str:
+    """≈ for decimals (approximations), = for exact values."""
+    return "\\approx" if isinstance(value, sp.Basic) and value.has(sp.Float) else "="
+
+
+def _readable(value: Any) -> Any:
+    # Lambert W and CRootOf aren't taught at school: show those solutions as decimals
+    if isinstance(value, sp.Basic) and value.has(sp.LambertW, sp.CRootOf):
+        return sp.Float(sp.N(value, 5), 5)
+    return value
+
+
+def _readable_solutions(solutions: Any) -> Any:
+    if isinstance(solutions, dict):
+        return {symbol: _readable(value) for symbol, value in solutions.items()}
+    if isinstance(solutions, list):
+        return [_readable_solutions(solution) for solution in solutions]
+    return solutions
 
 
 def convert_sol_list_to_dict(solution: list[dict[Any, Any]]) -> dict[Any, Any]:

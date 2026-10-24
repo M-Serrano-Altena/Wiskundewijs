@@ -25,6 +25,7 @@ import regex as re
 import sympy as sp
 import sympy.vector as sp_vector
 from sympy.calculus.util import continuous_domain
+from sympy.core.relational import Relational
 from sympy.logic.boolalg import BooleanFalse, BooleanTrue
 from sympy.physics.units import degree
 from sympy.simplify.fu import TR2, TR111
@@ -50,11 +51,12 @@ from src.Solver.src.solver.math_parser import (
 from src.Solver.src.solver.numeric import NumericFunction, find_roots, numpy_function, sympy_function
 from src.Solver.src.solver.output import OutputLine, SolveOutput, append_to_last, text
 from src.Solver.src.solver.safe_parsing import safe_sympify
+from src.Solver.src.solver.degree_functions import degree_arc_locals
 from src.Solver.src.solver.sympy_custom_funcs import (
-    DEG_ARC_GONIO_LOCALS,
     LOCALS,
     ArcGonioInvalidDomainError,
     ArcReciprocalInvalidDomainError,
+    CustomLatexPrinter,
     custom_latex,
     custom_simplify,
 )
@@ -78,6 +80,10 @@ class VectorFieldError(TypeError):
 
     def __init__(self, message: str = "Operation requires a vector field, not a scalar function") -> None:
         super().__init__(message)
+
+
+class DivisionByZeroError(ZeroDivisionError):
+    """Raised when the input divides by 0, like 1/0."""
 
 
 class ScalarFieldError(TypeError):
@@ -147,7 +153,7 @@ class Solve:
             self.eq_string = re.sub(r"\^?\(\)", "", self.eq_string)
 
         if self.use_degrees_reciprocal:
-            self.locals.update(DEG_ARC_GONIO_LOCALS)
+            self.locals.update(degree_arc_locals(variable_in_degrees=self.use_degrees is True))
 
         self.output: list[OutputLine] = []
         self.equation_interpret = self.eq_string
@@ -158,7 +164,12 @@ class Solve:
         # numpy arrays with a bool per side of the equation, once the equation is parsed
         self.derivative: Any = False
         self.integral: Any = False
-        self.real_root = False
+        # whether the variable is in degrees (degree mode), so solutions are given in degrees
+        self.solve_in_degrees = False
+        # only plot the left side, for a derivative or integral on its own
+        self.plot_first_side_only = False
+        # for an equation in x and y: all functions y = f(x) it describes, like y = ±sqrt(1 - x^2)
+        self.y_branches: list[Any] = []
 
         self.is_vector = False
         self.vect_dim = linear_algebra.vect_dim
@@ -286,6 +297,9 @@ class Solve:
             self.is_vector = True
             self.vect_dim = linear_algebra.vect_dim
 
+        if any(isinstance(side, sp.Basic) and side.has(sp.zoo, sp.nan) for side in [eq1, eq2]):
+            raise DivisionByZeroError()
+
         eq = self.get_self_eq(eq1, eq2)
 
         if any(sub_str in self.eq_string for sub_str in ["vect", "laplacian", "matrix"]):
@@ -306,7 +320,8 @@ class Solve:
         self.eq = eq
 
         if self.equation_type == "==":
-            self.output.append(f"\\text{{{self.eq}}}")
+            # == compares the two sides directly
+            self.output.append(f"\\text{{{'Waar' if self.eq else 'Onwaar'}}}")
             return None
 
         if len(eq_split) == 2:
@@ -358,6 +373,8 @@ class Solve:
         use_degree_condition = not bool(use_degree)
         eq_str_new = self.convert_gonio_to_degree(eq_str, relevant_gonio_set, use_degree_condition=use_degree_condition)
         if eq_str_new != eq_str:
+            if use_degree:
+                self.solve_in_degrees = True
             self.equation_interpret = add_degree_symbol(self.equation_interpret, gonio_set=relevant_gonio_set)
             if any(arc_gonio in eq_str_new for arc_gonio in ARC_GONIO_FUNCTIONS):
                 self.equation_interpret = self.equation_interpret.replace("°", "")
@@ -382,6 +399,9 @@ class Solve:
             if result is not None:
                 return result
 
+        except DivisionByZeroError:
+            self.output.append(text("Error: Delen door 0 kan niet"))
+            return self.result()
         except VectorFieldError:
             vector_operator = "div" if "div" in self.eq_string else "curl"
             self.output.append(text(f"Error: Argument van `{vector_operator}` moet een vector zijn"))
@@ -445,6 +465,9 @@ class Solve:
             self._prepare_variable(free_symbols, eq_split)
 
         self._output_derivatives_and_integrals(eq_split)
+        if len(eq_split) == 1 and self.symbol and (self.derivative.any() or self.integral.any()):
+            return self._derivative_integral_result()
+
         self._find_solutions()
 
         check_numerical = self.check_solve_numerically(self.solution_set)
@@ -469,8 +492,8 @@ class Solve:
         try:
             self.eq12
         except Exception:
-            # the error happened before the equation was parsed
-            self.output.append(text("ERROR"))
+            # the error happened before the equation was parsed, like for sin()
+            self.output.append(text("Error: De ingevoerde functie klopt niet"))
             traceback.print_exc()
             return self.result()
 
@@ -500,7 +523,9 @@ class Solve:
             return None
 
         self.multivariate = True
-        self.eq1, self.eq2 = y_symbol, _real_solution_for(self.eq12, y_symbol)
+        self.y_branches = _real_solutions_for(self.eq12, y_symbol)
+        # the x-intercepts are found with the first function; for y = ±f(x) they're the same
+        self.eq1, self.eq2 = y_symbol, self.y_branches[0]
         self.eq12 = -self.eq2
         self.eq = self.get_self_eq(0, self.eq2)
         free_symbols.remove(y_symbol)
@@ -514,9 +539,12 @@ class Solve:
         self.eq1 = sp.sympify(self.eq1).subs(self.symbol, real_symbol)
         self.eq2 = sp.sympify(self.eq2).subs(self.symbol, real_symbol)
         self.eq12 = self.eq1 - self.eq2 if not self.multivariate else self.eq2
+        self.y_branches = [custom_simplify(sp.sympify(branch).subs(self.symbol, real_symbol)) for branch in self.y_branches]
         self.symbol = real_symbol
 
-        eqs = [self.eq1, self.eq2, self.eq12]
+        # decimals become fractions (0.5 -> 1/2), so sympy finds exact solutions like π/6
+        self.eq = _rationalize(self.eq)
+        eqs = [_rationalize(eq) for eq in (self.eq1, self.eq2, self.eq12)]
         self.eq1_unsimplified, self.eq2_unsimplified, self.eq12_unsimplified = eqs
         self.eq1, self.eq2, self.eq12 = eqs = [custom_simplify(eq) for eq in eqs]
 
@@ -525,17 +553,32 @@ class Solve:
         if self.multivariate:
             self.eq1_lambda = self.eq1_lambda_np = lambda _: 0
 
-        if len(eq_split) == 1 and not sp.sympify(self.eq1).is_number:
+        # an expression on its own is solved as expression = 0, but a derivative or integral is only calculated
+        is_derivative_or_integral = any(func in eq_split[0] for func in ("diff", "integrate"))
+        if len(eq_split) == 1 and not sp.sympify(self.eq1).is_number and not is_derivative_or_integral:
             self.equation_interpret = f"{self.eq_string} = 0"
+
+    def _derivative_integral_result(self) -> SolveOutput:
+        """For diff(f(x)) or integrate(f(x)) on its own: only show (and plot) the derivative or integral."""
+        if self.output and self.output[-1] == text(""):
+            self.output.pop()
+        self._find_domain()
+        self._find_vertical_asymptotes()
+        self.plot = True
+        self.plot_first_side_only = True
+        return self.result()
+
+    def _find_domain(self) -> None:
+        try:
+            self.domain = continuous_domain(self.eq12, self.symbol, domain=sp.S.Reals)
+        except NotImplementedError:
+            self.domain = sp.S.Reals
+        self.domain_is_reals = bool(self.domain is sp.S.Reals)
 
     def _find_solutions(self) -> None:
         """Find the domain, the solution set and the vertical asymptotes."""
         if self.symbol:
-            try:
-                self.domain = continuous_domain(self.eq12, self.symbol, domain=sp.S.Reals)
-            except NotImplementedError:
-                self.domain = sp.S.Reals
-            self.domain_is_reals = bool(self.domain is sp.S.Reals)
+            self._find_domain()
 
         self.equation_is_inequality = self.equation_type != "=" and not self.multivariate
 
@@ -595,75 +638,75 @@ class Solve:
     def _output_derivatives_and_integrals(self, eq_split: Sequence[str]) -> None:
         self.derivative = np.array(["diff" in string for string in eq_split])
         self.integral = np.array(["integrate" in string for string in eq_split])
-        if self.derivative.any():
-            self._set_derivative_integral_output(eq_split, is_integral=False)
-        if self.integral.any():
-            self._set_derivative_integral_output(eq_split, is_integral=True)
-        if self.derivative.any() or self.integral.any():
-            self.output.append(text(""))
+        if not (self.derivative.any() or self.integral.any()):
+            return
 
-    def _get_uneval_derivative_integral(self, eq_split: Sequence[str], eq_split_index: int = 0, is_integral: bool = False) -> tuple[str, Any, Any]:
-        """(name like f'(x), the unevaluated derivative or integral, its result) for one side."""
+        lines = [self._derivative_integral_line(eq_split, index, is_integral=False) for index in range(len(eq_split)) if self.derivative[index]]
+        lines += [self._derivative_integral_line(eq_split, index, is_integral=True) for index in range(len(eq_split)) if self.integral[index]]
+
+        heading = self._derivative_integral_heading(eq_split)
+        if heading:
+            self.output.append(text(heading))
+        self.output.extend(lines)
+        self.output.append(text(""))
+
+    def _derivative_integral_heading(self, eq_split: Sequence[str]) -> str | None:
+        """The heading above the derivatives and integrals (derivatives on their own don't need one)."""
+        both_sides = len(eq_split) == 2 and all(d or i for d, i in zip(self.derivative, self.integral))
+        if self.derivative.any() and self.integral.any():
+            return "De primitieve en afgeleide van de functies zijn:" if both_sides else "De primitieve en afgeleide van de functie is:"
+        if not self.integral.any():
+            return None
+
+        integral_sides = [self.eq1 if index == 0 else self.eq2 for index in range(len(eq_split)) if self.integral[index]]
+        plural = len(eq_split) == 2 and bool(self.integral.all())
+        if all(_is_number(side) for side in integral_sides):
+            return "De integralen zijn:" if plural else "De integraal is:"
+        return "De primitieven van de functies zijn:" if plural else "De primitieve van de functie is:"
+
+    def _derivative_integral_line(self, eq_split: Sequence[str], index: int, is_integral: bool) -> str:
+        """Like f'(x) = d/dx (x^2) = 2x, or F(x) = ∫ 2x dx = x^2 + C, for one side of the equation."""
         symbol = self.symbol or sp.Symbol("x", real=True)
-        eq = self.eq1 if eq_split_index == 0 else self.eq2
+        eq = self.eq1 if index == 0 else self.eq2
 
-        # the integral of a number is written as I (or II), not as F(x)
-        names = [[f"f'({symbol})", f"g'({symbol})"], [f"F({symbol})", f"G({symbol})"], ["I", "II"]]
-        row = int(is_integral) + (1 if is_integral and eq.is_number else 0)
-        str_func = names[row][eq_split_index]
-
-        derivative_integral = get_uneval_sp_objs(eq_split[eq_split_index])
+        derivative_integral = get_uneval_sp_objs(eq_split[index])
         if derivative_integral == eq:
-            derivative_integral = get_uneval_sp_objs(add_args_to_func(eq_split[eq_split_index], func_name="diff", replace_with=str(symbol)))
+            derivative_integral = get_uneval_sp_objs(add_args_to_func(eq_split[index], func_name="diff", replace_with=str(symbol)))
 
         if len(derivative_integral.free_symbols) >= 1:
             derivative_integral = derivative_integral.subs(derivative_integral.free_symbols.pop(), symbol)
 
-        return str_func, derivative_integral, eq
+        function_name = "fg"[index]
+        if not is_integral:
+            # f'(x), f''(x), ... for the first, second, ... derivative
+            order = derivative_integral.derivative_count if isinstance(derivative_integral, sp.Derivative) else 1
+            name = f"{function_name}{chr(39) * order}({symbol})"
+        elif _is_number(eq):
+            # a definite integral is a number, written as I (or II)
+            name = ["I", "II"][index]
+        else:
+            name = f"{function_name.upper()}({symbol})"
 
-    def _set_combined_derivative_integral_text(self, eq_split: Sequence[str], is_derivative_integral: Any, specific_text: str) -> None:
-        if not (self.derivative.any() and self.integral.any()):
-            if len(eq_split) == 2 and is_derivative_integral.all():
-                self.output.append(text(f"De {specific_text}n van de functies zijn:"))
-            else:
-                self.output.append(text(f"De {specific_text} van de functie is:"))
-            return
-
-        both_text = text("De primitieve en afgeleide van de functies zijn:")
-        single_text = text("De primitieve en afgeleide van de functie is:")
-        if self.integral[0] and self.derivative.any():
-            if len(eq_split) == 2 and self.derivative[1]:
-                self.output[0] = both_text
-            elif self.derivative[0]:
-                self.output[0] = single_text
-
-        if len(eq_split) == 2 and self.integral[1] and self.derivative.any():
-            if self.integral[0] or self.derivative[0]:
-                self.output[0] = both_text
-            elif self.derivative[1]:
-                self.output[0] = single_text
-
-    def _set_derivative_integral_output(self, eq_split: Sequence[str], is_integral: bool = False) -> None:
-        is_derivative_integral = self.integral if is_integral else self.derivative
-        if is_integral:
-            self._set_combined_derivative_integral_text(eq_split, is_derivative_integral, "primitieve")
-
-        for index in range(len(eq_split)):
-            if not is_derivative_integral[index]:
-                continue
-
-            str_func, derivative_integral, eq = self._get_uneval_derivative_integral(eq_split, eq_split_index=index, is_integral=is_integral)
-            line = f"{str_func} = {custom_latex(derivative_integral)} = {custom_latex(eq)}"
-            if "F" in str_func or "G" in str_func:
-                line += " + C"
-            self.output.append(line)
+        line = f"{name} = {custom_latex(derivative_integral)} = {custom_latex(eq)}"
+        if is_integral and not _is_number(eq):
+            line += " + C"
+        return line
 
     # ---------------------------------------------------------------- output without solutions
 
+    def _simplified_equation_latex(self) -> str:
+        """The equation after simplifying. For x^2 + y^2 = 1 both halves: y = sqrt(1 - x^2) ∨ y = -sqrt(1 - x^2)."""
+        if self.multivariate and len(self.y_branches) > 1:
+            return " \\ \\vee \\ ".join(f"y = {custom_latex(branch)}" for branch in self.y_branches)
+        degrees = self.solve_in_degrees
+        relation = equation_type_to_latex(self.equation_type)
+        return f"{custom_latex(self.eq1, degrees=degrees)} {relation} {custom_latex(self.eq2, degrees=degrees)}"
+
     def _no_solutions_output(self) -> SolveOutput:
-        self.plot = True
+        # without a variable (it cancelled out, like in x + 1 = x) there's nothing to plot
+        self.plot = self.symbol is not None
         self.output.append(text("Vereenvoudigde Vergelijking:"))
-        self.output.append(f"{custom_latex(self.eq1)} {equation_type_to_latex(self.equation_type)} {custom_latex(self.eq2)}")
+        self.output.append(self._simplified_equation_latex())
 
         if self.equation_is_inequality:
             self._no_solutions_inequality_output()
@@ -681,23 +724,28 @@ class Solve:
             return
 
         extrema_func: Any = _UNSET
-        try:
-            extrema_func = [self.eq12_lambda_np(float(sol)) for sol in sp.solve(sp.diff(self.eq12))]
-            extrema_func = min(extrema_func) if ">" in self.equation_type else max(extrema_func)
-        except Exception:
-            for num in sorted(range(-100, 100), key=abs):
-                try:
-                    extrema_func = self.eq12_lambda_np(num)
-                except Exception:
-                    pass
+        if _is_number(self.eq12):
+            # the variable cancelled out, like in 2x > 2x + 1
+            extrema_func = self.eq12
+        else:
+            try:
+                extrema_func = [self.eq12_lambda_np(float(sol)) for sol in sp.solve(sp.diff(self.eq12))]
+                extrema_func = min(extrema_func) if ">" in self.equation_type else max(extrema_func)
+            except Exception:
+                for num in sorted(range(-100, 100), key=abs):
+                    try:
+                        extrema_func = self.eq12_lambda_np(num)
+                    except Exception:
+                        pass
 
         if extrema_func is _UNSET:
             raise RuntimeError("The inequality couldn't be evaluated for any value")
 
+        variable = self.symbol or "x"
         if apply_operator(extrema_func, self.equation_type, 0):
-            self.output.append(text("Deze vergelijking is waar voor alle x"))
+            self.output.append(text(f"Deze ongelijkheid is waar voor alle {variable}"))
         else:
-            self.output.append(text("Deze vergelijking klopt voor geen enkele x"))
+            self.output.append(text(f"Deze ongelijkheid klopt voor geen enkele {variable}"))
 
     def _no_solution_text(self) -> None:
         if self.multivariate:
@@ -719,11 +767,7 @@ class Solve:
             if not self.symbol:
                 self._output_calculation(eq_split, expr_display)
             elif sp.nsimplify(self.eq1, [sp.pi]).is_number:
-                solution = custom_simplify(self.eq1)
-                if solution != sp.N(solution):
-                    self.output.append(f"{custom_latex(expr_display)} = {custom_latex(solution)} \\approx {custom_latex(sp.N(solution, 5))}")
-                else:
-                    self.output.append(f"{custom_latex(expr_display)} = {custom_latex(solution)}")
+                self.output.append(f"{custom_latex(expr_display, order='none')}{_value_latex(custom_simplify(self.eq1))}")
             else:
                 self.output.append(text("Vereenvoudigde Vergelijking:"))
                 self.output.append(f"{custom_latex(custom_simplify(self.eq1))} = 0")
@@ -735,56 +779,34 @@ class Solve:
 
     def _output_calculation(self, eq_split: Sequence[str], expr_display: Any) -> None:
         """Output for a calculation without variables, like 2 + 3 or sqrt(8)."""
-        solution: Any = sp.nsimplify(self.eq1, [sp.pi])
-        equals_sign = "="
-        complex_num = False
-        if solution.is_number:
-            equals_sign = "=" if solution.equals(sp.N(solution)) or self.eq1.equals(sp.N(solution)) else "\\approx"
-            solution = sp.N(solution)
-            try:
-                if solution.is_finite and int(solution) == float(solution) and len(str(round(solution))) < 10:
-                    solution = int(solution)
-            except TypeError:
-                # complex numbers can't be converted to int
-                complex_num = True
-                real_part, imag_part = solution.as_real_imag()
-                if sp.Integer(real_part) == real_part and sp.Integer(imag_part) == imag_part:
-                    solution = sp.Add(sp.Integer(real_part), sp.Mul(sp.Integer(imag_part), sp.I))
+        value = sp.expand_complex(self.eq1) if self.eq1.has(sp.I) else self.eq1
 
-                exact_real, exact_imag = sp.nsimplify(self.eq1, [sp.pi]).as_real_imag()
-                if real_part == exact_real and imag_part == exact_imag:
-                    equals_sign = "="
-            except ValueError:
-                equals_sign = "="
-
-        try:
-            str(self.eq1)
-        except ValueError:
-            equals_sign = "="
-
-        if self.eq1 != expr_display and equals_sign != "=" and "circ" not in str(expr_display):
-            if not complex_num and sp.N(solution, 9).equals(sp.N(solution, 10)):
-                equals_sign = "="
-            self.output.append(f"{custom_latex(expr_display)} = {custom_latex(self.eq1)} {equals_sign} {custom_latex(solution, symbol=self.symbol)}")
-
-        elif expr_display == solution:
-            if eq_split[0] == str(solution):
-                self.output.append(f"\\textrm{{Yep dat is }} {custom_latex(solution, symbol=self.symbol)}")
-                return
-
-            has_dot_function = any(dot_func in eq_split[0] for dot_func in [".subs", ".diff", ".integrate", "limit"])
-            if self.derivative.any() or self.integral.any():
+        # a derivative or integral (like a definite integral) is already shown with its result
+        if self.derivative.any() or self.integral.any():
+            if self.output and self.output[-1] == text(""):
                 self.output.pop()
-            elif has_dot_function:
-                expr_display = get_uneval_sp_objs(eq_split[0])
-                self.output.append(f"{custom_latex(expr_display)} {equals_sign} {custom_latex(solution, symbol=self.symbol)}")
-            else:
-                self.output.append(f"\\textrm{{{eq_split[0]}}} {equals_sign} {custom_latex(solution, symbol=self.symbol)}")
+            approximation = _approximation_latex(value)
+            if approximation and self.output and isinstance(self.output[-1], str):
+                append_to_last(self.output, approximation)
+            return
 
-        else:
-            if equals_sign == "=" and not sp.N(solution, 9).equals(sp.N(solution, 10)):
-                equals_sign = "\\approx"
-            self.output.append(f"{custom_latex(expr_display)} {equals_sign} {custom_latex(solution, symbol=self.symbol)}")
+        # just a number: nothing to calculate
+        typed = eq_split[0].strip()
+        if typed == str(value) and (value.is_Rational or value.is_infinite):
+            self.output.append(f"\\textrm{{Yep dat is }} {custom_latex(value)}")
+            return
+
+        input_latex = custom_latex(expr_display, order="none")
+        if re.fullmatch(r"[\d\s/:.]+", typed):
+            # a fraction like 6/4 or 3:4: show it as a (mixed) fraction
+            input_latex = custom_latex(value)
+        elif any(dot_func in typed for dot_func in [".subs", ".diff", ".integrate", "limit"]):
+            input_latex = custom_latex(get_uneval_sp_objs(typed))
+        elif input_latex == custom_latex(value) and value.is_Rational:
+            # the input was calculated while reading it (like 5! = 120), so show what was typed
+            input_latex = f"\\textrm{{{typed}}}"
+
+        self.output.append(f"{input_latex}{_value_latex(value, input_latex)}")
 
     def _output_comparison(self) -> None:
         """Output for an equation that is simply true or false, like 2 = 3."""
@@ -810,9 +832,9 @@ class Solve:
 
         if not has_solution:
             self.output.append(text("Vereenvoudigde Vergelijking:"))
-            self.output.append(f"{custom_latex(self.eq1)} {relation} {custom_latex(self.eq2)}")
+            self.output.append(self._simplified_equation_latex())
             self._no_solution_text()
-            self.plot = True
+            self.plot = self.symbol is not None
             return
 
         if simplify:
@@ -835,7 +857,7 @@ class Solve:
         self.plot = True
         self.intersect = True
         self.output.append(text("Vereenvoudigde Vergelijking:"))
-        self.output.append(f"{custom_latex(self.eq1)} {equation_type_to_latex(self.equation_type)} {custom_latex(self.eq2)}")
+        self.output.append(self._simplified_equation_latex())
 
         if self.solution_set.is_FiniteSet:
             self._output_finite_solutions()
@@ -845,91 +867,108 @@ class Solve:
         return self.result()
 
     def _output_domain(self) -> None:
-        if not self.domain_is_reals:
+        if self.symbol is not None and not self.domain_is_reals:
             self.output.append(text(f"Het domein van ${self.symbol}$ is:", new_line=2))
-            self.output.append(custom_latex(self.domain))
+            self.output.append(domain_latex(self.domain, self.symbol))
 
     def _output_finite_solutions(self) -> None:
         self._set_numerical_text()
 
-        if len(self.solution_set) == 1:
-            if self.equation_is_inequality:
-                self._set_inequality_solution_output()
-            else:
-                self.output.append(self._solution_header(plural=False))
-                self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solution_set.args[0])}")
+        solutions = list(self.solution_set)
+        if len(solutions) > 5:
+            solutions = sorted(solutions, key=lambda solution: abs(complex(sp.N(solution))))[:5]
+        self.interval_solutions = sp.FiniteSet(*solutions)
 
-            if not self.solution_set.args[0].equals(sp.N(self.solution_set.args[0])):
-                append_to_last(self.output, f" \\approx {sp.N(self.solution_set.args[0], 5)}")
-
+        if self.equation_is_inequality:
+            self._set_inequality_solution_output()
+        elif len(self.solution_set) > 5:
+            self.output.append(text("De eerste 5 snijpunten met de $x$-as zijn:" if self.multivariate else "De eerste 5 oplossingen zijn:"))
+            self._set_count_solutions()
         else:
-            if len(self.solution_set) > 5:
-                solution_array = np.array(list(self.solution_set))
-                self.interval_solutions = solution_array[np.argsort(np.abs(solution_array))][:5]
-            else:
-                self.interval_solutions = self.solution_set
-
-            if self.equation_is_inequality:
-                self._set_inequality_solution_output()
-            else:
-                self.output.append(self._solution_header(plural=True))
-                if len(self.solution_set) > 5:
-                    first_five = "De eerste 5 snijpunten met de $x$-as zijn:" if self.multivariate else "De eerste 5 oplossingen zijn:"
-                    self.output[-1] = text(first_five)
-                self._set_count_solutions()
+            self.output.append(self._solution_header(plural=len(solutions) > 1))
+            self._set_count_solutions()
 
         self._output_domain()
 
     def _output_infinite_solutions(self) -> None:
-        """Output for infinitely many solutions (periodic) or solutions sympy can't list."""
+        """Output for infinitely many solutions (periodic or an interval) or solutions sympy can't list."""
+        if isinstance(self.solution_set, (sp.Interval, sp.Union)) and not self.solution_set.is_iterable:
+            # true on a whole interval, like |x| = x for x ≥ 0
+            self.intersect = False
+            self.output.append(text("De oplossing is:"))
+            self.output.append(custom_latex(self.solution_set.as_relational(self.symbol)))
+            self._output_domain()
+            return
+
+        if not self.solution_set.is_iterable:
+            self._output_numerical_solutions()
+            return
+
+        # periodic solutions: the general solution, and the solutions in one period
         if self.equation_is_inequality:
             self._set_inequality_solution_output()
         else:
             self.output.append(self._solution_header(plural=True))
             self.output.append(f"{custom_latex(self.symbol)} = {custom_latex(self.solution_set, symbol=self.symbol)}")
-
         self._output_domain()
 
-        if not self.equation_is_inequality:
-            in_domain = "Snijpunten in het domein $[0, 2\\pi]$:" if self.multivariate else "Oplossingen in het domein $[0, 2\\pi]$:"
-            self.output.append(text(in_domain, new_line=2))
+        period_end = 360 if self.solve_in_degrees else 2 * sp.pi
+        self.interval_solutions = sp.FiniteSet(*_solutions_in_period(self.solution_set, period_end))
+        if self.equation_is_inequality:
+            return
 
-        self.interval_solutions = []
-        if self.solution_set.is_iterable:
-            self.interval_solutions = _solutions_between_0_and_2pi(self.solution_set)
-        else:
-            self.solution_set = self.solve_numerically()
-            self.interval_solutions = list(self.solution_set)
+        period = "$[0, 360]$" if self.solve_in_degrees else "$[0, 2\\pi]$"
+        if self.interval_solutions.is_empty:
+            self.intersect = False
+            self.output.append(text(f"Geen oplossingen in het domein {period}", new_line=2))
+            return
 
-            if self.numerical and len(self.roots_numeric) > 5:
-                self.interval_solutions = self.interval_solutions[:5]
+        in_domain = f"Snijpunten in het domein {period}:" if self.multivariate else f"Oplossingen in het domein {period}:"
+        self.output.append(text(in_domain, new_line=2))
+        self._set_count_solutions()
 
-            if not self.equation_is_inequality:
-                self.output = self.output[:-2]
-                if len(self.roots_numeric) == 1:
-                    self.output[-1] = self._solution_header(plural=False)
-                self._set_numerical_text()
-
-        self.interval_solutions = sp.FiniteSet(*self.interval_solutions)
+    def _output_numerical_solutions(self) -> None:
+        """Solutions sympy couldn't find exactly, found numerically instead."""
+        self.solution_set = self.solve_numerically()
+        solutions = list(self.solution_set)
+        if self.numerical and len(self.roots_numeric) > 5:
+            solutions = solutions[:5]
+        self.interval_solutions = sp.FiniteSet(*solutions)
 
         if self.equation_is_inequality:
+            self._set_inequality_solution_output()
+            self._output_domain()
             return
 
         if self.interval_solutions.is_empty:
             self.intersect = False
-            self.output = self.output[:-6]
-            if self.multivariate:
-                self.output.append(text("Geen snijpunten met de $x$-as gevonden"))
-            else:
-                self.output.append(text("Geen oplossing gevonden", new_line=2))
+            self.output.append(text("Geen snijpunten met de $x$-as gevonden" if self.multivariate else "Geen oplossing gevonden"))
             return
 
+        self._set_numerical_text()
+        self.output.append(self._solution_header(plural=len(solutions) > 1))
         self._set_count_solutions()
+        self._output_domain()
 
     def _set_inequality_solution_output(self) -> None:
-        if not _is_truth_value_or_list(self.solution_inequality):
+        if self.equation_type == "!=" and self.solution_set.is_FiniteSet and not self.solution_set.is_empty:
+            # x ≠ -2 ∧ x ≠ 2 instead of the intervals in between
+            excluded = sorted(self.solution_set, key=lambda value: float(sp.N(value)))
             self.output.append(text("De oplossing is:"))
-            self.output.append(custom_latex(self.solution_inequality))
+            self.output.append(" \\ \\wedge \\ ".join(f"{custom_latex(self.symbol)} \\neq {custom_latex(value)}" for value in excluded))
+            return
+
+        if not _is_truth_value_or_list(self.solution_inequality):
+            solution = _readable(self.solution_inequality)
+            self.output.append(text("De oplossing is:"))
+            self.output.append(custom_latex(solution))
+            # x > e ≈ 2.7183: the approximation of a single exact boundary
+            boundaries = {
+                side for relation in solution.atoms(Relational) for side in relation.args
+                if side.is_number and side.is_finite and not side.is_Rational and not _is_inexact(side)
+            }
+            if len(boundaries) == 1:
+                append_to_last(self.output, f" \\approx {_decimal_latex(boundaries.pop(), SOLUTION_DIGITS)}")
             return
 
         self._no_solutions_inequality_output()
@@ -943,29 +982,34 @@ class Solve:
 
     def _set_count_solutions(self) -> None:
         """Write the solutions in interval_solutions, numbered if there are several."""
-        interval_solutions = [sp.nsimplify(solution, [sp.pi, sp.E], rational=False) for solution in self.interval_solutions]
-        numbered = len(self.interval_solutions) != 1
-        if not numbered:
-            interval_solutions = interval_solutions[:1]
-
-        for counter, solution in enumerate(interval_solutions, start=1):
+        solutions = list(self.interval_solutions)
+        numbered = len(solutions) != 1
+        symbol_latex = custom_latex(self.symbol)
+        for counter, solution in enumerate(solutions, start=1):
             prefix = f"{counter}) \\quad " if numbered else ""
-            display = _solution_display(solution)
-            self.output.append(f"{prefix}{custom_latex(self.symbol)} {_equals_sign(solution)} {custom_latex(display, symbol=self.symbol)}")
-            if not _is_numerical(solution):
-                append_to_last(self.output, f" \\approx {sp.N(solution, 5)}")
+            self.output.append(f"{prefix}{symbol_latex}{_value_latex(solution, digits=SOLUTION_DIGITS, decimal_for_fractions=False)}")
 
 
-def _real_solution_for(eq12: Any, y_symbol: Any) -> Any:
-    """The first real solution of eq12 = 0 for y, skipping solutions that only differ in sign."""
+def _real_solutions_for(eq12: Any, y_symbol: Any) -> list[Any]:
+    """The real solutions of eq12 = 0 for y: the functions y = f(x) the equation describes.
+
+    x^2 + y^2 = 1 gives [sqrt(1 - x^2), -sqrt(1 - x^2)], the upper and lower half of the circle.
+    """
     real_solutions = [sol for sol in sp.solve(eq12, y_symbol) if "I" not in str(sol)]
-    abs_solutions: list[Any] = []
-    new_solutions: list[Any] = []
-    for sol in reversed(real_solutions):
-        if sp.Abs(sol) not in abs_solutions:
-            new_solutions.append(sol)
-            abs_solutions.append(sp.Abs(sol))
-    return new_solutions[0]
+    if not real_solutions:
+        raise ValueError(f"No real solutions for {y_symbol}")
+    return list(reversed(real_solutions))
+
+
+def _is_number(value: Any) -> bool:
+    return bool(sp.sympify(value).is_number)
+
+
+def _rationalize(expr: Any) -> Any:
+    """Decimals as exact fractions: 0.5 -> 1/2, 0.3 -> 3/10."""
+    if isinstance(expr, sp.Basic) and expr.has(sp.Float):
+        return sp.nsimplify(expr, rational=True)
+    return expr
 
 
 def _round_boundary(solution: Any) -> Any:
@@ -984,14 +1028,14 @@ def _combine_inequalities(expr1: Any, expr2: Any, first: Any, amount: int) -> An
     return expr1
 
 
-def _solutions_between_0_and_2pi(solution_set: Any) -> list[Any]:
-    """The real solutions in [0, 2π], giving up after 10 solutions outside it."""
+def _solutions_in_period(solution_set: Any, period_end: Any) -> list[Any]:
+    """The real solutions in [0, period_end], giving up after 10 solutions outside it."""
     solutions: list[Any] = []
     outside_count = 0
     for solution in solution_set:
         if not solution.is_real:
             continue
-        if 0 <= sp.N(solution) <= 2 * np.pi:
+        if 0 <= sp.N(solution) <= sp.N(period_end):
             solutions.append(solution)
             continue
         outside_count += 1
@@ -1000,25 +1044,102 @@ def _solutions_between_0_and_2pi(solution_set: Any) -> list[Any]:
     return solutions
 
 
-def _is_numerical(solution: Any) -> bool:
-    return bool(solution.equals(sp.N(solution)))
+# significant digits of approximations: for solutions, results of calculations, numerical solutions
+SOLUTION_DIGITS = 5
+CALCULATION_DIGITS = 10
+NUMERICAL_DIGITS = 7
 
 
-def _equals_sign(solution: Any) -> str:
-    if not _is_numerical(solution) or sp.N(solution, 9).equals(sp.N(solution, 10)):
-        return "="
-    return "\\approx"
+def _decimal_latex(value: Any, digits: int) -> str:
+    """A number rounded to `digits` significant digits, without trailing zeros: 3.141592654, 2 i, 1.5 · 10^{-7}"""
+    number = complex(sp.N(value, digits + 5))
+    if abs(number.imag) > 1e-12 * max(1.0, abs(number.real)):
+        real = _decimal_latex(number.real, digits) if abs(number.real) > 1e-12 else ""
+        imag_abs = abs(number.imag)
+        imag = "" if f"{imag_abs:.{digits}g}" == "1" else _decimal_latex(imag_abs, digits) + " "
+        sign = " - " if number.imag < 0 else (" + " if real else "")
+        return f"{real}{sign}{imag}i".strip()
+
+    formatted = f"{number.real:.{digits}g}"
+    if "e" in formatted:
+        mantissa, exponent = formatted.split("e")
+        return f"{mantissa} \\cdot 10^{{{int(exponent)}}}"
+    return formatted
 
 
-def _solution_display(solution: Any) -> Any:
-    """A numerical solution rounded to 7 digits, or as an integer if it is one."""
-    if not _is_numerical(solution):
-        return solution
+def _is_inexact(value: Any) -> bool:
+    """Whether a value is only known as a decimal (from decimals in the input or a numerical solution)."""
+    return isinstance(value, float) or (isinstance(value, sp.Basic) and value.has(sp.Float, sp.CRootOf))
 
-    display = sp.N(solution, 7)
-    try:
-        if int(display) == float(display):
-            return int(solution)
-    except Exception:
-        pass
-    return display
+
+def _approximation_latex(value: Any, digits: int = CALCULATION_DIGITS) -> str:
+    """ ≈ 0.3333333333 for a number that isn't a whole number or a short decimal, otherwise nothing."""
+    value = sp.sympify(value)
+    if not value.is_number or value.is_infinite or value.is_Integer:
+        return ""
+    decimal = _decimal_latex(value, digits)
+    if value.is_Rational and sp.Rational(decimal) == value:
+        return f" = {decimal}"
+    return f" \\approx {decimal}"
+
+
+def _value_latex(value: Any, shown_latex: str = "", digits: int = CALCULATION_DIGITS, decimal_for_fractions: bool = True) -> str:
+    """ = 1 1/2 = 1.5, or = 2 sqrt(2) ≈ 2.828427125, or ≈ 0.5671433: how to write a value after its name."""
+    value = sp.sympify(value)
+    degree_suffix = ""
+    if value.has(degree):
+        value = value.subs(degree, 1)
+        degree_suffix = "^{\\circ}"
+
+    if not value.is_number or value.is_infinite:
+        return f" = {custom_latex(value)}{degree_suffix}"
+
+    if _is_inexact(value):
+        rounded = _decimal_latex(value, NUMERICAL_DIGITS if digits == SOLUTION_DIGITS else digits)
+        number = complex(sp.N(value, 15))
+        is_exact = abs(number.imag) < 1e-12 and abs(number.real - round(number.real)) < 1e-9
+        if is_exact:
+            return f" = {round(number.real)}{degree_suffix}"
+        return f" \\approx {rounded}{degree_suffix}"
+
+    exact_latex = custom_latex(value)
+    exact = "" if exact_latex == shown_latex else f" = {exact_latex}{degree_suffix}"
+    approximation = _approximation_latex(value, digits)
+    if approximation:
+        approximation += degree_suffix
+    if value.is_Integer or (value.is_Rational and not decimal_for_fractions):
+        return exact or f" = {exact_latex}{degree_suffix}"
+    real_part, imag_part = value.as_real_imag()
+    if real_part.is_Rational and imag_part.is_Rational and imag_part != 0:
+        # complex numbers like 5 + 5i are exact enough
+        return exact or f" = {exact_latex}"
+    return f"{exact}{approximation}"
+
+
+def _readable(expr: Any) -> Any:
+    """Roots of polynomials that sympy can only write as CRootOf(...) as decimals."""
+    roots = expr.atoms(sp.CRootOf)
+    if not roots:
+        return expr
+    return expr.xreplace({root: sp.Float(sp.N(root, 4), 4) for root in roots})
+
+
+def domain_latex(domain: Any, symbol: Any) -> str:
+    """The domain like it's written at school: x ≠ 0 for ℝ without 0, x ≠ ½π + k·π, or an interval."""
+    excluded: Any = None
+    if isinstance(domain, sp.Complement) and domain.args[0] == sp.S.Reals:
+        excluded = domain.args[1]
+    elif isinstance(domain, sp.Union) and all(isinstance(part, sp.Interval) for part in domain.args):
+        excluded = sp.Complement(sp.S.Reals, domain)
+
+    symbol_latex = custom_latex(symbol)
+    if isinstance(excluded, sp.FiniteSet):
+        values = sorted(excluded, key=lambda value: float(sp.N(value)))
+        return " \\ \\wedge \\ ".join(f"{symbol_latex} \\neq {custom_latex(value)}" for value in values)
+
+    periodic_sets = list(excluded.args) if isinstance(excluded, sp.Union) else [excluded]
+    if excluded is not None and all(isinstance(part, sp.ImageSet) for part in periodic_sets):
+        parts = CustomLatexPrinter().periodic_parts(excluded)
+        return " \\ \\wedge \\ ".join(f"{symbol_latex} \\neq {part}" for part in parts)
+
+    return custom_latex(domain)
