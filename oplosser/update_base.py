@@ -1,88 +1,109 @@
-import os
+"""Turn the mkdocs-built oplosser page into the Django base template for the oplosser.
+
+run_updates.bat first copies docs/static/mkdocs_build/oplosser/index.html to
+oplosser/templates/oplosser/base.html and then runs this script, which:
+- replaces the page content with a Django `{% block content %}`
+- points the mkdocs css/js/images at Django's `{% static %}` files
+- swaps MathJax 3 for MathJax 2, which the oplosser templates use
+"""
+
+from pathlib import Path
+
+import regex as re
 from bs4 import BeautifulSoup
+from bs4.element import Comment, NavigableString, Tag
 
-def prettify_html(file_path):
-    with open(file_path, 'r+') as file:
-        soup = BeautifulSoup(file, 'lxml')
+TEMPLATE_PATH = Path(__file__).parent / "templates" / "oplosser" / "base.html"
 
-        file.seek(0)
-        file.write(soup.prettify())
-        file.truncate()
+MATHJAX_2_URL = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
 
-# prettify_html('templates/oplosser/test_base.html')
-
-
-def update_base_template(file_path, files=None):
-    def add_static_tag(tag, attribute):
-        if tag.get(attribute) == r'../stylesheets/extra.css':
-            new_link = soup.new_tag('link')
-            new_link['rel'] = 'stylesheet'
-            new_link['href'] = r"{% static 'stylesheets/bootstrap-forms.css' %}"
-            tag.insert_after(new_link)
-
-        if tag.get(attribute) in files:
-            file = tag.get(attribute).split('../')[-1]
-            tag[attribute] = r"{% static '" + file + r"' %}"
-
-        return tag
+# mkdocs files that are served through Django's static files. The hashes in the material theme's
+# file names change with every mkdocs-material version, so they're matched with a pattern.
+STATIC_FILE_PATTERN = re.compile(
+    r"^\.\./("
+    r"assets/stylesheets/(main|palette)\.[0-9a-f]+\.min\.css"
+    r"|assets/images/general/calculator-variant(-outline)?\.(ico|svg)"
+    r"|stylesheets/(extra|bootstrap-forms)\.css"
+    r")$"
+)
 
 
-    # Read the base.html template
-    with open(file_path, 'r') as file:
-        soup = BeautifulSoup(file, 'lxml')
+def use_static_tag(soup: BeautifulSoup, tag: Tag, attribute: str) -> None:
+    value = tag.get(attribute)
+    if not isinstance(value, str):
+        return
 
-    content = soup.find('article')
+    if value == "../stylesheets/extra.css":
+        bootstrap_link = soup.new_tag("link", rel="stylesheet", href="{% static 'stylesheets/bootstrap-forms.css' %}")
+        tag.insert_after(bootstrap_link)
+
+    if STATIC_FILE_PATTERN.match(value):
+        tag[attribute] = "{% static '" + value.removeprefix("../") + "' %}"
+
+
+def fix_scripts(soup: BeautifulSoup) -> None:
+    # The oplosser uses the MathJax 2 API (MathJax.Hub.Typeset), so MathJax 3 from the mkdocs pages
+    # must not be loaded as well: both define window.MathJax and break each other.
+    # Plotly is loaded by equation_form.html itself, so it doesn't depend on this script.
+    for script in soup.find_all("script"):
+        src = script.get("src")
+        if not isinstance(src, str):
+            continue
+
+        if src == "../javascripts/mathjax.js":
+            script["src"] = MATHJAX_2_URL
+        elif "mathjax@3" in src or "/mathjax/3" in src:
+            script.decompose()
+
+
+def use_title_block(soup: BeautifulSoup) -> None:
+    for title in soup.find_all("span", class_="md-ellipsis"):
+        text = title.string
+        if not isinstance(text, NavigableString):
+            continue
+        if "{{title}}" in text:
+            return
+        if "Oplosser" in text:
+            text.replace_with("{{title}}")
+            return
+
+
+def escape_copyright_sign(soup: BeautifulSoup) -> None:
+    copyright_div = soup.find("div", class_="md-copyright__highlight")
+    if not isinstance(copyright_div, Tag):
+        return
+
+    for string in list(copyright_div.descendants):
+        if isinstance(string, NavigableString) and not isinstance(string, Comment) and "©" in string:
+            string.replace_with(NavigableString(string.replace("©", "&copy;")))
+
+
+def update_base_template(template_path: Path) -> None:
+    soup = BeautifulSoup(template_path.read_text(encoding="utf-8"), "lxml")
+
+    content = soup.find("article")
+    if not isinstance(content, Tag):
+        raise ValueError(f"No <article> found in {template_path}; was the mkdocs page copied?")
     content.clear()
-    content.insert(0, r"{% block content %}{% endblock %}")
+    content.insert(0, "{% block content %}{% endblock %}")
 
-    for link in soup.find_all('link'):
-        link = add_static_tag(link, 'href')
+    for link in soup.find_all("link"):
+        use_static_tag(soup, link, "href")
 
-    for img in soup.find_all('img'):
-        img = add_static_tag(img, 'src')
+    for img in soup.find_all("img"):
+        use_static_tag(soup, img, "src")
 
-    for script in soup.find_all('script'):
-        if script.get("src") == r'../javascripts/mathjax.js':
-            script["src"] = r"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    fix_scripts(soup)
+    use_title_block(soup)
+    escape_copyright_sign(soup)
 
-        elif script.get("src") == r"https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js":
-            script["src"] = r"https://cdn.plot.ly/plotly-2.33.0.min.js"
-            script["charset"] = r"utf-8"
+    html_tag = soup.find("html")
+    if isinstance(html_tag, Tag):
+        html_tag.insert(0, "{% load static %}")
 
-    html_tag = soup.find('html')
-    html_tag.insert(0, r"{% load static %}")
-
-    for title in soup.find_all('span', class_="md-ellipsis"):
-        if r"{{title}}" in title.string:
-            break
-
-        elif "Oplosser" in title.string:
-            title.string.replace_with(r"{{title}}")
-            break
-
-    copy = soup.find('div', class_="md-copyright__highlight")
-    strings = [string for string in copy.strings]
-    for string in strings:
-        if "©" in string:
-            new_string = string.replace("©", r"&copy;")
-            string.replace_with(new_string)
-
-    html_document = soup.prettify()
-    html_document = str(html_document).replace('&amp;copy;', '&copy;')
-
-    # print(html_document)
-
-    # Write the updated base.html template
-    with open(file_path, 'w') as file:
-        file.write(html_document)
+    html_document = str(soup.prettify()).replace("&amp;copy;", "&copy;")
+    template_path.write_text(html_document, encoding="utf-8")
 
 
-
-oplosser_path = os.path.dirname(__file__)
-os.chdir(oplosser_path)
-
-files = [r'../assets/images/general/calculator-variant.ico', r'../assets/stylesheets/main.fad675c6.min.css', r'../assets/stylesheets/palette.356b1318.min.css', r'../stylesheets/extra.css', r'../stylesheets/bootstrap-forms.css', r'../assets/images/general/calculator-variant-outline.svg', r'../assets/javascripts/bundle.6c14ae12.min.js']
-update_base_template(file_path='templates/oplosser/base.html', files=files)
-
-base_path = os.path.dirname(oplosser_path)
-os.chdir(base_path)
+if __name__ == "__main__":
+    update_base_template(TEMPLATE_PATH)

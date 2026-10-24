@@ -1,0 +1,6 @@
+# Tools for developing and checking the site; not needed on the server.
+-r requirements.txt
+pytest==9.1.1
+pip-audit==2.10.1
+# type information for Django, used by pyright/Pylance
+django-types==0.24.0

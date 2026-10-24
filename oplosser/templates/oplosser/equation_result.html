@@ -206,10 +206,13 @@
 
 
 {% if plot %}
+    {{ plot_data|json_script:"plot-data" }}
+    {{ x_range|json_script:"plot-x-range" }}
+    {{ y_range|json_script:"plot-y-range" }}
     <script>
-        var plotData = {{ plot_data|safe }} 
-        var x_range = {{ x_range|safe }}
-        var y_range = {{ y_range|safe }}
+        var plotData = JSON.parse(document.getElementById('plot-data').textContent);
+        var x_range = JSON.parse(document.getElementById('plot-x-range').textContent);
+        var y_range = JSON.parse(document.getElementById('plot-y-range').textContent);
         var layout = {
             autosize: true,
             xaxis: {range: x_range},  
@@ -259,7 +262,7 @@
                 url: "/oplosser/uitleg",
                 type: 'GET',
                 data: {
-                    'data_chatgpt': '{{ data_chatgpt }}',
+                    'data_chatgpt': '{{ data_chatgpt|escapejs }}',
                 },
                 success: function(response) {
                     explanationText.innerHTML = response.explanation;

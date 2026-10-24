@@ -9,7 +9,7 @@ def add_url_to_sitemap(sitemap_path, url):
     root = tree.getroot()
 
     # Check if the URL is already in the sitemap
-    urls = [loc.text.strip() for loc in root.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
+    urls = [(loc.text or '').strip() for loc in root.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
     if url in urls:
         print(f"URL {url} already exists in sitemap.")
         return
@@ -35,7 +35,7 @@ def add_url_to_sitemap(sitemap_path, url):
             root_gz = tree_gz.getroot()
 
         # Check if the URL is already in the gzipped sitemap
-        urls_gz = [loc.text.strip() for loc in root_gz.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
+        urls_gz = [(loc.text or '').strip() for loc in root_gz.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
         if url in urls_gz:
             print(f"URL {url} already exists in sitemap.xml.gz.")
             return

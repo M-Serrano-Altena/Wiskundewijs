@@ -2,10 +2,12 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from django.conf import settings
 from django.views.static import serve
+from django.core.exceptions import SuspiciousFileOperation
+from django.utils._os import safe_join
 import os
 import markdown
 import re
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 from textwrap import dedent
 
 
@@ -32,7 +34,11 @@ def load_external_html(request, path):
     if "index.html" not in path:
         path = path + "/index.html"
 
-    file_path = os.path.join(settings.DOCS_DIR, path.replace(".md", "/index.html"))
+    try:
+        # safe_join refuses paths like "../../etc/index.html" that point outside DOCS_DIR
+        file_path = safe_join(settings.DOCS_DIR, path)
+    except SuspiciousFileOperation:
+        return JsonResponse({"error": "File not found"}, status=404)
 
     try:
         with open(file_path, "r", encoding="utf-8") as file:
@@ -40,7 +46,9 @@ def load_external_html(request, path):
 
         # Extract content inside <article> for the page content
         main_content = soup.find("article")
-        
+        if not isinstance(main_content, Tag):
+            return JsonResponse({"error": "Could not find main content"}, status=404)
+
         # Remove <h1> headers as needed (optional step)
         for h1 in main_content.find_all("h1"):
             h1.decompose()  # .decompose() removes the tag and its contents
@@ -50,13 +58,7 @@ def load_external_html(request, path):
 
         toc_html = generate_toc_html(toc_structure)
 
-        # Combine the TOC and the content
-        if main_content:
-            html_content = str(main_content)
-        else:
-            html_content = "Error: Could not find main content."
-
-        return JsonResponse({"content": html_content, "toc": toc_html})
+        return JsonResponse({"content": str(main_content), "toc": toc_html})
 
     except FileNotFoundError:
         return JsonResponse({"error": "File not found"}, status=404)
@@ -114,7 +116,7 @@ def generate_toc_html(toc_dict_structure):
         if item['id']:
             html += f'<li class="md-nav__item"><a href="#{item["id"]}" class="md-nav__link"><span class="md-ellipsis">{item["text"]}</span></a>'
         if item['children']:
-            html += '<nav class="md-nav" aria-label="{item["text"]}">'
+            html += f'<nav class="md-nav" aria-label="{item["text"]}">'
             html += '<ul class="md-nav__list">'
             html += generate_toc_html(item['children'])
             html += '</ul></nav>'

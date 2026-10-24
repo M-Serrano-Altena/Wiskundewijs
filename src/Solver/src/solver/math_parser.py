@@ -28,15 +28,19 @@ Dependencies:
 - types
 """
 
-import numpy as np
-import sympy as sp
-import regex as re
-from typing import Dict, Union, Any
-from types import FunctionType
-from pylatexenc.latex2text import LatexNodes2Text
-from src.Solver.src.solver.sympy_custom_funcs import LOCALS
-from src.Solver.src.solver.helper import unique_preserve_order
 from collections import deque
+from collections.abc import Callable
+from functools import cache
+from types import FunctionType
+from typing import Any
+
+import regex as re
+import sympy as sp
+from pylatexenc.latex2text import LatexNodes2Text
+
+from src.Solver.src.solver.helper import unique_preserve_order
+from src.Solver.src.solver.safe_parsing import safe_sympify
+from src.Solver.src.solver.sympy_custom_funcs import LOCALS
 
 ALLOWED_FUNCTIONS = ["diff", "integrate", "limit", "Mod", "subs", "Sum", "Product", "dot", "cross", "magnitude"]
 ALLOWED_FUNCTIONS.extend([key for key, val in  LOCALS.items() if isinstance(val, FunctionType)])
@@ -55,7 +59,7 @@ UNEVAL_SP_OBJECT_DICT = {
     "angle": "Angle",
 }
 
-def get_last_item_deque(deque_: deque) -> Any|None:
+def get_last_item_deque(deque_: deque[int]) -> int | None:
     """
     Get the last item in a deque object.
 
@@ -70,7 +74,7 @@ def get_last_item_deque(deque_: deque) -> Any|None:
     except IndexError:
         return None
     
-def pop_last_item_deque(deque_: deque) -> Any|None:
+def pop_last_item_deque(deque_: deque[int]) -> int | None:
     """
     Pop the last item in a deque object.
 
@@ -102,16 +106,13 @@ def fix_mismatched_parenthesis(eq_string):
     eq_string = ' '.join(eq_split)
     return eq_string
 
-def get_arg_in_brackets(eq_string, index_start_bracket, bracket_type="()"):
+def get_arg_in_brackets(eq_string: str, index_start_bracket: int, bracket_type: str = "()") -> tuple[str, int]:
     map_brackets = {"(": ")", "[" : "]", "{": "}"}
 
     if len(bracket_type) == 2:
-        open_bracket = bracket_type[0]
-        close_bracket = bracket_type[1]
-
-    elif len(bracket_type) == 1:
-        open_bracket = bracket_type
-        close_bracket = map_brackets[bracket_type]
+        open_bracket, close_bracket = bracket_type[0], bracket_type[1]
+    else:
+        open_bracket, close_bracket = bracket_type, map_brackets[bracket_type]
 
     nested = 0
     index = index_start_bracket
@@ -466,7 +467,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
         relevant_string = ''.join(string[index_comma+1:relevant_index])
 
         try:
-            return is_type(sp.sympify(relevant_string), object_type)
+            return is_type(safe_sympify(relevant_string), object_type)
         except Exception:
             return False
         
@@ -512,21 +513,19 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
     eq_string_list = list(eq_string)
     string_split = [eq_string_list[index_func[i]:index_func[i+1]] if i != len(index_func) - 1 else eq_string_list[index_func[i]:] for i in range(len(index_func))]
     index_list_secure = []
-    nested = 0
-    nested_before = deque()
+    nested: int = 0
+    nested_before: deque[int] = deque()
     char_index = 0
+    index_open_bracket = 0
     add_args = 0 # add the arguments if add_args > 0
 
     amt_commas_start = amt_commas
     num_comma = amt_commas
     substring_index = -1
 
-    def get_index_in_substring():
+    def get_index_in_substring() -> int:
         return char_index - sum([len(string_) for string_ in string_split[:substring_index]])
     
-    def no_replace():
-        nested == 0 and get_last_item_deque(nested_before) == 0 and has_been_nested
-
     for string in string_split:
         substring_index += 1
 
@@ -553,10 +552,6 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
             num_comma = func_amt_commas[func_name]
 
         for char in string:
-            if no_replace():
-                char_index += 1
-                continue
-                
             if is_dot_func[substring_index]:
                 char_index_before = char_index
 
@@ -602,9 +597,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
 
                     if nested == 0:
                         amt_commas = amt_commas_start
-                        nested = pop_last_item_deque(nested_before)
-                        if nested is None:
-                            nested = 0
+                        nested = pop_last_item_deque(nested_before) or 0
 
                     elif add_close_bracket and nested == 1:
                         close_bracket_index = index_func[0] + char_index + 1
@@ -672,11 +665,7 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
                     
                     add_args -= 1
                     amt_commas = amt_commas_start
-                    nested = pop_last_item_deque(nested_before)
-                    if nested is None:
-                        nested = 0
-
-            print(char, char_index, nested, nested_before, add_args, index_list)
+                    nested = pop_last_item_deque(nested_before) or 0
 
             char_index += 1
 
@@ -690,6 +679,24 @@ def add_args_to_func(eq_string: str, func_name: str='log', replace_with: str='10
     
     return eq_string
 
+
+
+@cache
+def _function_names() -> tuple[str, ...]:
+    function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
+    function_names_set = set(function_names)
+    function_names.extend([func for func in ALLOWED_FUNCTIONS if func not in function_names_set])
+    function_names.remove("ff")
+    return tuple(unique_preserve_order(function_names))
+
+
+@cache
+def _constant_names() -> tuple[str, ...]:
+    """Names of sympy's numeric constants (pi, E, oo, GoldenRatio, ...)."""
+    return tuple(
+        name for name, obj in sp.__dict__.items()
+        if isinstance(obj, (sp.Basic, sp.core.singleton.Singleton)) and not name.startswith('_') and safe_sympify(name).is_number
+    )
 
 
 def math_interpreter(eq_string: str) -> str:
@@ -902,17 +909,11 @@ def math_interpreter(eq_string: str) -> str:
     for pattern, repl in replacements:
         eq_string = re.sub(pattern, repl, eq_string)
 
-    function_names = [name for name in dir(sp.functions) if not name.startswith('_')]
-    function_names_set = set(function_names)
-    function_names.extend([func for func in ALLOWED_FUNCTIONS if func not in function_names_set])
-    function_names.remove("ff")
-    function_names = unique_preserve_order(function_names)
-
-    relevant_functions = [func for func in function_names if func in eq_string]
+    relevant_functions = [func for func in _function_names() if func in eq_string]
 
     eq_string = replace_constant_symbols(eq_string)
 
-    constant_names_og = [name for name, obj in sp.__dict__.items() if isinstance(obj, (sp.Basic, sp.core.singleton.Singleton)) and not name.startswith('_') and sp.sympify(name).is_number]
+    constant_names_og = list(_constant_names())
     constant_names = [name.casefold() for name in constant_names_og]
     relevant_constants = [constant for constant in constant_names if constant in eq_string]
     constant_to_og_map = {constant: constant_names_og[constant_names.index(constant)] for constant in relevant_constants}
@@ -926,8 +927,8 @@ def math_interpreter(eq_string: str) -> str:
             relevant_functions.insert(0, a_func)
 
     added_x = False
+    rel_func_pattern = '|'.join(map(re.escape, relevant_functions))
     if relevant_functions:
-        rel_func_pattern = '|'.join(map(re.escape, relevant_functions))
         eq_string = re.sub(rf'({rel_func_pattern})' + r'(?:\s)+([\w\p{Greek}]+)', r'\1(\2)', eq_string) # sin x -> sin(x)
 
         add_x_pattern = rf'({rel_func_pattern})' + r'(?![\w\p{Greek}]+|\()' # sin -> sin(x)
@@ -1061,7 +1062,7 @@ def math_interpreter(eq_string: str) -> str:
     
     # change the added symbol from x if there is another symbol in the equation
     try:
-        symbol_list = list(sp.sympify(eq_string.replace("=", "+").replace("diff", "Derivative").replace("integrate", "Integral"), evaluate=False).free_symbols)
+        symbol_list = list(safe_sympify(eq_string.replace("=", "+").replace("diff", "Derivative").replace("integrate", "Integral"), evaluate=False).free_symbols)
         if symbol_list and (not re.findall(r"\bx\b", eq_string_start) or added_x):
             symbol = symbol_list.pop()
             if str(symbol) == 'x' and symbol_list:
@@ -1077,7 +1078,7 @@ def math_interpreter(eq_string: str) -> str:
 
 
 
-def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = UNEVAL_SP_OBJECT_DICT) -> Union[str, sp.Basic]:
+def get_uneval_sp_objs(string: str, func_dict: dict[str, str] = UNEVAL_SP_OBJECT_DICT) -> Any:
     """
     Replaces dot notation functions (e.g., `.subs`, `.diff`) in a string with their corresponding unevaluated SymPy function equivalents.
 
@@ -1089,10 +1090,10 @@ def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = UNEVAL_SP_OBJECT
         func_dict (Dict[str, str]): A dictionary mapping dot notation function names to their corresponding SymPy functions.
 
     Returns:
-        Union[str, sp.Basic]: The SymPy expression object if successful, otherwise the original string.
+        The SymPy expression object if successful, otherwise the original string.
     """
 
-    def get_dot_func_args_pattern(eq_string: str, func_name: str) -> re.Match:
+    def get_dot_func_args_pattern(eq_string: str, func_name: str) -> re.Match[str] | None:
         """
         Returns the regex match object for a dot notation function call with its arguments.
 
@@ -1175,6 +1176,8 @@ def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = UNEVAL_SP_OBJECT
             index_func += extra_index_next
             relevant_string = string[:index_func]
             nested = 0
+            index_range: tuple[int, int] | None = None
+            matched_func_args: str | None = None
 
             for index in range(index_func - 1, -1, -1):
                 char = relevant_string[index]
@@ -1200,6 +1203,9 @@ def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = UNEVAL_SP_OBJECT
                         index_range = get_index_range(condition=False)
                         break
 
+            if index_range is None:
+                raise RuntimeError(f"Could not find what .{func} is applied to in {string!r}")
+
             extra_index_next += 2
             matched_func_snippet = re.escape(string[index_range[0]:index_range[1]])
             
@@ -1219,6 +1225,9 @@ def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = UNEVAL_SP_OBJECT
                         break
 
 
+            if matched_func_args is None:
+                raise RuntimeError(f"Could not find the arguments of .{func} in {string!r}")
+
             # Replace dot function with corresponding SymPy function
             result_string = string
             pattern = f"({matched_func_snippet})" + rf"\.{func}\(({matched_func_args})\)"
@@ -1232,7 +1241,7 @@ def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = UNEVAL_SP_OBJECT
     # Attempt to sympify the resulting string for all changes made, if none work
     for result_string in reversed(string_og_list):
         try:
-            sympy_expr = sp.sympify(result_string, locals=LOCALS)
+            sympy_expr = safe_sympify(result_string, local_dict=LOCALS)
             return sympy_expr
         
         except sp.SympifyError:
@@ -1242,7 +1251,7 @@ def get_uneval_sp_objs(string: str, func_dict: Dict[str, str] = UNEVAL_SP_OBJECT
     return string_og_list[0]
 
 
-def apply_inner_func_to_func(eq_string: str, func_name: str, inner_func_name: str, inner_arg_condition_func: FunctionType=lambda inner_arg: True) -> str:
+def apply_inner_func_to_func(eq_string: str, func_name: str, inner_func_name: str, inner_arg_condition_func: Callable[[str], bool] = lambda inner_arg: True) -> str:
     index_func = [m.start() for m in re.finditer(rf"(?<!a){func_name}", eq_string)] # get index list of start of each function name
     
     if len(index_func) == 0:

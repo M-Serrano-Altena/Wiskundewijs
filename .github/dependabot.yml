@@ -1,0 +1,12 @@
+# Dependabot opens a pull request when there are new versions of the packages in requirements.txt.
+# Security fixes come as soon as they're published; other updates are grouped into one pull request a month.
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    groups:
+      all-packages:
+        patterns: ["*"]
+    open-pull-requests-limit: 5

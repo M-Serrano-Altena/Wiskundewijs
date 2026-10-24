@@ -11,30 +11,45 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from typing import Any
 import os
 import json
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
+# The server has its secrets in /etc/config.json (outside the repository). Without that file,
+# for example on your own computer, the development settings below are used.
+# WISKUNDEWIJS_CONFIG can point to another file, to try the production settings locally.
+# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
+try:
+    with open(os.environ.get('WISKUNDEWIJS_CONFIG', '/etc/config.json')) as config_file:
+        CONFIG: dict[str, Any] = json.load(config_file)
+except FileNotFoundError:
+    CONFIG = {}
 
+IS_PRODUCTION = bool(CONFIG)
 
-# # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-g*t@d@!%t8z^pmz!qy0m5-_5ib+x3%d8ul4=28d4+)3l1d-udn' 
+if IS_PRODUCTION:
+    SECRET_KEY = CONFIG['SECRET_KEY']
+    DEBUG = bool(CONFIG.get('DEBUG', False))
+else:
+    # only used for local development, so it doesn't matter that it's public
+    SECRET_KEY = 'django-insecure-g*t@d@!%t8z^pmz!qy0m5-_5ib+x3%d8ul4=28d4+)3l1d-udn'
+    DEBUG = True
 
-#with open('/etc/config.json') as config_file:
-#    config = json.load(config_file)
-#SECRET_KEY = config['SECRET_KEY']
+ALLOWED_HOSTS = ['www.wiskundewijs.com', 'wiskundewijs.com', '172.233.48.60', '127.0.0.1', 'localhost']
+CSRF_TRUSTED_ORIGINS = ['https://wiskundewijs.com', 'https://www.wiskundewijs.com']
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['www.wiskundewijs.com', 'wiskundewijs.com', '172.233.48.60', '127.0.0.1']
+if not DEBUG:
+    # Only send the session and CSRF cookies over HTTPS, so they can't be read on an open wifi network.
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    # HSTS: browsers that visited the site remember to only use HTTPS for it. Start low;
+    # once HTTPS has worked for a while, this can go up to a year (31536000).
+    SECURE_HSTS_SECONDS = int(CONFIG.get('HSTS_SECONDS', 3600))
 
 
 # Application definition
@@ -150,4 +165,10 @@ CRISPY_TEMPLATE_PACK ="bootstrap4"
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# Plain storage: collectstatic copies the files without compressed copies or hashed names, because
+# staticfiles/ is committed to git. (The STATICFILES_STORAGE setting that was here stopped
+# working in Django 5.1, so this is what the site already used.)
+STORAGES = {
+    "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+    "staticfiles": {"BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"},
+}

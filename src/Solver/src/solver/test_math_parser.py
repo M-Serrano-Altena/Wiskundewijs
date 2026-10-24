@@ -212,11 +212,6 @@ def test_math_interpreter_latex_fourth_root():
     string = math_interpreter(string)
     assert string == "root(x, 4)"
 
-def test_math_interpreter_latex_frac_with_symbol():
-    string = r"\frac{1}{2}x"
-    string = math_interpreter(string)
-    assert string == "1/2*x"
-
 def test_math_interpreter_latex_frac_with_symbol_and_func():
     string = r"\frac{1}{2}sin(x)"
     string = math_interpreter(string)

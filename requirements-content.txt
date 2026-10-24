@@ -1,0 +1,9 @@
+# Tools for making the content (the animations and interactive graphs in src/). They run on your own
+# computer only; the website doesn't need them, so they aren't in requirements.txt.
+manim
+matplotlib
+plotly
+kaleido
+numpy
+sympy
+beautifulsoup4
