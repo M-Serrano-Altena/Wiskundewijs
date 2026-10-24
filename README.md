@@ -180,6 +180,8 @@ The solver is in `src/Solver/src/solver/`:
 
 `oplosser/solver_pipeline.py` connects the solver to the view: it solves, then makes the plot data.
 
+The graph is calculated with many points, far beyond the visible part (so you can pan). Before the data is sent, `plotting.simplify_traces` removes the points that make no visible difference with the [Ramer–Douglas–Peucker algorithm](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm). It also rounds the coordinates to 7 digits. `SIMPLIFY_TOLERANCE` sets how far the graph may move: 0.02% of the visible size, so less than a pixel. That takes `1/x = 2` from 2.8 MB to 5 kB.
+
 ### Why the input can't run code
 
 `sympy.sympify` evaluates text with Python's `eval`, so input like `__import__('os').system(...)` would run on the server. Everything goes through `safe_sympify` instead:
@@ -207,7 +209,6 @@ set PYTHONHASHSEED=0 && python -m src.Solver.tests.golden --record  # Windows cm
 
 ## Known issues and ideas
 
-- **The plot data is large.** The graph of `1/x = 2` sends about 2.8 MB of coordinates to the browser, and about 0.8 MB for a typical equation. Fewer points (most of them are far outside the visible part) would make the oplosser much faster on phones.
 - **Quirks in the solver's output.** The golden tests deliberately keep these as they are:
   - `1/x = 2` shows the heading "Het domein van x is:" with nothing under it.
   - `sin(x) = 0.5` gives the general solution as `x = 0.5235987… + k·2π` instead of `x = 1/6 π + k·2π`.

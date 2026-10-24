@@ -22,6 +22,7 @@ if TYPE_CHECKING:
     from src.Solver.src.solver.solve_calculations import Solve
 
 PlotTrace = dict[str, Any]
+BoolArray = np.ndarray[Any, np.dtype[np.bool_]]
 
 
 def get_range(solver: Solve) -> tuple[FloatArray, FloatArray]:
@@ -212,7 +213,72 @@ def _trace(x: Any, y: Any, name: str, color: str, hoverinfo: str, showlegend: bo
     return trace
 
 
-def generate_plot_data(solver: Solve) -> tuple[list[PlotTrace], list[float], list[float]]:
+# How far a simplified graph may be from the exact one, as a fraction of the size of the graph
+# that's visible at first. Plots are about 800 pixels wide, so this is well under a pixel, and
+# still under 2 pixels when zoomed in 10 times.
+SIMPLIFY_TOLERANCE = 2e-4
+SIGNIFICANT_DIGITS = 7
+
+
+def simplify_line(x: FloatArray, y: FloatArray, tolerance: float) -> BoolArray:
+    """Which points of a line to keep so it stays within `tolerance` of the original (a bool array).
+
+    This is the Ramer-Douglas-Peucker algorithm: between two kept points, the point farthest from
+    the straight line between them is kept if it's farther than the tolerance, and then both
+    halves are checked the same way. Straight stretches need only their two end points.
+    """
+    amount = len(x)
+    keep = np.zeros(amount, dtype=bool)
+    if amount == 0:
+        return keep
+    keep[0] = keep[-1] = True
+
+    stack = [(0, amount - 1)]
+    while stack:
+        start, end = stack.pop()
+        if end - start < 2:
+            continue
+
+        line_dx, line_dy = x[end] - x[start], y[end] - y[start]
+        between_dx, between_dy = x[start + 1:end] - x[start], y[start + 1:end] - y[start]
+        length = np.hypot(line_dx, line_dy)
+        if length == 0:
+            distances = np.hypot(between_dx, between_dy)
+        else:
+            distances = np.abs(line_dy * between_dx - line_dx * between_dy) / length
+
+        farthest = int(np.argmax(distances))
+        if distances[farthest] > tolerance:
+            index = start + 1 + farthest
+            keep[index] = True
+            stack.append((start, index))
+            stack.append((index, end))
+
+    return keep
+
+
+def _round(values: FloatArray) -> list[float]:
+    return [float(f"{value:.{SIGNIFICANT_DIGITS}g}") for value in values]
+
+
+def simplify_traces(plot_data: list[PlotTrace], view_x_range: XRange, view_y_range: XRange) -> None:
+    """Remove the points of the graphs that make no visible difference, to send much less data."""
+    x_scale = float(np.ptp(view_x_range)) or 1.0
+    y_scale = float(np.ptp(view_y_range)) or 1.0
+
+    for trace in plot_data:
+        if trace.get("mode") != "lines":
+            continue
+
+        x = np.asarray(trace["x"], dtype=float)
+        y = np.asarray(trace["y"], dtype=float)
+        # measured relative to the visible part of the graph, so both axes count equally
+        keep = simplify_line(x / x_scale, y / y_scale, SIMPLIFY_TOLERANCE)
+        trace["x"] = _round(x[keep])
+        trace["y"] = _round(y[keep])
+
+
+def generate_plot_data(solver: Solve, simplify: bool = True) -> tuple[list[PlotTrace], list[float], list[float]]:
     """The Plotly traces for the graph, and the x and y range to show at first."""
     view_x_range, view_y_range = get_range(solver)
 
@@ -248,6 +314,9 @@ def generate_plot_data(solver: Solve) -> tuple[list[PlotTrace], list[float], lis
     else:
         plot_data = _traces_per_piece(x1, y1, legend1, "darkturquoise", hoverinfo1)
         plot_data += _traces_per_piece(x2, y2, legend2, "springgreen", hoverinfo2)
+
+    if simplify:
+        simplify_traces(plot_data, view_x_range, view_y_range)
 
     if solver.intersect:
         plot_data.append(_intersection_trace(solver, x_range))
