@@ -156,7 +156,7 @@ Do this in an environment with only the website's packages, otherwise `pip freez
 
 **pip-audit** checks the installed versions against a database of known vulnerabilities. `pip-audit -r requirements.txt` prints *No known vulnerabilities found*, or a table of the affected packages with the version that fixes each one. It's a quicker way to see what Dependabot would warn about.
 
-**MkDocs Material** announces that it reaches end of life on 5 May 2027, with security fixes until then. Its successor, [Zensical](https://zensical.org), is made by the same team and can read the existing `mkdocs.yml`.
+**MkDocs Material** announces that it reaches end of life on 5 May 2027, with security fixes until then. After that the site keeps working (it's static HTML), but it won't get fixes, and newer Python or MkDocs versions may stop working with it. See [Switching to Zensical](#switching-to-zensical-later).
 
 ## The solver
 
@@ -176,11 +176,36 @@ The solver is in `src/Solver/src/solver/`:
 | `degree_functions.py` | `arcsin` and friends giving degrees, for degree mode. |
 | `sympy_custom_funcs.py` | `LOCALS`: the functions available in the input. |
 | `output.py` | The output line format the view turns into HTML. |
+| `topics.py` | Which page of the site explains the kind of equation that was typed in (see below). |
 | `openai_api.py` | The ChatGPT explanation and questions feature. |
 
 `oplosser/solver_pipeline.py` connects the solver to the view: it solves, then makes the plot data.
 
 The graph is calculated with many points, far beyond the visible part (so you can pan). Before the data is sent, `plotting.simplify_traces` removes the points that make no visible difference with the [Ramer–Douglas–Peucker algorithm](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm). It also rounds the coordinates to 7 digits. `SIMPLIFY_TOLERANCE` sets how far the graph may move: 0.02% of the visible size, so less than a pixel. That takes `1/x = 2` from 2.8 MB to 5 kB.
+
+### Links to the explanation pages
+
+Under an answer, the oplosser links to the section of the site that explains how to solve that kind of equation by hand. For example, `x^2 - 5x + 6 = 0` links to *Kwadratische vergelijkingen → Oplossen vorm x² + bx + c = 0*.
+
+`topics.find_topic` picks the section with rules on the structure of the solved equation, most specific first:
+
+1. system of linear equations
+2. derivative, extremes, primitive, integral
+3. trigonometry
+4. x- and y-equations: parabola, or a formula to rewrite
+5. linear and quadratic inequalities
+6. linear equations and the three forms of quadratic equations
+7. logarithms and exponentials
+
+There's no link for anything the site doesn't explain:
+
+- numerical solutions (`x = cos(x)`)
+- vectors and matrices
+- non-linear systems
+- equations like x⁵ − 3x + 1 = 0
+- calculations
+
+To link to a new page, add a `Topic` and a rule in `topics.py`. `test_topics.py` checks that every link's anchor exists in the built pages, so renaming a heading makes that test fail instead of leaving a dead link.
 
 ### Why the input can't run code
 
@@ -209,8 +234,16 @@ set PYTHONHASHSEED=0 && python -m src.Solver.tests.golden --record  # Windows cm
 
 ## Known issues and ideas
 
-- **Quirks in the solver's output.** The golden tests deliberately keep these as they are:
-  - `1/x = 2` shows the heading "Het domein van x is:" with nothing under it.
-  - `sin(x) = 0.5` gives the general solution as `x = 0.5235987… + k·2π` instead of `x = 1/6 π + k·2π`.
-  - `e^(x - 5) = sqrt(2x)` shows the unsolved set before the numerical solutions.
+- **Equations in x and y with several branches** (like y² + y = x) find the x-intercepts with the first branch only. For y = ±f(x), like a circle, that's all of them.
+- **Vectors and matrices** have some display quirks, like `vect(1,2) = vect(1,2)` showing 3D vectors.
 - **The explanation feature (ChatGPT)** isn't connected at the moment. If it's turned back on, it needs a limit on how often it can be used per visitor. Each explanation and question costs an API call.
+
+## Switching to Zensical later
+
+[Zensical](https://zensical.org) is the successor of MkDocs Material, made by the same team, and it can read the existing `mkdocs.yml`. It's worth switching before or after Material's end of life in May 2027. A few parts of the site depend on how Material builds its HTML, so test those on a copy first:
+
+- `oplosser/update_base.py` looks for the `<article>`, the `md-ellipsis` title and the `md-copyright__highlight` footer.
+- `docs/views.py` (`load_external_html`) takes the `<article>` from pages, for the sections that are loaded later.
+- `mkdocs/javascripts/load_sections.js` uses Material's table of contents structure.
+- `mkdocs/overrides/main.html` and `mkdocs/overrides/404.html` extend Material's templates.
+- `hooks/copyright_year.py` is an MkDocs hook.

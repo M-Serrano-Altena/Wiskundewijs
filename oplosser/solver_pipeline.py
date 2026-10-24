@@ -9,6 +9,7 @@ from typing import Any
 from src.Solver.src.solver.output import OutputLine
 from src.Solver.src.solver.plotting import PlotTrace, generate_plot_data
 from src.Solver.src.solver.solve_calculations import Solve
+from src.Solver.src.solver.topics import Topic, find_topic
 
 ANGLE_MODES: dict[str, bool | None] = {"automatic": None, "degrees": True, "radians": False}
 
@@ -25,12 +26,20 @@ class SolveResult:
     plot_data: list[PlotTrace] = field(default_factory=list)
     x_range: list[float] = field(default_factory=list)
     y_range: list[float] = field(default_factory=list)
+    # the page on the site that explains how to solve this kind of equation
+    topic: Topic | None = None
 
 
 def solve_for_view(equation_text: str, angle_mode: str) -> SolveResult:
     solver = Solve(input_string=equation_text, use_degrees=ANGLE_MODES.get(angle_mode))
     equation_interpret, outputs, plot = solver.solve_equation()
     result = SolveResult(equation_text, equation_interpret, outputs, plot, solver.numerical)
+    has_error = any("error" in (line[0] if isinstance(line, tuple) else line).casefold() for line in outputs)
+    try:
+        result.topic = find_topic(solver, has_error)
+    except Exception:
+        # a missing link isn't worth failing the whole answer for
+        traceback.print_exc()
 
     if plot:
         try:

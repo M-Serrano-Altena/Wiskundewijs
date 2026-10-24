@@ -167,6 +167,9 @@
             <p class="input-text" style="font-size: 24px;">Invoer: {{ equation_text }}</p>
             <p style="font-size: 24px;">Interpretatie: {{ equation_interpret }}</p>
             <div class="arithmatex" style="font-size: 20px; margin-left: auto;">{{ solutions|safe }}</div>
+            {% if topic %}
+            <p class="topic-link" style="font-size: 18px;">Zelf leren hoe je dit oplost? Bekijk de uitleg over <a href="{{ topic.url }}">{{ topic.title }}</a>.</p>
+            {% endif %}
         </div>
         <div id="plot" class="plot"></div>
     </div>

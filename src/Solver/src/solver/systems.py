@@ -48,6 +48,7 @@ class SystemSolver:
         processed_eqs = self.make_eqs_real([list(eqs) for eqs in self.process_system_of_eq()])
 
         sp_equations = [eq[3] for eq in processed_eqs]
+        solver.system_equations = sp_equations
         solver.output.append(text("Stelsel van Vergelijkingen:"))
         eq_strings = [f"{custom_latex(eq[0])} = {custom_latex(eq[1])}" for eq in processed_eqs]
         solver.output.append(r"\begin{cases} " + r" \\[4pt] ".join(eq_strings) + r" \end{cases}")

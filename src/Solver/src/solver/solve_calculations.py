@@ -175,6 +175,8 @@ class Solve:
         self.vect_dim = linear_algebra.vect_dim
 
         self.is_system_of_eq = ";" in self.eq_string
+        # the equations of a system, once parsed
+        self.system_equations: list[Any] = []
 
     def result(self) -> SolveOutput:
         return self.equation_interpret, self.output, self.plot

@@ -141,6 +141,7 @@ def solve_equation_view(request: HttpRequest) -> HttpResponse:
         'plot': result.plot,
         'title': 'Vergelijking Oplosser',
         'data_chatgpt': data_chatgpt,
+        'topic': result.topic,
     }
     if result.plot:
         context.update({'plot_data': result.plot_data, 'x_range': result.x_range, 'y_range': result.y_range})
