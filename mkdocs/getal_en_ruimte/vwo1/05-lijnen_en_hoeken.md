@@ -38,27 +38,27 @@ De geodriehoek heeft een rechte hoek van $90°$. Daarmee teken je:
 
 ??? example "Voorbeeld 1: Lijn, halve lijn of lijnstuk?"
     **<p style="text-align: center;font-size:20px;">Welk woord past bij: (a) de lichtstraal van een zaklamp, (b) de rand van een liniaal, (c) de horizon, als je hem denkt als een eindeloze rechte streep?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    - (a) Begin bij de lamp, geen einde: een **halve lijn**.
-    - (b) Begin en einde: een **lijnstuk**.
-    - (c) Geen begin en geen eind: een **lijn**.
+    ??? success "Uitwerking"
+        - (a) Begin bij de lamp, geen einde: een **halve lijn**.
+        - (b) Begin en einde: een **lijnstuk**.
+        - (c) Geen begin en geen eind: een **lijn**.
 
 ??? example "Voorbeeld 2: Evenwijdig of loodrecht?"
     **<p style="text-align: center;font-size:20px;">In een rechthoek $ABCD$ staan $AB$ en $CD$ tegenover elkaar, en $AD$ en $BC$ ook. Welke zijden zijn evenwijdig? Welke staan loodrecht op elkaar?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    - Overstaande zijden zijn evenwijdig: $AB \parallel CD$ en $AD \parallel BC$.
-    - Zijden naast elkaar maken een rechte hoek: bijvoorbeeld $AB \perp BC$.
+    ??? success "Uitwerking"
+        - Overstaande zijden zijn evenwijdig: $AB \parallel CD$ en $AD \parallel BC$.
+        - Zijden naast elkaar maken een rechte hoek: bijvoorbeeld $AB \perp BC$.
 
 ??? example "Voorbeeld 3: Een lijn evenwijdig tekenen"
     **<p style="text-align: center;font-size:20px;">Beschrijf hoe je met je geodriehoek en liniaal een lijn evenwijdig aan lijn $l$ tekent, door een punt $P$.</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    - Leg een rechte kant van de geodriehoek langs lijn $l$.
-    - Leg de liniaal tegen een andere kant van de geodriehoek.
-    - Houd de liniaal vast en schuif de geodriehoek langs de liniaal, tot dezelfde kant door $P$ gaat.
-    - Teken langs die kant.
+    ??? success "Uitwerking"
+        - Leg een rechte kant van de geodriehoek langs lijn $l$.
+        - Leg de liniaal tegen een andere kant van de geodriehoek.
+        - Houd de liniaal vast en schuif de geodriehoek langs de liniaal, tot dezelfde kant door $P$ gaat.
+        - Teken langs die kant.
 
 <hr style="height: 1.5px; background-color: #575757; border: none;">
 
@@ -86,30 +86,30 @@ De klok is een mooi voorbeeld. Een hele draai is $360°$. Om $3$ uur staat de gr
 
 ??? example "Voorbeeld 1: Welke soort hoek?"
     **<p style="text-align: center;font-size:20px;">Welke soort hoek zijn $35°$, $90°$, $120°$ en $180°$?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    - $35°$ is kleiner dan $90°$: **scherp**.
-    - $90°$: **recht**.
-    - $120°$ ligt tussen $90°$ en $180°$: **stomp**.
-    - $180°$: **gestrekt**.
+    ??? success "Uitwerking"
+        - $35°$ is kleiner dan $90°$: **scherp**.
+        - $90°$: **recht**.
+        - $120°$ ligt tussen $90°$ en $180°$: **stomp**.
+        - $180°$: **gestrekt**.
 
 ??? example "Voorbeeld 2: De klok om 4 uur"
     **<p style="text-align: center;font-size:20px;">Welke hoek maken de wijzers om precies 4 uur?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Tussen twee uren zit $360° : 12 = 30°$. Om $4$ uur zijn de wijzers $4$ uren uit elkaar:
+    ??? success "Uitwerking"
+        Tussen twee uren zit $360° : 12 = 30°$. Om $4$ uur zijn de wijzers $4$ uren uit elkaar:
 
-    !!! quote ""
-        $$\large{4 \cdot 30° = 120°}$$
+        !!! quote ""
+            $$\large{4 \cdot 30° = 120°}$$
 
 ??? example "Voorbeeld 3: Een hoek benoemen"
     **<p style="text-align: center;font-size:20px;">Bij $\angle PQR$: welk punt is het hoekpunt en wat zijn de benen?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    De middelste letter is het hoekpunt.
+    ??? success "Uitwerking"
+        De middelste letter is het hoekpunt.
 
-    !!! quote ""
-        Het hoekpunt is $Q$. De benen zijn $QP$ en $QR$.
+        !!! quote ""
+            Het hoekpunt is $Q$. De benen zijn $QP$ en $QR$.
 
 <hr style="height: 1.5px; background-color: #575757; border: none;">
 
@@ -136,30 +136,30 @@ Soms zijn de benen van de hoek te kort om op de gradenboog te reiken. Dan verlen
 
 ??? example "Voorbeeld 1: Schatten"
     **<p style="text-align: center;font-size:20px;">Je meet een hoek en twijfelt tussen $115°$ en $65°$. De hoek is duidelijk stomp. Welke is het?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Een stompe hoek is groter dan $90°$.
+    ??? success "Uitwerking"
+        Een stompe hoek is groter dan $90°$.
 
-    !!! quote ""
-        De hoek is $115°$.
+        !!! quote ""
+            De hoek is $115°$.
 
 ??? example "Voorbeeld 2: Welke hoek wordt gemeten?"
     **<p style="text-align: center;font-size:20px;">Het ene been ligt op de $0$ en het andere been wijst naar $40$ op de schaal. Hoe groot is de hoek?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Je leest af op de schaal die bij de $0$ op het been begint.
+    ??? success "Uitwerking"
+        Je leest af op de schaal die bij de $0$ op het been begint.
 
-    !!! quote ""
-        De hoek is $40°$.
+        !!! quote ""
+            De hoek is $40°$.
 
 ??? example "Voorbeeld 3: Hoeken die samen $180°$ zijn"
     **<p style="text-align: center;font-size:20px;">Twee hoeken liggen naast elkaar op één rechte lijn. Je meet de ene hoek: $50°$. Hoe groot is de andere?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Samen vormen ze een gestrekte hoek van $180°$.
+    ??? success "Uitwerking"
+        Samen vormen ze een gestrekte hoek van $180°$.
 
-    !!! quote ""
-        $$\large{180° - 50° = 130°}$$
+        !!! quote ""
+            $$\large{180° - 50° = 130°}$$
 
 <hr style="height: 1.5px; background-color: #575757; border: none;">
 
@@ -189,33 +189,33 @@ Dit werkt alleen als de twee hoeken samen kleiner zijn dan $180°$. Anders komen
 
 ??? example "Voorbeeld 1: Een hoek tekenen"
     **<p style="text-align: center;font-size:20px;">Beschrijf hoe je een hoek van $130°$ tekent.</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    - Teken een lijnstuk. Het linkerpunt is het hoekpunt.
-    - Leg de gradenboog met het middelpunt op het hoekpunt en de $0$-lijn langs het lijnstuk.
-    - Zoek op de schaal die bij het lijnstuk begint bij $0$ het getal $130$, en zet daar een puntje.
-    - Trek vanuit het hoekpunt een lijn door dat puntje.
+    ??? success "Uitwerking"
+        - Teken een lijnstuk. Het linkerpunt is het hoekpunt.
+        - Leg de gradenboog met het middelpunt op het hoekpunt en de $0$-lijn langs het lijnstuk.
+        - Zoek op de schaal die bij het lijnstuk begint bij $0$ het getal $130$, en zet daar een puntje.
+        - Trek vanuit het hoekpunt een lijn door dat puntje.
 
-    !!! quote ""
-        Het is een stompe hoek, want $130°$ is groter dan $90°$.
+        !!! quote ""
+            Het is een stompe hoek, want $130°$ is groter dan $90°$.
 
 ??? example "Voorbeeld 2: Kan deze driehoek bestaan?"
     **<p style="text-align: center;font-size:20px;">Kun je een driehoek tekenen met een zijde van $5$ cm en de aangrenzende hoeken $100°$ en $90°$?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    De twee hoeken zijn samen $100° + 90° = 190°$. Dat is meer dan $180°$.
+    ??? success "Uitwerking"
+        De twee hoeken zijn samen $100° + 90° = 190°$. Dat is meer dan $180°$.
 
-    !!! quote ""
-        Nee, de benen komen nooit samen.
+        !!! quote ""
+            Nee, de benen komen nooit samen.
 
 ??? example "Voorbeeld 3: De derde hoek"
     **<p style="text-align: center;font-size:20px;">Je tekent een driehoek met hoeken van $50°$ en $70°$ aan een zijde. Hoe groot is de derde hoek? (Je weet dat de hoeken in een driehoek samen $180°$ zijn.)</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    $50° + 70° = 120°$. Dus:
+    ??? success "Uitwerking"
+        $50° + 70° = 120°$. Dus:
 
-    !!! quote ""
-        $$\large{180° - 120° = 60°}$$
+        !!! quote ""
+            $$\large{180° - 120° = 60°}$$
 
 <hr style="height: 1.5px; background-color: #575757; border: none;">
 
@@ -246,32 +246,32 @@ Waarom? Stel de ene hoek is $70°$. De hoek ernaast zit op dezelfde rechte lijn,
 
 ??? example "Voorbeeld 1: Twee kruisende lijnen"
     **<p style="text-align: center;font-size:20px;">Twee lijnen kruisen elkaar. Eén hoek is $65°$. Bereken de andere drie hoeken.</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    - De overstaande hoek is ook $65°$.
-    - De hoeken ernaast zijn $180° - 65° = 115°$.
-    - De overstaande van die hoek is ook $115°$.
+    ??? success "Uitwerking"
+        - De overstaande hoek is ook $65°$.
+        - De hoeken ernaast zijn $180° - 65° = 115°$.
+        - De overstaande van die hoek is ook $115°$.
 
-    !!! quote ""
-        De vier hoeken zijn $65°$, $115°$, $65°$ en $115°$. Samen is dat $360°$. Dat klopt!
+        !!! quote ""
+            De vier hoeken zijn $65°$, $115°$, $65°$ en $115°$. Samen is dat $360°$. Dat klopt!
 
 ??? example "Voorbeeld 2: Hoeken om een punt"
     **<p style="text-align: center;font-size:20px;">Om een punt liggen drie hoeken van $100°$, $120°$ en $x$. Bereken $x$.</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Hoeken om één punt zijn samen $360°$. De twee die we kennen zijn samen $220°$.
+    ??? success "Uitwerking"
+        Hoeken om één punt zijn samen $360°$. De twee die we kennen zijn samen $220°$.
 
-    !!! quote ""
-        $$\large{x = 360° - 220° = 140°}$$
+        !!! quote ""
+            $$\large{x = 360° - 220° = 140°}$$
 
 ??? example "Voorbeeld 3: Een hoek op een rechte lijn"
     **<p style="text-align: center;font-size:20px;">Op een rechte lijn liggen drie hoeken naast elkaar: $40°$, $75°$ en $y$. Bereken $y$.</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Samen vormen ze een gestrekte hoek van $180°$. $40° + 75° = 115°$.
+    ??? success "Uitwerking"
+        Samen vormen ze een gestrekte hoek van $180°$. $40° + 75° = 115°$.
 
-    !!! quote ""
-        $$\large{y = 180° - 115° = 65°}$$
+        !!! quote ""
+            $$\large{y = 180° - 115° = 65°}$$
 
 <hr style="height: 1.5px; background-color: #575757; border: none;">
 
@@ -300,38 +300,38 @@ Een rechthoek heeft vier rechte hoeken, dus $4 \cdot 90° = 360°$. Dat klopt.
 
 ??? example "Voorbeeld 1: De derde hoek"
     **<p style="text-align: center;font-size:20px;">In een driehoek is hoek $A = 35°$ en hoek $B = 85°$. Bereken hoek $C$.</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    $A + B = 120°$.
+    ??? success "Uitwerking"
+        $A + B = 120°$.
 
-    !!! quote ""
-        $$\large{\angle C = 180° - 120° = 60°}$$
+        !!! quote ""
+            $$\large{\angle C = 180° - 120° = 60°}$$
 
 ??? example "Voorbeeld 2: Een gelijkbenige driehoek"
     **<p style="text-align: center;font-size:20px;">In een gelijkbenige driehoek is de hoek bovenin $40°$. Hoe groot zijn de twee andere hoeken?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    De hoeken zijn samen $180°$. Voor de twee onderste blijft $180° - 40° = 140°$. Die zijn even groot:
+    ??? success "Uitwerking"
+        De hoeken zijn samen $180°$. Voor de twee onderste blijft $180° - 40° = 140°$. Die zijn even groot:
 
-    !!! quote ""
-        $$\large{140° : 2 = 70°}$$
+        !!! quote ""
+            $$\large{140° : 2 = 70°}$$
 
-        Beide onderste hoeken zijn $70°$.
+            Beide onderste hoeken zijn $70°$.
 
 ??? example "Voorbeeld 3: Een vierhoek"
     **<p style="text-align: center;font-size:20px;">Een vierhoek heeft hoeken van $90°$, $110°$ en $80°$. Hoe groot is de vierde hoek?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    $90° + 110° + 80° = 280°$.
+    ??? success "Uitwerking"
+        $90° + 110° + 80° = 280°$.
 
-    !!! quote ""
-        $$\large{360° - 280° = 80°}$$
+        !!! quote ""
+            $$\large{360° - 280° = 80°}$$
 
 ??? example "Voorbeeld 4: Een rechthoekige driehoek"
     **<p style="text-align: center;font-size:20px;">In een rechthoekige driehoek is één van de scherpe hoeken $32°$. Hoe groot is de andere?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    De rechte hoek is $90°$. Samen met $32°$ is dat $122°$.
+    ??? success "Uitwerking"
+        De rechte hoek is $90°$. Samen met $32°$ is dat $122°$.
 
-    !!! quote ""
-        $$\large{180° - 122° = 58°}$$
+        !!! quote ""
+            $$\large{180° - 122° = 58°}$$

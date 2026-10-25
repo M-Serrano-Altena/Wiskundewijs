@@ -68,6 +68,61 @@
   font-size: 14px;
 }
 
+/* de "Belangrijk"-blokken net zo groot als (of iets groter dan) de gewone tekst */
+.md-typeset .admonition.belangrijk,
+.md-typeset details.belangrijk {
+  font-size: 16px;
+}
+
+/* raster met (klikbare) afbeeldingen van figuren */
+.figuren-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 0.5rem 1rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.figuren-grid.twee {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.md-typeset .figuren-grid figure {
+  margin: 0;
+  text-align: center;
+}
+
+.figuren-grid img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.15s ease-in-out;
+}
+
+.figuren-grid a:hover img {
+  transform: scale(1.05);
+}
+
+/* losse interactieve afbeeldingen: ook iets groter bij hover, zodat je ziet dat je kunt klikken */
+a.interactief {
+  display: inline-block;
+}
+
+a.interactief img {
+  transition: transform 0.15s ease-in-out;
+}
+
+a.interactief:hover img {
+  transform: scale(1.05);
+}
+
+.md-typeset .figuren-grid figcaption {
+  margin-top: 0;
+  font-size: 0.75rem;
+  max-width: none;
+}
+
 .spinner {
     border: 16px solid #f3f3f3; /* Light grey */
     border-top: 16px solid #3498db; /* Blue */

@@ -52,32 +52,32 @@ Als je zelf een assenstelsel tekent, let dan op de volgende dingen:
 
 ??? example "Voorbeeld 1: In welk kwadrant ligt het punt?"
     **<p style="text-align: center;font-size:20px;">In welk kwadrant liggen $A(2, 3)$, $B(-4, 1)$, $C(-3, -5)$ en $D(6, -2)$?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We kijken naar de tekens van de coördinaten:
+    ??? success "Uitwerking"
+        We kijken naar de tekens van de coördinaten:
 
-    - $A(2, 3)$: beide positief. Kwadrant **I**.
-    - $B(-4, 1)$: $x$ negatief, $y$ positief. Kwadrant **II**.
-    - $C(-3, -5)$: beide negatief. Kwadrant **III**.
-    - $D(6, -2)$: $x$ positief, $y$ negatief. Kwadrant **IV**.
+        - $A(2, 3)$: beide positief. Kwadrant **I**.
+        - $B(-4, 1)$: $x$ negatief, $y$ positief. Kwadrant **II**.
+        - $C(-3, -5)$: beide negatief. Kwadrant **III**.
+        - $D(6, -2)$: $x$ positief, $y$ negatief. Kwadrant **IV**.
 
 ??? example "Voorbeeld 2: Een vierkant"
     **<p style="text-align: center;font-size:20px;">Drie hoekpunten van een vierkant zijn $(1, 1)$, $(4, 1)$ en $(4, 4)$. Wat is het vierde hoekpunt?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    De punten $(1, 1)$ en $(4, 1)$ liggen op dezelfde hoogte. Het punt $(4, 4)$ ligt recht boven $(4, 1)$. Het vierde hoekpunt ligt dus recht boven $(1, 1)$, op dezelfde hoogte als $(4, 4)$:
+    ??? success "Uitwerking"
+        De punten $(1, 1)$ en $(4, 1)$ liggen op dezelfde hoogte. Het punt $(4, 4)$ ligt recht boven $(4, 1)$. Het vierde hoekpunt ligt dus recht boven $(1, 1)$, op dezelfde hoogte als $(4, 4)$:
 
-    !!! quote ""
-        Het vierde hoekpunt is $(1, 4)$.
+        !!! quote ""
+            Het vierde hoekpunt is $(1, 4)$.
 
 ??? example "Voorbeeld 3: Spiegelen"
     **<p style="text-align: center;font-size:20px;">Het punt $P(3, 2)$ wordt gespiegeld in de $y$-as. Wat zijn de nieuwe coördinaten?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Bij spiegelen in de $y$-as blijft de hoogte hetzelfde. Het punt was $3$ naar rechts, dus wordt het $3$ naar links:
+    ??? success "Uitwerking"
+        Bij spiegelen in de $y$-as blijft de hoogte hetzelfde. Het punt was $3$ naar rechts, dus wordt het $3$ naar links:
 
-    !!! quote ""
-        Het nieuwe punt is $(-3, 2)$.
+        !!! quote ""
+            Het nieuwe punt is $(-3, 2)$.
 
 <hr style="height: 1.5px; background-color: #575757; border: none;">
 
@@ -118,28 +118,28 @@ Een figuur in een assenstelsel kun je ook met coördinaten beschrijven. Een rech
 
 ??? example "Voorbeeld 1: Het volgende punt"
     **<p style="text-align: center;font-size:20px;">De punten $(0, 1)$, $(1, 4)$, $(2, 7)$ horen bij elkaar. Wat is het volgende punt?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Als $x$ met $1$ toeneemt, neemt $y$ met $3$ toe ($1 \to 4 \to 7$).
+    ??? success "Uitwerking"
+        Als $x$ met $1$ toeneemt, neemt $y$ met $3$ toe ($1 \to 4 \to 7$).
 
-    !!! quote ""
-        Het volgende punt is $(3, 10)$.
+        !!! quote ""
+            Het volgende punt is $(3, 10)$.
 
 ??? example "Voorbeeld 2: Welke lijn?"
     **<p style="text-align: center;font-size:20px;">Welke lijn gaat door $(2, -1)$, $(2, 0)$ en $(2, 5)$? En welke door $(-3, 4)$, $(0, 4)$ en $(7, 4)$?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    - Bij de eerste lijn is $x$ steeds $2$. Dat is een verticale lijn: $x = 2$.
-    - Bij de tweede lijn is $y$ steeds $4$. Dat is een horizontale lijn: $y = 4$.
+    ??? success "Uitwerking"
+        - Bij de eerste lijn is $x$ steeds $2$. Dat is een verticale lijn: $x = 2$.
+        - Bij de tweede lijn is $y$ steeds $4$. Dat is een horizontale lijn: $y = 4$.
 
 ??? example "Voorbeeld 3: De vierde hoek"
     **<p style="text-align: center;font-size:20px;">Een rechthoek heeft hoekpunten $(-2, 1)$, $(3, 1)$ en $(3, 4)$. Wat is het vierde hoekpunt?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    De vierde hoek heeft dezelfde $x$ als $(-2, 1)$ en dezelfde $y$ als $(3, 4)$.
+    ??? success "Uitwerking"
+        De vierde hoek heeft dezelfde $x$ als $(-2, 1)$ en dezelfde $y$ als $(3, 4)$.
 
-    !!! quote ""
-        Het vierde hoekpunt is $(-2, 4)$.
+        !!! quote ""
+            Het vierde hoekpunt is $(-2, 4)$.
 
 <hr style="height: 1.5px; background-color: #575757; border: none;">
 
@@ -175,28 +175,28 @@ Soms is er geen tabel met getallen, maar teken je een **globale grafiek**. Dan g
 
 ??? example "Voorbeeld 1: Een tabel in een grafiek"
     **<p style="text-align: center;font-size:20px;">Een plant is $5$ cm na $0$ weken, $8$ cm na $1$ week, $11$ cm na $2$ weken en $14$ cm na $3$ weken. Is de grafiek stijgend, dalend of constant?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    De punten zijn $(0, 5)$, $(1, 8)$, $(2, 11)$ en $(3, 14)$. De hoogte wordt steeds groter, en per week komt er $3$ cm bij.
+    ??? success "Uitwerking"
+        De punten zijn $(0, 5)$, $(1, 8)$, $(2, 11)$ en $(3, 14)$. De hoogte wordt steeds groter, en per week komt er $3$ cm bij.
 
-    !!! quote ""
-        De grafiek is stijgend.
+        !!! quote ""
+            De grafiek is stijgend.
 
 ??? example "Voorbeeld 2: Een fietstocht"
     **<p style="text-align: center;font-size:20px;">De grafiek van de snelheid van Jan stijgt eerst, blijft dan een tijdje horizontaal en daalt daarna naar $0$. Wat gebeurt er?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    - Stijgend: Jan trekt op en gaat steeds sneller.
-    - Horizontaal: Jan houdt dezelfde snelheid vast.
-    - Dalend naar $0$: Jan remt af tot hij stilstaat.
+    ??? success "Uitwerking"
+        - Stijgend: Jan trekt op en gaat steeds sneller.
+        - Horizontaal: Jan houdt dezelfde snelheid vast.
+        - Dalend naar $0$: Jan remt af tot hij stilstaat.
 
 ??? example "Voorbeeld 3: Een globale grafiek bij een verhaal"
     **<p style="text-align: center;font-size:20px;">Je loopt van huis $10$ minuten naar de bakker, staat daar $5$ minuten in de rij en loopt daarna in $10$ minuten terug. Hoe ziet de grafiek van je afstand tot huis eruit?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    - De eerste $10$ minuten ga je steeds verder van huis: de grafiek **stijgt**.
-    - Dan sta je $5$ minuten stil in de rij: de grafiek is **constant**.
-    - Op de terugweg kom je steeds dichter bij huis: de grafiek **daalt**, tot $0$.
+    ??? success "Uitwerking"
+        - De eerste $10$ minuten ga je steeds verder van huis: de grafiek **stijgt**.
+        - Dan sta je $5$ minuten stil in de rij: de grafiek is **constant**.
+        - Op de terugweg kom je steeds dichter bij huis: de grafiek **daalt**, tot $0$.
 
 <hr style="height: 1.5px; background-color: #575757; border: none;">
 
@@ -206,17 +206,17 @@ Een **formule** is een regel waarmee je iets kunt uitrekenen. Je stopt er een ge
 
 Stel je werkt bij een fietsenwinkel en verdient €$9$ per uur. Dan hangt wat je verdient af van hoe lang je werkt:
 
-$$\text{verdiensten} = 9 \cdot \text{aantal uren}$$
+$$\text{verdiensten} = 9 \times \text{aantal uren}$$
 
-Werk je $4$ uur, dan vul je $4$ in en krijg je $9 \cdot 4 = 36$. Je verdient dan €$36$.
+Werk je $4$ uur, dan vul je $4$ in en krijg je $9 \times 4 = 36$. Je verdient dan €$36$.
 
 ### **Meer dan één stap**
 
 Soms heeft een formule twee stappen. Een taxi rekent een starttarief van €$3$ en daarna €$2$ per kilometer:
 
-$$\text{prijs} = 3 + 2 \cdot \text{aantal kilometers}$$
+$$\text{prijs} = 3 + 2 \times \text{aantal kilometers}$$
 
-Voor $5$ km krijg je $3 + 2 \cdot 5$. Let op de rekenvolgorde uit [paragraaf 2.1](/getal_en_ruimte/vwo1/02-getallen_en_bewerkingen/#p2-1): eerst vermenigvuldigen, dan optellen. Dus $3 + 10 = 13$.
+Voor $5$ km krijg je $3 + 2 \times 5$. Let op de rekenvolgorde uit [paragraaf 2.1](/getal_en_ruimte/vwo1/02-getallen_en_bewerkingen/#p2-1): eerst vermenigvuldigen, dan optellen. Dus $3 + 10 = 13$.
 
 ???+ Belangrijk
     Bij een formule vul je een getal in. Dit heet **invullen**. Reken daarna uit volgens de rekenvolgorde.
@@ -228,39 +228,39 @@ Je kunt ook zelf een formule maken. Bedenk dan:
 1. Wat is het beginbedrag, dat er al is voordat er iets verandert?
 2. Hoeveel komt er bij (of gaat eraf) per stap?
 
-Een kaarsje is $20$ cm lang en brandt $2$ cm per uur af. Het beginbedrag is $20$ en er gaat $2$ per uur af. De formule is dus: $\text{lengte} = 20 - 2 \cdot \text{aantal uren}$.
+Een kaarsje is $20$ cm lang en brandt $2$ cm per uur af. Het beginbedrag is $20$ en er gaat $2$ per uur af. De formule is dus: $\text{lengte} = 20 - 2 \times \text{aantal uren}$.
 
 ### **Voorbeelden**
 
 ??? example "Voorbeeld 1: Een pretpark"
     **<p style="text-align: center;font-size:20px;">Een pretpark rekent €$4$ entree plus €$1.50$ per attractie. Stel een woordformule op en bereken de kosten voor $6$ attracties.</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    $$\text{kosten} = 4 + 1.50 \cdot \text{aantal attracties}$$
+    ??? success "Uitwerking"
+        $$\text{kosten} = 4 + 1.50 \times \text{aantal attracties}$$
 
-    Voor $6$ attracties: $4 + 1.50 \cdot 6 = 4 + 9$.
+        Voor $6$ attracties: $4 + 1.50 \times 6 = 4 + 9$.
 
-    !!! quote ""
-        De kosten zijn €$13$.
+        !!! quote ""
+            De kosten zijn €$13$.
 
 ??? example "Voorbeeld 2: Het kaarsje"
     **<p style="text-align: center;font-size:20px;">Hoe lang is het kaarsje na $3$ uur? En na hoeveel uur is het op?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Na $3$ uur: $20 - 2 \cdot 3 = 14$ cm. Het kaarsje is op als de lengte $0$ is. Er moet dus $20$ cm afbranden, met $2$ cm per uur: $20 : 2 = 10$.
+    ??? success "Uitwerking"
+        Na $3$ uur: $20 - 2 \times 3 = 14$ cm. Het kaarsje is op als de lengte $0$ is. Er moet dus $20$ cm afbranden, met $2$ cm per uur: $20 : 2 = 10$.
 
-    !!! quote ""
-        Na $3$ uur is het $14$ cm lang. Na $10$ uur is het op.
+        !!! quote ""
+            Na $3$ uur is het $14$ cm lang. Na $10$ uur is het op.
 
 ??? example "Voorbeeld 3: Twee formules vergelijken"
-    **<p style="text-align: center;font-size:20px;">Taxi A: $\text{prijs} = 3 + 2 \cdot \text{km}$. Taxi B: $\text{prijs} = 5 + 1 \cdot \text{km}$. Welke is goedkoper voor $10$ km?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
+    **<p style="text-align: center;font-size:20px;">Taxi A: $\text{prijs} = 3 + 2 \times \text{km}$. Taxi B: $\text{prijs} = 5 + 1 \times \text{km}$. Welke is goedkoper voor $10$ km?</p>**
 
-    - Taxi A: $3 + 2 \cdot 10 = 23$.
-    - Taxi B: $5 + 1 \cdot 10 = 15$.
+    ??? success "Uitwerking"
+        - Taxi A: $3 + 2 \times 10 = 23$.
+        - Taxi B: $5 + 1 \times 10 = 15$.
 
-    !!! quote ""
-        Taxi B is goedkoper (€$15$ tegenover €$23$).
+        !!! quote ""
+            Taxi B is goedkoper (€$15$ tegenover €$23$).
 
 <hr style="height: 1.5px; background-color: #575757; border: none;">
 
@@ -272,19 +272,28 @@ $$P = 3 + 2 \cdot k$$
 
 Hierbij staat $P$ voor de prijs en $k$ voor het aantal kilometers. Je mag zelf de letters kiezen, maar je moet er wel bij zeggen wat ze betekenen!
 
+### **Een ander keer-teken**
+
+Misschien valt het je op dat er in de formule een puntje staat: $2 \cdot k$. Tot nu toe schreven we keer altijd als $\times$. Waarom nu ineens anders?
+
+Dat komt door de letters. In de wiskunde wordt de letter $x$ heel vaak gebruikt. En het keer-teken $\times$ lijkt daar erg op! Als je $2 \times x$ opschrijft, is het makkelijk om je te vergissen: staat er nu "$2$ keer $x$", of staat er "$2$, $x$, $x$"? Om die verwarring te voorkomen, schrijven we vanaf nu keer als een **puntje**: $\cdot$.
+
+???+ Belangrijk
+    Het puntje $\cdot$ betekent precies hetzelfde als $\times$. Dus $3 \cdot 4 = 3 \times 4 = 12$.
+
+### **Het keer-teken weglaten**
+
+Er is nog een handige afspraak: het keer-teken tussen een getal en een letter mag je weglaten. Dus $2 \cdot k$ schrijf je als $2k$. En $3 \cdot x$ is $3x$.
+
+???+ Belangrijk
+    - $2k$ betekent $2 \cdot k$, dus $2$ **keer** $k$. Dit is **niet** hetzelfde als $2 + k$.
+    - Zet je haakjes om een getal dat je invult als het negatief is. Bij $y = 3x$ en $x = -2$ schrijf je $y = 3 \cdot (-2)$.
+
 ### **Invullen**
 
 Een formule met letters gebruik je door voor de letter een getal **in te vullen**. Gegeven $y = 5x - 2$. Wat is $y$ bij $x = 4$? Je vervangt elke $x$ door $4$:
 
 $$y = 5 \cdot 4 - 2 = 20 - 2 = 18$$
-
-### **Het keer-teken weglaten**
-
-Een handige afspraak: het keer-teken tussen een getal en een letter mag je weglaten. Dus $2 \cdot k$ schrijf je als $2k$. En $3 \cdot x$ is $3x$.
-
-???+ Belangrijk
-    - $2k$ betekent $2 \cdot k$, dus $2$ **keer** $k$. Dit is **niet** hetzelfde als $2 + k$.
-    - Zet je haakjes om een getal dat je invult als het negatief is. Bij $y = 3x$ en $x = -2$ schrijf je $y = 3 \cdot (-2)$.
 
 ### **Letters in formules met haakjes en machten**
 
@@ -296,45 +305,45 @@ Let op het verschil tussen $3x^2$ en $(3x)^2$. Bij $3x^2$ geldt de macht alleen 
 
 ??? example "Voorbeeld 1: Invullen"
     **<p style="text-align: center;font-size:20px;">Gegeven is $y = 4x + 7$. Bereken $y$ als $x = 3$.</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    $$y = 4 \cdot 3 + 7 = 12 + 7$$
+    ??? success "Uitwerking"
+        $$y = 4 \cdot 3 + 7 = 12 + 7$$
 
-    !!! quote ""
-        $$\large{y = 19}$$
+        !!! quote ""
+            $$\large{y = 19}$$
 
 ??? example "Voorbeeld 2: Met een negatief getal"
     **<p style="text-align: center;font-size:20px;">Gegeven is $T = 2a - 6$. Bereken $T$ als $a = -1$.</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    We vullen $a = -1$ in, met haakjes:
+    ??? success "Uitwerking"
+        We vullen $a = -1$ in, met haakjes:
 
-    $$T = 2 \cdot (-1) - 6 = -2 - 6$$
+        $$T = 2 \cdot (-1) - 6 = -2 - 6$$
 
-    !!! quote ""
-        $$\large{T = -8}$$
+        !!! quote ""
+            $$\large{T = -8}$$
 
 ??? example "Voorbeeld 3: Een formule opstellen"
     **<p style="text-align: center;font-size:20px;">Een telefoonabonnement kost €$12$ per maand plus €$0.10$ per sms. Stel een formule op voor de kosten $K$ bij $s$ sms'jes en bereken de kosten voor $80$ sms'jes.</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    De formule is $K = 12 + 0.10s$. Voor $s = 80$:
+    ??? success "Uitwerking"
+        De formule is $K = 12 + 0.10s$. Voor $s = 80$:
 
-    $$K = 12 + 0.10 \cdot 80 = 12 + 8$$
+        $$K = 12 + 0.10 \cdot 80 = 12 + 8$$
 
-    !!! quote ""
-        $$\large{K = 20}$$
+        !!! quote ""
+            $$\large{K = 20}$$
 
-        De kosten zijn €$20$.
+            De kosten zijn €$20$.
 
 ??? example "Voorbeeld 4: Met haakjes en een macht"
     **<p style="text-align: center;font-size:20px;">Gegeven is $A = (b - 1)^2 + 4$. Bereken $A$ als $b = 5$.</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Eerst de haakjes: $5 - 1 = 4$. Dan de macht: $4^2 = 16$. Dan optellen:
+    ??? success "Uitwerking"
+        Eerst de haakjes: $5 - 1 = 4$. Dan de macht: $4^2 = 16$. Dan optellen:
 
-    !!! quote ""
-        $$\large{A = 16 + 4 = 20}$$
+        !!! quote ""
+            $$\large{A = 16 + 4 = 20}$$
 
 <hr style="height: 1.5px; background-color: #575757; border: none;">
 
@@ -377,33 +386,33 @@ Wil je weten of een punt op de grafiek ligt? Vul de $x$ van het punt in de formu
 
 ??? example "Voorbeeld 1: Een tabel en grafiek"
     **<p style="text-align: center;font-size:20px;">Maak een tabel bij $y = -x + 4$ voor $x = 0, 1, 2, 3, 4$. Is de grafiek stijgend of dalend?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    | $x$ | $0$ | $1$ | $2$ | $3$ | $4$ |
-    | --- | --- | --- | --- | --- | --- |
-    | $y$ | $4$ | $3$ | $2$ | $1$ | $0$ |
+    ??? success "Uitwerking"
+        | $x$ | $0$ | $1$ | $2$ | $3$ | $4$ |
+        | --- | --- | --- | --- | --- | --- |
+        | $y$ | $4$ | $3$ | $2$ | $1$ | $0$ |
 
-    De waarden van $y$ worden steeds kleiner.
+        De waarden van $y$ worden steeds kleiner.
 
-    !!! quote ""
-        De grafiek is dalend.
+        !!! quote ""
+            De grafiek is dalend.
 
 ??? example "Voorbeeld 2: Ligt het punt op de grafiek?"
     **<p style="text-align: center;font-size:20px;">Ligt het punt $(3, 10)$ op de grafiek van $y = 3x + 2$?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Bij $x = 3$ krijgen we $y = 3 \cdot 3 + 2 = 11$. Dat is niet $10$.
+    ??? success "Uitwerking"
+        Bij $x = 3$ krijgen we $y = 3 \cdot 3 + 2 = 11$. Dat is niet $10$.
 
-    !!! quote ""
-        Nee, het punt ligt niet op de grafiek.
+        !!! quote ""
+            Nee, het punt ligt niet op de grafiek.
 
 ??? example "Voorbeeld 3: Sparen"
     **<p style="text-align: center;font-size:20px;">Je hebt €$50$ en spaart elke week €$10$. De formule is $S = 50 + 10w$. Na hoeveel weken heb je €$180$?</p>**
-    **<p style="text-align: center;font-size:20px;">Uitwerking</p>**
 
-    Je wilt weten wanneer $S = 180$. Je moet nog $180 - 50 = 130$ sparen, in stappen van €$10$ per week:
+    ??? success "Uitwerking"
+        Je wilt weten wanneer $S = 180$. Je moet nog $180 - 50 = 130$ sparen, in stappen van €$10$ per week:
 
-    !!! quote ""
-        $$\large{130 : 10 = 13}$$
+        !!! quote ""
+            $$\large{130 : 10 = 13}$$
 
-        Na $13$ weken heb je €$180$.
+            Na $13$ weken heb je €$180$.
