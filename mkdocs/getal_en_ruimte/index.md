@@ -2,6 +2,8 @@
 
 Hier vind je uitleg die dezelfde indeling volgt als de boeken van Getal & Ruimte (13e editie). Kies hieronder je niveau, je leerjaar of vak en het hoofdstuk waar je mee bezig bent.
 
+<small><i>Wiskundewijs is niet verbonden aan Noordhoff of de lesmethode Getal & Ruimte. Alle uitleg, voorbeelden en afbeeldingen op deze site zijn zelf gemaakt; alleen de hoofdstukindeling volgt die van het boek.</i></small>
+
 ****
 
 ## **VWO**
